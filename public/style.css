@@ -364,6 +364,11 @@ body * { cursor: none; }
   width: 100%;
   height: 100%;
   z-index: 0;
+  cursor: grab;
+}
+
+#heroMap:active {
+  cursor: grabbing;
 }
 
 /* Hide Leaflet controls and branding */
@@ -457,6 +462,124 @@ body * { cursor: none; }
 @keyframes satPulse {
   0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
   100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+/* Map Mode Indicator */
+.map-mode {
+  position: absolute;
+  top: 80px;
+  left: 48px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(8, 8, 12, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  transition: all 0.4s var(--ease);
+}
+
+.map-mode-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-mode-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 8px rgba(37, 99, 255, 0.6);
+  animation: mapModePulse 2s ease-in-out infinite;
+}
+
+.map-mode-dot.exploring {
+  background: #00c853;
+  box-shadow: 0 0 8px rgba(0, 200, 83, 0.6);
+  animation: none;
+}
+
+@keyframes mapModePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.map-mode-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--blue);
+  text-transform: uppercase;
+  transition: color 0.3s var(--ease);
+}
+
+.map-mode-label.exploring {
+  color: #00c853;
+}
+
+.map-mode-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.map-mode-btn:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.map-mode-btn-pulse {
+  animation: modeBtnPulse 0.6s ease-in-out 3;
+}
+
+@keyframes modeBtnPulse {
+  0%, 100% { border-color: var(--border); color: var(--text-dim); }
+  50% { border-color: var(--blue); color: var(--blue); box-shadow: 0 0 12px rgba(37, 99, 255, 0.3); }
+}
+
+/* Explore Hint */
+.map-explore-hint {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  background: rgba(8, 8, 12, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  opacity: 0;
+  animation: hintFadeIn 0.6s 3s var(--ease) forwards, hintFadeOut 0.6s 9s var(--ease) forwards;
+  pointer-events: none;
+}
+
+@keyframes hintFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to { opacity: 0.8; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes hintFadeOut {
+  from { opacity: 0.8; }
+  to { opacity: 0; }
 }
 
 /* Satellite layer controls */
@@ -2433,6 +2556,11 @@ body * { cursor: none; }
   /* CTA commitments */
   .cta-commitments { gap: 8px; flex-wrap: wrap; }
   .cta-commitment { font-size: 10px; }
+
+  /* Map mode */
+  .map-mode { top: 70px; left: 16px; padding: 4px 8px; }
+  .map-mode-label { font-size: 9px; }
+  .map-explore-hint { bottom: 90px; font-size: 10px; }
 
   /* Sat controls */
   .sat-controls { flex-wrap: wrap; gap: 4px; padding: 6px 8px; }

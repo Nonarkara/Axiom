@@ -78,6 +78,24 @@
     <div class="hero-gradient"></div>
     <div class="hero-city-label" id="heroCityLabel">BANGKOK</div>
 
+    <!-- Map Mode Indicator -->
+    <div class="map-mode" id="mapMode">
+      <div class="map-mode-indicator">
+        <span class="map-mode-dot" id="mapModeDot"></span>
+        <span class="map-mode-label" id="mapModeLabel">AUTO TOUR</span>
+      </div>
+      <button class="map-mode-btn" id="mapModeBtn" title="Toggle auto tour">
+        <svg class="map-mode-icon-pause" id="mapModePause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        <svg class="map-mode-icon-play" id="mapModePlay" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+
+    <!-- Map Explore Hint -->
+    <div class="map-explore-hint" id="mapExploreHint">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l4-4 4 4"/><path d="M9 5v14"/><path d="M15 19l4-4-4-4"/><path d="M19 15H5"/></svg>
+      <span>Drag to explore &middot; Scroll to zoom</span>
+    </div>
+
     <!-- Satellite Controls -->
     <div class="sat-controls" id="satControls">
       <div class="sat-control-group">

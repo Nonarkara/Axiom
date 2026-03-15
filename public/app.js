@@ -210,12 +210,12 @@
     zoom: CITIES[0].zoom,
     zoomControl: false,
     attributionControl: false,
-    dragging: false,
-    scrollWheelZoom: false,
-    doubleClickZoom: false,
-    touchZoom: false,
-    keyboard: false,
-    boxZoom: false,
+    dragging: true,
+    scrollWheelZoom: true,
+    doubleClickZoom: true,
+    touchZoom: true,
+    keyboard: true,
+    boxZoom: true,
     fadeAnimation: true,
     zoomAnimation: true,
   });
@@ -240,21 +240,98 @@
     L.marker(coords, { icon: pulseIcon }).addTo(map);
   });
 
-  // Slow cinematic drift between cities
+  // ── Auto Tour Mode ──
+  const mapModeDot = document.getElementById('mapModeDot');
+  const mapModeLabel = document.getElementById('mapModeLabel');
+  const mapModeBtn = document.getElementById('mapModeBtn');
+  const mapModePause = document.getElementById('mapModePause');
+  const mapModePlay = document.getElementById('mapModePlay');
+  const heroCityLabel = document.getElementById('heroCityLabel');
+
+  let autoTour = true;
   let cityIndex = 0;
+  let driftTimer = null;
+  let driftInterval = null;
+  let resumeTimeout = null;
+
+  function setModeUI(touring) {
+    if (mapModeDot) mapModeDot.className = 'map-mode-dot' + (touring ? '' : ' exploring');
+    if (mapModeLabel) {
+      mapModeLabel.textContent = touring ? 'AUTO TOUR' : 'EXPLORING';
+      mapModeLabel.className = 'map-mode-label' + (touring ? '' : ' exploring');
+    }
+    if (mapModePause) mapModePause.style.display = touring ? 'block' : 'none';
+    if (mapModePlay) mapModePlay.style.display = touring ? 'none' : 'block';
+  }
+
   function driftToNext() {
+    if (!autoTour) return;
     cityIndex = (cityIndex + 1) % CITIES.length;
     const city = CITIES[cityIndex];
+    if (heroCityLabel) heroCityLabel.textContent = city.name.toUpperCase();
     map.flyTo([city.lat, city.lng], city.zoom, {
       duration: 8,
       easeLinearity: 0.1,
     });
   }
 
-  // Start drifting after initial pause
-  setTimeout(() => {
+  function startTour() {
+    autoTour = true;
+    setModeUI(true);
+    if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
     driftToNext();
-    setInterval(driftToNext, 12000);
+    driftInterval = setInterval(driftToNext, 12000);
+  }
+
+  function pauseTour(fromUser) {
+    autoTour = false;
+    setModeUI(false);
+    if (driftInterval) { clearInterval(driftInterval); driftInterval = null; }
+    if (driftTimer) { clearTimeout(driftTimer); driftTimer = null; }
+    map.stop(); // stop any in-progress flyTo
+
+    // If user paused by interacting, offer resume after 20s of inactivity
+    if (fromUser && resumeTimeout) clearTimeout(resumeTimeout);
+    if (fromUser) {
+      resumeTimeout = setTimeout(() => {
+        // Gently blink the play button to suggest resuming
+        if (mapModeBtn) mapModeBtn.classList.add('map-mode-btn-pulse');
+        setTimeout(() => { if (mapModeBtn) mapModeBtn.classList.remove('map-mode-btn-pulse'); }, 3000);
+      }, 20000);
+    }
+  }
+
+  // Toggle button
+  if (mapModeBtn) {
+    mapModeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (autoTour) {
+        pauseTour(true);
+      } else {
+        startTour();
+      }
+    });
+  }
+
+  // Detect user interaction with the map → pause tour
+  map.on('dragstart', () => { if (autoTour) pauseTour(true); });
+  map.on('zoomstart', () => {
+    // Only pause if zoom was initiated by user (not flyTo)
+    if (autoTour && !map._flyInProgress) pauseTour(true);
+  });
+
+  // Intercept flyTo to track in-progress state
+  const origFlyTo = map.flyTo.bind(map);
+  map.flyTo = function(latlng, zoom, options) {
+    map._flyInProgress = true;
+    return origFlyTo(latlng, zoom, options);
+  };
+  map.on('moveend', () => { map._flyInProgress = false; });
+
+  // Start auto tour after initial pause
+  driftTimer = setTimeout(() => {
+    driftToNext();
+    driftInterval = setInterval(driftToNext, 12000);
   }, 5000);
 
   // ── Layer switching ──
@@ -417,11 +494,13 @@
     });
   });
 
-  // Subtle parallax on mouse move
+  // Subtle parallax on mouse move — only during auto tour
   let rafId;
   document.addEventListener('mousemove', (e) => {
+    if (!autoTour) return;
     if (rafId) cancelAnimationFrame(rafId);
     rafId = requestAnimationFrame(() => {
+      if (!autoTour) return;
       const dx = (e.clientX / window.innerWidth - 0.5) * 0.003;
       const dy = (e.clientY / window.innerHeight - 0.5) * 0.003;
       const center = map.getCenter();
