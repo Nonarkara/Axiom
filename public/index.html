@@ -11,9 +11,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Axiom — Innovation as a Service">
+  <meta property="og:description" content="AI as water — invisible, essential, everywhere. We build intelligent systems for cities, governments, and organizations. Your success is our KPI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://axiom-tn66.onrender.com">
+  <meta property="og:image" content="https://axiom-tn66.onrender.com/assets/axiom-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Axiom — Innovation as a Service">
+  <meta name="twitter:description" content="AI as water — invisible, essential, everywhere. 8 live production systems across 5 countries. 5,000% proven ROI.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Loading Screen -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-grid">
+        <div class="loader-cell"></div><div class="loader-cell"></div><div class="loader-cell"></div>
+        <div class="loader-cell"></div><div class="loader-cell loader-cell-center"></div><div class="loader-cell"></div>
+        <div class="loader-cell"></div><div class="loader-cell"></div><div class="loader-cell"></div>
+      </div>
+      <div class="loader-text">AXIOM</div>
+      <div class="loader-sub">Systems Initializing</div>
+      <div class="loader-progress"><div class="loader-progress-bar" id="loaderBar"></div></div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
   <!-- Navigation -->
   <nav id="nav">
@@ -27,6 +54,7 @@
         <a href="#philosophy" class="nav-link">Axioms</a>
         <a href="#capabilities" class="nav-link">Services</a>
         <a href="#proof" class="nav-link">Proof</a>
+        <a href="https://www.linkedin.com/company/axiomaxiom/about/" target="_blank" rel="noopener" class="nav-link">LinkedIn</a>
         <a href="#contact" class="nav-link nav-link-cta">Partner With Us</a>
       </div>
       <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
@@ -339,6 +367,25 @@
           <div class="infra-label">Architecture</div>
           <div class="infra-value">Distributed &middot; Auto-scaling &middot; Zero Lock-in</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Health — Live Monitoring (from OS Dashboard) -->
+  <section id="health">
+    <div class="section-container">
+      <div class="health-header">
+        <div class="health-title-bar">
+          <span class="health-pulse"></span>
+          <span class="health-label">SYSTEM HEALTH MONITOR</span>
+        </div>
+        <div class="health-meta">
+          <span id="healthUptime">—</span>
+          <span id="healthTimestamp">Last check: —</span>
+        </div>
+      </div>
+      <div class="health-grid" id="healthGrid">
+        <!-- Populated by JS -->
       </div>
     </div>
   </section>

@@ -2,6 +2,195 @@
    AXIOM — Landing Page
    ======================================== */
 
+// ── Loading Screen ────────────────────────────────────────────────
+
+(function initLoader() {
+  const loader = document.getElementById('loader');
+  const bar = document.getElementById('loaderBar');
+  if (!loader || !bar) return;
+
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.random() * 18 + 5;
+    if (progress > 95) progress = 95;
+    bar.style.width = progress + '%';
+  }, 200);
+
+  window.addEventListener('load', () => {
+    clearInterval(interval);
+    bar.style.width = '100%';
+    setTimeout(() => {
+      loader.classList.add('done');
+      document.body.style.overflow = '';
+    }, 600);
+  });
+
+  // Safety fallback — never block more than 4s
+  setTimeout(() => {
+    clearInterval(interval);
+    bar.style.width = '100%';
+    loader.classList.add('done');
+  }, 4000);
+})();
+
+
+// ── Custom Cursor ─────────────────────────────────────────────────
+
+(function initCursor() {
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  if (!dot || !ring) return;
+
+  // Don't run on touch devices
+  if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 769) return;
+
+  let mouseX = -100, mouseY = -100;
+  let ringX = -100, ringY = -100;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
+  });
+
+  // Smooth ring follow
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover effect on interactive elements
+  const hoverables = 'a, button, .project-card, .capability-card, .philosophy-card, .team-card, .lab-item, .sat-btn, .trends-filter, input, textarea';
+
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest(hoverables)) {
+      ring.classList.add('hovering');
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    if (e.target.closest(hoverables)) {
+      ring.classList.remove('hovering');
+    }
+  });
+
+  // Hide when leaving window
+  document.addEventListener('mouseleave', () => {
+    dot.classList.add('hidden');
+    ring.classList.add('hidden');
+  });
+  document.addEventListener('mouseenter', () => {
+    dot.classList.remove('hidden');
+    ring.classList.remove('hidden');
+  });
+})();
+
+
+// ── System Health Monitor ─────────────────────────────────────────
+
+(function initHealthMonitor() {
+  const grid = document.getElementById('healthGrid');
+  const uptimeEl = document.getElementById('healthUptime');
+  const timestampEl = document.getElementById('healthTimestamp');
+  if (!grid) return;
+
+  const systems = [
+    { name: 'Bangkok Smart City', url: 'https://smart-city-monitor-web.onrender.com' },
+    { name: 'Middle East Monitor', url: 'https://middle-east-monitor.onrender.com' },
+    { name: 'Phuket Dashboard', url: 'https://phuket-dashboard.onrender.com' },
+    { name: 'Geopolitics Dashboard', url: 'https://geopolitics-dashboard.onrender.com' },
+    { name: 'City Reporter Bot', url: 'https://city-reporter-line-bot.onrender.com' },
+    { name: 'Phuket Smart Bus', url: 'https://phuket-smart-bus-y6tj.onrender.com' },
+    { name: 'SLIC Index v2', url: 'https://slic-index-v2.onrender.com' },
+    { name: 'Dr. Non OS Dashboard', url: 'https://dr-non-operating-systems.onrender.com' },
+  ];
+
+  // Render initial cards
+  grid.innerHTML = systems.map(s => `
+    <div class="health-card" data-url="${s.url}">
+      <div class="health-dot checking"></div>
+      <div class="health-info">
+        <div class="health-name">${s.name}</div>
+        <div class="health-url">${s.url.replace('https://', '')}</div>
+      </div>
+      <div class="health-ms">—</div>
+    </div>
+  `).join('');
+
+  async function checkSystem(system, card) {
+    const dot = card.querySelector('.health-dot');
+    const ms = card.querySelector('.health-ms');
+    const start = performance.now();
+
+    try {
+      // Use fetch with no-cors to at least check connectivity
+      await fetch(system.url, { mode: 'no-cors', cache: 'no-store' });
+      const elapsed = Math.round(performance.now() - start);
+      dot.className = 'health-dot up';
+      ms.textContent = elapsed + 'ms';
+      ms.className = 'health-ms ' + (elapsed < 1000 ? 'fast' : elapsed < 3000 ? 'medium' : 'slow');
+      return true;
+    } catch (e) {
+      dot.className = 'health-dot down';
+      ms.textContent = 'DOWN';
+      ms.className = 'health-ms slow';
+      return false;
+    }
+  }
+
+  async function runChecks() {
+    const cards = grid.querySelectorAll('.health-card');
+    let upCount = 0;
+
+    // Check all in parallel
+    const results = await Promise.all(
+      systems.map((s, i) => checkSystem(s, cards[i]))
+    );
+
+    upCount = results.filter(Boolean).length;
+
+    if (uptimeEl) {
+      uptimeEl.textContent = upCount + '/' + systems.length + ' ONLINE';
+    }
+    if (timestampEl) {
+      const now = new Date();
+      const fmt = new Intl.DateTimeFormat('en-GB', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Bangkok'
+      });
+      timestampEl.textContent = 'Last check: ' + fmt.format(now) + ' BKK';
+    }
+  }
+
+  // Run initial checks with slight delay for page load
+  setTimeout(runChecks, 2000);
+  // Re-check every 60 seconds
+  setInterval(runChecks, 60000);
+})();
+
+
+// ── Scroll Parallax ───────────────────────────────────────────────
+
+(function initParallax() {
+  const parallaxEls = document.querySelectorAll('.section-header');
+
+  function update() {
+    const scrollY = window.scrollY;
+    parallaxEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const offset = (rect.top - window.innerHeight / 2) * 0.04;
+        el.style.transform = `translateY(${offset}px)`;
+      }
+    });
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+})();
+
+
 // ── Satellite Hero Map ──────────────────────────────────────────────
 
 (function initSatelliteHero() {
