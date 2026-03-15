@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: axiom
+    runtime: node
+    buildCommand: npm install serve
+    startCommand: npx serve public -l $PORT
+    repo: https://github.com/Nonarkara/Axiom
+    branch: main
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
