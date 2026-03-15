@@ -352,6 +352,71 @@
   map.on('moveend', () => { if (gridLayer) updateGrid(); });
   map.on('zoomend', () => { if (gridLayer) updateGrid(); });
 
+  // ── Live Satellite HUD Telemetry ──
+
+  const satCoord = document.getElementById('satCoord');
+  const satZoom = document.getElementById('satZoom');
+  const satRes = document.getElementById('satRes');
+  const satTile = document.getElementById('satTile');
+  const satTime = document.getElementById('satTime');
+  const satProvider = document.getElementById('satProvider');
+
+  const layerProviders = {
+    satellite: { name: 'ESRI World Imagery', tile: 'arcgisonline.com/World_Imagery' },
+    terrain: { name: 'ESRI World Street Map', tile: 'arcgisonline.com/World_Street_Map' },
+    dark: { name: 'CartoDB Dark Matter', tile: 'basemaps.cartocdn.com/dark_all' },
+    topo: { name: 'OpenTopoMap', tile: 'tile.opentopomap.org' },
+  };
+
+  let currentLayerName = 'satellite';
+
+  function updateHud() {
+    const center = map.getCenter();
+    const zoom = map.getZoom();
+    const lat = center.lat.toFixed(4);
+    const lng = center.lng.toFixed(4);
+    const latDir = center.lat >= 0 ? 'N' : 'S';
+    const lngDir = center.lng >= 0 ? 'E' : 'W';
+
+    // Resolution: at equator, zoom 0 = ~156543 m/px, halves each zoom
+    const metersPerPx = (156543.03392 * Math.cos(center.lat * Math.PI / 180)) / Math.pow(2, zoom);
+    let resText;
+    if (metersPerPx >= 1000) resText = '~' + (metersPerPx / 1000).toFixed(1) + 'km/px';
+    else resText = '~' + Math.round(metersPerPx) + 'm/px';
+
+    if (satCoord) satCoord.textContent = Math.abs(lat) + '°' + latDir + ' ' + Math.abs(lng) + '°' + lngDir;
+    if (satZoom) satZoom.textContent = 'Z' + Math.round(zoom);
+    if (satRes) satRes.textContent = resText;
+
+    const prov = layerProviders[currentLayerName] || layerProviders.satellite;
+    if (satProvider) satProvider.textContent = prov.name;
+    if (satTile) satTile.textContent = 'Tile: ' + prov.tile;
+
+    if (satTime) {
+      const now = new Date();
+      const fmt = new Intl.DateTimeFormat('en-GB', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Bangkok'
+      });
+      satTime.textContent = 'Fetched: ' + fmt.format(now) + ' BKK';
+    }
+  }
+
+  map.on('moveend', updateHud);
+  map.on('zoomend', updateHud);
+  updateHud();
+  setInterval(updateHud, 1000); // keep time fresh
+
+  // Update layer name tracking in layer button clicks
+  document.querySelectorAll('.sat-btn[data-layer]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const layerName = btn.dataset.layer;
+      if (tileLayers[layerName] && tileLayers[layerName] !== activeLayer) {
+        currentLayerName = layerName;
+        updateHud();
+      }
+    });
+  });
+
   // Subtle parallax on mouse move
   let rafId;
   document.addEventListener('mousemove', (e) => {
