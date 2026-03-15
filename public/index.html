@@ -810,6 +810,42 @@
     </div>
   </footer>
 
+  <!-- Command Terminal (Easter Egg — press Ctrl+K or /) -->
+  <div class="terminal-overlay" id="terminalOverlay">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-header-dots"><span></span><span></span><span></span></span>
+        <span class="terminal-header-title">axiom@systems ~ </span>
+        <button class="terminal-close" id="terminalClose">&times;</button>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="terminal-welcome">
+          <pre class="terminal-ascii">
+    █████╗ ██╗  ██╗██╗ ██████╗ ███╗   ███╗
+   ██╔══██╗╚██╗██╔╝██║██╔═══██╗████╗ ████║
+   ███████║ ╚███╔╝ ██║██║   ██║██╔████╔██║
+   ██╔══██║ ██╔██╗ ██║██║   ██║██║╚██╔╝██║
+   ██║  ██║██╔╝ ██╗██║╚██████╔╝██║ ╚═╝ ██║
+   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝     ╚═╝</pre>
+          <p>Innovation as a Service — v2.0</p>
+          <p class="terminal-hint">Type <span class="terminal-cmd">help</span> for available commands</p>
+        </div>
+      </div>
+      <div class="terminal-input-row">
+        <span class="terminal-prompt">axiom $</span>
+        <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false" autofocus>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keyboard shortcuts hint -->
+  <div class="kbd-hint" id="kbdHint">
+    <span>Press <kbd>/</kbd> for terminal</span>
+    <span>·</span>
+    <span><kbd>G</kbd> grid</span>
+    <span><kbd>1-4</kbd> layers</span>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>

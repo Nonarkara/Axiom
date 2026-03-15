@@ -1015,3 +1015,296 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }, 400);
   }, 5000);
 })();
+
+
+// ── Command Terminal ──────────────────────────────────────────────
+
+(function initTerminal() {
+  const overlay = document.getElementById('terminalOverlay');
+  const input = document.getElementById('terminalInput');
+  const body = document.getElementById('terminalBody');
+  const closeBtn = document.getElementById('terminalClose');
+  if (!overlay || !input || !body) return;
+
+  const startTime = Date.now();
+
+  function openTerminal() {
+    overlay.classList.add('open');
+    setTimeout(() => input.focus(), 100);
+  }
+
+  function closeTerminal() {
+    overlay.classList.remove('open');
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    // Open terminal: / or Ctrl+K
+    if ((e.key === '/' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') ||
+        ((e.ctrlKey || e.metaKey) && e.key === 'k')) {
+      e.preventDefault();
+      if (overlay.classList.contains('open')) closeTerminal();
+      else openTerminal();
+      return;
+    }
+
+    // Close on Escape
+    if (e.key === 'Escape' && overlay.classList.contains('open')) {
+      closeTerminal();
+      return;
+    }
+
+    // Layer shortcuts (only when terminal closed and not in input)
+    if (!overlay.classList.contains('open') && document.activeElement.tagName !== 'INPUT') {
+      const layerMap = { '1': 'satellite', '2': 'terrain', '3': 'dark', '4': 'topo' };
+      if (layerMap[e.key]) {
+        const btn = document.querySelector(`.sat-btn[data-layer="${layerMap[e.key]}"]`);
+        if (btn) btn.click();
+        return;
+      }
+      if (e.key.toLowerCase() === 'g') {
+        const gridBtn = document.getElementById('gridToggle');
+        if (gridBtn) gridBtn.click();
+        return;
+      }
+    }
+  });
+
+  // Close on overlay click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeTerminal();
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeTerminal);
+
+  function addLine(html, className) {
+    const div = document.createElement('div');
+    div.className = 'terminal-line ' + (className || '');
+    div.innerHTML = html;
+    body.appendChild(div);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  const commands = {
+    help: () => {
+      addLine(`<span class="terminal-cmd">Available commands:</span>`, 'terminal-line-info');
+      addLine('  status    — System health overview');
+      addLine('  about     — Who is Axiom');
+      addLine('  founders  — Meet the team');
+      addLine('  stack     — Technology stack');
+      addLine('  systems   — Live production systems');
+      addLine('  uptime    — Current session uptime');
+      addLine('  ping      — Test connectivity');
+      addLine('  time      — World clock snapshot');
+      addLine('  rates     — Exchange rates');
+      addLine('  axioms    — Our operating principles');
+      addLine('  roi       — The 5,000% story');
+      addLine('  contact   — Get in touch');
+      addLine('  linkedin  — Company LinkedIn');
+      addLine('  os        — Dr. Non OS Dashboard');
+      addLine('  clear     — Clear terminal');
+      addLine('  exit      — Close terminal');
+    },
+
+    status: () => {
+      const cards = document.querySelectorAll('.health-card');
+      let up = 0, total = cards.length;
+      cards.forEach(c => { if (c.querySelector('.health-dot.up')) up++; });
+      addLine(`<span class="terminal-cmd">AXIOM SYSTEM STATUS</span>`, 'terminal-line-info');
+      addLine(`  Systems monitored: ${total}`);
+      addLine(`  Online: <span style="color:var(--green)">${up}</span> / ${total}`);
+      addLine(`  Availability: <span style="color:var(--green)">${((up/total)*100).toFixed(1)}%</span>`);
+      const uptimeEl = document.getElementById('healthTimestamp');
+      if (uptimeEl) addLine(`  ${uptimeEl.textContent}`);
+    },
+
+    about: () => {
+      addLine(`<span class="terminal-cmd">AXIOM — Innovation as a Service</span>`, 'terminal-line-info');
+      addLine('  AI as water — invisible, essential, everywhere.');
+      addLine('  We build intelligent systems for cities, governments,');
+      addLine('  and organizations. Your success is our KPI.');
+      addLine('  Founded: 2024 | HQ: Bangkok, Thailand');
+      addLine('  Countries: Thailand, UAE, Solomon Islands, Singapore');
+      addLine('  Proven ROI: 5,000% on first deployment');
+    },
+
+    founders: () => {
+      addLine(`<span class="terminal-cmd">FOUNDING TEAM</span>`, 'terminal-line-info');
+      addLine('');
+      addLine('  Dr. Non Arkaraprasertkul — Co-Founder');
+      addLine('    PhD Anthropology, Harvard University');
+      addLine('    MPhil Chinese Studies, University of Oxford');
+      addLine('    MSc Architecture Studies, MIT');
+      addLine('    Fmr. Visiting Lecturer MIT | Postdoc NYU');
+      addLine('    400+ academic citations | Builder of the 5,000% ROI system');
+      addLine('');
+      addLine('  Dr. Poon Thiengburanathum — Co-Founder');
+      addLine('    PhD Civil Engineering');
+      addLine('    Assoc. Prof., Chiang Mai University');
+      addLine('    Drafted Chiang Mai Smart City Master Plan (2018-2023)');
+      addLine('    Smart city infrastructure & public policy expert');
+    },
+
+    stack: () => {
+      addLine(`<span class="terminal-cmd">TECHNOLOGY STACK</span>`, 'terminal-line-info');
+      addLine('  Frontend:   Vanilla JS, Leaflet.js, Canvas API');
+      addLine('  Maps:       ESRI, CartoDB, OpenTopoMap (open tiles)');
+      addLine('  Data:       open.er-api.com, CoinDesk, Met Museum API');
+      addLine('  Platform:   Render Cloud Services');
+      addLine('  AI:         NLP, Sentiment Analysis, Computer Vision');
+      addLine('  Design:     Bauhaus minimalism, Inter + JetBrains Mono');
+      addLine('  Philosophy: No frameworks. No dependencies. Pure engineering.');
+    },
+
+    systems: () => {
+      addLine(`<span class="terminal-cmd">LIVE PRODUCTION SYSTEMS</span>`, 'terminal-line-info');
+      const systems = [
+        'Bangkok Smart City Monitor', 'Middle East Monitor',
+        'Phuket Dashboard', 'Geopolitics Dashboard',
+        'City Reporter Bot', 'Phuket Smart Bus',
+        'SLIC Index v2', 'Dr. Non OS Dashboard'
+      ];
+      systems.forEach((s, i) => {
+        addLine(`  <span style="color:var(--green)">●</span> ${s}`);
+      });
+      addLine(`\n  Total: ${systems.length} systems | 5 countries | 99.9% uptime`);
+    },
+
+    uptime: () => {
+      const elapsed = Date.now() - startTime;
+      const mins = Math.floor(elapsed / 60000);
+      const secs = Math.floor((elapsed % 60000) / 1000);
+      addLine(`Session uptime: ${mins}m ${secs}s`);
+      addLine(`Page loaded: ${new Date(startTime).toISOString()}`);
+    },
+
+    ping: () => {
+      addLine('Pinging axiom systems...');
+      const cards = document.querySelectorAll('.health-card');
+      cards.forEach(c => {
+        const name = c.querySelector('.health-name')?.textContent || '?';
+        const ms = c.querySelector('.health-ms')?.textContent || '—';
+        const up = c.querySelector('.health-dot.up') ? '✓' : '✗';
+        const color = c.querySelector('.health-dot.up') ? 'var(--green)' : 'var(--red)';
+        addLine(`  <span style="color:${color}">${up}</span> ${name} — ${ms}`);
+      });
+    },
+
+    time: () => {
+      addLine(`<span class="terminal-cmd">WORLD CLOCK</span>`, 'terminal-line-info');
+      const zones = [
+        { name: 'Los Angeles', tz: 'America/Los_Angeles' },
+        { name: 'New York', tz: 'America/New_York' },
+        { name: 'London', tz: 'Europe/London' },
+        { name: 'Dubai', tz: 'Asia/Dubai' },
+        { name: 'Bangkok', tz: 'Asia/Bangkok' },
+        { name: 'Singapore', tz: 'Asia/Singapore' },
+        { name: 'Tokyo', tz: 'Asia/Tokyo' },
+        { name: 'Sydney', tz: 'Australia/Sydney' },
+      ];
+      zones.forEach(z => {
+        const t = new Intl.DateTimeFormat('en-GB', {
+          timeZone: z.tz, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+        }).format(new Date());
+        const marker = z.name === 'Bangkok' ? ' ◀ HOME' : '';
+        addLine(`  ${z.name.padEnd(14)} ${t}${marker}`);
+      });
+    },
+
+    rates: () => {
+      addLine(`<span class="terminal-cmd">EXCHANGE RATES</span>`, 'terminal-line-info');
+      const items = document.querySelectorAll('.trends-exchange-item');
+      items.forEach(item => {
+        const pair = item.querySelector('.trends-exchange-pair')?.textContent || '';
+        const rate = item.querySelector('.trends-exchange-rate')?.textContent || '—';
+        addLine(`  ${pair.padEnd(22)} ${rate}`);
+      });
+      const ts = document.getElementById('trendsLastUpdate');
+      if (ts) addLine(`\n  ${ts.textContent}`);
+    },
+
+    axioms: () => {
+      addLine(`<span class="terminal-cmd">OUR AXIOMS</span>`, 'terminal-line-info');
+      addLine('  01. Your Success Is Our KPI');
+      addLine('  02. AI as Water — invisible, essential');
+      addLine('  03. The 36-Button Rule — simplicity by design');
+      addLine('  04. Low-Fidelity, High-Impact');
+      addLine('  05. Partners, Not Vendors');
+      addLine('  06. Moral Foundation — Kant\'s categorical imperative');
+    },
+
+    roi: () => {
+      addLine(`<span class="terminal-cmd">THE 5,000% ROI STORY</span>`, 'terminal-line-info');
+      addLine('  Client: Large Middle Eastern operations firm');
+      addLine('  Tool:   One laptop. Natural language programming.');
+      addLine('  Result: 90% reduction in manual reporting');
+      addLine('          Decision latency: Days → Minutes');
+      addLine('          ROI in Year 1: 5,000%');
+      addLine('          Client built the last 3 features themselves');
+      addLine('  ');
+      addLine('  That\'s the Axiom way — we don\'t create dependency.');
+      addLine('  We create capability.');
+    },
+
+    contact: () => {
+      addLine(`<span class="terminal-cmd">CONTACT</span>`, 'terminal-line-info');
+      addLine('  Email:    axiomaxiom.corp@gmail.com');
+      addLine('  LinkedIn: linkedin.com/company/axiomaxiom');
+      addLine('  HQ:       Bangkok, Thailand');
+    },
+
+    linkedin: () => {
+      addLine('Opening Axiom LinkedIn...');
+      window.open('https://www.linkedin.com/company/axiomaxiom/about/', '_blank');
+    },
+
+    os: () => {
+      addLine('Opening Dr. Non Operating Systems Dashboard...');
+      window.open('https://dr-non-operating-systems.onrender.com', '_blank');
+    },
+
+    clear: () => {
+      body.innerHTML = '';
+    },
+
+    exit: () => {
+      closeTerminal();
+    },
+  };
+
+  // Handle input
+  input.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter') return;
+    const cmd = input.value.trim().toLowerCase();
+    input.value = '';
+    if (!cmd) return;
+
+    addLine(`<span class="terminal-prompt">axiom $</span> <span class="terminal-line-cmd">${cmd}</span>`);
+
+    if (commands[cmd]) {
+      commands[cmd]();
+    } else {
+      addLine(`command not found: ${cmd}. Type <span class="terminal-cmd">help</span> for available commands.`, 'terminal-line-error');
+    }
+  });
+})();
+
+
+// ── Console ASCII Art (for developers who inspect) ────────────────
+
+console.log(`%c
+    █████╗ ██╗  ██╗██╗ ██████╗ ███╗   ███╗
+   ██╔══██╗╚██╗██╔╝██║██╔═══██╗████╗ ████║
+   ███████║ ╚███╔╝ ██║██║   ██║██╔████╔██║
+   ██╔══██║ ██╔██╗ ██║██║   ██║██║╚██╔╝██║
+   ██║  ██║██╔╝ ██╗██║╚██████╔╝██║ ╚═╝ ██║
+   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝     ╚═╝
+`, 'color: #2563ff; font-size: 10px; font-family: monospace;');
+
+console.log('%c Innovation as a Service ', 'background: #2563ff; color: white; font-size: 14px; padding: 4px 12px; font-family: sans-serif;');
+console.log('%c Built by Dr. Non Arkaraprasertkul & Dr. Poon Thiengburanathum ', 'color: #7a7a8a; font-size: 11px; font-family: monospace;');
+console.log('%c Press / to open the command terminal ', 'color: #22c55e; font-size: 11px; font-family: monospace;');
+console.log('%c Harvard · Oxford · MIT · Chiang Mai University ', 'color: #4a4a58; font-size: 10px; font-family: monospace;');
+console.log('%c —————————————————————————————————— ', 'color: #1a1a2a;');
+console.log('%c If you\'re reading this, we should probably talk. ', 'color: #2563ff; font-size: 12px; font-family: monospace;');
+console.log('%c axiomaxiom.corp@gmail.com ', 'color: #eeeef0; font-size: 11px; font-family: monospace;');
