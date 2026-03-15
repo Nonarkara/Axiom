@@ -1067,33 +1067,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 // ── City label on hero ─────────────────────────────────────────────
-
-(function initCityLabel() {
-  const label = document.getElementById('heroCityLabel');
-  if (!label) return;
-
-  const cities = ['BANGKOK', 'PHUKET', 'MIDDLE EAST', 'SOUTHEAST ASIA'];
-  let i = 0;
-
-  setInterval(() => {
-    label.style.opacity = 0;
-    setTimeout(() => {
-      i = (i + 1) % cities.length;
-      label.textContent = cities[i];
-      label.style.opacity = 1;
-    }, 400);
-  }, 12000);
-
-  // Start with first city after map starts
-  setTimeout(() => {
-    label.style.opacity = 0;
-    setTimeout(() => {
-      i = 1;
-      label.textContent = cities[i];
-      label.style.opacity = 1;
-    }, 400);
-  }, 5000);
-})();
+// (Now handled by the Auto Tour system in initSatelliteHero)
 
 
 // ── Command Terminal ──────────────────────────────────────────────
