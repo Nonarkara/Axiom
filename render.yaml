@@ -2,8 +2,8 @@ services:
   - type: web
     name: axiom
     runtime: node
-    buildCommand: npm install serve
-    startCommand: npx serve public -l $PORT
+    buildCommand: npm install
+    startCommand: npm start
     repo: https://github.com/Nonarkara/Axiom
     branch: main
     plan: free

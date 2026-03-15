@@ -2,8 +2,11 @@
   "name": "axiom-landing",
   "version": "1.0.0",
   "description": "Axiom AI - Landing Page",
+  "dependencies": {
+    "serve": "^14.2.0"
+  },
   "scripts": {
-    "start": "npx serve public -l $PORT",
-    "dev": "npx serve public -l 3000"
+    "start": "serve public -l $PORT",
+    "dev": "serve public -l 3000"
   }
 }
