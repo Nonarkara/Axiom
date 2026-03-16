@@ -1079,6 +1079,32 @@ body * { cursor: none; }
   border-bottom: 1px solid var(--border);
 }
 
+.philosophy-visual {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 0;
+  align-items: stretch;
+}
+
+@media (max-width: 1100px) {
+  .philosophy-visual { grid-template-columns: 1fr; }
+}
+
+.philosophy-photo-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 2px;
+}
+
+.philosophy-photo {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
 .philosophy-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1136,6 +1162,9 @@ body * { cursor: none; }
 }
 
 @media (max-width: 900px) {
+  .philosophy-visual { grid-template-columns: 1fr; }
+  .philosophy-photo-col { flex-direction: row; padding-left: 0; padding-top: 2px; }
+  .philosophy-photo { height: 180px; }
   .philosophy-grid { grid-template-columns: 1fr; }
   .philosophy-card-hero { grid-column: 1; }
 }
@@ -1338,6 +1367,89 @@ body * { cursor: none; }
 #capabilities {
   padding: 100px 0 80px;
   border-bottom: 1px solid var(--border);
+}
+
+.process-photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  margin-bottom: 48px;
+}
+
+.process-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  aspect-ratio: 4/3;
+}
+
+.process-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.process-photo:hover img {
+  transform: scale(1.05);
+}
+
+.process-photo-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 12px 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+}
+
+.proof-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  margin: 48px 0;
+}
+
+.proof-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  aspect-ratio: 16/10;
+}
+
+.proof-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.proof-photo:hover img {
+  transform: scale(1.05);
+}
+
+.proof-photo-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 12px 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  background: linear-gradient(transparent, rgba(0,0,0,0.65));
+}
+
+@media (max-width: 768px) {
+  .process-photos { grid-template-columns: repeat(2, 1fr); }
+  .proof-photos { grid-template-columns: 1fr; }
 }
 
 .capabilities-grid {
@@ -1577,6 +1689,29 @@ body * { cursor: none; }
 #team {
   padding: 100px 0 80px;
   border-bottom: 1px solid var(--border);
+}
+
+.team-founders-photo {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.founders-img {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  max-height: 480px;
+}
+
+.founders-caption {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .team-grid {
@@ -2299,6 +2434,257 @@ body * { cursor: none; }
 }
 
 /* ========================================
+   UAV / AERIAL INTELLIGENCE
+   ======================================== */
+
+#uav {
+  border-bottom: 1px solid var(--border);
+}
+
+.uav-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.uav-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(0.5) contrast(1.15) saturate(0.9);
+}
+
+.uav-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(8, 8, 12, 0.3) 0%,
+      rgba(8, 8, 12, 0.1) 40%,
+      rgba(8, 8, 12, 0.85) 85%,
+      rgba(8, 8, 12, 1) 100%
+    );
+}
+
+.uav-hero-content {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 64px;
+  padding-top: 120px;
+}
+
+.uav-hero-title {
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.uav-hero-sub {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.uav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  margin-top: 0;
+  border-top: 1px solid var(--border);
+}
+
+.uav-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.4s var(--ease);
+}
+
+.uav-card:hover {
+  border-color: var(--border-active);
+}
+
+.uav-card-wide {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.uav-card-img-wrap {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+
+.uav-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65) contrast(1.1);
+  transition: filter 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.uav-card:hover .uav-card-img-wrap img {
+  filter: brightness(0.8) contrast(1.05);
+  transform: scale(1.03);
+}
+
+.uav-card-body {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.uav-card-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--blue);
+  font-family: var(--mono);
+  margin-bottom: 16px;
+}
+
+.uav-card-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.uav-card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.uav-card-dark {
+  background: linear-gradient(135deg, rgba(37, 99, 255, 0.06) 0%, var(--surface) 50%, rgba(37, 99, 255, 0.04) 100%);
+  grid-template-columns: 1fr;
+}
+
+.uav-card-dark .uav-card-body {
+  padding: 48px;
+}
+
+.uav-card-dark .uav-card-title {
+  font-size: 26px;
+}
+
+.uav-stats {
+  display: flex;
+  gap: 0;
+  margin-top: 32px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.uav-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 24px;
+  border-right: 1px solid var(--border);
+}
+
+.uav-stat:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.uav-stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--mono);
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.uav-stat-label {
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+
+.uav-partners {
+  padding: 48px 0;
+  text-align: center;
+}
+
+.uav-partners-label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: var(--mono);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.uav-partners-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.uav-partner-tag {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--blue-dim);
+  border: 1px solid rgba(37, 99, 255, 0.15);
+  padding: 6px 16px;
+  font-family: var(--mono);
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 900px) {
+  .uav-grid { grid-template-columns: 1fr; }
+  .uav-card-wide {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+  .uav-card-dark { grid-template-columns: 1fr; }
+  .uav-card-dark .uav-card-body { padding: 32px; }
+  .uav-hero { min-height: 50vh; }
+}
+
+@media (max-width: 768px) {
+  .uav-hero-content { padding-bottom: 40px; padding-top: 80px; }
+  .uav-card-body { padding: 24px; }
+  .uav-card-title { font-size: 18px; }
+  .uav-card-desc { font-size: 13px; }
+  .uav-card-dark .uav-card-title { font-size: 20px; }
+  .uav-stats { flex-wrap: wrap; gap: 16px; }
+  .uav-stat {
+    flex: 0 0 calc(50% - 8px);
+    border-right: none;
+    padding-right: 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .uav-stat:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
+  .uav-partners { padding: 32px 0; }
+  .uav-partners-label { font-size: 10px; }
+}
+
+/* ========================================
    HUMANITIES / ART
    ======================================== */
 
@@ -2311,18 +2697,24 @@ body * { cursor: none; }
   align-items: center;
 }
 
-.humanities-art-bg {
+.humanities-art-layer {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
-  transition: background-image 2s ease-in-out;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  will-change: opacity;
+}
+
+.humanities-art-layer.humanities-art-active {
+  opacity: 1;
 }
 
 .humanities-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(8, 8, 12, 0.75);
+  background: linear-gradient(to right, rgba(8, 8, 12, 0.82) 0%, rgba(8, 8, 12, 0.45) 100%);
 }
 
 .humanities-content {

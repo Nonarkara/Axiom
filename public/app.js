@@ -1039,30 +1039,52 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ── Humanities Art Background (Getty Open Content) ──────────────────
 
 (function initHumanitiesArt() {
-  const bg = document.getElementById('humanitiesArt');
-  if (!bg) return;
+  const layerA = document.getElementById('humanitiesArtA');
+  const layerB = document.getElementById('humanitiesArtB');
+  if (!layerA || !layerB) return;
 
-  // Curated public domain masterworks — high-res URLs from major museum open access programs
+  // Curated public domain masterworks — high-res from Wikimedia Commons (open access, no hotlink blocking)
   const artworks = [
-    'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', // Vermeer - Girl with a Pearl Earring (Met)
-    'https://images.metmuseum.org/CRDImages/ep/original/DP346474.jpg', // Monet - Bridge Over a Pond of Water Lilies
-    'https://images.metmuseum.org/CRDImages/ep/original/DT1502.jpg', // Van Gogh - Wheat Field with Cypresses
-    'https://images.metmuseum.org/CRDImages/ep/original/DP-14936-023.jpg', // Rembrandt - Self Portrait
-    'https://images.metmuseum.org/CRDImages/ep/original/DT47.jpg', // Renoir - Luncheon of the Boating Party
-    'https://images.metmuseum.org/CRDImages/ep/original/DP145937.jpg', // Turner - Grand Canal Venice
-    'https://images.metmuseum.org/CRDImages/ep/original/DT1947.jpg', // Cezanne - Still Life with Apples
-    'https://images.metmuseum.org/CRDImages/as/original/DP251139.jpg', // Hokusai - Great Wave
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1920px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/VanGogh-starry_night_ballance1.jpg/1920px-VanGogh-starry_night_ballance1.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/1440px-1665_Girl_with_a_Pearl_Earring.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1440px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/The_Great_Wave_off_Kanagawa.jpg/1920px-The_Great_Wave_off_Kanagawa.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Monet_-_Impression%2C_Sunrise.jpg/1920px-Monet_-_Impression%2C_Sunrise.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Scream.jpg/1440px-The_Scream.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/1920px-Tsunami_by_hokusai_19th_century.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Adolphe_William_Bouguereau_-_The_Nut_Gatherers_-_1882.jpg/1440px-Adolphe_William_Bouguereau_-_The_Nut_Gatherers_-_1882.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/1440px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Salvator_Rosa_-_Witches_at_their_Incantations_-_Google_Art_Project.jpg/1920px-Salvator_Rosa_-_Witches_at_their_Incantations_-_Google_Art_Project.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Gustave_Caillebotte_-_Jour_de_pluie_%C3%A0_Paris.jpg/1920px-Gustave_Caillebotte_-_Jour_de_pluie_%C3%A0_Paris.jpg',
   ];
 
   let index = 0;
+  let activeLayer = layerA;
+  let nextLayer = layerB;
 
-  function setArt() {
-    bg.style.backgroundImage = `url(${artworks[index]})`;
-    index = (index + 1) % artworks.length;
+  // Set first artwork immediately
+  layerA.style.backgroundImage = `url(${artworks[0]})`;
+  index = 1;
+
+  function crossfade() {
+    // Preload next image before crossfading
+    const img = new Image();
+    img.onload = function() {
+      nextLayer.style.backgroundImage = `url(${artworks[index]})`;
+      // Swap: fade in next, fade out current
+      nextLayer.classList.add('humanities-art-active');
+      activeLayer.classList.remove('humanities-art-active');
+      // Swap references
+      const tmp = activeLayer;
+      activeLayer = nextLayer;
+      nextLayer = tmp;
+      index = (index + 1) % artworks.length;
+    };
+    img.src = artworks[index];
   }
 
-  setArt();
-  setInterval(setArt, 8000);
+  setInterval(crossfade, 7000);
 })();
 
 
