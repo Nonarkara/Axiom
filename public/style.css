@@ -1161,11 +1161,17 @@ body * { cursor: none; }
   line-height: 1.7;
 }
 
+/* Full-width philosophy grid (no photo column) */
+.philosophy-grid-full {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 @media (max-width: 900px) {
   .philosophy-visual { grid-template-columns: 1fr; }
   .philosophy-photo-col { flex-direction: row; padding-left: 0; padding-top: 2px; }
   .philosophy-photo { height: 180px; }
   .philosophy-grid { grid-template-columns: 1fr; }
+  .philosophy-grid-full { grid-template-columns: 1fr; }
   .philosophy-card-hero { grid-column: 1; }
 }
 
@@ -1419,7 +1425,7 @@ body * { cursor: none; }
   position: relative;
   overflow: hidden;
   border-radius: 2px;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/7;
 }
 
 .proof-photo img {
@@ -1698,11 +1704,11 @@ body * { cursor: none; }
 
 .founders-img {
   width: 100%;
-  max-width: 720px;
+  max-width: 520px;
   border-radius: 4px;
   border: 1px solid var(--border);
   object-fit: cover;
-  max-height: 480px;
+  max-height: 320px;
 }
 
 .founders-caption {
@@ -1996,7 +2002,7 @@ body * { cursor: none; }
 
 .origin-photo {
   position: relative;
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/3;
   overflow: hidden;
 }
 
