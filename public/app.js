@@ -1041,50 +1041,72 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 (function initHumanitiesArt() {
   const layerA = document.getElementById('humanitiesArtA');
   const layerB = document.getElementById('humanitiesArtB');
+  const nextBtn = document.getElementById('humanitiesNextBtn');
+  const artLabel = document.getElementById('humanitiesArtLabel');
   if (!layerA || !layerB) return;
 
-  // Curated public domain masterworks — high-res from Wikimedia Commons (open access, no hotlink blocking)
+  // Curated public domain masterworks — high-res from Wikimedia Commons
   const artworks = [
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1920px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/VanGogh-starry_night_ballance1.jpg/1920px-VanGogh-starry_night_ballance1.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/1440px-1665_Girl_with_a_Pearl_Earring.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1440px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/The_Great_Wave_off_Kanagawa.jpg/1920px-The_Great_Wave_off_Kanagawa.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Monet_-_Impression%2C_Sunrise.jpg/1920px-Monet_-_Impression%2C_Sunrise.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Scream.jpg/1440px-The_Scream.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/1920px-Tsunami_by_hokusai_19th_century.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Adolphe_William_Bouguereau_-_The_Nut_Gatherers_-_1882.jpg/1440px-Adolphe_William_Bouguereau_-_The_Nut_Gatherers_-_1882.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/1440px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Salvator_Rosa_-_Witches_at_their_Incantations_-_Google_Art_Project.jpg/1920px-Salvator_Rosa_-_Witches_at_their_Incantations_-_Google_Art_Project.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Gustave_Caillebotte_-_Jour_de_pluie_%C3%A0_Paris.jpg/1920px-Gustave_Caillebotte_-_Jour_de_pluie_%C3%A0_Paris.jpg',
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1920px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg', title: 'The Starry Night', artist: 'Vincent van Gogh, 1889' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/VanGogh-starry_night_ballance1.jpg/1920px-VanGogh-starry_night_ballance1.jpg', title: 'Starry Night Over the Rh\u00f4ne', artist: 'Vincent van Gogh, 1888' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/1440px-1665_Girl_with_a_Pearl_Earring.jpg', title: 'Girl with a Pearl Earring', artist: 'Johannes Vermeer, 1665' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1440px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg', title: 'Mona Lisa', artist: 'Leonardo da Vinci, 1503' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/The_Great_Wave_off_Kanagawa.jpg/1920px-The_Great_Wave_off_Kanagawa.jpg', title: 'The Great Wave off Kanagawa', artist: 'Katsushika Hokusai, 1831' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Monet_-_Impression%2C_Sunrise.jpg/1920px-Monet_-_Impression%2C_Sunrise.jpg', title: 'Impression, Sunrise', artist: 'Claude Monet, 1872' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Scream.jpg/1440px-The_Scream.jpg', title: 'The Scream', artist: 'Edvard Munch, 1893' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/1920px-Tsunami_by_hokusai_19th_century.jpg', title: 'The Great Wave (variant)', artist: 'Katsushika Hokusai, c.1830' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Adolphe_William_Bouguereau_-_The_Nut_Gatherers_-_1882.jpg/1440px-Adolphe_William_Bouguereau_-_The_Nut_Gatherers_-_1882.jpg', title: 'The Nut Gatherers', artist: 'William Bouguereau, 1882' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/1440px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg', title: 'Wanderer Above the Sea of Fog', artist: 'Caspar David Friedrich, 1818' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Salvator_Rosa_-_Witches_at_their_Incantations_-_Google_Art_Project.jpg/1920px-Salvator_Rosa_-_Witches_at_their_Incantations_-_Google_Art_Project.jpg', title: 'Witches at their Incantations', artist: 'Salvator Rosa, 1646' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Gustave_Caillebotte_-_Jour_de_pluie_%C3%A0_Paris.jpg/1920px-Gustave_Caillebotte_-_Jour_de_pluie_%C3%A0_Paris.jpg', title: 'Paris Street; Rainy Day', artist: 'Gustave Caillebotte, 1877' },
   ];
 
   let index = 0;
   let activeLayer = layerA;
   let nextLayer = layerB;
+  let timer;
+
+  function updateLabel(i) {
+    if (artLabel) {
+      artLabel.textContent = artworks[i].title + ' \u2014 ' + artworks[i].artist;
+    }
+  }
 
   // Set first artwork immediately
-  layerA.style.backgroundImage = `url(${artworks[0]})`;
+  layerA.style.backgroundImage = `url(${artworks[0].url})`;
+  updateLabel(0);
   index = 1;
 
   function crossfade() {
-    // Preload next image before crossfading
     const img = new Image();
     img.onload = function() {
-      nextLayer.style.backgroundImage = `url(${artworks[index]})`;
-      // Swap: fade in next, fade out current
+      nextLayer.style.backgroundImage = `url(${artworks[index].url})`;
       nextLayer.classList.add('humanities-art-active');
       activeLayer.classList.remove('humanities-art-active');
-      // Swap references
       const tmp = activeLayer;
       activeLayer = nextLayer;
       nextLayer = tmp;
+      updateLabel(index);
       index = (index + 1) % artworks.length;
     };
-    img.src = artworks[index];
+    img.src = artworks[index].url;
   }
 
-  setInterval(crossfade, 7000);
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(crossfade, 7000);
+  }
+
+  // Auto-rotate
+  timer = setInterval(crossfade, 7000);
+
+  // Manual next button
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      crossfade();
+      resetTimer();
+    });
+  }
 })();
 
 
