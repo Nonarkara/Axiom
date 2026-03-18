@@ -1079,6 +1079,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
   function crossfade() {
     const img = new Image();
+    img.crossOrigin = 'anonymous';
     img.onload = function() {
       nextLayer.style.backgroundImage = `url(${artworks[index].url})`;
       nextLayer.classList.add('humanities-art-active');
@@ -1088,6 +1089,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       nextLayer = tmp;
       updateLabel(index);
       index = (index + 1) % artworks.length;
+    };
+    img.onerror = function() {
+      // Skip broken image, advance to next
+      index = (index + 1) % artworks.length;
+      crossfade();
     };
     img.src = artworks[index].url;
   }

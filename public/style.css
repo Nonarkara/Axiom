@@ -2714,6 +2714,7 @@ body * { cursor: none; }
   opacity: 0;
   transition: opacity 2s ease-in-out;
   will-change: opacity;
+  pointer-events: none;
 }
 
 .humanities-art-layer.humanities-art-active {
