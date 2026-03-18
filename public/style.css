@@ -2935,7 +2935,7 @@ body * { cursor: none; }
    ======================================== */
 
 @media (max-width: 768px) {
-  #hero { padding: 120px 24px 60px; }
+  #hero { padding: 100px 24px 40px; }
   .section-container { padding: 0 20px; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
   .hero-stats { gap: 24px; flex-wrap: wrap; }
@@ -2952,32 +2952,74 @@ body * { cursor: none; }
   .cta-title { font-size: clamp(24px, 7vw, 36px); }
   .cta-desc { font-size: 14px; }
 
-  /* Section spacing */
-  section { padding-top: 64px; padding-bottom: 64px; }
-  .section-header { margin-bottom: 32px; }
+  /* Section spacing — tighter on mobile */
+  section { padding-top: 40px; padding-bottom: 40px; }
+  .section-header { margin-bottom: 24px; }
+
+  /* Hide iframe embeds on mobile — not interactive anyway */
+  .project-embed { display: none; }
+  .project-card { border-bottom: 1px solid var(--border); }
+
+  /* UAV tighter */
+  .uav-hero { min-height: 40vh; }
+  .uav-card-img-wrap { aspect-ratio: 16/7; }
+  .uav-card-body { padding: 20px; }
+  .uav-card-tag { margin-bottom: 8px; }
+  .uav-card-desc { font-size: 12px; line-height: 1.5; }
+  .uav-partners { padding: 20px 0; }
+
+  /* Proof tighter */
+  .proof-photos { margin: 24px 0; }
+  .proof-photo { aspect-ratio: 16/9; }
+  .case-study { margin-bottom: 32px; }
+
+  /* Lab — smaller images, limit visible items */
+  .lab-item { aspect-ratio: 16/8; }
+  .lab-item:nth-child(n+5) { display: none; }
+
+  /* Process photos tighter */
+  .process-photos { margin-bottom: 24px; }
+  .process-photo { aspect-ratio: 1/1; }
+
+  /* Founders photo smaller */
+  .founders-img { max-height: 220px; }
+  .team-founders-photo { margin-bottom: 24px; }
+
+  /* Philosophy photos hidden on small screens */
+  .philosophy-photo-col { display: none; }
+  .philosophy-card { padding: 20px 16px; }
+  .philosophy-number { font-size: 11px; margin-bottom: 8px; }
+
+  /* Capabilities tighter */
+  .capability-card { padding: 20px 16px; }
+
+  /* Trends chart smaller */
+  .trends-chart { height: 200px; min-height: 200px; }
 
   /* Team cards */
-  .team-card { padding: 28px 20px; }
-  .team-card h3 { font-size: 18px; }
-  .team-card p { font-size: 13px; line-height: 1.65; }
-  .team-credentials { gap: 6px; }
-  .team-credentials span { font-size: 10px; padding: 3px 8px; }
+  .team-card { padding: 20px 16px; }
+  .team-card h3 { font-size: 17px; }
+  .team-card p { font-size: 12px; line-height: 1.6; }
+  .team-credentials { gap: 4px; }
+  .team-credentials span { font-size: 9px; padding: 3px 6px; }
 
   /* Philosophy */
-  .philosophy-card { padding: 28px 20px; }
-  .philosophy-card h3 { font-size: 16px; }
-  .philosophy-card p { font-size: 13px; }
-  .philosophy-card-hero p { font-size: 14px; }
+  .philosophy-card h3 { font-size: 15px; }
+  .philosophy-card p { font-size: 12px; line-height: 1.5; }
+  .philosophy-card-hero p { font-size: 13px; }
 
   /* Capabilities */
-  .capability-card { padding: 28px 20px; }
-  .capability-card h3 { font-size: 16px; }
-  .capability-card p { font-size: 13px; }
+  .capability-card h3 { font-size: 15px; }
+  .capability-card p { font-size: 12px; line-height: 1.5; }
 
   /* Case study */
-  .case-study-title { font-size: 22px; }
-  .case-study-note { font-size: 13px; }
-  .case-result-value { font-size: 22px; }
+  .case-study-title { font-size: 20px; }
+  .case-study-note { font-size: 12px; }
+  .case-result-value { font-size: 20px; }
+  .case-study-title, .case-detail, .case-study-note { padding-left: 16px; padding-right: 16px; }
+  .case-study-badge { padding-left: 16px; padding-right: 16px; }
+  .case-detail { padding: 12px 16px; }
+  #proof { padding: 40px 0 32px; }
 
   /* Origins timeline */
   .origins-year { font-size: 22px; }
@@ -3019,7 +3061,17 @@ body * { cursor: none; }
   .trends-exchange-bar { overflow-x: auto; justify-content: flex-start; }
 
   /* Humanities */
-  #humanities { min-height: 70vh; }
+  #humanities { min-height: 50vh; }
+
+  /* Project info tighter */
+  .project-info { padding: 16px; }
+  .project-desc { font-size: 12px; line-height: 1.5; }
+  .project-tech span { font-size: 9px; padding: 2px 6px; }
+
+  /* Metrics grid tighter */
+  .metric-card { padding: 16px 12px; }
+  .metric-value { font-size: 28px; }
+  .metric-label { font-size: 11px; }
 }
 
 /* ========================================
