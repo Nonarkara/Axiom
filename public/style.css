@@ -2348,6 +2348,10 @@ body {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   white-space: nowrap;
+  position: relative;
+  z-index: 10;
+  -webkit-tap-highlight-color: rgba(255,255,255,0.1);
+  touch-action: manipulation;
 }
 
 .humanities-next-btn:hover {

@@ -899,7 +899,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       addLine('  time      — World clock snapshot');
       addLine('  rates     — Exchange rates');
       addLine('  axioms    — Our operating principles');
-      addLine('  roi       — The 5,000% story');
+      addLine('  systems   — Live production systems');
       addLine('  contact   — Get in touch');
       addLine('  linkedin  — Company LinkedIn');
       addLine('  os        — Dr. Non OS Dashboard');
@@ -926,7 +926,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       addLine('  and organizations. Your success is our KPI.');
       addLine('  Founded: 2024 | HQ: Bangkok, Thailand');
       addLine('  Countries: Thailand, UAE, Solomon Islands, Singapore');
-      addLine('  Proven ROI: 5,000% on first deployment');
+      addLine('  Live monitoring: 24/7 across all systems');
     },
 
     founders: () => {
@@ -937,7 +937,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       addLine('    MPhil Chinese Studies, University of Oxford');
       addLine('    MSc Architecture Studies, MIT');
       addLine('    Fmr. Visiting Lecturer MIT | Postdoc NYU');
-      addLine('    400+ academic citations | Builder of the 5,000% ROI system');
+      addLine('    400+ academic citations | Builder of production-grade AI systems');
       addLine('');
       addLine('  Dr. Poon Thiengburanathum — Co-Founder');
       addLine('    PhD Civil Engineering');
@@ -1034,17 +1034,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       addLine('  06. Moral Foundation — Kant\'s categorical imperative');
     },
 
-    roi: () => {
-      addLine(`<span class="terminal-cmd">THE 5,000% ROI STORY</span>`, 'terminal-line-info');
-      addLine('  Client: Large Middle Eastern operations firm');
-      addLine('  Tool:   One laptop. Natural language programming.');
-      addLine('  Result: 90% reduction in manual reporting');
-      addLine('          Decision latency: Days → Minutes');
-      addLine('          ROI in Year 1: 5,000%');
-      addLine('          Client built the last 3 features themselves');
+    systems: () => {
+      addLine(`<span class="terminal-cmd">LIVE PRODUCTION SYSTEMS</span>`, 'terminal-line-info');
+      addLine('  8 systems running across 5 countries');
+      addLine('  99.9% uptime — 24/7 automated monitoring');
+      addLine('  Smart city dashboards, geopolitical intel, transit');
+      addLine('  All built with open data and free APIs');
       addLine('  ');
-      addLine('  That\'s the Axiom way — we don\'t create dependency.');
-      addLine('  We create capability.');
+      addLine('  We don\'t create dependency. We create capability.');
     },
 
     contact: () => {
