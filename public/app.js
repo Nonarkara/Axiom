@@ -1100,11 +1100,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
   function resetTimer() {
     clearInterval(timer);
-    timer = setInterval(crossfade, 7000);
+    timer = setInterval(crossfade, 3000);
   }
 
   // Auto-rotate
-  timer = setInterval(crossfade, 7000);
+  timer = setInterval(crossfade, 3000);
 
   // Manual next button
   if (nextBtn) {
