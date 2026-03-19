@@ -578,7 +578,7 @@ body {
 /* Satellite Telemetry HUD */
 .sat-hud {
   position: absolute;
-  bottom: 140px;
+  bottom: 240px;
   left: 48px;
   z-index: 3;
   background: rgba(8, 8, 12, 0.65);
@@ -672,7 +672,7 @@ body {
 @media (max-width: 768px) {
   .sat-hud {
     left: 16px;
-    bottom: 100px;
+    bottom: 200px;
     min-width: 0;
     max-width: calc(100% - 32px);
     padding: 8px 12px;
