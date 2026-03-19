@@ -123,56 +123,6 @@
   transition: width 0.3s ease;
 }
 
-/* ========================================
-   CUSTOM CURSOR
-   ======================================== */
-
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 6px;
-  background: var(--blue);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99998;
-  transition: transform 0.1s ease, opacity 0.3s ease;
-  mix-blend-mode: difference;
-}
-
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(37, 99, 255, 0.4);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99997;
-  transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
-  mix-blend-mode: difference;
-}
-
-.cursor-dot.hidden, .cursor-ring.hidden {
-  opacity: 0;
-}
-
-.cursor-ring.hovering {
-  width: 52px;
-  height: 52px;
-  border-color: var(--blue);
-  border-width: 2px;
-}
-
-@media (max-width: 768px) {
-  .cursor-dot, .cursor-ring { display: none; }
-}
-
-@media (pointer: coarse) {
-  .cursor-dot, .cursor-ring { display: none; }
-}
 
 *, *::before, *::after {
   margin: 0;
@@ -192,13 +142,6 @@ body {
   color: var(--text);
   overflow-x: hidden;
   line-height: 1.55;
-  cursor: none;
-}
-
-body * { cursor: none; }
-
-@media (max-width: 768px), (pointer: coarse) {
-  body, body * { cursor: auto; }
 }
 
 ::selection {
@@ -315,6 +258,7 @@ body * { cursor: none; }
   right: 0;
   background: rgba(8, 8, 12, 0.97);
   backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
   z-index: 999;
   padding: 24px 48px;
   flex-direction: column;
@@ -1350,6 +1294,7 @@ body * { cursor: none; }
   padding: 4px 8px;
   background: rgba(8, 8, 12, 0.8);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 @media (max-width: 900px) {
@@ -1968,6 +1913,20 @@ body * { cursor: none; }
   font-family: var(--mono);
 }
 
+.footer-fine-print {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-fine-print p {
+  font-size: 10px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  max-width: 800px;
+  opacity: 0.5;
+}
+
 @media (max-width: 768px) {
   .footer-inner {
     flex-direction: column;
@@ -2343,7 +2302,7 @@ body * { cursor: none; }
 
 .humanities-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .humanities-title {

@@ -34,59 +34,7 @@
 })();
 
 
-// ── Custom Cursor ─────────────────────────────────────────────────
-
-(function initCursor() {
-  const dot = document.getElementById('cursorDot');
-  const ring = document.getElementById('cursorRing');
-  if (!dot || !ring) return;
-
-  // Don't run on touch devices
-  if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 769) return;
-
-  let mouseX = -100, mouseY = -100;
-  let ringX = -100, ringY = -100;
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    dot.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
-  });
-
-  // Smooth ring follow
-  function animateRing() {
-    ringX += (mouseX - ringX) * 0.15;
-    ringY += (mouseY - ringY) * 0.15;
-    ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
-
-  // Hover effect on interactive elements
-  const hoverables = 'a, button, .project-card, .capability-card, .philosophy-card, .team-card, .lab-item, .sat-btn, .trends-filter, input, textarea';
-
-  document.addEventListener('mouseover', (e) => {
-    if (e.target.closest(hoverables)) {
-      ring.classList.add('hovering');
-    }
-  });
-
-  document.addEventListener('mouseout', (e) => {
-    if (e.target.closest(hoverables)) {
-      ring.classList.remove('hovering');
-    }
-  });
-
-  // Hide when leaving window
-  document.addEventListener('mouseleave', () => {
-    dot.classList.add('hidden');
-    ring.classList.add('hidden');
-  });
-  document.addEventListener('mouseenter', () => {
-    dot.classList.remove('hidden');
-    ring.classList.remove('hidden');
-  });
-})();
+// Custom cursor removed
 
 
 // ── System Health Monitor ─────────────────────────────────────────
