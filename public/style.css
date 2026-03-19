@@ -1737,7 +1737,7 @@ body {
    ======================================== */
 
 #infrastructure {
-  padding: 120px 0;
+  padding: 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -1950,13 +1950,13 @@ body {
 
 .origins-strip-row {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 2px;
 }
 
 .origins-strip-labels {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 2px;
   margin-top: 8px;
 }
@@ -2000,11 +2000,6 @@ body {
   max-width: 640px;
   line-height: 1.7;
 }
-
-/* ========================================
-   LAB / PROTOTYPES GRID
-   ======================================== */
-
 
 @media (max-width: 768px) {
   .origins-strip-row { grid-template-columns: repeat(4, 1fr); }
@@ -2508,55 +2503,6 @@ body {
 }
 
 /* ========================================
-   SOCIAL PROOF BAR
-   ======================================== */
-
-#social-proof {
-  padding: 28px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.social-proof-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 48px;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.social-proof-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  white-space: nowrap;
-}
-
-.social-proof-logos {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-  flex-wrap: wrap;
-}
-
-.social-proof-logo {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  color: var(--text-dim);
-  opacity: 0.45;
-  transition: opacity 0.3s ease;
-}
-
-.social-proof-logo:hover {
-  opacity: 0.8;
-}
-
-/* ========================================
    CONTACT FORM
    ======================================== */
 
@@ -2660,6 +2606,10 @@ body {
   background: rgba(0,0,0,0.03);
 }
 
+#philosophy .philosophy-card-hero {
+  background: rgba(0,0,0,0.04);
+}
+
 #philosophy .philosophy-number {
   color: var(--blue);
 }
@@ -2722,11 +2672,6 @@ body {
   .proof-photos { margin: 24px 0; }
   .proof-photo { aspect-ratio: 16/9; }
   .case-study { margin-bottom: 32px; }
-
-  /* Social proof */
-  .social-proof-inner { flex-direction: column; padding: 0 24px; gap: 12px; }
-  .social-proof-logos { gap: 20px; justify-content: center; }
-  .social-proof-logo { font-size: 10px; letter-spacing: 3px; }
 
   /* Contact form */
   .contact-form-row { grid-template-columns: 1fr; }
