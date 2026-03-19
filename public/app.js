@@ -11,10 +11,10 @@
 
   let progress = 0;
   const interval = setInterval(() => {
-    progress += Math.random() * 18 + 5;
+    progress += Math.random() * 30 + 15;
     if (progress > 95) progress = 95;
     bar.style.width = progress + '%';
-  }, 200);
+  }, 80);
 
   window.addEventListener('load', () => {
     clearInterval(interval);
@@ -22,15 +22,15 @@
     setTimeout(() => {
       loader.classList.add('done');
       document.body.style.overflow = '';
-    }, 600);
+    }, 200);
   });
 
-  // Safety fallback — never block more than 4s
+  // Safety fallback — never block more than 800ms
   setTimeout(() => {
     clearInterval(interval);
     bar.style.width = '100%';
     loader.classList.add('done');
-  }, 4000);
+  }, 800);
 })();
 
 
@@ -211,7 +211,7 @@
     zoomControl: false,
     attributionControl: false,
     dragging: true,
-    scrollWheelZoom: true,
+    scrollWheelZoom: false,
     doubleClickZoom: true,
     touchZoom: true,
     keyboard: true,
@@ -786,255 +786,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 })();
 
 
-// ── Trends Dashboard ──────────────────────────────────────────────
-
-(function initTrendsDashboard() {
-  const mapContainer = document.getElementById('trendsMap');
-  const listContainer = document.getElementById('trendsList');
-  const regionsContainer = document.getElementById('trendsRegions');
-  const clockBar = document.getElementById('trendsClockBar');
-  const exchangeBar = document.getElementById('trendsExchangeBar');
-  const refreshBtn = document.getElementById('trendsRefresh');
-  const lastUpdateEl = document.getElementById('trendsLastUpdate');
-  if (!mapContainer || !window.L) return;
-
-  // ── World Clock ──
-  const clockCities = [
-    { name: 'Los Angeles', tz: 'America/Los_Angeles' },
-    { name: 'New York', tz: 'America/New_York' },
-    { name: 'London', tz: 'Europe/London' },
-    { name: 'Dubai', tz: 'Asia/Dubai' },
-    { name: 'Bangkok', tz: 'Asia/Bangkok', home: true },
-    { name: 'Singapore', tz: 'Asia/Singapore' },
-    { name: 'Shanghai', tz: 'Asia/Shanghai' },
-    { name: 'Tokyo', tz: 'Asia/Tokyo' },
-    { name: 'Sydney', tz: 'Australia/Sydney' },
-  ];
-
-  function renderClocks() {
-    if (!clockBar) return;
-    clockBar.innerHTML = '';
-    clockCities.forEach(city => {
-      const now = new Date();
-      const timeFmt = new Intl.DateTimeFormat('en-GB', {
-        timeZone: city.tz, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-      });
-      const dateFmt = new Intl.DateTimeFormat('en-GB', {
-        timeZone: city.tz, day: '2-digit', month: 'short'
-      });
-      const el = document.createElement('div');
-      el.className = 'trends-clock-city' + (city.home ? ' is-home' : '');
-      el.innerHTML = `
-        <span class="trends-clock-name">${city.name}</span>
-        <span class="trends-clock-time">${timeFmt.format(now)}</span>
-        <span class="trends-clock-date">${dateFmt.format(now)}</span>
-      `;
-      clockBar.appendChild(el);
-    });
-  }
-
-  renderClocks();
-  setInterval(renderClocks, 1000);
-
-  // ── Exchange Rates (real, from open API) ──
-  const exchangePairs = [
-    { from: 'USD', to: 'THB', label: 'USD/THB' },
-    { from: 'EUR', to: 'THB', label: 'EUR/THB' },
-    { from: 'GBP', to: 'THB', label: 'GBP/THB' },
-    { from: 'JPY', to: 'THB', label: 'JPY/THB', scale: 100 },
-    { from: 'CNY', to: 'THB', label: 'CNY/THB' },
-    { from: 'AED', to: 'THB', label: 'AED/THB' },
-    { from: 'USD', to: 'EUR', label: 'USD/EUR' },
-    { from: 'BTC', to: 'USD', label: 'BTC/USD', crypto: true },
-  ];
-
-  function fetchExchangeRates() {
-    if (!exchangeBar) return;
-
-    // Fetch THB rates from open API
-    fetch('https://open.er-api.com/v6/latest/USD')
-      .then(r => r.json())
-      .then(data => {
-        if (data.result !== 'success') throw new Error('API error');
-        const rates = data.rates;
-        exchangeBar.innerHTML = '';
-
-        exchangePairs.forEach(pair => {
-          if (pair.crypto) {
-            // BTC from a separate source — skip or show placeholder
-            const el = document.createElement('div');
-            el.className = 'trends-exchange-item';
-            el.innerHTML = `<span class="trends-exchange-pair">${pair.label}</span><span class="trends-exchange-rate">—</span>`;
-            exchangeBar.appendChild(el);
-            return;
-          }
-          let rate;
-          if (pair.from === 'USD') {
-            rate = rates[pair.to];
-          } else if (pair.to === 'THB') {
-            // Cross rate: FROM/THB = THB_rate / FROM_rate
-            rate = rates['THB'] / rates[pair.from];
-          } else {
-            rate = rates[pair.to] / rates[pair.from];
-          }
-          if (pair.scale) rate = rate * pair.scale;
-
-          const el = document.createElement('div');
-          el.className = 'trends-exchange-item';
-          el.innerHTML = `
-            <span class="trends-exchange-pair">${pair.label}${pair.scale ? ' (per ' + pair.scale + ')' : ''}</span>
-            <span class="trends-exchange-rate">${rate.toFixed(rate > 100 ? 2 : 4)}</span>
-          `;
-          exchangeBar.appendChild(el);
-        });
-
-        // Also try BTC
-        fetch('https://api.coindesk.com/v1/bpi/currentprice/USD.json')
-          .then(r => r.json())
-          .then(btc => {
-            const btcItem = exchangeBar.querySelector('.trends-exchange-item:last-child');
-            if (btcItem && btc.bpi && btc.bpi.USD) {
-              const price = btc.bpi.USD.rate_float;
-              btcItem.querySelector('.trends-exchange-rate').textContent = '$' + Math.round(price).toLocaleString();
-            }
-          }).catch(() => {});
-
-        if (lastUpdateEl) {
-          const now = new Date();
-          const fmt = new Intl.DateTimeFormat('en-GB', {
-            hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Bangkok'
-          });
-          lastUpdateEl.textContent = 'Last refresh: ' + fmt.format(now) + ' BKK';
-        }
-      })
-      .catch(() => {
-        exchangeBar.innerHTML = '<span class="trends-exchange-loading">Exchange rates unavailable</span>';
-      });
-  }
-
-  fetchExchangeRates();
-
-  // ── Refresh button ──
-  if (refreshBtn) {
-    refreshBtn.addEventListener('click', () => {
-      refreshBtn.classList.add('spinning');
-      fetchExchangeRates();
-      setTimeout(() => refreshBtn.classList.remove('spinning'), 900);
-    });
-  }
-
-  // Auto-refresh every 5 minutes
-  setInterval(fetchExchangeRates, 300000);
-
-  // ── Map ──
-  const map = L.map(mapContainer, {
-    center: [20, 40],
-    zoom: 2,
-    zoomControl: false,
-    attributionControl: false,
-    dragging: true,
-    scrollWheelZoom: false,
-  });
-
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
-    maxZoom: 18,
-  }).addTo(map);
-
-  // Heatmap hotspots
-  const hotspots = [
-    { lat: 13.75, lng: 100.50, intensity: 0.95, label: 'Bangkok' },
-    { lat: 7.88, lng: 98.39, intensity: 0.7, label: 'Phuket' },
-    { lat: 1.35, lng: 103.82, intensity: 0.85, label: 'Singapore' },
-    { lat: 25.20, lng: 55.27, intensity: 0.8, label: 'Dubai' },
-    { lat: 24.71, lng: 46.67, intensity: 0.6, label: 'Riyadh' },
-    { lat: 35.68, lng: 139.69, intensity: 0.75, label: 'Tokyo' },
-    { lat: 37.57, lng: 126.98, intensity: 0.7, label: 'Seoul' },
-    { lat: 22.30, lng: 114.17, intensity: 0.65, label: 'Hong Kong' },
-    { lat: 51.51, lng: -0.13, intensity: 0.6, label: 'London' },
-    { lat: 48.86, lng: 2.35, intensity: 0.55, label: 'Paris' },
-    { lat: 40.71, lng: -74.01, intensity: 0.65, label: 'New York' },
-    { lat: 37.77, lng: -122.42, intensity: 0.7, label: 'San Francisco' },
-    { lat: -33.87, lng: 151.21, intensity: 0.45, label: 'Sydney' },
-    { lat: 3.14, lng: 101.69, intensity: 0.6, label: 'Kuala Lumpur' },
-    { lat: 14.60, lng: 120.98, intensity: 0.5, label: 'Manila' },
-    { lat: 28.61, lng: 77.21, intensity: 0.7, label: 'Delhi' },
-    { lat: 31.23, lng: 121.47, intensity: 0.8, label: 'Shanghai' },
-    { lat: 39.90, lng: 116.40, intensity: 0.75, label: 'Beijing' },
-    { lat: 52.52, lng: 13.41, intensity: 0.5, label: 'Berlin' },
-    { lat: 59.33, lng: 18.07, intensity: 0.55, label: 'Stockholm' },
-  ];
-
-  hotspots.forEach(h => {
-    const radius = h.intensity * 25 + 8;
-    const color = h.intensity > 0.7 ? '#2563ff' : h.intensity > 0.5 ? '#6b8aff' : '#4a5568';
-
-    L.circleMarker([h.lat, h.lng], {
-      radius: radius + 8, fillColor: color, fillOpacity: h.intensity * 0.12,
-      stroke: false, interactive: false,
-    }).addTo(map);
-
-    L.circleMarker([h.lat, h.lng], {
-      radius: radius, fillColor: color, fillOpacity: h.intensity * 0.35,
-      color: color, weight: 1, opacity: 0.3, interactive: false,
-    }).addTo(map);
-
-    L.circleMarker([h.lat, h.lng], {
-      radius: 3, fillColor: '#fff', fillOpacity: h.intensity * 0.7,
-      stroke: false, interactive: false,
-    }).addTo(map);
-  });
-
-  // Trending topics
-  const trends = [
-    { name: 'Smart City Governance', pct: 87, change: '+12%', dir: 'up' },
-    { name: 'Digital Twin Infrastructure', pct: 74, change: '+28%', dir: 'up' },
-    { name: 'Urban AI Monitoring', pct: 68, change: '+15%', dir: 'up' },
-    { name: 'IoT Sensor Networks', pct: 61, change: '+8%', dir: 'up' },
-    { name: 'Citizen Engagement Tech', pct: 55, change: '+22%', dir: 'up' },
-    { name: 'Geospatial Analytics', pct: 48, change: '+5%', dir: 'up' },
-    { name: 'Open Data Platforms', pct: 42, change: '-3%', dir: 'down' },
-  ];
-
-  if (listContainer) {
-    trends.forEach(t => {
-      const el = document.createElement('div');
-      el.className = 'trend-item';
-      el.innerHTML = `
-        <span class="trend-name">${t.name}</span>
-        <div class="trend-bar-wrap">
-          <div class="trend-bar"><div class="trend-bar-inner" style="width:${t.pct}%"></div></div>
-          <span class="trend-change ${t.dir}">${t.change}</span>
-        </div>
-      `;
-      listContainer.appendChild(el);
-    });
-  }
-
-  // Regional activity
-  const regions = [
-    { name: 'Southeast Asia', heat: [3, 3, 2, 2, 3] },
-    { name: 'Middle East', heat: [2, 3, 2, 1, 2] },
-    { name: 'East Asia', heat: [3, 2, 3, 2, 2] },
-    { name: 'Europe', heat: [1, 2, 1, 2, 1] },
-    { name: 'North America', heat: [2, 1, 2, 3, 2] },
-  ];
-
-  if (regionsContainer) {
-    regions.forEach(r => {
-      const el = document.createElement('div');
-      el.className = 'region-item';
-      const heatCells = r.heat.map(h =>
-        `<div class="region-heat-cell ${h === 3 ? 'hot' : h === 2 ? 'warm' : ''}"></div>`
-      ).join('');
-      el.innerHTML = `
-        <span class="region-name">${r.name}</span>
-        <div class="region-heat">${heatCells}</div>
-      `;
-      regionsContainer.appendChild(el);
-    });
-  }
-})();
-
+// ── Trends Dashboard (removed) ──
 
 // ── Humanities Art Background (Getty Open Content) ──────────────────
 
@@ -1048,17 +800,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   // Curated public domain masterworks — high-res from Wikimedia Commons
   const artworks = [
     { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1920px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg', title: 'The Starry Night', artist: 'Vincent van Gogh, 1889' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/VanGogh-starry_night_ballance1.jpg/1920px-VanGogh-starry_night_ballance1.jpg', title: 'Starry Night Over the Rh\u00f4ne', artist: 'Vincent van Gogh, 1888' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/1440px-1665_Girl_with_a_Pearl_Earring.jpg', title: 'Girl with a Pearl Earring', artist: 'Johannes Vermeer, 1665' },
     { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1440px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg', title: 'Mona Lisa', artist: 'Leonardo da Vinci, 1503' },
     { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/The_Great_Wave_off_Kanagawa.jpg/1920px-The_Great_Wave_off_Kanagawa.jpg', title: 'The Great Wave off Kanagawa', artist: 'Katsushika Hokusai, 1831' },
     { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Monet_-_Impression%2C_Sunrise.jpg/1920px-Monet_-_Impression%2C_Sunrise.jpg', title: 'Impression, Sunrise', artist: 'Claude Monet, 1872' },
     { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Scream.jpg/1440px-The_Scream.jpg', title: 'The Scream', artist: 'Edvard Munch, 1893' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/1920px-Tsunami_by_hokusai_19th_century.jpg', title: 'The Great Wave (variant)', artist: 'Katsushika Hokusai, c.1830' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Adolphe_William_Bouguereau_-_The_Nut_Gatherers_-_1882.jpg/1440px-Adolphe_William_Bouguereau_-_The_Nut_Gatherers_-_1882.jpg', title: 'The Nut Gatherers', artist: 'William Bouguereau, 1882' },
     { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/1440px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg', title: 'Wanderer Above the Sea of Fog', artist: 'Caspar David Friedrich, 1818' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Salvator_Rosa_-_Witches_at_their_Incantations_-_Google_Art_Project.jpg/1920px-Salvator_Rosa_-_Witches_at_their_Incantations_-_Google_Art_Project.jpg', title: 'Witches at their Incantations', artist: 'Salvator Rosa, 1646' },
     { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Gustave_Caillebotte_-_Jour_de_pluie_%C3%A0_Paris.jpg/1920px-Gustave_Caillebotte_-_Jour_de_pluie_%C3%A0_Paris.jpg', title: 'Paris Street; Rainy Day', artist: 'Gustave Caillebotte, 1877' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1920px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg', title: 'The Birth of Venus', artist: 'Sandro Botticelli, 1485' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Whistler%27s_Mother_high_res.jpg/1920px-Whistler%27s_Mother_high_res.jpg', title: "Whistler's Mother", artist: 'James McNeill Whistler, 1871' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image-Blanche_Monet_et_Suzanne_Hosched%C3%A9_%28detail%29_Claude_Monet.jpg/1440px-Image-Blanche_Monet_et_Suzanne_Hosched%C3%A9_%28detail%29_Claude_Monet.jpg', title: 'In the Woods at Giverny', artist: 'Claude Monet, 1887' },
   ];
 
   let index = 0;
@@ -1411,3 +1161,59 @@ console.log('%c Harvard · Oxford · MIT · Chiang Mai University ', 'color: #4a
 console.log('%c —————————————————————————————————— ', 'color: #1a1a2a;');
 console.log('%c If you\'re reading this, we should probably talk. ', 'color: #2563ff; font-size: 12px; font-family: monospace;');
 console.log('%c axiomaxiom.corp@gmail.com ', 'color: #eeeef0; font-size: 11px; font-family: monospace;');
+
+
+// ── Contact Form (Formspree) ──────────────────────────────────────
+
+(function initContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const origHTML = btn.innerHTML;
+    btn.innerHTML = '<span>Sending...</span>';
+    btn.disabled = true;
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.innerHTML = '<div class="contact-form-success">Message sent. We\'ll be in touch.</div>';
+      } else {
+        btn.innerHTML = origHTML;
+        btn.disabled = false;
+        alert('Something went wrong. Please email us directly at axiomaxiom.corp@gmail.com');
+      }
+    }).catch(() => {
+      btn.innerHTML = origHTML;
+      btn.disabled = false;
+      alert('Network error. Please email us directly at axiomaxiom.corp@gmail.com');
+    });
+  });
+})();
+
+
+// ── Team Bio Read-More (mobile) ───────────────────────────────────
+
+(function initBioReadMore() {
+  if (window.innerWidth > 768) return;
+
+  document.querySelectorAll('.team-card p').forEach(function(p) {
+    if (p.textContent.length < 120) return;
+
+    p.classList.add('bio-truncated');
+    const btn = document.createElement('button');
+    btn.className = 'team-read-more';
+    btn.textContent = 'Read more';
+    btn.addEventListener('click', function() {
+      const expanded = p.classList.toggle('bio-expanded');
+      p.classList.toggle('bio-truncated', !expanded);
+      btn.textContent = expanded ? 'Show less' : 'Read more';
+    });
+    p.parentNode.insertBefore(btn, p.nextSibling);
+  });
+})();
