@@ -2929,3 +2929,98 @@ body {
   .team-credentials { gap: 4px; }
   .team-credentials span { font-size: 9px; padding: 2px 6px; }
 }
+
+/* ========================================
+   TIME MACHINE — Design Version Switcher
+   ======================================== */
+
+.theme-switcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: var(--font);
+}
+
+.theme-switcher-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-active);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s var(--ease);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+}
+
+.theme-switcher-toggle:hover {
+  color: var(--text);
+  transform: scale(1.08);
+}
+
+.theme-switcher-panel {
+  position: absolute;
+  bottom: 52px;
+  right: 0;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 8px;
+  min-width: 200px;
+  display: none;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+}
+
+.theme-switcher-panel.open {
+  display: block;
+}
+
+.theme-switcher-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 8px 10px 6px;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: var(--font);
+  color: var(--text-secondary);
+  transition: background 0.2s ease;
+  text-align: left;
+}
+
+.theme-option:hover {
+  background: var(--surface);
+}
+
+.theme-option.active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.theme-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  border: 1px solid rgba(128,128,128,0.3);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .theme-switcher { bottom: 16px; right: 16px; }
+  .theme-switcher-toggle { width: 36px; height: 36px; }
+}

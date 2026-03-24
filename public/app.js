@@ -2,6 +2,51 @@
    AXIOM — Landing Page
    ======================================== */
 
+// ── Time Machine — Design Version Switcher ───────────────────────
+
+(function initThemeSwitcher() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var toggle = document.getElementById('themeSwitcherToggle');
+    var panel = document.getElementById('themeSwitcherPanel');
+    var options = document.querySelectorAll('.theme-option');
+    if (!toggle || !panel) return;
+
+    var current = localStorage.getItem('axiom-theme') || 'v1';
+
+    function setActive(theme) {
+      options.forEach(function(o) {
+        o.classList.toggle('active', o.dataset.theme === theme);
+      });
+    }
+    setActive(current);
+
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      panel.classList.toggle('open');
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.theme-switcher')) panel.classList.remove('open');
+    });
+
+    options.forEach(function(option) {
+      option.addEventListener('click', function() {
+        var theme = option.dataset.theme;
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('axiom-theme', theme);
+        setActive(theme);
+        panel.classList.remove('open');
+        // Force repaint for CSS variable cascade
+        document.body.style.display = 'none';
+        void document.body.offsetHeight;
+        document.body.style.display = '';
+        window.dispatchEvent(new CustomEvent('axiom-theme-change', { detail: { theme: theme } }));
+      });
+    });
+  });
+})();
+
+
 // ── Loading Screen ────────────────────────────────────────────────
 
 (function initLoader() {
@@ -308,6 +353,27 @@
       }
     });
   });
+
+  // Theme-aware map layer switching
+  function switchMapLayer(layerName) {
+    if (tileLayers[layerName] && tileLayers[layerName] !== activeLayer) {
+      map.removeLayer(activeLayer);
+      activeLayer = tileLayers[layerName];
+      activeLayer.addTo(map);
+      document.querySelectorAll('.sat-btn[data-layer]').forEach(b => b.classList.remove('sat-btn-active'));
+      const btn = document.querySelector('.sat-btn[data-layer="' + layerName + '"]');
+      if (btn) btn.classList.add('sat-btn-active');
+    }
+  }
+
+  window.addEventListener('axiom-theme-change', function(e) {
+    switchMapLayer(e.detail.theme === 'v2' ? 'terrain' : 'satellite');
+  });
+
+  // Apply initial theme layer
+  if (document.documentElement.getAttribute('data-theme') === 'v2') {
+    switchMapLayer('terrain');
+  }
 
   // ── 1km Grid Overlay ──
 
