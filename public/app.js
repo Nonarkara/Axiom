@@ -776,33 +776,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   index = 1;
 
   function crossfade() {
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = function() {
-      nextLayer.style.backgroundImage = `url(${artworks[index].url})`;
-      nextLayer.classList.add('humanities-art-active');
-      activeLayer.classList.remove('humanities-art-active');
-      const tmp = activeLayer;
-      activeLayer = nextLayer;
-      nextLayer = tmp;
-      updateLabel(index);
-      index = (index + 1) % artworks.length;
-    };
-    img.onerror = function() {
-      // Skip broken image, advance to next
-      index = (index + 1) % artworks.length;
-      crossfade();
-    };
-    img.src = artworks[index].url;
+    nextLayer.style.backgroundImage = `url(${artworks[index].url})`;
+    nextLayer.classList.add('humanities-art-active');
+    activeLayer.classList.remove('humanities-art-active');
+    const tmp = activeLayer;
+    activeLayer = nextLayer;
+    nextLayer = tmp;
+    updateLabel(index);
+    index = (index + 1) % artworks.length;
   }
 
   function resetTimer() {
     clearInterval(timer);
-    timer = setInterval(crossfade, 3000);
+    timer = setInterval(crossfade, 5000);
   }
 
   // Auto-rotate
-  timer = setInterval(crossfade, 3000);
+  timer = setInterval(crossfade, 5000);
 
   // Manual next button
   if (nextBtn) {

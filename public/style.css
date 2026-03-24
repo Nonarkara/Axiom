@@ -1736,43 +1736,6 @@ body {
    INFRASTRUCTURE
    ======================================== */
 
-#infrastructure {
-  padding: 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.infra-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border: 1px solid var(--border);
-}
-
-.infra-item {
-  padding: 32px;
-  border-right: 1px solid var(--border);
-  font-family: var(--mono);
-}
-
-.infra-item:last-child { border-right: none; }
-
-.infra-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--text-dim);
-  margin-bottom: 8px;
-}
-
-.infra-value {
-  font-size: 14px;
-  color: var(--text-secondary);
-}
-
-@media (max-width: 768px) {
-  .infra-grid { grid-template-columns: 1fr; }
-  .infra-item { border-right: none; border-bottom: 1px solid var(--border); }
-  .infra-item:last-child { border-bottom: none; }
-}
 
 /* ========================================
    CTA — Clean, direct
@@ -2502,6 +2465,24 @@ body {
   transform: translateY(0);
 }
 
+.projects-see-all {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--blue);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  margin-top: 2px;
+  transition: background 0.3s ease;
+}
+
+.projects-see-all:hover {
+  background: rgba(37, 99, 255, 0.06);
+}
+
 /* ========================================
    CONTACT FORM
    ======================================== */
@@ -2659,6 +2640,9 @@ body {
   /* Hide iframe embeds on mobile — not interactive anyway */
   .project-embed { display: none; }
   .project-card { border-bottom: 1px solid var(--border); }
+  /* Show only top 4 projects on mobile */
+  .project-card:nth-child(n+5) { display: none; }
+  .projects-see-all { display: block; }
 
   /* UAV tighter */
   .uav-hero { min-height: 40vh; }
@@ -2733,9 +2717,6 @@ body {
   .project-title { font-size: 18px; }
   .project-desc { font-size: 13px; }
   .project-info { padding: 24px 20px; }
-
-  /* Infrastructure */
-  .infra-value { font-size: 14px; }
 
   /* CTA commitments */
   .cta-commitments { gap: 8px; flex-wrap: wrap; }
@@ -2932,37 +2913,8 @@ body {
   caret-color: var(--blue);
 }
 
-/* Keyboard shortcuts hint */
-.kbd-hint {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--text-dim);
-  opacity: 0.4;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.kbd-hint:hover { opacity: 0.8; pointer-events: auto; }
-
-kbd {
-  display: inline-block;
-  padding: 1px 5px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.04);
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--text-secondary);
-}
 
 @media (max-width: 768px) {
-  .kbd-hint { display: none; }
   .terminal-ascii { font-size: 7px; }
   .terminal-window { max-height: 90vh; }
 }

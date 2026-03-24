@@ -404,30 +404,11 @@
         </a>
 
       </div>
+      <a href="#projects" class="projects-see-all" onclick="document.querySelectorAll('.project-card').forEach(c=>c.style.display='');this.style.display='none';return false;">See all 7 systems &rarr;</a>
     </div>
   </section>
 
-  <!-- Infrastructure -->
-  <section id="infrastructure">
-    <div class="section-container">
-      <div class="infra-grid">
-        <div class="infra-item">
-          <div class="infra-label">Platform</div>
-          <div class="infra-value">Render Cloud Services</div>
-        </div>
-        <div class="infra-item">
-          <div class="infra-label">Uptime</div>
-          <div class="infra-value">99.9% &mdash; 24/7 Monitoring</div>
-        </div>
-        <div class="infra-item">
-          <div class="infra-label">Architecture</div>
-          <div class="infra-value">Distributed &middot; Auto-scaling &middot; Zero Lock-in</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- System Health — Live Monitoring (from OS Dashboard) -->
+  <!-- System Health — Live Monitoring -->
   <section id="health">
     <div class="section-container">
       <div class="health-header">
@@ -878,14 +859,6 @@
         <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false" autofocus>
       </div>
     </div>
-  </div>
-
-  <!-- Keyboard shortcuts hint -->
-  <div class="kbd-hint" id="kbdHint">
-    <span>Press <kbd>/</kbd> for terminal</span>
-    <span>·</span>
-    <span><kbd>G</kbd> grid</span>
-    <span><kbd>1-4</kbd> layers</span>
   </div>
 
   <script src="app.js"></script>
