@@ -671,15 +671,11 @@ body {
 
 @media (max-width: 768px) {
   .sat-hud {
-    left: 16px;
-    bottom: 200px;
-    min-width: 0;
-    max-width: calc(100% - 32px);
-    padding: 8px 12px;
-    gap: 4px;
+    display: none;
   }
-  .sat-hud-coord { font-size: 10px; }
-  .sat-hud-row { gap: 8px; }
+  .sat-controls {
+    display: none;
+  }
 }
 
 .sat-btn {
@@ -2727,9 +2723,6 @@ body {
   .map-mode-label { font-size: 9px; }
   .map-explore-hint { bottom: 90px; font-size: 10px; }
 
-  /* Sat controls */
-  .sat-controls { flex-wrap: wrap; gap: 4px; padding: 6px 8px; }
-  .sat-source-note { display: none; }
 
   /* Health grid */
   .health-grid { grid-template-columns: 1fr; }
