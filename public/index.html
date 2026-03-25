@@ -866,17 +866,25 @@
   <!-- Time Machine — Design Version Switcher -->
   <div class="theme-switcher" id="themeSwitcher">
     <button class="theme-switcher-toggle" id="themeSwitcherToggle" aria-label="Switch design version">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <svg class="tm-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span class="tm-label" id="tmLabel">v2</span>
     </button>
     <div class="theme-switcher-panel" id="themeSwitcherPanel">
       <div class="theme-switcher-title">Time Machine</div>
-      <button class="theme-option" data-theme="v1">
-        <span class="theme-swatch" style="background:#08080c"></span>
-        <span>v1 — Command Center</span>
-      </button>
-      <button class="theme-option" data-theme="v2">
+      <div class="theme-switcher-desc">Each version is a different design era. More coming.</div>
+      <button class="theme-option" data-theme="v2" data-label="v2">
         <span class="theme-swatch" style="background:#fafafa;border-color:rgba(0,0,0,0.15)"></span>
-        <span>v2 — Ive / Rams</span>
+        <span class="theme-option-text">
+          <strong>v2</strong> &mdash; Ive / Rams
+          <small>Light, minimal, less but better</small>
+        </span>
+      </button>
+      <button class="theme-option" data-theme="v1" data-label="v1">
+        <span class="theme-swatch" style="background:#08080c"></span>
+        <span class="theme-option-text">
+          <strong>v1</strong> &mdash; Command Center
+          <small>Dark, technical, satellite HUD</small>
+        </span>
       </button>
     </div>
   </div>

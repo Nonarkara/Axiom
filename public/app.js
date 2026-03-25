@@ -8,15 +8,17 @@
   document.addEventListener('DOMContentLoaded', function() {
     var toggle = document.getElementById('themeSwitcherToggle');
     var panel = document.getElementById('themeSwitcherPanel');
+    var label = document.getElementById('tmLabel');
     var options = document.querySelectorAll('.theme-option');
     if (!toggle || !panel) return;
 
-    var current = localStorage.getItem('axiom-theme') || 'v1';
+    var current = localStorage.getItem('axiom-theme') || 'v2';
 
     function setActive(theme) {
       options.forEach(function(o) {
         o.classList.toggle('active', o.dataset.theme === theme);
       });
+      if (label) label.textContent = theme;
     }
     setActive(current);
 
