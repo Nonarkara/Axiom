@@ -813,18 +813,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   const artLabel = document.getElementById('humanitiesArtLabel');
   if (!layerA || !layerB) return;
 
-  // Curated public domain masterworks — high-res from Wikimedia Commons
+  // Curated public domain masterworks — self-hosted from Wikimedia Commons
   const artworks = [
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1920px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg', title: 'The Starry Night', artist: 'Vincent van Gogh, 1889' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1440px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg', title: 'Mona Lisa', artist: 'Leonardo da Vinci, 1503' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/The_Great_Wave_off_Kanagawa.jpg/1920px-The_Great_Wave_off_Kanagawa.jpg', title: 'The Great Wave off Kanagawa', artist: 'Katsushika Hokusai, 1831' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Monet_-_Impression%2C_Sunrise.jpg/1920px-Monet_-_Impression%2C_Sunrise.jpg', title: 'Impression, Sunrise', artist: 'Claude Monet, 1872' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Scream.jpg/1440px-The_Scream.jpg', title: 'The Scream', artist: 'Edvard Munch, 1893' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/1440px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg', title: 'Wanderer Above the Sea of Fog', artist: 'Caspar David Friedrich, 1818' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Gustave_Caillebotte_-_Jour_de_pluie_%C3%A0_Paris.jpg/1920px-Gustave_Caillebotte_-_Jour_de_pluie_%C3%A0_Paris.jpg', title: 'Paris Street; Rainy Day', artist: 'Gustave Caillebotte, 1877' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1920px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg', title: 'The Birth of Venus', artist: 'Sandro Botticelli, 1485' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Whistler%27s_Mother_high_res.jpg/1920px-Whistler%27s_Mother_high_res.jpg', title: "Whistler's Mother", artist: 'James McNeill Whistler, 1871' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image-Blanche_Monet_et_Suzanne_Hosched%C3%A9_%28detail%29_Claude_Monet.jpg/1440px-Image-Blanche_Monet_et_Suzanne_Hosched%C3%A9_%28detail%29_Claude_Monet.jpg', title: 'In the Woods at Giverny', artist: 'Claude Monet, 1887' },
+    { url: 'art/starry-night.jpg', title: 'The Starry Night', artist: 'Vincent van Gogh, 1889' },
+    { url: 'art/mona-lisa.jpg', title: 'Mona Lisa', artist: 'Leonardo da Vinci, 1503' },
+    { url: 'art/great-wave.jpg', title: 'The Great Wave off Kanagawa', artist: 'Katsushika Hokusai, 1831' },
+    { url: 'art/impression.jpg', title: 'Impression, Sunrise', artist: 'Claude Monet, 1872' },
+    { url: 'art/the-scream.jpg', title: 'The Scream', artist: 'Edvard Munch, 1893' },
+    { url: 'art/wanderer.jpg', title: 'Wanderer Above the Sea of Fog', artist: 'Caspar David Friedrich, 1818' },
+    { url: 'art/birth-of-venus.jpg', title: 'The Birth of Venus', artist: 'Sandro Botticelli, 1485' },
+    { url: 'art/whistler.jpg', title: "Whistler's Mother", artist: 'James McNeill Whistler, 1871' },
   ];
 
   let index = 0;
