@@ -2,6 +2,9 @@
   "name": "axiom-landing",
   "version": "1.0.0",
   "description": "Axiom AI - Landing Page",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "serve": "^14.2.0"
   },
