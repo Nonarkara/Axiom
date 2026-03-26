@@ -1237,6 +1237,40 @@ body {
   letter-spacing: 1px;
 }
 
+.project-version {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--blue);
+  background: var(--blue-dim);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.project-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.project-spec {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  background: var(--surface);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+}
+
+.status-dot-maint {
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
 .project-arrow {
   position: absolute;
   top: 56px;

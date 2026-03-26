@@ -306,6 +306,22 @@
   border-color: var(--border);
 }
 
+[data-theme="v2"] .project-version {
+  color: var(--blue);
+  background: rgba(0, 102, 204, 0.06);
+}
+
+[data-theme="v2"] .project-spec {
+  background: rgba(0,0,0,0.03);
+  border-color: rgba(0,0,0,0.06);
+  color: var(--text-secondary);
+}
+
+[data-theme="v2"] .status-dot-maint {
+  background: #d97706;
+  box-shadow: none;
+}
+
 [data-theme="v2"] .status-dot-live {
   background: var(--green);
   box-shadow: none;
