@@ -1673,6 +1673,123 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
+/* ========================================
+   SLIC INDEX LAUNCH
+   ======================================== */
+
+.launch-hero {
+  position: relative;
+  min-height: 50vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.launch-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.launch-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 8, 12, 0.9) 0%, rgba(8, 8, 12, 0.3) 50%, rgba(8, 8, 12, 0.1) 100%);
+}
+
+.launch-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 48px;
+  padding-top: 80px;
+}
+
+.launch-hero-title {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: white;
+}
+
+.launch-stats {
+  display: flex;
+  gap: 48px;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.launch-stat-value {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+}
+
+.launch-stat-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 6px;
+}
+
+.launch-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  padding: 48px 0 0;
+}
+
+.launch-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.launch-quote {
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text);
+  border-left: 3px solid var(--blue);
+  padding-left: 20px;
+  margin: 32px 0 0;
+}
+
+.launch-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.launch-photos img {
+  width: 100%;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .launch-hero { min-height: 40vh; }
+  .launch-stats { gap: 24px; flex-wrap: wrap; }
+  .launch-stat-value { font-size: 28px; }
+  .launch-body { grid-template-columns: 1fr; gap: 32px; }
+  .launch-text p { font-size: 14px; }
+  .launch-quote { font-size: 16px; }
+}
+
+/* ========================================
+   TEAM
+   ======================================== */
+
 .team-founders-photo {
   margin-bottom: 48px;
   text-align: center;

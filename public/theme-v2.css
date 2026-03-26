@@ -572,6 +572,24 @@
   color: var(--text-dim);
 }
 
+/* ── Launch ─────────────────────────────────────────────────────── */
+
+[data-theme="v2"] .launch-hero-overlay {
+  background: linear-gradient(to top, rgba(250,250,250,0.95) 0%, rgba(250,250,250,0.3) 50%, transparent 100%);
+}
+
+[data-theme="v2"] .launch-hero-title {
+  color: var(--text);
+  font-weight: 200;
+}
+
+[data-theme="v2"] .launch-quote {
+  border-left-color: var(--blue);
+  color: var(--text);
+}
+
+/* ── Team ──────────────────────────────────────────────────────── */
+
 [data-theme="v2"] .team-grid {
   border-color: var(--border);
 }
