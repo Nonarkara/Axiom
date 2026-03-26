@@ -809,6 +809,46 @@
   color: var(--blue);
 }
 
+/* ── Pro Bono ──────────────────────────────────────────────────── */
+
+[data-theme="v2"] .probono-card {
+  border-color: var(--border);
+}
+
+[data-theme="v2"] .probono-card:hover {
+  background: #fff;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+}
+
+[data-theme="v2"] .probono-title {
+  font-weight: 600;
+  color: var(--text);
+}
+
+[data-theme="v2"] .probono-org {
+  color: var(--blue);
+}
+
+/* ── Featured ──────────────────────────────────────────────────── */
+
+[data-theme="v2"] .featured-card {
+  border-color: var(--border);
+}
+
+[data-theme="v2"] .featured-card:hover {
+  background: #fff;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+}
+
+[data-theme="v2"] .featured-title {
+  font-weight: 600;
+  color: var(--text);
+}
+
+[data-theme="v2"] .featured-type {
+  color: var(--blue);
+}
+
 /* ── Canvas overlay — lighter for v2 ─────────────────────────────── */
 
 [data-theme="v2"] #heroCanvas {

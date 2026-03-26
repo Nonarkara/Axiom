@@ -369,12 +369,16 @@
   }
 
   window.addEventListener('axiom-theme-change', function(e) {
-    switchMapLayer(e.detail.theme === 'v2' ? 'terrain' : 'satellite');
+    var t = e.detail.theme;
+    switchMapLayer(t === 'v2' ? 'terrain' : t === 'v2.5' ? 'dark' : 'satellite');
   });
 
   // Apply initial theme layer
-  if (document.documentElement.getAttribute('data-theme') === 'v2') {
+  var initTheme = document.documentElement.getAttribute('data-theme');
+  if (initTheme === 'v2') {
     switchMapLayer('terrain');
+  } else if (initTheme === 'v2.5') {
+    switchMapLayer('dark');
   }
 
   // ── 1km Grid Overlay ──

@@ -2371,6 +2371,162 @@ body {
 }
 
 /* ========================================
+   PRO BONO
+   ======================================== */
+
+#probono {
+  padding: 100px 0 80px;
+  border-bottom: 1px solid var(--border);
+}
+
+.probono-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+.probono-card {
+  display: block;
+  padding: 48px 40px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+
+.probono-card:hover {
+  background: var(--surface);
+  border-color: var(--border-active);
+}
+
+.probono-org {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+.probono-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.probono-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.probono-for {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+@media (max-width: 768px) {
+  .probono-grid { grid-template-columns: 1fr; }
+  .probono-card { padding: 32px 24px; }
+  .probono-title { font-size: 18px; }
+}
+
+/* ========================================
+   FEATURED / PRESS
+   ======================================== */
+
+#featured {
+  padding: 100px 0 80px;
+  border-bottom: 1px solid var(--border);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.featured-card {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 32px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+
+.featured-card:hover {
+  background: var(--surface);
+  border-color: var(--border-active);
+}
+
+.featured-card-highlight {
+  grid-column: span 2;
+  padding: 48px 40px;
+}
+
+.featured-source {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.featured-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.featured-card-highlight .featured-title {
+  font-size: 26px;
+}
+
+.featured-excerpt {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: auto;
+  padding-bottom: 20px;
+}
+
+.featured-type {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.featured-card-video .featured-source::before {
+  content: '▶ ';
+  color: var(--red);
+}
+
+@media (max-width: 900px) {
+  .featured-grid { grid-template-columns: 1fr; }
+  .featured-card-highlight { grid-column: span 1; }
+  .featured-card-highlight .featured-title { font-size: 22px; }
+}
+
+@media (max-width: 768px) {
+  .featured-card { padding: 28px 24px; }
+  .featured-title { font-size: 18px; }
+}
+
+/* ========================================
    HUMANITIES / ART
    ======================================== */
 
