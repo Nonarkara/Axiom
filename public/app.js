@@ -96,9 +96,9 @@
     { name: 'Bangkok Smart City', url: 'https://smart-city-monitor-web.onrender.com' },
     { name: 'Middle East Monitor', url: 'https://middle-east-monitor.onrender.com' },
     { name: 'Phuket Dashboard', url: 'https://phuket-dashboard.onrender.com' },
-    { name: 'Geopolitics Dashboard', url: 'https://geopolitics-dashboard.onrender.com' },
+    { name: 'Geopolitics Dashboard', url: 'https://geopolitics-dashboard-sage.vercel.app' },
     { name: 'City Reporter Bot', url: 'https://city-reporter-line-bot.onrender.com' },
-    { name: 'Phuket Smart Bus', url: 'https://phuket-smart-bus-y6tj.onrender.com' },
+    { name: 'Phuket Smart Bus', url: 'https://phuket-smart-bus.vercel.app' },
     { name: 'SLIC Index v2', url: 'https://slic-index-v2.onrender.com' },
     { name: 'Dr. Non OS Dashboard', url: 'https://dr-non-operating-systems.onrender.com' },
   ];
