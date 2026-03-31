@@ -98,7 +98,7 @@
     { name: 'Phuket Dashboard', url: 'https://phuket-dashboard.onrender.com' },
     { name: 'Geopolitics Dashboard', url: 'https://geopolitics-dashboard-sage.vercel.app' },
     { name: 'City Reporter Bot', url: 'https://city-reporter-line-bot.onrender.com' },
-    { name: 'Phuket Smart Bus', url: 'https://phuket-smart-bus.vercel.app' },
+    { name: 'Phuket Smart Bus', url: 'https://phuket-smart-bus.vercel.app/ops' },
     { name: 'SLIC Index v2', url: 'https://slic-index-v2.onrender.com' },
     { name: 'Dr. Non OS Dashboard', url: 'https://dr-non-operating-systems.onrender.com' },
   ];
