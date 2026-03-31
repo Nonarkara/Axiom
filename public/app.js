@@ -101,6 +101,7 @@
     { name: 'Phuket Smart Bus', url: 'https://phuket-smart-bus.vercel.app/ops' },
     { name: 'SLIC Index v2', url: 'https://slic-index-v2.onrender.com' },
     { name: 'Dr. Non OS Dashboard', url: 'https://dr-non-operating-systems.onrender.com' },
+    { name: 'Muang Thong Thani Monitor', url: 'https://genuine-brioche-195c7f.netlify.app' },
   ];
 
   // Render initial cards
