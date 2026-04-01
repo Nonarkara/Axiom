@@ -12,7 +12,7 @@
     var options = document.querySelectorAll('.theme-option');
     if (!toggle || !panel) return;
 
-    var current = localStorage.getItem('axiom-theme') || 'v2';
+    var current = localStorage.getItem('axiom-theme') || 'v4';
 
     function setActive(theme) {
       options.forEach(function(o) {
@@ -371,14 +371,14 @@
 
   window.addEventListener('axiom-theme-change', function(e) {
     var t = e.detail.theme;
-    switchMapLayer(t === 'v2' ? 'terrain' : t === 'v2.5' ? 'dark' : 'satellite');
+    switchMapLayer(t === 'v2' ? 'terrain' : (t === 'v2.5' || t === 'v4') ? 'dark' : 'satellite');
   });
 
   // Apply initial theme layer
   var initTheme = document.documentElement.getAttribute('data-theme');
   if (initTheme === 'v2') {
     switchMapLayer('terrain');
-  } else if (initTheme === 'v2.5') {
+  } else if (initTheme === 'v2.5' || initTheme === 'v4') {
     switchMapLayer('dark');
   }
 
