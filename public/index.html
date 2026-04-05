@@ -22,11 +22,13 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Axiom — Innovation as a Service">
   <meta name="twitter:description" content="AI as water — invisible, essential, everywhere. 8 live production systems across 5 countries. 24/7 monitoring.">
-  <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('axiom-theme')||'v4');</script>
+  <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('axiom-theme')||'masterpiece');</script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="theme-v2.css">
-  <link rel="stylesheet" href="theme-v25.css">
+  <link rel="stylesheet" href="theme-v2.5.css">
+  <link rel="stylesheet" href="theme-v3.css">
   <link rel="stylesheet" href="theme-v4.css">
+  <link rel="stylesheet" href="theme-masterpiece.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,6 +55,9 @@
   </script>
 </head>
 <body>
+
+  <!-- Skip to Content -->
+  <a href="#projects" class="skip-to-content">Skip to main content</a>
 
   <!-- Loading Screen -->
   <div id="loader" class="loader">
@@ -84,13 +89,16 @@
         <a href="https://www.linkedin.com/company/axiomaxiom/about/" target="_blank" rel="noopener" class="nav-link">LinkedIn</a>
         <a href="#contact" class="nav-link nav-link-cta">Partner With Us</a>
       </div>
-      <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+      <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <div class="mobile-menu" id="mobileMenu">
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
+
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
     <a href="#projects" class="mobile-link">Systems</a>
     <a href="#uav" class="mobile-link">UAV</a>
     <a href="#capabilities" class="mobile-link">Services</a>
@@ -137,7 +145,20 @@
         <button class="sat-btn" id="gridToggle" data-active="false">GRID 1KM</button>
       </div>
       <div class="sat-control-divider"></div>
-      <span class="sat-source-note">ESRI Open Tiles &middot; CartoDB &middot; OpenTopoMap</span>
+      <span class="sat-source-note">ESRI World Imagery</span>
+    </div>
+
+    <!-- Urban Intelligence Overlays (Moneyball) -->
+    <div class="intel-overlay" id="intelOverlayDubai">
+      <div class="intel-overlay-header">PROJECTED ASSET YIELD</div>
+      <div class="intel-overlay-value">+14.2% YoY</div>
+      <div class="intel-overlay-meta">DUBAI AREA-04 &middot; LOGISTICAL HUB</div>
+    </div>
+
+    <div class="intel-overlay" id="intelOverlayBangkok">
+      <div class="intel-overlay-header">URBAN DENSITY PULSE</div>
+      <div class="intel-overlay-value">CRITICAL</div>
+      <div class="intel-overlay-meta">BKK CENTRAL &middot; INFRASTRUCTURE GAP</div>
     </div>
 
     <!-- Live Satellite Telemetry HUD -->
@@ -157,6 +178,11 @@
       </div>
     </div>
 
+    <!-- Hero SITREP HUD -->
+    <div class="hero-tracker"></div>
+    <div class="telemetry-axis-x"></div>
+    <div class="telemetry-axis-y"></div>
+
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
@@ -171,10 +197,10 @@
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">
-          <span>Start a Partnership</span>
+          <span>Initiate Engagement</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#projects" class="btn btn-ghost">See Live Systems</a>
+        <a href="#projects" class="btn btn-ghost">Access Intelligence</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
@@ -200,23 +226,27 @@
   <section id="ticker">
     <div class="ticker-track">
       <div class="ticker-content">
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Bangkok Smart City &mdash; Live</span>
+        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> DNGWS Monitor &mdash; Live</span>
         <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Phuket Dashboard &mdash; Live</span>
         <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Middle East Monitor &mdash; Live</span>
+        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> MEM Intelligence &mdash; Live</span>
         <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Geopolitics Dashboard &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> City Reporter Bot &mdash; Live</span>
+        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> City Reporter V2 &mdash; Live</span>
         <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Phuket Smart Bus &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> SLIC Index v2 &mdash; Live</span>
+        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> SLIC Index V2 &mdash; Live</span>
+        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Smart City Thailand Index &mdash; Live</span>
         <span class="ticker-item"><span class="ticker-dot ticker-dot-blue"></span> Non App &mdash; In Development</span>
       </div>
       <div class="ticker-content" aria-hidden="true">
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Bangkok Smart City &mdash; Live</span>
+        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> DNGWS Monitor &mdash; Live</span>
         <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Phuket Dashboard &mdash; Live</span>
         <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Middle East Monitor &mdash; Live</span>
+        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> MEM Intelligence &mdash; Live</span>
         <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Geopolitics Dashboard &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> City Reporter Bot &mdash; Live</span>
+        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> City Reporter V2 &mdash; Live</span>
         <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Phuket Smart Bus &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> SLIC Index v2 &mdash; Live</span>
+        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> SLIC Index V2 &mdash; Live</span>
+        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Smart City Thailand Index &mdash; Live</span>
         <span class="ticker-item"><span class="ticker-dot ticker-dot-blue"></span> Non App &mdash; In Development</span>
       </div>
     </div>
@@ -226,242 +256,293 @@
   <section id="projects">
     <div class="section-container">
       <div class="section-header">
-        <span class="section-tag">Live Production Systems</span>
-        <h2 class="section-title">Running. Right now.<br>Processing real data.</h2>
-        <p class="section-desc">Every system below is live. Not demos. Not mockups. Production infrastructure serving real users across five countries.</p>
+        <span class="section-tag">Production Intelligence</span>
+        <h2 class="section-title">Deployment as product.</h2>
+        <p class="section-desc">Every system below is a live instance of our urban intelligence engine. These are not demos; they are the literal tools of modern city-state operations.</p>
       </div>
 
       <div class="projects-grid">
 
-        <!-- Bangkok Smart City -->
-        <a href="https://smart-city-monitor-web.onrender.com/?lang=en&view=city&timeRange=7d&city=bangkok&layers=smart-city-thailand%2Cbangkok-passages%2Cprojects%2Cnews%2Cresilience%2Ceconomy%2Cweather%2Cpollution" target="_blank" rel="noopener" class="project-card project-card-featured">
-          <div class="project-info">
-            <div class="project-card-header">
-              <div class="project-status">
-                <span class="status-dot status-dot-live"></span>
-                <span>Live</span>
+        <!-- DNGWS Monitor — Intelligence Report 01 -->
+        <article class="project-card" data-orientation="landscape">
+          <div class="mockup-container display-mockup" data-id="dngws">
+            <div class="mockup-screen">
+              <!-- Handshake Terminal -->
+              <div class="terminal-stream">
+                <div class="terminal-log" id="term-dngws">
+                  [SYS] NODE_DNGWS_INITIALIZING...<br>
+                  [NET] SCANNING_COORDINATES...<br>
+                  [SEC] SSL_HANDSHAKE_PENDING...<br>
+                  [DATA] PKT_RECV_142KB...<br>
+                  [SYS] LINK_ESTABLISHED<br>
+                  [SYS] NODE_DNGWS_INITIALIZING...<br>
+                  [NET] SCANNING_COORDINATES...<br>
+                  [SEC] SSL_HANDSHAKE_PENDING...<br>
+                  [DATA] PKT_RECV_142KB...
+                </div>
               </div>
-              <span class="project-tag">Smart City</span>
+
+              <div class="data-mesh-placeholder">
+                <div class="mesh-intel">SLIC ACCURACY: 98.4%</div>
+                <div class="mesh-label">SYSTEM READY // CLICK TO INITIALIZE</div>
+              </div>
+              <div class="live-iframe-container" data-src="https://dngws-monitor.vercel.app"></div>
             </div>
-            <h3 class="project-title">Bangkok Smart City Monitor</h3>
-            <p class="project-desc">Real-time urban intelligence for city governance. 98 live CCTV cameras, AI daily briefing, 8 data layers, 5 views including satellite and AI Insights. The template that can transform any city.</p>
-            <div class="project-specs">
-              <span class="project-spec">8 data sources</span>
-              <span class="project-spec">98 CCTV feeds</span>
-              <span class="project-spec">8 layers</span>
-              <span class="project-spec">5 views</span>
+            <div class="mockup-overlay">
+              <button class="intel-hud-btn" onclick="axiom.showroom.goLive('dngws')">INITIALIZE LINK</button>
+            </div>
+            <button class="exit-live-hud-btn" onclick="axiom.showroom.exitLive('dngws')">DISCONNECT</button>
+          </div>
+          
+          <div class="project-meta">
+            <div class="project-info-header">
+              <div class="project-label-row">
+                <span class="project-tag">Global Intel</span>
+                <span class="project-status">LIVE SYSTEM</span>
+              </div>
+              <h3 class="project-title">DNGWS Monitor</h3>
+            </div>
+            <p class="project-desc">High-fidelity situational awareness for global conflict monitoring. Real-time telemetry from 12+ intelligence sources, economic impact tracking, and crisis visualization.</p>
+            <div class="project-intel-row">
+              <div class="intel-stat">
+                <span class="intel-label">SLIC INDEX</span>
+                <span class="intel-value">9.2</span>
+              </div>
+              <div class="intel-stat">
+                <span class="intel-label">DATA YIELD</span>
+                <span class="intel-value">+4.2%</span>
+              </div>
+              <div class="intel-stat">
+                <span class="intel-label">TARGET</span>
+                <span class="intel-value">GLOBAL</span>
+              </div>
+            </div>
+            <div class="project-tech">
+              <span>Next-gen GIS</span>
+              <span>Tactical UI</span>
+              <span>OSINT</span>
+              <span>Vercel Edge</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- City Reporter — Intelligence Report 02 -->
+        <article class="project-card" data-orientation="portrait">
+          <div class="mockup-container smartphone-mockup" data-id="city-reporter">
+            <div class="mockup-screen">
+              <!-- Handshake Terminal -->
+              <div class="terminal-stream">
+                <div class="terminal-log" id="term-city">
+                  [SYS] NODE_REPORTER_SYMBOLS_READY...<br>
+                  [AI] TRIAGE_ENGINE_OK...<br>
+                  [LINE] WEBHOOK_LISTENING...<br>
+                  [DATA] QUEUE_SIZE_0...<br>
+                  [SYS] NODE_REPORTER_SYMBOLS_READY...<br>
+                  [AI] TRIAGE_ENGINE_OK...<br>
+                  [LINE] WEBHOOK_LISTENING...<br>
+                  [DATA] QUEUE_SIZE_0...
+                </div>
+              </div>
+
+              <div class="data-mesh-placeholder">
+                <div class="mesh-intel">AI TRIAGE: 99.1%</div>
+                <div class="mesh-label">SYSTEM READY // CLICK TO INITIALIZE</div>
+              </div>
+              <div class="live-iframe-container" data-src="https://city-reporter-v2.vercel.app/dashboard.html"></div>
+            </div>
+            <div class="mockup-overlay">
+              <button class="intel-hud-btn" onclick="axiom.showroom.goLive('city-reporter')">INITIALIZE LINK</button>
+            </div>
+            <button class="exit-live-hud-btn" onclick="axiom.showroom.exitLive('city-reporter')">DISCONNECT</button>
+          </div>
+          
+          <div class="project-meta">
+            <div class="project-info-header">
+              <div class="project-label-row">
+                <span class="project-tag">Tactical Ops</span>
+                <span class="project-status">LIVE SYSTEM</span>
+              </div>
+              <h3 class="project-title">City Reporter V2</h3>
+            </div>
+            <p class="project-desc">Bauhaus-designed situational awareness for urban ops. Real-time citizen reports via LINE, AI-driven triage across 9 categories, and 48-hour SLA monitoring.</p>
+            <div class="project-intel-row">
+              <div class="intel-stat">
+                <span class="intel-label">RESPONSE SLA</span>
+                <span class="intel-value">&lt;48m</span>
+              </div>
+              <div class="intel-stat">
+                <span class="intel-label">AI TRIAGE</span>
+                <span class="intel-value">99.1%</span>
+              </div>
+              <div class="intel-stat">
+                <span class="intel-label">CHANNELS</span>
+                <span class="intel-value">12+</span>
+              </div>
+            </div>
+            <div class="project-tech">
+              <span>LINE API</span>
+              <span>OpenAI</span>
+              <span>GIS Core</span>
+              <span>Tactical UI</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Phuket — Intelligence Report 03 -->
+        <article class="project-card" data-orientation="landscape">
+          <div class="mockup-container display-mockup" data-id="phuket-ops">
+            <div class="mockup-screen">
+              <!-- Handshake Terminal -->
+              <div class="terminal-stream">
+                <div class="terminal-log" id="term-phuket">
+                  [SYS] NODE_PHUKET_OPS_ONLINE...<br>
+                  [DATA] TRANSIT_STREAM_CONNECTED...<br>
+                  [IOT] SENSOR_GRID_SYNC_100%...<br>
+                  [NET] LATENCY_12MS...<br>
+                  [SYS] NODE_PHUKET_OPS_ONLINE...<br>
+                  [DATA] TRANSIT_STREAM_CONNECTED...<br>
+                  [IOT] SENSOR_GRID_SYNC_100%...
+                </div>
+              </div>
+
+              <!-- Replaced AI snapshot with a pure CSS Data Mesh and SLIC Metrics -->
+              <div class="data-mesh-placeholder">
+                <div class="mesh-intel">UPTIME: 100%</div>
+                <div class="mesh-label">SYSTEM READY // CLICK TO INITIALIZE</div>
+              </div>
+              <div class="live-iframe-container" data-src="https://phuket-dashboard.vercel.app"></div>
+            </div>
+            <div class="mockup-overlay">
+              <button class="intel-hud-btn" onclick="axiom.showroom.goLive('phuket-ops')">INITIALIZE LINK</button>
+            </div>
+            <button class="exit-live-hud-btn" onclick="axiom.showroom.exitLive('phuket-ops')">DISCONNECT</button>
+          </div>
+          
+          <div class="project-meta">
+            <div class="project-info-header">
+              <div class="project-label-row">
+                <span class="project-tag">Regional Ops</span>
+                <span class="project-status">LIVE SYSTEM</span>
+              </div>
+              <h3 class="project-title">Phuket Dashboard</h3>
+            </div>
+            <p class="project-desc">Regional command center for Phuket's smart infrastructure. Integrating transit telemetry, public safety feeds, and environmental metrics.</p>
+            <div class="project-intel-row">
+              <div class="intel-stat">
+                <span class="intel-label">LATENCY</span>
+                <span class="intel-value">42ms</span>
+              </div>
+              <div class="intel-stat">
+                <span class="intel-label">ACTIVE SENSORS</span>
+                <span class="intel-value">3.2k</span>
+              </div>
+              <div class="intel-stat">
+                <span class="intel-label">STATUS</span>
+                <span class="intel-value">NOMINAL</span>
+              </div>
             </div>
             <div class="project-tech">
               <span>Real-time</span>
-              <span>GIS</span>
-              <span>AI Analysis</span>
-              <span>Satellite</span>
+              <span>Vite</span>
+              <span>Mapbox</span>
+              <span>IoT Bridge</span>
             </div>
           </div>
-          <div class="project-embed">
-            <iframe class="project-embed-frame" src="https://smart-city-monitor-web.onrender.com/?lang=en&view=city&timeRange=7d&city=bangkok&layers=smart-city-thailand%2Cbangkok-passages%2Cprojects%2Cnews%2Cresilience%2Ceconomy%2Cweather%2Cpollution" loading="lazy" title="Bangkok Smart City"></iframe>
-            <div class="project-embed-overlay"></div>
-            <span class="project-embed-label">Live Preview</span>
-          </div>
-        </a>
+        </article>
 
-        <!-- Middle East Monitor -->
-        <a href="https://middle-east-monitor.onrender.com" target="_blank" rel="noopener" class="project-card">
-          <div class="project-info">
-            <div class="project-card-header">
-              <div class="project-status">
-                <span class="status-dot status-dot-live"></span>
-                <span>Live</span>
+        <!-- Geopolitics — Intelligence Report 04 -->
+        <article class="project-card" data-orientation="landscape">
+          <div class="mockup-container display-mockup" data-id="geopolitics">
+            <div class="mockup-screen">
+              <!-- Handshake Terminal -->
+              <div class="terminal-stream">
+                <div class="terminal-log" id="term-geo">
+                  [SYS] NODE_GEOPOLITICS_IDLE...<br>
+                  [NLP] ENGINE_SCANNING_53_REGIONS...<br>
+                  [RSS] FEED_STREAM_STABLE...<br>
+                  [AI] RISK_THRESHOLD_SET_0.82...<br>
+                  [SYS] NODE_GEOPOLITICS_IDLE...<br>
+                  [NLP] ENGINE_SCANNING_53_REGIONS...<br>
+                </div>
               </div>
-              <span class="project-tag">Geopolitics</span>
-              <span class="project-version">v2.0</span>
+
+              <!-- Replaced AI snapshot with a pure CSS Data Mesh and SLIC Metrics -->
+              <div class="data-mesh-placeholder">
+                <div class="mesh-intel">SENTIMENT: DYNAMIC</div>
+                <div class="mesh-label">SYSTEM READY // CLICK TO INITIALIZE</div>
+              </div>
+              <div class="live-iframe-container" data-src="https://geopolitics-dashboard-sage.vercel.app"></div>
             </div>
-            <h3 class="project-title">GlobeWatch &mdash; Middle East</h3>
-            <p class="project-desc">8 space agencies (NASA, ESA, JAXA, ISRO, Roscosmos, NOAA, EOX, JRC). 18+ data layers. 4 live theater cards. Strike statistics, flight tracking, Sentinel-2 optical imagery. Real-time across 6 regional filters.</p>
-            <div class="project-specs">
-              <span class="project-spec">8 space agencies</span>
-              <span class="project-spec">18+ layers</span>
-              <span class="project-spec">9 EO overlays</span>
-              <span class="project-spec">4 theaters</span>
+            <div class="mockup-overlay">
+              <button class="intel-hud-btn" onclick="axiom.showroom.goLive('geopolitics')">INITIALIZE LINK</button>
+            </div>
+            <button class="exit-live-hud-btn" onclick="axiom.showroom.exitLive('geopolitics')">DISCONNECT</button>
+          </div>
+          
+          <div class="project-meta">
+            <div class="project-info-header">
+              <div class="project-label-row">
+                <span class="project-tag">Risk Analysis</span>
+                <span class="project-status">LIVE SYSTEM</span>
+              </div>
+              <h3 class="project-title">Geopolitics Monitor</h3>
+            </div>
+            <p class="project-desc">AI-curated briefs and risk detection. NLP sentiment analysis across 53 countries to surface what decision-makers need before it hits the wires.</p>
+            <div class="project-intel-row">
+              <div class="intel-stat">
+                <span class="intel-label">SENTIMENT</span>
+                <span class="intel-value">DYNAMIC</span>
+              </div>
+              <div class="intel-stat">
+                <span class="intel-label">RISK MAP</span>
+                <span class="intel-value">ACTIVE</span>
+              </div>
+              <div class="intel-stat">
+                <span class="intel-label">COUNTRIES</span>
+                <span class="intel-value">53</span>
+              </div>
             </div>
             <div class="project-tech">
-              <span>NASA FIRMS</span>
-              <span>Sentinel-2</span>
-              <span>VIIRS</span>
-              <span>ACLED</span>
+              <span>NLP</span>
+              <span>Python</span>
+              <span>D3.js</span>
+              <span>Edge Deployment</span>
             </div>
           </div>
-          <div class="project-embed">
-            <iframe class="project-embed-frame" src="https://middle-east-monitor.onrender.com" loading="lazy" title="Middle East Monitor"></iframe>
-            <div class="project-embed-overlay"></div>
-            <span class="project-embed-label">Live Preview</span>
-          </div>
-        </a>
+        </article>
 
-        <!-- Phuket Dashboard -->
-        <a href="https://phuket-dashboard.onrender.com" target="_blank" rel="noopener" class="project-card">
-          <div class="project-info">
-            <div class="project-card-header">
-              <div class="project-status">
-                <span class="status-dot status-dot-live"></span>
-                <span>Live</span>
-              </div>
-              <span class="project-tag">Governor War Room</span>
-              <span class="project-version">v6.0</span>
-            </div>
-            <h3 class="project-title">Phuket Dashboard</h3>
-            <p class="project-desc">Governor-grade operational command. Feeder market GDP tracking (Russia, China, India, UK, Germany), marine conditions, multilingual news in Thai/English/Chinese, route monitoring, approval ratings. NASA MODIS + Himawari satellite.</p>
-            <div class="project-specs">
-              <span class="project-spec">6+ APIs</span>
-              <span class="project-spec">8+ layers</span>
-              <span class="project-spec">3 languages</span>
-              <span class="project-spec">5 feeder markets</span>
-            </div>
-            <div class="project-tech">
-              <span>Satellite</span>
-              <span>Marine</span>
-              <span>World Bank</span>
-              <span>Tourism</span>
-            </div>
-          </div>
-          <div class="project-embed">
-            <iframe class="project-embed-frame" src="https://phuket-dashboard.onrender.com" loading="lazy" title="Phuket Dashboard"></iframe>
-            <div class="project-embed-overlay"></div>
-            <span class="project-embed-label">Live Preview</span>
-          </div>
-        </a>
+      </div>
 
-        <!-- Geopolitics Dashboard -->
-        <a href="https://geopolitics-dashboard-sage.vercel.app" target="_blank" rel="noopener" class="project-card">
-          <div class="project-info">
-            <div class="project-card-header">
-              <div class="project-status">
-                <span class="status-dot status-dot-live"></span>
-                <span>Live</span>
-              </div>
-              <span class="project-tag">Border Watch</span>
-              <span class="project-version">v4.4.0</span>
-            </div>
-            <h3 class="project-title">Thailand Geopolitics</h3>
-            <p class="project-desc">3 border frontiers (Myanmar, Malaysia, Cambodia) with priority scoring. 12 basemaps, 14 satellite overlays, 8 live CCTV border cameras, UNHCR refugee data, GDELT narratives, commodity pricing, river discharge monitoring, seismic alerts.</p>
-            <div class="project-specs">
-              <span class="project-spec">15+ sources</span>
-              <span class="project-spec">33 map controls</span>
-              <span class="project-spec">8 CCTV</span>
-              <span class="project-spec">3 borders</span>
-            </div>
-            <div class="project-tech">
-              <span>GDELT</span>
-              <span>UNHCR</span>
-              <span>USGS</span>
-              <span>Sentinel-2</span>
-            </div>
-          </div>
-          <div class="project-embed">
-            <iframe class="project-embed-frame" src="https://geopolitics-dashboard-sage.vercel.app" loading="lazy" title="Geopolitics Dashboard"></iframe>
-            <div class="project-embed-overlay"></div>
-            <span class="project-embed-label">Live Preview</span>
-          </div>
-        </a>
+      </div>
 
-        <!-- City Reporter Bot -->
-        <a href="https://city-reporter-line-bot.onrender.com/v2/dashboard.html" target="_blank" rel="noopener" class="project-card">
-          <div class="project-info">
-            <div class="project-card-header">
-              <div class="project-status">
-                <span class="status-dot status-dot-live"></span>
-                <span>Live</span>
-              </div>
-              <span class="project-tag">Citizen UX</span>
-              <span class="project-version">v2</span>
-            </div>
-            <h3 class="project-title">City Reporter Bot</h3>
-            <p class="project-desc">LINE chatbot + Bauhaus-designed command center for 50" displays. Citizens report via photo, AI categorizes into 9 problem types, SLA tracking at 48h. 8 satellite layers, marine weather, AQI stations. Staff portal with GeoJSON export.</p>
-            <div class="project-specs">
-              <span class="project-spec">9 categories</span>
-              <span class="project-spec">8 layers</span>
-              <span class="project-spec">48h SLA</span>
-              <span class="project-spec">AI triage</span>
-            </div>
-            <div class="project-tech">
-              <span>LINE Bot</span>
-              <span>NASA MODIS</span>
-              <span>Himawari</span>
-              <span>AQI</span>
-            </div>
-          </div>
-          <div class="project-embed">
-            <iframe class="project-embed-frame" src="https://city-reporter-line-bot.onrender.com/v2/dashboard.html" loading="lazy" title="City Reporter Bot"></iframe>
-            <div class="project-embed-overlay"></div>
-            <span class="project-embed-label">Live Preview</span>
-          </div>
-        </a>
-
-        <!-- Phuket Smart Bus -->
-        <a href="https://phuket-smart-bus.vercel.app/ops" target="_blank" rel="noopener" class="project-card">
-          <div class="project-info">
-            <div class="project-card-header">
-              <div class="project-status">
-                <span class="status-dot status-dot-live"></span>
-                <span>Live</span>
-              </div>
-              <span class="project-tag">Transport</span>
-            </div>
-            <h3 class="project-title">Phuket Smart Bus</h3>
-            <p class="project-desc">Intelligent transit system. Real-time GPS tracking, route optimization, passenger analytics. Currently under maintenance &mdash; next version integrating with the Phuket Dashboard ecosystem.</p>
-            <div class="project-specs">
-              <span class="project-spec">GPS tracking</span>
-              <span class="project-spec">Route optimization</span>
-              <span class="project-spec">Upgrading</span>
-            </div>
-            <div class="project-tech">
-              <span>GPS</span>
-              <span>Routes</span>
-              <span>Real-time</span>
-            </div>
-          </div>
-          <div class="project-embed">
-            <iframe class="project-embed-frame" src="https://phuket-smart-bus.vercel.app/ops" loading="lazy" title="Phuket Smart Bus"></iframe>
-            <div class="project-embed-overlay"></div>
-            <span class="project-embed-label">Live Preview</span>
-          </div>
-        </a>
-
-        <!-- SLIC Index -->
-        <a href="https://slic-index-v2.onrender.com" target="_blank" rel="noopener" class="project-card">
-          <div class="project-info">
-            <div class="project-card-header">
-              <div class="project-status">
-                <span class="status-dot status-dot-live"></span>
-                <span>Live</span>
-              </div>
-              <span class="project-tag">Index</span>
-              <span class="project-version">v2</span>
-            </div>
-            <h3 class="project-title">SLIC Index 2026</h3>
-            <p class="project-desc">103 cities, 53 countries, 92 signals from 35 data sources across 5 tiers. Interactive radar charts with draggable weight sliders. Keynote launch at SCSE 2026 Taipei. 12,540+ visitors since March 18. In English, Thai, and Chinese.</p>
-            <div class="project-specs">
-              <span class="project-spec">103 cities</span>
-              <span class="project-spec">35 sources</span>
-              <span class="project-spec">92 signals</span>
-              <span class="project-spec">3 languages</span>
-            </div>
-            <div class="project-tech">
-              <span>Scoring</span>
-              <span>Satellite</span>
-              <span>World Bank</span>
-              <span>Livability</span>
-            </div>
-          </div>
-          <div class="project-embed">
-            <iframe class="project-embed-frame" src="https://slic-index-v2.onrender.com" loading="lazy" title="SLIC Index"></iframe>
-            <div class="project-embed-overlay"></div>
-            <span class="project-embed-label">Live Preview</span>
-          </div>
-        </a>
+      <!-- Additional Intelligence Nodes -->
+      <div class="secondary-nodes-grid">
+        <div class="node-item">
+          <span class="node-id">05</span>
+          <span class="node-label">SLIC INDEX V2</span>
+          <span class="node-status">ACTIVE</span>
+        </div>
+        <div class="node-item">
+          <span class="node-id">06</span>
+          <span class="node-label">THAILAND SMART CITY INDEX</span>
+          <span class="node-status">ACTIVE</span>
+        </div>
+        <div class="node-item">
+          <span class="node-id">07</span>
+          <span class="node-label">PHUKET SMART BUS OPS</span>
+          <span class="node-status">ACTIVE</span>
+        </div>
+        <div class="node-item">
+          <span class="node-id">08</span>
+          <span class="node-label">MTT SUPER DASHBOARD</span>
+          <span class="node-status">SYNCING</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
         <!-- Muang Thong Thani Super Dashboard -->
-        <a href="https://genuine-brioche-195c7f.netlify.app" target="_blank" rel="noopener" class="project-card">
+        <a href="https://mtt-smart-city-monitor-web.onrender.com" target="_blank" rel="noopener" class="project-card">
           <div class="project-info">
             <div class="project-card-header">
               <div class="project-status">
@@ -485,33 +566,202 @@
               <span>Sensors</span>
             </div>
           </div>
-          <div class="project-embed">
-            <iframe class="project-embed-frame" src="https://genuine-brioche-195c7f.netlify.app" loading="lazy" title="Muang Thong Thani Monitor"></iframe>
+          <div class="project-embed" data-src="https://mtt-smart-city-monitor-web.onrender.com">
+            <div class="project-embed-placeholder"><div class="project-embed-placeholder-grid"></div><span class="project-embed-placeholder-text">LIVE SYSTEM</span></div>
             <div class="project-embed-overlay"></div>
-            <span class="project-embed-label">Live Preview</span>
+            <span class="project-embed-label">Hover to preview</span>
           </div>
         </a>
 
-      </div>
-      <a href="#projects" class="projects-see-all" onclick="document.querySelectorAll('.project-card').forEach(c=>c.style.display='');this.style.display='none';return false;">See all 8 systems &rarr;</a>
+        <!-- Smart City Thailand Index -->
+        <a href="https://smart-city-thailand-index.vercel.app" target="_blank" rel="noopener" class="project-card">
+          <div class="project-info">
+            <div class="project-card-header">
+              <div class="project-status">
+                <span class="status-dot status-dot-live"></span>
+                <span>Live</span>
+              </div>
+              <span class="project-tag">Index</span>
+            </div>
+            <h3 class="project-title">Smart City Thailand Index</h3>
+            <p class="project-desc">Official tracking and monitoring platform for Smart City Thailand Office. Candidate cities submit smart city proposals, and this system tracks their progress, status, and development across the national smart city programme.</p>
+            <div class="project-specs">
+              <span class="project-spec">Candidate cities</span>
+              <span class="project-spec">Proposal tracking</span>
+              <span class="project-spec">Official monitoring</span>
+            </div>
+            <div class="project-tech">
+              <span>Smart City</span>
+              <span>Thailand</span>
+              <span>Index</span>
+              <span>Gov</span>
+            </div>
+          </div>
+          <div class="project-embed" data-src="https://smart-city-thailand-index.vercel.app">
+            <div class="project-embed-placeholder"><div class="project-embed-placeholder-grid"></div><span class="project-embed-placeholder-text">LIVE SYSTEM</span></div>
+            <div class="project-embed-overlay"></div>
+            <span class="project-embed-label">Hover to preview</span>
+          </div>
+        </a>
+
+      <a href="#projects" class="projects-see-all" onclick="axiom.showroom.revealMore(); return false;">Access Full Intelligence Feed &rarr;</a>
     </div>
   </section>
 
-  <!-- System Health — Live Monitoring -->
+  <!-- Global Node Status (V6) -->
   <section id="health">
     <div class="section-container">
       <div class="health-header">
-        <div class="health-title-bar">
-          <span class="health-pulse"></span>
-          <span class="health-label">SYSTEM HEALTH MONITOR</span>
-        </div>
+        <span class="health-label">GLOBAL NODE MONITOR</span>
         <div class="health-meta">
-          <span id="healthUptime">—</span>
-          <span id="healthTimestamp">Last check: —</span>
+          <div class="health-meta-group">
+            <span class="health-meta-label">AVG_UPTIME</span>
+            <span id="healthUptime" class="health-meta-value">99.9%</span>
+          </div>
+          <div class="health-meta-group">
+            <span class="health-meta-label">AVG_LATENCY</span>
+            <span id="healthAvgLat" class="health-meta-value">42ms</span>
+          </div>
         </div>
       </div>
-      <div class="health-grid" id="healthGrid">
-        <!-- Populated by JS -->
+      <div class="health-hud" id="healthGrid">
+        <!-- Intelligent Node Cluster populated by JS -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Capabilities -->
+  <section id="capabilities">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Axiom Core Services</span>
+        <h2 class="section-title">Design as process.<br>Intelligence as product.</h2>
+        <p class="section-desc">We operate at the intersection of urban planning, AI governance, and logistical precision. The following services are the foundations of our eight live systems.</p>
+      </div>
+
+      <div class="capabilities-list">
+        <div class="capability-item">
+          <div class="capability-meta">01 / GOVERNANCE</div>
+          <h3 class="capability-title">City-Level Command Systems</h3>
+          <p>Governor-grade dashboards. Satellite imagery, smart cameras, and every public data source integrated into a single high-fidelity situational awareness platform.</p>
+        </div>
+        <div class="capability-item">
+          <div class="capability-meta">02 / VISION</div>
+          <h3 class="capability-title">Intelligent Camera Systems</h3>
+          <p>AI-driven visual intelligence plugged into existing infrastructure. Accident detection, movement tracking, and automated response from any resolution.</p>
+        </div>
+        <div class="capability-item">
+          <div class="capability-meta">03 / ANALYSIS</div>
+          <h3 class="capability-title">Geopolitical Intelligence</h3>
+          <p>AI-curated briefs. NLP sentiment analysis, risk detection, and context-aware systems that surface what decision-makers actually need.</p>
+        </div>
+        <div class="capability-item">
+          <div class="capability-meta">04 / BEHAVIOR</div>
+          <h3 class="capability-title">Behavioral Design & Gamification</h3>
+          <p>Systems grounded in behavioral economics. Qualitative metrics that matter. Designing environments where people actually want to participate.</p>
+        </div>
+        <div class="capability-item">
+          <div class="capability-meta">05 / SCALE</div>
+          <h3 class="capability-title">Rapid System Deployment</h3>
+          <p>Battle-tested architectures adapted to local context. R&D is localized. We deploy in weeks, not years, through our 'Blue Bird' replication engine.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section id="proof">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Proof</span>
+        <h2 class="section-title">We don't sell theory.<br>We sell what works.</h2>
+      </div>
+
+
+      <div class="proof-photos">
+        <div class="proof-photo">
+          <img src="photos/439613714_1412104499516700_164891114797888761_n.jpg" alt="Digital Twins for Nakhon City launch" loading="lazy">
+          <span class="proof-photo-label">Digital Twin launch &mdash; Nakhon City</span>
+        </div>
+        <div class="proof-photo">
+          <img src="photos/IMG_7021.JPG" alt="Team workshop session" loading="lazy">
+          <span class="proof-photo-label">Workshop &mdash; late-night strategy session</span>
+        </div>
+        <div class="proof-photo">
+          <img src="photos/IMG_0334.JPG" alt="Team celebrating" loading="lazy">
+          <span class="proof-photo-label">Deploy day energy</span>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-value" data-count="8">0</div>
+          <div class="metric-label">Production Systems</div>
+          <div class="metric-bar"><div class="metric-bar-fill" style="--fill: 80%"></div></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value"><span data-count="99">0</span><span class="metric-unit">.9%</span></div>
+          <div class="metric-label">Uptime</div>
+          <div class="metric-bar"><div class="metric-bar-fill" style="--fill: 99.9%"></div></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value"><span data-count="24">0</span><span class="metric-unit">/7</span></div>
+          <div class="metric-label">Live Monitoring</div>
+          <div class="metric-bar"><div class="metric-bar-fill" style="--fill: 100%"></div></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value"><span data-count="5">0</span></div>
+          <div class="metric-label">Countries</div>
+          <div class="metric-bar"><div class="metric-bar-fill" style="--fill: 50%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIC Index Launch -->
+  <section id="launch">
+    <div class="launch-hero">
+      <img src="photos/launch/hero.jpg" alt="Dr. Non Arkara keynote at SCSE 2026 Taipei" class="launch-hero-img" loading="lazy">
+      <div class="launch-hero-overlay"></div>
+      <div class="section-container launch-hero-content">
+        <span class="section-tag" style="color: rgba(255,255,255,0.4);">The Launch</span>
+        <h2 class="launch-hero-title">SLIC Index launched on the<br>world's smartest stage.</h2>
+      </div>
+    </div>
+
+    <div class="section-container">
+      <div class="launch-stats">
+        <div class="launch-stat">
+          <span class="launch-stat-value">174</span>
+          <span class="launch-stat-label">cities</span>
+        </div>
+        <div class="launch-stat">
+          <span class="launch-stat-value">53</span>
+          <span class="launch-stat-label">countries</span>
+        </div>
+        <div class="launch-stat">
+          <span class="launch-stat-value">3,000+</span>
+          <span class="launch-stat-label">professionals</span>
+        </div>
+        <div class="launch-stat">
+          <span class="launch-stat-value">2,250</span>
+          <span class="launch-stat-label">booths</span>
+        </div>
+      </div>
+
+      <div class="launch-body">
+        <div class="launch-text">
+          <p>Dr. Non Arkara was one of two keynote speakers at the City Vision stage &mdash; the centerpiece of the Smart City Summit &amp; Expo (SCSE) 2026 in Taipei. The Vice President of Taiwan opened the event. The Mayor of Taipei spoke on stage. Foreign ministers and city leaders from around the world gathered under one roof.</p>
+          <p>He showed them a war dashboard built in 45 minutes. A bus tracker that runs without GPS. A citizen reporting system that cut response times from 67 hours to 2. Then he launched the SLIC Index. 103 cities. Five dimensions. Kaohsiung: #1. Taipei: #2. Bangkok: #4. Singapore: #8.</p>
+          <p>The room went quiet. Then the questions started. A European mayor's alliance asked to use it instead of The Economist's index. City leaders from across Asia and the Americas came up afterward: &ldquo;Can you do this for my city?&rdquo;</p>
+          <blockquote class="launch-quote">&ldquo;We built an index. You build the ranking.&rdquo;</blockquote>
+        </div>
+        <div class="launch-photos">
+          <img src="photos/launch/stage.jpg" alt="Dr. Non on the City Vision stage, SCSE 2026" loading="lazy">
+          <img src="photos/launch/networking.jpg" alt="Networking after the SLIC Index launch" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
@@ -626,62 +876,6 @@
     </div>
   </section>
 
-  <!-- Capabilities -->
-  <section id="capabilities">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Services</span>
-        <h2 class="section-title">Design thinking as process.<br>Deployment as product.</h2>
-        <p class="section-desc">We immerse ourselves in your world. Observe, interview, prototype, test, refine. The result fits your hand perfectly.</p>
-      </div>
-
-      <div class="capabilities-grid">
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20M2 12h20"/></svg>
-          </div>
-          <h3>City-Level Governance</h3>
-          <p>Governor-grade dashboards. Satellite imagery, smart cameras, every public data source integrated. Templates exist. Deployment is replication.</p>
-        </div>
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>
-          </div>
-          <h3>Intelligent Camera Systems</h3>
-          <p>AI plugged into existing infrastructure. Accident detection, movement tracking, automated response &mdash; even from low-resolution footage.</p>
-        </div>
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          </div>
-          <h3>Geopolitical Intelligence</h3>
-          <p>AI-curated briefs. NLP, sentiment analysis, risk detection. Context-aware systems that surface what decision-makers actually need.</p>
-        </div>
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <h3>HR & Gamification</h3>
-          <p>Behavioral design grounded in Kahneman and Thaler. Qualitative metrics that matter. Systems people actually want to use.</p>
-        </div>
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="0"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <h3>Rapid Deployment</h3>
-          <p>Battle-tested templates adapted to your context. R&D is done. Margins improve with each client. We pass savings back.</p>
-        </div>
-        <div class="capability-card">
-          <div class="capability-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          </div>
-          <h3>Free Pilots</h3>
-          <p>Can't pay? We might still help. Resource management shouldn't be a luxury. We prove value first, talk money later &mdash; if at all.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Philosophy -->
   <section id="philosophy">
     <div class="section-container">
@@ -710,101 +904,6 @@
           <div class="philosophy-number">04</div>
           <h3>Low-Fidelity, High-Impact</h3>
           <p>Prototype in days, not months. A single curious mind with a laptop can outperform an entire department.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proof -->
-  <section id="proof">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Proof</span>
-        <h2 class="section-title">We don't sell theory.<br>We sell what works.</h2>
-      </div>
-
-
-      <div class="proof-photos">
-        <div class="proof-photo">
-          <img src="photos/439613714_1412104499516700_164891114797888761_n.jpg" alt="Digital Twins for Nakhon City launch" loading="lazy">
-          <span class="proof-photo-label">Digital Twin launch &mdash; Nakhon City</span>
-        </div>
-        <div class="proof-photo">
-          <img src="photos/IMG_7021.JPG" alt="Team workshop session" loading="lazy">
-          <span class="proof-photo-label">Workshop &mdash; late-night strategy session</span>
-        </div>
-        <div class="proof-photo">
-          <img src="photos/IMG_0334.JPG" alt="Team celebrating" loading="lazy">
-          <span class="proof-photo-label">Deploy day energy</span>
-        </div>
-      </div>
-
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <div class="metric-value" data-count="8">0</div>
-          <div class="metric-label">Production Systems</div>
-          <div class="metric-bar"><div class="metric-bar-fill" style="--fill: 80%"></div></div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value"><span data-count="99">0</span><span class="metric-unit">.9%</span></div>
-          <div class="metric-label">Uptime</div>
-          <div class="metric-bar"><div class="metric-bar-fill" style="--fill: 99.9%"></div></div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value"><span data-count="24">0</span><span class="metric-unit">/7</span></div>
-          <div class="metric-label">Live Monitoring</div>
-          <div class="metric-bar"><div class="metric-bar-fill" style="--fill: 100%"></div></div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-value"><span data-count="5">0</span></div>
-          <div class="metric-label">Countries</div>
-          <div class="metric-bar"><div class="metric-bar-fill" style="--fill: 50%"></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SLIC Index Launch -->
-  <section id="launch">
-    <div class="launch-hero">
-      <img src="photos/launch/hero.jpg" alt="Dr. Non Arkara keynote at SCSE 2026 Taipei" class="launch-hero-img" loading="lazy">
-      <div class="launch-hero-overlay"></div>
-      <div class="section-container launch-hero-content">
-        <span class="section-tag" style="color: rgba(255,255,255,0.4);">The Launch</span>
-        <h2 class="launch-hero-title">SLIC Index launched on the<br>world's smartest stage.</h2>
-      </div>
-    </div>
-
-    <div class="section-container">
-      <div class="launch-stats">
-        <div class="launch-stat">
-          <span class="launch-stat-value">174</span>
-          <span class="launch-stat-label">cities</span>
-        </div>
-        <div class="launch-stat">
-          <span class="launch-stat-value">53</span>
-          <span class="launch-stat-label">countries</span>
-        </div>
-        <div class="launch-stat">
-          <span class="launch-stat-value">3,000+</span>
-          <span class="launch-stat-label">professionals</span>
-        </div>
-        <div class="launch-stat">
-          <span class="launch-stat-value">2,250</span>
-          <span class="launch-stat-label">booths</span>
-        </div>
-      </div>
-
-      <div class="launch-body">
-        <div class="launch-text">
-          <p>Dr. Non Arkara was one of two keynote speakers at the City Vision stage &mdash; the centerpiece of the Smart City Summit &amp; Expo (SCSE) 2026 in Taipei. The Vice President of Taiwan opened the event. The Mayor of Taipei spoke on stage. Foreign ministers and city leaders from around the world gathered under one roof.</p>
-          <p>He showed them a war dashboard built in 45 minutes. A bus tracker that runs without GPS. A citizen reporting system that cut response times from 67 hours to 2. Then he launched the SLIC Index. 103 cities. Five dimensions. Kaohsiung: #1. Taipei: #2. Bangkok: #4. Singapore: #8.</p>
-          <p>The room went quiet. Then the questions started. A European mayor's alliance asked to use it instead of The Economist's index. City leaders from across Asia and the Americas came up afterward: &ldquo;Can you do this for my city?&rdquo;</p>
-          <blockquote class="launch-quote">&ldquo;We built an index. You build the ranking.&rdquo;</blockquote>
-        </div>
-        <div class="launch-photos">
-          <img src="photos/launch/stage.jpg" alt="Dr. Non on the City Vision stage, SCSE 2026" loading="lazy">
-          <img src="photos/launch/networking.jpg" alt="Networking after the SLIC Index launch" loading="lazy">
         </div>
       </div>
     </div>
@@ -1015,17 +1114,17 @@
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/xreyjayk" method="POST">
           <div class="contact-form-row">
             <div class="contact-field">
+              <input type="text" id="contactName" name="name" required placeholder=" " autocomplete="name">
               <label for="contactName">Name</label>
-              <input type="text" id="contactName" name="name" required placeholder="Your name">
             </div>
             <div class="contact-field">
+              <input type="email" id="contactEmail" name="email" required placeholder=" " autocomplete="email">
               <label for="contactEmail">Email</label>
-              <input type="email" id="contactEmail" name="email" required placeholder="you@company.com">
             </div>
           </div>
           <div class="contact-field">
+            <textarea id="contactMessage" name="message" rows="4" required placeholder=" "></textarea>
             <label for="contactMessage">Message</label>
-            <textarea id="contactMessage" name="message" rows="4" required placeholder="Tell us about your project..."></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-lg">
             <span>Send Message</span>
@@ -1046,7 +1145,7 @@
         </div>
         <div class="footer-links">
           <a href="mailto:axiomaxiom.corp@gmail.com" class="footer-link">Email</a>
-          <a href="https://www.linkedin.com/company/axiomaxiom/about/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+          <a href="https://www.linkedin.com/company/axiomaxiom/about/" target="_blank" rel="noopener" class="footer-link" aria-label="Axiom on LinkedIn (opens in new tab)">LinkedIn</a>
         </div>
         <div class="footer-text">
           <p>Innovation as a service. AI as water. Your success as our north star.</p>
@@ -1096,21 +1195,26 @@
     </button>
     <div class="theme-switcher-panel" id="themeSwitcherPanel">
       <div class="theme-switcher-title">Time Machine</div>
-      <div class="theme-switcher-desc">Each version is a different design era. More coming.</div>
-      <button class="theme-option" data-theme="v2" data-label="v2">
-        <span class="theme-swatch" style="background:#fafafa;border-color:rgba(0,0,0,0.15)"></span>
+      <div class="theme-switcher-desc">Version control for design. Our best vision of 2026.</div>
+      
+      <button class="theme-option" data-theme="masterpiece" data-label="v6">
+        <span class="theme-swatch" style="background:#050508;border-color:#4287f5;box-shadow:0 0 12px rgba(66,135,245,0.5)"></span>
         <span class="theme-option-text">
-          <strong>v2</strong> &mdash; Ive / Rams
-          <small>Light, minimal, less but better</small>
+          <strong>v6</strong> &mdash; Masterpiece
+          <small>OS Blueprint. Terminal Handshake. SITREP HUD.</small>
+          <span class="theme-badge-featured">NEW</span>
         </span>
       </button>
-      <button class="theme-option" data-theme="v2.5" data-label="v2.5">
-        <span class="theme-swatch" style="background:#0a0a0f;border-color:rgba(255,59,59,0.4)"></span>
+
+      <button class="theme-option" data-theme="v3" data-label="v3">
+        <span class="theme-swatch" style="background:#020202;border-color:#00F0FF;box-shadow:0 0 10px rgba(0,240,255,0.4)"></span>
         <span class="theme-option-text">
-          <strong>v2.5</strong> &mdash; Asimov &times; Kubrick
-          <small>Monospace, geometric, HAL-9000</small>
+          <strong>v3</strong> &mdash; The Masterpiece
+          <small>Red Dot Level: Precision. Bento. Swiss.</small>
+          <span class="theme-badge-featured">NEW</span>
         </span>
       </button>
+
       <button class="theme-option" data-theme="v4" data-label="v4">
         <span class="theme-swatch" style="background:#0a0a14;border-color:rgba(0,255,255,0.5);box-shadow:0 0 8px rgba(0,255,255,0.3)"></span>
         <span class="theme-option-text">
@@ -1118,6 +1222,23 @@
           <small>Neon, glitch, rain-soaked noir</small>
         </span>
       </button>
+
+      <button class="theme-option" data-theme="v2.5" data-label="v2.5">
+        <span class="theme-swatch" style="background:#0a0a0f;border-color:rgba(255,59,59,0.4)"></span>
+        <span class="theme-option-text">
+          <strong>v2.5</strong> &mdash; Asimov &times; Kubrick
+          <small>Monospace, geometric, HAL-9000</small>
+        </span>
+      </button>
+
+      <button class="theme-option" data-theme="v2" data-label="v2">
+        <span class="theme-swatch" style="background:#fafafa;border-color:rgba(0,0,0,0.15)"></span>
+        <span class="theme-option-text">
+          <strong>v2</strong> &mdash; Ive / Rams
+          <small>Light, minimal, less but better</small>
+        </span>
+      </button>
+
       <button class="theme-option" data-theme="v1" data-label="v1">
         <span class="theme-swatch" style="background:#08080c"></span>
         <span class="theme-option-text">

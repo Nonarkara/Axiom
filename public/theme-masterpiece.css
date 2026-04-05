@@ -1,0 +1,935 @@
+/* ========================================
+   AXIOM — Masterpiece v6
+   "Distributed Intelligence OS"
+   Blueprint / Handshake / HUD
+   Absolute 0px Radius.
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+[data-theme="masterpiece"] {
+  --bg: #050508;
+  --bg-elevated: #0c0c14;
+  --surface: rgba(15, 15, 25, 0.6);
+  --border: rgba(255, 255, 255, 0.08); /* Slightly more prominent */
+  --border-active: rgba(66, 135, 245, 0.6);
+  --text: #f0f0f5;
+  --text-secondary: #a0a0b0;
+  --text-dim: #505060;
+  --accent: #4287f5; /* Axiom Cobalt */
+  --accent-glow: rgba(66, 135, 245, 0.3);
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --glass: blur(24px) saturate(180%);
+}
+
+/* ── Global ─────────────────────────────────────────────────────── */
+
+[data-theme="masterpiece"] * {
+  border-radius: 0 !important; /* STRICT GEOMETRIC MANDATE */
+}
+
+@media (max-width: 768px) {
+  [data-theme="masterpiece"] .hero-title {
+    font-size: clamp(2rem, 8.5vw, 3.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  [data-theme="masterpiece"] .health-meta {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  [data-theme="masterpiece"] .sat-hud {
+    right: 1rem;
+    left: 1rem;
+    bottom: 1rem;
+    padding: 1rem;
+  }
+}
+[data-theme="masterpiece"] body {
+  background: var(--bg);
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px;
+  background-position: center top;
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+[data-theme="masterpiece"] h1, 
+[data-theme="masterpiece"] h2, 
+[data-theme="masterpiece"] h3 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+}
+
+[data-theme="masterpiece"] ::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── Navigation ────────────────────────────────────────────────── */
+
+[data-theme="masterpiece"] #nav {
+  background: rgba(5, 5, 8, 0.7);
+  backdrop-filter: var(--glass);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+}
+
+[data-theme="masterpiece"] .nav-logo-text {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+[data-theme="masterpiece"] .nav-link {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: all 0.3s var(--ease);
+}
+
+[data-theme="masterpiece"] .nav-link:hover {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+[data-theme="masterpiece"] .nav-link-cta {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.625rem 1.75rem;
+  border-radius: 0; /* SHARP */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%); /* Subtle geometric edge */
+  box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+/* ── Hero ───────────────────────────────────────────────────────── */
+
+[data-theme="masterpiece"] #hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem;
+}
+
+[data-theme="masterpiece"] .hero-badge {
+  background: rgba(66, 135, 245, 0.08);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+[data-theme="masterpiece"] .hero-title {
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  margin: 1.5rem 0;
+}
+
+[data-theme="masterpiece"] .hero-line-accent {
+  color: var(--accent);
+  background: linear-gradient(135deg, var(--accent), #82b1ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="masterpiece"] .hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 5;
+}
+
+/* ── Hero SITREP HUD ────────────────────────────────────────── */
+
+[data-theme="masterpiece"] .hero-tracker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60vh;
+  height: 60vh;
+  border: 1px solid rgba(66, 135, 245, 0.1);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="masterpiece"] .hero-tracker::before,
+[data-theme="masterpiece"] .hero-tracker::after {
+[data-theme="masterpiece"] .hero-tracker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(66, 135, 245, 0.4);
+  pointer-events: none;
+  z-index: 10;
+}
+
+[data-theme="masterpiece"] .hero-tracker::before { content: ""; position: absolute; top: -10px; left: 50%; width: 1px; height: 10px; background: var(--accent); }
+[data-theme="masterpiece"] .hero-tracker::after { content: ""; position: absolute; left: -10px; top: 50%; width: 10px; height: 1px; background: var(--accent); }
+
+[data-theme="masterpiece"] .telemetry-axis-x {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(66, 135, 245, 0.3), transparent);
+  pointer-events: none;
+  z-index: 5;
+}
+
+[data-theme="masterpiece"] .telemetry-axis-y {
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(66, 135, 245, 0.3), transparent);
+  pointer-events: none;
+  z-index: 5;
+}
+
+
+[data-theme="masterpiece"] .btn-primary {
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  border-radius: 0; /* SHARP */
+  padding: 1.25rem 3rem;
+  border: 1px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.4s var(--ease);
+}
+
+[data-theme="masterpiece"] .btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform: translateX(-101%);
+  transition: transform 0.4s var(--ease);
+  z-index: -1;
+}
+
+[data-theme="masterpiece"] .btn-primary:hover {
+  color: #000;
+  transform: scale(1.05);
+}
+
+[data-theme="masterpiece"] .btn-primary:hover::before {
+  transform: translateX(0);
+}
+
+[data-theme="masterpiece"] .btn-ghost {
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  border-radius: 0; /* SHARP */
+  padding: 1.25rem 3rem;
+  border: 1px solid var(--border);
+  transition: all 0.4s var(--ease);
+}
+
+[data-theme="masterpiece"] .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #fff;
+}
+
+[data-theme="masterpiece"] .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--text-secondary);
+}
+
+/* ── Showroom — SnapShot & Mockup Grid ─────────────────────────── */
+
+[data-theme="masterpiece"] #projects {
+  padding: 12rem 0;
+  background: radial-gradient(circle at 50% -20%, rgba(66, 135, 245, 0.05), transparent 70%);
+}
+
+@media (min-width: 1024px) {
+  [data-theme="masterpiece"] .projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  /* Dynamic sizing based on orientation */
+  [data-theme="masterpiece"] .project-card[data-orientation="landscape"] {
+    flex: 0 0 calc(65% - 2rem);
+  }
+  [data-theme="masterpiece"] .project-card[data-orientation="portrait"] {
+    flex: 0 0 calc(30% - 2rem);
+  }
+}
+
+[data-theme="masterpiece"] .project-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s var(--ease);
+}
+
+[data-theme="masterpiece"] .project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Mockup Frames ────────────────────────────────────────────── */
+
+[data-theme="masterpiece"] .mockup-container {
+  position: relative;
+  width: 100%;
+  transition: transform 0.6s var(--ease);
+}
+
+[data-theme="masterpiece"] .project-card:hover .mockup-container {
+  transform: translateY(-8px) scale(1.01);
+}
+
+/* ── Pure CSS Command Frames (Hardware-Free) ─────────────────── */
+
+/* ── Masterpiece v6: The OS Blueprint ─────────────────────── */
+
+[data-theme="masterpiece"] .mockup-container {
+  background: #000;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+  transition: border-color 0.4s var(--ease);
+}
+
+[data-theme="masterpiece"] .mockup-container.is-live {
+  border-color: var(--border-active);
+}
+
+[data-theme="masterpiece"] .display-mockup {
+  aspect-ratio: 16 / 9;
+}
+
+[data-theme="masterpiece"] .smartphone-mockup {
+  aspect-ratio: 9 / 19.5;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+/* Header bar for our "Technical Window" */
+[data-theme="masterpiece"] .mockup-container::after {
+  content: "AXIOM-OS // NODE: " attr(data-id) " // LINK_WAITING";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  z-index: 20;
+}
+
+[data-theme="masterpiece"] .mockup-container.is-live::after {
+  content: "AXIOM-OS // NODE: " attr(data-id) " // SYNC_ESTABLISHED";
+  color: var(--accent);
+  background: rgba(66, 135, 245, 0.1);
+}
+
+[data-theme="masterpiece"] .mockup-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #050508;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px;
+  overflow: hidden;
+}
+
+/* Handshake Terminal logs */
+[data-theme="masterpiece"] .terminal-stream {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 4rem; /* Lifted to avoid collision with metrics */
+  width: 300px;
+  height: 100px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--accent); /* More bright for visibility */
+  mask-image: linear-gradient(to bottom, transparent, #fff 40%);
+  pointer-events: none;
+  z-index: 20;
+}
+
+[data-theme="masterpiece"] .terminal-log {
+  white-space: nowrap;
+  animation: log-scroll 20s linear infinite;
+}
+
+@keyframes log-scroll {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+
+[data-theme="masterpiece"] .data-mesh-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: radial-gradient(circle at center, rgba(66, 135, 245, 0.08) 0%, transparent 70%);
+  z-index: 5;
+  transition: opacity 0.5s var(--ease);
+}
+
+[data-theme="masterpiece"] .mockup-container.is-live .data-mesh-placeholder {
+  opacity: 0;
+  pointer-events: none;
+}
+
+[data-theme="masterpiece"] .mesh-intel {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+[data-theme="masterpiece"] .mesh-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+[data-theme="masterpiece"] .intel-hud-btn {
+  background: #fff;
+  color: #000;
+  padding: 1rem 2rem;
+  border: none;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: all 0.4s var(--ease);
+  z-index: 20;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+[data-theme="masterpiece"] .intel-hud-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+[data-theme="masterpiece"] .exit-live-hud-btn {
+  position: absolute;
+  top: 3rem;
+  right: 1.5rem;
+  background: rgba(255, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s var(--ease);
+  z-index: 30;
+}
+
+/* On mobile/touch, show buttons by default */
+@media (max-width: 1024px) {
+  [data-theme="masterpiece"] .intel-hud-btn {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Desktop hover effects */
+@media (min-width: 1025px) {
+  [data-theme="masterpiece"] .intel-hud-btn {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  [data-theme="masterpiece"] .project-card:hover .intel-hud-btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+[data-theme="masterpiece"] .mockup-container.is-live .exit-live-hud-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+[data-theme="masterpiece"] .exit-live-hud-btn:hover {
+  background: #ff0000;
+}
+
+/* ── Project Info (Decoupled to fix bleeding) ────────────────── */
+
+[data-theme="masterpiece"] .project-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+[data-theme="masterpiece"] .project-info-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+[data-theme="masterpiece"] .project-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="masterpiece"] .project-tag {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+}
+
+[data-theme="masterpiece"] .project-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  margin: 0;
+  color: #fff;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+[data-theme="masterpiece"] .project-desc {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 580px;
+  font-weight: 400;
+}
+
+[data-theme="masterpiece"] .project-intel-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+[data-theme="masterpiece"] .intel-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+[data-theme="masterpiece"] .intel-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+[data-theme="masterpiece"] .intel-value {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+[data-theme="masterpiece"] .project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+[data-theme="masterpiece"] .exit-live-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  background: rgba(255, 0, 0, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+
+[data-theme="masterpiece"] .mockup-container.is-live .exit-live-btn {
+  display: flex;
+}
+
+
+[data-theme="masterpiece"] .project-tech span {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 4px;
+}
+
+[data-theme="masterpiece"] .project-status {
+  background: rgba(66, 135, 245, 0.1);
+  color: var(--accent);
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* ── Satellite HUD (Enhanced for Masterpiece) ─────────────────────── */
+
+[data-theme="masterpiece"] .sat-hud {
+  display: flex !important; /* Re-enable for Masterpiece */
+  position: absolute;
+  top: auto;
+  bottom: 2rem;
+  left: auto;
+  right: 2rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 0; /* SHARP */
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 100;
+}
+
+[data-theme="masterpiece"] .sat-hud-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+[data-theme="masterpiece"] .sat-hud-live {
+  color: var(--accent);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[data-theme="masterpiece"] .sat-hud-live-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ── SLIC Intelligence Overlays (Moneyball) ───────────────────── */
+
+[data-theme="masterpiece"] .intel-overlay {
+  position: absolute;
+  background: var(--bg);
+  border: 1px solid var(--border-active);
+  padding: 1.5rem;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.6s var(--ease);
+  transform: scale(0.9) translateY(10px);
+}
+
+[data-theme="masterpiece"] .intel-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) translateY(0);
+}
+
+[data-theme="masterpiece"] #intelOverlayDubai {
+  top: 30%;
+  left: 60%;
+}
+
+[data-theme="masterpiece"] #intelOverlayBangkok {
+  top: 45%;
+  left: 55%;
+}
+
+[data-theme="masterpiece"] .intel-overlay-header {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.2em;
+}
+
+/* ── Masterpiece v6: Secondary Nodes ────────────────────────── */
+
+[data-theme="masterpiece"] .secondary-nodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 4rem;
+}
+
+[data-theme="masterpiece"] .node-item {
+  background: var(--bg);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s var(--ease);
+}
+
+[data-theme="masterpiece"] .node-item:hover {
+  background: var(--bg-elevated);
+}
+
+[data-theme="masterpiece"] .node-id {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme="masterpiece"] .node-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+[data-theme="masterpiece"] .node-status {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--text-dim);
+}
+
+/* ── Global Node Status (V6) ────────────────────────────────── */
+
+[data-theme="masterpiece"] .health-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+[data-theme="masterpiece"] .health-label {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+[data-theme="masterpiece"] .health-hud {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+[data-theme="masterpiece"] .health-card {
+  background: var(--bg);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s var(--ease);
+  position: relative;
+}
+
+[data-theme="masterpiece"] .health-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: transparent;
+  transition: background 0.3s var(--ease);
+}
+
+[data-theme="masterpiece"] .health-card:hover::before {
+  background: var(--accent);
+}
+
+[data-theme="masterpiece"] .health-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+[data-theme="masterpiece"] .health-url {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--text-dim);
+}
+
+[data-theme="masterpiece"] .health-ms {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+[data-theme="masterpiece"] .health-dot.up {
+  background: #10b981;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+
+/* ── Contact Refinement ────────────────────────────────────────── */
+
+[data-theme="masterpiece"] .cta-block {
+  background: linear-gradient(135deg, #0c0c14 0%, #050508 100%);
+  border: 1px solid var(--border);
+  border-radius: 0; /* SHARP */
+  padding: 6rem;
+}
+
+[data-theme="masterpiece"] .contact-field input,
+[data-theme="masterpiece"] .contact-field textarea {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 0; /* SHARP */
+  padding: 1.25rem 1.5rem;
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+[data-theme="masterpiece"] .contact-field input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+
+/* ── Footer ────────────────────────────────────────────────────── */
+
+[data-theme="masterpiece"] #footer {
+  padding: 6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+[data-theme="masterpiece"] .footer-logo-text {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+/* ── Mobile Precision (V6) ────────────────────────────────── */
+
+@media (max-width: 768px) {
+  [data-theme="masterpiece"] .hero-title {
+    font-size: 3.5rem !important; /* Avoid clipping */
+  }
+
+  [data-theme="masterpiece"] .sat-hud {
+    display: none; /* Avoid collision on mobile */
+  }
+
+  [data-theme="masterpiece"] .primary-hud-cluster {
+    bottom: 1rem;
+    right: 1rem;
+    transform: scale(0.85); /* Compact for mobile */
+  }
+
+  [data-theme="masterpiece"] .hero-tracker {
+    display: none; /* Hide interactive HUD elements on small viewports */
+  }
+
+  [data-theme="masterpiece"] .telemetry-axis-x,
+  [data-theme="masterpiece"] .telemetry-axis-y {
+    opacity: 0.5; /* Fade lines on mobile */
+  }
+}

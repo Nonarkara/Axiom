@@ -12,13 +12,13 @@
     var options = document.querySelectorAll('.theme-option');
     if (!toggle || !panel) return;
 
-    var current = localStorage.getItem('axiom-theme') || 'v4';
+    var current = localStorage.getItem('axiom-theme') || 'masterpiece';
 
     function setActive(theme) {
       options.forEach(function(o) {
         o.classList.toggle('active', o.dataset.theme === theme);
       });
-      if (label) label.textContent = theme;
+      if (label) label.textContent = theme === 'masterpiece' ? 'v5.1' : theme;
     }
     setActive(current);
 
@@ -89,22 +89,24 @@
 (function initHealthMonitor() {
   const grid = document.getElementById('healthGrid');
   const uptimeEl = document.getElementById('healthUptime');
+  const latEl = document.getElementById('healthAvgLat');
   const timestampEl = document.getElementById('healthTimestamp');
   if (!grid) return;
 
   const systems = [
-    { name: 'Bangkok Smart City', url: 'https://smart-city-monitor-web.onrender.com' },
-    { name: 'Middle East Monitor', url: 'https://middle-east-monitor.onrender.com' },
-    { name: 'Phuket Dashboard', url: 'https://phuket-dashboard.onrender.com' },
+    { name: 'DNGWS Monitor', url: 'https://dngws-monitor.vercel.app' },
+    { name: 'Middle East Monitor', url: 'https://middle-east-monitor.vercel.app' },
+    { name: 'MEM Intelligence', url: 'https://mem-by-non.vercel.app' },
+    { name: 'Phuket Dashboard', url: 'https://phuket-dashboard.vercel.app' },
     { name: 'Geopolitics Dashboard', url: 'https://geopolitics-dashboard-sage.vercel.app' },
-    { name: 'City Reporter Bot', url: 'https://city-reporter-line-bot.onrender.com' },
+    { name: 'City Reporter V2', url: 'https://city-reporter-v2.vercel.app/dashboard.html' },
     { name: 'Phuket Smart Bus', url: 'https://phuket-smart-bus.vercel.app/ops' },
-    { name: 'SLIC Index v2', url: 'https://slic-index-v2.onrender.com' },
-    { name: 'Dr. Non OS Dashboard', url: 'https://dr-non-operating-systems.onrender.com' },
-    { name: 'Muang Thong Thani Monitor', url: 'https://genuine-brioche-195c7f.netlify.app' },
+    { name: 'SLIC Index V2', url: 'https://slic-index-v2.vercel.app' },
+    { name: 'Muang Thong Thani Monitor', url: 'https://mtt-smart-city-monitor-web.onrender.com' },
+    { name: 'Smart City Thailand Index', url: 'https://smart-city-thailand-index.vercel.app' },
   ];
 
-  // Render initial cards
+  // Render HUD cards
   grid.innerHTML = systems.map(s => `
     <div class="health-card" data-url="${s.url}">
       <div class="health-dot checking"></div>
@@ -122,47 +124,39 @@
     const start = performance.now();
 
     try {
-      // Use fetch with no-cors to at least check connectivity
       await fetch(system.url, { mode: 'no-cors', cache: 'no-store' });
       const elapsed = Math.round(performance.now() - start);
       dot.className = 'health-dot up';
       ms.textContent = elapsed + 'ms';
-      ms.className = 'health-ms ' + (elapsed < 1000 ? 'fast' : elapsed < 3000 ? 'medium' : 'slow');
-      return true;
+      return elapsed;
     } catch (e) {
       dot.className = 'health-dot down';
-      ms.textContent = 'DOWN';
-      ms.className = 'health-ms slow';
-      return false;
+      ms.textContent = 'FAIL';
+      return null;
     }
   }
 
   async function runChecks() {
     const cards = grid.querySelectorAll('.health-card');
-    let upCount = 0;
-
-    // Check all in parallel
     const results = await Promise.all(
       systems.map((s, i) => checkSystem(s, cards[i]))
     );
 
-    upCount = results.filter(Boolean).length;
+    const upCount = results.filter(r => r !== null).length;
+    const latencies = results.filter(r => r !== null);
+    const avgLat = latencies.length ? Math.round(latencies.reduce((a, b) => a + b, 0) / latencies.length) : 0;
 
-    if (uptimeEl) {
-      uptimeEl.textContent = upCount + '/' + systems.length + ' ONLINE';
-    }
+    if (uptimeEl) uptimeEl.textContent = upCount + '/' + systems.length + ' NOMINAL';
+    if (latEl) latEl.textContent = avgLat + 'ms';
     if (timestampEl) {
       const now = new Date();
-      const fmt = new Intl.DateTimeFormat('en-GB', {
-        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Bangkok'
-      });
-      timestampEl.textContent = 'Last check: ' + fmt.format(now) + ' BKK';
+      timestampEl.textContent = now.getHours().toString().padStart(2, '0') + ':' + 
+                                now.getMinutes().toString().padStart(2, '0') + ':' + 
+                                now.getSeconds().toString().padStart(2, '0') + ' UTC';
     }
   }
 
-  // Run initial checks with slight delay for page load
   setTimeout(runChecks, 2000);
-  // Re-check every 60 seconds
   setInterval(runChecks, 60000);
 })();
 
@@ -170,14 +164,24 @@
 // ── Scroll Parallax ───────────────────────────────────────────────
 
 (function initParallax() {
-  const parallaxEls = document.querySelectorAll('.section-header');
+  const layers = [
+    { selector: '.section-header', rate: 0.04 },
+    { selector: '.section-tag', rate: 0.02 },
+    { selector: '.proof-photo', rate: 0.03 },
+  ];
+
+  const allEls = [];
+  layers.forEach(layer => {
+    document.querySelectorAll(layer.selector).forEach(el => {
+      allEls.push({ el, rate: layer.rate });
+    });
+  });
 
   function update() {
-    const scrollY = window.scrollY;
-    parallaxEls.forEach(el => {
+    allEls.forEach(({ el, rate }) => {
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) {
-        const offset = (rect.top - window.innerHeight / 2) * 0.04;
+        const offset = (rect.top - window.innerHeight / 2) * rate;
         el.style.transform = `translateY(${offset}px)`;
       }
     });
@@ -236,6 +240,84 @@
     L.marker(coords, { icon: pulseIcon }).addTo(map);
   });
 
+  // ── Intelligence Overlays Trigger (V6) ──
+  function updateIntelligenceOverlays(lat, lng) {
+    const dubaiDist = Math.sqrt(Math.pow(lat - 25.2048, 2) + Math.pow(lng - 55.2708, 2));
+    const bkkDist = Math.sqrt(Math.pow(lat - 13.7563, 2) + Math.pow(lng - 100.5018, 2));
+    
+    const dubaiOverlay = document.getElementById('intelOverlayDubai');
+    const bkkOverlay = document.getElementById('intelOverlayBangkok');
+    
+    if (dubaiOverlay) dubaiOverlay.classList.toggle('active', dubaiDist < 0.5);
+    if (bkkOverlay) bkkOverlay.classList.toggle('active', bkkDist < 0.5);
+  }
+
+  window.axiom = window.axiom || {};
+  window.axiom.showroom = {
+    goLive: function(id) {
+      const container = document.querySelector(`.mockup-container[data-id="${id}"]`);
+      if (!container) return;
+      
+      const iframeContainer = container.querySelector('.live-iframe-container');
+      const src = iframeContainer.dataset.src;
+      
+      if (!iframeContainer.querySelector('iframe')) {
+        const iframe = document.createElement('iframe');
+        iframe.src = src;
+        iframeContainer.appendChild(iframe);
+      }
+      
+      container.classList.add('is-live');
+    },
+    exitLive: function(id) {
+      const container = document.querySelector(`.mockup-container[data-id="${id}"]`);
+      if (container) container.classList.remove('is-live');
+    },
+    revealMore: function() {
+      document.querySelectorAll('.project-card').forEach(c => c.style.display = 'flex');
+      const btn = document.querySelector('.projects-see-all');
+      if (btn) btn.style.display = 'none';
+    },
+    initV6: function() {
+      // Terminal Flux
+      const logLines = [
+        '[NET] PKT_RECV_142KB...', '[SYS] NODE_SYNC_OK', '[SEC] SSL_READY',
+        '[DATA] BUFFER_CLEARED', '[SYS] LINK_STABLE', '[NET] HEARTBEAT_ACK',
+        '[SEC] TCP_ESTABLISHED', '[AI] MODEL_LOADED', '[GPS] LOCK_OK'
+      ];
+
+      setInterval(() => {
+        document.querySelectorAll('.terminal-log').forEach(log => {
+          if (!log.closest('.mockup-container').classList.contains('is-live')) {
+            const div = document.createElement('div');
+            div.textContent = logLines[Math.floor(Math.random() * logLines.length)];
+            log.appendChild(div);
+            if (log.children.length > 8) log.children[0].remove();
+          }
+        });
+      }, 2000);
+
+      // SITREP HUD Telemetry
+      const xLine = document.querySelector('.telemetry-axis-x');
+      const yLine = document.querySelector('.telemetry-axis-y');
+      const tracker = document.querySelector('.hero-tracker');
+      
+      map.on('move', () => {
+        const center = map.getCenter();
+        const screenPos = map.latLngToContainerPoint(center);
+        if (xLine) xLine.style.top = screenPos.y + 'px';
+        if (yLine) yLine.style.left = screenPos.x + 'px';
+        if (tracker) {
+          tracker.style.top = screenPos.y + 'px';
+          tracker.style.left = screenPos.x + 'px';
+        }
+        updateIntelligenceOverlays(center.lat, center.lng);
+      });
+    }
+  };
+
+  axiom.showroom.initV6();
+
   // ── Auto Tour Mode ──
   const mapModeDot = document.getElementById('mapModeDot');
   const mapModeLabel = document.getElementById('mapModeLabel');
@@ -266,8 +348,8 @@
     const city = CITIES[cityIndex];
     if (heroCityLabel) heroCityLabel.textContent = city.name.toUpperCase();
     map.flyTo([city.lat, city.lng], city.zoom, {
-      duration: 8,
-      easeLinearity: 0.1,
+      duration: 10,
+      easeLinearity: 0.05,
     });
   }
 
@@ -285,6 +367,9 @@
     if (driftInterval) { clearInterval(driftInterval); driftInterval = null; }
     if (driftTimer) { clearTimeout(driftTimer); driftTimer = null; }
     map.stop(); // stop any in-progress flyTo
+
+    updateIntelligenceOverlays(map.getCenter().lat, map.getCenter().lng);
+
 
     // If user paused by interacting, offer resume after 20s of inactivity
     if (fromUser && resumeTimeout) clearTimeout(resumeTimeout);
@@ -371,14 +456,14 @@
 
   window.addEventListener('axiom-theme-change', function(e) {
     var t = e.detail.theme;
-    switchMapLayer(t === 'v2' ? 'terrain' : (t === 'v2.5' || t === 'v4') ? 'dark' : 'satellite');
+    switchMapLayer(t === 'v2' ? 'terrain' : (t === 'v2.5' || t === 'v3' || t === 'v4' || t === 'masterpiece') ? 'dark' : 'satellite');
   });
 
   // Apply initial theme layer
   var initTheme = document.documentElement.getAttribute('data-theme');
   if (initTheme === 'v2') {
     switchMapLayer('terrain');
-  } else if (initTheme === 'v2.5' || initTheme === 'v4') {
+  } else if (initTheme === 'v2.5' || initTheme === 'v3' || initTheme === 'v4' || initTheme === 'masterpiece') {
     switchMapLayer('dark');
   }
 
@@ -667,15 +752,43 @@
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 50);
-  });
+  }, { passive: true });
 
   if (toggle && menu) {
+    function openMenu() {
+      menu.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      const firstLink = menu.querySelector('a');
+      if (firstLink) firstLink.focus();
+      document.addEventListener('keydown', trapFocus);
+    }
+
+    function closeMenu() {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.removeEventListener('keydown', trapFocus);
+      toggle.focus();
+    }
+
+    function trapFocus(e) {
+      if (e.key === 'Escape') { closeMenu(); return; }
+      if (e.key !== 'Tab') return;
+      const focusable = menu.querySelectorAll('a, button');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+
     toggle.addEventListener('click', () => {
-      menu.classList.toggle('open');
+      menu.classList.contains('open') ? closeMenu() : openMenu();
     });
 
     menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => menu.classList.remove('open'));
+      link.addEventListener('click', closeMenu);
     });
   }
 })();
@@ -718,7 +831,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         requestAnimationFrame(updateCount);
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.1 });
 
   counters.forEach(c => observer.observe(c));
 })();
@@ -1222,4 +1335,194 @@ console.log('%c axiomaxiom.corp@gmail.com ', 'color: #eeeef0; font-size: 11px; f
     });
     p.parentNode.insertBefore(btn, p.nextSibling);
   });
+})();
+
+
+// ── Scroll Progress Bar ──────────────────────────────────────────
+
+(function initScrollProgress() {
+  const bar = document.getElementById('scrollProgressBar');
+  if (!bar) return;
+
+  function update() {
+    const scrollY = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) return;
+    bar.style.width = (scrollY / docHeight * 100) + '%';
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+
+// ── Lazy Embed Loading (desktop hover) ────────────────────────────
+
+(function initLazyEmbeds() {
+  if (window.matchMedia('(max-width: 768px)').matches) return;
+
+  document.querySelectorAll('.project-embed[data-src]').forEach(embed => {
+    const card = embed.closest('.project-card');
+    if (!card) return;
+
+    function loadEmbed() {
+      if (embed.dataset.loaded) return;
+      embed.dataset.loaded = 'true';
+
+      const iframe = document.createElement('iframe');
+      iframe.className = 'project-embed-frame';
+      iframe.src = embed.dataset.src;
+      iframe.loading = 'lazy';
+      iframe.title = card.querySelector('.project-title')?.textContent || '';
+      iframe.setAttribute('tabindex', '-1');
+      embed.insertBefore(iframe, embed.firstChild);
+
+      iframe.addEventListener('load', () => {
+        embed.classList.add('has-iframe');
+      });
+    }
+
+    card.addEventListener('mouseenter', loadEmbed, { once: true });
+    card.addEventListener('focusin', loadEmbed, { once: true });
+  });
+})();
+
+
+// ── Contact Form Submit with Success Animation ───────────────────
+
+(function initContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const btnSpan = btn.querySelector('span');
+    const origText = btnSpan.textContent;
+
+    btnSpan.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (res.ok) {
+        form.innerHTML = `
+          <div class="contact-form-success">
+            <div class="success-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Message sent</h3>
+            <p>We'll get back to you soon.</p>
+          </div>
+        `;
+      } else {
+        btnSpan.textContent = 'Try Again';
+        btn.style.background = 'var(--red)';
+        btn.disabled = false;
+        setTimeout(() => { btnSpan.textContent = origText; btn.style.background = ''; }, 3000);
+      }
+    } catch (err) {
+      btnSpan.textContent = 'Try Again';
+      btn.style.background = 'var(--red)';
+      btn.disabled = false;
+      setTimeout(() => { btnSpan.textContent = origText; btn.style.background = ''; }, 3000);
+    }
+  });
+})();
+
+
+// ── Magnetic Buttons (desktop only) ──────────────────────────────
+
+(function initMagneticButtons() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.btn-primary, .btn-ghost, .nav-link-cta').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
+      btn.style.transform = `translate(${x}px, ${y - 1}px)`;
+      btn.style.transition = 'transform 0.1s ease';
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+      btn.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+      setTimeout(() => { btn.style.transition = ''; }, 500);
+    });
+  });
+})();
+
+
+// ── 3D Tilt Cards (desktop only) ─────────────────────────────────
+
+(function initTiltCards() {
+  if (window.matchMedia('(hover: none)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.capability-card, .uav-card, .philosophy-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+      card.style.transition = 'transform 0.1s ease';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+      setTimeout(() => { card.style.transition = ''; }, 600);
+    });
+  });
+})();
+
+
+// ── Typewriter HUD Coordinates ───────────────────────────────────
+
+(function initTypewriterHud() {
+  const satCoord = document.getElementById('satCoord');
+  if (!satCoord) return;
+
+  let currentText = satCoord.textContent;
+  let typeTimer = null;
+
+  window.typewriterUpdate = function(el, newText) {
+    if (newText === currentText) return;
+    clearTimeout(typeTimer);
+
+    // Find first differing character
+    let diffIndex = 0;
+    while (diffIndex < currentText.length && diffIndex < newText.length && currentText[diffIndex] === newText[diffIndex]) {
+      diffIndex++;
+    }
+
+    let i = diffIndex;
+    function tick() {
+      if (i <= newText.length) {
+        el.textContent = newText.substring(0, i);
+        i++;
+        typeTimer = setTimeout(tick, 30);
+      } else {
+        currentText = newText;
+      }
+    }
+    tick();
+  };
+
+  // Patch updateHud to use typewriter for coordinates
+  const origSetContent = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'textContent').set;
+  const observer = new MutationObserver(() => {
+    const newText = satCoord.textContent;
+    if (newText !== currentText && newText.includes('°')) {
+      currentText = newText;
+    }
+  });
+  observer.observe(satCoord, { childList: true, characterData: true, subtree: true });
 })();

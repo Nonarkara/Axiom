@@ -1,0 +1,401 @@
+/* ========================================
+   AXIOM — v3: The Masterpiece
+   "Precision is the only elegance."
+   Red Dot Design Award level aesthetic.
+   Bento Grid / Swiss Type / Mono-Tech.
+   ======================================== */
+
+[data-theme="v3"] {
+  --bg: #020202;
+  --bg-elevated: #080808;
+  --surface: #0a0a0a;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-active: #00F0FF;
+  --text: #FFFFFF;
+  --text-secondary: #999999;
+  --text-dim: #444444;
+  --accent: #00F0FF;
+  --accent-dim: rgba(0, 240, 255, 0.1);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --ease: cubic-bezier(0.19, 1, 0.22, 1);
+  --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ── Global ─────────────────────────────────────────────────────── */
+
+[data-theme="v3"] body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+[data-theme="v3"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--grain);
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+[data-theme="v3"] ::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ── Navigation ────────────────────────────────────────────────── */
+
+[data-theme="v3"] #nav {
+  background: rgba(2, 2, 2, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 0.5px solid var(--border);
+}
+
+[data-theme="v3"] .nav-logo-text {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+[data-theme="v3"] .nav-link {
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--text-secondary);
+  transition: color var(--ease) 0.3s;
+}
+
+[data-theme="v3"] .nav-link:hover {
+  color: var(--accent);
+}
+
+[data-theme="v3"] .nav-link-cta {
+  background: var(--text);
+  color: var(--bg);
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+/* ── Hero ───────────────────────────────────────────────────────── */
+
+[data-theme="v3"] .hero-badge {
+  background: var(--accent-dim);
+  border: 0.5px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 11px;
+  border-radius: 2px;
+}
+
+[data-theme="v3"] .hero-title {
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+[data-theme="v3"] .hero-line-accent {
+  color: var(--accent);
+}
+
+[data-theme="v3"] .hero-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+[data-theme="v3"] .btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.2);
+}
+
+[data-theme="v3"] .btn-ghost {
+  border: 0.5px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+[data-theme="v3"] .hero-stat-value {
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+/* ── Bento Grid Implementation ────────────────────────────────── */
+
+@media (min-width: 1024px) {
+  [data-theme="v3"] .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  [data-theme="v3"] .project-card-featured {
+    grid-column: span 2;
+    aspect-ratio: 21 / 9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  [data-theme="v3"] .project-card-featured .project-info {
+    flex: 0 0 35%;
+    padding: 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 0.5px solid var(--border);
+    background: var(--bg);
+  }
+
+  [data-theme="v3"] .project-card-featured .project-embed {
+    flex: 1;
+    height: 100%;
+    margin: 0;
+  }
+
+  [data-theme="v3"] .project-card:not(.project-card-featured) {
+    aspect-ratio: 16 / 9;
+    position: relative;
+  }
+}
+
+[data-theme="v3"] .project-card {
+  background: var(--bg-elevated);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform var(--ease) 0.6s, border-color var(--ease) 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="v3"] .project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+[data-theme="v3"] .project-card:not(.project-card-featured) .project-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  background: linear-gradient(to top, rgba(2,2,2,0.95) 0%, rgba(2,2,2,0.6) 60%, transparent 100%);
+  z-index: 10;
+  transition: transform var(--ease) 0.4s;
+}
+
+[data-theme="v3"] .project-card:not(.project-card-featured):hover .project-info {
+  transform: translateY(-5px);
+}
+
+[data-theme="v3"] .project-title {
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+[data-theme="v3"] .project-card-featured .project-title {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+[data-theme="v3"] .project-desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 15px;
+  max-width: 95%;
+}
+
+[data-theme="v3"] .project-embed {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+[data-theme="v3"] .project-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Technical Overlay on thumbnails */
+[data-theme="v3"] .project-card:not(.project-card-featured) .project-embed::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+[data-theme="v3"] .project-tech span {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  border: 0.5px solid var(--border);
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+[data-theme="v3"] .project-status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+[data-theme="v3"] .status-dot-live {
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* ── Sections ──────────────────────────────────────────────────── */
+
+[data-theme="v3"] .section-tag {
+  color: var(--accent);
+  font-family: var(--mono);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+[data-theme="v3"] .section-title {
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+
+/* ── Ticker ─────────────────────────────────────────────────────── */
+
+[data-theme="v3"] #ticker {
+  background: #000;
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  padding: 12px 0;
+}
+
+[data-theme="v3"] .ticker-item {
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ── Health Monitor ────────────────────────────────────────────── */
+
+[data-theme="v3"] .health-card {
+  background: var(--bg-elevated);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+}
+
+[data-theme="v3"] .health-card:hover {
+  border-color: var(--accent);
+}
+
+[data-theme="v3"] .health-name {
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+/* ── Capabilities ──────────────────────────────────────────────── */
+
+[data-theme="v3"] .capability-card {
+  background: var(--bg-elevated);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 40px;
+}
+
+[data-theme="v3"] .capability-card:hover {
+  border-color: var(--accent);
+  background: rgba(0, 240, 255, 0.02);
+}
+
+[data-theme="v3"] .capability-icon svg {
+  stroke: var(--accent);
+}
+
+/* ── Contact Form ──────────────────────────────────────────────── */
+
+[data-theme="v3"] .cta-block {
+  background: #000;
+  border: 0.5px solid var(--border);
+  border-radius: 20px;
+  padding: 60px;
+}
+
+[data-theme="v3"] .contact-field input,
+[data-theme="v3"] .contact-field textarea {
+  border: none;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  border-radius: 0;
+  padding: 12px 0;
+}
+
+[data-theme="v3"] .contact-field input:focus,
+[data-theme="v3"] .contact-field textarea:focus {
+  border-bottom-color: var(--accent);
+  box-shadow: none;
+}
+
+/* ── Theme Switcher Refinement (Hardware Style) ────────────────── */
+
+[data-theme="v3"] .theme-switcher-toggle {
+  background: #111;
+  border: 1px solid #333;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 10px rgba(0,0,0,0.5);
+}
+
+[data-theme="v3"] .theme-switcher-panel {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+[data-theme="v3"] .theme-option {
+  border-radius: 6px;
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+}
+
+[data-theme="v3"] .theme-option:hover {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+[data-theme="v3"] .theme-option.active {
+  background: #333;
+  border-color: var(--accent);
+}
+
+[data-theme="v3"] .theme-badge-featured {
+  background: var(--accent);
+  color: #000;
+  font-size: 8px;
+  font-weight: 900;
+  padding: 2px 4px;
+  border-radius: 2px;
+  margin-left: 8px;
+  vertical-align: middle;
+}

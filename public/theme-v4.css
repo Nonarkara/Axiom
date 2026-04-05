@@ -797,3 +797,22 @@
     text-shadow: none !important;
   }
 }
+
+/* ── Floating Label Neon Effect ────────────────────────────────── */
+
+[data-theme="v4"] .contact-field input:focus + label,
+[data-theme="v4"] .contact-field textarea:focus + label {
+  text-shadow: var(--neon-glow);
+}
+
+[data-theme="v4"] .scroll-progress-bar {
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+[data-theme="v4"] .project-embed-placeholder-text {
+  text-shadow: var(--neon-glow);
+}
+
+[data-theme="v4"] .skip-to-content:focus {
+  box-shadow: var(--neon-glow);
+}
