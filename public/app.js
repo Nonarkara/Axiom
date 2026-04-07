@@ -95,15 +95,11 @@
 
   const systems = [
     { name: 'DNGWS Monitor', url: 'https://dngws-monitor.vercel.app' },
-    { name: 'Middle East Monitor', url: 'https://middle-east-monitor.vercel.app' },
-    { name: 'MEM Intelligence', url: 'https://mem-by-non.vercel.app' },
-    { name: 'Phuket Dashboard', url: 'https://phuket-dashboard.vercel.app' },
-    { name: 'Geopolitics Dashboard', url: 'https://geopolitics-dashboard-sage.vercel.app' },
     { name: 'City Reporter V2', url: 'https://city-reporter-v2.vercel.app/dashboard.html' },
-    { name: 'Phuket Smart Bus', url: 'https://phuket-smart-bus.vercel.app/ops' },
-    { name: 'SLIC Index V2', url: 'https://slic-index-v2.vercel.app' },
-    { name: 'Muang Thong Thani Monitor', url: 'https://mtt-smart-city-monitor-web.onrender.com' },
-    { name: 'Smart City Thailand Index', url: 'https://smart-city-thailand-index.vercel.app' },
+    { name: 'Phuket Dashboard', url: 'https://phuket-dashboard.vercel.app' },
+    { name: 'Geopolitics Monitor', url: 'https://geopolitics-dashboard-sage.vercel.app' },
+    { name: 'MTT Super Dashboard', url: 'https://muang-thong-thani-super-dashboard.vercel.app' },
+    { name: 'Smart City Thailand', url: 'https://smart-city-thailand-index.vercel.app' },
   ];
 
   // Render HUD cards
@@ -1231,8 +1227,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     },
 
     os: () => {
-      addLine('Opening Dr. Non Operating Systems Dashboard...');
-      window.open('https://dr-non-operating-systems.onrender.com', '_blank');
+      addLine('Dr. Non OS Dashboard — currently upgrading.');
+      addLine('Check back soon.', 'terminal-line-info');
     },
 
     clear: () => {

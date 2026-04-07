@@ -4073,3 +4073,100 @@ section {
     display: none !important;
   }
 }
+
+
+/* ========================================
+   RED DOT FINAL — CSS Scroll-Driven Animations
+   Progressive enhancement: compositor-thread only, zero JS cost
+   ======================================== */
+
+@supports (animation-timeline: view()) {
+  @keyframes scroll-fade-in {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .project-card,
+  .matrix-item,
+  .capability-card,
+  .philosophy-card,
+  .team-card {
+    animation: scroll-fade-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  /* Staggered entry using sibling-index where supported */
+  .matrix-item {
+    animation-range: entry 0% cover 25%;
+  }
+
+  .section-header {
+    animation: scroll-fade-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+  }
+}
+
+
+/* ========================================
+   RED DOT FINAL — Typography Polish
+   ======================================== */
+
+.section-title,
+.hero-title,
+.cta-title,
+.launch-hero-title,
+.uav-hero-title,
+.humanities-title,
+h2 {
+  text-wrap: balance;
+}
+
+.section-desc,
+.project-desc,
+.hero-subtitle,
+.team-card p,
+.philosophy-card p,
+.capability-card p,
+.matrix-desc,
+.uav-card-desc,
+.launch-text p,
+.humanities-text {
+  text-wrap: pretty;
+}
+
+
+/* ========================================
+   RED DOT FINAL — Performance CSS
+   ======================================== */
+
+/* content-visibility: auto on off-screen sections */
+#capabilities,
+#proof,
+#launch,
+#uav,
+#philosophy,
+#team,
+#origins,
+#probono,
+#featured,
+#humanities,
+#contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* Containment on cards for layout performance */
+.project-card,
+.matrix-item,
+.capability-card {
+  contain: layout style paint;
+}
+
+/* GPU-only animations */
+.reveal,
+.project-card,
+.mockup-container {
+  will-change: transform, opacity;
+}
