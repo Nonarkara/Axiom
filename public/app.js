@@ -94,14 +94,13 @@
   if (!grid) return;
 
   const systems = [
+    { name: 'Global Monitor', url: 'https://globalmonitor.fly.dev/' },
     { name: 'MEM Intelligence', url: 'https://nonarkara.github.io/mem-by-non/' },
+    { name: 'War Monitor', url: 'https://middleeast-monitor.pages.dev/' },
     { name: 'City Reporter V2', url: 'https://city-reporter-v2.vercel.app/dashboard.html' },
     { name: 'Phuket Dashboard', url: 'https://phuket-dashboard.vercel.app' },
-    { name: 'GlobeWatch Monitor', url: 'https://nonarkara.github.io/tech-monitor/' },
-    { name: 'MTT Super Dashboard', url: 'https://muang-thong-thani-super-dashboard.vercel.app' },
-    { name: 'Smart City Thailand', url: 'https://smart-city-thailand-index.vercel.app' },
-    { name: 'War Monitor', url: 'https://nonarkara.github.io/middleeast-monitor/' },
     { name: 'Phuket Smart Bus', url: 'https://nonarkara.github.io/phuket-smart-bus/' },
+    { name: 'Smart City Thailand', url: 'https://nonarkara.github.io/smart-city-thailand-index/' },
   ];
 
   // Render HUD cards
