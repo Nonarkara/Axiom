@@ -94,12 +94,14 @@
   if (!grid) return;
 
   const systems = [
-    { name: 'DNGWS Monitor', url: 'https://dngws-monitor.vercel.app' },
+    { name: 'MEM Intelligence', url: 'https://nonarkara.github.io/mem-by-non/' },
     { name: 'City Reporter V2', url: 'https://city-reporter-v2.vercel.app/dashboard.html' },
     { name: 'Phuket Dashboard', url: 'https://phuket-dashboard.vercel.app' },
-    { name: 'Geopolitics Monitor', url: 'https://geopolitics-dashboard-sage.vercel.app' },
+    { name: 'GlobeWatch Monitor', url: 'https://nonarkara.github.io/tech-monitor/' },
     { name: 'MTT Super Dashboard', url: 'https://muang-thong-thani-super-dashboard.vercel.app' },
     { name: 'Smart City Thailand', url: 'https://smart-city-thailand-index.vercel.app' },
+    { name: 'War Monitor', url: 'https://nonarkara.github.io/middleeast-monitor/' },
+    { name: 'Phuket Smart Bus', url: 'https://nonarkara.github.io/phuket-smart-bus/' },
   ];
 
   // Render HUD cards
@@ -1521,4 +1523,35 @@ console.log('%c axiomaxiom.corp@gmail.com ', 'color: #eeeef0; font-size: 11px; f
     }
   });
   observer.observe(satCoord, { childList: true, characterData: true, subtree: true });
+})();
+
+
+// ── Iframe Fallback: Vercel → GitHub Pages static mirror ─────────
+
+(function initIframeFallback() {
+  const fallbackMap = {
+    'city-reporter-v2.vercel.app': 'nonarkara.github.io/mem-by-non/',
+    'phuket-dashboard.vercel.app': 'nonarkara.github.io/tech-monitor/',
+    'muang-thong-thani-super-dashboard.vercel.app': 'nonarkara.github.io/middleeast-monitor/',
+    'smart-city-thailand-index.vercel.app': 'nonarkara.github.io/tech-monitor/',
+  };
+
+  document.querySelectorAll('.mockup-iframe').forEach(iframe => {
+    iframe.addEventListener('error', function() {
+      const url = new URL(iframe.src);
+      const fallback = fallbackMap[url.host];
+      if (fallback && !iframe.dataset.fellback) {
+        iframe.dataset.fellback = 'true';
+        iframe.src = 'https://' + fallback;
+      }
+    });
+
+    // Also check after a timeout — some iframe errors don't fire 'error'
+    setTimeout(() => {
+      try {
+        // If iframe loaded but shows error page, we can't detect cross-origin
+        // The screenshot underneath will be visible as fallback anyway
+      } catch(e) {}
+    }, 10000);
+  });
 })();

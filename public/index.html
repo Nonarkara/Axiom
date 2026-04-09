@@ -264,33 +264,11 @@
 
         <!-- DNGWS Monitor — Intelligence Report 01 -->
         <article class="project-card" data-orientation="landscape">
-          <div class="mockup-container display-mockup" data-id="dngws">
+          <div class="mockup-container display-mockup is-live" data-id="dngws">
             <div class="mockup-screen">
-              <!-- Handshake Terminal -->
-              <div class="terminal-stream">
-                <div class="terminal-log" id="term-dngws">
-                  [SYS] NODE_DNGWS_INITIALIZING...<br>
-                  [NET] SCANNING_COORDINATES...<br>
-                  [SEC] SSL_HANDSHAKE_PENDING...<br>
-                  [DATA] PKT_RECV_142KB...<br>
-                  [SYS] LINK_ESTABLISHED<br>
-                  [SYS] NODE_DNGWS_INITIALIZING...<br>
-                  [NET] SCANNING_COORDINATES...<br>
-                  [SEC] SSL_HANDSHAKE_PENDING...<br>
-                  [DATA] PKT_RECV_142KB...
-                </div>
-              </div>
-
-              <div class="data-mesh-placeholder">
-                <div class="mesh-intel">SLIC ACCURACY: 98.4%</div>
-                <div class="mesh-label">SYSTEM READY // CLICK TO INITIALIZE</div>
-              </div>
-              <div class="live-iframe-container" data-src="https://dngws-monitor.vercel.app"></div>
+              <img src="screenshots/mem-intelligence.png" class="mockup-screenshot" alt="MEM Intelligence Dashboard" loading="lazy">
+              <iframe src="https://nonarkara.github.io/mem-by-non/" class="mockup-iframe" loading="lazy" title="MEM Intelligence Dashboard"></iframe>
             </div>
-            <div class="mockup-overlay">
-              <button class="intel-hud-btn" onclick="axiom.showroom.goLive('dngws')">INITIALIZE LINK</button>
-            </div>
-            <button class="exit-live-hud-btn" onclick="axiom.showroom.exitLive('dngws')">DISCONNECT</button>
           </div>
           
           <div class="project-meta">
@@ -320,40 +298,22 @@
               <span>Next-gen GIS</span>
               <span>Tactical UI</span>
               <span>OSINT</span>
-              <span>Vercel Edge</span>
+              <span>Edge Deploy</span>
+            </div>
+            <div class="project-links">
+              <a href="https://nonarkara.github.io/mem-by-non/" target="_blank" rel="noopener">Open Live System &rarr;</a>
             </div>
           </div>
         </article>
 
         <!-- City Reporter — Intelligence Report 02 -->
         <article class="project-card" data-orientation="portrait">
-          <div class="mockup-container smartphone-mockup" data-id="city-reporter">
+          <div class="mockup-container smartphone-mockup is-live" data-id="city-reporter">
             <div class="mockup-screen">
-              <!-- Handshake Terminal -->
-              <div class="terminal-stream">
-                <div class="terminal-log" id="term-city">
-                  [SYS] NODE_REPORTER_SYMBOLS_READY...<br>
-                  [AI] TRIAGE_ENGINE_OK...<br>
-                  [LINE] WEBHOOK_LISTENING...<br>
-                  [DATA] QUEUE_SIZE_0...<br>
-                  [SYS] NODE_REPORTER_SYMBOLS_READY...<br>
-                  [AI] TRIAGE_ENGINE_OK...<br>
-                  [LINE] WEBHOOK_LISTENING...<br>
-                  [DATA] QUEUE_SIZE_0...
-                </div>
-              </div>
-
-              <div class="data-mesh-placeholder">
-                <div class="mesh-intel">AI TRIAGE: 99.1%</div>
-                <div class="mesh-label">SYSTEM READY // CLICK TO INITIALIZE</div>
-              </div>
-              <div class="live-iframe-container" data-src="https://city-reporter-v2.vercel.app/dashboard.html"></div>
+              <iframe src="https://city-reporter-v2.vercel.app/dashboard.html" class="mockup-iframe" loading="lazy" title="City Reporter V2 Dashboard"></iframe>
             </div>
-            <div class="mockup-overlay">
-              <button class="intel-hud-btn" onclick="axiom.showroom.goLive('city-reporter')">INITIALIZE LINK</button>
-            </div>
-            <button class="exit-live-hud-btn" onclick="axiom.showroom.exitLive('city-reporter')">DISCONNECT</button>
           </div>
+          <!-- No screenshot yet — City Reporter needs one -->
           
           <div class="project-meta">
             <div class="project-info-header">
@@ -384,38 +344,20 @@
               <span>GIS Core</span>
               <span>Tactical UI</span>
             </div>
+            <div class="project-links">
+              <a href="https://city-reporter-v2.vercel.app/dashboard.html" target="_blank" rel="noopener">Open Live System &rarr;</a>
+            </div>
           </div>
         </article>
 
         <!-- Phuket — Intelligence Report 03 -->
         <article class="project-card" data-orientation="landscape">
-          <div class="mockup-container display-mockup" data-id="phuket-ops">
+          <div class="mockup-container display-mockup is-live" data-id="phuket-ops">
             <div class="mockup-screen">
-              <!-- Handshake Terminal -->
-              <div class="terminal-stream">
-                <div class="terminal-log" id="term-phuket">
-                  [SYS] NODE_PHUKET_OPS_ONLINE...<br>
-                  [DATA] TRANSIT_STREAM_CONNECTED...<br>
-                  [IOT] SENSOR_GRID_SYNC_100%...<br>
-                  [NET] LATENCY_12MS...<br>
-                  [SYS] NODE_PHUKET_OPS_ONLINE...<br>
-                  [DATA] TRANSIT_STREAM_CONNECTED...<br>
-                  [IOT] SENSOR_GRID_SYNC_100%...
-                </div>
-              </div>
-
-              <!-- Replaced AI snapshot with a pure CSS Data Mesh and SLIC Metrics -->
-              <div class="data-mesh-placeholder">
-                <div class="mesh-intel">UPTIME: 100%</div>
-                <div class="mesh-label">SYSTEM READY // CLICK TO INITIALIZE</div>
-              </div>
-              <div class="live-iframe-container" data-src="https://phuket-dashboard.vercel.app"></div>
+              <iframe src="https://phuket-dashboard.vercel.app" class="mockup-iframe" loading="lazy" title="Phuket Dashboard"></iframe>
             </div>
-            <div class="mockup-overlay">
-              <button class="intel-hud-btn" onclick="axiom.showroom.goLive('phuket-ops')">INITIALIZE LINK</button>
-            </div>
-            <button class="exit-live-hud-btn" onclick="axiom.showroom.exitLive('phuket-ops')">DISCONNECT</button>
           </div>
+          <!-- No screenshot yet — Phuket Dashboard needs one -->
           
           <div class="project-meta">
             <div class="project-info-header">
@@ -446,36 +388,20 @@
               <span>Mapbox</span>
               <span>IoT Bridge</span>
             </div>
+            <div class="project-links">
+              <a href="https://phuket-dashboard.vercel.app" target="_blank" rel="noopener">Open Live System &rarr;</a>
+              <a href="https://nonarkara.github.io/phuket-smart-bus/" target="_blank" rel="noopener" class="project-link-fallback">Static Demo &rarr;</a>
+            </div>
           </div>
         </article>
 
         <!-- Geopolitics — Intelligence Report 04 -->
         <article class="project-card" data-orientation="landscape">
-          <div class="mockup-container display-mockup" data-id="geopolitics">
+          <div class="mockup-container display-mockup is-live" data-id="geopolitics">
             <div class="mockup-screen">
-              <!-- Handshake Terminal -->
-              <div class="terminal-stream">
-                <div class="terminal-log" id="term-geo">
-                  [SYS] NODE_GEOPOLITICS_IDLE...<br>
-                  [NLP] ENGINE_SCANNING_53_REGIONS...<br>
-                  [RSS] FEED_STREAM_STABLE...<br>
-                  [AI] RISK_THRESHOLD_SET_0.82...<br>
-                  [SYS] NODE_GEOPOLITICS_IDLE...<br>
-                  [NLP] ENGINE_SCANNING_53_REGIONS...<br>
-                </div>
-              </div>
-
-              <!-- Replaced AI snapshot with a pure CSS Data Mesh and SLIC Metrics -->
-              <div class="data-mesh-placeholder">
-                <div class="mesh-intel">SENTIMENT: DYNAMIC</div>
-                <div class="mesh-label">SYSTEM READY // CLICK TO INITIALIZE</div>
-              </div>
-              <div class="live-iframe-container" data-src="https://geopolitics-dashboard-sage.vercel.app"></div>
+              <img src="screenshots/globewatch-monitor.png" class="mockup-screenshot" alt="GlobeWatch Geopolitics Monitor" loading="lazy">
+              <iframe src="https://nonarkara.github.io/tech-monitor/" class="mockup-iframe" loading="lazy" title="GlobeWatch Geopolitics Monitor"></iframe>
             </div>
-            <div class="mockup-overlay">
-              <button class="intel-hud-btn" onclick="axiom.showroom.goLive('geopolitics')">INITIALIZE LINK</button>
-            </div>
-            <button class="exit-live-hud-btn" onclick="axiom.showroom.exitLive('geopolitics')">DISCONNECT</button>
           </div>
           
           <div class="project-meta">
@@ -505,36 +431,23 @@
               <span>NLP</span>
               <span>Python</span>
               <span>D3.js</span>
-              <span>Edge Deployment</span>
+              <span>Edge Deploy</span>
+            </div>
+            <div class="project-links">
+              <a href="https://nonarkara.github.io/tech-monitor/" target="_blank" rel="noopener">Open Live System &rarr;</a>
+              <a href="https://nonarkara.github.io/middleeast-monitor/" target="_blank" rel="noopener" class="project-link-fallback">War Monitor &rarr;</a>
             </div>
           </div>
         </article>
 
         <!-- Muang Thong Thani Super Dashboard -->
         <article class="project-card" data-orientation="landscape">
-          <div class="mockup-container display-mockup" data-id="mtt">
+          <div class="mockup-container display-mockup is-live" data-id="mtt">
             <div class="mockup-screen">
-              <div class="terminal-stream">
-                <div class="terminal-log" id="term-mtt">
-                  [SYS] NODE_MTT_MONITOR_IDLE...<br>
-                  [ENV] SENSOR_GRID_ACTIVE...<br>
-                  [GIS] URBAN_LAYERS_LOADED...<br>
-                  [AQI] POLLUTION_INDEX_NOMINAL...<br>
-                  [SYS] NODE_MTT_MONITOR_IDLE...<br>
-                  [ENV] SENSOR_GRID_ACTIVE...<br>
-                </div>
-              </div>
-              <div class="data-mesh-placeholder">
-                <div class="mesh-intel">ENVIRONMENT: STABLE</div>
-                <div class="mesh-label">SYSTEM READY // CLICK TO INITIALIZE</div>
-              </div>
-              <div class="live-iframe-container" data-src="https://muang-thong-thani-super-dashboard.vercel.app"></div>
+              <iframe src="https://muang-thong-thani-super-dashboard.vercel.app" class="mockup-iframe" loading="lazy" title="MTT Super Dashboard"></iframe>
             </div>
-            <div class="mockup-overlay">
-              <button class="intel-hud-btn" onclick="axiom.showroom.goLive('mtt')">INITIALIZE LINK</button>
-            </div>
-            <button class="exit-live-hud-btn" onclick="axiom.showroom.exitLive('mtt')">DISCONNECT</button>
           </div>
+          <!-- No screenshot yet — MTT needs one -->
           <div class="project-meta">
             <div class="project-info-header">
               <div class="project-label-row">
@@ -564,33 +477,61 @@
               <span>GIS</span>
               <span>IoT</span>
             </div>
+            <div class="project-links">
+              <a href="https://muang-thong-thani-super-dashboard.vercel.app" target="_blank" rel="noopener">Open Live System &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Phuket Smart Bus -->
+        <article class="project-card" data-orientation="landscape">
+          <div class="mockup-container display-mockup is-live" data-id="phuket-bus">
+            <div class="mockup-screen">
+              <iframe src="https://nonarkara.github.io/phuket-smart-bus/" class="mockup-iframe" loading="lazy" title="Phuket Smart Bus"></iframe>
+            </div>
+          </div>
+          <div class="project-meta">
+            <div class="project-info-header">
+              <div class="project-label-row">
+                <span class="project-tag">Transport</span>
+                <span class="project-status">LIVE SYSTEM</span>
+              </div>
+              <h3 class="project-title">Phuket Smart Bus</h3>
+            </div>
+            <p class="project-desc">Intelligent transit system for Phuket. Real-time GPS tracking, route optimization, passenger analytics. Integrates directly into the Phuket Dashboard ecosystem for unified city operations.</p>
+            <div class="project-intel-row">
+              <div class="intel-stat">
+                <span class="intel-label">TRACKING</span>
+                <span class="intel-value">GPS</span>
+              </div>
+              <div class="intel-stat">
+                <span class="intel-label">ROUTES</span>
+                <span class="intel-value">LIVE</span>
+              </div>
+              <div class="intel-stat">
+                <span class="intel-label">STATUS</span>
+                <span class="intel-value">ACTIVE</span>
+              </div>
+            </div>
+            <div class="project-tech">
+              <span>GPS</span>
+              <span>Real-time</span>
+              <span>Routes</span>
+              <span>Analytics</span>
+            </div>
+            <div class="project-links">
+              <a href="https://nonarkara.github.io/phuket-smart-bus/" target="_blank" rel="noopener">Open Live System &rarr;</a>
+            </div>
           </div>
         </article>
 
         <!-- Smart City Thailand Index -->
         <article class="project-card" data-orientation="landscape">
-          <div class="mockup-container display-mockup" data-id="scth">
+          <div class="mockup-container display-mockup is-live" data-id="scth">
             <div class="mockup-screen">
-              <div class="terminal-stream">
-                <div class="terminal-log" id="term-scth">
-                  [SYS] NODE_SCTH_INDEX_IDLE...<br>
-                  [GOV] PROPOSAL_TRACKER_ONLINE...<br>
-                  [IDX] CANDIDATE_CITIES_LOADED...<br>
-                  [API] DEPA_FEED_STABLE...<br>
-                  [SYS] NODE_SCTH_INDEX_IDLE...<br>
-                  [GOV] PROPOSAL_TRACKER_ONLINE...<br>
-                </div>
-              </div>
-              <div class="data-mesh-placeholder">
-                <div class="mesh-intel">INDEX: OPERATIONAL</div>
-                <div class="mesh-label">SYSTEM READY // CLICK TO INITIALIZE</div>
-              </div>
-              <div class="live-iframe-container" data-src="https://smart-city-thailand-index.vercel.app"></div>
+              <img src="screenshots/smart-city-thailand.png" class="mockup-screenshot" alt="Smart City Thailand Index" loading="lazy">
+              <iframe src="https://smart-city-thailand-index.vercel.app" class="mockup-iframe" loading="lazy" title="Smart City Thailand Index"></iframe>
             </div>
-            <div class="mockup-overlay">
-              <button class="intel-hud-btn" onclick="axiom.showroom.goLive('scth')">INITIALIZE LINK</button>
-            </div>
-            <button class="exit-live-hud-btn" onclick="axiom.showroom.exitLive('scth')">DISCONNECT</button>
           </div>
           <div class="project-meta">
             <div class="project-info-header">
@@ -620,6 +561,9 @@
               <span>Index</span>
               <span>Gov</span>
               <span>Analytics</span>
+            </div>
+            <div class="project-links">
+              <a href="https://smart-city-thailand-index.vercel.app" target="_blank" rel="noopener">Open Live System &rarr;</a>
             </div>
           </div>
         </article>
@@ -979,7 +923,14 @@
       </div>
 
       <div class="featured-grid">
-        <a href="https://govinsider.asia/intl-en/article/can-innovation-as-a-service-close-the-gap-between-policy-and-implementation" target="_blank" rel="noopener" class="featured-card featured-card-highlight">
+        <a href="https://nonarkara.github.io/middleeast-monitor/" target="_blank" rel="noopener" class="featured-card featured-card-highlight">
+          <div class="featured-source">Axiom Product</div>
+          <h3 class="featured-title">Middle East War Monitor &mdash; Live Intelligence Dashboard</h3>
+          <p class="featured-excerpt">Real-time conflict tracking across ME, IR, GZ, YE theaters. ACLED data, escalation monitoring, nuclear tracking, flight data, Sentinel-2 imagery. 8 space agencies. Built in production.</p>
+          <span class="featured-type">Live System</span>
+        </a>
+
+        <a href="https://govinsider.asia/intl-en/article/can-innovation-as-a-service-close-the-gap-between-policy-and-implementation" target="_blank" rel="noopener" class="featured-card">
           <div class="featured-source">GovInsider</div>
           <h3 class="featured-title">Can Innovation-as-a-Service close the gap between policy and implementation?</h3>
           <p class="featured-excerpt">The model that lets governments deploy AI systems without procurement cycles, vendor lock-in, or million-dollar budgets.</p>

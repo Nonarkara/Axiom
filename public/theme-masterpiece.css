@@ -1096,3 +1096,41 @@
 [data-theme="masterpiece"] .mockup-screen {
   contain: layout style paint;
 }
+
+/* ── Project Links ─────────────────────────────────────────────── */
+
+[data-theme="masterpiece"] .project-links a {
+  color: var(--accent);
+  border-color: rgba(66, 135, 245, 0.3);
+  font-family: var(--font-mono);
+}
+
+[data-theme="masterpiece"] .project-links a:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+/* ── Live Dashboard Iframes ───────────────────────────────────── */
+
+[data-theme="masterpiece"] .mockup-iframe {
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  border: none;
+  pointer-events: none;
+  z-index: 10;
+}
+
+[data-theme="masterpiece"] .mockup-container.is-live .mockup-screen {
+  background: #000;
+}
+
+/* On hover, slightly brighten the iframe */
+[data-theme="masterpiece"] .project-card:hover .mockup-iframe {
+  filter: brightness(1.1);
+  transition: filter 0.4s var(--ease);
+}
