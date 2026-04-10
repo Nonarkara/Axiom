@@ -101,6 +101,8 @@
     { name: 'Phuket Dashboard', url: 'https://phuket-dashboard.vercel.app' },
     { name: 'Phuket Smart Bus', url: 'https://nonarkara.github.io/phuket-smart-bus/' },
     { name: 'Smart City Thailand', url: 'https://nonarkara.github.io/smart-city-thailand-index/' },
+    { name: 'MTT Monitor', url: 'https://nonarkara.github.io/smart-city-thailand-monitor/' },
+    { name: 'SLIC Index', url: 'https://nonarkara.github.io/slic-index-V2/' },
   ];
 
   // Render HUD cards
