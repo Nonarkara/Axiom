@@ -1347,6 +1347,187 @@ body {
   }
 }
 
+.projects-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 24px;
+  padding: 28px 0 40px;
+  border-top: 1px solid var(--border);
+}
+
+.projects-intro-copy {
+  display: grid;
+  gap: 12px;
+  max-width: 720px;
+}
+
+.projects-intro-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-family: var(--mono);
+}
+
+.projects-intro-title {
+  font-size: clamp(24px, 3vw, 36px);
+  letter-spacing: -0.03em;
+}
+
+.projects-intro-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.projects-intro-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.projects-intro-stat {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.projects-intro-value {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-family: var(--mono);
+}
+
+.projects-intro-key {
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-family: var(--mono);
+}
+
+.projects-showcase {
+  display: grid;
+  gap: 32px;
+  border-top: none;
+}
+
+.project-card-spotlight {
+  grid-template-columns: 1fr;
+  padding: 24px 0 0;
+}
+
+.project-spotlight-header {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+  max-width: 760px;
+}
+
+.project-spotlight-mode {
+  font-size: 10px;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-family: var(--mono);
+}
+
+.project-spotlight-title {
+  font-size: clamp(24px, 3vw, 40px);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.project-spotlight-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+.project-spotlight-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.project-support-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.project-support-card {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  background: var(--surface);
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+
+.project-support-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-2px);
+}
+
+.project-support-tag {
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-family: var(--mono);
+}
+
+.project-support-card strong {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.project-support-card span:last-child {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.project-support-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.project-support-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  font-size: 11px;
+  font-family: var(--mono);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.project-support-links a:hover {
+  border-color: var(--border-active);
+  background: var(--surface);
+}
+
 /* ========================================
    CAPABILITIES — Horizontal layout
    ======================================== */
@@ -1883,6 +2064,115 @@ body {
 
 @media (max-width: 900px) {
   .team-grid { grid-template-columns: 1fr; }
+}
+
+.team-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 24px;
+  margin-bottom: 40px;
+  align-items: start;
+}
+
+.team-playbook {
+  display: grid;
+  gap: 16px;
+}
+
+.team-playbook-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 24px;
+  display: grid;
+  gap: 10px;
+}
+
+.team-playbook-label {
+  font-size: 10px;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-family: var(--mono);
+}
+
+.team-playbook-title {
+  font-size: clamp(22px, 3vw, 34px);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.team-playbook-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.team-rules {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.team-rule {
+  border: 1px solid var(--border);
+  padding: 20px;
+  background: var(--bg-elevated);
+  display: grid;
+  gap: 8px;
+}
+
+.team-rule-label {
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-family: var(--mono);
+}
+
+.team-rule strong {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.team-rule span:last-child {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.team-card-lead {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.team-signal-list,
+.team-network-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.team-signal-list span,
+.team-network-list span {
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--text-dim);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 900px) {
+  .projects-intro,
+  .project-spotlight-main,
+  .team-stage,
+  .team-rules {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ========================================

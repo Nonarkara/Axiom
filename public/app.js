@@ -840,10 +840,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 (function initReveal() {
   const revealSelectors = [
+    '.projects-intro',
     '.project-card',
+    '.project-support-card',
     '.capability-card',
     '.metric-card',
     '.section-header',
+    '.team-stage',
+    '.team-rule',
     '.cta-block',
     '.philosophy-card',
     '.team-card',
@@ -1279,40 +1283,6 @@ console.log('%c Harvard · Oxford · MIT · Chiang Mai University ', 'color: #4a
 console.log('%c —————————————————————————————————— ', 'color: #1a1a2a;');
 console.log('%c If you\'re reading this, we should probably talk. ', 'color: #2563ff; font-size: 12px; font-family: monospace;');
 console.log('%c axiomaxiom.corp@gmail.com ', 'color: #eeeef0; font-size: 11px; font-family: monospace;');
-
-
-// ── Contact Form (Formspree) ──────────────────────────────────────
-
-(function initContactForm() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    const origHTML = btn.innerHTML;
-    btn.innerHTML = '<span>Sending...</span>';
-    btn.disabled = true;
-
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        form.innerHTML = '<div class="contact-form-success">Message sent. We\'ll be in touch.</div>';
-      } else {
-        btn.innerHTML = origHTML;
-        btn.disabled = false;
-        alert('Something went wrong. Please email us directly at axiomaxiom.corp@gmail.com');
-      }
-    }).catch(() => {
-      btn.innerHTML = origHTML;
-      btn.disabled = false;
-      alert('Network error. Please email us directly at axiomaxiom.corp@gmail.com');
-    });
-  });
-})();
 
 
 // ── Team Bio Read-More (mobile) ───────────────────────────────────

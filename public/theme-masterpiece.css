@@ -645,6 +645,125 @@
   border-radius: 2px;
 }
 
+[data-theme="masterpiece"] .projects-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 1.25rem;
+  padding: 1.25rem 0 1.75rem;
+}
+
+[data-theme="masterpiece"] .projects-intro-title,
+[data-theme="masterpiece"] .project-spotlight-title,
+[data-theme="masterpiece"] .team-playbook-title {
+  color: #fff;
+}
+
+[data-theme="masterpiece"] .projects-intro-text,
+[data-theme="masterpiece"] .project-spotlight-text,
+[data-theme="masterpiece"] .team-playbook-text {
+  max-width: 44rem;
+}
+
+[data-theme="masterpiece"] .projects-intro-stats {
+  gap: 0.75rem;
+}
+
+[data-theme="masterpiece"] .projects-intro-stat {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="masterpiece"] .projects-intro-value {
+  color: #fff;
+}
+
+[data-theme="masterpiece"] .projects-showcase {
+  display: grid;
+  gap: 1.5rem;
+}
+
+[data-theme="masterpiece"] .project-card-spotlight {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  gap: 0;
+}
+
+[data-theme="masterpiece"] .project-card-spotlight:hover {
+  background: linear-gradient(180deg, rgba(66, 135, 245, 0.08), rgba(255, 255, 255, 0.01));
+  border-color: var(--border-active);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="masterpiece"] .project-spotlight-header {
+  margin-bottom: 1rem;
+}
+
+[data-theme="masterpiece"] .project-spotlight-mode,
+[data-theme="masterpiece"] .projects-intro-label,
+[data-theme="masterpiece"] .team-playbook-label,
+[data-theme="masterpiece"] .team-rule-label,
+[data-theme="masterpiece"] .project-support-tag {
+  color: var(--accent);
+}
+
+[data-theme="masterpiece"] .project-spotlight-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+[data-theme="masterpiece"] .project-card-spotlight:nth-child(even) .project-meta {
+  order: -1;
+}
+
+[data-theme="masterpiece"] .project-card-spotlight:nth-child(even) .mockup-container {
+  order: 2;
+}
+
+[data-theme="masterpiece"] .project-card-spotlight .project-meta {
+  padding: 0.1rem 0;
+}
+
+[data-theme="masterpiece"] .project-card-spotlight .project-desc {
+  -webkit-line-clamp: 4;
+}
+
+[data-theme="masterpiece"] .project-support-grid {
+  margin-top: 1rem;
+}
+
+[data-theme="masterpiece"] .project-support-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="masterpiece"] .project-support-card:hover {
+  background: rgba(66, 135, 245, 0.08);
+  border-color: var(--border-active);
+}
+
+[data-theme="masterpiece"] .project-support-card strong {
+  color: #fff;
+}
+
+[data-theme="masterpiece"] .project-support-card span:last-child {
+  color: var(--text-secondary);
+}
+
+[data-theme="masterpiece"] .project-support-links a {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+}
+
+[data-theme="masterpiece"] .project-support-links a:hover {
+  border-color: var(--border-active);
+  background: rgba(66, 135, 245, 0.12);
+  color: var(--accent);
+}
+
 [data-theme="masterpiece"] .project-status {
   background: rgba(66, 135, 245, 0.1);
   color: var(--accent);
@@ -1179,7 +1298,59 @@
 
 /* Tighter team grid */
 [data-theme="masterpiece"] .team-grid {
-  gap: 0;
+  gap: 1rem;
+  border: none;
+}
+
+[data-theme="masterpiece"] .team-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+[data-theme="masterpiece"] .team-playbook {
+  gap: 1rem;
+}
+
+[data-theme="masterpiece"] .team-playbook-card,
+[data-theme="masterpiece"] .team-rule {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="masterpiece"] .team-playbook-card {
+  padding: 1.25rem;
+}
+
+[data-theme="masterpiece"] .team-rule {
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+[data-theme="masterpiece"] .team-rule:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-active);
+  background: rgba(66, 135, 245, 0.08);
+}
+
+[data-theme="masterpiece"] .team-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="masterpiece"] .team-card-lead {
+  color: #fff;
+  font-size: 0.92rem;
+}
+
+[data-theme="masterpiece"] .team-signal-list span,
+[data-theme="masterpiece"] .team-network-list span {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="masterpiece"] .team-card-network .team-network-list span {
+  color: var(--accent);
 }
 
 /* Tighter metrics */
@@ -1308,8 +1479,24 @@
     gap: 0.5rem;
   }
 
+  [data-theme="masterpiece"] .projects-intro,
+  [data-theme="masterpiece"] .project-spotlight-main,
+  [data-theme="masterpiece"] .team-stage,
+  [data-theme="masterpiece"] .team-rules {
+    grid-template-columns: 1fr;
+  }
+
   [data-theme="masterpiece"] .project-meta {
     padding: 0 0.5rem;
+  }
+
+  [data-theme="masterpiece"] .project-card-spotlight {
+    padding: 1rem;
+  }
+
+  [data-theme="masterpiece"] .project-card-spotlight:nth-child(even) .project-meta,
+  [data-theme="masterpiece"] .project-card-spotlight:nth-child(even) .mockup-container {
+    order: initial;
   }
 
   [data-theme="masterpiece"] .project-title {
