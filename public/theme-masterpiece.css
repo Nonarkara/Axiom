@@ -752,6 +752,19 @@
   color: var(--text-secondary);
 }
 
+[data-theme="masterpiece"] .project-support-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  object-fit: cover;
+  object-position: top left;
+  border: 1px solid var(--border);
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="masterpiece"] .project-support-card-featured {
+  grid-column: 1 / -1;
+}
+
 [data-theme="masterpiece"] .project-support-links a {
   border-color: rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.03);
