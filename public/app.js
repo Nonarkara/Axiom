@@ -103,6 +103,7 @@
     { name: 'Smart City Thailand', url: 'https://nonarkara.github.io/smart-city-thailand-index/' },
     { name: 'MTT Monitor', url: 'https://nonarkara.github.io/smart-city-thailand-monitor/' },
     { name: 'SLIC Index', url: 'https://nonarkara.github.io/slic-index-V2/' },
+    { name: 'Kuching IOC', url: 'https://nonarkara.github.io/kuching-ioc/' },
   ];
 
   // Render HUD cards
