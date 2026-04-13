@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="masterpiece">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/axiom-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <!-- Open Graph / Social Sharing -->
@@ -22,12 +22,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Axiom — Innovation as a Service">
   <meta name="twitter:description" content="AI as water — invisible, essential, everywhere. 8 live production systems across 5 countries. 24/7 monitoring.">
-  <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('axiom-theme')||'masterpiece');</script>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="theme-v2.css">
-  <link rel="stylesheet" href="theme-v2.5.css">
-  <link rel="stylesheet" href="theme-v3.css">
-  <link rel="stylesheet" href="theme-v4.css">
   <link rel="stylesheet" href="theme-masterpiece.css">
   <script type="application/ld+json">
   {
@@ -97,7 +92,11 @@
   <!-- Scroll Progress -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
 
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+    <div class="mobile-menu-intro">
+      <span class="mobile-menu-kicker">Axiom in motion</span>
+      <p class="mobile-menu-copy">Built for signal, street operations, and public decision-making that has to stay live.</p>
+    </div>
     <a href="#projects" class="mobile-link">Systems</a>
     <a href="#capabilities" class="mobile-link">Services</a>
     <a href="#launch" class="mobile-link">Launch</a>
@@ -134,9 +133,9 @@
     <div class="sat-controls" id="satControls">
       <div class="sat-control-group">
         <span class="sat-control-label">Layer</span>
-        <button class="sat-btn sat-btn-active" data-layer="satellite">SAT</button>
+        <button class="sat-btn" data-layer="satellite">SAT</button>
         <button class="sat-btn" data-layer="terrain">TER</button>
-        <button class="sat-btn" data-layer="dark">DRK</button>
+        <button class="sat-btn sat-btn-active" data-layer="dark">DRK</button>
         <button class="sat-btn" data-layer="topo">TPO</button>
       </div>
       <div class="sat-control-divider"></div>
@@ -144,7 +143,7 @@
         <button class="sat-btn" id="gridToggle" data-active="false">GRID 1KM</button>
       </div>
       <div class="sat-control-divider"></div>
-      <span class="sat-source-note">ESRI World Imagery</span>
+      <span class="sat-source-note" id="satSourceNote">CartoDB Dark Matter</span>
     </div>
 
     <!-- Urban Intelligence Overlays (Moneyball) -->
@@ -200,6 +199,27 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="#projects" class="btn btn-ghost">Access Intelligence</a>
+      </div>
+      <div class="hero-node-strip" aria-label="Operational footprint">
+        <div class="hero-node-strip-label">Tap a live theatre</div>
+        <div class="hero-node-strip-scroller" id="heroNodeRail">
+          <button class="hero-node is-active" type="button" data-city="bangkok" aria-pressed="true">
+            <span class="hero-node-name">Bangkok</span>
+            <span class="hero-node-meta">Urban command</span>
+          </button>
+          <button class="hero-node" type="button" data-city="phuket" aria-pressed="false">
+            <span class="hero-node-name">Phuket</span>
+            <span class="hero-node-meta">Regional ops</span>
+          </button>
+          <button class="hero-node" type="button" data-city="middle-east" aria-pressed="false">
+            <span class="hero-node-name">Middle East</span>
+            <span class="hero-node-meta">Strategic signal</span>
+          </button>
+          <button class="hero-node" type="button" data-city="southeast-asia" aria-pressed="false">
+            <span class="hero-node-name">Southeast Asia</span>
+            <span class="hero-node-meta">Scale layer</span>
+          </button>
+        </div>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
@@ -1038,70 +1058,8 @@
       </div>
       <div class="terminal-input-row">
         <span class="terminal-prompt">axiom $</span>
-        <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false" autofocus>
+        <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false">
       </div>
-    </div>
-  </div>
-
-  <!-- Time Machine — Design Version Switcher -->
-  <div class="theme-switcher" id="themeSwitcher">
-    <button class="theme-switcher-toggle" id="themeSwitcherToggle" aria-label="Switch design version">
-      <svg class="tm-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-      <span class="tm-label" id="tmLabel">v2</span>
-    </button>
-    <div class="theme-switcher-panel" id="themeSwitcherPanel">
-      <div class="theme-switcher-title">Time Machine</div>
-      <div class="theme-switcher-desc">Version control for design. Our best vision of 2026.</div>
-      
-      <button class="theme-option" data-theme="masterpiece" data-label="v6">
-        <span class="theme-swatch" style="background:#050508;border-color:#4287f5;box-shadow:0 0 12px rgba(66,135,245,0.5)"></span>
-        <span class="theme-option-text">
-          <strong>v6</strong> &mdash; Masterpiece
-          <small>OS Blueprint. Terminal Handshake. SITREP HUD.</small>
-          <span class="theme-badge-featured">NEW</span>
-        </span>
-      </button>
-
-      <button class="theme-option" data-theme="v3" data-label="v3">
-        <span class="theme-swatch" style="background:#020202;border-color:#00F0FF;box-shadow:0 0 10px rgba(0,240,255,0.4)"></span>
-        <span class="theme-option-text">
-          <strong>v3</strong> &mdash; The Masterpiece
-          <small>Red Dot Level: Precision. Bento. Swiss.</small>
-          <span class="theme-badge-featured">NEW</span>
-        </span>
-      </button>
-
-      <button class="theme-option" data-theme="v4" data-label="v4">
-        <span class="theme-swatch" style="background:#0a0a14;border-color:rgba(0,255,255,0.5);box-shadow:0 0 8px rgba(0,255,255,0.3)"></span>
-        <span class="theme-option-text">
-          <strong>v4</strong> &mdash; Cyberpunk
-          <small>Neon, glitch, rain-soaked noir</small>
-        </span>
-      </button>
-
-      <button class="theme-option" data-theme="v2.5" data-label="v2.5">
-        <span class="theme-swatch" style="background:#0a0a0f;border-color:rgba(255,59,59,0.4)"></span>
-        <span class="theme-option-text">
-          <strong>v2.5</strong> &mdash; Asimov &times; Kubrick
-          <small>Monospace, geometric, HAL-9000</small>
-        </span>
-      </button>
-
-      <button class="theme-option" data-theme="v2" data-label="v2">
-        <span class="theme-swatch" style="background:#fafafa;border-color:rgba(0,0,0,0.15)"></span>
-        <span class="theme-option-text">
-          <strong>v2</strong> &mdash; Ive / Rams
-          <small>Light, minimal, less but better</small>
-        </span>
-      </button>
-
-      <button class="theme-option" data-theme="v1" data-label="v1">
-        <span class="theme-swatch" style="background:#08080c"></span>
-        <span class="theme-option-text">
-          <strong>v1</strong> &mdash; Command Center
-          <small>Dark, technical, satellite HUD</small>
-        </span>
-      </button>
     </div>
   </div>
 

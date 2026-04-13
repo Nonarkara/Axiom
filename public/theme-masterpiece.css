@@ -5,8 +5,6 @@
    Absolute 0px Radius.
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
 [data-theme="masterpiece"] {
   --bg: #050508;
   --bg-elevated: #0c0c14;
@@ -161,6 +159,34 @@
   margin-bottom: 1.5rem;
   position: relative;
   z-index: 5;
+}
+
+[data-theme="masterpiece"] .hero-node-strip {
+  max-width: 720px;
+}
+
+[data-theme="masterpiece"] .hero-node-strip-label {
+  color: rgba(240, 240, 245, 0.48);
+}
+
+[data-theme="masterpiece"] .hero-node {
+  background: rgba(5, 5, 8, 0.42);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="masterpiece"] .hero-node.is-active {
+  border-color: rgba(66, 135, 245, 0.5);
+  background: rgba(66, 135, 245, 0.12);
+  box-shadow: 0 18px 48px rgba(10, 17, 34, 0.28);
+}
+
+[data-theme="masterpiece"] .hero-node-name {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+[data-theme="masterpiece"] .hero-node-meta {
+  color: rgba(240, 240, 245, 0.42);
 }
 
 /* ── Hero SITREP HUD ────────────────────────────────────────── */
@@ -1304,6 +1330,10 @@
   margin-bottom: 1.5rem;
 }
 
+[data-theme="masterpiece"] .hero-node-strip {
+  margin-bottom: 1.5rem;
+}
+
 [data-theme="masterpiece"] .hero-stats {
   padding-top: 1.25rem;
   gap: 2rem;
@@ -1450,6 +1480,20 @@
 
   [data-theme="masterpiece"] .hero-actions {
     margin-bottom: 1.5rem;
+  }
+
+  [data-theme="masterpiece"] .hero-actions .btn-primary,
+  [data-theme="masterpiece"] .hero-actions .btn-ghost {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  [data-theme="masterpiece"] .hero-node-strip {
+    margin-bottom: 1.25rem;
+  }
+
+  [data-theme="masterpiece"] .hero-node {
+    min-width: 11rem;
   }
 
   [data-theme="masterpiece"] .hero-stats {
