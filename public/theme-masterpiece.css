@@ -1425,6 +1425,16 @@
   gap: 1.5rem;
 }
 
+[data-theme="masterpiece"] .interface-atlas-feature,
+[data-theme="masterpiece"] .interface-card {
+  background: rgba(5, 5, 8, 0.42);
+}
+
+[data-theme="masterpiece"] .photo-node-label {
+  background: rgba(5, 5, 8, 0.82);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
 [data-theme="masterpiece"] .launch-text p {
   font-size: 0.9rem;
   margin-bottom: 0.75rem;
@@ -1455,6 +1465,7 @@
   [data-theme="masterpiece"] #capabilities,
   [data-theme="masterpiece"] #proof,
   [data-theme="masterpiece"] #launch,
+  [data-theme="masterpiece"] #interface-atlas,
   [data-theme="masterpiece"] #uav,
   [data-theme="masterpiece"] #team,
   [data-theme="masterpiece"] #impact,
