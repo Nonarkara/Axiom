@@ -8,6 +8,13 @@ const axiomMedia = {
   isMobile: window.matchMedia('(max-width: 768px)').matches,
 };
 
+function isEditableElement(element) {
+  if (!element) return false;
+  if (element.isContentEditable) return true;
+
+  return ['INPUT', 'TEXTAREA', 'SELECT'].includes(element.tagName);
+}
+
 
 // ── Loading Screen ────────────────────────────────────────────────
 
@@ -57,12 +64,11 @@ const axiomMedia = {
     { name: 'Global Monitor', url: 'https://globalmonitor.fly.dev/' },
     { name: 'MEM Intelligence', url: 'https://nonarkara.github.io/mem-by-non/' },
     { name: 'War Monitor', url: 'https://middleeast-monitor.pages.dev/' },
-    { name: 'City Reporter V2', url: 'https://city-reporter-v2.vercel.app/dashboard.html' },
-    { name: 'Phuket Dashboard', url: 'https://phuket-dashboard.vercel.app' },
+    { name: 'Phuket Dashboard', url: 'https://nonarkara.github.io/phuket-dashboard/war-room' },
     { name: 'Phuket Smart Bus', url: 'https://nonarkara.github.io/phuket-smart-bus/' },
     { name: 'Smart City Thailand', url: 'https://nonarkara.github.io/smart-city-thailand-index/' },
     { name: 'MTT Monitor', url: 'https://nonarkara.github.io/smart-city-thailand-monitor/' },
-    { name: 'SLIC Index', url: 'https://nonarkara.github.io/slic-index-V2/' },
+    { name: 'SLIC Index', url: 'https://nonarkara.github.io/SLIC-Index/' },
     { name: 'Kuching IOC', url: 'https://nonarkara.github.io/kuching-ioc/' },
   ];
 
@@ -106,13 +112,13 @@ const axiomMedia = {
     const latencies = results.filter(r => r !== null);
     const avgLat = latencies.length ? Math.round(latencies.reduce((a, b) => a + b, 0) / latencies.length) : 0;
 
-    if (uptimeEl) uptimeEl.textContent = upCount + '/' + systems.length + ' NOMINAL';
+    if (uptimeEl) uptimeEl.textContent = upCount + '/' + systems.length + ' RESPONDING';
     if (latEl) latEl.textContent = avgLat + 'ms';
     if (timestampEl) {
       const now = new Date();
-      timestampEl.textContent = now.getHours().toString().padStart(2, '0') + ':' + 
-                                now.getMinutes().toString().padStart(2, '0') + ':' + 
-                                now.getSeconds().toString().padStart(2, '0') + ' UTC';
+      timestampEl.textContent = now.getUTCHours().toString().padStart(2, '0') + ':' +
+                                now.getUTCMinutes().toString().padStart(2, '0') + ':' +
+                                now.getUTCSeconds().toString().padStart(2, '0') + ' UTC';
     }
   }
 
@@ -321,6 +327,10 @@ const axiomMedia = {
     if (mapModeLabel) {
       mapModeLabel.textContent = touring ? 'AUTO TOUR' : 'EXPLORING';
       mapModeLabel.className = 'map-mode-label' + (touring ? '' : ' exploring');
+    }
+    if (mapModeBtn) {
+      mapModeBtn.setAttribute('aria-label', touring ? 'Pause auto tour' : 'Resume auto tour');
+      mapModeBtn.setAttribute('aria-pressed', String(touring));
     }
     if (mapModePause) mapModePause.style.display = touring ? 'block' : 'none';
     if (mapModePlay) mapModePlay.style.display = touring ? 'none' : 'block';
@@ -811,7 +821,10 @@ const axiomMedia = {
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
-    const target = document.querySelector(anchor.getAttribute('href'));
+    const href = anchor.getAttribute('href');
+    if (!href || href === '#') return;
+
+    const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -942,9 +955,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
   // Keyboard shortcuts
   document.addEventListener('keydown', (e) => {
+    const activeElement = document.activeElement;
+    const isTyping = isEditableElement(activeElement);
+
     // Open terminal: / or Ctrl+K
-    if ((e.key === '/' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') ||
-        ((e.ctrlKey || e.metaKey) && e.key === 'k')) {
+    if ((e.key === '/' && !e.ctrlKey && !e.metaKey && !isTyping) ||
+        ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k' && !isTyping)) {
       e.preventDefault();
       if (overlay.classList.contains('open')) closeTerminal();
       else openTerminal();
@@ -958,7 +974,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
 
     // Layer shortcuts (only when terminal closed and not in input)
-    if (!overlay.classList.contains('open') && document.activeElement.tagName !== 'INPUT') {
+    if (!overlay.classList.contains('open') && !isTyping) {
       const layerMap = { '1': 'satellite', '2': 'terrain', '3': 'dark', '4': 'topo' };
       if (layerMap[e.key]) {
         const btn = document.querySelector(`.sat-btn[data-layer="${layerMap[e.key]}"]`);
@@ -1238,7 +1254,7 @@ console.log('%c axiomaxiom.corp@gmail.com ', 'color: #eeeef0; font-size: 11px; f
     const btnSpan = btn.querySelector('span');
     const origText = btnSpan.textContent;
 
-    btnSpan.textContent = 'Sending...';
+    btnSpan.textContent = 'Sending…';
     btn.disabled = true;
 
     try {

@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/axiom-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <!-- Open Graph / Social Sharing -->
@@ -71,7 +71,7 @@
   <!-- Navigation -->
   <nav id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="#hero" class="nav-logo">
         <img src="assets/axiom-logo.png" alt="Axiom" class="nav-logo-img">
         <span class="nav-logo-text">AXIOM</span>
       </a>
@@ -117,7 +117,7 @@
         <span class="map-mode-dot" id="mapModeDot"></span>
         <span class="map-mode-label" id="mapModeLabel">AUTO TOUR</span>
       </div>
-      <button class="map-mode-btn" id="mapModeBtn" title="Toggle auto tour">
+      <button class="map-mode-btn" id="mapModeBtn" type="button" title="Toggle auto tour" aria-label="Pause auto tour" aria-pressed="true">
         <svg class="map-mode-icon-pause" id="mapModePause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
         <svg class="map-mode-icon-play" id="mapModePlay" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5,3 19,12 5,21"/></svg>
       </button>
@@ -412,18 +412,13 @@
                 <span>IoT Bridge</span>
               </div>
               <div class="project-links">
-                <a href="https://phuket-dashboard.vercel.app" target="_blank" rel="noopener">Open Live System &rarr;</a>
+                <a href="https://nonarkara.github.io/phuket-dashboard/war-room" target="_blank" rel="noopener">Open Live System &rarr;</a>
                 <a href="https://nonarkara.github.io/phuket-smart-bus/" target="_blank" rel="noopener" class="project-link-fallback">Static Demo &rarr;</a>
               </div>
             </div>
           </div>
 
           <div class="project-support-grid">
-            <a href="https://city-reporter-v2.vercel.app/dashboard.html" target="_blank" rel="noopener" class="project-support-card">
-              <span class="project-support-tag">Citizen loop</span>
-              <strong>City Reporter V2</strong>
-              <span>LINE complaints triaged across 9 categories with SLA tracking.</span>
-            </a>
             <a href="https://nonarkara.github.io/phuket-smart-bus/" target="_blank" rel="noopener" class="project-support-card">
               <span class="project-support-tag">Transit layer</span>
               <strong>Phuket Smart Bus</strong>
@@ -447,9 +442,11 @@
 
           <div class="project-spotlight-main">
             <div class="mockup-container display-mockup is-live" data-id="scth">
-              <div class="mockup-screen">
-                <img src="screenshots/smart-city-thailand.jpg" class="mockup-screenshot" alt="Smart City Thailand Index — National smart city proposal tracking" loading="lazy">
-              </div>
+              <a href="https://nonarkara.github.io/smart-city-thailand-index/" target="_blank" rel="noopener" style="display:block;">
+                <div class="mockup-screen">
+                  <img src="screenshots/smart-city-thailand.jpg" class="mockup-screenshot" alt="Smart City Thailand Index — National smart city proposal tracking" loading="lazy">
+                </div>
+              </a>
             </div>
 
             <div class="project-meta">
@@ -498,7 +495,6 @@
               <strong>SLIC Index</strong>
               <span>157-city ranking engine with adjustable weights and live comparison.</span>
               <div class="project-support-links">
-                <a href="https://nonarkara.github.io/slic-index-V2/" target="_blank" rel="noopener">SLIC v2 &rarr;</a>
                 <a href="https://nonarkara.github.io/SLIC-Index/" target="_blank" rel="noopener">SLIC v2.5 &rarr;</a>
               </div>
             </div>
@@ -515,15 +511,15 @@
         <span class="health-label">GLOBAL NODE MONITOR</span>
         <div class="health-meta">
           <div class="health-meta-group">
-            <span class="health-meta-label">AVG_UPTIME</span>
-            <span id="healthUptime" class="health-meta-value">99.9%</span>
+            <span class="health-meta-label">REACHABLE_NODES</span>
+            <span id="healthUptime" class="health-meta-value">0/0 RESPONDING</span>
           </div>
           <div class="health-meta-group">
-            <span class="health-meta-label">AVG_LATENCY</span>
+            <span class="health-meta-label">EDGE_LATENCY</span>
             <span id="healthAvgLat" class="health-meta-value">42ms</span>
           </div>
           <div class="health-meta-group">
-            <span class="health-meta-label">LAST_CHECK</span>
+            <span class="health-meta-label">LAST_CHECK_UTC</span>
             <span id="healthTimestamp" class="health-meta-value">--:--:-- UTC</span>
           </div>
         </div>
@@ -1041,7 +1037,7 @@
       <div class="terminal-header">
         <span class="terminal-header-dots"><span></span><span></span><span></span></span>
         <span class="terminal-header-title">axiom@systems ~ </span>
-        <button class="terminal-close" id="terminalClose">&times;</button>
+        <button class="terminal-close" id="terminalClose" type="button" aria-label="Close terminal">&times;</button>
       </div>
       <div class="terminal-body" id="terminalBody">
         <div class="terminal-welcome">
@@ -1064,6 +1060,5 @@
   </div>
 
   <script src="app.js"></script>
-  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
