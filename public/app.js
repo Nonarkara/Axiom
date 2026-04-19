@@ -2,6 +2,488 @@
    AXIOM — Landing Page
    ======================================== */
 
+// ── i18n ──────────────────────────────────────────────────────────
+
+let activeLocale = 'en';
+
+const uiCopy = {
+  en: {
+    nav: {
+      systems: 'Systems',
+      services: 'Services',
+      launch: 'Launch',
+      team: 'Team',
+      cta: 'Partner With Us',
+    },
+    hero: {
+      badge: 'All Systems Online',
+      titleLine1: 'Innovation',
+      subtitle: 'AI should feel like infrastructure, not theatre. We map the pressure, ship a working surface fast, and instrument it from day one so cities, governments, and operators can make fewer, clearer decisions under pressure.',
+      cta: 'Start With the Pressure Map',
+      ctaSecondary: 'See Live Systems',
+      nodeLabel: 'Tap a live theatre',
+      statSystems: 'Live Systems',
+      statMonitoring: 'Live Monitoring',
+      statCountries: 'Countries',
+    },
+    engagement: {
+      tag: 'Operating Model',
+      title: 'Start with the pressure, not the theatre.',
+      desc: 'Taking the Non-Claude-Skills logic seriously means shipping first, using the data already on the table, and leaving a proof trail from the first deployment.',
+      step1: {
+        day: 'DAY 01-03',
+        kicker: 'Find the real decision',
+        title: 'Pressure map the problem.',
+        desc: 'We identify the operating question, the real users, and the data that already exists so the first version solves something concrete instead of performing strategy theatre.',
+        li1: 'Define one decision that must get faster or clearer',
+        li2: 'Map current feeds, gaps, and who actually uses the output',
+        li3: 'Cut anything decorative before it enters scope',
+      },
+      step2: {
+        day: 'DAY 04-07',
+        kicker: 'Ship before perfect',
+        title: 'Put a working surface in the room.',
+        desc: 'The first deliverable is a live view or pilot surface people can react to immediately. We prefer an ugly working system over a polished promise that teaches us nothing.',
+        li1: 'Use free and existing data before buying new infrastructure',
+        li2: 'Review with operators, not just sponsors and comms teams',
+        li3: 'Let the interface expose trade-offs instead of hiding them',
+      },
+      step3: {
+        day: 'DAY 08-14',
+        kicker: 'Instrument what matters',
+        title: 'Turn the pilot into a repeatable operating layer.',
+        desc: 'From the first deploy, we track what is being watched, what changes behavior, and what deserves a heavier backend. That keeps the stack honest and the next build legible.',
+        li1: 'Add pageview, content, and usage signals from day one',
+        li2: 'Keep a simple decision log of what changed after launch',
+        li3: 'Document the system so it can be reused, not reinvented',
+      },
+      proof: {
+        label: 'What Ships Early',
+        title: 'Proof, not moodboards.',
+        text: "The repo's strongest lesson is that every project should start with evidence architecture: one sharp question, one working surface, and one data trail strong enough to tell us what to keep.",
+        stat1: 'FIRST LIVE DEMO',
+        stat2: 'LIVE SYSTEMS',
+        stat3: 'CITIES INDEXED',
+        stat4: 'NATIONS IN ROOM',
+        stackTitle: 'Day-one stack discipline',
+        sli1: 'SEO and share-ready narrative layer',
+        sli2: 'Analytics and pageview trail',
+        sli3: 'Cached content or evidence history',
+        sli4: 'Simple docs so the system can survive handoff',
+        note: 'Use what already exists. Add heavier infrastructure only when the pressure is real enough to earn it.',
+      },
+    },
+    projects: {
+      tag: 'Production Intelligence',
+      title: 'Deployment as product.',
+      desc: 'We build systems that stay useful after launch: for signal, street operations, and public decision-making.',
+      introLabel: 'Three operating modes. One playbook.',
+      introTitle: 'War room, city room, scoring engine.',
+      introText: 'The count matters less than the pattern. Every Axiom system starts with the same brief: find the pressure, narrow the decision, and surface the few actions that actually matter.',
+    },
+    capabilities: {
+      tag: 'Axiom Protocol Core',
+      title: 'Design as process.<br>Intelligence as product.',
+      desc: 'We sit between urban planning, AI governance, and operational delivery. The work is strategic only if it survives deployment.',
+      prt1: { title: 'City-Level Command', desc: 'Governor-grade dashboards that pull satellite imagery, cameras, and civic feeds into one working situation room.' },
+      prt2: { title: 'Intelligent Vision', desc: 'Computer vision on top of existing infrastructure for incident detection, movement tracking, and response triggers.' },
+      prt3: { title: 'Geopolitics NLP', desc: 'AI briefs that compress sentiment, risk, and narrative shifts into something a decision-maker can scan fast.' },
+      prt4: { title: 'Qualitative Design', desc: 'Behavior-first system design grounded in what residents tolerate, trust, and actually use.' },
+      prt5: { title: 'Rapid Deployment', desc: 'Reusable architecture adapted to local context, so working systems ship in weeks instead of multi-year procurement cycles.' },
+      prt6: { title: 'Blue Bird Engine', desc: 'The replication layer behind Axiom deployments: modular, hardware-agnostic, and secure enough to move fast without improvising.' },
+    },
+    team: {
+      tag: 'Team',
+      title: 'Right people.<br>Right time.',
+      desc: 'No org chart cosplay. Two founders stay in the build. The network only shows up when the mission gets weird enough to deserve it.',
+      foundersCaption: 'Two founders. No account managers standing in the middle of the work.',
+      playbookLabel: 'How Axiom actually runs',
+      playbookTitle: 'Lean core. Elastic network.',
+      playbookText: 'We keep the core brutally small so decisions stay fast. When a project needs UAV feeds, traffic engineering, finance, or policy translation, we pull in the exact specialist instead of staffing a decorative army.',
+      rule1: { label: 'Rule 01', title: 'No org-chart theatre', desc: 'You talk to builders, not handlers.' },
+      rule2: { label: 'Rule 02', title: 'Founders stay hands-on', desc: 'Strategy and shipping happen in the same room.' },
+      rule3: { label: 'Rule 03', title: 'Specialists join by mission', desc: 'Only when the brief truly needs them.' },
+    },
+    contact: {
+      title: 'Ready to find<br>your axioms?',
+      desc: 'If the problem matters and clarity matters, we should talk. We prefer partnership over vendor theatre.',
+      commit1: 'Pressure mapped in week one',
+      commit2: 'Working pilot before deck theatre',
+      commit3: 'Data trail from day one',
+      fieldName: 'Name',
+      fieldEmail: 'Email',
+      fieldMessage: 'Message',
+      submit: 'Send Message',
+    },
+  },
+
+  th: {
+    nav: {
+      systems: 'ระบบ',
+      services: 'บริการ',
+      launch: 'เปิดตัว',
+      team: 'ทีม',
+      cta: 'ร่วมเป็นพันธมิตร',
+    },
+    hero: {
+      badge: 'ระบบทั้งหมดออนไลน์',
+      titleLine1: 'นวัตกรรม',
+      subtitle: 'AI ควรทำงานเหมือนโครงสร้างพื้นฐาน ไม่ใช่การแสดงละคร เราวิเคราะห์จุดกดดัน พัฒนาระบบที่ใช้งานได้จริงอย่างรวดเร็ว และวัดผลตั้งแต่วันแรก เพื่อให้เมือง รัฐบาล และผู้ปฏิบัติงานตัดสินใจได้ดีขึ้น',
+      cta: 'เริ่มต้นด้วย Pressure Map',
+      ctaSecondary: 'ดูระบบที่ใช้งานอยู่',
+      nodeLabel: 'แตะเพื่อเลือกพื้นที่',
+      statSystems: 'ระบบที่ใช้งาน',
+      statMonitoring: 'ติดตามตลอดเวลา',
+      statCountries: 'ประเทศ',
+    },
+    engagement: {
+      tag: 'โมเดลการทำงาน',
+      title: 'เริ่มจากแรงกดดัน ไม่ใช่การแสดง',
+      desc: 'หลักการของเราคือส่งมอบก่อน ใช้ข้อมูลที่มีอยู่ และสร้างหลักฐานตั้งแต่การ deploy ครั้งแรก',
+      step1: {
+        day: 'วันที่ 01-03',
+        kicker: 'ค้นหาการตัดสินใจที่แท้จริง',
+        title: 'วิเคราะห์แผนที่แรงกดดัน',
+        desc: 'เราระบุคำถามหลัก ผู้ใช้จริง และข้อมูลที่มีอยู่ เพื่อให้เวอร์ชันแรกแก้ปัญหาที่เป็นรูปธรรม',
+        li1: 'กำหนดการตัดสินใจหนึ่งข้อที่ต้องเร็วขึ้นหรือชัดเจนขึ้น',
+        li2: 'ทำแผนที่แหล่งข้อมูลและช่องว่างที่มีอยู่',
+        li3: 'ตัดสิ่งที่ไม่จำเป็นออกก่อนเริ่มต้น',
+      },
+      step2: {
+        day: 'วันที่ 04-07',
+        kicker: 'ส่งมอบก่อนสมบูรณ์',
+        title: 'นำ surface ที่ใช้งานได้เข้าห้อง',
+        desc: 'สิ่งแรกที่ส่งมอบคือมุมมองที่ใช้งานได้จริงซึ่งผู้คนสามารถตอบสนองได้ทันที เราเลือกระบบที่ทำงานได้มากกว่าคำสัญญาที่สวยงาม',
+        li1: 'ใช้ข้อมูลฟรีและที่มีอยู่ก่อนซื้อโครงสร้างพื้นฐานใหม่',
+        li2: 'ตรวจสอบกับผู้ปฏิบัติงาน ไม่ใช่แค่ผู้สนับสนุน',
+        li3: 'ให้ interface แสดง trade-off แทนที่จะซ่อน',
+      },
+      step3: {
+        day: 'วันที่ 08-14',
+        kicker: 'วัดสิ่งที่สำคัญ',
+        title: 'เปลี่ยน pilot เป็นระบบที่ทำซ้ำได้',
+        desc: 'ตั้งแต่การ deploy แรก เราติดตามสิ่งที่ถูกดู สิ่งที่เปลี่ยนพฤติกรรม และสิ่งที่ควรได้รับ backend ที่หนักกว่า',
+        li1: 'เพิ่ม pageview เนื้อหา และสัญญาณการใช้งานตั้งแต่วันแรก',
+        li2: 'เก็บบันทึกการตัดสินใจที่เปลี่ยนแปลงหลัง launch',
+        li3: 'บันทึกระบบเพื่อให้นำไปใช้ซ้ำ ไม่ใช่สร้างใหม่',
+      },
+      proof: {
+        label: 'สิ่งที่ส่งมอบแต่เนิ่นๆ',
+        title: 'หลักฐาน ไม่ใช่ moodboard',
+        text: 'บทเรียนสำคัญคือทุกโปรเจกต์ควรเริ่มด้วย evidence architecture: คำถามที่คมชัด surface ที่ใช้งานได้ และ data trail',
+        stat1: 'เดโมสดครั้งแรก',
+        stat2: 'ระบบที่ใช้งาน',
+        stat3: 'เมืองที่จัดอันดับ',
+        stat4: 'ชาติในห้องประชุม',
+        stackTitle: 'วินัยของ stack ตั้งแต่วันแรก',
+        sli1: 'ชั้น SEO และเรื่องราวที่แชร์ได้',
+        sli2: 'Analytics และ pageview trail',
+        sli3: 'เนื้อหา cache หรือประวัติหลักฐาน',
+        sli4: 'เอกสารเพื่อให้ระบบอยู่รอดหลัง handoff',
+        note: 'ใช้สิ่งที่มีอยู่แล้ว เพิ่มโครงสร้างพื้นฐานหนักเมื่อแรงกดดันมากพอ',
+      },
+    },
+    projects: {
+      tag: 'ระบบอัจฉริยะในการผลิต',
+      title: 'การ deploy คือผลิตภัณฑ์',
+      desc: 'เราสร้างระบบที่ยังคงมีประโยชน์หลัง launch: สำหรับสัญญาณ การปฏิบัติงานในเมือง และการตัดสินใจสาธารณะ',
+      introLabel: 'สามโหมดการทำงาน หนึ่ง playbook',
+      introTitle: 'ห้องสงคราม ห้องเมือง เครื่องจัดอันดับ',
+      introText: 'จำนวนสำคัญน้อยกว่ารูปแบบ ทุกระบบ Axiom เริ่มด้วยสรุปเดียวกัน: ค้นหาแรงกดดัน จำกัดการตัดสินใจ และแสดงการกระทำที่สำคัญจริงๆ',
+    },
+    capabilities: {
+      tag: 'แกนหลัก Axiom Protocol',
+      title: 'การออกแบบคือกระบวนการ<br>ความฉลาดคือผลิตภัณฑ์',
+      desc: 'เราอยู่ระหว่างการวางผังเมือง AI governance และการส่งมอบ งานมีคุณค่าเชิงกลยุทธ์เฉพาะเมื่อรอดจากการ deploy',
+      prt1: { title: 'ศูนย์บัญชาการระดับเมือง', desc: 'dashboard ระดับผู้ว่าฯ ที่รวมภาพถ่ายดาวเทียม กล้อง และฟีดพลเมือง' },
+      prt2: { title: 'ระบบมองเห็นอัจฉริยะ', desc: 'Computer vision บนโครงสร้างพื้นฐานที่มีอยู่สำหรับตรวจจับเหตุการณ์และติดตามการเคลื่อนไหว' },
+      prt3: { title: 'NLP ภูมิรัฐศาสตร์', desc: 'AI briefs ที่บีบความรู้สึก ความเสี่ยง และการเปลี่ยนแปลงเรื่องราวให้ผู้ตัดสินใจอ่านได้เร็ว' },
+      prt4: { title: 'การออกแบบเชิงคุณภาพ', desc: 'การออกแบบระบบที่เน้นพฤติกรรมตามสิ่งที่ผู้อยู่อาศัยยอมรับ เชื่อถือ และใช้จริง' },
+      prt5: { title: 'การ deploy รวดเร็ว', desc: 'สถาปัตยกรรมที่นำมาใช้ซ้ำได้ปรับให้เข้ากับบริบทท้องถิ่น ระบบที่ใช้งานได้ใน weeks ไม่ใช่ years' },
+      prt6: { title: 'Blue Bird Engine', desc: 'ชั้น replication เบื้องหลัง Axiom: modular ไม่ขึ้นกับ hardware และปลอดภัยพอสำหรับการเคลื่อนที่เร็ว' },
+    },
+    team: {
+      tag: 'ทีม',
+      title: 'คนที่ใช่<br>เวลาที่ใช่',
+      desc: 'ไม่มีการสร้างภาพด้วย org chart ผู้ก่อตั้งสองคนอยู่ในการสร้าง เครือข่ายมาถึงเฉพาะเมื่อภารกิจต้องการ',
+      foundersCaption: 'สองผู้ก่อตั้ง ไม่มี account manager กั้นกลาง',
+      playbookLabel: 'วิธี Axiom ทำงานจริง',
+      playbookTitle: 'แกนกลางที่เล็ก เครือข่ายที่ยืดหยุ่น',
+      playbookText: 'เราเก็บแกนกลางให้เล็กเพื่อให้การตัดสินใจเร็ว เมื่อโปรเจกต์ต้องการผู้เชี่ยวชาญ เราดึงคนที่ตรงมาโดยตรง',
+      rule1: { label: 'กฎข้อ 01', title: 'ไม่มีการแสดง org chart', desc: 'คุณคุยกับผู้สร้าง ไม่ใช่ตัวแทน' },
+      rule2: { label: 'กฎข้อ 02', title: 'ผู้ก่อตั้งอยู่ในงานตลอด', desc: 'กลยุทธ์และการสร้างเกิดในห้องเดียวกัน' },
+      rule3: { label: 'กฎข้อ 03', title: 'ผู้เชี่ยวชาญเข้าร่วมตามภารกิจ', desc: 'เฉพาะเมื่อ brief ต้องการจริงๆ' },
+    },
+    contact: {
+      title: 'พร้อมค้นหา<br>axioms ของคุณ?',
+      desc: 'ถ้าปัญหาสำคัญและความชัดเจนสำคัญ เราควรคุยกัน เราเลือกความเป็นพันธมิตรมากกว่าการแสดงของ vendor',
+      commit1: 'วิเคราะห์แรงกดดันในสัปดาห์แรก',
+      commit2: 'ระบบ pilot ที่ใช้งานได้ก่อนนำเสนอ',
+      commit3: 'Data trail ตั้งแต่วันแรก',
+      fieldName: 'ชื่อ',
+      fieldEmail: 'อีเมล',
+      fieldMessage: 'ข้อความ',
+      submit: 'ส่งข้อความ',
+    },
+  },
+
+  zh: {
+    nav: {
+      systems: '系统',
+      services: '服务',
+      launch: '发布',
+      team: '团队',
+      cta: '成为合作伙伴',
+    },
+    hero: {
+      badge: '所有系统在线',
+      titleLine1: '创新',
+      subtitle: 'AI 应该像基础设施一样运作，而非舞台表演。我们绘制压力图，快速交付可运行的系统，并从第一天就量化成效，让城市、政府和运营商做出更少、更清晰的决策。',
+      cta: '从压力图开始',
+      ctaSecondary: '查看在线系统',
+      nodeLabel: '点击选择区域',
+      statSystems: '在线系统',
+      statMonitoring: '全天候监控',
+      statCountries: '国家',
+    },
+    engagement: {
+      tag: '运营模式',
+      title: '从压力出发，而非表演',
+      desc: '我们的原则是先交付，使用现有数据，并从第一次部署起留下证据轨迹。',
+      step1: {
+        day: '第 01-03 天',
+        kicker: '找到真实决策',
+        title: '绘制问题压力图',
+        desc: '我们识别核心问题、真实用户和现有数据，让第一个版本解决具体问题，而非表演战略。',
+        li1: '确定一个需要更快或更清晰的决策',
+        li2: '梳理现有数据源、差距和实际用户',
+        li3: '在进入范围之前剔除装饰性内容',
+      },
+      step2: {
+        day: '第 04-07 天',
+        kicker: '先交付，再完善',
+        title: '在会议室放入可用界面',
+        desc: '第一个交付物是人们可以立即做出反应的实时视图。我们更喜欢丑陋但可用的系统，而非什么都没教会我们的精美承诺。',
+        li1: '使用免费和现有数据，而非购买新基础设施',
+        li2: '与运营者审查，而非仅与赞助商和传播团队',
+        li3: '让界面暴露权衡，而非隐藏它们',
+      },
+      step3: {
+        day: '第 08-14 天',
+        kicker: '量化重要指标',
+        title: '将试点转化为可重复的运营层',
+        desc: '从第一次部署开始，我们跟踪什么被观看、什么改变行为、什么值得更重的后端。',
+        li1: '从第一天起添加页面浏览、内容和使用信号',
+        li2: '保持简单的决策日志记录发布后的变化',
+        li3: '记录系统以便重复使用，而非重新发明',
+      },
+      proof: {
+        label: '早期交付内容',
+        title: '证据，而非概念板',
+        text: '最重要的经验是每个项目都应从证据架构开始：一个清晰的问题、一个可用的界面和一条数据轨迹。',
+        stat1: '首次现场演示',
+        stat2: '在线系统',
+        stat3: '已建立索引的城市',
+        stat4: '会议室内的国家',
+        stackTitle: '第一天的技术栈纪律',
+        sli1: 'SEO 和可分享的叙述层',
+        sli2: '分析和页面浏览追踪',
+        sli3: '缓存内容或证据历史',
+        sli4: '简单文档确保系统在交接后存活',
+        note: '使用已有资源。只有在压力足够真实时才增加更重的基础设施。',
+      },
+    },
+    projects: {
+      tag: '生产级智能系统',
+      title: '部署即产品',
+      desc: '我们构建在发布后仍然有用的系统：用于信号、街道运营和公共决策。',
+      introLabel: '三种运营模式。一套 playbook。',
+      introTitle: '战情室、城市室、评分引擎',
+      introText: '数量不如模式重要。每个 Axiom 系统都从相同的简报开始：找到压力，缩小决策，浮现真正重要的行动。',
+    },
+    capabilities: {
+      tag: 'Axiom 协议核心',
+      title: '设计即过程<br>智能即产品',
+      desc: '我们处于城市规划、AI 治理和运营交付之间。工作只有在经受住部署考验后才具有战略价值。',
+      prt1: { title: '城市级指挥中心', desc: '将卫星图像、摄像头和城市数据整合到一个工作态势感知室的省长级仪表板。' },
+      prt2: { title: '智能视觉', desc: '在现有基础设施上的计算机视觉，用于事件检测、运动跟踪和响应触发。' },
+      prt3: { title: '地缘政治 NLP', desc: '将情感、风险和叙事转变压缩成决策者可以快速扫描内容的 AI 简报。' },
+      prt4: { title: '定性设计', desc: '基于居民实际容忍、信任和使用情况的行为优先系统设计。' },
+      prt5: { title: '快速部署', desc: '适应本地情境的可重用架构，让可用系统在数周而非数年内交付。' },
+      prt6: { title: 'Blue Bird Engine', desc: 'Axiom 部署背后的复制层：模块化、硬件无关，安全到足以快速移动而无需即兴发挥。' },
+    },
+    team: {
+      tag: '团队',
+      title: '对的人<br>对的时间',
+      desc: '没有组织架构表演。两位创始人保持在构建中。网络只在任务足够奇特时才出现。',
+      foundersCaption: '两位创始人。没有客户经理站在工作中间。',
+      playbookLabel: 'Axiom 实际运作方式',
+      playbookTitle: '精简核心。弹性网络。',
+      playbookText: '我们让核心保持极度精简以确保决策快速。当项目需要无人机、交通工程、金融或政策翻译时，我们引入准确的专家，而非配备装饰性团队。',
+      rule1: { label: '规则 01', title: '没有组织架构表演', desc: '你与建设者交谈，而非处理者。' },
+      rule2: { label: '规则 02', title: '创始人保持亲力亲为', desc: '战略和交付在同一个房间发生。' },
+      rule3: { label: '规则 03', title: '专家按任务加入', desc: '只有在简报真正需要时。' },
+    },
+    contact: {
+      title: '准备好找到<br>您的公理了吗?',
+      desc: '如果问题重要且清晰度重要，我们应该谈谈。我们更喜欢合作伙伴关系，而非供应商表演。',
+      commit1: '第一周完成压力图',
+      commit2: '展示前先有可用试点',
+      commit3: '第一天起建立数据轨迹',
+      fieldName: '姓名',
+      fieldEmail: '电子邮件',
+      fieldMessage: '留言',
+      submit: '发送消息',
+    },
+  },
+
+  ts: {
+    nav: {
+      systems: 'type Systems',
+      services: 'interface Services',
+      launch: 'export Launch',
+      team: 'class Team',
+      cta: 'await partner()',
+    },
+    hero: {
+      badge: '// status: ONLINE',
+      titleLine1: 'Innovation',
+      subtitle: '// AI should feel like infrastructure, not theatre\nconst axiom = new DecisionSystem({ pressure: true, theatre: false })',
+      cta: 'pressureMap.start()',
+      ctaSecondary: 'systems.getLive()',
+      nodeLabel: '// select theatre',
+      statSystems: 'LiveSystem[]',
+      statMonitoring: 'readonly 24/7',
+      statCountries: 'Country<T>',
+    },
+    engagement: {
+      tag: '// OPERATING_MODEL',
+      title: 'type Engagement = Pressure, not Theatre',
+      desc: '/** @param pressure — real\n * @param theatre — false\n * @returns working_system */',
+      step1: {
+        day: 'Phase<01-03>',
+        kicker: '// find real decision',
+        title: 'pressureMap(problem: unknown): Decision',
+        desc: 'const { question, users, data } = await identify(scope)\nreturn new WorkingVersion({ concrete: true, theatre: false })',
+        li1: 'defineDecision(): void // one that must get faster',
+        li2: 'mapFeeds(gaps: Gap[]): DataSource[]',
+        li3: 'trim(decorative: Feature[]): void',
+      },
+      step2: {
+        day: 'Phase<04-07>',
+        kicker: '// ship before perfect',
+        title: 'deploy(surface: WorkingSurface): void',
+        desc: 'return uglier_working_system > prettier_polished_promise',
+        li1: 'useExisting(data: FreeData): void // no new infra',
+        li2: 'reviewWith(operators: User[]): Feedback[]',
+        li3: 'expose(tradeoffs: boolean): Interface // not hide',
+      },
+      step3: {
+        day: 'Phase<08-14>',
+        kicker: '// instrument what matters',
+        title: 'pilot.toRepeatable(): OperatingLayer',
+        desc: 'track({ watched: boolean, behavior: Change[], backend: Weight })',
+        li1: 'addSignals(pageview, content, usage): void',
+        li2: 'log(decisions: Decision[], when: Date): Trail',
+        li3: 'document(): void // reuse, not reinvent',
+      },
+      proof: {
+        label: '// SHIPS_EARLY',
+        title: 'type Proof = never MoodBoard',
+        text: 'const lesson = { question: sharp, surface: working, trail: data }\n// Start with evidence architecture',
+        stat1: 'FIRST_LIVE_DEMO',
+        stat2: 'LIVE_SYSTEMS',
+        stat3: 'CITIES_INDEXED',
+        stat4: 'NATIONS_IN_ROOM',
+        stackTitle: '// day-one stack discipline',
+        sli1: 'SEO: LayerConfig // share-ready',
+        sli2: 'Analytics: Trail // pageview',
+        sli3: 'content: Cache | EvidenceHistory',
+        sli4: 'docs: Handoff // survive transfer',
+        note: '// useExisting() first\n// addHeavyInfra() only when pressure.isReal()',
+      },
+    },
+    projects: {
+      tag: '// PRODUCTION_INTELLIGENCE',
+      title: 'deployment satisfies Product',
+      desc: '// systems that stay useful: signal | street | decision',
+      introLabel: '// 3 operating modes. 1 playbook.',
+      introTitle: 'warRoom | cityRoom | scoringEngine',
+      introText: 'count < pattern\naxiom.systems.forEach(s => s.brief === { pressure, decision, actions })',
+    },
+    capabilities: {
+      tag: '// AXIOM_PROTOCOL_CORE',
+      title: 'Design = Process<br>Intelligence = Product',
+      desc: '// urban planning & AI governance & operational delivery\nconst strategic = work.survivesDeployment()',
+      prt1: { title: 'CityCommand: Dashboard', desc: 'Governor<Grade> pulls satellite | cameras | civicFeeds → SituationRoom' },
+      prt2: { title: 'Vision: ComputerVision', desc: 'incidents.detect() | movement.track() | triggers.respond()' },
+      prt3: { title: 'Geopolitics: NLP<LLM>', desc: 'compress(sentiment, risk, narrative) → Scannable<DecisionMaker>' },
+      prt4: { title: 'Design: Qualitative<T>', desc: 'behaviorFirst(residents.tolerate | trust | use): SystemDesign' },
+      prt5: { title: 'Deploy: Rapid<Local>', desc: 'reusableArch.adaptTo(context) // weeks not years' },
+      prt6: { title: 'BlueBird: Engine<Core>', desc: 'replication: modular & hardwareAgnostic & secure // move fast' },
+    },
+    team: {
+      tag: 'class Team',
+      title: 'RightPeople<br>RightTime',
+      desc: '// no org-chart cosplay\nconst founders = new Set(builders)\nnetwork.join(when: missionIsWeird)',
+      foundersCaption: '// 2 founders, 0 account managers in the middle',
+      playbookLabel: '// how Axiom actually runs',
+      playbookTitle: 'core.size === "brutal small"\nnetwork.type === "elastic"',
+      playbookText: 'if (project.needs(specialist)) pull(exact)\n// never staff(decorativeArmy)',
+      rule1: { label: '// Rule<01>', title: 'no OrgChartTheatre', desc: 'talk to builders, not handlers' },
+      rule2: { label: '// Rule<02>', title: 'founders.stayHandsOn()', desc: 'strategy && shipping in same room' },
+      rule3: { label: '// Rule<03>', title: 'specialists.joinByMission()', desc: 'only when brief.needs(them)' },
+    },
+    contact: {
+      title: 'ready to find()<br>your axioms?',
+      desc: '// if problem.matters && clarity.matters\nawait talk()\n// prefer partnership over vendorTheatre',
+      commit1: 'pressureMap: Week<1>',
+      commit2: 'pilot.worksBefore(deck)',
+      commit3: 'trail: DataFrom<Day1>',
+      fieldName: 'name: string',
+      fieldEmail: 'email: Email',
+      fieldMessage: 'message: string',
+      submit: 'send()',
+    },
+  },
+};
+
+function renderStaticCopy() {
+  const copy = uiCopy[activeLocale] || uiCopy.en;
+
+  document.querySelectorAll('[data-i18n]').forEach((node) => {
+    const key = node.getAttribute('data-i18n');
+    const value = key.split('.').reduce((obj, k) => obj?.[k], copy);
+    if (typeof value === 'string') node.textContent = value;
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach((node) => {
+    const key = node.getAttribute('data-i18n-html');
+    const value = key.split('.').reduce((obj, k) => obj?.[k], copy);
+    if (typeof value === 'string') node.innerHTML = value;
+  });
+
+  document.querySelectorAll('[data-locale]').forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.locale === activeLocale);
+  });
+}
+
+function bindLocaleSwitch() {
+  ['localeSwitch', 'localeSwitchMobile'].forEach((id) => {
+    document.getElementById(id)?.addEventListener('click', (e) => {
+      const btn = e.target instanceof HTMLElement ? e.target.closest('[data-locale]') : null;
+      if (!btn) return;
+      activeLocale = btn.dataset.locale || 'en';
+      renderStaticCopy();
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderStaticCopy();
+  bindLocaleSwitch();
+});
+
 const axiomMedia = {
   isReduced: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
   isTouch: window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(hover: none)').matches,
@@ -1098,10 +1580,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   }
 
   init().catch(() => {
-    caseStudyMount.innerHTML = '<div class="evidence-loading">Project proof is unavailable right now. Check the local API server.</div>';
-    historyList.innerHTML = '<div class="evidence-loading">Timeline data is unavailable right now. Check the local API server.</div>';
-    if (historyMeta) historyMeta.textContent = 'API unavailable';
-    if (pageviewsNoteEl) pageviewsNoteEl.textContent = 'Visit data is unavailable right now.';
+    const evidenceSection = document.getElementById('evidence');
+    if (evidenceSection) evidenceSection.style.display = 'none';
   });
 })();
 

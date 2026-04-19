@@ -77,12 +77,18 @@
         <span class="nav-logo-text">AXIOM</span>
       </a>
       <div class="nav-links">
-        <a href="#projects" class="nav-link">Systems</a>
-        <a href="#capabilities" class="nav-link">Services</a>
-        <a href="#launch" class="nav-link">Launch</a>
-        <a href="#team" class="nav-link">Team</a>
+        <a href="#projects" class="nav-link" data-i18n="nav.systems">Systems</a>
+        <a href="#capabilities" class="nav-link" data-i18n="nav.services">Services</a>
+        <a href="#launch" class="nav-link" data-i18n="nav.launch">Launch</a>
+        <a href="#team" class="nav-link" data-i18n="nav.team">Team</a>
         <a href="https://www.linkedin.com/company/axiomaxiom/about/" target="_blank" rel="noopener" class="nav-link">LinkedIn</a>
-        <a href="#contact" class="nav-link nav-link-cta">Partner With Us</a>
+        <div class="locale-switch" id="localeSwitch">
+          <button data-locale="en" class="locale-btn active">EN</button>
+          <button data-locale="th" class="locale-btn">TH</button>
+          <button data-locale="zh" class="locale-btn">ZH</button>
+          <button data-locale="ts" class="locale-btn">TS</button>
+        </div>
+        <a href="#contact" class="nav-link nav-link-cta" data-i18n="nav.cta">Partner With Us</a>
       </div>
       <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
@@ -98,11 +104,17 @@
       <span class="mobile-menu-kicker">Axiom in motion</span>
       <p class="mobile-menu-copy">Built for signal, street operations, and public decision-making that has to stay live.</p>
     </div>
-    <a href="#projects" class="mobile-link">Systems</a>
-    <a href="#capabilities" class="mobile-link">Services</a>
-    <a href="#launch" class="mobile-link">Launch</a>
-    <a href="#team" class="mobile-link">Team</a>
-    <a href="#contact" class="mobile-link mobile-link-cta">Partner With Us</a>
+    <a href="#projects" class="mobile-link" data-i18n="nav.systems">Systems</a>
+    <a href="#capabilities" class="mobile-link" data-i18n="nav.services">Services</a>
+    <a href="#launch" class="mobile-link" data-i18n="nav.launch">Launch</a>
+    <a href="#team" class="mobile-link" data-i18n="nav.team">Team</a>
+    <a href="#contact" class="mobile-link mobile-link-cta" data-i18n="nav.cta">Partner With Us</a>
+    <div class="locale-switch locale-switch-mobile" id="localeSwitchMobile">
+      <button data-locale="en" class="locale-btn active">EN</button>
+      <button data-locale="th" class="locale-btn">TH</button>
+      <button data-locale="zh" class="locale-btn">ZH</button>
+      <button data-locale="ts" class="locale-btn">TS</button>
+    </div>
   </div>
 
   <main id="mainContent">
@@ -186,24 +198,24 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        All Systems Online
+        <span data-i18n="hero.badge">All Systems Online</span>
       </div>
       <h1 class="hero-title">
-        <span class="hero-line">Innovation</span>
+        <span class="hero-line" data-i18n="hero.titleLine1">Innovation</span>
         <span class="hero-line hero-line-accent" id="heroRotatingText">as a Service</span>
       </h1>
-      <p class="hero-subtitle">
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
         AI should feel like infrastructure, not theatre. We map the pressure, ship a working surface fast, and instrument it from day one so cities, governments, and operators can make fewer, clearer decisions under pressure.
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">
-          <span>Start With the Pressure Map</span>
+          <span data-i18n="hero.cta">Start With the Pressure Map</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#projects" class="btn btn-ghost">See Live Systems</a>
+        <a href="#projects" class="btn btn-ghost" data-i18n="hero.ctaSecondary">See Live Systems</a>
       </div>
       <div class="hero-node-strip" aria-label="Operational footprint">
-        <div class="hero-node-strip-label">Tap a live theatre</div>
+        <div class="hero-node-strip-label" data-i18n="hero.nodeLabel">Tap a live theatre</div>
         <div class="hero-node-strip-scroller" id="heroNodeRail">
           <button class="hero-node is-active" type="button" data-city="bangkok" aria-pressed="true">
             <span class="hero-node-name">Bangkok</span>
@@ -226,15 +238,15 @@
       <div class="hero-stats">
         <div class="hero-stat">
           <span class="hero-stat-value" data-count="9">0</span>
-          <span class="hero-stat-label">Live Systems</span>
+          <span class="hero-stat-label" data-i18n="hero.statSystems">Live Systems</span>
         </div>
         <div class="hero-stat">
           <span class="hero-stat-value">24/7</span>
-          <span class="hero-stat-label">Live Monitoring</span>
+          <span class="hero-stat-label" data-i18n="hero.statMonitoring">Live Monitoring</span>
         </div>
         <div class="hero-stat">
           <span class="hero-stat-value" data-count="5">0</span>
-          <span class="hero-stat-label">Countries</span>
+          <span class="hero-stat-label" data-i18n="hero.statCountries">Countries</span>
         </div>
       </div>
     </div>
@@ -276,91 +288,91 @@
   <section id="engagement">
     <div class="section-container">
       <div class="section-header">
-        <span class="section-tag">Operating Model</span>
-        <h2 class="section-title">Start with the pressure, not the theatre.</h2>
-        <p class="section-desc">Taking the Non-Claude-Skills logic seriously means shipping first, using the data already on the table, and leaving a proof trail from the first deployment.</p>
+        <span class="section-tag" data-i18n="engagement.tag">Operating Model</span>
+        <h2 class="section-title" data-i18n="engagement.title">Start with the pressure, not the theatre.</h2>
+        <p class="section-desc" data-i18n="engagement.desc">Taking the Non-Claude-Skills logic seriously means shipping first, using the data already on the table, and leaving a proof trail from the first deployment.</p>
       </div>
 
       <div class="engagement-frame">
         <div class="engagement-timeline">
-          <article class="engagement-step">
+          <article class="engagement-step" data-step="01">
             <div class="engagement-step-top">
-              <span class="engagement-step-day">DAY 01-03</span>
-              <span class="engagement-step-kicker">Find the real decision</span>
+              <span class="engagement-step-day" data-i18n="engagement.step1.day">DAY 01-03</span>
+              <span class="engagement-step-kicker" data-i18n="engagement.step1.kicker">Find the real decision</span>
             </div>
-            <h3 class="engagement-step-title">Pressure map the problem.</h3>
-            <p class="engagement-step-desc">We identify the operating question, the real users, and the data that already exists so the first version solves something concrete instead of performing strategy theatre.</p>
+            <h3 class="engagement-step-title" data-i18n="engagement.step1.title">Pressure map the problem.</h3>
+            <p class="engagement-step-desc" data-i18n="engagement.step1.desc">We identify the operating question, the real users, and the data that already exists so the first version solves something concrete instead of performing strategy theatre.</p>
             <ul class="engagement-step-list">
-              <li>Define one decision that must get faster or clearer</li>
-              <li>Map current feeds, gaps, and who actually uses the output</li>
-              <li>Cut anything decorative before it enters scope</li>
+              <li data-i18n="engagement.step1.li1">Define one decision that must get faster or clearer</li>
+              <li data-i18n="engagement.step1.li2">Map current feeds, gaps, and who actually uses the output</li>
+              <li data-i18n="engagement.step1.li3">Cut anything decorative before it enters scope</li>
             </ul>
           </article>
 
-          <article class="engagement-step">
+          <article class="engagement-step" data-step="02">
             <div class="engagement-step-top">
-              <span class="engagement-step-day">DAY 04-07</span>
-              <span class="engagement-step-kicker">Ship before perfect</span>
+              <span class="engagement-step-day" data-i18n="engagement.step2.day">DAY 04-07</span>
+              <span class="engagement-step-kicker" data-i18n="engagement.step2.kicker">Ship before perfect</span>
             </div>
-            <h3 class="engagement-step-title">Put a working surface in the room.</h3>
-            <p class="engagement-step-desc">The first deliverable is a live view or pilot surface people can react to immediately. We prefer an ugly working system over a polished promise that teaches us nothing.</p>
+            <h3 class="engagement-step-title" data-i18n="engagement.step2.title">Put a working surface in the room.</h3>
+            <p class="engagement-step-desc" data-i18n="engagement.step2.desc">The first deliverable is a live view or pilot surface people can react to immediately. We prefer an ugly working system over a polished promise that teaches us nothing.</p>
             <ul class="engagement-step-list">
-              <li>Use free and existing data before buying new infrastructure</li>
-              <li>Review with operators, not just sponsors and comms teams</li>
-              <li>Let the interface expose trade-offs instead of hiding them</li>
+              <li data-i18n="engagement.step2.li1">Use free and existing data before buying new infrastructure</li>
+              <li data-i18n="engagement.step2.li2">Review with operators, not just sponsors and comms teams</li>
+              <li data-i18n="engagement.step2.li3">Let the interface expose trade-offs instead of hiding them</li>
             </ul>
           </article>
 
-          <article class="engagement-step">
+          <article class="engagement-step" data-step="03">
             <div class="engagement-step-top">
-              <span class="engagement-step-day">DAY 08-14</span>
-              <span class="engagement-step-kicker">Instrument what matters</span>
+              <span class="engagement-step-day" data-i18n="engagement.step3.day">DAY 08-14</span>
+              <span class="engagement-step-kicker" data-i18n="engagement.step3.kicker">Instrument what matters</span>
             </div>
-            <h3 class="engagement-step-title">Turn the pilot into a repeatable operating layer.</h3>
-            <p class="engagement-step-desc">From the first deploy, we track what is being watched, what changes behavior, and what deserves a heavier backend. That keeps the stack honest and the next build legible.</p>
+            <h3 class="engagement-step-title" data-i18n="engagement.step3.title">Turn the pilot into a repeatable operating layer.</h3>
+            <p class="engagement-step-desc" data-i18n="engagement.step3.desc">From the first deploy, we track what is being watched, what changes behavior, and what deserves a heavier backend. That keeps the stack honest and the next build legible.</p>
             <ul class="engagement-step-list">
-              <li>Add pageview, content, and usage signals from day one</li>
-              <li>Keep a simple decision log of what changed after launch</li>
-              <li>Document the system so it can be reused, not reinvented</li>
+              <li data-i18n="engagement.step3.li1">Add pageview, content, and usage signals from day one</li>
+              <li data-i18n="engagement.step3.li2">Keep a simple decision log of what changed after launch</li>
+              <li data-i18n="engagement.step3.li3">Document the system so it can be reused, not reinvented</li>
             </ul>
           </article>
         </div>
 
         <aside class="engagement-proof">
-          <span class="engagement-proof-label">What Ships Early</span>
-          <h3 class="engagement-proof-title">Proof, not moodboards.</h3>
-          <p class="engagement-proof-text">The repo's strongest lesson is that every project should start with evidence architecture: one sharp question, one working surface, and one data trail strong enough to tell us what to keep.</p>
+          <span class="engagement-proof-label" data-i18n="engagement.proof.label">What Ships Early</span>
+          <h3 class="engagement-proof-title" data-i18n="engagement.proof.title">Proof, not moodboards.</h3>
+          <p class="engagement-proof-text" data-i18n="engagement.proof.text">The repo's strongest lesson is that every project should start with evidence architecture: one sharp question, one working surface, and one data trail strong enough to tell us what to keep.</p>
 
           <div class="engagement-proof-stats">
             <div class="engagement-proof-stat">
               <span class="engagement-proof-value">45m</span>
-              <span class="engagement-proof-key">FIRST LIVE DEMO</span>
+              <span class="engagement-proof-key" data-i18n="engagement.proof.stat1">FIRST LIVE DEMO</span>
             </div>
             <div class="engagement-proof-stat">
               <span class="engagement-proof-value">9</span>
-              <span class="engagement-proof-key">LIVE SYSTEMS</span>
+              <span class="engagement-proof-key" data-i18n="engagement.proof.stat2">LIVE SYSTEMS</span>
             </div>
             <div class="engagement-proof-stat">
               <span class="engagement-proof-value">174</span>
-              <span class="engagement-proof-key">CITIES INDEXED</span>
+              <span class="engagement-proof-key" data-i18n="engagement.proof.stat3">CITIES INDEXED</span>
             </div>
             <div class="engagement-proof-stat">
               <span class="engagement-proof-value">53</span>
-              <span class="engagement-proof-key">NATIONS IN ROOM</span>
+              <span class="engagement-proof-key" data-i18n="engagement.proof.stat4">NATIONS IN ROOM</span>
             </div>
           </div>
 
           <div class="engagement-proof-stack">
-            <div class="engagement-proof-stack-title">Day-one stack discipline</div>
+            <div class="engagement-proof-stack-title" data-i18n="engagement.proof.stackTitle">Day-one stack discipline</div>
             <ul class="engagement-proof-list">
-              <li>SEO and share-ready narrative layer</li>
-              <li>Analytics and pageview trail</li>
-              <li>Cached content or evidence history</li>
-              <li>Simple docs so the system can survive handoff</li>
+              <li data-i18n="engagement.proof.sli1">SEO and share-ready narrative layer</li>
+              <li data-i18n="engagement.proof.sli2">Analytics and pageview trail</li>
+              <li data-i18n="engagement.proof.sli3">Cached content or evidence history</li>
+              <li data-i18n="engagement.proof.sli4">Simple docs so the system can survive handoff</li>
             </ul>
           </div>
 
-          <p class="engagement-proof-note">Use what already exists. Add heavier infrastructure only when the pressure is real enough to earn it.</p>
+          <p class="engagement-proof-note" data-i18n="engagement.proof.note">Use what already exists. Add heavier infrastructure only when the pressure is real enough to earn it.</p>
         </aside>
       </div>
     </div>
@@ -370,16 +382,16 @@
   <section id="projects">
     <div class="section-container">
       <div class="section-header">
-        <span class="section-tag">Production Intelligence</span>
-        <h2 class="section-title">Deployment as product.</h2>
-        <p class="section-desc">We build systems that stay useful after launch: for signal, street operations, and public decision-making.</p>
+        <span class="section-tag" data-i18n="projects.tag">Production Intelligence</span>
+        <h2 class="section-title" data-i18n="projects.title">Deployment as product.</h2>
+        <p class="section-desc" data-i18n="projects.desc">We build systems that stay useful after launch: for signal, street operations, and public decision-making.</p>
       </div>
 
       <div class="projects-intro">
         <div class="projects-intro-copy">
-          <span class="projects-intro-label">Three operating modes. One playbook.</span>
-          <h3 class="projects-intro-title">War room, city room, scoring engine.</h3>
-          <p class="projects-intro-text">The count matters less than the pattern. Every Axiom system starts with the same brief: find the pressure, narrow the decision, and surface the few actions that actually matter.</p>
+          <span class="projects-intro-label" data-i18n="projects.introLabel">Three operating modes. One playbook.</span>
+          <h3 class="projects-intro-title" data-i18n="projects.introTitle">War room, city room, scoring engine.</h3>
+          <p class="projects-intro-text" data-i18n="projects.introText">The count matters less than the pattern. Every Axiom system starts with the same brief: find the pressure, narrow the decision, and surface the few actions that actually matter.</p>
         </div>
         <div class="projects-intro-stats">
           <div class="projects-intro-stat">
@@ -628,16 +640,16 @@
   <section id="capabilities">
     <div class="section-container">
       <div class="section-header">
-        <span class="section-tag">Axiom Protocol Core</span>
-        <h2 class="section-title">Design as process.<br>Intelligence as product.</h2>
-        <p class="section-desc">We sit between urban planning, AI governance, and operational delivery. The work is strategic only if it survives deployment.</p>
+        <span class="section-tag" data-i18n="capabilities.tag">Axiom Protocol Core</span>
+        <h2 class="section-title" data-i18n-html="capabilities.title">Design as process.<br>Intelligence as product.</h2>
+        <p class="section-desc" data-i18n="capabilities.desc">We sit between urban planning, AI governance, and operational delivery. The work is strategic only if it survives deployment.</p>
       </div>
 
       <div class="matrix-grid">
         <div class="matrix-item">
           <div class="matrix-node">PRT-01 // GOVERNANCE</div>
-          <h3 class="matrix-title">City-Level Command</h3>
-          <p class="matrix-desc">Governor-grade dashboards that pull satellite imagery, cameras, and civic feeds into one working situation room.</p>
+          <h3 class="matrix-title" data-i18n="capabilities.prt1.title">City-Level Command</h3>
+          <p class="matrix-desc" data-i18n="capabilities.prt1.desc">Governor-grade dashboards that pull satellite imagery, cameras, and civic feeds into one working situation room.</p>
           <div class="matrix-specs">
             <span>[LATENCY] &lt;45ms</span>
             <span>[NODES] 10/10</span>
@@ -645,8 +657,8 @@
         </div>
         <div class="matrix-item">
           <div class="matrix-node">PRT-02 // VISION</div>
-          <h3 class="matrix-title">Intelligent Vision</h3>
-          <p class="matrix-desc">Computer vision on top of existing infrastructure for incident detection, movement tracking, and response triggers.</p>
+          <h3 class="matrix-title" data-i18n="capabilities.prt2.title">Intelligent Vision</h3>
+          <p class="matrix-desc" data-i18n="capabilities.prt2.desc">Computer vision on top of existing infrastructure for incident detection, movement tracking, and response triggers.</p>
           <div class="matrix-specs">
             <span>[ACCURACY] 98.4%</span>
             <span>[MODELS] CNN/YOLO</span>
@@ -654,8 +666,8 @@
         </div>
         <div class="matrix-item">
           <div class="matrix-node">PRT-03 // ANALYSIS</div>
-          <h3 class="matrix-title">Geopolitics NLP</h3>
-          <p class="matrix-desc">AI briefs that compress sentiment, risk, and narrative shifts into something a decision-maker can scan fast.</p>
+          <h3 class="matrix-title" data-i18n="capabilities.prt3.title">Geopolitics NLP</h3>
+          <p class="matrix-desc" data-i18n="capabilities.prt3.desc">AI briefs that compress sentiment, risk, and narrative shifts into something a decision-maker can scan fast.</p>
           <div class="matrix-specs">
             <span>[REGIONS] 53+</span>
             <span>[ENGINE] LLM-V4</span>
@@ -663,8 +675,8 @@
         </div>
         <div class="matrix-item">
           <div class="matrix-node">PRT-04 // BEHAVIOR</div>
-          <h3 class="matrix-title">Qualitative Design</h3>
-          <p class="matrix-desc">Behavior-first system design grounded in what residents tolerate, trust, and actually use.</p>
+          <h3 class="matrix-title" data-i18n="capabilities.prt4.title">Qualitative Design</h3>
+          <p class="matrix-desc" data-i18n="capabilities.prt4.desc">Behavior-first system design grounded in what residents tolerate, trust, and actually use.</p>
           <div class="matrix-specs">
             <span>[METRIC] SLIC</span>
             <span>[BIAS] NEUTRAL</span>
@@ -672,8 +684,8 @@
         </div>
         <div class="matrix-item">
           <div class="matrix-node">PRT-05 // SCALE</div>
-          <h3 class="matrix-title">Rapid Deployment</h3>
-          <p class="matrix-desc">Reusable architecture adapted to local context, so working systems ship in weeks instead of multi-year procurement cycles.</p>
+          <h3 class="matrix-title" data-i18n="capabilities.prt5.title">Rapid Deployment</h3>
+          <p class="matrix-desc" data-i18n="capabilities.prt5.desc">Reusable architecture adapted to local context, so working systems ship in weeks instead of multi-year procurement cycles.</p>
           <div class="matrix-specs">
             <span>[LEAD] &lt;14 DAYS</span>
             <span>[SYNC] AUTOMATED</span>
@@ -681,8 +693,8 @@
         </div>
         <div class="matrix-item matrix-blueprint-placeholder">
           <div class="matrix-node">PRT-06 // CORE</div>
-          <h3 class="matrix-title">Blue Bird Engine</h3>
-          <p class="matrix-desc">The replication layer behind Axiom deployments: modular, hardware-agnostic, and secure enough to move fast without improvising.</p>
+          <h3 class="matrix-title" data-i18n="capabilities.prt6.title">Blue Bird Engine</h3>
+          <p class="matrix-desc" data-i18n="capabilities.prt6.desc">The replication layer behind Axiom deployments: modular, hardware-agnostic, and secure enough to move fast without improvising.</p>
         </div>
       </div>
     </div>
@@ -981,39 +993,39 @@
   <section id="team">
     <div class="section-container">
       <div class="section-header">
-        <span class="section-tag">Team</span>
-        <h2 class="section-title">Right people.<br>Right time.</h2>
-        <p class="section-desc">No org chart cosplay. Two founders stay in the build. The network only shows up when the mission gets weird enough to deserve it.</p>
+        <span class="section-tag" data-i18n="team.tag">Team</span>
+        <h2 class="section-title" data-i18n-html="team.title">Right people.<br>Right time.</h2>
+        <p class="section-desc" data-i18n="team.desc">No org chart cosplay. Two founders stay in the build. The network only shows up when the mission gets weird enough to deserve it.</p>
       </div>
 
       <div class="team-stage">
         <div class="team-founders-photo">
           <img src="Portraits/Non and Poon.JPG" alt="Non and Poon — Co-Founders of Axiom" class="founders-img" style="transform: scaleX(-1);" loading="lazy">
-          <p class="founders-caption">Two founders. No account managers standing in the middle of the work.</p>
+          <p class="founders-caption" data-i18n="team.foundersCaption">Two founders. No account managers standing in the middle of the work.</p>
         </div>
 
         <div class="team-playbook">
           <div class="team-playbook-card">
-            <span class="team-playbook-label">How Axiom actually runs</span>
-            <h3 class="team-playbook-title">Lean core. Elastic network.</h3>
-            <p class="team-playbook-text">We keep the core brutally small so decisions stay fast. When a project needs UAV feeds, traffic engineering, finance, or policy translation, we pull in the exact specialist instead of staffing a decorative army.</p>
+            <span class="team-playbook-label" data-i18n="team.playbookLabel">How Axiom actually runs</span>
+            <h3 class="team-playbook-title" data-i18n="team.playbookTitle">Lean core. Elastic network.</h3>
+            <p class="team-playbook-text" data-i18n="team.playbookText">We keep the core brutally small so decisions stay fast. When a project needs UAV feeds, traffic engineering, finance, or policy translation, we pull in the exact specialist instead of staffing a decorative army.</p>
           </div>
 
           <div class="team-rules">
             <div class="team-rule">
-              <span class="team-rule-label">Rule 01</span>
-              <strong>No org-chart theatre</strong>
-              <span>You talk to builders, not handlers.</span>
+              <span class="team-rule-label" data-i18n="team.rule1.label">Rule 01</span>
+              <strong data-i18n="team.rule1.title">No org-chart theatre</strong>
+              <span data-i18n="team.rule1.desc">You talk to builders, not handlers.</span>
             </div>
             <div class="team-rule">
-              <span class="team-rule-label">Rule 02</span>
-              <strong>Founders stay hands-on</strong>
-              <span>Strategy and shipping happen in the same room.</span>
+              <span class="team-rule-label" data-i18n="team.rule2.label">Rule 02</span>
+              <strong data-i18n="team.rule2.title">Founders stay hands-on</strong>
+              <span data-i18n="team.rule2.desc">Strategy and shipping happen in the same room.</span>
             </div>
             <div class="team-rule">
-              <span class="team-rule-label">Rule 03</span>
-              <strong>Specialists join by mission</strong>
-              <span>Only when the brief truly needs them.</span>
+              <span class="team-rule-label" data-i18n="team.rule3.label">Rule 03</span>
+              <strong data-i18n="team.rule3.title">Specialists join by mission</strong>
+              <span data-i18n="team.rule3.desc">Only when the brief truly needs them.</span>
             </div>
           </div>
         </div>
@@ -1217,30 +1229,30 @@
     <div class="section-container">
       <div class="cta-block">
         <div class="cta-bg-grid"></div>
-        <h2 class="cta-title">Ready to find<br>your axioms?</h2>
-        <p class="cta-desc">If the problem matters and clarity matters, we should talk. We prefer partnership over vendor theatre.</p>
+        <h2 class="cta-title" data-i18n-html="contact.title">Ready to find<br>your axioms?</h2>
+        <p class="cta-desc" data-i18n="contact.desc">If the problem matters and clarity matters, we should talk. We prefer partnership over vendor theatre.</p>
         <div class="cta-commitments">
-          <span class="cta-commitment">Pressure mapped in week one</span>
-          <span class="cta-commitment">Working pilot before deck theatre</span>
-          <span class="cta-commitment">Data trail from day one</span>
+          <span class="cta-commitment" data-i18n="contact.commit1">Pressure mapped in week one</span>
+          <span class="cta-commitment" data-i18n="contact.commit2">Working pilot before deck theatre</span>
+          <span class="cta-commitment" data-i18n="contact.commit3">Data trail from day one</span>
         </div>
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/xreyjayk" method="POST">
           <div class="contact-form-row">
             <div class="contact-field">
               <input type="text" id="contactName" name="name" required placeholder=" " autocomplete="name">
-              <label for="contactName">Name</label>
+              <label for="contactName" data-i18n="contact.fieldName">Name</label>
             </div>
             <div class="contact-field">
               <input type="email" id="contactEmail" name="email" required placeholder=" " autocomplete="email">
-              <label for="contactEmail">Email</label>
+              <label for="contactEmail" data-i18n="contact.fieldEmail">Email</label>
             </div>
           </div>
           <div class="contact-field">
             <textarea id="contactMessage" name="message" rows="4" required placeholder=" "></textarea>
-            <label for="contactMessage">Message</label>
+            <label for="contactMessage" data-i18n="contact.fieldMessage">Message</label>
           </div>
           <button type="submit" class="btn btn-primary btn-lg">
-            <span>Send Message</span>
+            <span data-i18n="contact.submit">Send Message</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </form>
