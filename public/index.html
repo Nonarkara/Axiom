@@ -702,46 +702,94 @@
 
   <section id="evidence">
     <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Evidence, Explained</span>
-        <h2 class="section-title">This page now runs on real records, not just fixed claims.</h2>
-        <p class="section-desc">The site can now count visits, pull project proof from a database, and show a timeline of public work. That makes the story easier to trust because the homepage is reading from real records.</p>
+      <div class="section-header evidence-header">
+        <div class="evidence-header-copy">
+          <span class="section-tag" id="evidenceTag">Evidence Dashboard</span>
+          <h2 class="section-title" id="evidenceTitle">What we can prove, where it lives, and how current it is.</h2>
+          <p class="section-desc" id="evidenceDesc">This section now reads live records from the evidence database. It shows project proof, regional spread, source quality, and a public timeline you can scan quickly.</p>
+        </div>
+        <div class="evidence-toolbar">
+          <div class="evidence-locale-switch" id="evidenceLocaleSwitch" aria-label="Evidence language">
+            <button type="button" class="evidence-locale-pill is-active" data-locale="en">English</button>
+            <button type="button" class="evidence-locale-pill" data-locale="th">ไทย</button>
+            <button type="button" class="evidence-locale-pill" data-locale="zh">中文</button>
+          </div>
+          <p class="evidence-locale-note" id="evidenceLocaleNote">This switch changes the evidence section only.</p>
+        </div>
       </div>
 
       <div class="evidence-explainer">
-        <span class="evidence-explainer-kicker">IN PLAIN ENGLISH</span>
-        <p class="evidence-explainer-text">This section shows three simple things: how many people have visited, which projects have stored proof behind them, and which public milestones support the story. It is a small but important shift from static marketing copy to live, reusable evidence.</p>
+        <span class="evidence-explainer-kicker" id="evidenceExplainerKicker">IN PLAIN ENGLISH</span>
+        <p class="evidence-explainer-text" id="evidenceExplainerText">This is the part of the homepage that behaves more like a dashboard than a brochure. It counts visits, groups proof by status and region, and shows which public records back each claim.</p>
       </div>
 
       <div class="evidence-summary-grid">
         <article class="evidence-summary-card">
-          <span class="evidence-summary-label">VISITS RECORDED</span>
+          <span class="evidence-summary-label" id="evidenceVisitsLabel">VISITS RECORDED</span>
           <strong class="evidence-summary-value" id="evidencePageviews">0</strong>
           <span class="evidence-summary-note" id="evidencePageviewsNote">No visits have been recorded yet.</span>
         </article>
         <article class="evidence-summary-card">
-          <span class="evidence-summary-label">VISITS IN LAST 7 DAYS</span>
-          <strong class="evidence-summary-value" id="evidenceLast7Days">0</strong>
-          <span class="evidence-summary-note">A simple view of recent traffic.</span>
-        </article>
-        <article class="evidence-summary-card">
-          <span class="evidence-summary-label">PROJECT PROOF FILES</span>
+          <span class="evidence-summary-label" id="evidenceProofLabel">PROOF FILES</span>
           <strong class="evidence-summary-value" id="evidenceCaseFiles">0</strong>
-          <span class="evidence-summary-note">Projects backed by stored proof, not just copywriting.</span>
+          <span class="evidence-summary-note" id="evidenceProofNote">Project records backed by stored proof.</span>
         </article>
         <article class="evidence-summary-card">
-          <span class="evidence-summary-label">TIMELINE ENTRIES</span>
-          <strong class="evidence-summary-value" id="evidenceHistoryRecords">0</strong>
-          <span class="evidence-summary-note" id="evidenceTopPage">Most visited page: /</span>
+          <span class="evidence-summary-label" id="evidenceRegionLabel">REGIONS COVERED</span>
+          <strong class="evidence-summary-value" id="evidenceRegionsCovered">0</strong>
+          <span class="evidence-summary-note" id="evidenceRegionNote">Distinct operating footprints represented in the proof set.</span>
+        </article>
+        <article class="evidence-summary-card">
+          <span class="evidence-summary-label" id="evidenceSourceLabel">VERIFIED SOURCES</span>
+          <strong class="evidence-summary-value" id="evidenceVerifiedSources">0</strong>
+          <span class="evidence-summary-note" id="evidenceSourceNote">Distinct live sources or public references behind the records.</span>
+        </article>
+        <article class="evidence-summary-card">
+          <span class="evidence-summary-label" id="evidenceConfidenceLabel">AVERAGE CONFIDENCE</span>
+          <strong class="evidence-summary-value" id="evidenceAverageConfidence">0%</strong>
+          <span class="evidence-summary-note" id="evidenceConfidenceNote">A quick read on how strong the current proof set is.</span>
+        </article>
+      </div>
+
+      <div class="evidence-visual-grid">
+        <article class="evidence-visual-card">
+          <div class="evidence-visual-head">
+            <span class="evidence-panel-label" id="evidenceStatusHeading">DELIVERY STATUS</span>
+            <p class="evidence-panel-text" id="evidenceStatusText">Which records are live now, in pilot, or already publicly launched.</p>
+          </div>
+          <div id="evidenceStatusViz" class="evidence-bar-list" aria-live="polite">
+            <div class="evidence-loading">Loading status distribution.</div>
+          </div>
+        </article>
+
+        <article class="evidence-visual-card">
+          <div class="evidence-visual-head">
+            <span class="evidence-panel-label" id="evidenceRegionHeading">REGIONAL FOOTPRINT</span>
+            <p class="evidence-panel-text" id="evidenceRegionText">Where the evidence is concentrated right now.</p>
+          </div>
+          <div id="evidenceRegionViz" class="evidence-bar-list" aria-live="polite">
+            <div class="evidence-loading">Loading regional footprint.</div>
+          </div>
+        </article>
+
+        <article class="evidence-visual-card">
+          <div class="evidence-visual-head">
+            <span class="evidence-panel-label" id="evidenceTypeHeading">EVIDENCE MIX</span>
+            <p class="evidence-panel-text" id="evidenceTypeText">The balance between monitoring, operations, and public reference work.</p>
+          </div>
+          <div id="evidenceTypeViz" class="evidence-bar-list" aria-live="polite">
+            <div class="evidence-loading">Loading evidence mix.</div>
+          </div>
         </article>
       </div>
 
       <div class="evidence-layout">
         <div class="evidence-case-column">
           <div class="evidence-panel-copy">
-            <span class="evidence-panel-label">PROJECT PROOF</span>
-            <p class="evidence-panel-text">Each record answers a simple question: who it was for, what was built, and why it mattered.</p>
+            <span class="evidence-panel-label" id="evidenceCaseHeading">PROJECT PROOF</span>
+            <p class="evidence-panel-text" id="evidenceCaseText">Each record shows who it served, what shipped, which source backs it, and how current the proof still is.</p>
           </div>
+          <div id="evidenceFilterStrip" class="evidence-filter-strip" aria-label="Filter case studies"></div>
           <div id="caseStudyProofMount" class="evidence-case-list" aria-live="polite">
             <div class="evidence-loading">Loading project proof.</div>
           </div>
@@ -749,9 +797,10 @@
 
         <aside class="evidence-history-card">
           <div class="evidence-history-header">
-            <span class="evidence-history-label">PROJECT TIMELINE</span>
+            <span class="evidence-history-label" id="evidenceHistoryLabel">PUBLIC TIMELINE</span>
             <span class="evidence-history-meta" id="contentHistoryMeta">Loading entries...</span>
           </div>
+          <p class="evidence-history-intro" id="evidenceHistoryText">Every line below is a public trace that supports the story: launch, deployment, workshop, or regional rollout.</p>
           <div id="contentHistoryList" class="evidence-history-list" aria-live="polite">
             <div class="evidence-loading">Loading timeline entries.</div>
           </div>
@@ -866,7 +915,7 @@
       </div>
 
       <div class="interface-evolution">
-        <article class="interface-card lightbox-trigger" tabindex="0" role="button" aria-label="Open SLIC V1 screenshot">
+        <a class="interface-card" href="https://www.linkedin.com/posts/drnon_slicindex-smartcities-livability-activity-7440419472890363904-A9kh" target="_blank" rel="noopener">
           <div class="interface-card-media">
             <img src="screenshots/axiom/slic-v1-hero.jpg" alt="SLIC Index V1 interface for the Smart and Liveable Cities Index" loading="lazy">
           </div>
@@ -875,9 +924,9 @@
             <h3>Start with the claim.</h3>
             <p>The first generation made the core thesis public: cities should be ranked on human possibility, not polished prestige.</p>
           </div>
-        </article>
+        </a>
 
-        <article class="interface-card lightbox-trigger" tabindex="0" role="button" aria-label="Open SLIC V2 screenshot">
+        <a class="interface-card" href="https://www.linkedin.com/posts/drnon_smartcities-urbandevelopment-livability-activity-7436658530432135168-b5F5" target="_blank" rel="noopener">
           <div class="interface-card-media">
             <img src="screenshots/axiom/slic-v2-hero.jpg" alt="SLIC Index V2 dark interface with user-adjustable ranking controls" loading="lazy">
           </div>
@@ -886,9 +935,9 @@
             <h3>Then let the user move the score.</h3>
             <p>The second generation shifted the product from static ranking toward adjustable ranking logic, making trade-offs visible instead of hiding them.</p>
           </div>
-        </article>
+        </a>
 
-        <article class="interface-card lightbox-trigger" tabindex="0" role="button" aria-label="Open SLIC V3 screenshot">
+        <a class="interface-card" href="https://nonarkara.github.io/SLIC-Index/" target="_blank" rel="noopener">
           <div class="interface-card-media">
             <img src="screenshots/axiom/slic-v3-hero.webp" alt="SLIC Index V3 interface asking which cities score highest under this metric" loading="lazy">
           </div>
@@ -897,7 +946,7 @@
             <h3>157 cities. Five pillars. Live explorer.</h3>
             <p>The current version is lighter, faster, and more procedural. Cities publish, pillars are adjustable, and the gap between question and answer is as small as possible.</p>
           </div>
-        </article>
+        </a>
       </div>
     </div>
   </section>
