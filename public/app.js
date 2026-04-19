@@ -872,6 +872,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     '.project-support-card',
     '.capability-card',
     '.metric-card',
+    '.evidence-summary-card',
+    '.evidence-history-card',
     '.section-header',
     '.team-stage',
     '.team-rule',
@@ -898,6 +900,209 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+
+// ── Evidence Layer: Pageviews + Proof + History ───────────────────
+
+(function initEvidenceLayer() {
+  const pageviewsEl = document.getElementById('evidencePageviews');
+  const pageviewsNoteEl = document.getElementById('evidencePageviewsNote');
+  const last7DaysEl = document.getElementById('evidenceLast7Days');
+  const caseFilesEl = document.getElementById('evidenceCaseFiles');
+  const historyRecordsEl = document.getElementById('evidenceHistoryRecords');
+  const topPageEl = document.getElementById('evidenceTopPage');
+  const caseStudyMount = document.getElementById('caseStudyProofMount');
+  const historyList = document.getElementById('contentHistoryList');
+  const historyMeta = document.getElementById('contentHistoryMeta');
+
+  if (!pageviewsEl || !caseStudyMount || !historyList) return;
+
+  const numberFormatter = new Intl.NumberFormat('en-US');
+
+  function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    }[char]));
+  }
+
+  function safeUrl(url) {
+    if (typeof url !== 'string') return '';
+    return /^https?:\/\//.test(url) ? url : '';
+  }
+
+  function formatTimestamp(timestamp) {
+    if (!timestamp) return 'No visits recorded yet.';
+
+    try {
+      const normalizedTimestamp = String(timestamp).includes('T')
+        ? timestamp
+        : String(timestamp).replace(' ', 'T') + 'Z';
+
+      return new Intl.DateTimeFormat(navigator.language || 'en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      }).format(new Date(normalizedTimestamp));
+    } catch (error) {
+      return timestamp;
+    }
+  }
+
+  function renderSummary(analytics) {
+    pageviewsEl.textContent = numberFormatter.format(analytics.totalPageviews || 0);
+    last7DaysEl.textContent = numberFormatter.format(analytics.last7DaysPageviews || 0);
+    if (caseFilesEl) caseFilesEl.textContent = numberFormatter.format(analytics.caseStudyCount || 0);
+    if (historyRecordsEl) historyRecordsEl.textContent = numberFormatter.format(analytics.contentHistoryCount || 0);
+
+    if (pageviewsNoteEl) {
+      pageviewsNoteEl.textContent = analytics.latestPageviewAt
+        ? 'Most recent visit: ' + formatTimestamp(analytics.latestPageviewAt)
+        : 'No visits have been recorded yet.';
+    }
+
+    if (topPageEl) {
+      if (analytics.topPageViews > 0) {
+        topPageEl.textContent = `Most visited page: ${analytics.topPage} (${numberFormatter.format(analytics.topPageViews)} visits)`;
+      } else {
+        topPageEl.textContent = 'Most visited page: /';
+      }
+    }
+  }
+
+  function renderCaseStudies(caseStudies) {
+    if (!caseStudies.length) {
+      caseStudyMount.innerHTML = '<div class="evidence-loading">No project proof has been loaded yet.</div>';
+      return;
+    }
+
+    caseStudyMount.innerHTML = caseStudies.map((study) => {
+      const details = [
+        { label: 'Who it was for', value: study.client },
+        { label: 'Where', value: study.location },
+        { label: 'Type of work', value: study.sector },
+        { label: 'What was delivered', value: study.deploymentWindow },
+        { label: 'What decisions it helped', value: study.decisionSurface },
+        { label: 'Why it matters', value: study.summary },
+      ];
+
+      const detailMarkup = details.map((detail) => `
+        <div class="case-detail">
+          <span class="case-detail-label">${escapeHtml(detail.label)}</span>
+          <span class="case-detail-value">${escapeHtml(detail.value)}</span>
+        </div>
+      `).join('');
+
+      const resultsMarkup = (study.metrics || []).map((metric) => `
+        <div class="case-result">
+          <div class="case-result-value">${escapeHtml(metric.value)}</div>
+          <div class="case-result-label">${escapeHtml(metric.label)}</div>
+        </div>
+      `).join('');
+
+      const linkUrl = safeUrl(study.linkUrl);
+      const linkMarkup = linkUrl
+        ? ` <a href="${escapeHtml(linkUrl)}" target="_blank" rel="noopener">${escapeHtml(study.linkLabel || 'View live example')}</a>`
+        : '';
+
+      return `
+        <article class="case-study">
+          <div class="case-study-badge">${escapeHtml(study.badge)}</div>
+          <h3 class="case-study-title">${escapeHtml(study.title)}</h3>
+          <div class="case-study-content">
+            <div class="case-study-details">${detailMarkup}</div>
+            <div class="case-study-results">${resultsMarkup}</div>
+          </div>
+          <div class="case-study-note">${escapeHtml(study.note)}${linkMarkup}</div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  function renderContentHistory(items) {
+    if (historyMeta) {
+      historyMeta.textContent = items.length
+        ? `${numberFormatter.format(items.length)} timeline entries`
+        : 'No timeline entries yet';
+    }
+
+    if (!items.length) {
+      historyList.innerHTML = '<div class="evidence-loading">No timeline entries have been loaded yet.</div>';
+      return;
+    }
+
+    historyList.innerHTML = items.map((item) => {
+      const linkUrl = safeUrl(item.url);
+      const linkMarkup = linkUrl
+        ? `<a href="${escapeHtml(linkUrl)}" target="_blank" rel="noopener" class="evidence-history-link">View source</a>`
+        : '';
+
+      return `
+        <article class="evidence-history-item">
+          <div class="evidence-history-top">
+            <span class="evidence-history-period">${escapeHtml(item.eventPeriod)}</span>
+            <span class="evidence-history-pill">${escapeHtml(item.category)}</span>
+          </div>
+          <h3 class="evidence-history-title">${escapeHtml(item.title)}</h3>
+          <p class="evidence-history-summary">${escapeHtml(item.summary)}</p>
+          <div class="evidence-history-foot">
+            <span class="evidence-history-source">${escapeHtml(item.source)}${item.location ? ' · ' + escapeHtml(item.location) : ''}</span>
+            ${linkMarkup}
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  async function trackPageview() {
+    const payload = {
+      path: window.location.pathname || '/',
+      referrer: document.referrer || null,
+      language: navigator.language || null,
+    };
+
+    try {
+      await fetch('/api/pageview', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true,
+      });
+    } catch (error) {
+      // Quietly fail — analytics should never block the experience.
+    }
+  }
+
+  async function loadEvidence() {
+    const response = await fetch('/api/evidence', {
+      headers: { 'Accept': 'application/json' },
+      cache: 'no-store',
+    });
+
+    if (!response.ok) {
+      throw new Error('Unable to load evidence layer.');
+    }
+
+    return response.json();
+  }
+
+  async function init() {
+    await trackPageview();
+    const evidence = await loadEvidence();
+    renderSummary(evidence.analytics || {});
+    renderCaseStudies(evidence.caseStudies || []);
+    renderContentHistory(evidence.contentHistory || []);
+  }
+
+  init().catch(() => {
+    caseStudyMount.innerHTML = '<div class="evidence-loading">Project proof is unavailable right now. Check the local API server.</div>';
+    historyList.innerHTML = '<div class="evidence-loading">Timeline data is unavailable right now. Check the local API server.</div>';
+    if (historyMeta) historyMeta.textContent = 'API unavailable';
+    if (pageviewsNoteEl) pageviewsNoteEl.textContent = 'Visit data is unavailable right now.';
+  });
 })();
 
 
@@ -933,6 +1138,86 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
 })();
 
+// ── Screenshot Lightbox ───────────────────────────────────────────
+
+(function initImageLightbox() {
+  const overlay = document.getElementById('imageLightbox');
+  const image = document.getElementById('imageLightboxImg');
+  const closeBtn = document.getElementById('imageLightboxClose');
+  const titleEl = document.getElementById('imageLightboxTitle');
+  const kickerEl = document.getElementById('imageLightboxKicker');
+  const copyEl = document.getElementById('imageLightboxCopy');
+  const triggers = document.querySelectorAll('.lightbox-trigger');
+  if (!overlay || !image || !closeBtn || !titleEl || !kickerEl || !copyEl || !triggers.length) return;
+
+  let lastTrigger = null;
+
+  function extractLightboxContent(trigger) {
+    const imageEl = trigger.querySelector('img');
+    return {
+      src: imageEl?.getAttribute('src') || '',
+      alt: imageEl?.getAttribute('alt') || '',
+      kicker: trigger.querySelector('.photo-node-label, .interface-atlas-kicker, .interface-card-step')?.textContent?.trim() || '',
+      title: trigger.querySelector('.interface-atlas-title, .interface-card h3')?.textContent?.trim() || imageEl?.getAttribute('alt') || 'Screenshot preview',
+      copy: trigger.querySelector('.interface-atlas-text, .interface-card p')?.textContent?.trim() || '',
+    };
+  }
+
+  function openLightbox(trigger) {
+    const content = extractLightboxContent(trigger);
+    if (!content.src) return;
+
+    lastTrigger = trigger;
+    image.src = content.src;
+    image.alt = content.alt;
+    kickerEl.textContent = content.kicker;
+    titleEl.textContent = content.title;
+    copyEl.textContent = content.copy;
+    copyEl.hidden = !content.copy;
+    kickerEl.hidden = !content.kicker;
+
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    closeBtn.focus();
+  }
+
+  function closeLightbox() {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    image.src = '';
+    image.alt = '';
+    document.body.classList.remove('lightbox-open');
+
+    if (lastTrigger) {
+      lastTrigger.focus();
+    }
+  }
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => openLightbox(trigger));
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(trigger);
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) {
+      closeLightbox();
+    }
+  });
+})();
+
 // ── Command Terminal ──────────────────────────────────────────────
 
 (function initTerminal() {
@@ -957,6 +1242,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   document.addEventListener('keydown', (e) => {
     const activeElement = document.activeElement;
     const isTyping = isEditableElement(activeElement);
+    const imageLightboxOpen = document.getElementById('imageLightbox')?.classList.contains('open');
+
+    if (imageLightboxOpen) return;
 
     // Open terminal: / or Ctrl+K
     if ((e.key === '/' && !e.ctrlKey && !e.metaKey && !isTyping) ||
@@ -1037,11 +1325,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     about: () => {
       addLine(`<span class="terminal-cmd">AXIOM — Innovation as a Service</span>`, 'terminal-line-info');
-      addLine('  AI as water — invisible, essential, everywhere.');
-      addLine('  We build intelligent systems for cities, governments,');
-      addLine('  and organizations. Your success is our KPI.');
-      addLine('  Founded: 2024 | HQ: Bangkok, Thailand');
-      addLine('  Countries: Thailand, UAE, Solomon Islands, Singapore');
+      addLine('  Decision systems for cities, governments, and operators.');
+      addLine('  Built to stay useful under pressure, not just at launch.');
+      addLine('  HQ: Bangkok, Thailand');
+      addLine('  Reach: 5 countries | 9 live systems');
       addLine('  Live monitoring: 24/7 across all systems');
     },
 
@@ -1066,8 +1353,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       addLine(`<span class="terminal-cmd">TECHNOLOGY STACK</span>`, 'terminal-line-info');
       addLine('  Frontend:   Vanilla JS, Leaflet.js, Canvas API');
       addLine('  Maps:       ESRI, CartoDB, OpenTopoMap (open tiles)');
-      addLine('  Data:       Open civic APIs, live telemetry, health checks');
-      addLine('  Platform:   Render Cloud Services');
+      addLine('  Data:       Open civic APIs, SQLite evidence layer, live telemetry');
+      addLine('  Platform:   Local Node server + API routes');
       addLine('  AI:         NLP, Sentiment Analysis, Computer Vision');
       addLine('  Design:     Outfit, Inter, JetBrains Mono');
       addLine('  Philosophy: Precision, speed, no decorative platform theatre.');
@@ -1076,10 +1363,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     systems: () => {
       addLine(`<span class="terminal-cmd">LIVE PRODUCTION SYSTEMS</span>`, 'terminal-line-info');
       const systems = [
-        'Bangkok Smart City Monitor', 'Middle East Monitor',
-        'Phuket Dashboard', 'Geopolitics Dashboard',
-        'City Reporter Bot', 'Phuket Smart Bus',
-        'SLIC Index v2', 'Dr. Non OS Dashboard'
+        'Global Monitor',
+        'MEM Intelligence',
+        'War Monitor',
+        'Phuket Dashboard',
+        'Phuket Smart Bus',
+        'Smart City Thailand Index',
+        'MTT Monitor',
+        'SLIC Index',
+        'Kuching IOC'
       ];
       systems.forEach((s, i) => {
         addLine(`  <span style="color:var(--green)">●</span> ${s}`);

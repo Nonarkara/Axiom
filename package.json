@@ -5,11 +5,8 @@
   "engines": {
     "node": ">=18"
   },
-  "dependencies": {
-    "serve": "^14.2.0"
-  },
   "scripts": {
-    "start": "serve public -l $PORT",
-    "dev": "serve public -l 3000"
+    "start": "node server.mjs",
+    "dev": "PORT=3000 node server.mjs"
   }
 }

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axiom Evidence Control Room</title>
+  <meta name="description" content="Local editing workspace for Axiom pageviews, project proof, and timeline records.">
+  <link rel="icon" href="/assets/axiom-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/style.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <header class="admin-header">
+      <div class="admin-header-copy">
+        <span class="admin-kicker" data-i18n="hero.kicker">Evidence Control Room</span>
+        <h1 data-i18n="hero.title">Edit the proof without editing the code.</h1>
+        <p data-i18n="hero.desc">This local workspace updates the records behind the public evidence section. English drives the public page today. Thai and Chinese are stored here for the next multilingual phase.</p>
+      </div>
+
+      <div class="admin-header-tools">
+        <div class="locale-switch" id="localeSwitch" aria-label="Language mode">
+          <button type="button" class="locale-pill is-active" data-locale="en">English</button>
+          <button type="button" class="locale-pill" data-locale="th">ไทย</button>
+          <button type="button" class="locale-pill" data-locale="zh">中文</button>
+          <button type="button" class="locale-pill" data-locale="ts">TypeScript</button>
+        </div>
+        <a href="/" class="admin-link" data-i18n="hero.openSite">Open public site</a>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <section class="overview-panel">
+        <div class="overview-copy">
+          <span class="section-kicker" data-i18n="overview.kicker">Where we are now</span>
+          <h2 data-i18n="overview.title">The evidence layer is live and editable.</h2>
+          <p data-i18n="overview.desc">These numbers come from the local database, not from hard-coded page copy.</p>
+        </div>
+
+        <div class="overview-stats">
+          <article class="stat-block">
+            <span class="stat-label" data-i18n="overview.pageviews">Visits recorded</span>
+            <strong class="stat-value" id="statPageviews">0</strong>
+            <span class="stat-meta" id="statPageviewsMeta">Waiting for data.</span>
+          </article>
+          <article class="stat-block">
+            <span class="stat-label" data-i18n="overview.caseStudies">Project proof files</span>
+            <strong class="stat-value" id="statCaseStudies">0</strong>
+            <span class="stat-meta" data-i18n="overview.caseStudiesMeta">Records available to the public page.</span>
+          </article>
+          <article class="stat-block">
+            <span class="stat-label" data-i18n="overview.timeline">Timeline entries</span>
+            <strong class="stat-value" id="statTimeline">0</strong>
+            <span class="stat-meta" id="statTimelineMeta">Waiting for data.</span>
+          </article>
+        </div>
+      </section>
+
+      <div id="globalBanner" class="global-banner" hidden></div>
+
+      <section class="workspace-grid">
+        <section class="workspace-panel">
+          <div class="panel-head">
+            <div>
+              <span class="section-kicker" data-i18n="case.kicker">Project proof</span>
+              <h2 data-i18n="case.title">Case-study records</h2>
+              <p data-i18n="case.desc">Pick a project, update the facts, and the public evidence section will read the new record.</p>
+            </div>
+            <button type="button" class="panel-btn" id="newCaseStudyBtn" data-i18n="actions.newCase">New project record</button>
+          </div>
+
+          <div class="editor-grid">
+            <aside class="record-list" id="caseStudyList" aria-label="Case-study records"></aside>
+
+            <form id="caseStudyForm" class="editor-form">
+              <div class="form-grid form-grid-three">
+                <label class="field">
+                  <span id="caseBadgeLabel">Badge</span>
+                  <input id="caseBadge" name="badge" type="text" autocomplete="off">
+                </label>
+                <label class="field">
+                  <span id="caseSlugLabel">Slug</span>
+                  <input id="caseSlug" name="slug" type="text" autocomplete="off">
+                </label>
+                <label class="field">
+                  <span id="caseOrderLabel">Display order</span>
+                  <input id="caseProofOrder" name="proofOrder" type="number" min="0" step="1">
+                </label>
+              </div>
+
+              <div class="form-grid form-grid-three">
+                <label class="field">
+                  <span id="caseClientLabel">Who it was for</span>
+                  <input id="caseClient" name="client" type="text" autocomplete="off">
+                </label>
+                <label class="field">
+                  <span id="caseLocationLabel">Where</span>
+                  <input id="caseLocation" name="location" type="text" autocomplete="off">
+                </label>
+                <label class="field">
+                  <span id="caseSectorLabel">Type of work</span>
+                  <input id="caseSector" name="sector" type="text" autocomplete="off">
+                </label>
+              </div>
+
+              <div class="form-grid form-grid-two">
+                <label class="field">
+                  <span id="caseLinkUrlLabel">Live URL</span>
+                  <input id="caseLinkUrl" name="linkUrl" type="url" autocomplete="off">
+                </label>
+              </div>
+
+              <section class="locale-panel">
+                <div class="locale-panel-head">
+                  <div>
+                    <span class="section-kicker" data-i18n="locale.kicker">Language layer</span>
+                    <h3 id="caseLocaleTitle">English content</h3>
+                  </div>
+                  <p id="caseLocaleHint">This is the text the public page uses right now.</p>
+                </div>
+                <div id="caseLocaleFields" class="locale-fields"></div>
+              </section>
+
+              <label class="field">
+                <span id="caseMetricsLabel">Result metrics</span>
+                <textarea id="caseMetrics" name="metrics" rows="5"></textarea>
+                <small id="caseMetricsHelp">One metric per line in the format: value | label</small>
+              </label>
+
+              <div class="form-actions">
+                <button type="submit" class="panel-btn panel-btn-primary" id="saveCaseStudyBtn" data-i18n="actions.save">Save changes</button>
+                <button type="button" class="panel-btn panel-btn-danger" id="deleteCaseStudyBtn" data-i18n="actions.deleteCase">Delete project</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="workspace-panel">
+          <div class="panel-head">
+            <div>
+              <span class="section-kicker" data-i18n="history.kicker">Project timeline</span>
+              <h2 data-i18n="history.title">Public history records</h2>
+              <p data-i18n="history.desc">This list explains where the proof came from and when the work entered the public record.</p>
+            </div>
+            <button type="button" class="panel-btn" id="newHistoryBtn" data-i18n="actions.newHistory">New timeline entry</button>
+          </div>
+
+          <div class="editor-grid">
+            <aside class="record-list" id="historyList" aria-label="Timeline records"></aside>
+
+            <form id="historyForm" class="editor-form">
+              <div class="form-grid form-grid-three">
+                <label class="field">
+                  <span id="historyOrderLabel">Display order</span>
+                  <input id="historyOrder" name="historyOrder" type="number" min="0" step="1">
+                </label>
+                <label class="field">
+                  <span id="historyLocationLabel">Location</span>
+                  <input id="historyLocation" name="location" type="text" autocomplete="off">
+                </label>
+                <label class="field">
+                  <span id="historyUrlLabel">Source URL</span>
+                  <input id="historyUrl" name="url" type="url" autocomplete="off">
+                </label>
+              </div>
+
+              <section class="locale-panel">
+                <div class="locale-panel-head">
+                  <div>
+                    <span class="section-kicker" data-i18n="locale.kicker">Language layer</span>
+                    <h3 id="historyLocaleTitle">English content</h3>
+                  </div>
+                  <p id="historyLocaleHint">This is the text the public timeline uses right now.</p>
+                </div>
+                <div id="historyLocaleFields" class="locale-fields"></div>
+              </section>
+
+              <div class="form-actions">
+                <button type="submit" class="panel-btn panel-btn-primary" id="saveHistoryBtn" data-i18n="actions.save">Save changes</button>
+                <button type="button" class="panel-btn panel-btn-danger" id="deleteHistoryBtn" data-i18n="actions.deleteHistory">Delete timeline entry</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </section>
+
+      <aside class="workspace-panel helper-panel">
+        <div class="panel-head">
+          <div>
+            <span class="section-kicker" data-i18n="guide.kicker">Operator guide</span>
+            <h2 data-i18n="guide.title">How this works</h2>
+            <p data-i18n="guide.desc">The editor changes database records, not the homepage markup. English is live now; Thai and Chinese are stored for the next public rollout.</p>
+          </div>
+        </div>
+
+        <div class="guide-copy" id="guideCopy"></div>
+
+        <section class="typescript-panel">
+          <div class="locale-panel-head">
+            <div>
+              <span class="section-kicker">TypeScript</span>
+              <h3 data-i18n="typescript.title">Typed preview</h3>
+            </div>
+            <p data-i18n="typescript.desc">A developer-readable snapshot of the selected records and current locale.</p>
+          </div>
+          <pre id="typescriptPreview" class="typescript-preview"></pre>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="/admin/app.js" defer></script>
+</body>
+</html>

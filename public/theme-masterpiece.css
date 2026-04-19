@@ -189,6 +189,43 @@
   color: rgba(240, 240, 245, 0.42);
 }
 
+[data-theme="masterpiece"] #engagement {
+  border-bottom-color: var(--border);
+}
+
+[data-theme="masterpiece"] .engagement-step,
+[data-theme="masterpiece"] .engagement-proof {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="masterpiece"] .engagement-step-day,
+[data-theme="masterpiece"] .engagement-proof-label,
+[data-theme="masterpiece"] .engagement-proof-value {
+  color: var(--accent);
+}
+
+[data-theme="masterpiece"] .engagement-step-title,
+[data-theme="masterpiece"] .engagement-proof-title {
+  color: #fff;
+}
+
+[data-theme="masterpiece"] .engagement-step-kicker,
+[data-theme="masterpiece"] .engagement-proof-stack-title,
+[data-theme="masterpiece"] .engagement-proof-key {
+  color: rgba(240, 240, 245, 0.42);
+}
+
+[data-theme="masterpiece"] .engagement-proof-stat {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="masterpiece"] .engagement-step-list li::before,
+[data-theme="masterpiece"] .engagement-proof-list li::before {
+  background: var(--accent);
+}
+
 /* ── Hero SITREP HUD ────────────────────────────────────────── */
 
 [data-theme="masterpiece"] .hero-tracker {
@@ -593,13 +630,11 @@
 [data-theme="masterpiece"] .project-desc {
   font-size: 0.8rem;
   color: var(--text-secondary);
-  line-height: 1.4;
+  line-height: 1.55;
   max-width: 520px;
   font-weight: 400;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  display: block;
+  overflow: visible;
 }
 
 [data-theme="masterpiece"] .project-intel-row {
@@ -750,10 +785,6 @@
 
 [data-theme="masterpiece"] .project-card-spotlight .project-meta {
   padding: 0.1rem 0;
-}
-
-[data-theme="masterpiece"] .project-card-spotlight .project-desc {
-  -webkit-line-clamp: 4;
 }
 
 [data-theme="masterpiece"] .project-support-grid {
@@ -1060,6 +1091,63 @@
   margin-bottom: 0.5rem;
 }
 
+[data-theme="masterpiece"] #evidence {
+  border-bottom-color: var(--border);
+}
+
+[data-theme="masterpiece"] .evidence-explainer,
+[data-theme="masterpiece"] .evidence-summary-card,
+[data-theme="masterpiece"] .evidence-history-card,
+[data-theme="masterpiece"] .evidence-history-item,
+[data-theme="masterpiece"] #evidence .case-study {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="masterpiece"] .evidence-explainer-kicker,
+[data-theme="masterpiece"] .evidence-panel-label,
+[data-theme="masterpiece"] .evidence-summary-label,
+[data-theme="masterpiece"] .evidence-history-label,
+[data-theme="masterpiece"] .evidence-history-pill,
+[data-theme="masterpiece"] #evidence .case-study-badge {
+  color: var(--accent);
+}
+
+[data-theme="masterpiece"] .evidence-summary-value,
+[data-theme="masterpiece"] .evidence-history-title,
+[data-theme="masterpiece"] #evidence .case-study-title,
+[data-theme="masterpiece"] #evidence .case-result-value {
+  color: #fff;
+}
+
+[data-theme="masterpiece"] .evidence-explainer-text,
+[data-theme="masterpiece"] .evidence-panel-text,
+[data-theme="masterpiece"] .evidence-summary-note,
+[data-theme="masterpiece"] .evidence-history-summary,
+[data-theme="masterpiece"] .evidence-history-source,
+[data-theme="masterpiece"] #evidence .case-detail-value,
+[data-theme="masterpiece"] #evidence .case-result-label,
+[data-theme="masterpiece"] #evidence .case-study-note {
+  color: var(--text-secondary);
+}
+
+[data-theme="masterpiece"] .evidence-history-period,
+[data-theme="masterpiece"] .evidence-history-meta,
+[data-theme="masterpiece"] .evidence-loading,
+[data-theme="masterpiece"] #evidence .case-detail-label {
+  color: rgba(240, 240, 245, 0.42);
+}
+
+[data-theme="masterpiece"] .evidence-loading {
+  background: rgba(255, 255, 255, 0.015);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="masterpiece"] .evidence-history-link,
+[data-theme="masterpiece"] #evidence .case-study-note a {
+  color: var(--accent);
+}
+
 /* ── Mission Brief: Protocol Alpha (V7) ────────────────────────── */
 
 [data-theme="masterpiece"] .intelligence-log {
@@ -1313,6 +1401,7 @@
 [data-theme="masterpiece"] #health,
 [data-theme="masterpiece"] #capabilities,
 [data-theme="masterpiece"] #proof,
+[data-theme="masterpiece"] #evidence,
 [data-theme="masterpiece"] #launch,
 [data-theme="masterpiece"] #uav,
 [data-theme="masterpiece"] #team,
@@ -1554,12 +1643,46 @@
     grid-template-columns: 1fr;
   }
 
+  [data-theme="masterpiece"] .projects-intro {
+    gap: 1rem;
+    padding: 1rem 0 1.25rem;
+  }
+
+  [data-theme="masterpiece"] .projects-intro-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   [data-theme="masterpiece"] .project-meta {
-    padding: 0 0.5rem;
+    padding: 0;
   }
 
   [data-theme="masterpiece"] .project-card-spotlight {
     padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  [data-theme="masterpiece"] .project-spotlight-header {
+    margin-bottom: 0.75rem;
+  }
+
+  [data-theme="masterpiece"] .project-spotlight-title {
+    font-size: clamp(1.65rem, 7vw, 2.2rem);
+    line-height: 0.98;
+  }
+
+  [data-theme="masterpiece"] .project-spotlight-text {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  [data-theme="masterpiece"] .display-mockup {
+    aspect-ratio: 16 / 10;
+  }
+
+  [data-theme="masterpiece"] .mockup-container::after {
+    font-size: 0.46rem;
+    letter-spacing: 0.12em;
+    padding: 0.45rem 0.65rem;
   }
 
   [data-theme="masterpiece"] .project-card-spotlight:nth-child(even) .project-meta,
@@ -1568,38 +1691,37 @@
   }
 
   [data-theme="masterpiece"] .project-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   [data-theme="masterpiece"] .project-desc {
-    font-size: 0.75rem;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    display: block;
+    overflow: visible;
   }
 
   [data-theme="masterpiece"] .project-intel-row {
-    gap: 0.5rem;
+    gap: 0.75rem;
+    justify-content: space-between;
   }
 
   [data-theme="masterpiece"] .intel-label {
-    font-size: 0.5rem;
+    font-size: 0.56rem;
   }
 
   [data-theme="masterpiece"] .intel-value {
-    font-size: 0.7rem;
+    font-size: 0.78rem;
   }
 
   [data-theme="masterpiece"] .project-tech span {
-    font-size: 0.55rem;
-    padding: 0.15rem 0.4rem;
+    font-size: 0.62rem;
+    padding: 0.18rem 0.45rem;
   }
 
   [data-theme="masterpiece"] .project-links a {
-    font-size: 0.55rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.62rem;
+    padding: 0.55rem 0.8rem;
   }
 
   [data-theme="masterpiece"] .cta-block {
@@ -1631,12 +1753,10 @@
   }
 
   [data-theme="masterpiece"] .team-card p {
-    font-size: 0.75rem;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-size: 0.84rem;
+    line-height: 1.6;
+    display: block;
+    overflow: visible;
   }
 
   [data-theme="masterpiece"] .founders-img {
@@ -1648,8 +1768,9 @@
   }
 
   [data-theme="masterpiece"] .launch-stats {
-    flex-wrap: wrap;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
     padding: 1rem 0;
   }
 
@@ -1663,7 +1784,41 @@
   }
 
   [data-theme="masterpiece"] .launch-text p {
-    font-size: 0.8rem;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  [data-theme="masterpiece"] .health-meta {
+    width: 100%;
+  }
+
+  [data-theme="masterpiece"] .health-meta-group {
+    width: 100%;
+  }
+
+  [data-theme="masterpiece"] .health-card {
+    padding: 0.95rem 1rem;
+  }
+
+  [data-theme="masterpiece"] .interface-atlas-body,
+  [data-theme="masterpiece"] .interface-card-body {
+    padding: 1rem;
+  }
+
+  [data-theme="masterpiece"] .interface-atlas-title {
+    font-size: clamp(1.35rem, 6vw, 1.9rem);
+    line-height: 1.05;
+  }
+
+  [data-theme="masterpiece"] .interface-atlas-text,
+  [data-theme="masterpiece"] .interface-card p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  [data-theme="masterpiece"] .contact-form .btn {
+    width: 100%;
+    justify-content: space-between;
   }
 
   [data-theme="masterpiece"] #footer {
