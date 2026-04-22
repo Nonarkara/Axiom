@@ -13,37 +13,37 @@ const uiCopy = {
       services: 'Services',
       launch: 'Launch',
       team: 'Team',
-      cta: 'Partner With Us',
+      cta: 'Work With Us',
     },
     hero: {
       badge: 'All Systems Online',
       titleLine1: 'Innovation',
-      subtitle: 'AI should feel like infrastructure, not theatre. We map the pressure, ship a working surface fast, and instrument it from day one so cities, governments, and operators can make fewer, clearer decisions under pressure.',
+      subtitle: 'AI should feel like infrastructure, not performance. We map the pressure, ship a working surface fast, and instrument it from day one so cities, governments, and operators can make fewer, clearer decisions under pressure.',
       cta: 'Start With the Pressure Map',
       ctaSecondary: 'See Live Systems',
-      nodeLabel: 'Tap a live theatre',
+      nodeLabel: 'Tap a live system',
       statSystems: 'Live Systems',
       statMonitoring: 'Live Monitoring',
       statCountries: 'Countries',
     },
     engagement: {
       tag: 'Operating Model',
-      title: 'Start with the pressure, not the theatre.',
+      title: 'Start with the pressure, not the pitch.',
       desc: 'Taking the Non-Claude-Skills logic seriously means shipping first, using the data already on the table, and leaving a proof trail from the first deployment.',
       step1: {
         day: 'DAY 01-03',
         kicker: 'Find the real decision',
         title: 'Pressure map the problem.',
-        desc: 'We identify the operating question, the real users, and the data that already exists so the first version solves something concrete instead of performing strategy theatre.',
+        desc: 'We identify the operating question, the real users, and the data that already exists so the first version solves something concrete instead of staying abstract.',
         li1: 'Define one decision that must get faster or clearer',
         li2: 'Map current feeds, gaps, and who actually uses the output',
-        li3: 'Cut anything decorative before it enters scope',
+        li3: 'Cut anything non-essential before it enters scope',
       },
       step2: {
         day: 'DAY 04-07',
         kicker: 'Ship before perfect',
         title: 'Put a working surface in the room.',
-        desc: 'The first deliverable is a live view or pilot surface people can react to immediately. We prefer an ugly working system over a polished promise that teaches us nothing.',
+        desc: 'The first deliverable is a live view or pilot surface people can react to immediately. We prefer a rough working system over a polished deck that teaches us nothing.',
         li1: 'Use free and existing data before buying new infrastructure',
         li2: 'Review with operators, not just sponsors and comms teams',
         li3: 'Let the interface expose trade-offs instead of hiding them',
@@ -95,20 +95,20 @@ const uiCopy = {
     team: {
       tag: 'Team',
       title: 'Right people.<br>Right time.',
-      desc: 'No org chart cosplay. Two founders stay in the build. The network only shows up when the mission gets weird enough to deserve it.',
+      desc: 'No account-manager layer. Two founders stay in the build, and the network only joins when the mission needs specific expertise.',
       foundersCaption: 'Two founders. No account managers standing in the middle of the work.',
       playbookLabel: 'How Axiom actually runs',
       playbookTitle: 'Lean core. Elastic network.',
-      playbookText: 'We keep the core brutally small so decisions stay fast. When a project needs UAV feeds, traffic engineering, finance, or policy translation, we pull in the exact specialist instead of staffing a decorative army.',
-      rule1: { label: 'Rule 01', title: 'No org-chart theatre', desc: 'You talk to builders, not handlers.' },
+      playbookText: 'We keep the core small so decisions stay fast. When a project needs UAV feeds, traffic engineering, finance, or policy translation, we pull in the exact specialist instead of adding roles for optics.',
+      rule1: { label: 'Rule 01', title: 'No handoff maze', desc: 'You talk to builders, not handlers.' },
       rule2: { label: 'Rule 02', title: 'Founders stay hands-on', desc: 'Strategy and shipping happen in the same room.' },
       rule3: { label: 'Rule 03', title: 'Specialists join by mission', desc: 'Only when the brief truly needs them.' },
     },
     contact: {
       title: 'Ready to find<br>your axioms?',
-      desc: 'If the problem matters and clarity matters, we should talk. We prefer partnership over vendor theatre.',
+      desc: 'If the problem is real and the decision matters, send the brief. We will map the pressure, identify the first usable surface, and show what can be proven.',
       commit1: 'Pressure mapped in week one',
-      commit2: 'Working pilot before deck theatre',
+      commit2: 'Working pilot before slide polish',
       commit3: 'Data trail from day one',
       fieldName: 'Name',
       fieldEmail: 'Email',
@@ -123,7 +123,7 @@ const uiCopy = {
       services: 'บริการ',
       launch: 'เปิดตัว',
       team: 'ทีม',
-      cta: 'ร่วมเป็นพันธมิตร',
+      cta: 'เริ่มงานร่วมกัน',
     },
     hero: {
       badge: 'ระบบทั้งหมดออนไลน์',
@@ -216,7 +216,7 @@ const uiCopy = {
     },
     contact: {
       title: 'พร้อมค้นหา<br>axioms ของคุณ?',
-      desc: 'ถ้าปัญหาสำคัญและความชัดเจนสำคัญ เราควรคุยกัน เราเลือกความเป็นพันธมิตรมากกว่าการแสดงของ vendor',
+      desc: 'ถ้าปัญหาจริงและการตัดสินใจสำคัญ ส่ง brief มา เราจะช่วยแผนที่แรงกดดัน ระบุพื้นผิวแรกที่ใช้งานได้ และพิสูจน์สิ่งที่ควรพิสูจน์ก่อน',
       commit1: 'วิเคราะห์แรงกดดันในสัปดาห์แรก',
       commit2: 'ระบบ pilot ที่ใช้งานได้ก่อนนำเสนอ',
       commit3: 'Data trail ตั้งแต่วันแรก',
@@ -343,37 +343,37 @@ const uiCopy = {
       services: 'interface Services',
       launch: 'export Launch',
       team: 'class Team',
-      cta: 'await partner()',
+      cta: 'await workTogether()',
     },
     hero: {
       badge: '// status: ONLINE',
       titleLine1: 'Innovation',
-      subtitle: '// AI should feel like infrastructure, not theatre\nconst axiom = new DecisionSystem({ pressure: true, theatre: false })',
+      subtitle: '// AI should feel like infrastructure, not performance\nconst axiom = new DecisionSystem({ pressure: true, performative: false })',
       cta: 'pressureMap.start()',
       ctaSecondary: 'systems.getLive()',
-      nodeLabel: '// select theatre',
+      nodeLabel: '// select system',
       statSystems: 'LiveSystem[]',
       statMonitoring: 'readonly 24/7',
       statCountries: 'Country<T>',
     },
     engagement: {
       tag: '// OPERATING_MODEL',
-      title: 'type Engagement = Pressure, not Theatre',
-      desc: '/** @param pressure — real\n * @param theatre — false\n * @returns working_system */',
+      title: 'type Engagement = Pressure, not Pitch',
+      desc: '/** @param pressure — real\n * @param performative — false\n * @returns working_system */',
       step1: {
         day: 'Phase<01-03>',
         kicker: '// find real decision',
         title: 'pressureMap(problem: unknown): Decision',
-        desc: 'const { question, users, data } = await identify(scope)\nreturn new WorkingVersion({ concrete: true, theatre: false })',
+        desc: 'const { question, users, data } = await identify(scope)\nreturn new WorkingVersion({ concrete: true, performative: false })',
         li1: 'defineDecision(): void // one that must get faster',
         li2: 'mapFeeds(gaps: Gap[]): DataSource[]',
-        li3: 'trim(decorative: Feature[]): void',
+        li3: 'trim(nonEssential: Feature[]): void',
       },
       step2: {
         day: 'Phase<04-07>',
         kicker: '// ship before perfect',
         title: 'deploy(surface: WorkingSurface): void',
-        desc: 'return uglier_working_system > prettier_polished_promise',
+        desc: 'return roughWorkingSystem > polishedDeck',
         li1: 'useExisting(data: FreeData): void // no new infra',
         li2: 'reviewWith(operators: User[]): Feedback[]',
         li3: 'expose(tradeoffs: boolean): Interface // not hide',
@@ -425,20 +425,20 @@ const uiCopy = {
     team: {
       tag: 'class Team',
       title: 'RightPeople<br>RightTime',
-      desc: '// no org-chart cosplay\nconst founders = new Set(builders)\nnetwork.join(when: missionIsWeird)',
+      desc: '// no account-manager layer\nconst founders = new Set(builders)\nnetwork.join(when: missionNeedsExpertise)',
       foundersCaption: '// 2 founders, 0 account managers in the middle',
       playbookLabel: '// how Axiom actually runs',
-      playbookTitle: 'core.size === "brutal small"\nnetwork.type === "elastic"',
-      playbookText: 'if (project.needs(specialist)) pull(exact)\n// never staff(decorativeArmy)',
-      rule1: { label: '// Rule<01>', title: 'no OrgChartTheatre', desc: 'talk to builders, not handlers' },
+      playbookTitle: 'core.size === "small"\nnetwork.type === "elastic"',
+      playbookText: 'if (project.needs(specialist)) pull(exact)\n// never addRoles(forOptics)',
+      rule1: { label: '// Rule<01>', title: 'noHandoffMaze()', desc: 'talk to builders, not handlers' },
       rule2: { label: '// Rule<02>', title: 'founders.stayHandsOn()', desc: 'strategy && shipping in same room' },
       rule3: { label: '// Rule<03>', title: 'specialists.joinByMission()', desc: 'only when brief.needs(them)' },
     },
     contact: {
       title: 'ready to find()<br>your axioms?',
-      desc: '// if problem.matters && clarity.matters\nawait talk()\n// prefer partnership over vendorTheatre',
+      desc: '// if problem.isReal && decision.matters\nawait pressureMap()\n// prove first, polish second',
       commit1: 'pressureMap: Week<1>',
-      commit2: 'pilot.worksBefore(deck)',
+      commit2: 'pilot.beforeSlidePolish()',
       commit3: 'trail: DataFrom<Day1>',
       fieldName: 'name: string',
       fieldEmail: 'email: Email',
@@ -482,7 +482,64 @@ function bindLocaleSwitch() {
 document.addEventListener('DOMContentLoaded', () => {
   renderStaticCopy();
   bindLocaleSwitch();
+  initScrollReveal();
 });
+
+function animateCounter(el, target, suffix, duration) {
+  const start = performance.now();
+  const step = (now) => {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    const val = target < 10 ? (target * ease).toFixed(1) : Math.round(target * ease);
+    el.textContent = val + suffix;
+    if (t < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+function initScrollReveal() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Fade-in stagger for card grids
+  const fadeTargets = document.querySelectorAll(
+    '.probono-card, .health-card, .matrix-item, .featured-card'
+  );
+  if (fadeTargets.length) {
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const idx = Array.from(fadeTargets).indexOf(entry.target) % 8;
+          entry.target.style.transition = `opacity 0.4s ease ${idx * 0.05}s, transform 0.4s ease ${idx * 0.05}s`;
+          entry.target.classList.add('revealed');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    fadeTargets.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(12px)';
+      fadeObserver.observe(el);
+    });
+  }
+
+  // Counter-up for numeric values
+  const counterTargets = document.querySelectorAll('.intel-value, .evidence-summary-value');
+  if (counterTargets.length) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const raw = el.textContent.trim();
+          const num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+          const suffix = raw.replace(/^[\d.]+/, '');
+          if (!isNaN(num) && num > 0 && num < 100000) animateCounter(el, num, suffix, 900);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.6 });
+    counterTargets.forEach(el => counterObserver.observe(el));
+  }
+}
 
 const axiomMedia = {
   isReduced: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -542,28 +599,48 @@ function isEditableElement(element) {
   const timestampEl = document.getElementById('healthTimestamp');
   if (!grid) return;
 
-  const systems = [
-    { name: 'Global Monitor', url: 'https://globalmonitor.fly.dev/' },
-    { name: 'MEM Intelligence', url: 'https://nonarkara.github.io/mem-by-non/' },
-    { name: 'War Monitor', url: 'https://middleeast-monitor.pages.dev/' },
-    { name: 'Phuket Dashboard', url: 'https://nonarkara.github.io/phuket-dashboard/war-room' },
-    { name: 'Phuket Smart Bus', url: 'https://nonarkara.github.io/phuket-smart-bus/' },
-    { name: 'Smart City Thailand', url: 'https://nonarkara.github.io/smart-city-thailand-index/' },
-    { name: 'MTT Monitor', url: 'https://nonarkara.github.io/smart-city-thailand-monitor/' },
-    { name: 'SLIC Index', url: 'https://nonarkara.github.io/SLIC-Index/' },
-    { name: 'Kuching IOC', url: 'https://nonarkara.github.io/kuching-ioc/' },
+  const systemGroups = [
+    {
+      label: 'SIGNAL',
+      systems: [
+        { name: 'Global Monitor', url: 'https://globalmonitor.fly.dev/' },
+        { name: 'MEM Intelligence', url: 'https://nonarkara.github.io/mem-by-non/' },
+        { name: 'Middle East Situation Room', url: 'https://middleeast-monitor.pages.dev/' },
+      ],
+    },
+    {
+      label: 'STREET',
+      systems: [
+        { name: 'Phuket Dashboard', url: 'https://nonarkara.github.io/phuket-dashboard/war-room' },
+        { name: 'Phuket Smart Bus', url: 'https://nonarkara.github.io/phuket-smart-bus/' },
+        { name: 'Kuching IOC', url: 'https://nonarkara.github.io/kuching-ioc/' },
+      ],
+    },
+    {
+      label: 'STATE',
+      systems: [
+        { name: 'Smart City Thailand', url: 'https://nonarkara.github.io/smart-city-thailand-index/' },
+        { name: 'MTT Monitor', url: 'https://nonarkara.github.io/smart-city-thailand-monitor/' },
+        { name: 'SLIC Index', url: 'https://nonarkara.github.io/SLIC-Index/' },
+      ],
+    },
   ];
 
-  // Render HUD cards
-  grid.innerHTML = systems.map(s => `
-    <div class="health-card" data-url="${s.url}">
-      <div class="health-dot checking"></div>
-      <div class="health-info">
-        <div class="health-name">${s.name}</div>
-        <div class="health-url">${s.url.replace('https://', '')}</div>
+  const systems = systemGroups.flatMap(g => g.systems);
+
+  // Render HUD cards with category labels
+  grid.innerHTML = systemGroups.map(group => `
+    <div class="health-category-label">${group.label}</div>
+    ${group.systems.map(s => `
+      <div class="health-card" data-url="${s.url}">
+        <div class="health-dot checking"></div>
+        <div class="health-info">
+          <div class="health-name">${s.name}</div>
+          <div class="health-url">${s.url.replace('https://', '')}</div>
+        </div>
+        <div class="health-ms">—</div>
       </div>
-      <div class="health-ms">—</div>
-    </div>
+    `).join('')}
   `).join('');
 
   async function checkSystem(system, card) {
@@ -1355,6 +1432,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     '.capability-card',
     '.metric-card',
     '.evidence-summary-card',
+    '.evidence-visual-card',
     '.evidence-history-card',
     '.section-header',
     '.team-stage',
@@ -1388,19 +1466,389 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ── Evidence Layer: Pageviews + Proof + History ───────────────────
 
 (function initEvidenceLayer() {
+  const localeButtons = Array.from(document.querySelectorAll('#evidenceLocaleSwitch [data-locale]'));
   const pageviewsEl = document.getElementById('evidencePageviews');
   const pageviewsNoteEl = document.getElementById('evidencePageviewsNote');
-  const last7DaysEl = document.getElementById('evidenceLast7Days');
   const caseFilesEl = document.getElementById('evidenceCaseFiles');
-  const historyRecordsEl = document.getElementById('evidenceHistoryRecords');
-  const topPageEl = document.getElementById('evidenceTopPage');
+  const regionsCoveredEl = document.getElementById('evidenceRegionsCovered');
+  const verifiedSourcesEl = document.getElementById('evidenceVerifiedSources');
+  const averageConfidenceEl = document.getElementById('evidenceAverageConfidence');
+  const proofNoteEl = document.getElementById('evidenceProofNote');
+  const regionNoteEl = document.getElementById('evidenceRegionNote');
+  const sourceNoteEl = document.getElementById('evidenceSourceNote');
+  const confidenceNoteEl = document.getElementById('evidenceConfidenceNote');
   const caseStudyMount = document.getElementById('caseStudyProofMount');
   const historyList = document.getElementById('contentHistoryList');
   const historyMeta = document.getElementById('contentHistoryMeta');
+  const filterStrip = document.getElementById('evidenceFilterStrip');
+  const statusViz = document.getElementById('evidenceStatusViz');
+  const regionViz = document.getElementById('evidenceRegionViz');
+  const typeViz = document.getElementById('evidenceTypeViz');
 
-  if (!pageviewsEl || !caseStudyMount || !historyList) return;
+  if (!pageviewsEl || !caseStudyMount || !historyList || !statusViz || !regionViz || !typeViz) return;
+
+  const evidenceCopy = {
+    en: {
+      tag: 'Evidence Dashboard',
+      title: 'What we can prove, where it lives, and how current it is.',
+      desc: 'This section now reads live records from the evidence database. It shows project proof, regional spread, source quality, and a public timeline you can scan quickly.',
+      localeNote: 'This switch changes the evidence section only.',
+      explainerKicker: 'IN PLAIN ENGLISH',
+      explainerText: 'This is the part of the homepage that behaves more like a dashboard than a brochure. It counts visits, groups proof by status and region, and shows which public records back each claim.',
+      summary: {
+        visits: 'VISITS RECORDED',
+        proof: 'PROOF FILES',
+        regions: 'REGIONS COVERED',
+        sources: 'VERIFIED SOURCES',
+        confidence: 'AVERAGE CONFIDENCE',
+        proofNote: 'Project records backed by stored proof.',
+        regionNote: 'Distinct operating footprints represented in the proof set.',
+        sourceNote: 'Distinct live sources or public references behind the records.',
+        confidenceNote: 'A quick read on how strong the current proof set is.',
+      },
+      visuals: {
+        statusHeading: 'DELIVERY STATUS',
+        statusText: 'Which records are live now, in pilot, or already publicly launched.',
+        regionHeading: 'REGIONAL FOOTPRINT',
+        regionText: 'Where the evidence is concentrated right now.',
+        typeHeading: 'EVIDENCE MIX',
+        typeText: 'The balance between monitoring, operations, and public reference work.',
+      },
+      caseHeading: 'PROJECT PROOF',
+      caseText: 'Each record shows who it served, what shipped, which source backs it, and how current the proof still is.',
+      historyHeading: 'PUBLIC TIMELINE',
+      historyText: 'Every line below is a public trace that supports the story: launch, deployment, workshop, or regional rollout.',
+      historyMetaSuffix: 'entries loaded',
+      filters: {
+        all: 'All records',
+        live: 'Live',
+        pilot: 'Pilot',
+        launched: 'Launched',
+        published: 'Published',
+        field: 'Field',
+      },
+      statuses: {
+        live: 'Live',
+        pilot: 'Pilot',
+        launched: 'Launched',
+        published: 'Published',
+        field: 'Field',
+      },
+      regions: {
+        global: 'Global',
+        thailand: 'Thailand',
+        asean: 'ASEAN',
+        local: 'Local',
+      },
+      evidenceTypes: {
+        monitor: 'Monitoring',
+        operations: 'Operations room',
+        index: 'Public index',
+        keynote: 'Keynote',
+        network: 'Network layer',
+        roadmap: 'Roadmap',
+        brief: 'Brief',
+        reference: 'Reference',
+      },
+      recordLabels: {
+        client: 'Who it was for',
+        location: 'Where',
+        stakeholder: 'Primary stakeholder',
+        sector: 'Type of work',
+        deploymentWindow: 'What was delivered',
+        decisionSurface: 'What decisions it helped',
+        outcome: 'Measured outcome',
+        source: 'Proof source',
+        verified: 'Last verified',
+        languages: 'Languages',
+        confidence: 'Confidence',
+        artifacts: 'Artifacts',
+      },
+      historyLabels: {
+        proof: 'Proof note',
+        confidence: 'Confidence',
+      },
+      languages: {
+        en: 'English',
+        th: 'Thai',
+        zh: 'Chinese',
+      },
+      loading: {
+        status: 'Loading status distribution.',
+        region: 'Loading regional footprint.',
+        type: 'Loading evidence mix.',
+        proof: 'Loading project proof.',
+        history: 'Loading timeline entries.',
+      },
+      empty: {
+        caseStudies: 'No project proof has been loaded yet.',
+        filteredCaseStudies: 'No project records match this status yet.',
+        history: 'No timeline entries have been loaded yet.',
+        bars: 'No records yet.',
+      },
+      errors: {
+        proof: 'Project proof is unavailable right now. Check the local API server.',
+        history: 'Timeline data is unavailable right now. Check the local API server.',
+        visits: 'Visit data is unavailable right now.',
+      },
+      notes: {
+        latestVisit: 'Most recent visit',
+        staticSnapshot: 'GitHub Pages snapshot. Live visit counting is disabled here.',
+      },
+      links: {
+        viewSource: 'View source',
+        viewLive: 'View live example',
+      },
+    },
+    th: {
+      tag: 'แดชบอร์ดหลักฐาน',
+      title: 'สิ่งที่เราพิสูจน์ได้ อยู่ที่ไหน และอัปเดตล่าสุดเมื่อใด',
+      desc: 'ส่วนนี้อ่านข้อมูลสดจากฐานหลักฐาน แสดงหลักฐานโครงการ การกระจายตามภูมิภาค คุณภาพของแหล่งอ้างอิง และไทม์ไลน์สาธารณะที่กวาดตาอ่านได้เร็ว',
+      localeNote: 'ตัวสลับนี้เปลี่ยนเฉพาะส่วน Evidence',
+      explainerKicker: 'อธิบายแบบภาษาคน',
+      explainerText: 'นี่คือส่วนของหน้าโฮมเพจที่ทำงานเหมือนแดชบอร์ดมากกว่าบรอชัวร์ มันนับการเข้าชม จัดกลุ่มหลักฐานตามสถานะและภูมิภาค และชี้ว่ามีบันทึกสาธารณะใดรองรับแต่ละคำกล่าวอ้าง',
+      summary: {
+        visits: 'จำนวนการเข้าชม',
+        proof: 'แฟ้มหลักฐาน',
+        regions: 'ภูมิภาคที่ครอบคลุม',
+        sources: 'แหล่งอ้างอิงที่ยืนยันได้',
+        confidence: 'ความเชื่อมั่นเฉลี่ย',
+        proofNote: 'ระเบียนโครงการที่มีหลักฐานรองรับจริง',
+        regionNote: 'จำนวนพื้นที่ปฏิบัติการที่แสดงอยู่ในชุดหลักฐาน',
+        sourceNote: 'จำนวนแหล่งสดหรือเอกสารสาธารณะที่รองรับระเบียนเหล่านี้',
+        confidenceNote: 'ภาพรวมอย่างเร็วว่าชุดหลักฐานตอนนี้แข็งแรงแค่ไหน',
+      },
+      visuals: {
+        statusHeading: 'สถานะการส่งมอบ',
+        statusText: 'ระเบียนใดที่ใช้งานจริง อยู่ช่วงนำร่อง หรือเปิดตัวสาธารณะแล้ว',
+        regionHeading: 'รอยเท้าตามภูมิภาค',
+        regionText: 'ตอนนี้หลักฐานกระจุกตัวอยู่ที่พื้นที่ใด',
+        typeHeading: 'สัดส่วนของหลักฐาน',
+        typeText: 'สมดุลระหว่างงานติดตาม งานห้องปฏิบัติการ และงานอ้างอิงสาธารณะ',
+      },
+      caseHeading: 'หลักฐานโครงการ',
+      caseText: 'แต่ละระเบียนบอกว่าให้บริการใคร ส่งมอบอะไร มีแหล่งใดรองรับ และหลักฐานยังใหม่แค่ไหน',
+      historyHeading: 'ไทม์ไลน์สาธารณะ',
+      historyText: 'ทุกบรรทัดด้านล่างคือร่องรอยสาธารณะที่รองรับเรื่องเล่า: การเปิดตัว การลงพื้นที่ เวิร์กชอป หรือการขยายระดับภูมิภาค',
+      historyMetaSuffix: 'รายการที่โหลดแล้ว',
+      filters: {
+        all: 'ทั้งหมด',
+        live: 'ใช้งานจริง',
+        pilot: 'นำร่อง',
+        launched: 'เปิดตัวแล้ว',
+        published: 'เผยแพร่แล้ว',
+        field: 'ภาคสนาม',
+      },
+      statuses: {
+        live: 'ใช้งานจริง',
+        pilot: 'นำร่อง',
+        launched: 'เปิดตัวแล้ว',
+        published: 'เผยแพร่แล้ว',
+        field: 'ภาคสนาม',
+      },
+      regions: {
+        global: 'ทั่วโลก',
+        thailand: 'ไทย',
+        asean: 'อาเซียน',
+        local: 'พื้นที่เฉพาะ',
+      },
+      evidenceTypes: {
+        monitor: 'งานติดตาม',
+        operations: 'ห้องปฏิบัติการ',
+        index: 'ดัชนีสาธารณะ',
+        keynote: 'คีย์โน้ต',
+        network: 'ชั้นเครือข่าย',
+        roadmap: 'โรดแมป',
+        brief: 'บรีฟ',
+        reference: 'เอกสารอ้างอิง',
+      },
+      recordLabels: {
+        client: 'สำหรับใคร',
+        location: 'ที่ไหน',
+        stakeholder: 'ผู้มีส่วนได้ส่วนเสียหลัก',
+        sector: 'ประเภทงาน',
+        deploymentWindow: 'ส่งมอบอะไร',
+        decisionSurface: 'ช่วยเรื่องการตัดสินใจอะไร',
+        outcome: 'ผลลัพธ์ที่วัดได้',
+        source: 'แหล่งหลักฐาน',
+        verified: 'ตรวจล่าสุด',
+        languages: 'ภาษา',
+        confidence: 'ความเชื่อมั่น',
+        artifacts: 'ชิ้นหลักฐาน',
+      },
+      historyLabels: {
+        proof: 'หมายเหตุหลักฐาน',
+        confidence: 'ความเชื่อมั่น',
+      },
+      languages: {
+        en: 'อังกฤษ',
+        th: 'ไทย',
+        zh: 'จีน',
+      },
+      loading: {
+        status: 'กำลังโหลดการกระจายตามสถานะ',
+        region: 'กำลังโหลดรอยเท้าตามภูมิภาค',
+        type: 'กำลังโหลดสัดส่วนของหลักฐาน',
+        proof: 'กำลังโหลดหลักฐานโครงการ',
+        history: 'กำลังโหลดไทม์ไลน์',
+      },
+      empty: {
+        caseStudies: 'ยังไม่มีข้อมูลหลักฐานโครงการ',
+        filteredCaseStudies: 'ยังไม่มีโครงการที่ตรงกับสถานะนี้',
+        history: 'ยังไม่มีรายการไทม์ไลน์',
+        bars: 'ยังไม่มีข้อมูล',
+      },
+      errors: {
+        proof: 'หลักฐานโครงการไม่พร้อมใช้งานตอนนี้ กรุณาตรวจสอบ local API server',
+        history: 'ข้อมูลไทม์ไลน์ไม่พร้อมใช้งานตอนนี้ กรุณาตรวจสอบ local API server',
+        visits: 'ข้อมูลการเข้าชมไม่พร้อมใช้งานตอนนี้',
+      },
+      notes: {
+        latestVisit: 'การเข้าชมล่าสุด',
+        staticSnapshot: 'สแนปช็อตสำหรับ GitHub Pages ส่วนนี้ยังไม่นับการเข้าชมแบบสด',
+      },
+      links: {
+        viewSource: 'ดูแหล่งที่มา',
+        viewLive: 'เปิดตัวอย่างจริง',
+      },
+    },
+    zh: {
+      tag: '证据仪表板',
+      title: '我们能证明什么、它分布在哪里、以及它有多新',
+      desc: '这一部分直接读取证据数据库中的实时记录，展示项目证明、区域分布、来源质量，以及可快速浏览的公开时间线。',
+      localeNote: '这个切换器只影响 Evidence 区块',
+      explainerKicker: '用白话解释',
+      explainerText: '这一段更像一个仪表板，而不是宣传页。它会统计访问、按状态和区域整理证明，并指出每项主张背后有哪些公开记录。',
+      summary: {
+        visits: '已记录访问量',
+        proof: '证明档案',
+        regions: '覆盖区域',
+        sources: '已验证来源',
+        confidence: '平均可信度',
+        proofNote: '带有真实证据支撑的项目记录',
+        regionNote: '当前证明集中覆盖的运行区域数量',
+        sourceNote: '支持这些记录的在线来源或公开参考数量',
+        confidenceNote: '快速查看当前证明集合的强度',
+      },
+      visuals: {
+        statusHeading: '交付状态',
+        statusText: '哪些记录已经在线、仍在试点，或已经公开发布。',
+        regionHeading: '区域分布',
+        regionText: '当前证据主要集中在哪些地区。',
+        typeHeading: '证据构成',
+        typeText: '监测、运行室与公开参考工作之间的平衡。',
+      },
+      caseHeading: '项目证明',
+      caseText: '每条记录都说明服务对象、交付内容、支撑来源，以及证据目前的新鲜度。',
+      historyHeading: '公开时间线',
+      historyText: '下面每一条都是支持这段故事的公开痕迹：发布、部署、工作坊或区域扩展。',
+      historyMetaSuffix: '条记录已加载',
+      filters: {
+        all: '全部',
+        live: '在线',
+        pilot: '试点',
+        launched: '已发布',
+        published: '已公开',
+        field: '现场',
+      },
+      statuses: {
+        live: '在线',
+        pilot: '试点',
+        launched: '已发布',
+        published: '已公开',
+        field: '现场',
+      },
+      regions: {
+        global: '全球',
+        thailand: '泰国',
+        asean: '东盟',
+        local: '本地',
+      },
+      evidenceTypes: {
+        monitor: '监测',
+        operations: '运行室',
+        index: '公开指数',
+        keynote: '主题演讲',
+        network: '网络层',
+        roadmap: '路线图',
+        brief: '简报',
+        reference: '参考资料',
+      },
+      recordLabels: {
+        client: '服务对象',
+        location: '地点',
+        stakeholder: '主要相关方',
+        sector: '工作类型',
+        deploymentWindow: '交付内容',
+        decisionSurface: '支持了什么决策',
+        outcome: '可衡量结果',
+        source: '证明来源',
+        verified: '最近验证',
+        languages: '语言',
+        confidence: '可信度',
+        artifacts: '证据数量',
+      },
+      historyLabels: {
+        proof: '证明说明',
+        confidence: '可信度',
+      },
+      languages: {
+        en: '英文',
+        th: '泰文',
+        zh: '中文',
+      },
+      loading: {
+        status: '正在加载状态分布',
+        region: '正在加载区域分布',
+        type: '正在加载证据构成',
+        proof: '正在加载项目证明',
+        history: '正在加载时间线',
+      },
+      empty: {
+        caseStudies: '还没有项目证明记录',
+        filteredCaseStudies: '当前状态下还没有匹配的项目记录',
+        history: '还没有时间线记录',
+        bars: '还没有记录',
+      },
+      errors: {
+        proof: '项目证明当前不可用，请检查本地 API 服务。',
+        history: '时间线数据当前不可用，请检查本地 API 服务。',
+        visits: '访问数据当前不可用。',
+      },
+      notes: {
+        latestVisit: '最近访问',
+        staticSnapshot: 'GitHub Pages 静态快照。这里不启用实时访问计数。',
+      },
+      links: {
+        viewSource: '查看来源',
+        viewLive: '查看在线示例',
+      },
+    },
+  };
+
+  const localeFormatters = {
+    en: 'en-US',
+    th: 'th-TH',
+    zh: 'zh-CN',
+  };
+
+  const uiState = {
+    locale: getStoredEvidenceLocale(),
+    statusFilter: 'all',
+    evidence: null,
+  };
 
   const numberFormatter = new Intl.NumberFormat('en-US');
+
+  localeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const nextLocale = button.getAttribute('data-locale');
+      if (!nextLocale || nextLocale === uiState.locale) return;
+      uiState.locale = nextLocale;
+      persistEvidenceLocale(nextLocale);
+      render();
+    });
+  });
 
   function escapeHtml(value) {
     return String(value ?? '').replace(/[&<>"']/g, (char) => ({
@@ -1417,15 +1865,90 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     return /^https?:\/\//.test(url) ? url : '';
   }
 
+  function currentCopy() {
+    return evidenceCopy[uiState.locale] || evidenceCopy.en;
+  }
+
+  function getStoredEvidenceLocale() {
+    try {
+      const stored = localStorage.getItem('axiom-evidence-locale');
+      return evidenceCopy[stored] ? stored : 'en';
+    } catch {
+      return 'en';
+    }
+  }
+
+  function persistEvidenceLocale(locale) {
+    try {
+      localStorage.setItem('axiom-evidence-locale', locale);
+    } catch {
+      // Ignore storage failures.
+    }
+  }
+
+  function siteAssetUrl(assetPath) {
+    const cleanPath = String(assetPath || '').replace(/^\/+/, '');
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const isRepoPath = pathParts[0]?.toLowerCase() === 'axiom';
+    const basePath = (window.location.hostname.endsWith('github.io') || isRepoPath) && pathParts[0]
+      ? `/${pathParts[0]}/`
+      : '/';
+    return new URL(cleanPath, `${window.location.origin}${basePath}`).toString();
+  }
+
+  function isStaticDeployment() {
+    const firstPathSegment = window.location.pathname.split('/').filter(Boolean)[0]?.toLowerCase();
+    return window.location.hostname.endsWith('github.io') || firstPathSegment === 'axiom';
+  }
+
+  function apiUrl(apiPath) {
+    return new URL(String(apiPath || '').replace(/^\/+/, ''), `${window.location.origin}/`).toString();
+  }
+
+  function localizedField(record, field) {
+    if (uiState.locale === 'en') return record?.[field] || '';
+    return record?.translations?.[uiState.locale]?.[field] || record?.[field] || '';
+  }
+
+  function setText(id, value) {
+    const node = document.getElementById(id);
+    if (node) node.textContent = value;
+  }
+
+  function translateStatus(status) {
+    const copy = currentCopy();
+    return copy.statuses[status] || status || '—';
+  }
+
+  function translateRegion(regionCode) {
+    const copy = currentCopy();
+    return copy.regions[regionCode] || regionCode || '—';
+  }
+
+  function translateEvidenceType(type) {
+    const copy = currentCopy();
+    return copy.evidenceTypes[type] || type || '—';
+  }
+
+  function formatCoverage(coverage) {
+    const copy = currentCopy();
+    return String(coverage || 'en')
+      .split(',')
+      .map((value) => value.trim().toLowerCase())
+      .filter(Boolean)
+      .map((value) => copy.languages[value] || value.toUpperCase())
+      .join(' / ');
+  }
+
   function formatTimestamp(timestamp) {
-    if (!timestamp) return 'No visits recorded yet.';
+    if (!timestamp) return '—';
 
     try {
       const normalizedTimestamp = String(timestamp).includes('T')
         ? timestamp
         : String(timestamp).replace(' ', 'T') + 'Z';
 
-      return new Intl.DateTimeFormat(navigator.language || 'en-US', {
+      return new Intl.DateTimeFormat(localeFormatters[uiState.locale] || 'en-US', {
         dateStyle: 'medium',
         timeStyle: 'short',
       }).format(new Date(normalizedTimestamp));
@@ -1434,42 +1957,176 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   }
 
-  function renderSummary(analytics) {
-    pageviewsEl.textContent = numberFormatter.format(analytics.totalPageviews || 0);
-    last7DaysEl.textContent = numberFormatter.format(analytics.last7DaysPageviews || 0);
-    if (caseFilesEl) caseFilesEl.textContent = numberFormatter.format(analytics.caseStudyCount || 0);
-    if (historyRecordsEl) historyRecordsEl.textContent = numberFormatter.format(analytics.contentHistoryCount || 0);
+  function renderStaticCopy() {
+    const copy = currentCopy();
+    setText('evidenceTag', copy.tag);
+    setText('evidenceTitle', copy.title);
+    setText('evidenceDesc', copy.desc);
+    setText('evidenceLocaleNote', copy.localeNote);
+    setText('evidenceExplainerKicker', copy.explainerKicker);
+    setText('evidenceExplainerText', copy.explainerText);
+    setText('evidenceVisitsLabel', copy.summary.visits);
+    setText('evidenceProofLabel', copy.summary.proof);
+    setText('evidenceRegionLabel', copy.summary.regions);
+    setText('evidenceSourceLabel', copy.summary.sources);
+    setText('evidenceConfidenceLabel', copy.summary.confidence);
+    if (proofNoteEl) proofNoteEl.textContent = copy.summary.proofNote;
+    if (regionNoteEl) regionNoteEl.textContent = copy.summary.regionNote;
+    if (sourceNoteEl) sourceNoteEl.textContent = copy.summary.sourceNote;
+    if (confidenceNoteEl) confidenceNoteEl.textContent = copy.summary.confidenceNote;
+    setText('evidenceStatusHeading', copy.visuals.statusHeading);
+    setText('evidenceStatusText', copy.visuals.statusText);
+    setText('evidenceRegionHeading', copy.visuals.regionHeading);
+    setText('evidenceRegionText', copy.visuals.regionText);
+    setText('evidenceTypeHeading', copy.visuals.typeHeading);
+    setText('evidenceTypeText', copy.visuals.typeText);
+    setText('evidenceCaseHeading', copy.caseHeading);
+    setText('evidenceCaseText', copy.caseText);
+    setText('evidenceHistoryLabel', copy.historyHeading);
+    setText('evidenceHistoryText', copy.historyText);
+
+    localeButtons.forEach((button) => {
+      button.classList.toggle('is-active', button.getAttribute('data-locale') === uiState.locale);
+    });
+  }
+
+  function computeDashboard(analytics, caseStudies, contentHistory) {
+    const statusCounts = new Map();
+    const regionCounts = new Map();
+    const typeCounts = new Map();
+    const uniqueRegions = new Set();
+    const uniqueSources = new Set();
+    const confidenceScores = [];
+
+    caseStudies.forEach((study) => {
+      const status = study.status || 'published';
+      const region = study.regionCode || 'global';
+      const type = study.evidenceType || 'reference';
+
+      statusCounts.set(status, (statusCounts.get(status) || 0) + 1);
+      regionCounts.set(region, (regionCounts.get(region) || 0) + 1);
+      typeCounts.set(type, (typeCounts.get(type) || 0) + 1);
+      uniqueRegions.add(region);
+
+      const sourceKey = study.evidenceSourceUrl || study.linkUrl || study.evidenceSourceLabel;
+      if (sourceKey) uniqueSources.add(sourceKey);
+
+      if (Number.isFinite(Number(study.confidenceScore))) {
+        confidenceScores.push(Number(study.confidenceScore));
+      }
+    });
+
+    const averageConfidence = confidenceScores.length
+      ? Math.round((confidenceScores.reduce((sum, value) => sum + value, 0) / confidenceScores.length) * 100)
+      : 0;
+
+    return {
+      analytics,
+      caseStudies,
+      contentHistory,
+      uniqueRegionCount: uniqueRegions.size,
+      verifiedSourceCount: uniqueSources.size,
+      averageConfidence,
+      statusCounts: Array.from(statusCounts.entries()).map(([key, count]) => ({ key, count })),
+      regionCounts: Array.from(regionCounts.entries()).map(([key, count]) => ({ key, count })),
+      typeCounts: Array.from(typeCounts.entries()).map(([key, count]) => ({ key, count })),
+    };
+  }
+
+  function renderSummary(dashboard) {
+    const analytics = dashboard.analytics || {};
+    const copy = currentCopy();
+    const isStaticSnapshot = Boolean(analytics.staticMode || uiState.evidence?.source === 'static-snapshot');
+
+    pageviewsEl.textContent = isStaticSnapshot
+      ? 'Static'
+      : numberFormatter.format(analytics.totalPageviews || 0);
+
+    if (caseFilesEl) caseFilesEl.textContent = numberFormatter.format(dashboard.caseStudies.length || 0);
+    if (regionsCoveredEl) regionsCoveredEl.textContent = numberFormatter.format(dashboard.uniqueRegionCount || 0);
+    if (verifiedSourcesEl) verifiedSourcesEl.textContent = numberFormatter.format(dashboard.verifiedSourceCount || 0);
+    if (averageConfidenceEl) averageConfidenceEl.textContent = `${dashboard.averageConfidence || 0}%`;
 
     if (pageviewsNoteEl) {
-      pageviewsNoteEl.textContent = analytics.latestPageviewAt
-        ? 'Most recent visit: ' + formatTimestamp(analytics.latestPageviewAt)
-        : 'No visits have been recorded yet.';
-    }
-
-    if (topPageEl) {
-      if (analytics.topPageViews > 0) {
-        topPageEl.textContent = `Most visited page: ${analytics.topPage} (${numberFormatter.format(analytics.topPageViews)} visits)`;
-      } else {
-        topPageEl.textContent = 'Most visited page: /';
-      }
+      pageviewsNoteEl.textContent = isStaticSnapshot
+        ? `${copy.notes.staticSnapshot}${analytics.snapshotGeneratedAt ? ` · ${formatTimestamp(analytics.snapshotGeneratedAt)}` : ''}`
+        : analytics.latestPageviewAt
+        ? `${copy.notes.latestVisit}: ${formatTimestamp(analytics.latestPageviewAt)}`
+        : copy.errors.visits;
     }
   }
 
-  function renderCaseStudies(caseStudies) {
-    if (!caseStudies.length) {
-      caseStudyMount.innerHTML = '<div class="evidence-loading">No project proof has been loaded yet.</div>';
+  function renderBarList(target, items, labelFn) {
+    const copy = currentCopy();
+    if (!target) return;
+
+    if (!items.length) {
+      target.innerHTML = `<div class="evidence-loading">${escapeHtml(copy.empty.bars)}</div>`;
       return;
     }
 
-    caseStudyMount.innerHTML = caseStudies.map((study) => {
+    const maxCount = Math.max(...items.map((item) => item.count), 1);
+    target.innerHTML = items.map((item) => {
+      const width = Math.max(8, Math.round((item.count / maxCount) * 100));
+      return `
+        <div class="evidence-bar-row">
+          <div class="evidence-bar-meta">
+            <span class="evidence-bar-label">${escapeHtml(labelFn(item.key))}</span>
+            <span class="evidence-bar-count">${numberFormatter.format(item.count)}</span>
+          </div>
+          <div class="evidence-bar-track">
+            <div class="evidence-bar-fill" style="width:${width}%"></div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderFilters(caseStudies) {
+    const copy = currentCopy();
+    if (!filterStrip) return;
+
+    const orderedStatuses = ['all', 'live', 'pilot', 'launched', 'published', 'field'];
+    const activeStatuses = new Set(caseStudies.map((study) => study.status).filter(Boolean));
+    const filters = orderedStatuses.filter((status) => status === 'all' || activeStatuses.has(status));
+
+    filterStrip.innerHTML = filters.map((status) => `
+      <button type="button" class="evidence-filter-button${uiState.statusFilter === status ? ' is-active' : ''}" data-status="${status}">
+        ${escapeHtml(copy.filters[status] || status)}
+      </button>
+    `).join('');
+
+    filterStrip.querySelectorAll('[data-status]').forEach((button) => {
+      button.addEventListener('click', () => {
+        uiState.statusFilter = button.getAttribute('data-status') || 'all';
+        render();
+      });
+    });
+  }
+
+  function renderCaseStudies(caseStudies) {
+    const copy = currentCopy();
+    renderFilters(caseStudies);
+
+    const filteredCaseStudies = uiState.statusFilter === 'all'
+      ? caseStudies
+      : caseStudies.filter((study) => study.status === uiState.statusFilter);
+
+    if (!filteredCaseStudies.length) {
+      caseStudyMount.innerHTML = `<div class="evidence-loading">${escapeHtml(copy.empty.filteredCaseStudies)}</div>`;
+      return;
+    }
+
+    caseStudyMount.innerHTML = filteredCaseStudies.map((study) => {
       const details = [
-        { label: 'Who it was for', value: study.client },
-        { label: 'Where', value: study.location },
-        { label: 'Type of work', value: study.sector },
-        { label: 'What was delivered', value: study.deploymentWindow },
-        { label: 'What decisions it helped', value: study.decisionSurface },
-        { label: 'Why it matters', value: study.summary },
-      ];
+        { label: copy.recordLabels.client, value: study.client },
+        { label: copy.recordLabels.location, value: study.location },
+        { label: copy.recordLabels.stakeholder, value: localizedField(study, 'stakeholder') },
+        { label: copy.recordLabels.sector, value: study.sector },
+        { label: copy.recordLabels.deploymentWindow, value: localizedField(study, 'deploymentWindow') },
+        { label: copy.recordLabels.decisionSurface, value: localizedField(study, 'decisionSurface') },
+        { label: copy.recordLabels.outcome, value: localizedField(study, 'outcome') },
+      ].filter((detail) => detail.value);
 
       const detailMarkup = details.map((detail) => `
         <div class="case-detail">
@@ -1485,53 +2142,87 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         </div>
       `).join('');
 
-      const linkUrl = safeUrl(study.linkUrl);
-      const linkMarkup = linkUrl
-        ? ` <a href="${escapeHtml(linkUrl)}" target="_blank" rel="noopener">${escapeHtml(study.linkLabel || 'View live example')}</a>`
-        : '';
+      const sourceUrl = safeUrl(study.evidenceSourceUrl || study.linkUrl);
+      const sourceLabel = localizedField(study, 'evidenceSourceLabel') || study.evidenceSourceLabel || study.linkLabel || copy.links.viewLive;
+      const linkMarkup = sourceUrl
+        ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener">${escapeHtml(sourceLabel)}</a>`
+        : escapeHtml(sourceLabel || '—');
 
       return `
         <article class="case-study">
-          <div class="case-study-badge">${escapeHtml(study.badge)}</div>
-          <h3 class="case-study-title">${escapeHtml(study.title)}</h3>
+          <div class="case-study-badge-row">
+            <div class="case-study-badge">${escapeHtml(study.badge)}</div>
+            <div class="evidence-chip-row">
+              <span class="evidence-chip">${escapeHtml(translateStatus(study.status))}</span>
+              <span class="evidence-chip">${escapeHtml(translateRegion(study.regionCode))}</span>
+              <span class="evidence-chip">${escapeHtml(translateEvidenceType(study.evidenceType))}</span>
+            </div>
+          </div>
+          <h3 class="case-study-title">${escapeHtml(localizedField(study, 'title'))}</h3>
+          <div class="evidence-proof-rail">
+            <div class="evidence-proof-kpi">
+              <span class="evidence-proof-value">${Math.round(Number(study.confidenceScore || 0) * 100)}%</span>
+              <span class="evidence-proof-label">${escapeHtml(copy.recordLabels.confidence)}</span>
+            </div>
+            <div class="evidence-proof-kpi">
+              <span class="evidence-proof-value">${escapeHtml(formatCoverage(study.languageCoverage))}</span>
+              <span class="evidence-proof-label">${escapeHtml(copy.recordLabels.languages)}</span>
+            </div>
+            <div class="evidence-proof-kpi">
+              <span class="evidence-proof-value">${numberFormatter.format(Number(study.artifactCount || 0))}</span>
+              <span class="evidence-proof-label">${escapeHtml(copy.recordLabels.artifacts)}</span>
+            </div>
+          </div>
           <div class="case-study-content">
             <div class="case-study-details">${detailMarkup}</div>
             <div class="case-study-results">${resultsMarkup}</div>
           </div>
-          <div class="case-study-note">${escapeHtml(study.note)}${linkMarkup}</div>
+          <div class="case-study-note">
+            ${escapeHtml(localizedField(study, 'summary'))}
+            <span class="evidence-inline-meta">${escapeHtml(copy.recordLabels.source)}: ${linkMarkup}</span>
+            <span class="evidence-inline-meta">${escapeHtml(copy.recordLabels.verified)}: ${escapeHtml(formatTimestamp(study.lastVerifiedAt))}</span>
+            ${localizedField(study, 'note') ? `<span class="evidence-inline-note">${escapeHtml(localizedField(study, 'note'))}</span>` : ''}
+          </div>
         </article>
       `;
     }).join('');
   }
 
   function renderContentHistory(items) {
+    const copy = currentCopy();
     if (historyMeta) {
       historyMeta.textContent = items.length
-        ? `${numberFormatter.format(items.length)} timeline entries`
-        : 'No timeline entries yet';
+        ? `${numberFormatter.format(items.length)} ${copy.historyMetaSuffix}`
+        : copy.empty.history;
     }
 
     if (!items.length) {
-      historyList.innerHTML = '<div class="evidence-loading">No timeline entries have been loaded yet.</div>';
+      historyList.innerHTML = `<div class="evidence-loading">${escapeHtml(copy.empty.history)}</div>`;
       return;
     }
 
     historyList.innerHTML = items.map((item) => {
       const linkUrl = safeUrl(item.url);
       const linkMarkup = linkUrl
-        ? `<a href="${escapeHtml(linkUrl)}" target="_blank" rel="noopener" class="evidence-history-link">View source</a>`
+        ? `<a href="${escapeHtml(linkUrl)}" target="_blank" rel="noopener" class="evidence-history-link">${escapeHtml(copy.links.viewSource)}</a>`
         : '';
+      const proofNote = localizedField(item, 'proofNote') || item.proofNote || '';
 
       return `
         <article class="evidence-history-item">
           <div class="evidence-history-top">
-            <span class="evidence-history-period">${escapeHtml(item.eventPeriod)}</span>
-            <span class="evidence-history-pill">${escapeHtml(item.category)}</span>
+            <span class="evidence-history-period">${escapeHtml(localizedField(item, 'eventPeriod'))}</span>
+            <div class="evidence-chip-row">
+              <span class="evidence-history-pill">${escapeHtml(localizedField(item, 'category'))}</span>
+              <span class="evidence-chip">${escapeHtml(translateStatus(item.status))}</span>
+              <span class="evidence-chip">${escapeHtml(translateEvidenceType(item.artifactType))}</span>
+            </div>
           </div>
-          <h3 class="evidence-history-title">${escapeHtml(item.title)}</h3>
-          <p class="evidence-history-summary">${escapeHtml(item.summary)}</p>
+          <h3 class="evidence-history-title">${escapeHtml(localizedField(item, 'title'))}</h3>
+          <p class="evidence-history-summary">${escapeHtml(localizedField(item, 'summary'))}</p>
+          ${proofNote ? `<p class="evidence-history-proof">${escapeHtml(copy.historyLabels.proof)}: ${escapeHtml(proofNote)}</p>` : ''}
           <div class="evidence-history-foot">
-            <span class="evidence-history-source">${escapeHtml(item.source)}${item.location ? ' · ' + escapeHtml(item.location) : ''}</span>
+            <span class="evidence-history-source">${escapeHtml(localizedField(item, 'source'))}${item.location ? ' · ' + escapeHtml(item.location) : ''} · ${escapeHtml(copy.historyLabels.confidence)} ${Math.round(Number(item.confidenceScore || 0) * 100)}%</span>
             ${linkMarkup}
           </div>
         </article>
@@ -1540,6 +2231,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   }
 
   async function trackPageview() {
+    if (isStaticDeployment()) return;
+
     const payload = {
       path: window.location.pathname || '/',
       referrer: document.referrer || null,
@@ -1547,7 +2240,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     };
 
     try {
-      await fetch('/api/pageview', {
+      await fetch(apiUrl('api/pageview'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -1558,30 +2251,87 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   }
 
-  async function loadEvidence() {
-    const response = await fetch('/api/evidence', {
+  async function fetchJson(url, options = {}) {
+    const response = await fetch(url, {
       headers: { 'Accept': 'application/json' },
-      cache: 'no-store',
+      ...options,
     });
 
     if (!response.ok) {
-      throw new Error('Unable to load evidence layer.');
+      throw new Error(`Request failed: ${response.status}`);
     }
 
     return response.json();
   }
 
+  async function loadEvidence() {
+    if (isStaticDeployment()) {
+      const snapshot = await fetchJson(siteAssetUrl('data/evidence-snapshot.json'), { cache: 'no-cache' });
+      return {
+        ...snapshot,
+        source: 'static-snapshot',
+        analytics: {
+          ...(snapshot.analytics || {}),
+          staticMode: true,
+          snapshotGeneratedAt: snapshot.generatedAt || snapshot.analytics?.snapshotGeneratedAt || null,
+        },
+      };
+    }
+
+    try {
+      const evidence = await fetchJson(apiUrl('api/evidence'), { cache: 'no-store' });
+      return {
+        ...evidence,
+        source: 'api',
+      };
+    } catch (apiError) {
+      const snapshot = await fetchJson(siteAssetUrl('data/evidence-snapshot.json'), { cache: 'no-cache' });
+      return {
+        ...snapshot,
+        source: 'static-snapshot',
+        analytics: {
+          ...(snapshot.analytics || {}),
+          staticMode: true,
+          snapshotGeneratedAt: snapshot.generatedAt || snapshot.analytics?.snapshotGeneratedAt || null,
+        },
+      };
+    }
+  }
+
   async function init() {
     await trackPageview();
-    const evidence = await loadEvidence();
-    renderSummary(evidence.analytics || {});
-    renderCaseStudies(evidence.caseStudies || []);
-    renderContentHistory(evidence.contentHistory || []);
+    uiState.evidence = await loadEvidence();
+    render();
+  }
+
+  function render() {
+    renderStaticCopy();
+
+    if (!uiState.evidence) return;
+
+    const dashboard = computeDashboard(
+      uiState.evidence.analytics || {},
+      uiState.evidence.caseStudies || [],
+      uiState.evidence.contentHistory || []
+    );
+
+    renderSummary(dashboard);
+    renderBarList(statusViz, dashboard.statusCounts, translateStatus);
+    renderBarList(regionViz, dashboard.regionCounts, translateRegion);
+    renderBarList(typeViz, dashboard.typeCounts, translateEvidenceType);
+    renderCaseStudies(dashboard.caseStudies || []);
+    renderContentHistory(dashboard.contentHistory || []);
   }
 
   init().catch(() => {
-    const evidenceSection = document.getElementById('evidence');
-    if (evidenceSection) evidenceSection.style.display = 'none';
+    const copy = currentCopy();
+    caseStudyMount.innerHTML = `<div class="evidence-loading">${escapeHtml(copy.errors.proof)}</div>`;
+    historyList.innerHTML = `<div class="evidence-loading">${escapeHtml(copy.errors.history)}</div>`;
+    statusViz.innerHTML = `<div class="evidence-loading">${escapeHtml(copy.errors.proof)}</div>`;
+    regionViz.innerHTML = `<div class="evidence-loading">${escapeHtml(copy.errors.proof)}</div>`;
+    typeViz.innerHTML = `<div class="evidence-loading">${escapeHtml(copy.errors.proof)}</div>`;
+    if (pageviewsNoteEl) pageviewsNoteEl.textContent = copy.errors.visits;
+    if (historyMeta) historyMeta.textContent = 'API unavailable';
   });
 })();
 
@@ -1837,7 +2587,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       addLine('  Platform:   Local Node server + API routes');
       addLine('  AI:         NLP, Sentiment Analysis, Computer Vision');
       addLine('  Design:     Outfit, Inter, JetBrains Mono');
-      addLine('  Philosophy: Precision, speed, no decorative platform theatre.');
+      addLine('  Philosophy: Precision, speed, no vanity platform work.');
     },
 
     systems: () => {
@@ -1856,7 +2606,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       systems.forEach((s, i) => {
         addLine(`  <span style="color:var(--green)">●</span> ${s}`);
       });
-      addLine(`\n  Total: ${systems.length} systems | 5 countries | 99.9% uptime`);
+      addLine(`\n  Total: ${systems.length} systems | 5 countries | live evidence trail`);
     },
 
     uptime: () => {
@@ -1902,11 +2652,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     axioms: () => {
       addLine(`<span class="terminal-cmd">OUR AXIOMS</span>`, 'terminal-line-info');
-      addLine('  01. Your Success Is Our KPI');
+      addLine('  01. Outcomes Before Optics');
       addLine('  02. AI as Water — invisible, essential');
       addLine('  03. The 36-Button Rule — simplicity by design');
       addLine('  04. Low-Fidelity, High-Impact');
-      addLine('  05. Partners, Not Vendors');
+      addLine('  05. Builders Stay Close');
       addLine('  06. Moral Foundation — Kant\'s categorical imperative');
     },
 
