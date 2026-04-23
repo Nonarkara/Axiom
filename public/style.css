@@ -1167,6 +1167,106 @@ body.lightbox-open {
   margin-bottom: 72px;
 }
 
+/* Wide-screen rebalance: section-header becomes a two-column composition.
+   Left column: tag + title + desc (existing).
+   Right column: .section-meta telemetry block — a counterweight matching
+   the intelligence-log / [EVENT_ID] house aesthetic. Collapses on narrow. */
+@media (min-width: 1024px) {
+  .section-header:has(> .section-meta) {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+    gap: 64px;
+    align-items: start;
+  }
+  .section-header:has(> .section-meta) > .section-tag,
+  .section-header:has(> .section-meta) > .section-title,
+  .section-header:has(> .section-meta) > .section-desc {
+    grid-column: 1;
+  }
+  .section-header > .section-meta {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    justify-self: end;
+  }
+}
+
+.section-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 360px;
+  padding: 18px 20px;
+  border: 1px solid rgba(66, 135, 245, 0.18);
+  background: rgba(12, 18, 30, 0.45);
+  font-family: var(--mono);
+  margin-top: 24px;
+}
+
+.section-meta-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(66, 135, 245, 0.14);
+}
+
+.section-meta-id {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.section-meta-status {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.section-meta-status::before {
+  content: "● ";
+  color: var(--accent);
+  font-size: 9px;
+  letter-spacing: 0;
+}
+
+.section-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 11px;
+}
+
+.section-meta-key {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.section-meta-value {
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.section-meta-foot {
+  padding-top: 8px;
+  border-top: 1px solid rgba(66, 135, 245, 0.14);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: 0.75;
+}
+
+@media (max-width: 1023px) {
+  .section-meta { display: none; }
+}
+
 .section-tag {
   display: inline-block;
   font-size: 10px;
