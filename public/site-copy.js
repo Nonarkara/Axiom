@@ -1,8 +1,8 @@
 window.AXIOM_SITE_COPY = {
   en: {
     hero: {
-      metaTitle: 'Axiom - Proof-first decision systems',
-      metaDescription: 'Axiom builds proof-first decision systems for cities, governments, and operators that need readable action under pressure.',
+      metaTitle: 'Axiom — You build the ranking. We build the reality.',
+      metaDescription: 'Axiom builds decision systems for cities and governments — readable under pressure, defensible under scrutiny, built to survive the meeting it was made for.',
       nav: {
         operatingModel: 'Model',
         flagshipSystems: 'Systems',
@@ -11,16 +11,16 @@ window.AXIOM_SITE_COPY = {
         publicRecord: 'Record',
         teamContact: 'Brief',
         cta: 'Send Brief',
-        mobileKicker: 'Proof-first systems',
+        mobileKicker: 'Proof over presentation',
         mobileCopy: 'Built for decision-makers who need a working surface before they need a deck.',
       },
-      badge: 'PROOF-FIRST DECISION SYSTEMS',
-      title: 'Decision systems that stay readable under pressure.',
-      summary: 'Axiom builds operating surfaces for cities, governments, and public teams that need fewer, clearer decisions, backed by visible proof.',
+      badge: 'PROOF OVER PRESENTATION',
+      title: 'You build the ranking. We build the reality.',
+      summary: 'Every index tells you where cities scored. Axiom builds the operating surface that tells you what to decide next — readable under pressure, defensible under scrutiny, built to survive the meeting it was made for.',
       primaryCta: 'Send the brief',
       secondaryCta: 'See the proof',
       stripLabel: 'LIVE PROOF STRIP',
-      stripBody: 'A compressed public readout: flagship work, proof volume, language coverage, and runtime mode.',
+      stripBody: 'A compressed public readout of what shipped, where it ran, and how it holds up.',
       stripItems: {
         flagship: 'flagship systems',
         traces: 'public proof traces',
@@ -28,44 +28,44 @@ window.AXIOM_SITE_COPY = {
         deployment: 'GitHub Pages-ready',
         live: 'Live API mode',
       },
-      proofNote: 'The public site runs in both live API mode and static snapshot mode without changing the evidence model.',
-      statPrimary: 'Who this is for',
-      statPrimaryValue: 'Governors, operators, and public teams',
-      statSecondary: 'How it starts',
-      statSecondaryValue: 'One real decision. One working surface. One proof trail.',
+      proofNote: 'Public site runs in both live API mode and static snapshot. The evidence model stays identical either way.',
+      statPrimary: 'What we replace',
+      statPrimaryValue: 'Decks that age the moment the meeting ends',
+      statSecondary: 'What we ship',
+      statSecondaryValue: 'Working surfaces. One proof trail. No theatre.',
     },
     operatingModel: {
       tag: 'OPERATING MODEL',
-      title: 'Start with the pressure. Reduce until the surface is usable.',
-      summary: 'The system follows the design rule in your reference: earn the real estate, remove what is decorative, and keep the interface honest about what it can prove.',
+      title: 'Find the pressure. Kill the deck. Ship the surface.',
+      summary: 'Three phases. Fourteen days. One working surface in the room. No slides that age at delivery, no reports that survive only until the next reshuffle.',
       steps: [
         {
-          phase: 'DAY 01-03',
-          kicker: 'Find the decision',
-          title: 'Map the operating pressure.',
-          body: 'Define the one decision that must become clearer, faster, or more defensible. Everything else is context, not product.',
+          phase: 'DAY 01–03',
+          kicker: 'Kill the brief',
+          title: 'Lock the one decision that matters. Drop everything else.',
+          body: 'Every scope has a deck hiding inside it. We find the real decision in the first three days so the product does not get built around theatre.',
           points: [
             'Lock the real user and the real meeting where this surface will be read.',
             'Use the data already on the table before introducing new infrastructure.',
-            'Remove non-essential scope before design begins.',
+            'Remove non-essential scope before a single pixel gets drawn.',
           ],
         },
         {
-          phase: 'DAY 04-07',
+          phase: 'DAY 04–07',
           kicker: 'Ship the surface',
-          title: 'Put a readable working system in the room.',
-          body: 'The first version should already support a live conversation. It does not need to be complete; it needs to be usable.',
+          title: 'Put something usable in the room. Not finished. Usable.',
+          body: 'The version in the room by day seven is not polished. It supports a live conversation. That is harder to build than a slide deck — and it is the only thing that survives the meeting.',
           points: [
             'Expose trade-offs instead of hiding them behind presentation language.',
             'Review with operators and decision-makers, not just sponsors.',
-            'Keep one primary action and one obvious reading path.',
+            'One primary action. One obvious reading path. Nothing decorative.',
           ],
         },
         {
-          phase: 'DAY 08-14',
+          phase: 'DAY 08–14',
           kicker: 'Keep the proof',
-          title: 'Instrument the system so it can survive scrutiny.',
-          body: 'Add analytics, proof sources, and content history early so the system becomes more defensible with use instead of less.',
+          title: 'Instrument it so it survives the audit, not just the launch.',
+          body: 'Proof that only holds up on launch day is not proof. We wire the system to get more defensible with use, not less.',
           points: [
             'Track visits, proof records, and the freshness of each source.',
             'Log what changed after launch and why.',
@@ -76,7 +76,7 @@ window.AXIOM_SITE_COPY = {
       proofPanel: {
         label: 'DESIGN RULES IN PRACTICE',
         title: 'Dense, modular, and explicit.',
-        body: 'Every module on this page is designed as a removable slot: it earns its space, can be hidden cleanly, and never leaves the user without feedback.',
+        body: 'Every module on this page earns its space, can be hidden cleanly, and never leaves the user without feedback. Nothing is decorative.',
         items: [
           'One primary focal point per section.',
           'Two visual depths at most.',
@@ -86,8 +86,8 @@ window.AXIOM_SITE_COPY = {
     },
     flagshipSystems: {
       tag: 'FLAGSHIP SYSTEMS',
-      title: 'Three systems, three decision surfaces, no filler.',
-      summary: 'These are the strongest public examples in the current evidence layer. Each card shows what it is, who it served, what decision it improved, and the proof source behind it.',
+      title: 'Three systems. Three rooms where the decision got made.',
+      summary: 'Not case studies kept for the shelf. Working surfaces still in use. Each started with a pressure point and shipped inside two weeks.',
       labels: {
         who: 'Who it served',
         location: 'Where',
@@ -124,8 +124,8 @@ window.AXIOM_SITE_COPY = {
     },
     stageRecord: {
       eyebrow: 'STAGE RECORD',
-      title: 'From launch signal to main-stage proof.',
-      lede: 'Two protocols, two cities, one working surface. Taipei opened the ledger. Singapore scaled it.',
+      title: 'We didn\'t build an index for the shelf. We built a system for the room.',
+      lede: 'Taipei. Singapore. Two stages, one thesis: the ranking is the starting point, not the product.',
       protocols: [
         {
           id: 'alpha',
@@ -249,8 +249,8 @@ window.AXIOM_SITE_COPY = {
     },
     publicRecord: {
       tag: 'PUBLIC RECORD',
-      title: 'A tighter record of field proof and public references.',
-      summary: 'Instead of a long gallery, this section keeps six curated items only: three field-proof cards from the evidence model and three public references that explain the work in plain sight.',
+      title: 'A tighter record. No wall.',
+      summary: 'Field proof that points to stored records. Press that can be read in plain sight. If a claim cannot be pointed to, it is not here.',
       fieldProofLabel: 'FIELD PROOF',
       fieldProofTitle: 'Stored evidence records',
       fieldProofText: 'These cards are backed by the current content-history layer. If a record cannot point to stored proof, it does not stay here.',
@@ -309,11 +309,11 @@ window.AXIOM_SITE_COPY = {
     },
     teamContact: {
       tag: 'TEAM + CONTACT',
-      title: 'Founders stay close. The brief stays readable.',
-      summary: 'The product stays founder-led in the only sense that matters here: the people who frame the problem are still inside the build.',
+      title: 'No handoffs. The people who frame the problem ship the product.',
+      summary: 'Strategy and shipping stay in the same room. Always.',
       founderBand: {
         label: 'FOUNDER BAND',
-        title: 'Two founders. One working line from problem framing to shipped surface.',
+        title: 'Two founders. One line from problem to shipped surface. No handoff layer in between.',
         body: 'Dr. Non brings systems thinking, urban strategy, and narrative compression. Dr. Poon keeps the infrastructure, delivery logic, and operational discipline honest.',
         points: [
           'No account-manager handoff layer.',
@@ -336,8 +336,8 @@ window.AXIOM_SITE_COPY = {
       },
       contact: {
         label: 'SEND THE BRIEF',
-        title: 'Bring the real problem, not the polished promise.',
-        body: 'If the decision matters, send the short brief. We will map the pressure, identify the first usable surface, and show what can be proven without wasting the room.',
+        title: 'Bring the real problem. Not the polished pitch.',
+        body: 'If the decision matters, send the short brief. We map the pressure, identify the first usable surface, and show what can be proven — without wasting the room on theatre.',
         commitments: [
           'One real decision clarified first.',
           'A working surface before presentation polish.',
@@ -351,7 +351,7 @@ window.AXIOM_SITE_COPY = {
         },
       },
       footer: {
-        strapline: 'Decision systems for cities, governments, and operators.',
+        strapline: 'Decision systems for cities that need fewer, clearer decisions.',
         location: 'Bangkok · Southeast Asia',
         finePrint: 'Axiom is a registered trade name. Product names, logos, and brands belong to their respective owners. Metrics shown here are case-specific observations tied to visible records, not guarantees of future performance.',
       },
@@ -377,13 +377,13 @@ window.AXIOM_SITE_COPY = {
         mobileKicker: 'ระบบที่เริ่มจากหลักฐาน',
         mobileCopy: 'สร้างมาเพื่อคนตัดสินใจที่ต้องการระบบใช้งานจริงก่อนสไลด์นำเสนอ',
       },
-      badge: 'PROOF-FIRST DECISION SYSTEMS',
-      title: 'ระบบตัดสินใจที่ยังอ่านได้ชัดเจนภายใต้แรงกดดัน',
-      summary: 'Axiom สร้างพื้นผิวการปฏิบัติงานสำหรับเมือง รัฐบาล และทีมสาธารณะที่ต้องการการตัดสินใจที่น้อยลง ชัดขึ้น และมีหลักฐานรองรับ',
+      badge: 'หลักฐานเหนือการนำเสนอ',
+      title: 'คุณสร้างการจัดอันดับ เราสร้างความเป็นจริง',
+      summary: 'ทุกดัชนีบอกว่าเมืองได้คะแนนเท่าไหร่ Axiom สร้างพื้นผิวปฏิบัติการที่บอกว่าต้องตัดสินใจอะไรต่อไป — อ่านได้ภายใต้แรงกดดัน พิสูจน์ได้ภายใต้การตรวจสอบ สร้างมาเพื่อให้รอดพ้นการประชุมที่จัดขึ้นเพื่อมัน',
       primaryCta: 'ส่งบรีฟ',
       secondaryCta: 'ดูหลักฐาน',
       stripLabel: 'แถบหลักฐานสด',
-      stripBody: 'ภาพรวมสาธารณะฉบับย่อ: ระบบหลัก ปริมาณหลักฐาน การรองรับภาษา และโหมดการทำงานของระบบ',
+      stripBody: 'ภาพรวมสาธารณะฉบับย่อ: สิ่งที่ส่งมอบ ที่ไหน และมันยืนหยัดได้แค่ไหน',
       stripItems: {
         flagship: 'ระบบหลัก',
         traces: 'ร่องรอยหลักฐานสาธารณะ',
@@ -391,22 +391,22 @@ window.AXIOM_SITE_COPY = {
         deployment: 'พร้อมสำหรับ GitHub Pages',
         live: 'โหมด Live API',
       },
-      proofNote: 'หน้าเว็บสาธารณะทำงานได้ทั้งโหมด API สดและโหมด snapshot แบบ static โดยไม่เปลี่ยนโมเดลหลักฐาน',
-      statPrimary: 'เหมาะกับใคร',
-      statPrimaryValue: 'ผู้ว่าฯ ผู้ปฏิบัติการ และทีมสาธารณะ',
-      statSecondary: 'เริ่มต้นอย่างไร',
-      statSecondaryValue: 'หนึ่งการตัดสินใจจริง หนึ่งระบบใช้งานได้ หนึ่งเส้นทางของหลักฐาน',
+      proofNote: 'หน้าสาธารณะทำงานได้ทั้งโหมด API สดและ snapshot แบบ static โมเดลหลักฐานเหมือนกันทั้งสองโหมด',
+      statPrimary: 'สิ่งที่เราแทนที่',
+      statPrimaryValue: 'สไลด์ที่เก่าลงทันทีที่การประชุมจบ',
+      statSecondary: 'สิ่งที่เราส่งมอบ',
+      statSecondaryValue: 'พื้นผิวใช้งานได้จริง หนึ่งเส้นทางหลักฐาน ไม่มีการแสดง',
     },
     operatingModel: {
       tag: 'โมเดลการทำงาน',
-      title: 'เริ่มจากแรงกดดัน แล้วลดทอนจนพื้นผิวใช้งานได้จริง',
-      summary: 'ส่วนนี้ใช้กฎการออกแบบเดียวกับเอกสารอ้างอิง: ทุกพื้นที่ต้องมีเหตุผล ตัดสิ่งที่เป็นของตกแต่งออก และทำให้อินเทอร์เฟซซื่อตรงต่อสิ่งที่พิสูจน์ได้',
+      title: 'หาแรงกดดัน ทิ้งสไลด์ ส่งมอบพื้นผิว',
+      summary: 'สามขั้นตอน สิบสี่วัน หนึ่งพื้นผิวที่ใช้งานได้จริงในห้อง ไม่มีสไลด์ที่เก่าลงทันทีที่ส่งมอบ',
       steps: [
         {
-          phase: 'DAY 01-03',
-          kicker: 'หาการตัดสินใจ',
-          title: 'ทำแผนที่แรงกดดันในการปฏิบัติงาน',
-          body: 'กำหนดให้ชัดว่าการตัดสินใจข้อไหนต้องเร็วขึ้น ชัดขึ้น หรือป้องกันได้มากขึ้น สิ่งอื่นคือบริบท ไม่ใช่ตัวผลิตภัณฑ์',
+          phase: 'DAY 01–03',
+          kicker: 'ฆ่าบรีฟ',
+          title: 'ล็อคการตัดสินใจที่สำคัญที่สุด ทิ้งทุกอย่างอื่น',
+          body: 'ทุก scope มีสไลด์ซ่อนอยู่ข้างใน เราหาการตัดสินใจจริงภายในสามวันแรก เพื่อไม่ให้สร้างผลิตภัณฑ์ที่สร้างมาเพื่อการแสดง',
           points: [
             'ระบุผู้ใช้จริงและห้องประชุมจริงที่ระบบนี้จะถูกอ่าน',
             'ใช้ข้อมูลที่มีอยู่ก่อนสร้างโครงสร้างพื้นฐานใหม่',
@@ -414,10 +414,10 @@ window.AXIOM_SITE_COPY = {
           ],
         },
         {
-          phase: 'DAY 04-07',
+          phase: 'DAY 04–07',
           kicker: 'ส่งมอบพื้นผิว',
-          title: 'นำระบบที่อ่านได้จริงเข้าห้อง',
-          body: 'เวอร์ชันแรกควรช่วยการสนทนาได้ทันที ยังไม่ต้องครบ แต่ต้องใช้งานได้จริง',
+          title: 'นำสิ่งที่ใช้งานได้เข้าห้อง ยังไม่ต้องเสร็จ แต่ต้องใช้งานได้',
+          body: 'เวอร์ชันที่เข้าห้องในวันที่เจ็ดไม่ต้องมันวาว แต่ต้องช่วยการสนทนาได้จริง นั่นยากกว่าการทำสไลด์ และเป็นสิ่งเดียวที่รอดพ้นการประชุม',
           points: [
             'แสดง trade-off ให้เห็น ไม่ใช่ซ่อนด้วยภาษาสวยงาม',
             'รีวิวกับผู้ปฏิบัติการและผู้ตัดสินใจ ไม่ใช่เฉพาะผู้สนับสนุน',
@@ -425,10 +425,10 @@ window.AXIOM_SITE_COPY = {
           ],
         },
         {
-          phase: 'DAY 08-14',
+          phase: 'DAY 08–14',
           kicker: 'เก็บหลักฐาน',
-          title: 'วัดผลให้ระบบอยู่รอดภายใต้การตรวจสอบ',
-          body: 'เพิ่ม analytics แหล่งที่มาของหลักฐาน และประวัติเนื้อหาเร็วที่สุด เพื่อให้ระบบป้องกันตัวเองได้มากขึ้นเมื่อถูกใช้งาน',
+          title: 'วัดผลให้รอดพ้นการตรวจสอบ ไม่ใช่แค่วันเปิดตัว',
+          body: 'หลักฐานที่ยืนได้เฉพาะวันเปิดตัวไม่ใช่หลักฐาน เราวางระบบให้ป้องกันตัวเองได้มากขึ้นเมื่อถูกใช้งาน ไม่ใช่น้อยลง',
           points: [
             'ติดตามการเข้าชม ระเบียนหลักฐาน และความสดของแหล่งข้อมูล',
             'จดบันทึกว่ามีอะไรเปลี่ยนหลังเปิดใช้และเพราะอะไร',
@@ -449,8 +449,8 @@ window.AXIOM_SITE_COPY = {
     },
     flagshipSystems: {
       tag: 'ระบบหลัก',
-      title: 'สามระบบ สามพื้นผิวการตัดสินใจ ไม่มีส่วนเกิน',
-      summary: 'นี่คือสามตัวอย่างสาธารณะที่แข็งแรงที่สุดในชั้นหลักฐานปัจจุบัน แต่ละการ์ดบอกว่ามันคืออะไร ใช้กับใคร ช่วยการตัดสินใจแบบไหน และมีแหล่งพิสูจน์อะไร',
+      title: 'สามระบบ สามห้องที่การตัดสินใจเกิดขึ้นจริง',
+      summary: 'ไม่ใช่ case study เก็บไว้บนชั้น แต่เป็นพื้นผิวที่ยังใช้งานอยู่ ทุกระบบเริ่มจากจุดแรงกดดันและส่งมอบภายในสองสัปดาห์',
       labels: {
         who: 'ใช้กับใคร',
         location: 'ที่ไหน',
@@ -487,8 +487,8 @@ window.AXIOM_SITE_COPY = {
     },
     stageRecord: {
       eyebrow: 'บันทึกเวที',
-      title: 'จากสัญญาณเปิดตัว สู่การพิสูจน์บนเวทีหลัก',
-      lede: 'สองโปรโตคอล สองเมือง หนึ่งพื้นผิวการทำงานเดียวกัน ไทเปเปิดบัญชีหลักฐาน สิงคโปร์ขยายสเกล',
+      title: 'เราไม่ได้สร้างดัชนีไว้บนชั้น เราสร้างระบบไว้ในห้องประชุม',
+      lede: 'ไทเป สิงคโปร์ สองเวที วิทยานิพนธ์เดียว: การจัดอันดับคือจุดเริ่มต้น ไม่ใช่ผลิตภัณฑ์',
       protocols: [
         {
           id: 'alpha',
@@ -612,8 +612,8 @@ window.AXIOM_SITE_COPY = {
     },
     publicRecord: {
       tag: 'บันทึกสาธารณะ',
-      title: 'หลักฐานภาคสนามและร่องรอยสาธารณะที่ถูกย่อให้แน่นขึ้น',
-      summary: 'แทนที่จะเป็นแกลเลอรียาว ส่วนนี้เก็บไว้เพียงหกรายการ: การ์ดหลักฐานภาคสนามสามใบจากโมเดลข้อมูล และ public reference อีกสามรายการเพื่อให้ผู้อ่านต่อเส้นเรื่องได้',
+      title: 'บันทึกที่แน่นกว่า ไม่ใช่กำแพง',
+      summary: 'หลักฐานภาคสนามที่ชี้ไปยังระเบียนที่เก็บไว้จริง สื่อที่อ่านได้ในที่สาธารณะ ถ้าคำกล่าวอ้างชี้ไปที่ไหนไม่ได้ มันไม่มีอยู่ที่นี่',
       fieldProofLabel: 'หลักฐานภาคสนาม',
       fieldProofTitle: 'ระเบียนหลักฐานที่เก็บอยู่จริง',
       fieldProofText: 'การ์ดเหล่านี้ผูกกับ content-history ปัจจุบัน ถ้าระเบียนชี้ไปยังหลักฐานที่เก็บไว้ไม่ได้ มันจะไม่อยู่ตรงนี้',
@@ -672,11 +672,11 @@ window.AXIOM_SITE_COPY = {
     },
     teamContact: {
       tag: 'ทีม + ติดต่อ',
-      title: 'ผู้ก่อตั้งอยู่ใกล้ปัญหา และบรีฟยังคงอ่านง่าย',
-      summary: 'ผลิตภัณฑ์ยังคงนำโดยผู้ก่อตั้งในความหมายที่สำคัญจริงๆ คือคนที่ช่วยตั้งโจทย์ยังอยู่ในสายการสร้าง',
+      title: 'ไม่มีการส่งต่อ คนที่ตั้งโจทย์คือคนที่สร้างผลิตภัณฑ์',
+      summary: 'กลยุทธ์และการส่งมอบอยู่ในห้องเดียวกัน เสมอ',
       founderBand: {
         label: 'FOUNDER BAND',
-        title: 'สองผู้ก่อตั้ง หนึ่งเส้นการทำงานจากการตั้งโจทย์สู่ระบบที่ส่งมอบ',
+        title: 'สองผู้ก่อตั้ง หนึ่งเส้นจากโจทย์สู่ระบบที่ส่งมอบ ไม่มีชั้น handoff ระหว่างนั้น',
         body: 'Dr. Non ดูแลมุมคิดเชิงระบบ กลยุทธ์เมือง และการบีบเรื่องให้คม ส่วน Dr. Poon ดูแลโครงสร้างพื้นฐาน ตรรกะการส่งมอบ และความเข้มของงานปฏิบัติการ',
         points: [
           'ไม่มีชั้น handoff แบบ account manager',
@@ -727,8 +727,8 @@ window.AXIOM_SITE_COPY = {
   },
   zh: {
     hero: {
-      metaTitle: 'Axiom - 以证据为先的决策系统',
-      metaDescription: 'Axiom 为城市、政府与运营团队构建以证据为先的决策系统，让关键判断在压力下仍然可读、可防守。',
+      metaTitle: 'Axiom — 你建排名，我们建现实。',
+      metaDescription: 'Axiom 为城市与政府构建决策系统——在压力下可读，在审查下可守，为它所服务的会议而建。',
       nav: {
         operatingModel: '模型',
         flagshipSystems: '系统',
@@ -737,16 +737,16 @@ window.AXIOM_SITE_COPY = {
         publicRecord: '记录',
         teamContact: '简报',
         cta: '发送简报',
-        mobileKicker: '以证据为先的系统',
+        mobileKicker: '证据重于展示',
         mobileCopy: '为那些需要先看到可用界面、再考虑演示文稿的决策者而建。',
       },
-      badge: 'PROOF-FIRST DECISION SYSTEMS',
-      title: '在压力之下仍然清晰可读的决策系统。',
-      summary: 'Axiom 为城市、政府与公共团队构建工作界面，让决策更少、更清楚，并始终由可见证据支撑。',
+      badge: '证据重于展示',
+      title: '你建排名。我们建现实。',
+      summary: '每一份指数都告诉你城市的得分。Axiom 构建能告诉你下一步该如何决策的工作界面——在压力下可读，在审查下可守，为它所服务的会议而建。',
       primaryCta: '发送简报',
       secondaryCta: '查看证据',
       stripLabel: '实时证据条',
-      stripBody: '一条压缩后的公共读数：旗舰项目、证据数量、语言覆盖，以及当前运行模式。',
+      stripBody: '一条压缩后的公共读数：交付了什么、在哪里运行、经得起多少审视。',
       stripItems: {
         flagship: '旗舰系统',
         traces: '公共证据轨迹',
@@ -754,22 +754,22 @@ window.AXIOM_SITE_COPY = {
         deployment: 'GitHub Pages 就绪',
         live: '实时 API 模式',
       },
-      proofNote: '这个公开站点同时支持实时 API 模式与静态快照模式，而不会改变其证据模型。',
-      statPrimary: '面向谁',
-      statPrimaryValue: '省长、运营者与公共团队',
-      statSecondary: '如何开始',
-      statSecondaryValue: '一个真实决策。一个可用界面。一条证据轨迹。',
+      proofNote: '公开站点同时支持实时 API 模式与静态快照模式。证据模型在两种模式下完全一致。',
+      statPrimary: '我们替代的东西',
+      statPrimaryValue: '会议一结束就过期的幻灯片',
+      statSecondary: '我们交付的东西',
+      statSecondaryValue: '可用的工作界面。一条证据轨迹。没有表演。',
     },
     operatingModel: {
       tag: '运营模型',
-      title: '从压力出发，把界面减到刚好可用。',
-      summary: '这一部分直接遵循你的设计规则：每一块空间都要有理由，装饰性的内容被移除，界面必须诚实地表达它能证明什么。',
+      title: '找到压力。干掉幻灯片。交付界面。',
+      summary: '三个阶段。十四天。一个可以放进会议室的工作界面。没有交付即过期的报告，没有只撑过下一轮人事变动的文件。',
       steps: [
         {
-          phase: 'DAY 01-03',
-          kicker: '找到决策',
-          title: '绘制真实的操作压力图。',
-          body: '先锁定那个必须变得更快、更清楚、或更可防守的决策。其余都是背景，不是产品。',
+          phase: 'DAY 01–03',
+          kicker: '干掉简报',
+          title: '锁定最重要的那一个决策。其余全部舍弃。',
+          body: '每一份 scope 里都藏着一张幻灯片。我们在前三天找出真正的决策，不让产品围绕表演而建。',
           points: [
             '锁定真实用户，以及这个界面真正会被阅读的会议场景。',
             '在引入新基础设施前，先使用桌面上已有的数据。',
@@ -777,10 +777,10 @@ window.AXIOM_SITE_COPY = {
           ],
         },
         {
-          phase: 'DAY 04-07',
+          phase: 'DAY 04–07',
           kicker: '交付界面',
-          title: '把一个可读、可用的系统放进房间。',
-          body: '第一版就应该支持真实讨论。它不必完整，但必须可用。',
+          title: '把能用的东西放进房间。不必完成，但必须能用。',
+          body: '第七天进房间的版本不需要精雕细琢。它要能支持一次真实讨论。这比做幻灯片更难——也是唯一能活过会议的东西。',
           points: [
             '把取舍暴露出来，而不是用陈词滥调把它遮住。',
             '与运营者和决策者一起审阅，而不只是和赞助方沟通。',
@@ -788,10 +788,10 @@ window.AXIOM_SITE_COPY = {
           ],
         },
         {
-          phase: 'DAY 08-14',
+          phase: 'DAY 08–14',
           kicker: '保留证据',
-          title: '尽早加上可经受审视的度量层。',
-          body: '越早加入分析、证据来源和内容历史，这个系统就越会随着使用变得更可防守，而不是更脆弱。',
+          title: '让它经得起审计，而不只是发布日。',
+          body: '只在发布当天站得住脚的证据，不是真正的证据。我们把系统设计成越用越可防守，而不是越用越脆弱。',
           points: [
             '从一开始就跟踪访问、证据记录与来源新鲜度。',
             '记录发布后发生了什么变化，以及为什么变化。',
@@ -812,8 +812,8 @@ window.AXIOM_SITE_COPY = {
     },
     flagshipSystems: {
       tag: '旗舰系统',
-      title: '三个系统，三个决策界面，没有填充物。',
-      summary: '这三项是当前证据层里最强的公开实例。每张卡片都说明它是什么、服务了谁、改善了什么决策，以及其背后的证明来源。',
+      title: '三个系统。三间决策真正发生的房间。',
+      summary: '不是摆在架子上的案例研究。是仍在运行的工作界面。每一个都始于一个压力点，并在两周内交付。',
       labels: {
         who: '服务对象',
         location: '地点',
@@ -850,8 +850,8 @@ window.AXIOM_SITE_COPY = {
     },
     stageRecord: {
       eyebrow: '舞台记录',
-      title: '从首场信号到主舞台验证。',
-      lede: '两次协议，两座城市，一个可运作的界面。台北打开了总账，新加坡把它放大。',
+      title: '我们没有为书架建一套指数。我们为会议室建了一个系统。',
+      lede: '台北。新加坡。两个舞台，一个命题：排名是起点，不是产品。',
       protocols: [
         {
           id: 'alpha',
@@ -975,8 +975,8 @@ window.AXIOM_SITE_COPY = {
     },
     publicRecord: {
       tag: '公共记录',
-      title: '一个更紧凑的现场证明与公共参考记录。',
-      summary: '不再使用冗长画廊，这里只保留六项：三张来自证据模型的现场证明卡，以及三条帮助读者补足背景的公共参考。',
+      title: '更紧凑的记录。没有展示墙。',
+      summary: '现场证明指向真实存储的记录。媒体报道可以在公众视野下被核查。主张无法被指向任何地方，就不会出现在这里。',
       fieldProofLabel: '现场证明',
       fieldProofTitle: '已存储的证据记录',
       fieldProofText: '这些卡片直接挂接当前 content-history 层。如果一项记录无法指向已存储的证明，它就不应出现在这里。',
@@ -1035,11 +1035,11 @@ window.AXIOM_SITE_COPY = {
     },
     teamContact: {
       tag: '团队 + 联系',
-      title: '创始人贴着问题工作，简报仍然保持可读。',
-      summary: '这里的 founder-led 不是个人崇拜，而是一个更朴素的事实：定义问题的人仍然留在构建线上。',
+      title: '没有交接。定义问题的人就是交付产品的人。',
+      summary: '策略与交付在同一间房间。始终如此。',
       founderBand: {
         label: 'FOUNDER BAND',
-        title: '两位创始人，从问题定义到交付界面保持同一条工作线。',
+        title: '两位创始人。从问题到交付的一条线。中间没有交接层。',
         body: 'Dr. Non 负责系统思维、城市策略与叙事压缩。Dr. Poon 负责基础设施、交付逻辑与运行纪律，让系统经得起真实场景。',
         points: [
           '没有 account-manager 式的交接层。',
