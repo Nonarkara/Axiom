@@ -1,15 +1,16 @@
 {
-  "generatedAt": "2026-04-23T16:54:39.355Z",
+  "generatedAt": "2026-04-23T08:25:20.540Z",
   "source": "static-snapshot",
   "analytics": {
-    "totalPageviews": 33,
-    "last7DaysPageviews": 33,
-    "latestPageviewAt": "2026-04-23 16:49:14",
+    "totalPageviews": 18,
+    "last7DaysPageviews": 18,
+    "latestPageviewAt": "2026-04-22 07:40:48",
     "topPage": "/",
-    "topPageViews": 27,
+    "topPageViews": 0,
     "caseStudyCount": 3,
-    "contentHistoryCount": 7,
-    "snapshotGeneratedAt": "2026-04-23T16:54:39.355Z"
+    "contentHistoryCount": 5,
+    "staticMode": true,
+    "snapshotGeneratedAt": "2026-04-23T08:25:20.540Z"
   },
   "caseStudies": [
     {
@@ -37,6 +38,7 @@
       "lastVerifiedAt": "2026-04-19 17:20:00",
       "linkLabel": "Open live system",
       "linkUrl": "https://globalmonitor.fly.dev/",
+      "proofOrder": 1,
       "translations": {
         "th": {
           "title": "DNGWS Monitor",
@@ -63,24 +65,24 @@
       },
       "metrics": [
         {
-          "caseStudyId": 1,
           "value": "12+",
-          "label": "Open and operational sources compressed into one live surface"
+          "label": "Open and operational sources compressed into one live surface",
+          "metricOrder": 1
         },
         {
-          "caseStudyId": 1,
           "value": "LIVE",
-          "label": "Continuous monitoring for escalation and spillover tracking"
+          "label": "Continuous monitoring for escalation and spillover tracking",
+          "metricOrder": 2
         },
         {
-          "caseStudyId": 1,
           "value": "GLOBAL",
-          "label": "Multi-theater view across conflict, economy, and narrative"
+          "label": "Multi-theater view across conflict, economy, and narrative",
+          "metricOrder": 3
         },
         {
-          "caseStudyId": 1,
           "value": "45m",
-          "label": "Field demo speed referenced in launch and press coverage"
+          "label": "Field demo speed referenced in launch and press coverage",
+          "metricOrder": 4
         }
       ]
     },
@@ -109,6 +111,7 @@
       "lastVerifiedAt": "2026-04-19 17:20:00",
       "linkLabel": "Open live system",
       "linkUrl": "https://nonarkara.github.io/phuket-dashboard/war-room",
+      "proofOrder": 2,
       "translations": {
         "th": {
           "title": "Phuket Dashboard",
@@ -135,24 +138,24 @@
       },
       "metrics": [
         {
-          "caseStudyId": 2,
           "value": "42ms",
-          "label": "Browser-side ping reference captured on the homepage health layer"
+          "label": "Browser-side ping reference captured on the homepage health layer",
+          "metricOrder": 1
         },
         {
-          "caseStudyId": 2,
           "value": "3.2k",
-          "label": "Sensor and device count represented in the flagship ops room story"
+          "label": "Sensor and device count represented in the flagship ops room story",
+          "metricOrder": 2
         },
         {
-          "caseStudyId": 2,
           "value": "REAL-TIME",
-          "label": "Live telemetry architecture instead of static reporting"
+          "label": "Live telemetry architecture instead of static reporting",
+          "metricOrder": 3
         },
         {
-          "caseStudyId": 2,
           "value": "REGIONAL",
-          "label": "Governor-grade operating surface, not a brochure dashboard"
+          "label": "Governor-grade operating surface, not a brochure dashboard",
+          "metricOrder": 4
         }
       ]
     },
@@ -181,6 +184,7 @@
       "lastVerifiedAt": "2026-04-19 17:20:00",
       "linkLabel": "Open live system",
       "linkUrl": "https://nonarkara.github.io/smart-city-thailand-index/",
+      "proofOrder": 3,
       "translations": {
         "th": {
           "title": "Smart City Thailand Index",
@@ -207,24 +211,24 @@
       },
       "metrics": [
         {
-          "caseStudyId": 3,
           "value": "174",
-          "label": "Cities indexed in the launch story and public ranking narrative"
+          "label": "Cities indexed in the launch story and public ranking narrative",
+          "metricOrder": 1
         },
         {
-          "caseStudyId": 3,
           "value": "53",
-          "label": "Nations represented in the Taipei launch context around the index"
+          "label": "Nations represented in the Taipei launch context around the index",
+          "metricOrder": 2
         },
         {
-          "caseStudyId": 3,
           "value": "5",
-          "label": "Livability pillars exposed to users instead of hidden weighting logic"
+          "label": "Livability pillars exposed to users instead of hidden weighting logic",
+          "metricOrder": 3
         },
         {
-          "caseStudyId": 3,
           "value": "PUBLIC",
-          "label": "Open programme surface designed to be defended in daylight"
+          "label": "Open programme surface designed to be defended in daylight",
+          "metricOrder": 4
         }
       ]
     }
@@ -240,6 +244,7 @@
       "location": "Taipei",
       "url": "",
       "historyOrder": 1,
+      "metadata": {},
       "status": "published",
       "artifactType": "keynote",
       "confidenceScore": 0.95,
@@ -264,72 +269,6 @@
       }
     },
     {
-      "id": 8,
-      "source": "GITEX AI Asia Singapore",
-      "title": "Protocol Beta reached the GITEX AI Asia main stage in Singapore.",
-      "summary": "SLIC, the Axiom AI dashboards, and the wider proof-first stack were presented on the main stage in Singapore, carrying the work from Taipei launch proof into a global AI and digital-infrastructure arena.",
-      "category": "Main Stage",
-      "eventPeriod": "2026 Q2",
-      "location": "Singapore",
-      "url": "https://techcoffeehouse.com/2026/03/31/gitex-ai-asia-2026-singapore-at-the-heart-of-asias-78-billion-ai-surge/",
-      "historyOrder": 2,
-      "status": "published",
-      "artifactType": "keynote",
-      "confidenceScore": 0.97,
-      "proofNote": "Stage photography, user-supplied event account, and public event coverage place this on 9-10 April 2026 in Singapore, where the event drew participants from 110+ countries, 550+ enterprises and startups, 175 speakers, and investors managing US$350B.",
-      "translations": {
-        "th": {
-          "source": "GITEX AI Asia Singapore",
-          "title": "Protocol Beta ขึ้นเวทีหลักของ GITEX AI Asia ที่สิงคโปร์",
-          "summary": "SLIC, Axiom AI dashboards และแนวทาง proof-first ถูกนำเสนอบนเวทีหลักที่สิงคโปร์ ทำให้งานขยับจากหลักฐานการเปิดตัวที่ไทเปไปสู่เวที AI และ digital infrastructure ระดับโลก",
-          "category": "เวทีหลัก",
-          "eventPeriod": "ไตรมาส 2 ปี 2026",
-          "proofNote": "ภาพบนเวที คำบอกเล่าจากผู้จัดทำ และบทความเปิดงานของ GITEX ยืนยันเหตุการณ์นี้ในวันที่ 9-10 เมษายน 2026 ที่สิงคโปร์ โดยงานมีผู้เข้าร่วมจากกว่า 110 ประเทศ บริษัทและสตาร์ตอัปกว่า 550 ราย วิทยากร 175 คน และนักลงทุนที่ดูแลเงินรวม US$350B"
-        },
-        "zh": {
-          "source": "GITEX AI Asia Singapore",
-          "title": "Protocol Beta 登上新加坡 GITEX AI Asia 主舞台",
-          "summary": "SLIC、Axiom AI 仪表盘与更广泛的 proof-first 方法被带上新加坡主舞台，让这套工作从台北的发布证明进入全球 AI 与数字基础设施语境。",
-          "category": "主舞台",
-          "eventPeriod": "2026年第二季度",
-          "proofNote": "舞台照片、用户提供的现场说明，以及 GITEX 官方开幕稿共同把这次亮相定位在 2026 年 4 月 9-10 日的新加坡；官方稿称活动汇聚 110+ 个国家、550+ 家企业与初创、175 位演讲者，以及管理 US$350B 的投资人。"
-        }
-      }
-    },
-    {
-      "id": 9,
-      "source": "GITEX AI Asia Singapore",
-      "title": "Government Innovation-as-a-Service workshop ran full in Singapore.",
-      "summary": "The Government Innovation-as-a-Service workshop drew hundreds of people, filled the room beyond seated capacity, and showed direct demand for SLIC and operational AI systems in a public-sector context.",
-      "category": "Workshop",
-      "eventPeriod": "2026 Q2",
-      "location": "Singapore",
-      "url": "https://iot-now.com/2026/04/01/156003-asias-78-billion-ai-and-quantum-inflection-point-draws-global-tech-leaders-to-singapore/",
-      "historyOrder": 3,
-      "status": "published",
-      "artifactType": "workshop",
-      "confidenceScore": 0.94,
-      "proofNote": "Local photo records show the room at capacity during the workshop, while public event coverage places the session inside the 9-10 April 2026 Singapore edition.",
-      "translations": {
-        "th": {
-          "source": "GITEX AI Asia Singapore",
-          "title": "เวิร์กชอป Government Innovation-as-a-Service เต็มห้องที่สิงคโปร์",
-          "summary": "เวิร์กชอป Government Innovation-as-a-Service ดึงคนเข้าร่วมเป็นหลักร้อย ห้องเต็มเกินจำนวนที่นั่ง และสะท้อนความสนใจโดยตรงต่อ SLIC และระบบ AI เชิงปฏิบัติการในบริบทภาครัฐ",
-          "category": "เวิร์กชอป",
-          "eventPeriod": "ไตรมาส 2 ปี 2026",
-          "proofNote": "ภาพถ่ายภายในงานแสดงให้เห็นว่าห้องเวิร์กชอปเต็มความจุ ขณะที่เอกสารทางการของ GITEX ยืนยันว่า session นี้อยู่ในงานสิงคโปร์วันที่ 9-10 เมษายน 2026"
-        },
-        "zh": {
-          "source": "GITEX AI Asia Singapore",
-          "title": "Government Innovation-as-a-Service 工作坊在新加坡满员举行",
-          "summary": "这场 Government Innovation-as-a-Service 工作坊吸引了数百名参与者，房间坐席之外也被填满，显示出公共部门对 SLIC 与运营型 AI 系统的直接兴趣。",
-          "category": "工作坊",
-          "eventPeriod": "2026年第二季度",
-          "proofNote": "现场照片显示工作坊房间达到满员状态，而 GITEX 官方资料则把该场活动明确放在 2026 年 4 月 9-10 日的新加坡版活动之内。"
-        }
-      }
-    },
-    {
       "id": 2,
       "source": "Smart City Thailand Index",
       "title": "National programme tracking became a public-facing reference surface.",
@@ -338,7 +277,8 @@
       "eventPeriod": "2025 Q4",
       "location": "Thailand",
       "url": "https://nonarkara.github.io/smart-city-thailand-index/",
-      "historyOrder": 4,
+      "historyOrder": 2,
+      "metadata": {},
       "status": "published",
       "artifactType": "index",
       "confidenceScore": 0.9,
@@ -371,7 +311,8 @@
       "eventPeriod": "2025 Q4",
       "location": "Phuket",
       "url": "https://nonarkara.github.io/phuket-dashboard/war-room",
-      "historyOrder": 5,
+      "historyOrder": 3,
+      "metadata": {},
       "status": "field",
       "artifactType": "operations",
       "confidenceScore": 0.87,
@@ -404,7 +345,8 @@
       "eventPeriod": "2025 Q3",
       "location": "ASEAN",
       "url": "https://nonarkara.github.io/ascn-smart-cities-network/",
-      "historyOrder": 6,
+      "historyOrder": 4,
+      "metadata": {},
       "status": "published",
       "artifactType": "network",
       "confidenceScore": 0.84,
@@ -437,7 +379,8 @@
       "eventPeriod": "2025 Q2",
       "location": "Honiara",
       "url": "https://nonarkara.github.io/solomon-islands-workshop/#institutions",
-      "historyOrder": 7,
+      "historyOrder": 5,
+      "metadata": {},
       "status": "published",
       "artifactType": "roadmap",
       "confidenceScore": 0.82,

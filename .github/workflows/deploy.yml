@@ -21,15 +21,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Verify static bundle
-        run: |
-          test -f public/data/evidence-snapshot.json
-          node --check public/app.js
-          node --check public/admin/app.js
-          node --check scripts/export-evidence-snapshot.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

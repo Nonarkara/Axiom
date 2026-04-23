@@ -305,70 +305,6 @@ const seededContentHistory = [
     historyOrder: 1,
   },
   {
-    source: 'GITEX AI Asia Singapore',
-    title: 'Protocol Beta reached the GITEX AI Asia main stage in Singapore.',
-    summary: 'SLIC, the Axiom AI dashboards, and the wider proof-first stack were presented on the main stage in Singapore, carrying the work from Taipei launch proof into a global AI and digital-infrastructure arena.',
-    category: 'Main Stage',
-    eventPeriod: '2026 Q2',
-    location: 'Singapore',
-    url: 'https://techcoffeehouse.com/2026/03/31/gitex-ai-asia-2026-singapore-at-the-heart-of-asias-78-billion-ai-surge/',
-    status: 'published',
-    artifactType: 'keynote',
-    confidenceScore: 0.97,
-    proofNote: 'Stage photography, user-supplied event account, and public event coverage place this on 9-10 April 2026 in Singapore, where the event drew participants from 110+ countries, 550+ enterprises and startups, 175 speakers, and investors managing US$350B.',
-    translations: {
-      th: {
-        source: 'GITEX AI Asia Singapore',
-        title: 'Protocol Beta ขึ้นเวทีหลักของ GITEX AI Asia ที่สิงคโปร์',
-        summary: 'SLIC, Axiom AI dashboards และแนวทาง proof-first ถูกนำเสนอบนเวทีหลักที่สิงคโปร์ ทำให้งานขยับจากหลักฐานการเปิดตัวที่ไทเปไปสู่เวที AI และ digital infrastructure ระดับโลก',
-        category: 'เวทีหลัก',
-        eventPeriod: 'ไตรมาส 2 ปี 2026',
-        proofNote: 'ภาพบนเวที คำบอกเล่าจากผู้จัดทำ และบทความสาธารณะเกี่ยวกับงานยืนยันเหตุการณ์นี้ในวันที่ 9-10 เมษายน 2026 ที่สิงคโปร์ โดยงานมีผู้เข้าร่วมจากกว่า 110 ประเทศ บริษัทและสตาร์ตอัปกว่า 550 ราย วิทยากร 175 คน และนักลงทุนที่ดูแลเงินรวม US$350B',
-      },
-      zh: {
-        source: 'GITEX AI Asia Singapore',
-        title: 'Protocol Beta 登上新加坡 GITEX AI Asia 主舞台',
-        summary: 'SLIC、Axiom AI 仪表盘与更广泛的 proof-first 方法被带上新加坡主舞台，让这套工作从台北的发布证明进入全球 AI 与数字基础设施语境。',
-        category: '主舞台',
-        eventPeriod: '2026年第二季度',
-        proofNote: '舞台照片、用户提供的现场说明，以及公开活动报道共同把这次亮相定位在 2026 年 4 月 9-10 日的新加坡；相关报道称活动汇聚 110+ 个国家、550+ 家企业与初创、175 位演讲者，以及管理 US$350B 的投资人。',
-      },
-    },
-    historyOrder: 2,
-  },
-  {
-    source: 'GITEX AI Asia Singapore',
-    title: 'Government Innovation-as-a-Service workshop ran full in Singapore.',
-    summary: 'The Government Innovation-as-a-Service workshop drew hundreds of people, filled the room beyond seated capacity, and showed direct demand for SLIC and operational AI systems in a public-sector context.',
-    category: 'Workshop',
-    eventPeriod: '2026 Q2',
-    location: 'Singapore',
-    url: 'https://iot-now.com/2026/04/01/156003-asias-78-billion-ai-and-quantum-inflection-point-draws-global-tech-leaders-to-singapore/',
-    status: 'published',
-    artifactType: 'workshop',
-    confidenceScore: 0.94,
-    proofNote: 'Local photo records show the room at capacity during the workshop, while public event coverage places the session inside the 9-10 April 2026 Singapore edition.',
-    translations: {
-      th: {
-        source: 'GITEX AI Asia Singapore',
-        title: 'เวิร์กชอป Government Innovation-as-a-Service เต็มห้องที่สิงคโปร์',
-        summary: 'เวิร์กชอป Government Innovation-as-a-Service ดึงคนเข้าร่วมเป็นหลักร้อย ห้องเต็มเกินจำนวนที่นั่ง และสะท้อนความสนใจโดยตรงต่อ SLIC และระบบ AI เชิงปฏิบัติการในบริบทภาครัฐ',
-        category: 'เวิร์กชอป',
-        eventPeriod: 'ไตรมาส 2 ปี 2026',
-        proofNote: 'ภาพถ่ายภายในงานแสดงให้เห็นว่าห้องเวิร์กชอปเต็มความจุ ขณะที่บทความสาธารณะเกี่ยวกับงานยืนยันว่า session นี้อยู่ในงานสิงคโปร์วันที่ 9-10 เมษายน 2026',
-      },
-      zh: {
-        source: 'GITEX AI Asia Singapore',
-        title: 'Government Innovation-as-a-Service 工作坊在新加坡满员举行',
-        summary: '这场 Government Innovation-as-a-Service 工作坊吸引了数百名参与者，房间坐席之外也被填满，显示出公共部门对 SLIC 与运营型 AI 系统的直接兴趣。',
-        category: '工作坊',
-        eventPeriod: '2026年第二季度',
-        proofNote: '现场照片显示工作坊房间达到满员状态，而公开活动报道则把该场活动明确放在 2026 年 4 月 9-10 日的新加坡版活动之内。',
-      },
-    },
-    historyOrder: 3,
-  },
-  {
     source: 'Smart City Thailand Index',
     title: 'National programme tracking became a public-facing reference surface.',
     summary: 'The index shifted from a static claim into a legible public layer where proposals, progress, and programme logic stayed visible.',
@@ -398,7 +334,7 @@ const seededContentHistory = [
         proofNote: '公开指数界面与发布资料仍可在线访问',
       },
     },
-    historyOrder: 4,
+    historyOrder: 2,
   },
   {
     source: 'Phuket Dashboard',
@@ -430,7 +366,7 @@ const seededContentHistory = [
         proofNote: '可运行界面与操作截图证明了现场构建过程',
       },
     },
-    historyOrder: 5,
+    historyOrder: 3,
   },
   {
     source: 'ASEAN Smart Cities Network',
@@ -462,7 +398,7 @@ const seededContentHistory = [
         proofNote: '区域项目层与相关材料仍在线公开',
       },
     },
-    historyOrder: 6,
+    historyOrder: 4,
   },
   {
     source: 'Solomon Islands Workshop',
@@ -494,9 +430,12 @@ const seededContentHistory = [
         proofNote: '工作坊材料与制度框架仍可在线访问',
       },
     },
-    historyOrder: 7,
+    historyOrder: 5,
   },
 ];
+
+seedDatabase();
+syncSeedEvidenceRecords();
 
 const insertPageviewStatement = db.prepare(`
   INSERT INTO pageviews (path, referrer, country, language, user_agent)
@@ -794,13 +733,6 @@ function syncSeedEvidenceRecords() {
     const existing = db.prepare(`
       SELECT
         id,
-        source,
-        summary,
-        category,
-        event_period AS eventPeriod,
-        location,
-        url,
-        history_order AS historyOrder,
         status,
         artifact_type AS artifactType,
         confidence_score AS confidenceScore,
@@ -810,30 +742,7 @@ function syncSeedEvidenceRecords() {
       WHERE title = ?
     `).get(item.title);
 
-    if (!existing) {
-      const result = insertContentHistoryStatement.run(
-        item.source,
-        item.title,
-        item.summary,
-        item.category,
-        item.eventPeriod,
-        item.location,
-        item.url,
-        item.historyOrder,
-        JSON.stringify({}),
-        item.status,
-        item.artifactType,
-        item.confidenceScore,
-        item.proofNote
-      );
-
-      db.prepare(`
-        UPDATE content_history
-        SET translations = ?
-        WHERE id = ?
-      `).run(JSON.stringify(item.translations || {}), result.lastInsertRowid);
-      return;
-    }
+    if (!existing) return;
 
     const translations = mergeSeedTranslations(
       item.translations || {},
@@ -843,13 +752,6 @@ function syncSeedEvidenceRecords() {
     db.prepare(`
       UPDATE content_history
       SET
-        source = ?,
-        summary = ?,
-        category = ?,
-        event_period = ?,
-        location = ?,
-        url = ?,
-        history_order = ?,
         status = ?,
         artifact_type = ?,
         confidence_score = ?,
@@ -857,17 +759,10 @@ function syncSeedEvidenceRecords() {
         translations = ?
       WHERE title = ?
     `).run(
-      pickSeedText(existing.source, item.source),
-      pickSeedText(existing.summary, item.summary),
-      pickSeedText(existing.category, item.category),
-      pickSeedText(existing.eventPeriod, item.eventPeriod),
-      pickSeedText(existing.location, item.location),
-      item.url,
-      item.historyOrder,
       pickSeedText(existing.status, item.status, 'published'),
       pickSeedText(existing.artifactType, item.artifactType, 'brief'),
       pickSeedNumber(existing.confidenceScore, item.confidenceScore, 0.75),
-      item.proofNote,
+      pickSeedText(existing.proofNote, item.proofNote),
       JSON.stringify(translations),
       item.title
     );
@@ -1050,9 +945,6 @@ function normalizeCaseStudyPayload(input) {
     metrics: normalizeCaseStudyMetrics(input?.metrics),
   };
 }
-
-seedDatabase();
-syncSeedEvidenceRecords();
 
 function normalizeHistoryPayload(input) {
   const metadata = typeof input?.metadata === 'string'
@@ -1816,18 +1708,7 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-export {
-  dbPath,
-  getAnalyticsSummary,
-  getCaseStudyProof,
-  getContentHistory,
-  seedDatabase,
-  syncSeedEvidenceRecords,
-};
-
-if (import.meta.main) {
-  server.listen(port, '127.0.0.1', () => {
-    console.log(`Axiom server running on http://127.0.0.1:${port}`);
-    console.log(`SQLite evidence layer ready at ${dbPath}`);
-  });
-}
+server.listen(port, '127.0.0.1', () => {
+  console.log(`Axiom server running on http://127.0.0.1:${port}`);
+  console.log(`SQLite evidence layer ready at ${dbPath}`);
+});
