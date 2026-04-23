@@ -356,7 +356,7 @@
 
   /* Dynamic sizing based on orientation */
   [data-theme="masterpiece"] .project-card[data-orientation="landscape"] {
-    flex: 0 0 calc(65% - 2rem);
+    flex: 0 0 100%;
   }
   [data-theme="masterpiece"] .project-card[data-orientation="portrait"] {
     flex: 0 0 calc(30% - 2rem);
