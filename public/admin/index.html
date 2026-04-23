@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Axiom Evidence Control Room</title>
   <meta name="description" content="Local editing workspace for Axiom pageviews, project proof, and timeline records.">
-  <link rel="icon" href="/assets/axiom-logo.png" type="image/png">
+  <link rel="icon" href="../assets/axiom-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/admin/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="admin-shell">
@@ -27,7 +27,7 @@
           <button type="button" class="locale-pill" data-locale="zh">中文</button>
           <button type="button" class="locale-pill" data-locale="ts">TypeScript</button>
         </div>
-        <a href="/" class="admin-link" data-i18n="hero.openSite">Open public site</a>
+        <a href="../" class="admin-link" data-i18n="hero.openSite">Open public site</a>
       </div>
     </header>
 
@@ -105,10 +105,48 @@
                 </label>
               </div>
 
-              <div class="form-grid form-grid-two">
+              <div class="form-grid form-grid-four">
+                <label class="field">
+                  <span id="caseStatusLabel">Delivery status</span>
+                  <select id="caseStatus" name="status">
+                    <option value="live">Live</option>
+                    <option value="pilot">Pilot</option>
+                    <option value="launched">Launched</option>
+                    <option value="field">Field</option>
+                    <option value="published">Published</option>
+                    <option value="archived">Archived</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span id="caseRegionCodeLabel">Region grouping</span>
+                  <input id="caseRegionCode" name="regionCode" type="text" autocomplete="off">
+                </label>
+                <label class="field">
+                  <span id="caseEvidenceTypeLabel">Proof type</span>
+                  <input id="caseEvidenceType" name="evidenceType" type="text" autocomplete="off">
+                </label>
+                <label class="field">
+                  <span id="caseConfidenceScoreLabel">Confidence score</span>
+                  <input id="caseConfidenceScore" name="confidenceScore" type="number" min="0" max="1" step="0.01">
+                </label>
+              </div>
+
+              <div class="form-grid form-grid-four">
+                <label class="field">
+                  <span id="caseArtifactCountLabel">Proof artifacts</span>
+                  <input id="caseArtifactCount" name="artifactCount" type="number" min="1" step="1">
+                </label>
+                <label class="field">
+                  <span id="caseLastVerifiedAtLabel">Last verified</span>
+                  <input id="caseLastVerifiedAt" name="lastVerifiedAt" type="datetime-local">
+                </label>
                 <label class="field">
                   <span id="caseLinkUrlLabel">Live URL</span>
                   <input id="caseLinkUrl" name="linkUrl" type="url" autocomplete="off">
+                </label>
+                <label class="field">
+                  <span id="caseEvidenceSourceUrlLabel">Proof source URL</span>
+                  <input id="caseEvidenceSourceUrl" name="evidenceSourceUrl" type="url" autocomplete="off">
                 </label>
               </div>
 
@@ -166,6 +204,26 @@
                 </label>
               </div>
 
+              <div class="form-grid form-grid-three">
+                <label class="field">
+                  <span id="historyStatusLabel">Record status</span>
+                  <select id="historyStatus" name="status">
+                    <option value="published">Published</option>
+                    <option value="field">Field</option>
+                    <option value="live">Live</option>
+                    <option value="archived">Archived</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span id="historyArtifactTypeLabel">Artifact type</span>
+                  <input id="historyArtifactType" name="artifactType" type="text" autocomplete="off">
+                </label>
+                <label class="field">
+                  <span id="historyConfidenceScoreLabel">Confidence score</span>
+                  <input id="historyConfidenceScore" name="confidenceScore" type="number" min="0" max="1" step="0.01">
+                </label>
+              </div>
+
               <section class="locale-panel">
                 <div class="locale-panel-head">
                   <div>
@@ -211,6 +269,6 @@
     </main>
   </div>
 
-  <script src="/admin/app.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>

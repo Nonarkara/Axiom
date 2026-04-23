@@ -3,1336 +3,359 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Axiom — Innovation as a Service</title>
-  <meta name="description" content="Axiom builds decision systems for cities, governments, and operators. 9 live systems across 5 countries. Built to stay useful under pressure.">
+  <title>Axiom - Proof-first decision systems</title>
+  <meta name="description" content="Axiom builds proof-first decision systems for cities, governments, and operators that need readable action under pressure.">
+  <meta name="theme-color" content="#0b0f17">
   <link rel="canonical" href="https://nonarkara.github.io/Axiom/">
   <link rel="icon" href="assets/axiom-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="Axiom — Innovation as a Service">
-  <meta property="og:description" content="Decision systems for cities, governments, and operators. 9 live systems across 5 countries. Built to stay useful under pressure.">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Axiom - Proof-first decision systems">
+  <meta property="og:description" content="Axiom builds proof-first decision systems for cities, governments, and operators that need readable action under pressure.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://nonarkara.github.io/Axiom">
+  <meta property="og:url" content="https://nonarkara.github.io/Axiom/">
   <meta property="og:image" content="https://nonarkara.github.io/Axiom/assets/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Axiom — Innovation as a Service">
-  <meta name="twitter:description" content="Decision systems for cities, governments, and operators. 9 live systems across 5 countries. 24/7 monitoring.">
+  <meta name="twitter:title" content="Axiom - Proof-first decision systems">
+  <meta name="twitter:description" content="Proof-first decision systems for cities, governments, and operators.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="theme-masterpiece.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Axiom",
-    "url": "https://nonarkara.github.io/Axiom",
-    "logo": "https://nonarkara.github.io/Axiom/assets/axiom-logo.png",
-    "description": "Innovation as a Service. AI-powered systems for cities, governments, and organizations.",
-    "foundingDate": "2022",
-    "founders": [
-      { "@type": "Person", "name": "Dr. Non Arkaraprasertkul" },
-      { "@type": "Person", "name": "Dr. Poon Thiengburanathum" }
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Bangkok",
-      "addressCountry": "TH"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/company/axiomaxiom/"
-    ],
-    "email": "axiomaxiom.corp@gmail.com"
-  }
-  </script>
 </head>
 <body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
 
-  <!-- Skip to Content -->
-  <a href="#mainContent" class="skip-to-content">Skip to main content</a>
+  <div id="feedbackStrip" class="feedback-strip" hidden aria-live="polite"></div>
 
-  <!-- Loading Screen -->
-  <div id="loader" class="loader">
-    <div class="loader-inner">
-      <div class="loader-grid">
-        <div class="loader-cell"></div><div class="loader-cell"></div><div class="loader-cell"></div>
-        <div class="loader-cell"></div><div class="loader-cell loader-cell-center"></div><div class="loader-cell"></div>
-        <div class="loader-cell"></div><div class="loader-cell"></div><div class="loader-cell"></div>
-      </div>
-      <div class="loader-text">AXIOM</div>
-      <div class="loader-sub">Systems Initializing</div>
-      <div class="loader-progress"><div class="loader-progress-bar" id="loaderBar"></div></div>
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav id="nav">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <img src="assets/axiom-logo.png" alt="Axiom" class="nav-logo-img" width="32" height="32">
-        <span class="nav-logo-text">AXIOM</span>
+  <nav class="site-nav" id="siteNav">
+    <div class="shell shell-nav">
+      <a href="#hero" class="brand-lockup" aria-label="Axiom home">
+        <img src="assets/axiom-logo.png" alt="Axiom" class="brand-logo" width="28" height="28">
+        <span class="brand-wordmark">AXIOM</span>
       </a>
-      <div class="nav-links">
-        <a href="#projects" class="nav-link" data-i18n="nav.systems">Systems</a>
-        <a href="#capabilities" class="nav-link" data-i18n="nav.services">Services</a>
-        <a href="#launch" class="nav-link" data-i18n="nav.launch">Launch</a>
-        <a href="#team" class="nav-link" data-i18n="nav.team">Team</a>
-        <a href="https://www.linkedin.com/company/axiomaxiom/about/" target="_blank" rel="noopener" class="nav-link">LinkedIn</a>
-        <div class="locale-switch" id="localeSwitch">
-          <button data-locale="en" class="locale-btn active">EN</button>
-          <button data-locale="th" class="locale-btn">TH</button>
-          <button data-locale="zh" class="locale-btn">ZH</button>
-          <button data-locale="ts" class="locale-btn">TS</button>
-        </div>
-        <a href="#contact" class="nav-link nav-link-cta" data-i18n="nav.cta">Work With Us</a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#operating-model" class="nav-link" id="navOperatingModel">Model</a>
+        <a href="#flagship-systems" class="nav-link" id="navFlagshipSystems">Systems</a>
+        <a href="#stage-record" class="nav-link" id="navStageRecord">Stage</a>
+        <a href="#evidence" class="nav-link" id="navEvidence">Evidence</a>
+        <a href="#public-record" class="nav-link" id="navPublicRecord">Record</a>
+        <a href="#team-contact" class="nav-link" id="navTeamContact">Brief</a>
       </div>
-      <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
+
+      <div class="nav-tools">
+        <div class="locale-switch" id="localeSwitch" aria-label="Choose language">
+          <button type="button" class="locale-pill is-active" data-locale="en">EN</button>
+          <button type="button" class="locale-pill" data-locale="th">TH</button>
+          <button type="button" class="locale-pill" data-locale="zh">ZH</button>
+        </div>
+        <a href="#contactPanel" class="btn btn-primary nav-cta" id="navCta">Send Brief</a>
+      </div>
+
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
   </nav>
 
-  <!-- Scroll Progress -->
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
-
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu" aria-modal="true">
-    <div class="mobile-menu-intro">
-      <span class="mobile-menu-kicker">Axiom in motion</span>
-      <p class="mobile-menu-copy">Built for signal, street operations, and public decision-making that has to stay live.</p>
-    </div>
-    <a href="#projects" class="mobile-link" data-i18n="nav.systems">Systems</a>
-    <a href="#capabilities" class="mobile-link" data-i18n="nav.services">Services</a>
-    <a href="#launch" class="mobile-link" data-i18n="nav.launch">Launch</a>
-    <a href="#team" class="mobile-link" data-i18n="nav.team">Team</a>
-    <a href="#contact" class="mobile-link mobile-link-cta" data-i18n="nav.cta">Work With Us</a>
-    <div class="locale-switch locale-switch-mobile" id="localeSwitchMobile">
-      <button data-locale="en" class="locale-btn active">EN</button>
-      <button data-locale="th" class="locale-btn">TH</button>
-      <button data-locale="zh" class="locale-btn">ZH</button>
-      <button data-locale="ts" class="locale-btn">TS</button>
+  <div class="mobile-panel" id="mobilePanel" hidden>
+    <div class="shell mobile-panel-shell">
+      <div class="mobile-panel-copy">
+        <span class="panel-kicker" id="mobileKicker">Proof-first systems</span>
+        <p class="panel-copy" id="mobileCopy">Built for decision-makers who need a working surface before they need a deck.</p>
+      </div>
+      <div class="mobile-links">
+        <a href="#operating-model" class="mobile-link" id="mobileOperatingModel">Model</a>
+        <a href="#flagship-systems" class="mobile-link" id="mobileFlagshipSystems">Systems</a>
+        <a href="#stage-record" class="mobile-link" id="mobileStageRecord">Stage</a>
+        <a href="#evidence" class="mobile-link" id="mobileEvidence">Evidence</a>
+        <a href="#public-record" class="mobile-link" id="mobilePublicRecord">Record</a>
+        <a href="#team-contact" class="mobile-link" id="mobileTeamContact">Brief</a>
+      </div>
+      <div class="locale-switch locale-switch-mobile" id="localeSwitchMobile" aria-label="Choose language">
+        <button type="button" class="locale-pill is-active" data-locale="en">EN</button>
+        <button type="button" class="locale-pill" data-locale="th">TH</button>
+        <button type="button" class="locale-pill" data-locale="zh">ZH</button>
+      </div>
+      <a href="#contactPanel" class="btn btn-primary btn-block" id="mobileCta">Send Brief</a>
     </div>
   </div>
 
   <main id="mainContent">
-  <!-- Hero -->
-  <section id="hero">
-    <div id="heroMap"></div>
-    <canvas id="heroCanvas"></canvas>
-    <div class="hero-gradient"></div>
-    <div class="hero-city-label" id="heroCityLabel">BANGKOK</div>
-
-    <!-- Map Mode Indicator -->
-    <div class="map-mode" id="mapMode">
-      <div class="map-mode-indicator">
-        <span class="map-mode-dot" id="mapModeDot"></span>
-        <span class="map-mode-label" id="mapModeLabel">AUTO TOUR</span>
-      </div>
-      <button class="map-mode-btn" id="mapModeBtn" type="button" title="Toggle auto tour" aria-label="Pause auto tour" aria-pressed="true">
-        <svg class="map-mode-icon-pause" id="mapModePause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-        <svg class="map-mode-icon-play" id="mapModePlay" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5,3 19,12 5,21"/></svg>
-      </button>
-    </div>
-
-    <!-- Map Explore Hint -->
-    <div class="map-explore-hint" id="mapExploreHint">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l4-4 4 4"/><path d="M9 5v14"/><path d="M15 19l4-4-4-4"/><path d="M19 15H5"/></svg>
-      <span>Drag to explore &middot; Scroll to zoom</span>
-    </div>
-
-    <!-- Satellite Controls -->
-    <div class="sat-controls" id="satControls">
-      <div class="sat-control-group">
-        <span class="sat-control-label">Layer</span>
-        <button class="sat-btn" data-layer="satellite">SAT</button>
-        <button class="sat-btn" data-layer="terrain">TER</button>
-        <button class="sat-btn sat-btn-active" data-layer="dark">DRK</button>
-        <button class="sat-btn" data-layer="topo">TPO</button>
-      </div>
-      <div class="sat-control-divider"></div>
-      <div class="sat-control-group">
-        <button class="sat-btn" id="gridToggle" data-active="false">GRID 1KM</button>
-      </div>
-      <div class="sat-control-divider"></div>
-      <span class="sat-source-note" id="satSourceNote">CartoDB Dark Matter</span>
-    </div>
-
-    <!-- Urban Intelligence Overlays (Moneyball) -->
-    <div class="intel-overlay" id="intelOverlayDubai">
-      <div class="intel-overlay-header">PROJECTED ASSET YIELD</div>
-      <div class="intel-overlay-value">+14.2% YoY</div>
-      <div class="intel-overlay-meta">DUBAI AREA-04 &middot; LOGISTICAL HUB</div>
-    </div>
-
-    <div class="intel-overlay" id="intelOverlayBangkok">
-      <div class="intel-overlay-header">URBAN DENSITY PULSE</div>
-      <div class="intel-overlay-value">CRITICAL</div>
-      <div class="intel-overlay-meta">BKK CENTRAL &middot; INFRASTRUCTURE GAP</div>
-    </div>
-
-    <!-- Live Satellite Telemetry HUD -->
-    <div class="sat-hud" id="satHud">
-      <div class="sat-hud-row">
-        <span class="sat-hud-live"><span class="sat-hud-live-dot"></span>LIVE SATELLITE</span>
-        <span class="sat-hud-provider" id="satProvider">ESRI World Imagery</span>
-      </div>
-      <div class="sat-hud-row">
-        <span class="sat-hud-coord" id="satCoord">13.7563°N 100.5018°E</span>
-        <span class="sat-hud-zoom" id="satZoom">Z12</span>
-        <span class="sat-hud-res" id="satRes">~19m/px</span>
-      </div>
-      <div class="sat-hud-row">
-        <span class="sat-hud-tile" id="satTile">Tile: arcgisonline.com/World_Imagery</span>
-        <span class="sat-hud-time" id="satTime">—</span>
-      </div>
-    </div>
-
-    <!-- Hero SITREP HUD -->
-    <div class="hero-tracker"></div>
-    <div class="telemetry-axis-x"></div>
-    <div class="telemetry-axis-y"></div>
-
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        <span data-i18n="hero.badge">All Systems Online</span>
-      </div>
-      <h1 class="hero-title">
-        <span class="hero-line" data-i18n="hero.titleLine1">Innovation</span>
-        <span class="hero-line hero-line-accent" id="heroRotatingText">as a Service</span>
-      </h1>
-      <p class="hero-subtitle" data-i18n="hero.subtitle">
-        AI should feel like infrastructure, not performance. We map the pressure, ship a working surface fast, and instrument it from day one so cities, governments, and operators can make fewer, clearer decisions under pressure.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">
-          <span data-i18n="hero.cta">Start With the Pressure Map</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#projects" class="btn btn-ghost" data-i18n="hero.ctaSecondary">See Live Systems</a>
-      </div>
-      <div class="hero-node-strip" aria-label="Operational footprint">
-        <div class="hero-node-strip-label" data-i18n="hero.nodeLabel">Tap a live system</div>
-        <div class="hero-node-strip-scroller" id="heroNodeRail">
-          <button class="hero-node is-active" type="button" data-city="bangkok" aria-pressed="true">
-            <span class="hero-node-name">Bangkok</span>
-            <span class="hero-node-meta">Urban command</span>
-          </button>
-          <button class="hero-node" type="button" data-city="phuket" aria-pressed="false">
-            <span class="hero-node-name">Phuket</span>
-            <span class="hero-node-meta">Regional ops</span>
-          </button>
-          <button class="hero-node" type="button" data-city="middle-east" aria-pressed="false">
-            <span class="hero-node-name">Middle East</span>
-            <span class="hero-node-meta">Strategic signal</span>
-          </button>
-          <button class="hero-node" type="button" data-city="southeast-asia" aria-pressed="false">
-            <span class="hero-node-name">Southeast Asia</span>
-            <span class="hero-node-meta">Scale layer</span>
-          </button>
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-value" data-count="9">0</span>
-          <span class="hero-stat-label" data-i18n="hero.statSystems">Live Systems</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-value">24/7</span>
-          <span class="hero-stat-label" data-i18n="hero.statMonitoring">Live Monitoring</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-value" data-count="5">0</span>
-          <span class="hero-stat-label" data-i18n="hero.statCountries">Countries</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero-scroll-indicator">
-      <div class="hero-scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- Ticker -->
-  <section id="ticker">
-    <div class="ticker-track">
-      <div class="ticker-content">
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> DNGWS Monitor &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Phuket Dashboard &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Middle East Monitor &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> MEM Intelligence &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Smart City Thailand Index &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> MTT Monitor &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Phuket Smart Bus &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> SLIC Index &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Kuching IOC &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Global Political Dashboard &mdash; Live</span>
-      </div>
-      <div class="ticker-content" aria-hidden="true">
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> DNGWS Monitor &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Phuket Dashboard &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Middle East Monitor &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> MEM Intelligence &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Smart City Thailand Index &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> MTT Monitor &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Phuket Smart Bus &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> SLIC Index &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Kuching IOC &mdash; Live</span>
-        <span class="ticker-item"><span class="ticker-dot ticker-dot-green"></span> Global Political Dashboard &mdash; Live</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="engagement">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="engagement.tag">Operating Model</span>
-        <h2 class="section-title" data-i18n="engagement.title">Start with the pressure, not the pitch.</h2>
-        <p class="section-desc" data-i18n="engagement.desc">Taking the Non-Claude-Skills logic seriously means shipping first, using the data already on the table, and leaving a proof trail from the first deployment.</p>
-      </div>
-
-      <div class="engagement-frame">
-        <div class="engagement-timeline">
-          <article class="engagement-step" data-step="01">
-            <div class="engagement-step-top">
-              <span class="engagement-step-day" data-i18n="engagement.step1.day">DAY 01-03</span>
-              <span class="engagement-step-kicker" data-i18n="engagement.step1.kicker">Find the real decision</span>
-            </div>
-            <h3 class="engagement-step-title" data-i18n="engagement.step1.title">Pressure map the problem.</h3>
-            <p class="engagement-step-desc" data-i18n="engagement.step1.desc">We identify the operating question, the real users, and the data that already exists so the first version solves something concrete instead of staying abstract.</p>
-            <ul class="engagement-step-list">
-              <li data-i18n="engagement.step1.li1">Define one decision that must get faster or clearer</li>
-              <li data-i18n="engagement.step1.li2">Map current feeds, gaps, and who actually uses the output</li>
-              <li data-i18n="engagement.step1.li3">Cut anything non-essential before it enters scope</li>
-            </ul>
-          </article>
-
-          <article class="engagement-step" data-step="02">
-            <div class="engagement-step-top">
-              <span class="engagement-step-day" data-i18n="engagement.step2.day">DAY 04-07</span>
-              <span class="engagement-step-kicker" data-i18n="engagement.step2.kicker">Ship before perfect</span>
-            </div>
-            <h3 class="engagement-step-title" data-i18n="engagement.step2.title">Put a working surface in the room.</h3>
-            <p class="engagement-step-desc" data-i18n="engagement.step2.desc">The first deliverable is a live view or pilot surface people can react to immediately. We prefer a rough working system over a polished deck that teaches us nothing.</p>
-            <ul class="engagement-step-list">
-              <li data-i18n="engagement.step2.li1">Use free and existing data before buying new infrastructure</li>
-              <li data-i18n="engagement.step2.li2">Review with operators, not just sponsors and comms teams</li>
-              <li data-i18n="engagement.step2.li3">Let the interface expose trade-offs instead of hiding them</li>
-            </ul>
-          </article>
-
-          <article class="engagement-step" data-step="03">
-            <div class="engagement-step-top">
-              <span class="engagement-step-day" data-i18n="engagement.step3.day">DAY 08-14</span>
-              <span class="engagement-step-kicker" data-i18n="engagement.step3.kicker">Instrument what matters</span>
-            </div>
-            <h3 class="engagement-step-title" data-i18n="engagement.step3.title">Turn the pilot into a repeatable operating layer.</h3>
-            <p class="engagement-step-desc" data-i18n="engagement.step3.desc">From the first deploy, we track what is being watched, what changes behavior, and what deserves a heavier backend. That keeps the stack honest and the next build legible.</p>
-            <ul class="engagement-step-list">
-              <li data-i18n="engagement.step3.li1">Add pageview, content, and usage signals from day one</li>
-              <li data-i18n="engagement.step3.li2">Keep a simple decision log of what changed after launch</li>
-              <li data-i18n="engagement.step3.li3">Document the system so it can be reused, not reinvented</li>
-            </ul>
-          </article>
-        </div>
-
-        <aside class="engagement-proof">
-          <span class="engagement-proof-label" data-i18n="engagement.proof.label">What Ships Early</span>
-          <h3 class="engagement-proof-title" data-i18n="engagement.proof.title">Proof, not moodboards.</h3>
-          <p class="engagement-proof-text" data-i18n="engagement.proof.text">The repo's strongest lesson is that every project should start with evidence architecture: one sharp question, one working surface, and one data trail strong enough to tell us what to keep.</p>
-
-          <div class="engagement-proof-stats">
-            <div class="engagement-proof-stat">
-              <span class="engagement-proof-value">45m</span>
-              <span class="engagement-proof-key" data-i18n="engagement.proof.stat1">FIRST LIVE DEMO</span>
-            </div>
-            <div class="engagement-proof-stat">
-              <span class="engagement-proof-value">9</span>
-              <span class="engagement-proof-key" data-i18n="engagement.proof.stat2">LIVE SYSTEMS</span>
-            </div>
-            <div class="engagement-proof-stat">
-              <span class="engagement-proof-value">174</span>
-              <span class="engagement-proof-key" data-i18n="engagement.proof.stat3">CITIES INDEXED</span>
-            </div>
-            <div class="engagement-proof-stat">
-              <span class="engagement-proof-value">53</span>
-              <span class="engagement-proof-key" data-i18n="engagement.proof.stat4">NATIONS IN ROOM</span>
-            </div>
+    <section id="hero" class="section section-hero">
+      <div class="shell hero-shell">
+        <div class="hero-copy" data-reveal>
+          <span class="eyebrow" id="heroBadge">PROOF-FIRST DECISION SYSTEMS</span>
+          <h1 class="display-title" id="heroTitle">Decision systems that stay readable under pressure.</h1>
+          <p class="lead-copy" id="heroSummary">Axiom builds operating surfaces for cities, governments, and public teams that need fewer, clearer decisions, backed by visible proof.</p>
+          <div class="hero-actions">
+            <a href="#contactPanel" class="btn btn-primary" id="heroPrimaryCta">Send the brief</a>
+            <a href="#evidence" class="btn btn-secondary" id="heroSecondaryCta">See the proof</a>
           </div>
-
-          <div class="engagement-proof-stack">
-            <div class="engagement-proof-stack-title" data-i18n="engagement.proof.stackTitle">Day-one stack discipline</div>
-            <ul class="engagement-proof-list">
-              <li data-i18n="engagement.proof.sli1">SEO and share-ready narrative layer</li>
-              <li data-i18n="engagement.proof.sli2">Analytics and pageview trail</li>
-              <li data-i18n="engagement.proof.sli3">Cached content or evidence history</li>
-              <li data-i18n="engagement.proof.sli4">Simple docs so the system can survive handoff</li>
-            </ul>
-          </div>
-
-          <p class="engagement-proof-note" data-i18n="engagement.proof.note">Use what already exists. Add heavier infrastructure only when the pressure is real enough to earn it.</p>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- Live Systems -->
-  <section id="projects">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="projects.tag">Production Intelligence</span>
-        <h2 class="section-title" data-i18n="projects.title">Deployment as product.</h2>
-        <p class="section-desc" data-i18n="projects.desc">We build systems that stay useful after launch: for signal, street operations, and public decision-making.</p>
-      </div>
-
-      <div class="projects-intro">
-        <div class="projects-intro-copy">
-          <span class="projects-intro-label" data-i18n="projects.introLabel">Three operating modes. One playbook.</span>
-          <h3 class="projects-intro-title" data-i18n="projects.introTitle">War room, city room, scoring engine.</h3>
-          <p class="projects-intro-text" data-i18n="projects.introText">The count matters less than the pattern. Every Axiom system starts with the same brief: find the pressure, narrow the decision, and surface the few actions that actually matter.</p>
+          <div class="hero-proof-note" id="heroProofNote">The public site runs in both live API mode and static snapshot mode without changing the evidence model.</div>
         </div>
-        <div class="projects-intro-stats">
-          <div class="projects-intro-stat">
-            <span class="projects-intro-value">9</span>
-            <span class="projects-intro-key">LIVE NODES</span>
-          </div>
-          <div class="projects-intro-stat">
-            <span class="projects-intro-value">5</span>
-            <span class="projects-intro-key">COUNTRIES</span>
-          </div>
-          <div class="projects-intro-stat">
-            <span class="projects-intro-value">3</span>
-            <span class="projects-intro-key">OPERATING MODES</span>
-          </div>
-          <div class="projects-intro-stat">
-            <span class="projects-intro-value">24/7</span>
-            <span class="projects-intro-key">MONITORING</span>
+
+        <div class="hero-side" data-reveal>
+          <div class="proof-panel">
+            <div class="proof-panel-head">
+              <span class="panel-kicker" id="heroStripLabel">LIVE PROOF STRIP</span>
+              <p class="panel-copy" id="heroStripBody">Built for decision-makers who need a working surface before they need a deck.</p>
+            </div>
+            <div class="proof-strip" id="heroProofStrip">
+              <article class="proof-stat-card">
+                <span class="proof-stat-value">3</span>
+                <span class="proof-stat-label">flagship systems</span>
+              </article>
+              <article class="proof-stat-card">
+                <span class="proof-stat-value">5</span>
+                <span class="proof-stat-label">public proof traces</span>
+              </article>
+              <article class="proof-stat-card">
+                <span class="proof-stat-value">EN / TH / ZH</span>
+                <span class="proof-stat-label">public languages</span>
+              </article>
+              <article class="proof-stat-card">
+                <span class="proof-stat-value">STATIC</span>
+                <span class="proof-stat-label">GitHub Pages-ready</span>
+              </article>
+            </div>
+            <div class="hero-fact-grid">
+              <article class="hero-fact-card">
+                <span class="card-label" id="heroFactPrimaryLabel">Who this is for</span>
+                <strong class="card-title" id="heroFactPrimaryValue">Governors, operators, and public teams</strong>
+              </article>
+              <article class="hero-fact-card">
+                <span class="card-label" id="heroFactSecondaryLabel">How it starts</span>
+                <strong class="card-title" id="heroFactSecondaryValue">One real decision. One working surface. One proof trail.</strong>
+              </article>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="projects-grid projects-showcase">
-        <article class="project-card project-card-spotlight" data-orientation="landscape">
-          <div class="project-spotlight-header">
-            <span class="project-spotlight-mode">[MODE_01] SIGNAL</span>
-            <h3 class="project-spotlight-title">Strategic intelligence before the room starts guessing.</h3>
-            <p class="project-spotlight-text">War dashboards and macro-signal systems for people who cannot wait for the PowerPoint version.</p>
+    <section id="operating-model" class="section">
+      <div class="shell">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow" id="operatingTag">OPERATING MODEL</span>
+          <h2 class="section-title" id="operatingTitle">Start with the pressure. Reduce until the surface is usable.</h2>
+          <p class="section-summary" id="operatingSummary">The system follows the design rule in your reference: earn the real estate, remove what is decorative, and keep the interface honest about what it can prove.</p>
+        </header>
+
+        <div class="model-layout">
+          <div class="model-steps" id="operatingStepsMount">
+            <div class="module-loading">Loading operating model.</div>
           </div>
-
-          <div class="project-spotlight-main">
-            <div class="mockup-container display-mockup is-live" data-id="dngws">
-              <div class="mockup-screen">
-                <img src="screenshots/globalmonitor.jpg" class="mockup-screenshot" alt="Global Monitor Dashboard — Real-time geopolitical intelligence" loading="lazy">
-              </div>
-            </div>
-
-            <div class="project-meta">
-              <div class="project-info-header">
-                <div class="project-label-row">
-                  <span class="project-tag">Global Intel</span>
-                  <span class="project-status">FLAGSHIP NODE</span>
-                </div>
-                <h3 class="project-title">DNGWS Monitor</h3>
-              </div>
-              <p class="project-desc">Global situational awareness for conflict monitoring: live escalation tracking, economic spillover, and cross-source crisis visualization.</p>
-              <hr class="project-divider">
-              <div class="project-intel-row">
-                <div class="intel-stat">
-                  <span class="intel-label">SOURCES</span>
-                  <span class="intel-value">12+</span>
-                </div>
-                <div class="intel-stat">
-                  <span class="intel-label">VIEW</span>
-                  <span class="intel-value">GLOBAL</span>
-                </div>
-                <div class="intel-stat">
-                  <span class="intel-label">PACE</span>
-                  <span class="intel-value">LIVE</span>
-                </div>
-              </div>
-              <div class="project-tech">
-                <span>Next-gen GIS</span>
-                <span>Tactical UI</span>
-                <span>OSINT</span>
-                <span>Edge Deploy</span>
-              </div>
-              <div class="project-links">
-                <a href="https://globalmonitor.fly.dev/" target="_blank" rel="noopener">Open Live System &rarr;</a>
-                <a href="https://nonarkara.github.io/mem-by-non/" target="_blank" rel="noopener" class="project-link-fallback">Static Demo &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-support-grid">
-            <a href="https://middleeast-monitor.pages.dev/" target="_blank" rel="noopener" class="project-support-card">
-              <span class="project-support-tag">Also live</span>
-              <strong>Middle East Situation Room</strong>
-              <span>53-country NLP brief with live escalation tracking.</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card project-card-spotlight" data-orientation="landscape">
-          <div class="project-spotlight-header">
-            <span class="project-spotlight-mode">[MODE_02] STREET</span>
-            <h3 class="project-spotlight-title">City operations for places that cannot afford a sleepy dashboard.</h3>
-            <p class="project-spotlight-text">Command rooms and transit telemetry cut to the decisions operators actually need to make fast.</p>
-          </div>
-
-          <div class="project-spotlight-main">
-            <div class="mockup-container display-mockup is-live" data-id="phuket-ops">
-              <div class="mockup-screen">
-                <img src="screenshots/phuket-dashboard.jpg" class="mockup-screenshot" alt="Phuket Dashboard — Governor-grade operational command" loading="lazy">
-              </div>
-            </div>
-
-            <div class="project-meta">
-              <div class="project-info-header">
-                <div class="project-label-row">
-                  <span class="project-tag">Regional Ops</span>
-                  <span class="project-status">FLAGSHIP NODE</span>
-                </div>
-                <h3 class="project-title">Phuket Dashboard</h3>
-              </div>
-              <p class="project-desc">A governor-grade operations room for Phuket: transit telemetry, public safety, and environmental signals in one working surface.</p>
-              <hr class="project-divider">
-              <div class="project-intel-row">
-                <div class="intel-stat">
-                  <span class="intel-label">LATENCY</span>
-                  <span class="intel-value">42ms</span>
-                </div>
-                <div class="intel-stat">
-                  <span class="intel-label">SENSORS</span>
-                  <span class="intel-value">3.2k</span>
-                </div>
-                <div class="intel-stat">
-                  <span class="intel-label">STATUS</span>
-                  <span class="intel-value">NOMINAL</span>
-                </div>
-              </div>
-              <div class="project-tech">
-                <span>Real-time</span>
-                <span>Vite</span>
-                <span>Mapbox</span>
-                <span>IoT Bridge</span>
-              </div>
-              <div class="project-links">
-                <a href="https://nonarkara.github.io/phuket-dashboard/war-room" target="_blank" rel="noopener">Open Live System &rarr;</a>
-                <a href="https://nonarkara.github.io/phuket-smart-bus/" target="_blank" rel="noopener" class="project-link-fallback">Static Demo &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-support-grid">
-            <a href="https://nonarkara.github.io/phuket-smart-bus/" target="_blank" rel="noopener" class="project-support-card">
-              <span class="project-support-tag">Transit layer</span>
-              <strong>Phuket Smart Bus</strong>
-              <span>GPS routes, live arrivals, and passenger intelligence in real time.</span>
-            </a>
-            <a href="https://nonarkara.github.io/kuching-ioc/" target="_blank" rel="noopener" class="project-support-card project-support-card-featured">
-              <img src="screenshots/kuching-ioc.jpg" alt="Kuching IOC — Greater Kuching Intelligent Operation Center" class="project-support-thumb" loading="lazy">
-              <span class="project-support-tag">International IOC</span>
-              <strong>Kuching IOC</strong>
-              <span>Intelligent Operation Center for Greater Kuching. FX, flights, satellite, environment — unified command for Sarawak.</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card project-card-spotlight" data-orientation="landscape">
-          <div class="project-spotlight-header">
-            <span class="project-spotlight-mode">[MODE_03] STATE</span>
-            <h3 class="project-spotlight-title">Governance systems that make bureaucracy legible.</h3>
-            <p class="project-spotlight-text">National tracking, district operations, and scoring engines that turn policy chatter into something you can compare, steer, and defend.</p>
-          </div>
-
-          <div class="project-spotlight-main">
-            <div class="mockup-container display-mockup is-live" data-id="scth">
-              <a href="https://nonarkara.github.io/smart-city-thailand-index/" target="_blank" rel="noopener" style="display:block;">
-                <div class="mockup-screen">
-                  <img src="screenshots/axiom/smart-city-thailand-index-reference.png" class="mockup-screenshot" alt="Smart City Thailand Index — National smart city proposal tracking" loading="lazy">
-                </div>
-              </a>
-            </div>
-
-            <div class="project-meta">
-              <div class="project-info-header">
-                <div class="project-label-row">
-                  <span class="project-tag">Gov Index</span>
-                  <span class="project-status">FLAGSHIP NODE</span>
-                </div>
-                <h3 class="project-title">Smart City Thailand Index</h3>
-              </div>
-              <p class="project-desc">National smart city tracking for depa and candidate cities. Proposals go in, progress stays visible, and the programme stays legible.</p>
-              <hr class="project-divider">
-              <div class="project-intel-row">
-                <div class="intel-stat">
-                  <span class="intel-label">PROGRAMME</span>
-                  <span class="intel-value">DEPA</span>
-                </div>
-                <div class="intel-stat">
-                  <span class="intel-label">TRACKING</span>
-                  <span class="intel-value">LIVE</span>
-                </div>
-                <div class="intel-stat">
-                  <span class="intel-label">SCOPE</span>
-                  <span class="intel-value">NATIONAL</span>
-                </div>
-              </div>
-              <div class="project-tech">
-                <span>React</span>
-                <span>Index</span>
-                <span>Gov</span>
-                <span>Analytics</span>
-              </div>
-              <div class="project-links">
-                <a href="https://nonarkara.github.io/smart-city-thailand-index/" target="_blank" rel="noopener">Open Live System &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-support-grid">
-            <a href="https://nonarkara.github.io/smart-city-thailand-monitor/" target="_blank" rel="noopener" class="project-support-card">
-              <span class="project-support-tag">District ops</span>
-              <strong>MTT Super Dashboard</strong>
-              <span>Urban monitoring for a 100,000-resident mixed-use district.</span>
-            </a>
-            <div class="project-support-card project-support-card-multi">
-              <span class="project-support-tag">Research atlas</span>
-              <strong>City Tech Atlas</strong>
-              <span>Open research atlas. 160 solutions. 7 smart domains. Free to explore.</span>
-              <div class="project-support-links">
-                <a href="https://citytechatlas.lovable.app" target="_blank" rel="noopener">Open Atlas &rarr;</a>
-              </div>
-            </div>
-            <div class="project-support-card project-support-card-multi">
-              <span class="project-support-tag">Benchmarking</span>
-              <strong>SLIC Index</strong>
-              <span>157-city ranking engine with adjustable weights and live comparison.</span>
-              <div class="project-support-links">
-                <a href="https://nonarkara.github.io/SLIC-Index/" target="_blank" rel="noopener">SLIC v3 &rarr;</a>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Global Node Status (V6) -->
-  <section id="health">
-    <div class="section-container">
-      <div class="health-header">
-        <span class="health-label">GLOBAL NODE MONITOR</span>
-        <div class="health-meta">
-          <div class="health-meta-group">
-            <span class="health-meta-label">REACHABLE_NODES</span>
-            <span id="healthUptime" class="health-meta-value">0/0 RESPONDING</span>
-          </div>
-          <div class="health-meta-group">
-            <span class="health-meta-label">BROWSER_PING</span>
-            <span id="healthAvgLat" class="health-meta-value">42ms</span>
-          </div>
-          <div class="health-meta-group">
-            <span class="health-meta-label">LAST_CHECK_UTC</span>
-            <span id="healthTimestamp" class="health-meta-value">--:--:-- UTC</span>
-          </div>
+          <aside class="module-card module-card-accent" id="operatingProofMount" data-reveal>
+            <div class="module-loading">Loading design rules.</div>
+          </aside>
         </div>
       </div>
-      <div class="health-hud health-grid" id="healthGrid">
-        <!-- Intelligent Node Cluster populated by JS -->
-      </div>
-    </div>
-  </section>
+    </section>
 
+    <section id="flagship-systems" class="section">
+      <div class="shell">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow" id="systemsTag">FLAGSHIP SYSTEMS</span>
+          <h2 class="section-title" id="systemsTitle">Three systems, three decision surfaces, no filler.</h2>
+          <p class="section-summary" id="systemsSummary">These are the strongest public examples in the current evidence layer. Each card shows what it is, who it served, what decision it improved, and the proof source behind it.</p>
+        </header>
 
-  <!-- Operational Matrix (V7) -->
-  <section id="capabilities">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="capabilities.tag">Axiom Protocol Core</span>
-        <h2 class="section-title" data-i18n-html="capabilities.title">Design as process.<br>Intelligence as product.</h2>
-        <p class="section-desc" data-i18n="capabilities.desc">We sit between urban planning, AI governance, and operational delivery. The work is strategic only if it survives deployment.</p>
-      </div>
-
-      <div class="matrix-grid">
-        <div class="matrix-item">
-          <div class="matrix-node">PRT-01 // GOVERNANCE</div>
-          <h3 class="matrix-title" data-i18n="capabilities.prt1.title">City-Level Command</h3>
-          <p class="matrix-desc" data-i18n="capabilities.prt1.desc">Governor-grade dashboards that pull satellite imagery, cameras, and civic feeds into one working situation room.</p>
-          <div class="matrix-specs">
-            <span>[LATENCY] &lt;45ms</span>
-            <span>[NODES] 10/10</span>
-          </div>
-        </div>
-        <div class="matrix-item">
-          <div class="matrix-node">PRT-02 // VISION</div>
-          <h3 class="matrix-title" data-i18n="capabilities.prt2.title">Intelligent Vision</h3>
-          <p class="matrix-desc" data-i18n="capabilities.prt2.desc">Computer vision on top of existing infrastructure for incident detection, movement tracking, and response triggers.</p>
-          <div class="matrix-specs">
-            <span>[ACCURACY] 98.4%</span>
-            <span>[MODELS] CNN/YOLO</span>
-          </div>
-        </div>
-        <div class="matrix-item">
-          <div class="matrix-node">PRT-03 // ANALYSIS</div>
-          <h3 class="matrix-title" data-i18n="capabilities.prt3.title">Geopolitics NLP</h3>
-          <p class="matrix-desc" data-i18n="capabilities.prt3.desc">AI briefs that compress sentiment, risk, and narrative shifts into something a decision-maker can scan fast.</p>
-          <div class="matrix-specs">
-            <span>[REGIONS] 53+</span>
-            <span>[ENGINE] LLM-V4</span>
-          </div>
-        </div>
-        <div class="matrix-item">
-          <div class="matrix-node">PRT-04 // BEHAVIOR</div>
-          <h3 class="matrix-title" data-i18n="capabilities.prt4.title">Qualitative Design</h3>
-          <p class="matrix-desc" data-i18n="capabilities.prt4.desc">Behavior-first system design grounded in what residents tolerate, trust, and actually use.</p>
-          <div class="matrix-specs">
-            <span>[METRIC] SLIC</span>
-            <span>[BIAS] NEUTRAL</span>
-          </div>
-        </div>
-        <div class="matrix-item">
-          <div class="matrix-node">PRT-05 // SCALE</div>
-          <h3 class="matrix-title" data-i18n="capabilities.prt5.title">Rapid Deployment</h3>
-          <p class="matrix-desc" data-i18n="capabilities.prt5.desc">Reusable architecture adapted to local context, so working systems ship in weeks instead of multi-year procurement cycles.</p>
-          <div class="matrix-specs">
-            <span>[LEAD] &lt;14 DAYS</span>
-            <span>[SYNC] AUTOMATED</span>
-          </div>
-        </div>
-        <div class="matrix-item matrix-blueprint-placeholder">
-          <div class="matrix-node">PRT-06 // CORE</div>
-          <h3 class="matrix-title" data-i18n="capabilities.prt6.title">Blue Bird Engine</h3>
-          <p class="matrix-desc" data-i18n="capabilities.prt6.desc">The replication layer behind Axiom deployments: modular, hardware-agnostic, and secure enough to move fast without improvising.</p>
+        <div class="systems-grid" id="flagshipSystemsMount">
+          <div class="module-loading">Loading flagship systems.</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="evidence">
-    <div class="section-container">
-      <div class="section-header evidence-header">
-        <div class="evidence-header-copy">
-          <span class="section-tag" id="evidenceTag">Evidence Dashboard</span>
+    <section id="stage-record" class="section section-stage">
+      <div class="shell">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow" id="stageRecordEyebrow">STAGE RECORD</span>
+          <h2 class="section-title" id="stageRecordTitle">From launch signal to main-stage proof.</h2>
+          <p class="section-summary" id="stageRecordLede">Two protocols, two cities, one working surface. Taipei opened the ledger. Singapore scaled it.</p>
+        </header>
+
+        <div class="protocol-grid" id="stageRecordMount">
+          <div class="module-loading">Loading stage record.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evidence" class="section">
+      <div class="shell">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow" id="evidenceTag">EVIDENCE LEDGER</span>
           <h2 class="section-title" id="evidenceTitle">What we can prove, where it lives, and how current it is.</h2>
-          <p class="section-desc" id="evidenceDesc">This section now reads live records from the evidence database. It shows project proof, regional spread, source quality, and a public timeline you can scan quickly.</p>
-        </div>
-        <div class="evidence-toolbar">
-          <div class="evidence-locale-switch" id="evidenceLocaleSwitch" aria-label="Evidence language">
-            <button type="button" class="evidence-locale-pill is-active" data-locale="en">English</button>
-            <button type="button" class="evidence-locale-pill" data-locale="th">ไทย</button>
-            <button type="button" class="evidence-locale-pill" data-locale="zh">中文</button>
-          </div>
-          <p class="evidence-locale-note" id="evidenceLocaleNote">This switch changes the evidence section only.</p>
-        </div>
-      </div>
+          <p class="section-summary" id="evidenceSummary">This module reads the live evidence model or its static snapshot fallback. It groups proof by status, region, and type, then shows the public record behind each claim.</p>
+          <p class="section-note" id="evidenceLocaleNote">The language switch in the header updates this section too.</p>
+        </header>
 
-      <div class="evidence-explainer">
-        <span class="evidence-explainer-kicker" id="evidenceExplainerKicker">IN PLAIN ENGLISH</span>
-        <p class="evidence-explainer-text" id="evidenceExplainerText">This is the part of the homepage that behaves more like a dashboard than a brochure. It counts visits, groups proof by status and region, and shows which public records back each claim.</p>
-      </div>
-
-      <div class="evidence-summary-grid">
-        <article class="evidence-summary-card">
-          <span class="evidence-summary-label" id="evidenceVisitsLabel">VISITS RECORDED</span>
-          <strong class="evidence-summary-value" id="evidencePageviews">0</strong>
-          <span class="evidence-summary-note" id="evidencePageviewsNote">No visits have been recorded yet.</span>
-        </article>
-        <article class="evidence-summary-card">
-          <span class="evidence-summary-label" id="evidenceProofLabel">PROOF FILES</span>
-          <strong class="evidence-summary-value" id="evidenceCaseFiles">0</strong>
-          <span class="evidence-summary-note" id="evidenceProofNote">Project records backed by stored proof.</span>
-        </article>
-        <article class="evidence-summary-card">
-          <span class="evidence-summary-label" id="evidenceRegionLabel">REGIONS COVERED</span>
-          <strong class="evidence-summary-value" id="evidenceRegionsCovered">0</strong>
-          <span class="evidence-summary-note" id="evidenceRegionNote">Distinct operating footprints represented in the proof set.</span>
-        </article>
-        <article class="evidence-summary-card">
-          <span class="evidence-summary-label" id="evidenceSourceLabel">VERIFIED SOURCES</span>
-          <strong class="evidence-summary-value" id="evidenceVerifiedSources">0</strong>
-          <span class="evidence-summary-note" id="evidenceSourceNote">Distinct live sources or public references behind the records.</span>
-        </article>
-        <article class="evidence-summary-card">
-          <span class="evidence-summary-label" id="evidenceConfidenceLabel">AVERAGE CONFIDENCE</span>
-          <strong class="evidence-summary-value" id="evidenceAverageConfidence">0%</strong>
-          <span class="evidence-summary-note" id="evidenceConfidenceNote">A quick read on how strong the current proof set is.</span>
-        </article>
-      </div>
-
-      <div class="evidence-legend">
-        <span class="evidence-legend-item"><span class="status-dot dot-live"></span>Live</span>
-        <span class="evidence-legend-item"><span class="status-dot dot-pilot"></span>Pilot</span>
-        <span class="evidence-legend-item"><span class="status-dot dot-complete"></span>Complete</span>
-      </div>
-
-      <div class="evidence-visual-grid">
-        <article class="evidence-visual-card">
-          <div class="evidence-visual-head">
-            <span class="evidence-panel-label" id="evidenceStatusHeading">DELIVERY STATUS</span>
-            <p class="evidence-panel-text" id="evidenceStatusText">Which records are live now, in pilot, or already publicly launched.</p>
-          </div>
-          <div id="evidenceStatusViz" class="evidence-bar-list" aria-live="polite">
-            <div class="evidence-loading">Loading status distribution.</div>
-          </div>
-        </article>
-
-        <article class="evidence-visual-card">
-          <div class="evidence-visual-head">
-            <span class="evidence-panel-label" id="evidenceRegionHeading">REGIONAL FOOTPRINT</span>
-            <p class="evidence-panel-text" id="evidenceRegionText">Where the evidence is concentrated right now.</p>
-          </div>
-          <div id="evidenceRegionViz" class="evidence-bar-list" aria-live="polite">
-            <div class="evidence-loading">Loading regional footprint.</div>
-          </div>
-        </article>
-
-        <article class="evidence-visual-card">
-          <div class="evidence-visual-head">
-            <span class="evidence-panel-label" id="evidenceTypeHeading">EVIDENCE MIX</span>
-            <p class="evidence-panel-text" id="evidenceTypeText">The balance between monitoring, operations, and public reference work.</p>
-          </div>
-          <div id="evidenceTypeViz" class="evidence-bar-list" aria-live="polite">
-            <div class="evidence-loading">Loading evidence mix.</div>
-          </div>
-        </article>
-      </div>
-
-      <div class="evidence-layout">
-        <div class="evidence-case-column">
-          <div class="evidence-panel-copy">
-            <span class="evidence-panel-label" id="evidenceCaseHeading">PROJECT PROOF</span>
-            <p class="evidence-panel-text" id="evidenceCaseText">Each record shows who it served, what shipped, which source backs it, and how current the proof still is.</p>
-          </div>
-          <div id="evidenceFilterStrip" class="evidence-filter-strip" aria-label="Filter case studies"></div>
-          <div id="caseStudyProofMount" class="evidence-case-list" aria-live="polite">
-            <div class="evidence-loading">Loading project proof.</div>
-          </div>
+        <div class="module-card evidence-explainer" data-reveal>
+          <span class="card-label" id="evidenceExplainerLabel">IN PLAIN ENGLISH</span>
+          <p class="section-summary no-max" id="evidenceExplainerText">This is the working ledger behind the homepage. It counts visits, surfaces proof files, and shows which records are strong enough to stay public.</p>
         </div>
 
-        <aside class="evidence-history-card">
-          <div class="evidence-history-header">
-            <span class="evidence-history-label" id="evidenceHistoryLabel">PUBLIC TIMELINE</span>
-            <span class="evidence-history-meta" id="contentHistoryMeta">Loading entries...</span>
-          </div>
-          <p class="evidence-history-intro" id="evidenceHistoryText">Every line below is a public trace that supports the story: launch, deployment, workshop, or regional rollout.</p>
-          <div id="contentHistoryList" class="evidence-history-list" aria-live="polite">
-            <div class="evidence-loading">Loading timeline entries.</div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mission Brief: Protocol Alpha -->
-  <section id="launch">
-    <div class="launch-hero">
-      <div class="launch-telemetry-overlay"></div>
-      <img src="photos/launch/hero.jpg" alt="Dr. Non Arkara keynote at SCSE 2026 Taipei" class="launch-hero-img" loading="lazy">
-      <div class="launch-hero-overlay"></div>
-    </div>
-
-    <div class="section-container">
-      <div class="launch-header">
-        <span class="section-tag">[EVENT_ID: SCSE_2026_TPE]</span>
-        <h2 class="launch-hero-title">Protocol Alpha: Taipei.<br>City vision. Live systems. Working proof.</h2>
-      </div>
-      <div class="launch-stats">
-        <div class="launch-stat">
-          <span class="launch-stat-value">174</span>
-          <span class="launch-stat-label">CITIES_INDEXED</span>
-        </div>
-        <div class="launch-stat">
-          <span class="launch-stat-value">53</span>
-          <span class="launch-stat-label">NATIONS_REPRESENTED</span>
-        </div>
-        <div class="launch-stat">
-          <span class="launch-stat-value">3,000+</span>
-          <span class="launch-stat-label">INTEL_PARTNERS</span>
-        </div>
-        <div class="launch-stat">
-          <span class="launch-stat-value">2,250</span>
-          <span class="launch-stat-label">NODE_EXHIBITS</span>
-        </div>
-      </div>
-
-      <div class="launch-body">
-        <div class="launch-text intelligence-log">
-          <div class="log-entry">
-            <span class="log-timestamp">[T+00:00:00]</span>
-            <p>Keynote delivered at SCSE 2026 Taipei. Focus: rapid urban response, public dashboards, and cross-border data governance.</p>
-          </div>
-          <div class="log-entry">
-            <span class="log-timestamp">[T+00:45:00]</span>
-            <p>Live dashboard demonstration completed inside 45 minutes. Working surface, not concept art.</p>
-          </div>
-          <div class="log-entry">
-            <span class="log-timestamp">[T+01:15:00]</span>
-            <p>SLIC live: 157 cities, five pillars, adjustable ranking logic. Interest confirmed across mayoral and city-network audiences.</p>
-          </div>
-          <div class="field-transmission">
-            <div class="transmission-header">ENCRYPTED_TRANSMISSION // FIELD_01</div>
-            <p>&ldquo;We didn't build an index for the shelf. We built a command system for the street. You build the ranking; we build the reality.&rdquo;</p>
-          </div>
-        </div>
-        <div class="launch-photos">
-          <div class="launch-photo-wrap lightbox-trigger" tabindex="0" role="button" aria-label="Open stage visual screenshot">
-            <div class="photo-node-label">NODE: STAGE_VISUAL</div>
-            <img src="photos/launch/stage.jpg" alt="Dr. Non on the City Vision stage, SCSE 2026" loading="lazy">
-          </div>
-          <div class="launch-photo-wrap lightbox-trigger" tabindex="0" role="button" aria-label="Open war monitor screenshot">
-            <div class="photo-node-label">NODE: WAR_MONITOR</div>
-            <img src="screenshots/axiom/middle-east-war-monitor.webp" alt="Middle East War Monitor live tactical interface shown during the Axiom launch cycle" loading="lazy">
-          </div>
-          <div class="launch-photo-wrap lightbox-trigger" tabindex="0" role="button" aria-label="Open global political dashboard screenshot">
-            <div class="photo-node-label">NODE: GLOBAL_POLITICAL_DASHBOARD</div>
-            <img src="screenshots/axiom/global-political-dashboard.webp" alt="Global Political Dashboard showing multi-theater geopolitical monitoring and market radar" loading="lazy">
-          </div>
-          <div class="launch-photo-wrap lightbox-trigger" tabindex="0" role="button" aria-label="Open networking photo">
-            <div class="photo-node-label">NODE: INTEL_EXCHANGE</div>
-            <img src="photos/launch/networking.jpg" alt="Networking after the SLIC Index launch" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="interface-atlas">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Interface Atlas</span>
-        <h2 class="section-title">The screens got sharper<br>because the argument did.</h2>
-        <p class="section-desc">Real interfaces, not moodboards. Each screen sharpened the argument: clearer trade-offs, clearer public value, faster reading.</p>
-      </div>
-
-      <div class="interface-atlas-grid">
-        <article class="interface-atlas-feature lightbox-trigger" tabindex="0" role="button" aria-label="Open Smart City Thailand Index screenshot">
-          <div class="interface-atlas-media">
-            <img src="screenshots/axiom/smart-city-thailand-index-reference.png" alt="Smart City Thailand Index homepage showing the national programme hero view" loading="lazy">
-          </div>
-          <div class="interface-atlas-body">
-            <span class="interface-atlas-kicker">Public programme view</span>
-            <h3 class="interface-atlas-title">Smart City Thailand Index made a national programme legible.</h3>
-            <p class="interface-atlas-text">A government-facing public surface that explains the programme in one glance and keeps certification tied to outcomes, not ceremony.</p>
-          </div>
-        </article>
-
-        <article class="interface-atlas-feature lightbox-trigger" tabindex="0" role="button" aria-label="Open SLIC ranking lab screenshot">
-          <div class="interface-atlas-media">
-            <img src="screenshots/axiom/slic-weights-lab.webp" alt="SLIC ranking lab interface where users adjust the five pillars and compare results" loading="lazy">
-          </div>
-          <div class="interface-atlas-body">
-            <span class="interface-atlas-kicker">Ranking lab</span>
-            <h3 class="interface-atlas-title">The weighting engine turned the ranking into a conversation.</h3>
-            <p class="interface-atlas-text">SLIC shows the five pillars and lets people test their own priorities. That turns a prestige leaderboard into a usable civic argument.</p>
-          </div>
-        </article>
-      </div>
-
-      <div class="interface-evolution">
-        <a class="interface-card" href="https://www.linkedin.com/posts/drnon_slicindex-smartcities-livability-activity-7440419472890363904-A9kh" target="_blank" rel="noopener">
-          <div class="interface-card-media">
-            <img src="screenshots/axiom/slic-v1-hero.jpg" alt="SLIC Index V1 interface for the Smart and Liveable Cities Index" loading="lazy">
-          </div>
-          <div class="interface-card-body">
-            <span class="interface-card-step">V1 // PUBLIC MODEL</span>
-            <h3>Start with the claim.</h3>
-            <p>The first generation made the core thesis public: cities should be ranked on human possibility, not polished prestige.</p>
-          </div>
-        </a>
-
-        <a class="interface-card" href="https://www.linkedin.com/posts/drnon_smartcities-urbandevelopment-livability-activity-7436658530432135168-b5F5" target="_blank" rel="noopener">
-          <div class="interface-card-media">
-            <img src="screenshots/axiom/slic-v2-hero.jpg" alt="SLIC Index V2 dark interface with user-adjustable ranking controls" loading="lazy">
-          </div>
-          <div class="interface-card-body">
-            <span class="interface-card-step">V2 // USER-CONTROLLED RANKING</span>
-            <h3>Then let the user move the score.</h3>
-            <p>The second generation shifted the product from static ranking toward adjustable ranking logic, making trade-offs visible instead of hiding them.</p>
-          </div>
-        </a>
-
-        <a class="interface-card" href="https://nonarkara.github.io/SLIC-Index/" target="_blank" rel="noopener">
-          <div class="interface-card-media">
-            <img src="screenshots/axiom/slic-v3-hero.webp" alt="SLIC Index V3 interface asking which cities score highest under this metric" loading="lazy">
-          </div>
-          <div class="interface-card-body">
-            <span class="interface-card-step">V3 // CURRENT</span>
-            <h3>157 cities. Five pillars. Live explorer.</h3>
-            <p>The current version is lighter, faster, and more procedural. Cities publish, pillars are adjustable, and the gap between question and answer is as small as possible.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- UAV Integration — Active Capability -->
-  <section id="uav">
-    <div class="uav-hero" style="min-height:40vh;">
-      <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=1920&q=80" alt="Drone operations over Thailand" class="uav-hero-img" loading="lazy">
-      <div class="uav-hero-overlay"></div>
-      <div class="section-container uav-hero-content">
-        <span class="section-tag" style="color: rgba(255,255,255,0.4);">Aerial Intelligence</span>
-        <h2 class="uav-hero-title">Our dashboards are<br>UAV-ready. Now.</h2>
-        <p class="uav-hero-sub">Every Axiom dashboard is built to ingest drone feeds: aerial survey, thermal, NDVI, and disaster assessment. As Thailand opens commercial UAV operations, our systems already serve as the command layer from satellite overview to street-level action.</p>
-        <div class="uav-stats" style="margin-top:2rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;">
-          <div class="uav-stat">
-            <span class="uav-stat-value">6</span>
-            <span class="uav-stat-label">Dashboard-ready</span>
-          </div>
-          <div class="uav-stat">
-            <span class="uav-stat-value">Real-time</span>
-            <span class="uav-stat-label">Feed ingestion</span>
-          </div>
-          <div class="uav-stat">
-            <span class="uav-stat-value">Multi-type</span>
-            <span class="uav-stat-label">Sensor support</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Team -->
-  <section id="team">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="team.tag">Team</span>
-        <h2 class="section-title" data-i18n-html="team.title">Right people.<br>Right time.</h2>
-        <p class="section-desc" data-i18n="team.desc">No account-manager layer. Two founders stay in the build, and the network only joins when the mission needs specific expertise.</p>
-      </div>
-
-      <div class="team-stage">
-        <div class="team-founders-photo">
-          <img src="Portraits/Non and Poon.JPG" alt="Non and Poon — Co-Founders of Axiom" class="founders-img" style="transform: scaleX(-1);" loading="lazy">
-          <p class="founders-caption" data-i18n="team.foundersCaption">Two founders. No account managers standing in the middle of the work.</p>
+        <div class="proof-strip proof-strip-ledger" id="evidenceSummaryMount">
+          <div class="module-loading">Loading ledger summary.</div>
         </div>
 
-        <div class="team-playbook">
-          <div class="team-playbook-card">
-            <span class="team-playbook-label" data-i18n="team.playbookLabel">How Axiom actually runs</span>
-            <h3 class="team-playbook-title" data-i18n="team.playbookTitle">Lean core. Elastic network.</h3>
-            <p class="team-playbook-text" data-i18n="team.playbookText">We keep the core small so decisions stay fast. When a project needs UAV feeds, traffic engineering, finance, or policy translation, we pull in the exact specialist instead of adding roles for optics.</p>
-          </div>
-
-          <div class="team-rules">
-            <div class="team-rule">
-              <span class="team-rule-label" data-i18n="team.rule1.label">Rule 01</span>
-              <strong data-i18n="team.rule1.title">No handoff maze</strong>
-              <span data-i18n="team.rule1.desc">You talk to builders, not handlers.</span>
+        <div class="evidence-chart-grid">
+          <article class="module-card" data-reveal>
+            <span class="card-label" id="statusChartTitle">Delivery status</span>
+            <p class="card-meta" id="statusChartText">Which records are live, in pilot, or publicly launched.</p>
+            <div id="evidenceStatusViz" class="bar-list">
+              <div class="module-loading">Loading chart.</div>
             </div>
-            <div class="team-rule">
-              <span class="team-rule-label" data-i18n="team.rule2.label">Rule 02</span>
-              <strong data-i18n="team.rule2.title">Founders stay hands-on</strong>
-              <span data-i18n="team.rule2.desc">Strategy and shipping happen in the same room.</span>
+          </article>
+          <article class="module-card" data-reveal>
+            <span class="card-label" id="regionChartTitle">Regional footprint</span>
+            <p class="card-meta" id="regionChartText">Where the current proof concentration sits.</p>
+            <div id="evidenceRegionViz" class="bar-list">
+              <div class="module-loading">Loading chart.</div>
             </div>
-            <div class="team-rule">
-              <span class="team-rule-label" data-i18n="team.rule3.label">Rule 03</span>
-              <strong data-i18n="team.rule3.title">Specialists join by mission</strong>
-              <span data-i18n="team.rule3.desc">Only when the brief truly needs them.</span>
+          </article>
+          <article class="module-card" data-reveal>
+            <span class="card-label" id="typeChartTitle">Evidence mix</span>
+            <p class="card-meta" id="typeChartText">How the visible proof balances monitoring, operations, and public-reference work.</p>
+            <div id="evidenceTypeViz" class="bar-list">
+              <div class="module-loading">Loading chart.</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="evidence-layout">
+          <div class="evidence-case-column">
+            <div class="section-subhead" data-reveal>
+              <span class="card-label" id="caseStudiesTitle">Project proof</span>
+              <p class="card-meta" id="caseStudiesText">Each record shows the user, the delivered surface, the decision it helped, and the source that keeps it defensible.</p>
+            </div>
+            <div class="filter-row" id="evidenceFilterStrip"></div>
+            <div class="systems-grid systems-grid-proof" id="caseStudyProofMount">
+              <div class="module-loading">Loading project proof.</div>
+            </div>
+          </div>
+          <aside class="module-card history-card" data-reveal>
+            <div class="history-head">
+              <div>
+                <span class="card-label" id="historyTitle">Public history</span>
+                <p class="card-meta" id="historyText">These are the public traces that explain how the work entered the world: launch, deployment, workshop, or programme layer.</p>
+              </div>
+              <span class="history-count" id="contentHistoryMeta">0 entries loaded</span>
+            </div>
+            <div class="history-list" id="contentHistoryList">
+              <div class="module-loading">Loading public history.</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="public-record" class="section">
+      <div class="shell">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow" id="publicRecordTag">PUBLIC RECORD</span>
+          <h2 class="section-title" id="publicRecordTitle">A tighter record of field proof and public references.</h2>
+          <p class="section-summary" id="publicRecordSummary">Instead of a long gallery, this section keeps six curated items only: three field-proof cards from the evidence model and three public references that explain the work in plain sight.</p>
+        </header>
+
+        <div class="record-layout">
+          <div class="record-column">
+            <div class="section-subhead" data-reveal>
+              <span class="card-label" id="fieldProofLabel">FIELD PROOF</span>
+              <p class="card-meta" id="fieldProofText">These cards are backed by the current content-history layer. If a record cannot point to stored proof, it does not stay here.</p>
+            </div>
+            <div class="record-grid" id="fieldProofMount">
+              <div class="module-loading">Loading field proof.</div>
+            </div>
+          </div>
+
+          <div class="record-column">
+            <div class="section-subhead" data-reveal>
+              <span class="card-label" id="referenceLabel">PUBLIC REFERENCE</span>
+              <p class="card-meta" id="referenceText">A short public trail for people who need outside context, not a press wall.</p>
+            </div>
+            <div class="reference-list" id="publicReferenceMount">
+              <div class="module-loading">Loading public references.</div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="team-role">Co-Founder // Systems + Story</div>
-          <h3>Dr. Non Arkaraprasertkul</h3>
-          <p class="team-card-lead">Anthropologist, architect, builder. He watches how cities actually behave, then turns that mess into interfaces people can use without a training manual.</p>
-          <div class="team-credentials">
-            <span>PhD Anthropology, Harvard</span>
-            <span>MPhil Chinese Studies, Oxford</span>
-            <span>MSc Architecture, MIT</span>
+    <section id="team-contact" class="section">
+      <div class="shell">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow" id="teamTag">TEAM + CONTACT</span>
+          <h2 class="section-title" id="teamTitle">Founders stay close. The brief stays readable.</h2>
+          <p class="section-summary" id="teamSummary">The product stays founder-led in the only sense that matters here: the people who frame the problem are still inside the build.</p>
+        </header>
+
+        <div class="contact-layout">
+          <div class="team-column">
+            <article class="module-card founder-band" id="founderBandMount" data-reveal>
+              <div class="module-loading">Loading founder band.</div>
+            </article>
+            <article class="module-card network-band" id="networkBandMount" data-reveal>
+              <div class="module-loading">Loading network rules.</div>
+            </article>
           </div>
-          <p>Harvard-trained anthropologist and MIT/Oxford alumnus who spent years studying how cities mutate on the ground. Former Visiting Lecturer at MIT and postdoctoral fellow at NYU. He designs from field observation first, because people are not spreadsheets and cities are not PowerPoint.</p>
-          <div class="team-signal-list">
-            <span>Behavior before bureaucracy</span>
-            <span>Builds live systems fast</span>
-            <span>Designs from fieldwork</span>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-role">Co-Founder // Infrastructure + Delivery</div>
-          <h3>Dr. Poon Thiengburanathum</h3>
-          <p class="team-card-lead">Engineer, strategist, operational anchor. He keeps ambition tied to working systems and makes sure the product survives contact with reality.</p>
-          <div class="team-credentials">
-            <span>PhD Civil Engineering</span>
-            <span>Assoc. Prof., Chiang Mai University</span>
-            <span>School of Engineering</span>
-            <span>School of Public Policy</span>
-          </div>
-          <p>Associate Professor at Chiang Mai University and co-author of Chiang Mai's Smart City Master Plan. Works on cities as complex adaptive systems, from real-time bus prediction to public transport decision support and sustainable infrastructure. He is the delivery discipline behind the build.</p>
-          <div class="team-signal-list">
-            <span>Complex systems thinking</span>
-            <span>Mobility + infrastructure</span>
-            <span>Delivery under constraints</span>
-          </div>
-        </div>
-        <div class="team-card team-card-network">
-          <div class="team-role">Elastic Network // On Call</div>
-          <h3>The Collective</h3>
-          <p class="team-card-lead">No bloated bench. When the mission needs extra brains, we pull the exact people it calls for and not one person more.</p>
-          <p>Researchers, architects, anthropologists, traffic engineers, financiers, economists, policy translators, and media operators. They join by problem set, not as a standing bench.</p>
-          <div class="team-network-list">
-            <span>Traffic engineers</span>
-            <span>UAV operators</span>
-            <span>Economists</span>
-            <span>Financiers</span>
-            <span>Policy translators</span>
-            <span>Urban researchers</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Impact Projects — Institutional Trust -->
-  <section id="impact">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">Impact Projects</span>
-        <h2 class="section-title">Trusted by institutions<br>that shape policy.</h2>
-        <p class="section-desc">We work with ASEAN, the UN, and national governments because institutional scale is where working systems prove themselves.</p>
-      </div>
-
-      <div class="probono-grid">
-        <a href="https://nonarkara.github.io/ascn-smart-cities-network/" target="_blank" rel="noopener" class="probono-card">
-          <div class="probono-img"><img src="photos/probono/ascn.jpg" alt="ASCN Smart Cities Network launch at SCSE Taipei" loading="lazy"></div>
-          <div class="probono-org">ASEAN Smart Cities Network</div>
-          <h3 class="probono-title">38 cities. 10 nations. One platform.</h3>
-          <p class="probono-desc">Interactive hub for Southeast Asia's smart city collaboration. 134 projects tracked, 81% implementation rate. Built the SLIC Index integration for cross-city benchmarking.</p>
-          <div class="probono-for">For ASEAN Secretariat</div>
-        </a>
-
-        <a href="https://nonarkara.github.io/asean-csco-app/#manifesto" target="_blank" rel="noopener" class="probono-card">
-          <div class="probono-img"><img src="photos/probono/csco.jpg" alt="CSCO Handbook workshop in Nakhon Si Thammarat" loading="lazy"></div>
-          <div class="probono-org">ASEAN CSCO Handbook</div>
-          <h3 class="probono-title">The Chief Smart City Officer's playbook.</h3>
-          <p class="probono-desc">Born from real monsoon flooding in Nakhon Si Thammarat. 112,000+ app users, 38,000 complaints resolved. Co-developed with UNDP and UN-Habitat.</p>
-          <div class="probono-for">ASEAN &middot; UNDP &middot; UN-Habitat</div>
-        </a>
-
-        <a href="https://nonarkara.github.io/solomon-islands-workshop/#institutions" target="_blank" rel="noopener" class="probono-card">
-          <div class="probono-img"><img src="photos/probono/solomon.jpg" alt="UN DESA digital transformation workshop in Honiara" loading="lazy"></div>
-          <div class="probono-org">Solomon Islands</div>
-          <h3 class="probono-title">Whole-of-government digital roadmap.</h3>
-          <p class="probono-desc">Two-day UN DESA workshop in Honiara. From fragmented IT to coordinated citizen-centered services. A sovereign digital transformation journey.</p>
-          <div class="probono-for">UN DESA &middot; Solomon Islands Government</div>
-        </a>
-
-        <a href="https://nonarkara.github.io/scl-landing-page/" target="_blank" rel="noopener" class="probono-card">
-          <div class="probono-img"><img src="photos/probono/scl.jpg" alt="depa Smart City Leadership programme" loading="lazy"></div>
-          <div class="probono-org">depa Thailand</div>
-          <h3 class="probono-title">Thailand's digital agency, online.</h3>
-          <p class="probono-desc">Landing page for Thailand's Digital Economy Promotion Agency smart city leadership programme. Clean, fast, bilingual Thai-English.</p>
-          <div class="probono-for">For depa Thailand</div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured — Articles & Media -->
-  <section id="featured">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-tag">In the Press</span>
-        <h2 class="section-title">Read. Watch. Decide.</h2>
-      </div>
-
-      <div class="featured-grid">
-        <a href="https://middleeast-monitor.pages.dev/" target="_blank" rel="noopener" class="featured-card featured-card-highlight">
-          <div class="featured-source">Axiom Product</div>
-          <h3 class="featured-title">Middle East War Monitor &mdash; Live Intelligence Dashboard</h3>
-          <p class="featured-excerpt">Conflict signal tracking across Middle East theaters using public data, escalation monitoring, flight context, and Sentinel-2 imagery.</p>
-          <span class="featured-type">Live System</span>
-        </a>
-
-        <a href="https://govinsider.asia/intl-en/article/can-innovation-as-a-service-close-the-gap-between-policy-and-implementation" target="_blank" rel="noopener" class="featured-card">
-          <div class="featured-source">GovInsider</div>
-          <h3 class="featured-title">Can Innovation-as-a-Service close the gap between policy and implementation?</h3>
-          <p class="featured-excerpt">A practical model for deploying small AI decision systems before committing to a long procurement cycle.</p>
-          <span class="featured-type">Feature Article</span>
-        </a>
-
-        <a href="https://thefutureofpr.com/the-day-i-realized-governments-might-become-obsolete/" target="_blank" rel="noopener" class="featured-card">
-          <div class="featured-source">The Future of PR</div>
-          <h3 class="featured-title">External op-ed on live public-sector systems</h3>
-          <p class="featured-excerpt">An outside perspective on what fast dashboard building reveals about institutional delivery and operational focus.</p>
-          <span class="featured-type">Op-Ed</span>
-        </a>
-
-        <a href="https://www.youtube.com/watch?v=NC11q3zM6x4" target="_blank" rel="noopener" class="featured-card featured-card-video">
-          <div class="featured-source">YouTube &middot; Atharva Marcom</div>
-          <h3 class="featured-title">How AI is mining city data cheaply and making them smarter</h3>
-          <p class="featured-excerpt">Video interview with Dr. Non in Thailand on using open data and lightweight tooling for practical city intelligence.</p>
-          <span class="featured-type">Video</span>
-        </a>
-
-        <a href="https://medium.com/@nonsmartcity/the-live-not-vibe-coding-bible-27ac08258fe6" target="_blank" rel="noopener" class="featured-card">
-          <div class="featured-source">Medium</div>
-          <h3 class="featured-title">The live coding discipline</h3>
-          <p class="featured-excerpt">A practical note on building public systems in the open, testing them with real users, and keeping the proof visible.</p>
-          <span class="featured-type">Build Note</span>
-        </a>
-
-        <a href="https://medium.com/design-bootcamp/your-city-won-most-livable-your-therapist-disagrees-f2f782859c8e" target="_blank" rel="noopener" class="featured-card">
-          <div class="featured-source">Design Bootcamp &middot; Medium</div>
-          <h3 class="featured-title">Your City Won "Most Livable." Your Therapist Disagrees.</h3>
-          <p class="featured-excerpt">Why every city livability index is broken &mdash; and how SLIC built one that measures what actually matters to people who live there.</p>
-          <span class="featured-type">Essay</span>
-        </a>
-
-        <a href="https://mayorsofeurope.eu/news/they-built-the-index-but-you-build-the-ranking/" target="_blank" rel="noopener" class="featured-card">
-          <div class="featured-source">Mayors of Europe</div>
-          <h3 class="featured-title">They Built the Index, but You Build the Ranking</h3>
-          <p class="featured-excerpt">European mayors' network covers the SLIC Index launch. How a new ranking system gives cities control over how they measure livability.</p>
-          <span class="featured-type">International Press</span>
-        </a>
-
-        <a href="https://theaseanmagazine.asean.org/article/non-arkaraprasertkul-phd/" target="_blank" rel="noopener" class="featured-card">
-          <div class="featured-source">The ASEAN Magazine</div>
-          <h3 class="featured-title">Non Arkaraprasertkul, PhD</h3>
-          <p class="featured-excerpt">ASEAN interview on digital connectivity, open innovation, cybersecurity, and why smart cities only work when inclusion and trust scale together.</p>
-          <span class="featured-type">Interview</span>
-        </a>
-
-        <a href="https://technode.global/2023/01/18/a-smart-city-cannot-exist-without-its-citizens-and-technological-advances-will-foster-stronger-trust-between-citizens-and-institutions-and-encourage-civic-participation-says-dr-non-arkaraprasertkul/" target="_blank" rel="noopener" class="featured-card">
-          <div class="featured-source">TechNode Global</div>
-          <h3 class="featured-title">Why smart cities need citizens, not just technology</h3>
-          <p class="featured-excerpt">Dr. Non on trust, civic participation, and why upgrading existing cities matters as much as building new high-tech districts.</p>
-          <span class="featured-type">Feature Article</span>
-        </a>
-
-        <a href="https://www.smart-city-dialog.de/en/wissen/publikationen/insights-community-driven-innovation-thailand" target="_blank" rel="noopener" class="featured-card featured-card-video">
-          <div class="featured-source">Smart City Dialog</div>
-          <h3 class="featured-title">Insights for Community-Driven Innovation in Thailand</h3>
-          <p class="featured-excerpt">Global Mixer session on citizen-centric smart cities, cross-sector collaboration, and using data to solve real problems instead of decorating technology.</p>
-          <span class="featured-type">Video</span>
-        </a>
-
-        <a href="https://govinsider.asia/intl-en/article/cities-are-people-how-technology-can-breathe-life-into-urban-areas" target="_blank" rel="noopener" class="featured-card">
-          <div class="featured-source">GovInsider</div>
-          <h3 class="featured-title">Cities are people: How technology can breathe life into urban areas</h3>
-          <p class="featured-excerpt">Festival of Innovation coverage on why smart city strategy starts with citizens' needs, not empty sensor programs or prestige projects.</p>
-          <span class="featured-type">Conference Coverage</span>
-        </a>
-
-        <a href="https://govinsider.asia/intl-en/article/a-bottom-up-smart-city-thailands-evolving-approach-to-smart-city-development" target="_blank" rel="noopener" class="featured-card">
-          <div class="featured-source">GovInsider</div>
-          <h3 class="featured-title">A bottom-up smart city? Thailand's evolving approach to smart city development</h3>
-          <p class="featured-excerpt">How Thailand's smart city strategy shifted from infrastructure-first planning toward human-centered design, local context, and community-driven innovation.</p>
-          <span class="featured-type">Interview</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="contact">
-    <div class="section-container">
-      <div class="cta-block">
-        <div class="cta-bg-grid"></div>
-        <h2 class="cta-title" data-i18n-html="contact.title">Ready to find<br>your axioms?</h2>
-        <p class="cta-desc" data-i18n="contact.desc">If the problem is real and the decision matters, send the brief. We will map the pressure, identify the first usable surface, and show what can be proven.</p>
-        <div class="cta-commitments">
-          <span class="cta-commitment" data-i18n="contact.commit1">Pressure mapped in week one</span>
-          <span class="cta-commitment" data-i18n="contact.commit2">Working pilot before slide polish</span>
-          <span class="cta-commitment" data-i18n="contact.commit3">Data trail from day one</span>
-        </div>
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xreyjayk" method="POST">
-          <div class="contact-form-row">
-            <div class="contact-field">
-              <input type="text" id="contactName" name="name" required placeholder=" " autocomplete="name">
-              <label for="contactName" data-i18n="contact.fieldName">Name</label>
+          <article class="module-card contact-panel" id="contactPanel" data-reveal>
+            <div class="contact-copy">
+              <span class="card-label" id="contactLabel">SEND THE BRIEF</span>
+              <h3 class="card-title contact-title" id="contactTitle">Bring the real problem, not the polished promise.</h3>
+              <p class="card-meta contact-body" id="contactBody">If the decision matters, send the short brief. We will map the pressure, identify the first usable surface, and show what can be proven without wasting the room.</p>
+              <ul class="commitment-list" id="contactCommitments">
+                <li>One real decision clarified first.</li>
+                <li>A working surface before presentation polish.</li>
+                <li>A proof trail that survives GitHub Pages and live API mode.</li>
+              </ul>
             </div>
-            <div class="contact-field">
-              <input type="email" id="contactEmail" name="email" required placeholder=" " autocomplete="email">
-              <label for="contactEmail" data-i18n="contact.fieldEmail">Email</label>
-            </div>
-          </div>
-          <div class="contact-field">
-            <textarea id="contactMessage" name="message" rows="4" required placeholder=" "></textarea>
-            <label for="contactMessage" data-i18n="contact.fieldMessage">Message</label>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg">
-            <span data-i18n="contact.submit">Send Message</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </form>
+
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xreyjayk" method="POST">
+              <div class="field-grid">
+                <label class="field">
+                  <span id="contactNameLabel">Name</span>
+                  <input type="text" id="contactName" name="name" autocomplete="name" required>
+                </label>
+                <label class="field">
+                  <span id="contactEmailLabel">Email</span>
+                  <input type="email" id="contactEmail" name="email" autocomplete="email" required>
+                </label>
+              </div>
+              <label class="field">
+                <span id="contactMessageLabel">Brief</span>
+                <textarea id="contactMessage" name="message" rows="7" required></textarea>
+              </label>
+              <button type="submit" class="btn btn-primary btn-block" id="contactSubmit">Send brief</button>
+            </form>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer id="footer">
-    <div class="section-container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <img src="assets/axiom-logo.png" alt="Axiom" class="footer-logo" width="24" height="24">
-          <span class="footer-logo-text">AXIOM</span>
-        </div>
-        <div class="footer-links">
-          <a href="mailto:axiomaxiom.corp@gmail.com" class="footer-link">Email</a>
-          <a href="https://www.linkedin.com/company/axiomaxiom/about/" target="_blank" rel="noopener" class="footer-link" aria-label="Axiom on LinkedIn (opens in new tab)">LinkedIn</a>
-        </div>
-        <div class="footer-text">
-          <p>Decision systems for cities, governments, and operators.</p>
-        </div>
-        <div class="footer-location">Bangkok &middot; Southeast Asia</div>
-        <div class="footer-copy">&copy; 2026 Axiom. All rights reserved.</div>
-        <div class="footer-fine-print">
-          <p>Axiom is a registered trade name. Product names, logos, and brands belong to their respective owners. Satellite imagery is provided through open map and imagery layers including Esri World Imagery, CartoDB, and OpenTopoMap where used. System uptime, response times, and outcome metrics are case-specific observations, not guarantees of future performance.</p>
-        </div>
+  <footer class="site-footer">
+    <div class="shell footer-shell">
+      <div class="footer-brand">
+        <img src="assets/axiom-logo.png" alt="Axiom" class="brand-logo" width="20" height="20">
+        <span class="brand-wordmark">AXIOM</span>
       </div>
+      <div class="footer-copy">
+        <p id="footerStrapline">Decision systems for cities, governments, and operators.</p>
+        <p id="footerLocation">Bangkok · Southeast Asia</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:axiomaxiom.corp@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/company/axiomaxiom/about/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="footer-fine-print" id="footerFinePrint">Axiom is a registered trade name. Product names, logos, and brands belong to their respective owners. Metrics shown here are case-specific observations tied to visible records, not guarantees of future performance.</p>
     </div>
   </footer>
 
-  <!-- Command Terminal (Easter Egg — press Ctrl+K or /) -->
-  <div class="terminal-overlay" id="terminalOverlay">
-    <div class="terminal-window">
-      <div class="terminal-header">
-        <span class="terminal-header-dots"><span></span><span></span><span></span></span>
-        <span class="terminal-header-title">axiom@systems ~ </span>
-        <button class="terminal-close" id="terminalClose" type="button" aria-label="Close terminal">&times;</button>
-      </div>
-      <div class="terminal-body" id="terminalBody">
-        <div class="terminal-welcome">
-          <pre class="terminal-ascii">
-    █████╗ ██╗  ██╗██╗ ██████╗ ███╗   ███╗
-   ██╔══██╗╚██╗██╔╝██║██╔═══██╗████╗ ████║
-   ███████║ ╚███╔╝ ██║██║   ██║██╔████╔██║
-   ██╔══██║ ██╔██╗ ██║██║   ██║██║╚██╔╝██║
-   ██║  ██║██╔╝ ██╗██║╚██████╔╝██║ ╚═╝ ██║
-   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝     ╚═╝</pre>
-          <p>Innovation as a Service — v2.0</p>
-          <p class="terminal-hint">Type <span class="terminal-cmd">help</span> for available commands</p>
-        </div>
-      </div>
-      <div class="terminal-input-row">
-        <span class="terminal-prompt">axiom $</span>
-        <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false">
-      </div>
-    </div>
-  </div>
-
-  <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
-    <div class="image-lightbox-shell" role="dialog" aria-modal="true" aria-labelledby="imageLightboxTitle">
-      <button class="image-lightbox-close" id="imageLightboxClose" type="button" aria-label="Close image viewer">&times;</button>
-      <div class="image-lightbox-media">
-        <img id="imageLightboxImg" alt="">
-      </div>
-      <div class="image-lightbox-meta">
-        <span class="image-lightbox-kicker" id="imageLightboxKicker"></span>
-        <h3 class="image-lightbox-title" id="imageLightboxTitle"></h3>
-        <p class="image-lightbox-copy" id="imageLightboxCopy"></p>
-      </div>
-    </div>
-  </div>
-
+  <script src="site-copy.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -9,17 +9,28 @@
  *   slug: string,
  *   badge: string,
  *   title: string,
+ *   status: string,
+ *   regionCode: string,
  *   location: string,
  *   client: string,
  *   sector: string,
+ *   stakeholder: string,
  *   deploymentWindow: string,
  *   decisionSurface: string,
  *   summary: string,
  *   note: string,
+ *   outcome: string,
+ *   evidenceType: string,
+ *   evidenceSourceLabel: string,
+ *   evidenceSourceUrl: string,
+ *   confidenceScore: number,
+ *   languageCoverage: string,
+ *   artifactCount: number,
+ *   lastVerifiedAt: string,
  *   linkLabel: string,
  *   linkUrl: string,
  *   proofOrder: number,
- *   translations: Record<string, Partial<Record<'title' | 'deploymentWindow' | 'decisionSurface' | 'summary' | 'note' | 'linkLabel', string>>>,
+ *   translations: Record<string, Partial<Record<'title' | 'stakeholder' | 'deploymentWindow' | 'decisionSurface' | 'summary' | 'note' | 'outcome' | 'evidenceSourceLabel' | 'linkLabel', string>>>,
  *   metrics: Array<{ value: string, label: string }>
  * }} CaseStudyRecord
  */
@@ -36,7 +47,11 @@
  *   url: string,
  *   historyOrder: number,
  *   metadata: Record<string, unknown>,
- *   translations: Record<string, Partial<Record<'source' | 'title' | 'summary' | 'category' | 'eventPeriod', string>>>
+ *   status: string,
+ *   artifactType: string,
+ *   confidenceScore: number,
+ *   proofNote: string,
+ *   translations: Record<string, Partial<Record<'source' | 'title' | 'summary' | 'category' | 'eventPeriod' | 'proofNote', string>>>
  * }} HistoryRecord
  */
 
@@ -70,15 +85,25 @@ const uiCopy = {
         client: 'Who it was for',
         location: 'Where',
         sector: 'Type of work',
+        status: 'Delivery status',
+        regionCode: 'Region grouping',
+        evidenceType: 'Proof type',
+        confidenceScore: 'Confidence score',
+        artifactCount: 'Proof artifacts',
+        lastVerifiedAt: 'Last verified',
         linkUrl: 'Live URL',
+        evidenceSourceUrl: 'Proof source URL',
         linkLabel: 'English link label',
         metrics: 'Result metrics',
         metricsHelp: 'One metric per line in the format: value | label',
         title: 'Title',
+        stakeholder: 'Who needs this',
         deploymentWindow: 'What was delivered',
         decisionSurface: 'What decisions it helped',
         summary: 'Why it matters',
         note: 'Operator note',
+        outcome: 'Outcome',
+        evidenceSourceLabel: 'Proof source label',
       },
       locale: {
         en: {
@@ -110,11 +135,15 @@ const uiCopy = {
         order: 'Display order',
         location: 'Location',
         url: 'Source URL',
+        status: 'Record status',
+        artifactType: 'Artifact type',
+        confidenceScore: 'Confidence score',
         source: 'Source',
         title: 'Headline',
         summary: 'Summary',
         category: 'Category',
         eventPeriod: 'Time period',
+        proofNote: 'Proof note',
       },
       locale: {
         en: {
@@ -169,6 +198,8 @@ const uiCopy = {
       caseDeleted: 'Project record deleted.',
       historyDeleted: 'Timeline entry deleted.',
       loadFailed: 'Could not load the editor data from the local API server.',
+      readOnlyLoaded: 'Static GitHub Pages snapshot loaded. Start the local Node server to edit records.',
+      readOnly: 'This view is read-only because the local API server is not available.',
     },
   },
   th: {
@@ -200,15 +231,25 @@ const uiCopy = {
         client: 'สำหรับใคร',
         location: 'ที่ไหน',
         sector: 'ประเภทงาน',
+        status: 'สถานะการส่งมอบ',
+        regionCode: 'กลุ่มภูมิภาค',
+        evidenceType: 'ประเภทหลักฐาน',
+        confidenceScore: 'คะแนนความเชื่อมั่น',
+        artifactCount: 'จำนวนชิ้นหลักฐาน',
+        lastVerifiedAt: 'ตรวจล่าสุดเมื่อ',
         linkUrl: 'ลิงก์ระบบจริง',
+        evidenceSourceUrl: 'ลิงก์แหล่งหลักฐาน',
         linkLabel: 'ข้อความลิงก์ภาษาอังกฤษ',
         metrics: 'ผลลัพธ์ที่ต้องการแสดง',
         metricsHelp: 'หนึ่งบรรทัดต่อหนึ่งค่า รูปแบบคือ: value | label',
         title: 'ชื่อเรื่อง',
+        stakeholder: 'ใครต้องใช้ข้อมูลนี้',
         deploymentWindow: 'ส่งมอบอะไร',
         decisionSurface: 'ช่วยเรื่องการตัดสินใจอะไร',
         summary: 'ทำไมจึงสำคัญ',
         note: 'หมายเหตุสำหรับผู้ปฏิบัติการ',
+        outcome: 'ผลลัพธ์',
+        evidenceSourceLabel: 'ชื่อแหล่งหลักฐาน',
       },
       locale: {
         en: { title: 'เนื้อหาภาษาอังกฤษ', hint: 'ข้อความชุดนี้คือสิ่งที่หน้าเว็บสาธารณะใช้อยู่ตอนนี้' },
@@ -228,11 +269,15 @@ const uiCopy = {
         order: 'ลำดับการแสดงผล',
         location: 'สถานที่',
         url: 'ลิงก์แหล่งอ้างอิง',
+        status: 'สถานะระเบียน',
+        artifactType: 'ประเภทชิ้นงาน',
+        confidenceScore: 'คะแนนความเชื่อมั่น',
         source: 'แหล่งที่มา',
         title: 'หัวข้อ',
         summary: 'สรุป',
         category: 'หมวดหมู่',
         eventPeriod: 'ช่วงเวลา',
+        proofNote: 'หมายเหตุหลักฐาน',
       },
       locale: {
         en: { title: 'เนื้อหาภาษาอังกฤษ', hint: 'ข้อความชุดนี้คือสิ่งที่ไทม์ไลน์สาธารณะใช้อยู่ตอนนี้' },
@@ -273,6 +318,8 @@ const uiCopy = {
       caseDeleted: 'ลบระเบียนโครงการแล้ว',
       historyDeleted: 'ลบรายการไทม์ไลน์แล้ว',
       loadFailed: 'ไม่สามารถโหลดข้อมูลตัวแก้ไขจาก API ภายในเครื่องได้',
+      readOnlyLoaded: 'โหลดสแนปช็อต GitHub Pages แบบอ่านอย่างเดียวแล้ว ต้องเปิด local Node server ก่อนแก้ไขระเบียน',
+      readOnly: 'มุมมองนี้อ่านอย่างเดียว เพราะยังไม่มี local API server',
     },
   },
   zh: {
@@ -304,15 +351,25 @@ const uiCopy = {
         client: '服务对象',
         location: '地点',
         sector: '工作类型',
+        status: '交付状态',
+        regionCode: '区域分组',
+        evidenceType: '证据类型',
+        confidenceScore: '可信度分数',
+        artifactCount: '证据件数',
+        lastVerifiedAt: '最近核验时间',
         linkUrl: '线上链接',
+        evidenceSourceUrl: '证据来源链接',
         linkLabel: '英文链接文字',
         metrics: '结果指标',
         metricsHelp: '每行一个指标，格式为: value | label',
         title: '标题',
+        stakeholder: '谁需要这套系统',
         deploymentWindow: '交付内容',
         decisionSurface: '支持了什么决策',
         summary: '为什么重要',
         note: '操作备注',
+        outcome: '结果',
+        evidenceSourceLabel: '证据来源标签',
       },
       locale: {
         en: { title: '英文内容', hint: '公开页面当前使用这组英文内容' },
@@ -332,11 +389,15 @@ const uiCopy = {
         order: '显示顺序',
         location: '地点',
         url: '来源链接',
+        status: '记录状态',
+        artifactType: '成果类型',
+        confidenceScore: '可信度分数',
         source: '来源',
         title: '标题',
         summary: '摘要',
         category: '类别',
         eventPeriod: '时间段',
+        proofNote: '证据说明',
       },
       locale: {
         en: { title: '英文内容', hint: '公开时间线当前使用这组英文内容' },
@@ -377,6 +438,8 @@ const uiCopy = {
       caseDeleted: '项目记录已删除',
       historyDeleted: '时间线记录已删除',
       loadFailed: '无法从本地 API 服务器加载编辑器数据',
+      readOnlyLoaded: '已加载 GitHub Pages 静态快照。请启动本地 Node 服务器后再编辑记录。',
+      readOnly: '本视图为只读，因为本地 API 服务器不可用。',
     },
   },
   ts: {
@@ -408,15 +471,25 @@ const uiCopy = {
         client: 'client',
         location: 'location',
         sector: 'sector',
+        status: 'status',
+        regionCode: 'regionCode',
+        evidenceType: 'evidenceType',
+        confidenceScore: 'confidenceScore',
+        artifactCount: 'artifactCount',
+        lastVerifiedAt: 'lastVerifiedAt',
         linkUrl: 'linkUrl',
+        evidenceSourceUrl: 'evidenceSourceUrl',
         linkLabel: 'linkLabel (en)',
         metrics: 'metrics[]',
         metricsHelp: 'One line per metric: value | label',
         title: 'title',
+        stakeholder: 'stakeholder',
         deploymentWindow: 'deploymentWindow',
         decisionSurface: 'decisionSurface',
         summary: 'summary',
         note: 'note',
+        outcome: 'outcome',
+        evidenceSourceLabel: 'evidenceSourceLabel',
       },
       locale: {
         en: { title: 'English source fields', hint: 'These top-level values are what the public site consumes today.' },
@@ -436,11 +509,15 @@ const uiCopy = {
         order: 'historyOrder',
         location: 'location',
         url: 'url',
+        status: 'status',
+        artifactType: 'artifactType',
+        confidenceScore: 'confidenceScore',
         source: 'source',
         title: 'title',
         summary: 'summary',
         category: 'category',
         eventPeriod: 'eventPeriod',
+        proofNote: 'proofNote',
       },
       locale: {
         en: { title: 'English source fields', hint: 'These top-level values are what the public site consumes today.' },
@@ -481,12 +558,14 @@ const uiCopy = {
       caseDeleted: 'Case-study record deleted.',
       historyDeleted: 'Timeline record deleted.',
       loadFailed: 'Could not load the editor data from the local API server.',
+      readOnlyLoaded: 'Static GitHub Pages snapshot loaded. Start the local Node server to mutate records.',
+      readOnly: 'Read-only snapshot mode: local API mutations are unavailable.',
     },
   },
 };
 
-const caseLocaleFields = ['title', 'deploymentWindow', 'decisionSurface', 'summary', 'note', 'linkLabel'];
-const historyLocaleFields = ['source', 'title', 'summary', 'category', 'eventPeriod'];
+const caseLocaleFields = ['title', 'stakeholder', 'deploymentWindow', 'decisionSurface', 'summary', 'note', 'outcome', 'evidenceSourceLabel', 'linkLabel'];
+const historyLocaleFields = ['source', 'title', 'summary', 'category', 'eventPeriod', 'proofNote'];
 
 const state = {
   activeLocale: /** @type {UiLocale} */ ('en'),
@@ -497,6 +576,7 @@ const state = {
   caseDraft: /** @type {CaseStudyRecord} */ (createEmptyCaseStudy()),
   historyDraft: /** @type {HistoryRecord} */ (createEmptyHistory()),
   lastAnalytics: null,
+  readOnly: false,
 };
 
 const refs = {
@@ -524,13 +604,23 @@ const formFields = {
     client: /** @type {HTMLInputElement | null} */ (document.getElementById('caseClient')),
     location: /** @type {HTMLInputElement | null} */ (document.getElementById('caseLocation')),
     sector: /** @type {HTMLInputElement | null} */ (document.getElementById('caseSector')),
+    status: /** @type {HTMLSelectElement | null} */ (document.getElementById('caseStatus')),
+    regionCode: /** @type {HTMLInputElement | null} */ (document.getElementById('caseRegionCode')),
+    evidenceType: /** @type {HTMLInputElement | null} */ (document.getElementById('caseEvidenceType')),
+    confidenceScore: /** @type {HTMLInputElement | null} */ (document.getElementById('caseConfidenceScore')),
+    artifactCount: /** @type {HTMLInputElement | null} */ (document.getElementById('caseArtifactCount')),
+    lastVerifiedAt: /** @type {HTMLInputElement | null} */ (document.getElementById('caseLastVerifiedAt')),
     linkUrl: /** @type {HTMLInputElement | null} */ (document.getElementById('caseLinkUrl')),
+    evidenceSourceUrl: /** @type {HTMLInputElement | null} */ (document.getElementById('caseEvidenceSourceUrl')),
     metrics: /** @type {HTMLTextAreaElement | null} */ (document.getElementById('caseMetrics')),
   },
   history: {
     historyOrder: /** @type {HTMLInputElement | null} */ (document.getElementById('historyOrder')),
     location: /** @type {HTMLInputElement | null} */ (document.getElementById('historyLocation')),
     url: /** @type {HTMLInputElement | null} */ (document.getElementById('historyUrl')),
+    status: /** @type {HTMLSelectElement | null} */ (document.getElementById('historyStatus')),
+    artifactType: /** @type {HTMLInputElement | null} */ (document.getElementById('historyArtifactType')),
+    confidenceScore: /** @type {HTMLInputElement | null} */ (document.getElementById('historyConfidenceScore')),
   },
 };
 
@@ -589,31 +679,111 @@ function bindActions() {
   });
 }
 
+function siteAssetUrl(assetPath) {
+  const cleanPath = String(assetPath || '').replace(/^\/+/, '');
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  const isRepoPath = pathParts[0]?.toLowerCase() === 'axiom';
+  const basePath = (window.location.hostname.endsWith('github.io') || isRepoPath) && pathParts[0]
+    ? `/${pathParts[0]}/`
+    : '/';
+  return new URL(cleanPath, `${window.location.origin}${basePath}`).toString();
+}
+
+function isStaticDeployment() {
+  const firstPathSegment = window.location.pathname.split('/').filter(Boolean)[0]?.toLowerCase();
+  return window.location.hostname.endsWith('github.io') || firstPathSegment === 'axiom';
+}
+
+function apiUrl(apiPath) {
+  return new URL(String(apiPath || '').replace(/^\/+/, ''), `${window.location.origin}/`).toString();
+}
+
+async function fetchJson(url, options = {}) {
+  const response = await fetch(url, {
+    headers: { Accept: 'application/json' },
+    ...options,
+  });
+
+  if (!response.ok) {
+    throw new Error(`Request failed: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+function hydrateStateFromPayload(payload, readOnly) {
+  state.readOnly = readOnly;
+  state.caseStudies = normalizeCaseStudies(payload.caseStudies);
+  state.contentHistory = normalizeContentHistory(payload.contentHistory);
+  state.selectedCaseStudyId = state.caseStudies[0]?.id ?? null;
+  state.selectedHistoryId = state.contentHistory[0]?.id ?? null;
+  state.caseDraft = cloneRecord(state.caseStudies[0] || createEmptyCaseStudy(state.caseStudies.length));
+  state.historyDraft = cloneRecord(state.contentHistory[0] || createEmptyHistory(state.contentHistory.length));
+}
+
+function normalizeCaseStudies(items) {
+  return (Array.isArray(items) ? items : []).map((item, index) => ({
+    ...createEmptyCaseStudy(index),
+    ...item,
+    id: Number.isFinite(Number(item?.id)) ? Number(item.id) : index + 1,
+    proofOrder: Number.isFinite(Number(item?.proofOrder)) ? Number(item.proofOrder) : index + 1,
+    translations: item?.translations && typeof item.translations === 'object' ? item.translations : {},
+    metrics: Array.isArray(item?.metrics) ? item.metrics : [],
+  }));
+}
+
+function normalizeContentHistory(items) {
+  return (Array.isArray(items) ? items : []).map((item, index) => ({
+    ...createEmptyHistory(index),
+    ...item,
+    id: Number.isFinite(Number(item?.id)) ? Number(item.id) : index + 1,
+    historyOrder: Number.isFinite(Number(item?.historyOrder)) ? Number(item.historyOrder) : index + 1,
+    metadata: item?.metadata && typeof item.metadata === 'object' ? item.metadata : {},
+    translations: item?.translations && typeof item.translations === 'object' ? item.translations : {},
+  }));
+}
+
 async function loadBootstrap() {
-  try {
-    const response = await fetch('/api/admin/bootstrap', {
-      headers: { Accept: 'application/json' },
-      cache: 'no-store',
-    });
-
-    if (!response.ok) {
-      throw new Error('Bootstrap request failed.');
+  if (isStaticDeployment()) {
+    try {
+      const snapshot = await fetchJson(siteAssetUrl('data/evidence-snapshot.json'), { cache: 'no-cache' });
+      const analytics = {
+        ...(snapshot.analytics || {}),
+        staticMode: true,
+        snapshotGeneratedAt: snapshot.generatedAt || null,
+      };
+      hydrateStateFromPayload({ ...snapshot, analytics }, true);
+      render(analytics);
+      showBanner(currentCopy().notifications.readOnlyLoaded, 'success');
+    } catch (snapshotError) {
+      state.readOnly = true;
+      render(null);
+      showBanner(currentCopy().notifications.loadFailed, 'error');
     }
+    return;
+  }
 
-    const payload = await response.json();
-    state.caseStudies = Array.isArray(payload.caseStudies) ? payload.caseStudies : [];
-    state.contentHistory = Array.isArray(payload.contentHistory) ? payload.contentHistory : [];
-
-    state.selectedCaseStudyId = state.caseStudies[0]?.id ?? null;
-    state.selectedHistoryId = state.contentHistory[0]?.id ?? null;
-    state.caseDraft = cloneRecord(state.caseStudies[0] || createEmptyCaseStudy(state.caseStudies.length));
-    state.historyDraft = cloneRecord(state.contentHistory[0] || createEmptyHistory(state.contentHistory.length));
-
+  try {
+    const payload = await fetchJson(apiUrl('api/admin/bootstrap'), { cache: 'no-store' });
+    hydrateStateFromPayload(payload, false);
     render(payload.analytics || null);
     showBanner(currentCopy().notifications.loaded, 'success');
   } catch (error) {
-    render(null);
-    showBanner(currentCopy().notifications.loadFailed, 'error');
+    try {
+      const snapshot = await fetchJson(siteAssetUrl('data/evidence-snapshot.json'), { cache: 'no-cache' });
+      const analytics = {
+        ...(snapshot.analytics || {}),
+        staticMode: true,
+        snapshotGeneratedAt: snapshot.generatedAt || null,
+      };
+      hydrateStateFromPayload({ ...snapshot, analytics }, true);
+      render(analytics);
+      showBanner(currentCopy().notifications.readOnlyLoaded, 'success');
+    } catch (snapshotError) {
+      state.readOnly = true;
+      render(null);
+      showBanner(currentCopy().notifications.loadFailed, 'error');
+    }
   }
 }
 
@@ -627,6 +797,7 @@ function render(analytics = null) {
   renderHistoryForm();
   renderGuide();
   renderTypeScriptPreview(analytics);
+  syncReadOnlyState();
 }
 
 function renderStaticCopy() {
@@ -647,12 +818,22 @@ function renderStaticCopy() {
   setText('caseClientLabel', copy.case.labels.client);
   setText('caseLocationLabel', copy.case.labels.location);
   setText('caseSectorLabel', copy.case.labels.sector);
+  setText('caseStatusLabel', copy.case.labels.status);
+  setText('caseRegionCodeLabel', copy.case.labels.regionCode);
+  setText('caseEvidenceTypeLabel', copy.case.labels.evidenceType);
+  setText('caseConfidenceScoreLabel', copy.case.labels.confidenceScore);
+  setText('caseArtifactCountLabel', copy.case.labels.artifactCount);
+  setText('caseLastVerifiedAtLabel', copy.case.labels.lastVerifiedAt);
   setText('caseLinkUrlLabel', copy.case.labels.linkUrl);
+  setText('caseEvidenceSourceUrlLabel', copy.case.labels.evidenceSourceUrl);
   setText('caseMetricsLabel', copy.case.labels.metrics);
   setText('caseMetricsHelp', copy.case.labels.metricsHelp);
   setText('historyOrderLabel', copy.history.labels.order);
   setText('historyLocationLabel', copy.history.labels.location);
   setText('historyUrlLabel', copy.history.labels.url);
+  setText('historyStatusLabel', copy.history.labels.status);
+  setText('historyArtifactTypeLabel', copy.history.labels.artifactType);
+  setText('historyConfidenceScoreLabel', copy.history.labels.confidenceScore);
 }
 
 function renderOverview(analytics) {
@@ -692,7 +873,7 @@ function renderCaseStudyList() {
 
   refs.caseStudyList.innerHTML = state.caseStudies.map((item) => {
     const title = localizedValue(item, 'title', locale) || item.title || copy.case.newItem;
-    const meta = item.client || item.location || item.slug || '—';
+    const meta = [item.status, item.client || item.location || item.slug].filter(Boolean).join(' · ') || '—';
     const activeClass = item.id === state.selectedCaseStudyId ? ' is-active' : '';
 
     return `
@@ -734,7 +915,7 @@ function renderHistoryList() {
 
   refs.historyList.innerHTML = state.contentHistory.map((item) => {
     const title = localizedValue(item, 'title', locale) || item.title || copy.history.newItem;
-    const meta = item.eventPeriod || item.category || '—';
+    const meta = [item.status, item.eventPeriod || item.category].filter(Boolean).join(' · ') || '—';
     const activeClass = item.id === state.selectedHistoryId ? ' is-active' : '';
 
     return `
@@ -774,7 +955,14 @@ function renderCaseForm() {
   setInputValue(formFields.case.client, draft.client);
   setInputValue(formFields.case.location, draft.location);
   setInputValue(formFields.case.sector, draft.sector);
+  setInputValue(formFields.case.status, draft.status || 'live');
+  setInputValue(formFields.case.regionCode, draft.regionCode || 'global');
+  setInputValue(formFields.case.evidenceType, draft.evidenceType || 'reference');
+  setInputValue(formFields.case.confidenceScore, formatConfidenceInput(draft.confidenceScore));
+  setInputValue(formFields.case.artifactCount, String(draft.artifactCount ?? 1));
+  setInputValue(formFields.case.lastVerifiedAt, formatDateTimeLocalInput(draft.lastVerifiedAt));
   setInputValue(formFields.case.linkUrl, draft.linkUrl);
+  setInputValue(formFields.case.evidenceSourceUrl, draft.evidenceSourceUrl || '');
   setTextAreaValue(formFields.case.metrics, metricsToText(draft.metrics));
 
   const localeMeta = copy.case.locale[state.activeLocale];
@@ -794,7 +982,7 @@ function renderCaseForm() {
   const values = locale === 'en' ? draft : (draft.translations[locale] || {});
 
   refs.caseLocaleFields.innerHTML = caseLocaleFields.map((field) => {
-    const fieldType = field === 'summary' || field === 'note' || field === 'decisionSurface' ? 'textarea' : 'input';
+    const fieldType = ['summary', 'note', 'decisionSurface', 'outcome'].includes(field) ? 'textarea' : 'input';
     const label = copy.case.labels[field];
     const value = values[field] || '';
 
@@ -823,6 +1011,9 @@ function renderHistoryForm() {
   setInputValue(formFields.history.historyOrder, String(draft.historyOrder ?? 0));
   setInputValue(formFields.history.location, draft.location);
   setInputValue(formFields.history.url, draft.url);
+  setInputValue(formFields.history.status, draft.status || 'published');
+  setInputValue(formFields.history.artifactType, draft.artifactType || 'brief');
+  setInputValue(formFields.history.confidenceScore, formatConfidenceInput(draft.confidenceScore));
 
   const localeMeta = copy.history.locale[state.activeLocale];
   if (refs.historyLocaleTitle) refs.historyLocaleTitle.textContent = localeMeta.title;
@@ -841,7 +1032,7 @@ function renderHistoryForm() {
   const values = locale === 'en' ? draft : (draft.translations[locale] || {});
 
   refs.historyLocaleFields.innerHTML = historyLocaleFields.map((field) => {
-    const fieldType = field === 'summary' ? 'textarea' : 'input';
+    const fieldType = field === 'summary' || field === 'proofNote' ? 'textarea' : 'input';
     const label = copy.history.labels[field];
     const value = values[field] || '';
 
@@ -894,6 +1085,17 @@ function renderTypeScriptPreview(analytics) {
   ].join('\n');
 }
 
+function syncReadOnlyState() {
+  document.body.classList.toggle('is-read-only', state.readOnly);
+  document
+    .querySelectorAll('.editor-form input, .editor-form textarea, .editor-form select, .form-actions button, #newCaseStudyBtn, #newHistoryBtn')
+    .forEach((element) => {
+      if ('disabled' in element) {
+        element.disabled = state.readOnly;
+      }
+    });
+}
+
 function persistDrafts() {
   persistCaseDraft();
   persistHistoryDraft();
@@ -908,7 +1110,14 @@ function persistCaseDraft() {
   state.caseDraft.client = formFields.case.client?.value.trim() || '';
   state.caseDraft.location = formFields.case.location?.value.trim() || '';
   state.caseDraft.sector = formFields.case.sector?.value.trim() || '';
+  state.caseDraft.status = formFields.case.status?.value || 'live';
+  state.caseDraft.regionCode = formFields.case.regionCode?.value.trim() || 'global';
+  state.caseDraft.evidenceType = formFields.case.evidenceType?.value.trim() || 'reference';
+  state.caseDraft.confidenceScore = clampConfidence(formFields.case.confidenceScore?.value);
+  state.caseDraft.artifactCount = Math.max(1, Number.parseInt(formFields.case.artifactCount?.value || '1', 10) || 1);
+  state.caseDraft.lastVerifiedAt = parseDateTimeLocalOutput(formFields.case.lastVerifiedAt?.value || '');
   state.caseDraft.linkUrl = formFields.case.linkUrl?.value.trim() || '';
+  state.caseDraft.evidenceSourceUrl = formFields.case.evidenceSourceUrl?.value.trim() || '';
   state.caseDraft.metrics = parseMetrics(formFields.case.metrics?.value || '');
 
   if (state.activeLocale === 'ts') return;
@@ -935,6 +1144,8 @@ function persistCaseDraft() {
       }
     });
   }
+
+  state.caseDraft.languageCoverage = buildLanguageCoverage(state.caseDraft.translations);
 }
 
 function persistHistoryDraft() {
@@ -943,6 +1154,9 @@ function persistHistoryDraft() {
   state.historyDraft.historyOrder = Number.parseInt(formFields.history.historyOrder?.value || '0', 10) || 0;
   state.historyDraft.location = formFields.history.location?.value.trim() || '';
   state.historyDraft.url = formFields.history.url?.value.trim() || '';
+  state.historyDraft.status = formFields.history.status?.value || 'published';
+  state.historyDraft.artifactType = formFields.history.artifactType?.value.trim() || 'brief';
+  state.historyDraft.confidenceScore = clampConfidence(formFields.history.confidenceScore?.value);
 
   if (state.activeLocale === 'ts') return;
 
@@ -971,19 +1185,35 @@ function persistHistoryDraft() {
 }
 
 async function saveCaseStudy() {
+  if (state.readOnly) {
+    showBanner(currentCopy().notifications.readOnly, 'error');
+    return;
+  }
+
   persistCaseDraft();
 
   const payload = {
     slug: state.caseDraft.slug,
     badge: state.caseDraft.badge,
     title: state.caseDraft.title,
+    status: state.caseDraft.status,
+    regionCode: state.caseDraft.regionCode,
     location: state.caseDraft.location,
     client: state.caseDraft.client,
     sector: state.caseDraft.sector,
+    stakeholder: state.caseDraft.stakeholder,
     deploymentWindow: state.caseDraft.deploymentWindow,
     decisionSurface: state.caseDraft.decisionSurface,
     summary: state.caseDraft.summary,
     note: state.caseDraft.note,
+    outcome: state.caseDraft.outcome,
+    evidenceType: state.caseDraft.evidenceType,
+    evidenceSourceLabel: state.caseDraft.evidenceSourceLabel,
+    evidenceSourceUrl: state.caseDraft.evidenceSourceUrl,
+    confidenceScore: state.caseDraft.confidenceScore,
+    languageCoverage: state.caseDraft.languageCoverage,
+    artifactCount: state.caseDraft.artifactCount,
+    lastVerifiedAt: state.caseDraft.lastVerifiedAt,
     linkLabel: state.caseDraft.linkLabel,
     linkUrl: state.caseDraft.linkUrl,
     proofOrder: state.caseDraft.proofOrder,
@@ -993,8 +1223,8 @@ async function saveCaseStudy() {
 
   const method = state.selectedCaseStudyId ? 'PUT' : 'POST';
   const url = state.selectedCaseStudyId
-    ? `/api/admin/case-studies/${state.selectedCaseStudyId}`
-    : '/api/admin/case-studies';
+    ? apiUrl(`api/admin/case-studies/${state.selectedCaseStudyId}`)
+    : apiUrl('api/admin/case-studies');
 
   try {
     const response = await fetch(url, {
@@ -1019,6 +1249,11 @@ async function saveCaseStudy() {
 }
 
 async function saveHistory() {
+  if (state.readOnly) {
+    showBanner(currentCopy().notifications.readOnly, 'error');
+    return;
+  }
+
   persistHistoryDraft();
 
   const payload = {
@@ -1032,12 +1267,16 @@ async function saveHistory() {
     historyOrder: state.historyDraft.historyOrder,
     translations: state.historyDraft.translations,
     metadata: state.historyDraft.metadata || {},
+    status: state.historyDraft.status,
+    artifactType: state.historyDraft.artifactType,
+    confidenceScore: state.historyDraft.confidenceScore,
+    proofNote: state.historyDraft.proofNote,
   };
 
   const method = state.selectedHistoryId ? 'PUT' : 'POST';
   const url = state.selectedHistoryId
-    ? `/api/admin/content-history/${state.selectedHistoryId}`
-    : '/api/admin/content-history';
+    ? apiUrl(`api/admin/content-history/${state.selectedHistoryId}`)
+    : apiUrl('api/admin/content-history');
 
   try {
     const response = await fetch(url, {
@@ -1062,11 +1301,16 @@ async function saveHistory() {
 }
 
 async function deleteCaseStudy() {
+  if (state.readOnly) {
+    showBanner(currentCopy().notifications.readOnly, 'error');
+    return;
+  }
+
   if (!state.selectedCaseStudyId) return;
   if (!window.confirm(currentCopy().case.deleteConfirm)) return;
 
   try {
-    const response = await fetch(`/api/admin/case-studies/${state.selectedCaseStudyId}`, {
+    const response = await fetch(apiUrl(`api/admin/case-studies/${state.selectedCaseStudyId}`), {
       method: 'DELETE',
       headers: { Accept: 'application/json' },
     });
@@ -1087,11 +1331,16 @@ async function deleteCaseStudy() {
 }
 
 async function deleteHistory() {
+  if (state.readOnly) {
+    showBanner(currentCopy().notifications.readOnly, 'error');
+    return;
+  }
+
   if (!state.selectedHistoryId) return;
   if (!window.confirm(currentCopy().history.deleteConfirm)) return;
 
   try {
-    const response = await fetch(`/api/admin/content-history/${state.selectedHistoryId}`, {
+    const response = await fetch(apiUrl(`api/admin/content-history/${state.selectedHistoryId}`), {
       method: 'DELETE',
       headers: { Accept: 'application/json' },
     });
@@ -1135,13 +1384,24 @@ function createEmptyCaseStudy(count = 0) {
     slug: '',
     badge: '',
     title: '',
+    status: 'live',
+    regionCode: 'global',
     location: '',
     client: '',
     sector: '',
+    stakeholder: '',
     deploymentWindow: '',
     decisionSurface: '',
     summary: '',
     note: '',
+    outcome: '',
+    evidenceType: 'reference',
+    evidenceSourceLabel: '',
+    evidenceSourceUrl: '',
+    confidenceScore: 0.75,
+    languageCoverage: 'en',
+    artifactCount: 1,
+    lastVerifiedAt: '',
     linkLabel: '',
     linkUrl: '',
     proofOrder: count + 1,
@@ -1162,6 +1422,10 @@ function createEmptyHistory(count = 0) {
     url: '',
     historyOrder: count + 1,
     metadata: {},
+    status: 'published',
+    artifactType: 'brief',
+    confidenceScore: 0.75,
+    proofNote: '',
     translations: {},
   };
 }
@@ -1191,6 +1455,50 @@ function parseMetrics(text) {
       };
     })
     .filter((metric) => metric.value && metric.label);
+}
+
+function clampConfidence(value) {
+  const numeric = Number.parseFloat(String(value ?? '0.75'));
+  if (!Number.isFinite(numeric)) return 0.75;
+  return Math.min(1, Math.max(0, numeric));
+}
+
+function formatConfidenceInput(value) {
+  const numeric = clampConfidence(value);
+  return String(Math.round(numeric * 100) / 100);
+}
+
+function formatDateTimeLocalInput(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+
+  return raw
+    .replace(' ', 'T')
+    .replace(/Z$/, '')
+    .slice(0, 16);
+}
+
+function parseDateTimeLocalOutput(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+
+  const [datePart, timePart = '00:00'] = raw.split('T');
+  const normalizedTime = timePart.length === 5 ? `${timePart}:00` : timePart;
+  return `${datePart} ${normalizedTime}`;
+}
+
+function buildLanguageCoverage(translations) {
+  const languages = ['en'];
+
+  ['th', 'zh'].forEach((locale) => {
+    const entry = translations?.[locale];
+    if (!entry || typeof entry !== 'object') return;
+    if (Object.values(entry).some((value) => String(value || '').trim())) {
+      languages.push(locale);
+    }
+  });
+
+  return languages.join(',');
 }
 
 function showBanner(message, tone) {
@@ -1251,10 +1559,13 @@ function typeScriptPreviewForCase(record) {
   return [
     `type CaseStudyTranslation = {`,
     `  title?: string;`,
+    `  stakeholder?: string;`,
     `  deploymentWindow?: string;`,
     `  decisionSurface?: string;`,
     `  summary?: string;`,
     `  note?: string;`,
+    `  outcome?: string;`,
+    `  evidenceSourceLabel?: string;`,
     `  linkLabel?: string;`,
     `};`,
     ``,
@@ -1270,6 +1581,7 @@ function typeScriptPreviewForHistory(record) {
     `  summary?: string;`,
     `  category?: string;`,
     `  eventPeriod?: string;`,
+    `  proofNote?: string;`,
     `};`,
     ``,
     `const timelineRecord = ${JSON.stringify(record, null, 2)} as const;`,

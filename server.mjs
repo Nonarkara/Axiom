@@ -83,7 +83,22 @@ db.exec(`
 `);
 
 ensureColumn('case_study_proof', 'translations', `TEXT DEFAULT '{}'`);
+ensureColumn('case_study_proof', 'status', `TEXT DEFAULT 'live'`);
+ensureColumn('case_study_proof', 'region_code', `TEXT DEFAULT 'global'`);
+ensureColumn('case_study_proof', 'stakeholder', `TEXT`);
+ensureColumn('case_study_proof', 'outcome', `TEXT`);
+ensureColumn('case_study_proof', 'evidence_type', `TEXT DEFAULT 'reference'`);
+ensureColumn('case_study_proof', 'evidence_source_label', `TEXT`);
+ensureColumn('case_study_proof', 'evidence_source_url', `TEXT`);
+ensureColumn('case_study_proof', 'confidence_score', `REAL DEFAULT 0.75`);
+ensureColumn('case_study_proof', 'language_coverage', `TEXT DEFAULT 'en'`);
+ensureColumn('case_study_proof', 'artifact_count', `INTEGER DEFAULT 1`);
+ensureColumn('case_study_proof', 'last_verified_at', `TEXT`);
 ensureColumn('content_history', 'translations', `TEXT DEFAULT '{}'`);
+ensureColumn('content_history', 'status', `TEXT DEFAULT 'published'`);
+ensureColumn('content_history', 'artifact_type', `TEXT DEFAULT 'brief'`);
+ensureColumn('content_history', 'confidence_score', `REAL DEFAULT 0.75`);
+ensureColumn('content_history', 'proof_note', `TEXT`);
 
 const seededCaseStudies = [
   {
@@ -93,12 +108,47 @@ const seededCaseStudies = [
     location: 'Global / multi-theater',
     client: 'Strategic intelligence operators',
     sector: 'Geopolitics + macro signal',
+    status: 'live',
+    regionCode: 'global',
+    stakeholder: 'Strategic operators and advisory rooms',
     deploymentWindow: 'Rapid live demo -> production monitoring surface',
     decisionSurface: 'Escalation tracking, spillover risk, and cross-source narrative compression.',
     summary: 'A working surface for geopolitical monitoring built for people who do not have time for PowerPoint latency.',
     note: 'The system keeps the room focused on a narrowing set of actions instead of a widening pile of feeds.',
+    outcome: 'One monitoring surface replaced fragmented feed-checking and sharpened escalation briefings.',
+    evidenceType: 'monitor',
+    evidenceSourceLabel: 'Live system',
+    evidenceSourceUrl: 'https://globalmonitor.fly.dev/',
+    confidenceScore: 0.93,
+    languageCoverage: 'en,th,zh',
+    artifactCount: 12,
+    lastVerifiedAt: '2026-04-19 17:20:00',
     linkLabel: 'Open live system',
     linkUrl: 'https://globalmonitor.fly.dev/',
+    translations: {
+      th: {
+        title: 'DNGWS Monitor',
+        stakeholder: 'ทีมปฏิบัติการเชิงยุทธศาสตร์และห้องที่ปรึกษา',
+        deploymentWindow: 'จากเดโมสดอย่างรวดเร็วสู่ระบบติดตามใช้งานจริง',
+        decisionSurface: 'ใช้ติดตามความเสี่ยงการยกระดับ ความเสี่ยงลุกลาม และสรุปสัญญาณจากหลายแหล่งให้สั้นลง',
+        summary: 'พื้นผิวการติดตามภูมิรัฐศาสตร์ที่ใช้งานได้จริง สำหรับคนที่ไม่มีเวลารอ PowerPoint',
+        note: 'ระบบนี้ช่วยให้การสนทนาโฟกัสกับทางเลือกที่แคบลง แทนที่จะจมอยู่กับฟีดที่กระจายออกไป',
+        outcome: 'หน้าจอติดตามเดียวแทนการเช็กหลายฟีดแยกกัน และช่วยให้การสรุปสถานการณ์คมขึ้น',
+        evidenceSourceLabel: 'ระบบที่เปิดใช้งานจริง',
+        linkLabel: 'เปิดระบบจริง',
+      },
+      zh: {
+        title: 'DNGWS Monitor',
+        stakeholder: '战略运营团队与顾问决策室',
+        deploymentWindow: '从快速现场演示到正式监测系统',
+        decisionSurface: '用于跟踪升级风险、外溢风险，并把多来源叙事压缩成可操作判断',
+        summary: '一个真正可用的地缘政治监测界面，服务于没有时间等待幻灯片的人',
+        note: '它让会议聚焦于更少但更重要的行动，而不是越来越多的资讯流',
+        outcome: '一个监测界面取代了分散的多路信息检查，并让升级简报更聚焦',
+        evidenceSourceLabel: '在线系统',
+        linkLabel: '打开在线系统',
+      },
+    },
     proofOrder: 1,
     metrics: [
       { value: '12+', label: 'Open and operational sources compressed into one live surface' },
@@ -114,12 +164,47 @@ const seededCaseStudies = [
     location: 'Phuket, Thailand',
     client: 'Governor-grade regional operations',
     sector: 'Urban operations + transit + safety',
+    status: 'pilot',
+    regionCode: 'thailand',
+    stakeholder: 'Provincial command and regional operators',
     deploymentWindow: 'Pilot dashboard -> operational command room',
     decisionSurface: 'Transit telemetry, public safety, and environmental signals in one governor-facing view.',
     summary: 'A regional command layer that cuts city operations down to the few decisions the room actually needs to make fast.',
     note: 'The product logic is simple: use the existing data, compress the decision, and keep the interface awake enough for live operations.',
+    outcome: 'Transit, safety, and environmental inputs were compressed into one governor-facing operating room.',
+    evidenceType: 'operations',
+    evidenceSourceLabel: 'Governor war room',
+    evidenceSourceUrl: 'https://nonarkara.github.io/phuket-dashboard/war-room',
+    confidenceScore: 0.88,
+    languageCoverage: 'en,th,zh',
+    artifactCount: 8,
+    lastVerifiedAt: '2026-04-19 17:20:00',
     linkLabel: 'Open live system',
     linkUrl: 'https://nonarkara.github.io/phuket-dashboard/war-room',
+    translations: {
+      th: {
+        title: 'Phuket Dashboard',
+        stakeholder: 'ศูนย์สั่งการระดับจังหวัดและผู้ปฏิบัติการระดับภูมิภาค',
+        deploymentWindow: 'จากแดชบอร์ดนำร่องสู่ห้องปฏิบัติการสั่งการ',
+        decisionSurface: 'รวมข้อมูลการขนส่ง ความปลอดภัยสาธารณะ และสิ่งแวดล้อมไว้ในมุมมองเดียวสำหรับผู้ว่าฯ',
+        summary: 'ชั้นบัญชาการระดับภูมิภาคที่ย่อการปฏิบัติการเมืองให้เหลือเฉพาะการตัดสินใจที่ต้องทำทันที',
+        note: 'ตรรกะของผลิตภัณฑ์เรียบง่าย: ใช้ข้อมูลที่มีอยู่ ย่อการตัดสินใจ และทำให้อินเทอร์เฟซพร้อมสำหรับงานสด',
+        outcome: 'ข้อมูลขนส่ง ความปลอดภัย และสิ่งแวดล้อมถูกรวมเป็นห้องปฏิบัติการเดียวสำหรับผู้ว่าฯ',
+        evidenceSourceLabel: 'ห้องวอร์รูมผู้ว่าฯ',
+        linkLabel: 'เปิดระบบจริง',
+      },
+      zh: {
+        title: 'Phuket Dashboard',
+        stakeholder: '府级指挥中心与区域运营团队',
+        deploymentWindow: '从试点仪表盘到实际指挥室',
+        decisionSurface: '把交通遥测、公共安全与环境信号放进同一个面向省长的界面',
+        summary: '一个区域指挥层，把城市运营压缩成会议室真正需要快速决定的少数事项',
+        note: '产品逻辑很简单：使用现有数据，压缩决策路径，让界面随时可用于现场运营',
+        outcome: '交通、安全与环境输入被压缩进同一间面向省级领导的运行室',
+        evidenceSourceLabel: '省长作战室',
+        linkLabel: '打开在线系统',
+      },
+    },
     proofOrder: 2,
     metrics: [
       { value: '42ms', label: 'Browser-side ping reference captured on the homepage health layer' },
@@ -135,12 +220,47 @@ const seededCaseStudies = [
     location: 'Thailand / national programme',
     client: 'depa and candidate cities',
     sector: 'Public programme tracking + civic benchmarking',
+    status: 'launched',
+    regionCode: 'thailand',
+    stakeholder: 'National programme teams and candidate cities',
     deploymentWindow: 'Public reference layer with live programme visibility',
     decisionSurface: 'Proposal tracking, programme legibility, and ranking logic that can survive scrutiny.',
     summary: 'A national smart city tracking surface that makes the programme legible and keeps the evidence visible.',
     note: 'This is the clearest proof of the Axiom stance that governance systems should make bureaucracy readable, not ceremonial.',
+    outcome: 'A national programme became inspectable in public instead of hidden in slide decks and reporting loops.',
+    evidenceType: 'index',
+    evidenceSourceLabel: 'Public index',
+    evidenceSourceUrl: 'https://nonarkara.github.io/smart-city-thailand-index/',
+    confidenceScore: 0.91,
+    languageCoverage: 'en,th,zh',
+    artifactCount: 5,
+    lastVerifiedAt: '2026-04-19 17:20:00',
     linkLabel: 'Open live system',
     linkUrl: 'https://nonarkara.github.io/smart-city-thailand-index/',
+    translations: {
+      th: {
+        title: 'Smart City Thailand Index',
+        stakeholder: 'ทีมโครงการระดับชาติและเมืองผู้สมัคร',
+        deploymentWindow: 'ชั้นอ้างอิงสาธารณะที่มองเห็นความคืบหน้าโครงการได้แบบสด',
+        decisionSurface: 'ใช้ติดตามข้อเสนอ ความชัดเจนของโครงการ และตรรกะการจัดอันดับที่ตรวจสอบได้',
+        summary: 'พื้นผิวติดตามโครงการสมาร์ตซิตี้ระดับชาติที่ทำให้โครงการอ่านได้และทำให้หลักฐานมองเห็นได้',
+        note: 'นี่คือหลักฐานที่ชัดที่สุดของแนวคิด Axiom ว่าระบบกำกับดูแลควรทำให้ระบบราชการอ่านได้ ไม่ใช่เป็นเพียงพิธีกรรม',
+        outcome: 'โครงการระดับชาติกลายเป็นสิ่งที่สาธารณะตรวจสอบได้ แทนที่จะซ่อนอยู่ในสไลด์และวงจรรายงาน',
+        evidenceSourceLabel: 'ดัชนีสาธารณะ',
+        linkLabel: 'เปิดระบบจริง',
+      },
+      zh: {
+        title: 'Smart City Thailand Index',
+        stakeholder: '国家项目团队与候选城市',
+        deploymentWindow: '具备实时项目可见性的公共参考层',
+        decisionSurface: '用于跟踪提案、提升项目可读性，并公开可经受审视的排名逻辑',
+        summary: '一个国家级智慧城市追踪界面，让项目更易理解，也让证据始终可见',
+        note: '这是 Axiom 立场最清晰的证明：治理系统应该让官僚流程可读，而不是只剩仪式感',
+        outcome: '一个国家项目从幻灯片和报告流程中走出来，变成公众可检查的表层',
+        evidenceSourceLabel: '公开指数',
+        linkLabel: '打开在线系统',
+      },
+    },
     proofOrder: 3,
     metrics: [
       { value: '174', label: 'Cities indexed in the launch story and public ranking narrative' },
@@ -160,6 +280,28 @@ const seededContentHistory = [
     eventPeriod: '2026 Q1',
     location: 'Taipei',
     url: '',
+    status: 'published',
+    artifactType: 'keynote',
+    confidenceScore: 0.95,
+    proofNote: 'Public keynote backed by on-stage screenshots and live demonstrations.',
+    translations: {
+      th: {
+        source: 'SCSE Taipei',
+        title: 'Protocol Alpha เปิดตัวที่ไทเปพร้อมแดชบอร์ดสดบนเวที',
+        summary: 'คีย์โน้ต หลักฐานภาคสนาม และตรรกะการจัดอันดับถูกแสดงเป็นระบบที่ทำงานจริง ไม่ใช่งานคอนเซปต์',
+        category: 'เปิดตัว',
+        eventPeriod: 'ไตรมาส 1 ปี 2026',
+        proofNote: 'คีย์โน้ตสาธารณะที่มีภาพหน้าจอและการสาธิตสดบนเวทีรองรับ',
+      },
+      zh: {
+        source: 'SCSE Taipei',
+        title: 'Protocol Alpha 在台北发布，并在台上展示实时仪表盘',
+        summary: '主题演讲、现场证据与排名逻辑以可运行系统的形式出现，而不是概念图',
+        category: '发布',
+        eventPeriod: '2026年第一季度',
+        proofNote: '公开演讲由现场截图和实时演示支持',
+      },
+    },
     historyOrder: 1,
   },
   {
@@ -170,6 +312,28 @@ const seededContentHistory = [
     eventPeriod: '2025 Q4',
     location: 'Thailand',
     url: 'https://nonarkara.github.io/smart-city-thailand-index/',
+    status: 'published',
+    artifactType: 'index',
+    confidenceScore: 0.9,
+    proofNote: 'Public index surface and launch references remain accessible online.',
+    translations: {
+      th: {
+        source: 'Smart City Thailand Index',
+        title: 'การติดตามโครงการระดับชาติกลายเป็นพื้นผิวอ้างอิงสาธารณะ',
+        summary: 'ดัชนีเปลี่ยนจากคำกล่าวอ้างแบบคงที่ไปสู่ชั้นสาธารณะที่อ่านได้ ซึ่งทำให้ข้อเสนอ ความคืบหน้า และตรรกะของโครงการยังคงมองเห็นได้',
+        category: 'โครงการ',
+        eventPeriod: 'ไตรมาส 4 ปี 2025',
+        proofNote: 'ดัชนีสาธารณะและหลักฐานการเปิดตัวยังคงเปิดให้เข้าถึงทางออนไลน์',
+      },
+      zh: {
+        source: 'Smart City Thailand Index',
+        title: '国家项目跟踪成为一个面向公众的参考界面',
+        summary: '该指数从静态主张转变为一个可读的公共层，使提案、进展和项目逻辑持续可见',
+        category: '项目',
+        eventPeriod: '2025年第四季度',
+        proofNote: '公开指数界面与发布资料仍可在线访问',
+      },
+    },
     historyOrder: 2,
   },
   {
@@ -180,6 +344,28 @@ const seededContentHistory = [
     eventPeriod: '2025 Q4',
     location: 'Phuket',
     url: 'https://nonarkara.github.io/phuket-dashboard/war-room',
+    status: 'field',
+    artifactType: 'operations',
+    confidenceScore: 0.87,
+    proofNote: 'Working interface and operational screenshots demonstrate the field build.',
+    translations: {
+      th: {
+        source: 'Phuket Dashboard',
+        title: 'การสร้างแดชบอร์ดภาคสนามสำหรับผู้ว่าฯ ทำให้โมเดลห้องปฏิบัติการเมืองคมขึ้น',
+        summary: 'ข้อมูลขนส่ง สัญญาณสิ่งแวดล้อม และความปลอดภัยสาธารณะถูกรวมไว้ในอินเทอร์เฟซเดียวที่ออกแบบมาสำหรับการตัดสินใจแบบสดภายใต้แรงกดดัน',
+        category: 'ลงพื้นที่',
+        eventPeriod: 'ไตรมาส 4 ปี 2025',
+        proofNote: 'อินเทอร์เฟซที่ใช้งานได้จริงและภาพหน้าจอการปฏิบัติการยืนยันการทำงานภาคสนาม',
+      },
+      zh: {
+        source: 'Phuket Dashboard',
+        title: '省长仪表盘的现场构建，让城市运行室模型更加清晰',
+        summary: '交通遥测、环境信号与公共安全被压缩进同一个为高压下实时决策而设计的界面',
+        category: '部署',
+        eventPeriod: '2025年第四季度',
+        proofNote: '可运行界面与操作截图证明了现场构建过程',
+      },
+    },
     historyOrder: 3,
   },
   {
@@ -190,6 +376,28 @@ const seededContentHistory = [
     eventPeriod: '2025 Q3',
     location: 'ASEAN',
     url: 'https://nonarkara.github.io/ascn-smart-cities-network/',
+    status: 'published',
+    artifactType: 'network',
+    confidenceScore: 0.84,
+    proofNote: 'Regional project layer and supporting materials remain published online.',
+    translations: {
+      th: {
+        source: 'ASEAN Smart Cities Network',
+        title: 'การเปรียบเทียบข้ามเมืองขยับจากงานนำเสนอไปสู่ชั้นภูมิภาคที่ใช้งานได้',
+        summary: 'งานในเครือข่ายอาเซียนเชื่อมการติดตามโครงการเข้ากับเกณฑ์เปรียบเทียบ SLIC ทำให้ความร่วมมือระดับภูมิภาคใช้งานได้จริงมากกว่าพิธีกรรม',
+        category: 'ภูมิภาค',
+        eventPeriod: 'ไตรมาส 3 ปี 2025',
+        proofNote: 'ชั้นข้อมูลระดับภูมิภาคและเอกสารประกอบยังเผยแพร่ออนไลน์',
+      },
+      zh: {
+        source: 'ASEAN Smart Cities Network',
+        title: '跨城市基准比较从展示材料变成了可用的区域层',
+        summary: '东盟网络工作把项目跟踪与 SLIC 基准比较连接起来，使区域协作从仪式转向可导航的工作层',
+        category: '区域',
+        eventPeriod: '2025年第三季度',
+        proofNote: '区域项目层与相关材料仍在线公开',
+      },
+    },
     historyOrder: 4,
   },
   {
@@ -200,11 +408,34 @@ const seededContentHistory = [
     eventPeriod: '2025 Q2',
     location: 'Honiara',
     url: 'https://nonarkara.github.io/solomon-islands-workshop/#institutions',
+    status: 'published',
+    artifactType: 'roadmap',
+    confidenceScore: 0.82,
+    proofNote: 'Workshop materials and institutional framing remain available online.',
+    translations: {
+      th: {
+        source: 'Solomon Islands Workshop',
+        title: 'งานโรดแมปดิจิทัลทั้งภาครัฐพิสูจน์โมเดลนี้นอกตลาดหลัก',
+        summary: 'เวิร์กชอปวางกรอบการเปลี่ยนผ่านดิจิทัลระดับรัฐให้เป็นเส้นทางของระบบที่ทำได้จริง ไม่ใช่เพียงคำขวัญเรื่องความทันสมัย',
+        category: 'โรดแมป',
+        eventPeriod: 'ไตรมาส 2 ปี 2025',
+        proofNote: 'เอกสารเวิร์กชอปและกรอบสถาบันยังคงเข้าถึงได้ออนไลน์',
+      },
+      zh: {
+        source: 'Solomon Islands Workshop',
+        title: '全政府数字路线图工作在核心本土市场之外验证了这一模型',
+        summary: '该工作坊把主权数字化转型定义为一条务实的系统路径，而不是抽象的现代化口号',
+        category: '路线图',
+        eventPeriod: '2025年第二季度',
+        proofNote: '工作坊材料与制度框架仍可在线访问',
+      },
+    },
     historyOrder: 5,
   },
 ];
 
 seedDatabase();
+syncSeedEvidenceRecords();
 
 const insertPageviewStatement = db.prepare(`
   INSERT INTO pageviews (path, referrer, country, language, user_agent)
@@ -214,8 +445,10 @@ const insertPageviewStatement = db.prepare(`
 const insertCaseStudyStatement = db.prepare(`
   INSERT INTO case_study_proof (
     slug, badge, title, location, client, sector, deployment_window,
-    decision_surface, summary, note, link_label, link_url, proof_order
-  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    decision_surface, summary, note, link_label, link_url, proof_order,
+    status, region_code, stakeholder, outcome, evidence_type, evidence_source_label,
+    evidence_source_url, confidence_score, language_coverage, artifact_count, last_verified_at
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 
 const updateCaseStudyStatement = db.prepare(`
@@ -234,6 +467,17 @@ const updateCaseStudyStatement = db.prepare(`
     link_label = ?,
     link_url = ?,
     proof_order = ?,
+    status = ?,
+    region_code = ?,
+    stakeholder = ?,
+    outcome = ?,
+    evidence_type = ?,
+    evidence_source_label = ?,
+    evidence_source_url = ?,
+    confidence_score = ?,
+    language_coverage = ?,
+    artifact_count = ?,
+    last_verified_at = ?,
     updated_at = CURRENT_TIMESTAMP
   WHERE id = ?
 `);
@@ -255,8 +499,9 @@ const insertCaseStudyMetricStatement = db.prepare(`
 
 const insertContentHistoryStatement = db.prepare(`
   INSERT INTO content_history (
-    source, title, summary, category, event_period, location, url, history_order, metadata
-  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    source, title, summary, category, event_period, location, url, history_order, metadata,
+    status, artifact_type, confidence_score, proof_note
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 
 const updateContentHistoryStatement = db.prepare(`
@@ -270,7 +515,11 @@ const updateContentHistoryStatement = db.prepare(`
     location = ?,
     url = ?,
     history_order = ?,
-    metadata = ?
+    metadata = ?,
+    status = ?,
+    artifact_type = ?,
+    confidence_score = ?,
+    proof_note = ?
   WHERE id = ?
 `);
 
@@ -289,12 +538,6 @@ function ensureColumn(tableName, columnName, definition) {
 function seedDatabase() {
   const caseCount = db.prepare('SELECT COUNT(*) AS count FROM case_study_proof').get().count;
   if (caseCount === 0) {
-    const insertCaseStudy = db.prepare(`
-      INSERT INTO case_study_proof (
-        slug, badge, title, location, client, sector, deployment_window,
-        decision_surface, summary, note, link_label, link_url, proof_order
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `);
     const insertMetric = db.prepare(`
       INSERT INTO case_study_metrics (case_study_id, metric_value, metric_label, metric_order)
       VALUES (?, ?, ?, ?)
@@ -303,7 +546,7 @@ function seedDatabase() {
     db.exec('BEGIN');
     try {
       seededCaseStudies.forEach((study) => {
-        const result = insertCaseStudy.run(
+        const result = insertCaseStudyStatement.run(
           study.slug,
           study.badge,
           study.title,
@@ -316,8 +559,25 @@ function seedDatabase() {
           study.note,
           study.linkLabel,
           study.linkUrl,
-          study.proofOrder
+          study.proofOrder,
+          study.status,
+          study.regionCode,
+          study.stakeholder,
+          study.outcome,
+          study.evidenceType,
+          study.evidenceSourceLabel,
+          study.evidenceSourceUrl,
+          study.confidenceScore,
+          study.languageCoverage,
+          study.artifactCount,
+          study.lastVerifiedAt
         );
+
+        db.prepare(`
+          UPDATE case_study_proof
+          SET translations = ?
+          WHERE id = ?
+        `).run(JSON.stringify(study.translations || {}), result.lastInsertRowid);
 
         study.metrics.forEach((metric, metricIndex) => {
           insertMetric.run(result.lastInsertRowid, metric.value, metric.label, metricIndex + 1);
@@ -332,16 +592,10 @@ function seedDatabase() {
 
   const historyCount = db.prepare('SELECT COUNT(*) AS count FROM content_history').get().count;
   if (historyCount === 0) {
-    const insertHistory = db.prepare(`
-      INSERT INTO content_history (
-        source, title, summary, category, event_period, location, url, history_order
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    `);
-
     db.exec('BEGIN');
     try {
       seededContentHistory.forEach((item) => {
-        insertHistory.run(
+        const result = insertContentHistoryStatement.run(
           item.source,
           item.title,
           item.summary,
@@ -349,8 +603,19 @@ function seedDatabase() {
           item.eventPeriod,
           item.location,
           item.url,
-          item.historyOrder
+          item.historyOrder,
+          JSON.stringify({}),
+          item.status,
+          item.artifactType,
+          item.confidenceScore,
+          item.proofNote
         );
+
+        db.prepare(`
+          UPDATE content_history
+          SET translations = ?
+          WHERE id = ?
+        `).run(JSON.stringify(item.translations || {}), result.lastInsertRowid);
       });
       db.exec('COMMIT');
     } catch (error) {
@@ -358,6 +623,150 @@ function seedDatabase() {
       throw error;
     }
   }
+}
+
+function mergeSeedTranslations(seedTranslations, currentTranslations) {
+  const merged = {};
+  const languages = new Set([
+    ...Object.keys(seedTranslations || {}),
+    ...Object.keys(currentTranslations || {}),
+  ]);
+
+  languages.forEach((language) => {
+    const seedEntry = seedTranslations?.[language];
+    const currentEntry = currentTranslations?.[language];
+    const nextEntry = {
+      ...(seedEntry && typeof seedEntry === 'object' ? seedEntry : {}),
+      ...(currentEntry && typeof currentEntry === 'object' ? currentEntry : {}),
+    };
+
+    if (Object.keys(nextEntry).length > 0) {
+      merged[language] = nextEntry;
+    }
+  });
+
+  return merged;
+}
+
+function pickSeedText(currentValue, seedValue, placeholderValue = null) {
+  const normalized = cleanText(currentValue, '');
+  if (!normalized) return seedValue || null;
+  if (placeholderValue !== null && normalized === placeholderValue) return seedValue || null;
+  return normalized;
+}
+
+function pickSeedNumber(currentValue, seedValue, placeholderValue = null) {
+  if (currentValue === null || currentValue === undefined || currentValue === '') {
+    return seedValue;
+  }
+
+  const numeric = Number(currentValue);
+  if (placeholderValue !== null && numeric === placeholderValue) {
+    return seedValue;
+  }
+
+  return currentValue;
+}
+
+function syncSeedEvidenceRecords() {
+  seededCaseStudies.forEach((study) => {
+    const existing = db.prepare(`
+      SELECT
+        id,
+        status,
+        region_code AS regionCode,
+        stakeholder,
+        outcome,
+        evidence_type AS evidenceType,
+        evidence_source_label AS evidenceSourceLabel,
+        evidence_source_url AS evidenceSourceUrl,
+        confidence_score AS confidenceScore,
+        language_coverage AS languageCoverage,
+        artifact_count AS artifactCount,
+        last_verified_at AS lastVerifiedAt,
+        translations
+      FROM case_study_proof
+      WHERE slug = ?
+    `).get(study.slug);
+
+    if (!existing) return;
+
+    const translations = mergeSeedTranslations(
+      study.translations || {},
+      parseStoredJson(existing.translations, {})
+    );
+
+    db.prepare(`
+      UPDATE case_study_proof
+      SET
+        status = ?,
+        region_code = ?,
+        stakeholder = ?,
+        outcome = ?,
+        evidence_type = ?,
+        evidence_source_label = ?,
+        evidence_source_url = ?,
+        confidence_score = ?,
+        language_coverage = ?,
+        artifact_count = ?,
+        last_verified_at = ?,
+        translations = ?
+      WHERE slug = ?
+    `).run(
+      pickSeedText(existing.status, study.status, 'live'),
+      pickSeedText(existing.regionCode, study.regionCode, 'global'),
+      pickSeedText(existing.stakeholder, study.stakeholder),
+      pickSeedText(existing.outcome, study.outcome),
+      pickSeedText(existing.evidenceType, study.evidenceType, 'reference'),
+      pickSeedText(existing.evidenceSourceLabel, study.evidenceSourceLabel),
+      pickSeedText(existing.evidenceSourceUrl, study.evidenceSourceUrl),
+      pickSeedNumber(existing.confidenceScore, study.confidenceScore, 0.75),
+      pickSeedText(existing.languageCoverage, study.languageCoverage, 'en'),
+      pickSeedNumber(existing.artifactCount, study.artifactCount, 1),
+      pickSeedText(existing.lastVerifiedAt, study.lastVerifiedAt),
+      JSON.stringify(translations),
+      study.slug
+    );
+  });
+
+  seededContentHistory.forEach((item) => {
+    const existing = db.prepare(`
+      SELECT
+        id,
+        status,
+        artifact_type AS artifactType,
+        confidence_score AS confidenceScore,
+        proof_note AS proofNote,
+        translations
+      FROM content_history
+      WHERE title = ?
+    `).get(item.title);
+
+    if (!existing) return;
+
+    const translations = mergeSeedTranslations(
+      item.translations || {},
+      parseStoredJson(existing.translations, {})
+    );
+
+    db.prepare(`
+      UPDATE content_history
+      SET
+        status = ?,
+        artifact_type = ?,
+        confidence_score = ?,
+        proof_note = ?,
+        translations = ?
+      WHERE title = ?
+    `).run(
+      pickSeedText(existing.status, item.status, 'published'),
+      pickSeedText(existing.artifactType, item.artifactType, 'brief'),
+      pickSeedNumber(existing.confidenceScore, item.confidenceScore, 0.75),
+      pickSeedText(existing.proofNote, item.proofNote),
+      JSON.stringify(translations),
+      item.title
+    );
+  });
 }
 
 function parseStoredJson(value, fallback = {}) {
@@ -393,6 +802,11 @@ function cleanInteger(value, fallback = 0) {
   return Number.isFinite(numeric) ? numeric : fallback;
 }
 
+function cleanFloat(value, fallback = 0) {
+  const numeric = Number.parseFloat(String(value ?? fallback));
+  return Number.isFinite(numeric) ? numeric : fallback;
+}
+
 function slugify(value) {
   return cleanText(value, '')
     .toLowerCase()
@@ -404,7 +818,7 @@ function slugify(value) {
 function normalizeCaseStudyTranslations(input) {
   const raw = input && typeof input === 'object' ? input : {};
   const languages = ['th', 'zh'];
-  const fields = ['title', 'deploymentWindow', 'decisionSurface', 'summary', 'note', 'linkLabel'];
+  const fields = ['title', 'stakeholder', 'deploymentWindow', 'decisionSurface', 'summary', 'note', 'outcome', 'evidenceSourceLabel', 'linkLabel'];
   const normalized = {};
 
   languages.forEach((language) => {
@@ -430,7 +844,7 @@ function normalizeCaseStudyTranslations(input) {
 function normalizeHistoryTranslations(input) {
   const raw = input && typeof input === 'object' ? input : {};
   const languages = ['th', 'zh'];
-  const fields = ['source', 'title', 'summary', 'category', 'eventPeriod'];
+  const fields = ['source', 'title', 'summary', 'category', 'eventPeriod', 'proofNote'];
   const normalized = {};
 
   languages.forEach((language) => {
@@ -465,9 +879,39 @@ function normalizeCaseStudyMetrics(input) {
     .slice(0, 12);
 }
 
+function normalizeLanguageCoverage(input) {
+  if (typeof input !== 'string') return 'en';
+
+  const normalized = Array.from(new Set(
+    input
+      .split(',')
+      .map((part) => part.trim().toLowerCase())
+      .filter(Boolean)
+      .filter((part) => ['en', 'th', 'zh'].includes(part))
+  ));
+
+  return normalized.length ? normalized.join(',') : 'en';
+}
+
+function mergeLanguageCoverage(input, translations) {
+  const languages = new Set(normalizeLanguageCoverage(input).split(','));
+
+  ['th', 'zh'].forEach((language) => {
+    const entry = translations?.[language];
+    if (!entry || typeof entry !== 'object') return;
+
+    if (Object.values(entry).some((value) => cleanText(value, ''))) {
+      languages.add(language);
+    }
+  });
+
+  return Array.from(languages).filter(Boolean).join(',');
+}
+
 function normalizeCaseStudyPayload(input) {
   const title = cleanRequiredText(input?.title, 'Title');
   const slug = cleanText(input?.slug, '') || slugify(title);
+  const translations = normalizeCaseStudyTranslations(input?.translations);
   if (!slug) {
     throw new Error('Slug could not be generated. Please enter a title or slug.');
   }
@@ -476,22 +920,37 @@ function normalizeCaseStudyPayload(input) {
     slug,
     badge: cleanRequiredText(input?.badge, 'Badge'),
     title,
+    status: cleanText(input?.status, 'live') || 'live',
+    regionCode: cleanText(input?.regionCode, 'global') || 'global',
     location: cleanNullableText(input?.location),
     client: cleanNullableText(input?.client),
     sector: cleanNullableText(input?.sector),
+    stakeholder: cleanNullableText(input?.stakeholder),
     deploymentWindow: cleanNullableText(input?.deploymentWindow),
     decisionSurface: cleanNullableText(input?.decisionSurface),
     summary: cleanNullableText(input?.summary),
     note: cleanNullableText(input?.note),
+    outcome: cleanNullableText(input?.outcome),
+    evidenceType: cleanText(input?.evidenceType, 'reference') || 'reference',
+    evidenceSourceLabel: cleanNullableText(input?.evidenceSourceLabel),
+    evidenceSourceUrl: cleanNullableText(input?.evidenceSourceUrl),
+    confidenceScore: Math.max(0, Math.min(1, cleanFloat(input?.confidenceScore, 0.75))),
+    languageCoverage: mergeLanguageCoverage(input?.languageCoverage, translations),
+    artifactCount: Math.max(1, cleanInteger(input?.artifactCount, 1)),
+    lastVerifiedAt: cleanNullableText(input?.lastVerifiedAt),
     linkLabel: cleanNullableText(input?.linkLabel),
     linkUrl: cleanNullableText(input?.linkUrl),
     proofOrder: cleanInteger(input?.proofOrder, 0),
-    translations: normalizeCaseStudyTranslations(input?.translations),
+    translations,
     metrics: normalizeCaseStudyMetrics(input?.metrics),
   };
 }
 
 function normalizeHistoryPayload(input) {
+  const metadata = typeof input?.metadata === 'string'
+    ? parseStoredJson(input.metadata, {})
+    : (input?.metadata && typeof input.metadata === 'object' ? input.metadata : {});
+
   return {
     source: cleanRequiredText(input?.source, 'Source'),
     title: cleanRequiredText(input?.title, 'Title'),
@@ -501,7 +960,11 @@ function normalizeHistoryPayload(input) {
     location: cleanNullableText(input?.location),
     url: cleanNullableText(input?.url),
     historyOrder: cleanInteger(input?.historyOrder, 0),
-    metadata: parseStoredJson(typeof input?.metadata === 'string' ? input.metadata : '{}', {}),
+    metadata,
+    status: cleanText(input?.status, 'published') || 'published',
+    artifactType: cleanText(input?.artifactType, 'brief') || 'brief',
+    confidenceScore: Math.max(0, Math.min(1, cleanFloat(input?.confidenceScore, 0.75))),
+    proofNote: cleanNullableText(input?.proofNote),
     translations: normalizeHistoryTranslations(input?.translations),
   };
 }
@@ -520,13 +983,24 @@ function getAdminCaseStudies() {
       slug,
       badge,
       title,
+      status,
+      region_code AS regionCode,
       location,
       client,
       sector,
+      stakeholder,
       deployment_window AS deploymentWindow,
       decision_surface AS decisionSurface,
       summary,
       note,
+      outcome,
+      evidence_type AS evidenceType,
+      evidence_source_label AS evidenceSourceLabel,
+      evidence_source_url AS evidenceSourceUrl,
+      confidence_score AS confidenceScore,
+      language_coverage AS languageCoverage,
+      artifact_count AS artifactCount,
+      last_verified_at AS lastVerifiedAt,
       link_label AS linkLabel,
       link_url AS linkUrl,
       proof_order AS proofOrder,
@@ -589,7 +1063,18 @@ function createCaseStudy(input) {
       payload.note,
       payload.linkLabel,
       payload.linkUrl,
-      payload.proofOrder
+      payload.proofOrder,
+      payload.status,
+      payload.regionCode,
+      payload.stakeholder,
+      payload.outcome,
+      payload.evidenceType,
+      payload.evidenceSourceLabel,
+      payload.evidenceSourceUrl,
+      payload.confidenceScore,
+      payload.languageCoverage,
+      payload.artifactCount,
+      payload.lastVerifiedAt
     );
 
     db.prepare(`
@@ -626,6 +1111,17 @@ function updateCaseStudy(caseStudyId, input) {
       payload.linkLabel,
       payload.linkUrl,
       payload.proofOrder,
+      payload.status,
+      payload.regionCode,
+      payload.stakeholder,
+      payload.outcome,
+      payload.evidenceType,
+      payload.evidenceSourceLabel,
+      payload.evidenceSourceUrl,
+      payload.confidenceScore,
+      payload.languageCoverage,
+      payload.artifactCount,
+      payload.lastVerifiedAt,
       caseStudyId
     );
 
@@ -666,6 +1162,10 @@ function getAdminContentHistory() {
       url,
       history_order AS historyOrder,
       metadata,
+      status,
+      artifact_type AS artifactType,
+      confidence_score AS confidenceScore,
+      proof_note AS proofNote,
       translations,
       created_at AS createdAt
     FROM content_history
@@ -695,7 +1195,11 @@ function createContentHistory(input) {
       payload.location,
       payload.url,
       payload.historyOrder,
-      JSON.stringify(payload.metadata)
+      JSON.stringify(payload.metadata),
+      payload.status,
+      payload.artifactType,
+      payload.confidenceScore,
+      payload.proofNote
     );
 
     db.prepare(`
@@ -727,6 +1231,10 @@ function updateContentHistory(historyId, input) {
       payload.url,
       payload.historyOrder,
       JSON.stringify(payload.metadata),
+      payload.status,
+      payload.artifactType,
+      payload.confidenceScore,
+      payload.proofNote,
       historyId
     );
 
@@ -798,15 +1306,27 @@ function getCaseStudyProof() {
       slug,
       badge,
       title,
+      status,
+      region_code AS regionCode,
       location,
       client,
       sector,
+      stakeholder,
       deployment_window AS deploymentWindow,
       decision_surface AS decisionSurface,
       summary,
       note,
+      outcome,
+      evidence_type AS evidenceType,
+      evidence_source_label AS evidenceSourceLabel,
+      evidence_source_url AS evidenceSourceUrl,
+      confidence_score AS confidenceScore,
+      language_coverage AS languageCoverage,
+      artifact_count AS artifactCount,
+      last_verified_at AS lastVerifiedAt,
       link_label AS linkLabel,
-      link_url AS linkUrl
+      link_url AS linkUrl,
+      translations
     FROM case_study_proof
     ORDER BY proof_order ASC, id ASC
   `).all();
@@ -830,6 +1350,7 @@ function getCaseStudyProof() {
 
   return studies.map((study) => ({
     ...study,
+    translations: parseStoredJson(study.translations, {}),
     metrics: metricsByStudy.get(study.id) || [],
   }));
 }
@@ -837,16 +1358,26 @@ function getCaseStudyProof() {
 function getContentHistory() {
   return db.prepare(`
     SELECT
+      id,
       source,
       title,
       summary,
       category,
       event_period AS eventPeriod,
       location,
-      url
+      url,
+      history_order AS historyOrder,
+      status,
+      artifact_type AS artifactType,
+      confidence_score AS confidenceScore,
+      proof_note AS proofNote,
+      translations
     FROM content_history
     ORDER BY history_order ASC, id ASC
-  `).all();
+  `).all().map((item) => ({
+    ...item,
+    translations: parseStoredJson(item.translations, {}),
+  }));
 }
 
 function getStatusPayload() {

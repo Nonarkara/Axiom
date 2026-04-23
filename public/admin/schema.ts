@@ -3,10 +3,13 @@ export type UiMode = ContentLocale | 'ts';
 
 export type CaseStudyTranslation = Partial<{
   title: string;
+  stakeholder: string;
   deploymentWindow: string;
   decisionSurface: string;
   summary: string;
   note: string;
+  outcome: string;
+  evidenceSourceLabel: string;
   linkLabel: string;
 }>;
 
@@ -16,6 +19,7 @@ export type HistoryTranslation = Partial<{
   summary: string;
   category: string;
   eventPeriod: string;
+  proofNote: string;
 }>;
 
 export interface CaseStudyMetric {
@@ -28,13 +32,24 @@ export interface CaseStudyRecord {
   slug: string;
   badge: string;
   title: string;
+  status: string;
+  regionCode: string;
   location: string;
   client: string;
   sector: string;
+  stakeholder: string;
   deploymentWindow: string;
   decisionSurface: string;
   summary: string;
   note: string;
+  outcome: string;
+  evidenceType: string;
+  evidenceSourceLabel: string;
+  evidenceSourceUrl: string;
+  confidenceScore: number;
+  languageCoverage: string;
+  artifactCount: number;
+  lastVerifiedAt: string;
   linkLabel: string;
   linkUrl: string;
   proofOrder: number;
@@ -53,6 +68,10 @@ export interface HistoryRecord {
   url: string;
   historyOrder: number;
   metadata: Record<string, unknown>;
+  status: string;
+  artifactType: string;
+  confidenceScore: number;
+  proofNote: string;
   translations: Partial<Record<Exclude<ContentLocale, 'en'>, HistoryTranslation>>;
 }
 

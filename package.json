@@ -3,10 +3,19 @@
   "version": "1.0.0",
   "description": "Axiom AI - Landing Page",
   "engines": {
-    "node": ">=18"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "start": "node server.mjs",
-    "dev": "PORT=3000 node server.mjs"
+    "dev": "PORT=3000 node server.mjs",
+    "export:evidence": "node scripts/export-evidence-snapshot.mjs",
+    "qa:links": "node .qa/release-audit.mjs",
+    "qa:visual": "node .qa/visual-qa.mjs",
+    "check": "node --check server.mjs && node --check public/site-copy.js && node --check public/app.js && node --check public/admin/app.js && node --check scripts/export-evidence-snapshot.mjs && node --check .qa/release-audit.mjs && node --check .qa/visual-qa.mjs"
+  },
+  "devDependencies": {
+    "@types/webpack-env": "^1.18.8",
+    "playwright": "^1.59.1",
+    "typescript": "^6.0.3"
   }
 }
