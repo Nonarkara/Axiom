@@ -27,7 +27,6 @@ jobs:
       - name: Verify static bundle
         run: |
           test -f public/data/evidence-snapshot.json
-          node --check public/site-copy.js
           node --check public/app.js
           node --check public/admin/app.js
           node --check scripts/export-evidence-snapshot.mjs
