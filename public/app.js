@@ -114,6 +114,8 @@ const uiCopy = {
       fieldEmail: 'Email',
       fieldMessage: 'Message',
       submit: 'Send Message',
+      successTitle: 'Message sent',
+      successDesc: "We'll get back to you soon.",
     },
   },
 
@@ -224,6 +226,8 @@ const uiCopy = {
       fieldEmail: 'อีเมล',
       fieldMessage: 'ข้อความ',
       submit: 'ส่งข้อความ',
+      successTitle: 'ส่งข้อความแล้ว',
+      successDesc: 'ผมจะติดต่อกลับเร็วๆ นี้',
     },
   },
 
@@ -334,6 +338,8 @@ const uiCopy = {
       fieldEmail: '电子邮件',
       fieldMessage: '留言',
       submit: '发送消息',
+      successTitle: '消息已发送',
+      successDesc: '我们会尽快回复您。',
     },
   },
 
@@ -900,11 +906,15 @@ function isEditableElement(element) {
     if (mapModePlay) mapModePlay.style.display = touring ? 'none' : 'block';
   }
 
+  // Track programmatic flyTo in progress — local variable, no private Leaflet APIs
+  let flyInProgress = false;
+
   function driftToNext() {
     if (!autoTour) return;
     cityIndex = (cityIndex + 1) % CITIES.length;
     const city = CITIES[cityIndex];
     syncCityDisplay(city, { shouldScroll: axiomMedia.isMobile });
+    flyInProgress = true;
     map.flyTo([city.lat, city.lng], city.zoom, {
       duration: tourDuration,
       easeLinearity: useLiteMotion ? 0.1 : 0.05,
@@ -957,18 +967,11 @@ function isEditableElement(element) {
   // Detect user interaction with the map → pause tour
   map.on('dragstart', () => { if (autoTour) pauseTour(true); });
   map.on('zoomstart', () => {
-    // Only pause if zoom was initiated by user (not flyTo)
-    if (autoTour && !map._flyInProgress) pauseTour(true);
+    // Only pause if zoom was initiated by user (not a programmatic flyTo)
+    if (autoTour && !flyInProgress) pauseTour(true);
   });
-
-  // Intercept flyTo to track in-progress state
-  const origFlyTo = map.flyTo.bind(map);
-  map.flyTo = function(latlng, zoom, options) {
-    map._flyInProgress = true;
-    return origFlyTo(latlng, zoom, options);
-  };
   map.on('moveend', () => {
-    map._flyInProgress = false;
+    flyInProgress = false;
     const center = map.getCenter();
     const closest = getClosestCity(center.lat, center.lng);
     cityIndex = CITIES.findIndex((city) => city.key === closest.key);
@@ -2792,13 +2795,14 @@ console.log('%c axiomaxiom.corp@gmail.com ', 'color: #eeeef0; font-size: 11px; f
       });
 
       if (res.ok) {
+        const copy = uiCopy[activeLocale]?.contact || uiCopy.en.contact;
         form.innerHTML = `
           <div class="contact-form-success">
             <div class="success-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <h3>Message sent</h3>
-            <p>We'll get back to you soon.</p>
+            <h3>${copy.successTitle}</h3>
+            <p>${copy.successDesc}</p>
           </div>
         `;
       } else {
