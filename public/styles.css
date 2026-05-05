@@ -663,20 +663,13 @@ body.no-glitch .sys__title::after { display: none; }
 }
 .sys__title::after { animation-delay: 0.1s; }
 
-/* Beam divider between systems */
+/* Hairline separator between systems */
 .sys + .sys::before {
   content: '';
   display: block;
   height: 1px;
   margin: 0 0 80px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--stitch) 50%,
-    transparent 100%
-  );
-  opacity: calc(0.3 + var(--cyber) * 0.5);
-  filter: drop-shadow(0 0 calc(6px * var(--glow-strength)) var(--stitch));
+  background: var(--ink-300);
 }
 .sys__lede {
   font-size: 17px;
