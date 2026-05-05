@@ -37,7 +37,7 @@
 <section class="hero">
   <div class="wrap hero__inner">
     <div class="hero__meta reveal">
-      <span class="live">Live · 9 systems</span>
+      <span class="live">Live · 7 systems</span>
       <span><b>5</b> countries</span>
       <span><b>24/7</b> monitoring</span>
       <span>Bangkok · Singapore · Taipei</span>
@@ -69,7 +69,7 @@
 
     <div class="proof-strip reveal-stagger">
       <div class="proof-strip__cell">
-        <span class="num"><span class="counter" data-to="9">0</span></span>
+        <span class="num"><span class="counter" data-to="7">0</span></span>
         <span class="lbl">Systems in production</span>
       </div>
       <div class="proof-strip__cell">
@@ -86,7 +86,7 @@
       </div>
     </div>
   </div>
-  <div class="hero__ghost" aria-hidden="true">Axiom</div>
+  <img src="images/axiom-logo.png" class="hero__ghost-logo" aria-hidden="true" alt="">
 </section>
 
 <!-- ============== SYSTEMS ============== -->
@@ -104,8 +104,43 @@
       </p>
     </div>
 
-    <!-- SYSTEM 1: Phuket -->
-    <article class="sys reveal">
+    <!-- Tab index -->
+    <div class="sys-index">
+      <p class="sys-index__label">Production index // 07 systems deployed</p>
+      <div class="sys-tabs" role="tablist" aria-label="Live systems">
+        <button class="sys-tab active" role="tab" id="tab-0" aria-controls="panel-0" aria-selected="true">
+          <span class="sys-tab__node">01</span>
+          <span class="sys-tab__name">Phuket Ops</span>
+        </button>
+        <button class="sys-tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false">
+          <span class="sys-tab__node">02</span>
+          <span class="sys-tab__name">DNGWS</span>
+        </button>
+        <button class="sys-tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false">
+          <span class="sys-tab__node">03</span>
+          <span class="sys-tab__name">Thailand</span>
+        </button>
+        <button class="sys-tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false">
+          <span class="sys-tab__node">04</span>
+          <span class="sys-tab__name">SLIC</span>
+        </button>
+        <button class="sys-tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false">
+          <span class="sys-tab__node">05</span>
+          <span class="sys-tab__name">Kuching</span>
+        </button>
+        <button class="sys-tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false">
+          <span class="sys-tab__node">06</span>
+          <span class="sys-tab__name">MEM</span>
+        </button>
+        <button class="sys-tab" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false">
+          <span class="sys-tab__node">07</span>
+          <span class="sys-tab__name">Smart Bus</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PANEL 0: Phuket -->
+    <article class="sys-panel active" id="panel-0" role="tabpanel" aria-labelledby="tab-0">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Phuket</span>
         <span class="sys__coord"><b>NODE_01</b> 7.8804°N · 98.3923°E</span>
@@ -116,11 +151,7 @@
       <div class="sys__body">
         <div class="sys__id">PROD <span class="stitch">/</span> 01 <span class="stitch">/</span> Regional Operations</div>
         <h3 class="sys__title" data-text="A governor's situation room, in a browser tab.">A governor's <em>situation room</em>, in a browser tab.</h3>
-        <p class="sys__lede">
-          Phuket's transit, public safety, and environmental signals,
-          unified into one surface that an actual governor can read in 30 seconds.
-          Built in weeks, not procurement cycles.
-        </p>
+        <p class="sys__lede">Phuket's transit, public safety, and environmental signals, unified into one surface that an actual governor can read in 30 seconds. Built in weeks, not procurement cycles.</p>
         <div class="sys__meta">
           <div><span class="k">Latency</span><span class="v">42ms</span></div>
           <div><span class="k">Sensors</span><span class="v">3,200</span></div>
@@ -138,7 +169,7 @@
           </div>
           <div class="sys__why-row">
             <span class="lbl">Earned on day one</span>
-            <span class="txt">Built on existing IoT infrastructure — no new hardware procurement. Smart Bus layer ships GPS routes and passenger telemetry on top.</span>
+            <span class="txt">Built on existing IoT infrastructure — no new hardware procurement.</span>
           </div>
         </div>
         <div class="sys__links">
@@ -147,8 +178,8 @@
       </div>
     </article>
 
-    <!-- SYSTEM 2: DNGWS / Global Monitor -->
-    <article class="sys sys--reverse reveal">
+    <!-- PANEL 1: DNGWS -->
+    <article class="sys-panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Global</span>
         <span class="sys__coord"><b>NODE_02</b> 12+ feeds · 53 nations</span>
@@ -159,10 +190,7 @@
       <div class="sys__body">
         <div class="sys__id">PROD <span class="stitch">/</span> 02 <span class="stitch">/</span> Strategic Intelligence</div>
         <h3 class="sys__title" data-text="Macro signal, before the room starts guessing.">Macro signal, before the room <em>starts guessing.</em></h3>
-        <p class="sys__lede">
-          DNGWS Monitor pulls live escalation tracking, economic spillover, and cross-source crisis
-          visualization into one surface. For decision-makers who can't wait for the briefing deck.
-        </p>
+        <p class="sys__lede">DNGWS Monitor pulls live escalation tracking, economic spillover, and cross-source crisis visualization into one surface. For decision-makers who can't wait for the briefing deck.</p>
         <div class="sys__meta">
           <div><span class="k">Sources</span><span class="v">12+</span></div>
           <div><span class="k">Coverage</span><span class="v">Global</span></div>
@@ -189,8 +217,8 @@
       </div>
     </article>
 
-    <!-- SYSTEM 3: SLIC / Thailand Index -->
-    <article class="sys reveal">
+    <!-- PANEL 2: Thailand Programme -->
+    <article class="sys-panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · National</span>
         <span class="sys__coord"><b>NODE_03</b> 13.7563°N · 100.5018°E</span>
@@ -199,12 +227,9 @@
         <img src="images/smart-city-thailand-index.png" alt="Smart City Thailand Index — national programme tracking" data-parallax>
       </div>
       <div class="sys__body">
-        <div class="sys__id">PROD <span class="stitch">/</span> 03 <span class="stitch">/</span> Governance</div>
+        <div class="sys__id">PROG <span class="stitch">/</span> 03 <span class="stitch">/</span> National Programme</div>
         <h3 class="sys__title" data-text="Bureaucracy, made legible.">Bureaucracy, made <em>legible.</em></h3>
-        <p class="sys__lede">
-          We built the public surface for Thailand's national smart city programme with depa.
-          Proposals go in. Progress stays visible. The programme stops disappearing into PDFs.
-        </p>
+        <p class="sys__lede">We built the public surface for Thailand's national smart city programme with depa. Proposals go in. Progress stays visible. The programme stops disappearing into PDFs.</p>
         <div class="sys__meta">
           <div><span class="k">Programme</span><span class="v">depa</span></div>
           <div><span class="k">Scope</span><span class="v">National</span></div>
@@ -221,38 +246,20 @@
             <span class="txt">depa — Thailand's Digital Economy Promotion Agency. Direct-to-government engagement, not a sub-vendor relationship.</span>
           </div>
           <div class="sys__why-row">
-            <span class="lbl">Why it matters now</span>
+            <span class="lbl">Why it matters</span>
             <span class="txt">Sets the template for any national smart-city programme that wants to stay legible past the launch press cycle. SLIC integrates as the benchmarking layer.</span>
           </div>
         </div>
         <div class="sys__links">
           <a class="sys-link primary" href="https://nonarkara.github.io/smart-city-thailand-index/" target="_blank" rel="noopener">Open live system →</a>
-          <a class="sys-link" href="https://nonarkara.github.io/SLIC-Index/" target="_blank" rel="noopener">SLIC Index v3</a>
-        </div>
-        <div class="sys__subs">
-          <a href="https://nonarkara.github.io/smart-city-thailand-monitor/" target="_blank" rel="noopener" class="sub">
-            <span class="sub__tag">SUB · MTT</span>
-            <span>
-              <span class="sub__name">MTT Super Dashboard</span>
-              <span class="sub__desc">Urban monitoring for a 100,000-resident mixed-use district.</span>
-            </span>
-            <span class="sub__arrow">→</span>
-          </a>
-          <a href="https://citytechatlas.lovable.app" target="_blank" rel="noopener" class="sub">
-            <span class="sub__tag">SUB · ATL</span>
-            <span>
-              <span class="sub__name">City Tech Atlas</span>
-              <span class="sub__desc">Open research atlas. 160 solutions across 7 smart domains. Free to explore.</span>
-            </span>
-            <span class="sub__arrow">→</span>
-          </a>
+          <a class="sys-link" href="https://nonarkara.github.io/smart-city-thailand-monitor/" target="_blank" rel="noopener">MTT Dashboard</a>
         </div>
       </div>
     </article>
 
-    <!-- SYSTEM 4: SLIC weighting lab -->
-    <article class="sys sys--reverse reveal">
-      <div class="sys__media">
+    <!-- PANEL 3: SLIC Ranking Lab -->
+    <article class="sys-panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
+      <div class="sys__media sys__media--light">
         <span class="sys__chip"><span class="live-dot"></span>Live · 157 cities</span>
         <span class="sys__coord"><b>NODE_04</b> 5 pillars · weighted live</span>
         <span class="corner tl"></span><span class="corner tr"></span>
@@ -260,13 +267,9 @@
         <img src="photos/products/SLIC Index.png" alt="SLIC Index v3 — adjustable five-pillar ranking lab" data-parallax>
       </div>
       <div class="sys__body">
-        <div class="sys__id">PROD <span class="stitch">/</span> 04 <span class="stitch">/</span> Benchmarking</div>
+        <div class="sys__id">RANK <span class="stitch">/</span> 04 <span class="stitch">/</span> City Benchmarking</div>
         <h3 class="sys__title" data-text="A ranking that argues back.">A ranking that <em>argues back.</em></h3>
-        <p class="sys__lede">
-          The SLIC Index doesn't tell cities what they're worth. It shows them five pillars
-          and lets them test their own priorities. Mayors decide what livability means —
-          and the math follows.
-        </p>
+        <p class="sys__lede">The SLIC Index doesn't tell cities what they're worth. It shows them five pillars and lets them test their own priorities. Mayors decide what livability means — and the math follows.</p>
         <div class="sys__meta">
           <div><span class="k">Cities</span><span class="v">157</span></div>
           <div><span class="k">Pillars</span><span class="v">5 adjustable</span></div>
@@ -293,23 +296,19 @@
       </div>
     </article>
 
-    <!-- SYSTEM 5: Kuching IOC -->
-    <article class="sys reveal">
+    <!-- PANEL 4: Kuching IOC -->
+    <article class="sys-panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Sarawak</span>
         <span class="sys__coord"><b>NODE_05</b> 1.5533°N · 110.3592°E</span>
         <span class="corner tl"></span><span class="corner tr"></span>
         <span class="corner bl"></span><span class="corner br"></span>
-        <img src="photos/products/Kuching Dashboard.png" alt="Greater Kuching Intelligent Operations Centre — multi-domain city command surface" data-parallax>
+        <img src="photos/products/Kuching Dashboard.png" alt="Greater Kuching Intelligent Operations Centre" data-parallax>
       </div>
       <div class="sys__body">
         <div class="sys__id">PROD <span class="stitch">/</span> 05 <span class="stitch">/</span> Intelligent Operations</div>
         <h3 class="sys__title" data-text="Greater Kuching, one command surface.">Greater Kuching, <em>one command surface.</em></h3>
-        <p class="sys__lede">
-          A full-spectrum Intelligent Operations Centre for Greater Kuching, Sarawak.
-          Foreign exchange, flights, satellite imagery, and environmental signals — unified
-          for the operators who run Southeast Asia's fastest-growing smart city.
-        </p>
+        <p class="sys__lede">A full-spectrum IOC for Greater Kuching, Sarawak. Foreign exchange, flights, satellite imagery, and environmental signals — unified for the operators who run Southeast Asia's fastest-growing smart city.</p>
         <div class="sys__meta">
           <div><span class="k">Region</span><span class="v">Sarawak, MY</span></div>
           <div><span class="k">Data</span><span class="v">FX · Flights · Satellite</span></div>
@@ -319,15 +318,15 @@
         <div class="sys__why">
           <div class="sys__why-row">
             <span class="lbl">Why it's special</span>
-            <span class="txt">Most IOCs are single-domain. Kuching fuses <b>cross-domain signals in one view</b> — currency pressure, flight arrivals, Sentinel-2 satellite sweeps, and environmental reads. The operator never switches tabs to get the full picture of what the city is doing right now.</span>
+            <span class="txt">Most IOCs are single-domain. Kuching fuses <b>cross-domain signals in one view</b> — currency pressure, flight arrivals, Sentinel-2 sweeps, environmental reads. The operator never switches tabs to see the full picture.</span>
           </div>
           <div class="sys__why-row">
             <span class="lbl">Who uses it</span>
-            <span class="txt">Greater Kuching city operators and planners. Built for real-time situational awareness across Sarawak's capital region — not for a demo room, for daily use.</span>
+            <span class="txt">Greater Kuching city operators and planners. Built for real-time situational awareness — not a demo room, for daily use.</span>
           </div>
           <div class="sys__why-row">
             <span class="lbl">Why it matters</span>
-            <span class="txt">Kuching is a city that moves fast. This IOC gives its operators the same information density that Bloomberg gives a trading desk — but for a city, at a fraction of the cost.</span>
+            <span class="txt">Same information density a Bloomberg terminal gives a trading desk — but for a city, at a fraction of the cost.</span>
           </div>
         </div>
         <div class="sys__links">
@@ -336,8 +335,8 @@
       </div>
     </article>
 
-    <!-- SYSTEM 6: MEM -->
-    <article class="sys sys--reverse reveal">
+    <!-- PANEL 5: MEM -->
+    <article class="sys-panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Middle East</span>
         <span class="sys__coord"><b>NODE_06</b> Multi-source · Real-time</span>
@@ -348,11 +347,7 @@
       <div class="sys__body">
         <div class="sys__id">PROD <span class="stitch">/</span> 06 <span class="stitch">/</span> Open Intelligence</div>
         <h3 class="sys__title" data-text="News before the algorithm decides what's war.">News before the algorithm <em>decides what's war.</em></h3>
-        <p class="sys__lede">
-          MEM is the fastest open-source news surface for Middle Eastern conflict coverage.
-          Live multi-source feeds, no editorial delay, no filter bubble.
-          Built for analysts and decision-makers who need the signal before the cycle.
-        </p>
+        <p class="sys__lede">MEM is the fastest open-source news surface for Middle Eastern conflict coverage. Live multi-source feeds, no editorial delay, no filter bubble. The signal before the cycle.</p>
         <div class="sys__meta">
           <div><span class="k">Region</span><span class="v">Middle East</span></div>
           <div><span class="k">Sources</span><span class="v">Multi-feed</span></div>
@@ -362,15 +357,15 @@
         <div class="sys__why">
           <div class="sys__why-row">
             <span class="lbl">Why it's special</span>
-            <span class="txt">Every major news platform has an editorial layer that slows, filters, and frames. <b>MEM removes that layer.</b> You see the raw feed — the same signals a desk analyst would aggregate manually — in one surface, at machine speed.</span>
+            <span class="txt">Every major news platform has an editorial layer that slows, filters, frames. <b>MEM removes that layer.</b> The same signals a desk analyst aggregates manually — in one surface, at machine speed.</span>
           </div>
           <div class="sys__why-row">
             <span class="lbl">What it replaced</span>
-            <span class="txt">Manually refreshing three browser tabs, two Telegram channels, and a Twitter/X list to triangulate what was actually happening on the ground.</span>
+            <span class="txt">Three browser tabs, two Telegram channels, and a Twitter/X list — open simultaneously to triangulate what was actually happening on the ground.</span>
           </div>
           <div class="sys__why-row">
             <span class="lbl">Who uses it</span>
-            <span class="txt">Journalists, policy analysts, NGO field teams, and anyone who needs ground-level signal on Middle Eastern conflict faster than the 24-hour news cycle delivers it.</span>
+            <span class="txt">Journalists, policy analysts, NGO field teams. Anyone who needs ground-level signal faster than the 24-hour news cycle delivers it.</span>
           </div>
         </div>
         <div class="sys__links">
@@ -379,9 +374,9 @@
       </div>
     </article>
 
-    <!-- SYSTEM 7: Phuket Smart Bus -->
-    <article class="sys reveal">
-      <div class="sys__media">
+    <!-- PANEL 6: Phuket Smart Bus -->
+    <article class="sys-panel" id="panel-6" role="tabpanel" aria-labelledby="tab-6">
+      <div class="sys__media sys__media--light">
         <span class="sys__chip"><span class="live-dot"></span>Live · Phuket Transit</span>
         <span class="sys__coord"><b>NODE_07</b> 7.8804°N · 98.3923°E</span>
         <span class="corner tl"></span><span class="corner tr"></span>
@@ -391,11 +386,7 @@
       <div class="sys__body">
         <div class="sys__id">PROD <span class="stitch">/</span> 07 <span class="stitch">/</span> Transit Intelligence</div>
         <h3 class="sys__title" data-text="The bus, tracked. The rider, informed.">The bus, tracked. <em>The rider, informed.</em></h3>
-        <p class="sys__lede">
-          Real-time GPS tracking and passenger telemetry for Phuket's smart bus network.
-          Designed for the rider's phone first — not a control room screen.
-          Works on the road, in the heat, with one thumb.
-        </p>
+        <p class="sys__lede">Real-time GPS tracking and passenger telemetry for Phuket's smart bus network. Designed for the rider's phone first — not a control room screen. Works on the road, in the heat, with one thumb.</p>
         <div class="sys__meta">
           <div><span class="k">Coverage</span><span class="v">Phuket Island</span></div>
           <div><span class="k">Interface</span><span class="v">Mobile-first</span></div>
@@ -405,15 +396,15 @@
         <div class="sys__why">
           <div class="sys__why-row">
             <span class="lbl">Why it's special</span>
-            <span class="txt">Smart bus systems usually exist for the operator's reporting dashboard. <b>This one exists for the person waiting at the stop.</b> GPS position, next arrival, route clarity — designed for a tourist who doesn't read Thai and a commuter who doesn't have time to guess.</span>
+            <span class="txt">Smart bus systems usually exist for the operator's dashboard. <b>This one exists for the person waiting at the stop.</b> GPS position, next arrival, route clarity — for a tourist who doesn't read Thai and a commuter who doesn't have time to guess.</span>
           </div>
           <div class="sys__why-row">
             <span class="lbl">What it replaced</span>
-            <span class="txt">Standing at a stop with no information. A bus schedule printed in 2019. The assumption that public transit on a tourist island can't be made legible.</span>
+            <span class="txt">Standing at a stop with no information. A bus schedule printed in 2019. The assumption that transit on a tourist island can't be made legible.</span>
           </div>
           <div class="sys__why-row">
             <span class="lbl">Built on top of</span>
-            <span class="txt">Phuket's existing IoT infrastructure — the same sensor layer that feeds the Governor's operations room. No new hardware, new intelligence layer.</span>
+            <span class="txt">Phuket's existing IoT infrastructure — the same sensor layer that feeds the Governor's operations room. No new hardware.</span>
           </div>
         </div>
         <div class="sys__links">
@@ -679,6 +670,7 @@
   <div class="wrap">
     <div class="contact__grid">
       <div>
+        <img src="images/axiom-logo.png" class="contact__logo" alt="Axiom" aria-hidden="true">
         <span class="kicker" style="color: var(--ink-500);">Work With Us</span>
         <h2 style="margin-top: 16px;">Send the brief. <em>We'll map the pressure.</em></h2>
         <p>
@@ -718,7 +710,7 @@
 <footer class="foot">
   <div class="wrap">
     <div class="foot__row">
-      <span class="foot__brand">AXIOM</span>
+      <img src="images/axiom-logo.png" class="foot__brand-img" alt="Axiom">
       <nav class="foot__links" aria-label="Footer">
         <a href="#systems">Systems</a>
         <a href="#stages">Stages</a>
@@ -798,6 +790,26 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 window.addEventListener('resize', updateParallax);
 updateParallax();
+
+// System tabs
+const sysTabs = document.querySelectorAll('.sys-tab');
+const sysPanels = document.querySelectorAll('.sys-panel');
+function activateTab(idx) {
+  sysTabs.forEach((t, i) => {
+    t.classList.toggle('active', i === idx);
+    t.setAttribute('aria-selected', String(i === idx));
+  });
+  sysPanels.forEach((p, i) => p.classList.toggle('active', i === idx));
+}
+sysTabs.forEach((tab, i) => tab.addEventListener('click', () => activateTab(i)));
+const tabsEl = document.querySelector('.sys-tabs');
+if (tabsEl) {
+  tabsEl.addEventListener('keydown', (e) => {
+    const cur = [...sysTabs].findIndex(t => t.classList.contains('active'));
+    if (e.key === 'ArrowRight') { activateTab((cur + 1) % sysTabs.length); e.preventDefault(); }
+    if (e.key === 'ArrowLeft') { activateTab((cur - 1 + sysTabs.length) % sysTabs.length); e.preventDefault(); }
+  });
+}
 
 // Topbar style on scroll
 const topbar = document.getElementById('topbar');
