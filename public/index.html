@@ -104,43 +104,8 @@
       </p>
     </div>
 
-    <!-- Tab index -->
-    <div class="sys-index">
-      <p class="sys-index__label">Production index // 07 systems deployed</p>
-      <div class="sys-tabs" role="tablist" aria-label="Live systems">
-        <button class="sys-tab active" role="tab" id="tab-0" aria-controls="panel-0" aria-selected="true">
-          <span class="sys-tab__node">01</span>
-          <span class="sys-tab__name">Phuket Ops</span>
-        </button>
-        <button class="sys-tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false">
-          <span class="sys-tab__node">02</span>
-          <span class="sys-tab__name">DNGWS</span>
-        </button>
-        <button class="sys-tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false">
-          <span class="sys-tab__node">03</span>
-          <span class="sys-tab__name">Thailand</span>
-        </button>
-        <button class="sys-tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false">
-          <span class="sys-tab__node">04</span>
-          <span class="sys-tab__name">SLIC</span>
-        </button>
-        <button class="sys-tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false">
-          <span class="sys-tab__node">05</span>
-          <span class="sys-tab__name">Kuching</span>
-        </button>
-        <button class="sys-tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false">
-          <span class="sys-tab__node">06</span>
-          <span class="sys-tab__name">MEM</span>
-        </button>
-        <button class="sys-tab" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false">
-          <span class="sys-tab__node">07</span>
-          <span class="sys-tab__name">Smart Bus</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- PANEL 0: Phuket -->
-    <article class="sys-panel active" id="panel-0" role="tabpanel" aria-labelledby="tab-0">
+    <!-- SYSTEM 1: Phuket -->
+    <article class="sys reveal">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Phuket</span>
         <span class="sys__coord"><b>NODE_01</b> 7.8804°N · 98.3923°E</span>
@@ -178,8 +143,8 @@
       </div>
     </article>
 
-    <!-- PANEL 1: DNGWS -->
-    <article class="sys-panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+    <!-- SYSTEM 2: DNGWS -->
+    <article class="sys sys--reverse reveal">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Global</span>
         <span class="sys__coord"><b>NODE_02</b> 12+ feeds · 53 nations</span>
@@ -217,8 +182,8 @@
       </div>
     </article>
 
-    <!-- PANEL 2: Thailand Programme -->
-    <article class="sys-panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
+    <!-- SYSTEM 3: Thailand Programme -->
+    <article class="sys reveal">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · National</span>
         <span class="sys__coord"><b>NODE_03</b> 13.7563°N · 100.5018°E</span>
@@ -257,8 +222,8 @@
       </div>
     </article>
 
-    <!-- PANEL 3: SLIC Ranking Lab -->
-    <article class="sys-panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
+    <!-- SYSTEM 4: SLIC Ranking Lab -->
+    <article class="sys sys--reverse reveal">
       <div class="sys__media sys__media--light">
         <span class="sys__chip"><span class="live-dot"></span>Live · 157 cities</span>
         <span class="sys__coord"><b>NODE_04</b> 5 pillars · weighted live</span>
@@ -296,8 +261,8 @@
       </div>
     </article>
 
-    <!-- PANEL 4: Kuching IOC -->
-    <article class="sys-panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4">
+    <!-- SYSTEM 5: Kuching IOC -->
+    <article class="sys reveal">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Sarawak</span>
         <span class="sys__coord"><b>NODE_05</b> 1.5533°N · 110.3592°E</span>
@@ -335,8 +300,8 @@
       </div>
     </article>
 
-    <!-- PANEL 5: MEM -->
-    <article class="sys-panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5">
+    <!-- SYSTEM 6: MEM -->
+    <article class="sys sys--reverse reveal">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Middle East</span>
         <span class="sys__coord"><b>NODE_06</b> Multi-source · Real-time</span>
@@ -374,8 +339,8 @@
       </div>
     </article>
 
-    <!-- PANEL 6: Phuket Smart Bus -->
-    <article class="sys-panel" id="panel-6" role="tabpanel" aria-labelledby="tab-6">
+    <!-- SYSTEM 7: Phuket Smart Bus -->
+    <article class="sys reveal">
       <div class="sys__media sys__media--light">
         <span class="sys__chip"><span class="live-dot"></span>Live · Phuket Transit</span>
         <span class="sys__coord"><b>NODE_07</b> 7.8804°N · 98.3923°E</span>
@@ -802,26 +767,6 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 window.addEventListener('resize', updateParallax);
 updateParallax();
-
-// System tabs
-const sysTabs = document.querySelectorAll('.sys-tab');
-const sysPanels = document.querySelectorAll('.sys-panel');
-function activateTab(idx) {
-  sysTabs.forEach((t, i) => {
-    t.classList.toggle('active', i === idx);
-    t.setAttribute('aria-selected', String(i === idx));
-  });
-  sysPanels.forEach((p, i) => p.classList.toggle('active', i === idx));
-}
-sysTabs.forEach((tab, i) => tab.addEventListener('click', () => activateTab(i)));
-const tabsEl = document.querySelector('.sys-tabs');
-if (tabsEl) {
-  tabsEl.addEventListener('keydown', (e) => {
-    const cur = [...sysTabs].findIndex(t => t.classList.contains('active'));
-    if (e.key === 'ArrowRight') { activateTab((cur + 1) % sysTabs.length); e.preventDefault(); }
-    if (e.key === 'ArrowLeft') { activateTab((cur - 1 + sysTabs.length) % sysTabs.length); e.preventDefault(); }
-  });
-}
 
 // Topbar style on scroll
 const topbar = document.getElementById('topbar');
