@@ -1486,6 +1486,13 @@ body.no-glitch .sys__title::after { display: none; }
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
 }
+.probono__note {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--paper-200);
+  max-width: 640px;
+}
 @media (min-width: 880px) {
   .probono__grid { grid-template-columns: repeat(4, 1fr); }
 }
