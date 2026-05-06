@@ -104,8 +104,19 @@
       </p>
     </div>
 
+    <!-- TAB STRIP -->
+    <div class="sys-tabs" role="tablist" aria-label="Production systems">
+      <button class="sys-tab active" data-panel="panel-01" role="tab" aria-selected="true">01 · Phuket Ops</button>
+      <button class="sys-tab" data-panel="panel-02" role="tab" aria-selected="false">02 · DNGWS</button>
+      <button class="sys-tab" data-panel="panel-03" role="tab" aria-selected="false">03 · Thailand</button>
+      <button class="sys-tab" data-panel="panel-04" role="tab" aria-selected="false">04 · SLIC</button>
+      <button class="sys-tab" data-panel="panel-05" role="tab" aria-selected="false">05 · Kuching</button>
+      <button class="sys-tab" data-panel="panel-06" role="tab" aria-selected="false">06 · MEM</button>
+      <button class="sys-tab" data-panel="panel-07" role="tab" aria-selected="false">07 · Smart Bus</button>
+    </div>
+
     <!-- SYSTEM 1: Phuket -->
-    <article class="sys reveal">
+    <article class="sys sys-panel active" id="panel-01">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Phuket</span>
         <span class="sys__coord"><b>NODE_01</b> 7.8804°N · 98.3923°E</span>
@@ -170,7 +181,7 @@
     </article>
 
     <!-- SYSTEM 2: DNGWS -->
-    <article class="sys sys--reverse reveal">
+    <article class="sys sys-panel" id="panel-02">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Global</span>
         <span class="sys__coord"><b>NODE_02</b> 12+ feeds · 53 nations</span>
@@ -236,7 +247,7 @@
     </article>
 
     <!-- SYSTEM 3: Thailand Programme -->
-    <article class="sys reveal">
+    <article class="sys sys-panel" id="panel-03">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · National</span>
         <span class="sys__coord"><b>NODE_03</b> 13.7563°N · 100.5018°E</span>
@@ -302,7 +313,7 @@
     </article>
 
     <!-- SYSTEM 4: SLIC Ranking Lab -->
-    <article class="sys sys--reverse reveal">
+    <article class="sys sys-panel" id="panel-04">
       <div class="sys__media sys__media--light">
         <span class="sys__chip"><span class="live-dot"></span>Live · 157 cities</span>
         <span class="sys__coord"><b>NODE_04</b> 5 pillars · weighted live</span>
@@ -368,7 +379,7 @@
     </article>
 
     <!-- SYSTEM 5: Kuching IOC -->
-    <article class="sys reveal">
+    <article class="sys sys-panel" id="panel-05">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Sarawak</span>
         <span class="sys__coord"><b>NODE_05</b> 1.5533°N · 110.3592°E</span>
@@ -434,7 +445,7 @@
     </article>
 
     <!-- SYSTEM 6: MEM -->
-    <article class="sys sys--reverse reveal">
+    <article class="sys sys-panel" id="panel-06">
       <div class="sys__media">
         <span class="sys__chip"><span class="live-dot"></span>Live · Middle East</span>
         <span class="sys__coord"><b>NODE_06</b> Multi-source · Real-time</span>
@@ -500,7 +511,7 @@
     </article>
 
     <!-- SYSTEM 7: Phuket Smart Bus -->
-    <article class="sys reveal">
+    <article class="sys sys-panel" id="panel-07">
       <div class="sys__media sys__media--light">
         <span class="sys__chip"><span class="live-dot"></span>Live · Phuket Transit</span>
         <span class="sys__coord"><b>NODE_07</b> 7.8804°N · 98.3923°E</span>
@@ -1060,6 +1071,23 @@ document.querySelectorAll('.cv-btn').forEach(btn => {
     btn.classList.toggle('active', !isOpen);
     btn.textContent = isOpen ? 'CV ⊕' : 'CV ⊖';
   });
+});
+
+// System tabs
+document.querySelectorAll('.sys-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.sys-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+    document.querySelectorAll('.sys-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    document.getElementById(tab.dataset.panel).classList.add('active');
+  });
+});
+document.querySelector('.sys-tabs')?.addEventListener('keydown', e => {
+  const tabs = [...document.querySelectorAll('.sys-tab')];
+  const i = tabs.indexOf(document.activeElement);
+  if (e.key === 'ArrowRight' && i < tabs.length - 1) { tabs[i + 1].click(); tabs[i + 1].focus(); }
+  if (e.key === 'ArrowLeft' && i > 0) { tabs[i - 1].click(); tabs[i - 1].focus(); }
 });
 
 // Topbar style on scroll
