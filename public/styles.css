@@ -696,6 +696,87 @@ body.no-glitch .sys__title::after { display: none; }
 .sys__meta .v { color: var(--paper-000); font-size: 12px; letter-spacing: 0.04em; }
 
 .sys__links { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ---------- System map button + diagram ---------- */
+
+.sys-map-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--ink-400);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper-200);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.sys-map-btn:hover { border-color: var(--paper-200); color: var(--paper-000); }
+.sys-map-btn.active { border-color: var(--stitch); color: var(--stitch); }
+
+.sys__diagram { display: none; margin-top: 20px; }
+.sys__diagram.open { display: block; }
+
+.diagram {
+  padding: 20px;
+  border: 1px solid var(--ink-300);
+  border-radius: var(--radius-md);
+  background: var(--ink-050);
+}
+.diagram__head {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--paper-200);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ink-300);
+}
+.diagram__flow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.diagram__flow::-webkit-scrollbar { display: none; }
+.diagram__col { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 120px; }
+.d-col-lbl {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  margin-bottom: 2px;
+}
+.d-node {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--paper-100);
+  padding: 8px 10px;
+  border: 1px solid var(--ink-400);
+  border-radius: var(--radius-sm);
+  background: var(--ink-100);
+  line-height: 1.5;
+}
+.d-node--core {
+  border-color: var(--stitch);
+  color: var(--paper-000);
+  background: rgba(255, 61, 40, 0.06);
+}
+.d-node--out { border-color: var(--ink-300); color: var(--paper-050); }
+.diagram__arrow {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--stitch);
+  opacity: 0.5;
+  flex-shrink: 0;
+  padding-top: 26px;
+}
 .sys-link {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 14px;
