@@ -1624,8 +1624,19 @@ body.no-glitch .sys__title::after { display: none; }
   }
 }
 
-/* Light-background screenshots — multiply blends white into the dark bg */
-.sys__media--light img { mix-blend-mode: multiply; }
+/* Light-background screenshots — dark overlay for readability */
+.sys__media--light {
+  position: relative;
+}
+.sys__media--light img { mix-blend-mode: normal; }
+.sys__media--light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 12, 0.35);
+  pointer-events: none;
+  z-index: 1;
+}
 
 /* ---------- Logo treatments ---------- */
 
