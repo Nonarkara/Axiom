@@ -699,6 +699,13 @@
           <span class="cred">MSc · MIT</span>
           <span class="cred">Visiting Lecturer · MIT</span>
         </div>
+        <button class="cv-btn" data-cv="cv-non">CV ⊕</button>
+        <div class="cv-panel" id="cv-non">
+          <div class="cv-content">
+            <div class="cv-header">Dr. Non Arkaraprasertkul</div>
+            <p>Awaiting CV content from Dr. Non's March 2026 resume.</p>
+          </div>
+        </div>
       </div>
 
       <div class="bio bio--poon reveal">
@@ -717,6 +724,40 @@
           <span class="cred">PhD · Civil Engineering</span>
           <span class="cred">Assoc. Prof. · CMU</span>
           <span class="cred">Smart City Master Plan</span>
+        </div>
+        <button class="cv-btn" data-cv="cv-poon">CV ⊕</button>
+        <div class="cv-panel" id="cv-poon">
+          <div class="cv-content">
+            <div class="cv-header">Assoc. Prof. Dr. Poon Thiengburanathum</div>
+            <div class="cv-section">
+              <div class="cv-section-title">Current Roles</div>
+              <p>Deputy Director, Program Management Unit for Area-Based Development (PMU-A), Ministry of Higher Education, Science, Research and Innovation, Thailand; Director, Excellence Center for Urban Study and Public Policy (ECUP), Chiang Mai University.</p>
+            </div>
+            <div class="cv-section">
+              <div class="cv-section-title">Education</div>
+              <ul>
+                <li>B.Eng. in Civil Engineering, Chiang Mai University, 1995</li>
+                <li>M.S. in Construction Management, University of Colorado at Boulder, 1997</li>
+                <li>Ph.D. in Construction Management, University of Colorado at Boulder, 2003; minors in Operations Research and Transportation Engineering</li>
+                <li>M.S. in Transportation Engineering, University of Colorado at Denver, 2003</li>
+              </ul>
+            </div>
+            <div class="cv-section">
+              <div class="cv-section-title">Core Expertise</div>
+              <p>Civil engineering, construction management, sustainable infrastructure development, climate change, disaster management, logistics, urban planning, urban mobility, and transportation systems.</p>
+            </div>
+            <div class="cv-section">
+              <div class="cv-section-title">Selected Work</div>
+              <ul>
+                <li>Head of Sustainable Infrastructure Development and Climate Change Research Unit, Chiang Mai University, 2010–present</li>
+                <li>Lead Coordinator, Research University Network (RUN) for Climate Change and Disaster Management, 2015–present</li>
+                <li>Bus rapid transit and mass transportation studies in Chiang Mai</li>
+                <li>Integrated land-use, logistics, and transport management with World Bank</li>
+                <li>Green logistics and renewable energy projects for agriculture and industry</li>
+                <li>Disaster management for critical infrastructure and supply chains</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -962,6 +1003,17 @@ document.querySelectorAll('.sys-map-btn').forEach(btn => {
     diagram.classList.toggle('open', !isOpen);
     btn.classList.toggle('active', !isOpen);
     btn.textContent = isOpen ? 'System map ⊕' : 'System map ⊖';
+  });
+});
+
+// CV toggle buttons
+document.querySelectorAll('.cv-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const cvPanel = document.getElementById(btn.dataset.cv);
+    const isOpen = cvPanel.classList.contains('open');
+    cvPanel.classList.toggle('open', !isOpen);
+    btn.classList.toggle('active', !isOpen);
+    btn.textContent = isOpen ? 'CV ⊕' : 'CV ⊖';
   });
 });
 
