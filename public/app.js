@@ -457,6 +457,7 @@ const uiCopy = {
 function renderStaticCopy() {
   const copy = uiCopy[activeLocale] || uiCopy.en;
   const fallback = uiCopy.en;
+  document.documentElement.lang = activeLocale;
   const lookup = (key) => {
     const parts = key.split('.');
     const val = parts.reduce((obj, k) => obj?.[k], copy);
@@ -474,24 +475,35 @@ function renderStaticCopy() {
     if (typeof value === 'string') node.innerHTML = value;
   });
 
-  document.querySelectorAll('[data-locale]').forEach((btn) => {
+  document.querySelectorAll('#localeSwitch [data-locale], #localeSwitchMobile [data-locale]').forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.locale === activeLocale);
   });
 }
+
+function setPageLocale(locale, options = {}) {
+  activeLocale = uiCopy[locale] ? locale : 'en';
+  renderStaticCopy();
+  if (!options.silent) {
+    window.dispatchEvent(new CustomEvent('axiom:localechange', {
+      detail: { locale: activeLocale },
+    }));
+  }
+}
+
+window.setAxiomLocale = setPageLocale;
 
 function bindLocaleSwitch() {
   ['localeSwitch', 'localeSwitchMobile'].forEach((id) => {
     document.getElementById(id)?.addEventListener('click', (e) => {
       const btn = e.target instanceof HTMLElement ? e.target.closest('[data-locale]') : null;
       if (!btn) return;
-      activeLocale = btn.dataset.locale || 'en';
-      renderStaticCopy();
+      setPageLocale(btn.dataset.locale || 'en');
     });
   });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderStaticCopy();
+  setPageLocale(activeLocale, { silent: true });
   bindLocaleSwitch();
   initScrollReveal();
 });
@@ -736,6 +748,7 @@ function isEditableElement(element) {
   const container = document.getElementById('heroMap');
   if (!container || !window.L) return;
   const useLiteMotion = axiomMedia.isTouch || axiomMedia.isReduced || axiomMedia.isMobile;
+  const allowDirectMapInteraction = !axiomMedia.isMobile;
 
   // Cities Axiom operates in
   const CITIES = [
@@ -750,12 +763,12 @@ function isEditableElement(element) {
     zoom: CITIES[0].zoom,
     zoomControl: false,
     attributionControl: false,
-    dragging: true,
+    dragging: allowDirectMapInteraction,
     scrollWheelZoom: false,
-    doubleClickZoom: true,
-    touchZoom: true,
-    keyboard: true,
-    boxZoom: true,
+    doubleClickZoom: allowDirectMapInteraction,
+    touchZoom: allowDirectMapInteraction,
+    keyboard: allowDirectMapInteraction,
+    boxZoom: allowDirectMapInteraction,
     fadeAnimation: !useLiteMotion,
     zoomAnimation: !useLiteMotion,
   });
@@ -806,7 +819,7 @@ function isEditableElement(element) {
       button.classList.toggle('is-active', isActive);
       button.setAttribute('aria-pressed', String(isActive));
 
-      if (isActive && shouldScroll && typeof button.scrollIntoView === 'function') {
+      if (isActive && shouldScroll && !axiomMedia.isMobile && typeof button.scrollIntoView === 'function') {
         button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     });
@@ -826,6 +839,9 @@ function isEditableElement(element) {
 
     return closest;
   }
+
+  // Track programmatic flyTo in progress — local variable, no private Leaflet APIs
+  let flyInProgress = false;
 
   window.axiom = window.axiom || {};
   window.axiom.showroom = {
@@ -870,7 +886,7 @@ function isEditableElement(element) {
           tracker.style.left = screenPos.x + 'px';
         }
         updateIntelligenceOverlays(center.lat, center.lng);
-        syncCityDisplay(getClosestCity(center.lat, center.lng));
+        if (!flyInProgress) syncCityDisplay(getClosestCity(center.lat, center.lng));
       });
     }
   };
@@ -884,7 +900,7 @@ function isEditableElement(element) {
   const mapModePause = document.getElementById('mapModePause');
   const mapModePlay = document.getElementById('mapModePlay');
 
-  let autoTour = true;
+  let autoTour = !axiomMedia.isMobile;
   let cityIndex = 0;
   let driftTimer = null;
   let driftInterval = null;
@@ -906,14 +922,11 @@ function isEditableElement(element) {
     if (mapModePlay) mapModePlay.style.display = touring ? 'none' : 'block';
   }
 
-  // Track programmatic flyTo in progress — local variable, no private Leaflet APIs
-  let flyInProgress = false;
-
   function driftToNext() {
     if (!autoTour) return;
     cityIndex = (cityIndex + 1) % CITIES.length;
     const city = CITIES[cityIndex];
-    syncCityDisplay(city, { shouldScroll: axiomMedia.isMobile });
+    syncCityDisplay(city);
     flyInProgress = true;
     map.flyTo([city.lat, city.lng], city.zoom, {
       duration: tourDuration,
@@ -922,6 +935,7 @@ function isEditableElement(element) {
   }
 
   function startTour() {
+    if (axiomMedia.isMobile) return;
     autoTour = true;
     setModeUI(true);
     if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
@@ -943,7 +957,7 @@ function isEditableElement(element) {
 
     // If user paused by interacting, offer resume after 20s of inactivity
     if (fromUser && resumeTimeout) clearTimeout(resumeTimeout);
-    if (fromUser) {
+    if (fromUser && !axiomMedia.isMobile) {
       resumeTimeout = setTimeout(() => {
         // Gently blink the play button to suggest resuming
         if (mapModeBtn) mapModeBtn.classList.add('map-mode-btn-pulse');
@@ -978,11 +992,15 @@ function isEditableElement(element) {
     syncCityDisplay(closest);
   });
 
-  // Start auto tour after initial pause
-  driftTimer = setTimeout(() => {
-    driftToNext();
-    driftInterval = setInterval(driftToNext, tourIntervalMs);
-  }, useLiteMotion ? 2500 : 5000);
+  // Start auto tour after initial pause on desktop only. Mobile must never pull scroll back to the hero.
+  if (!axiomMedia.isMobile) {
+    driftTimer = setTimeout(() => {
+      driftToNext();
+      driftInterval = setInterval(driftToNext, tourIntervalMs);
+    }, useLiteMotion ? 2500 : 5000);
+  } else {
+    setModeUI(false);
+  }
 
   // ── Layer switching ──
 
@@ -1152,7 +1170,8 @@ function isEditableElement(element) {
       if (!city) return;
       cityIndex = CITIES.findIndex((item) => item.key === city.key);
       pauseTour(true);
-      syncCityDisplay(city, { shouldScroll: true });
+      syncCityDisplay(city, { shouldScroll: !axiomMedia.isMobile });
+      flyInProgress = true;
       map.flyTo([city.lat, city.lng], city.zoom, {
         duration: useLiteMotion ? 5 : 8,
         easeLinearity: useLiteMotion ? 0.15 : 0.08,
@@ -1331,10 +1350,50 @@ function isEditableElement(element) {
   const nav = document.getElementById('nav');
   const toggle = document.getElementById('navToggle');
   const menu = document.getElementById('mobileMenu');
+  const sectionLinks = Array.from(document.querySelectorAll('.nav-link[href^="#"], .mobile-link[href^="#"]'));
+  const sectionMap = sectionLinks.reduce((map, link) => {
+    const id = link.getAttribute('href')?.slice(1);
+    const section = id ? document.getElementById(id) : null;
+    if (section) {
+      if (!map.has(id)) map.set(id, { section, links: [] });
+      map.get(id).links.push(link);
+    }
+    return map;
+  }, new Map());
+
+  const setActiveSection = (id) => {
+    sectionMap.forEach(({ links }, sectionId) => {
+      links.forEach((link) => {
+        const isActive = sectionId === id;
+        link.classList.toggle('is-active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  };
+
+  const updateActiveSection = () => {
+    if (!sectionMap.size) return;
+    const probeY = Math.min(window.innerHeight * 0.42, 420);
+    let activeId = '';
+
+    sectionMap.forEach(({ section }, id) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= probeY && rect.bottom > probeY) {
+        activeId = id;
+      }
+    });
+
+    if (activeId) setActiveSection(activeId);
+  };
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 50);
+    updateActiveSection();
   }, { passive: true });
+
+  updateActiveSection();
+  window.addEventListener('resize', updateActiveSection);
 
   if (toggle && menu) {
     function openMenu() {
@@ -1610,7 +1669,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     },
     th: {
       tag: 'แดชบอร์ดหลักฐาน',
-      title: 'สิ่งที่เราพิสูจน์ได้ อยู่ที่ไหน และอัปเดตล่าสุดเมื่อใด',
+      title: 'สิ่งที่ผมพิสูจน์ได้ อยู่ที่ไหน และอัปเดตล่าสุดเมื่อใด',
       desc: 'ส่วนนี้อ่านข้อมูลสดจากฐานหลักฐาน แสดงหลักฐานโครงการ การกระจายตามภูมิภาค คุณภาพของแหล่งอ้างอิง และไทม์ไลน์สาธารณะที่กวาดตาอ่านได้เร็ว',
       localeNote: 'ตัวสลับนี้เปลี่ยนเฉพาะส่วน Evidence',
       explainerKicker: 'อธิบายแบบภาษาคน',
@@ -1851,11 +1910,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   localeButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const nextLocale = button.getAttribute('data-locale');
-      if (!nextLocale || nextLocale === uiState.locale) return;
-      uiState.locale = nextLocale;
-      persistEvidenceLocale(nextLocale);
-      render();
+      if (!nextLocale) return;
+      if (typeof window.setAxiomLocale === 'function') {
+        window.setAxiomLocale(nextLocale);
+        return;
+      }
+      applyEvidenceLocale(nextLocale);
     });
+  });
+
+  window.addEventListener('axiom:localechange', (event) => {
+    applyEvidenceLocale(event.detail?.locale);
   });
 
   function escapeHtml(value) {
@@ -1892,6 +1957,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     } catch {
       // Ignore storage failures.
     }
+  }
+
+  function applyEvidenceLocale(locale) {
+    if (!evidenceCopy[locale] || locale === uiState.locale) return;
+    uiState.locale = locale;
+    persistEvidenceLocale(locale);
+    render();
   }
 
   function siteAssetUrl(assetPath) {
@@ -2183,6 +2255,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           </div>
           <div class="case-study-content">
             <div class="case-study-details">${detailMarkup}</div>
+            <details class="case-study-mobile-details">
+              <summary>${escapeHtml(copy.caseHeading)}</summary>
+              <div class="case-study-details">${detailMarkup}</div>
+            </details>
             <div class="case-study-results">${resultsMarkup}</div>
           </div>
           <div class="case-study-note">
@@ -2463,17 +2539,72 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   const input = document.getElementById('terminalInput');
   const body = document.getElementById('terminalBody');
   const closeBtn = document.getElementById('terminalClose');
+  const launcher = document.getElementById('commandLauncher');
   if (!overlay || !input || !body) return;
 
   const startTime = Date.now();
+  let lastTerminalOpener = null;
 
-  function openTerminal() {
+  const destinations = {
+    home: 'hero',
+    hero: 'hero',
+    systems: 'projects',
+    services: 'capabilities',
+    capabilities: 'capabilities',
+    evidence: 'evidence',
+    proof: 'evidence',
+    launch: 'launch',
+    beta: 'launch-beta',
+    atlas: 'interface-atlas',
+    interface: 'interface-atlas',
+    team: 'team',
+    impact: 'impact',
+    press: 'featured',
+    featured: 'featured',
+    contact: 'contact',
+  };
+
+  function setTerminalState(isOpen) {
+    overlay.classList.toggle('open', isOpen);
+    document.body.classList.toggle('terminal-open', isOpen);
+    if (launcher) launcher.setAttribute('aria-expanded', String(isOpen));
+  }
+
+  function openTerminal(opener = null) {
+    lastTerminalOpener = opener || document.activeElement;
+    setTerminalState(true);
     overlay.classList.add('open');
     setTimeout(() => input.focus(), 100);
   }
 
-  function closeTerminal() {
-    overlay.classList.remove('open');
+  function closeTerminal(options = {}) {
+    const { restoreFocus = true } = options;
+    setTerminalState(false);
+    if (restoreFocus && lastTerminalOpener instanceof HTMLElement && lastTerminalOpener.isConnected) {
+      lastTerminalOpener.focus();
+    }
+  }
+
+  function scrollToDestination(rawTarget) {
+    const normalized = String(rawTarget || '').trim().toLowerCase().replace(/^#/, '');
+    const sectionId = destinations[normalized] || normalized;
+    const target = document.getElementById(sectionId);
+
+    if (!target) {
+      addLine(`unknown destination: ${normalized || '(empty)'}`, 'terminal-line-error');
+      addLine('try: go systems, go evidence, go launch, go contact');
+      return;
+    }
+
+    closeTerminal({ restoreFocus: false });
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  if (launcher) {
+    launcher.addEventListener('click', () => {
+      if (overlay.classList.contains('open')) closeTerminal();
+      else openTerminal(launcher);
+    });
   }
 
   // Keyboard shortcuts
@@ -2489,7 +2620,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k' && !isTyping)) {
       e.preventDefault();
       if (overlay.classList.contains('open')) closeTerminal();
-      else openTerminal();
+      else openTerminal(document.body);
       return;
     }
 
@@ -2542,6 +2673,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       addLine('  ping      — Test connectivity');
       addLine('  time      — World clock snapshot');
       addLine('  axioms    — Our operating principles');
+      addLine('  go [name] — Jump to a section');
       addLine('  contact   — Get in touch');
       addLine('  linkedin  — Company LinkedIn');
       addLine('  os        — Dr. Non OS Dashboard');
@@ -2615,6 +2747,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         addLine(`  <span style="color:var(--green)">●</span> ${s}`);
       });
       addLine(`\n  Total: ${systems.length} systems | 5 countries | live evidence trail`);
+    },
+
+    go: (args = []) => {
+      scrollToDestination(args.join(' '));
+    },
+
+    evidence: () => {
+      scrollToDestination('evidence');
+    },
+
+    launch: () => {
+      scrollToDestination('launch');
     },
 
     uptime: () => {
@@ -2703,8 +2847,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     addLine(`<span class="terminal-prompt">axiom $</span> <span class="terminal-line-cmd">${cmd}</span>`);
 
+    const [commandName, ...args] = cmd.split(/\s+/);
     if (commands[cmd]) {
       commands[cmd]();
+    } else if (commands[commandName]) {
+      commands[commandName](args);
     } else {
       addLine(`command not found: ${cmd}. Type <span class="terminal-cmd">help</span> for available commands.`, 'terminal-line-error');
     }

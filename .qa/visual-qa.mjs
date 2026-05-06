@@ -6,11 +6,17 @@ const baseUrl = process.env.QA_BASE_URL || 'http://127.0.0.1:3000';
 const outDir = path.join(process.cwd(), '.qa');
 const homepageSectionSelectors = [
   '#hero',
-  '#operating-model',
-  '#flagship-systems',
+  '#engagement',
+  '#capabilities',
+  '#projects',
   '#evidence',
-  '#public-record',
-  '#team-contact',
+  '#launch',
+  '#launch-beta',
+  '#interface-atlas',
+  '#team',
+  '#impact',
+  '#featured',
+  '#contact',
 ];
 
 async function ensureDir(dirPath) {
@@ -145,11 +151,12 @@ async function sweepHomepageSections(page) {
 async function waitForHomepageContent(page) {
   await page.waitForSelector('#hero', { timeout: 15000 });
   await page.waitForFunction(() => {
-    const systemsReady = document.querySelectorAll('#flagshipSystemsMount .system-card, #flagshipSystemsMount .empty-state').length > 0;
-    const evidenceReady = document.querySelectorAll('#caseStudyProofMount .system-card, #caseStudyProofMount .empty-state').length > 0;
-    const historyReady = document.querySelectorAll('#contentHistoryList .history-item, #contentHistoryList .empty-state').length > 0;
-    const recordReady = document.querySelectorAll('#fieldProofMount .field-proof-card, #fieldProofMount .empty-state').length > 0;
-    return systemsReady && evidenceReady && historyReady && recordReady;
+    const systemsReady = document.querySelectorAll('#projects .project-card-spotlight').length >= 3;
+    const evidenceReady = document.querySelectorAll('#caseStudyProofMount .case-study').length > 0;
+    const historyReady = document.querySelectorAll('#contentHistoryList .evidence-history-item').length > 0;
+    const eventSectionsReady = document.querySelectorAll('#launch .launch-photo-wrap').length >= 4
+      && document.querySelectorAll('#launch-beta .launch-photo-wrap').length >= 4;
+    return systemsReady && evidenceReady && historyReady && eventSectionsReady;
   }, { timeout: 15000 });
   await page.waitForTimeout(900);
 }
@@ -165,8 +172,9 @@ async function clickVisible(page, selector) {
     return false;
   }
 
-  await locator.click();
-  return true;
+  return locator.click({ timeout: 5000 })
+    .then(() => true)
+    .catch(() => false);
 }
 
 async function switchHomepageLocale(page, locale) {
@@ -177,7 +185,7 @@ async function switchHomepageLocale(page, locale) {
 
   const navToggle = page.locator('#navToggle');
   if (await navToggle.count()) {
-    const panelVisible = await page.locator('#mobilePanel').isVisible().catch(() => false);
+    const panelVisible = await page.locator('#mobileMenu.open').isVisible().catch(() => false);
     if (!panelVisible) {
       await navToggle.click();
       await page.waitForTimeout(260);
@@ -185,6 +193,7 @@ async function switchHomepageLocale(page, locale) {
   }
 
   if (await clickVisible(page, `#localeSwitchMobile [data-locale="${locale}"]`)) {
+    await page.keyboard.press('Escape').catch(() => {});
     await page.waitForTimeout(320);
     return 'mobile';
   }
@@ -205,17 +214,17 @@ async function inspectHomepage(browser, name, contextOptions) {
   const fullPath = path.join(outDir, `homepage-${name}-full.png`);
   await page.screenshot({ path: fullPath, fullPage: true });
 
-  const heroTitleEn = normalizeText(await page.locator('#heroTitle').textContent());
+  const heroTitleEn = normalizeText(await page.locator('.hero-title').textContent());
   const evidenceTitleEn = normalizeText(await page.locator('#evidenceTitle').textContent());
   const languageEn = await page.locator('html').getAttribute('lang');
 
   const localeSwitchMode = await switchHomepageLocale(page, 'th');
-  const heroTitleTh = normalizeText(await page.locator('#heroTitle').textContent());
+  const heroTitleTh = normalizeText(await page.locator('.hero-title').textContent());
   const evidenceTitleTh = normalizeText(await page.locator('#evidenceTitle').textContent());
   const languageTh = await page.locator('html').getAttribute('lang');
 
   await switchHomepageLocale(page, 'zh');
-  const heroTitleZh = normalizeText(await page.locator('#heroTitle').textContent());
+  const heroTitleZh = normalizeText(await page.locator('.hero-title').textContent());
   const evidenceTitleZh = normalizeText(await page.locator('#evidenceTitle').textContent());
   const languageZh = await page.locator('html').getAttribute('lang');
 
@@ -225,7 +234,7 @@ async function inspectHomepage(browser, name, contextOptions) {
   await page.locator('#evidence').screenshot({ path: evidencePath });
 
   let filterResult = null;
-  const filterButtons = page.locator('#evidenceFilterStrip [data-filter]');
+  const filterButtons = page.locator('#evidenceFilterStrip [data-status]');
   const filterCount = await filterButtons.count();
   if (filterCount > 1) {
     const chosenLabel = normalizeText(await filterButtons.nth(1).textContent());
@@ -233,35 +242,68 @@ async function inspectHomepage(browser, name, contextOptions) {
     await page.waitForTimeout(300);
     filterResult = {
       chosenLabel,
-      visibleCases: await page.locator('#caseStudyProofMount .system-card').count(),
+      visibleCases: await page.locator('#caseStudyProofMount .case-study').count(),
     };
+  }
+
+  let lightbox = { opened: false, imageSrc: '', ariaHidden: 'true' };
+  const lightboxTrigger = page.locator('.lightbox-trigger').first();
+  if (await lightboxTrigger.count()) {
+    await lightboxTrigger.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(200);
+    await lightboxTrigger.click();
+    await page.waitForTimeout(250);
+    lightbox = await page.evaluate(() => {
+      const overlay = document.getElementById('imageLightbox');
+      const image = document.getElementById('imageLightboxImg');
+      return {
+        opened: Boolean(overlay?.classList.contains('open')),
+        imageSrc: image?.getAttribute('src') || '',
+        ariaHidden: overlay?.getAttribute('aria-hidden') || '',
+      };
+    });
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(150);
   }
 
   const diagnostics = await collectCommonDiagnostics(page, [
     '#localeSwitch',
-    '#flagshipSystemsMount .system-card',
-    '#evidenceStatusViz .bar-row',
-    '#evidenceRegionViz .bar-row',
-    '#evidenceTypeViz .bar-row',
-    '#caseStudyProofMount .system-card',
-    '#contentHistoryList .history-item',
-    '#fieldProofMount .field-proof-card',
-    '#publicReferenceMount .reference-row',
+    '#heroMap',
+    '#heroCanvas',
+    '#satHud',
+    '#mapModeLabel',
+    '#projects .project-card-spotlight',
+    '#evidenceStatusViz .evidence-bar-row',
+    '#evidenceRegionViz .evidence-bar-row',
+    '#evidenceTypeViz .evidence-bar-row',
+    '#caseStudyProofMount .case-study',
+    '#contentHistoryList .evidence-history-item',
+    '#launch .launch-photo-wrap',
+    '#launch-beta .launch-photo-wrap',
+    '#interface-atlas img',
   ]);
 
   const summaryCards = await page.evaluate(() => {
-    return Array.from(document.querySelectorAll('#evidenceSummaryMount .proof-stat-card')).map((card) => ({
-      label: card.querySelector('.proof-stat-label')?.textContent?.trim() || '',
-      value: card.querySelector('.proof-stat-value')?.textContent?.trim() || '',
+    return Array.from(document.querySelectorAll('.evidence-summary-card')).map((card) => ({
+      label: card.querySelector('.evidence-summary-label')?.textContent?.trim() || '',
+      value: card.querySelector('.evidence-summary-value')?.textContent?.trim() || '',
     }));
   });
 
   const counts = await page.evaluate(() => ({
-    systems: document.querySelectorAll('#flagshipSystemsMount .system-card').length,
-    caseStudies: document.querySelectorAll('#caseStudyProofMount .system-card').length,
-    history: document.querySelectorAll('#contentHistoryList .history-item').length,
-    fieldProof: document.querySelectorAll('#fieldProofMount .field-proof-card').length,
-    references: document.querySelectorAll('#publicReferenceMount .reference-row').length,
+    systems: document.querySelectorAll('#projects .project-card-spotlight').length,
+    caseStudies: document.querySelectorAll('#caseStudyProofMount .case-study').length,
+    history: document.querySelectorAll('#contentHistoryList .evidence-history-item').length,
+    launchAlpha: document.querySelectorAll('#launch .launch-photo-wrap').length,
+    launchBeta: document.querySelectorAll('#launch-beta .launch-photo-wrap').length,
+    interfaceAtlas: document.querySelectorAll('#interface-atlas img').length,
+    eventTags: Array.from(document.querySelectorAll('.section-tag')).filter((tag) => tag.textContent.includes('EVENT_ID')).length,
+    heroNodes: document.querySelectorAll('.hero-node').length,
+    heroCanvas: Boolean(document.querySelector('#heroCanvas')),
+    heroMapReady: Boolean(document.querySelector('#heroMap.leaflet-container')),
+    mapModeLabel: document.querySelector('#mapModeLabel')?.textContent?.trim() || '',
+    mapModeAuto: document.querySelector('#mapModeLabel')?.textContent?.includes('AUTO') || false,
+    sectionMeta: document.querySelectorAll('.section-meta').length,
   }));
 
   const reducedMotionHonored = contextOptions.reducedMotion === 'reduce'
@@ -295,6 +337,7 @@ async function inspectHomepage(browser, name, contextOptions) {
     sectionSweep,
     summaryCards,
     counts,
+    lightbox,
     reducedMotionHonored,
     diagnostics,
     telemetry,
@@ -427,7 +470,17 @@ function collectFindings(results) {
       if (result.localeSwitch.languageTh !== 'th' || result.localeSwitch.languageZh !== 'zh') {
         findings.push(`homepage/${result.viewportName}: html lang did not track locale`);
       }
-      if (result.counts.systems < 3 || result.counts.fieldProof < 3 || result.counts.references < 3) {
+      const heroMapInitialized = result.counts.heroCanvas && result.counts.heroMapReady && result.counts.heroNodes >= 4;
+      const heroModeReady = result.viewportName === 'mobile'
+        ? heroMapInitialized
+        : heroMapInitialized && result.counts.mapModeAuto;
+      if (!heroModeReady) {
+        findings.push(`homepage/${result.viewportName}: protected hero map/HUD surface did not initialize`);
+      }
+      if (result.counts.eventTags < 2 || result.counts.sectionMeta < 6) {
+        findings.push(`homepage/${result.viewportName}: protected event/meta sections are missing`);
+      }
+      if (result.counts.systems < 3 || result.counts.launchAlpha < 4 || result.counts.launchBeta < 4 || result.counts.interfaceAtlas < 3) {
         findings.push(`homepage/${result.viewportName}: proof modules did not render expected card counts`);
       }
       if (result.counts.caseStudies < 1 || result.counts.history < 1) {
@@ -438,6 +491,9 @@ function collectFindings(results) {
       }
       if (result.filterResult && result.filterResult.visibleCases < 1) {
         findings.push(`homepage/${result.viewportName}: filter ${result.filterResult.chosenLabel} returned no visible cases`);
+      }
+      if (!result.lightbox.opened || !result.lightbox.imageSrc || result.lightbox.ariaHidden !== 'false') {
+        findings.push(`homepage/${result.viewportName}: image lightbox did not open correctly`);
       }
       if (result.reducedMotionHonored === false) {
         findings.push(`homepage/${result.viewportName}: reduced-motion context still enabled motion class`);
