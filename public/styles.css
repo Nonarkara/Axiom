@@ -328,9 +328,57 @@ section { position: relative; }
 
 /* Punchline — "can't afford to wait for." — stitch emphasis */
 .hero__punch {
-  color: var(--stitch);
-  font-style: italic;
+  display: inline;
   font-family: var(--font-display);
+  font-style: italic;
+  color: var(--paper-000);
+}
+.hero__punch-afford,
+.hero__punch-wait {
+  position: relative;
+  display: inline-block;
+  line-height: 0.94;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.hero__punch-afford {
+  padding: 0 0.08em 0.06em;
+  color: var(--ink-000);
+  background: var(--stitch);
+  text-shadow: none;
+  transform: rotate(-0.35deg);
+  box-shadow:
+    0 0.08em 0 rgba(255, 255, 255, 0.08) inset,
+    0 0.12em 0 rgba(0, 0, 0, 0.35);
+}
+.hero__punch-wait {
+  margin-left: 0.06em;
+  color: var(--paper-000);
+  isolation: isolate;
+  text-shadow:
+    calc(var(--chroma-shift) * -0.8) 0 0 rgba(255, 61, 40, calc(var(--cyber) * 0.8)),
+    calc(var(--chroma-shift) * 0.8) 0 0 rgba(155, 232, 232, calc(var(--cyber) * 0.65));
+}
+.hero__punch-wait::after {
+  content: '';
+  position: absolute;
+  left: 0.02em;
+  right: 0.02em;
+  bottom: 0.02em;
+  height: 0.11em;
+  background: linear-gradient(90deg, var(--stitch), var(--signal));
+  opacity: 0.85;
+  z-index: -1;
+  transform: skewX(-8deg);
+}
+@media (max-width: 560px) {
+  .hero__punch-afford,
+  .hero__punch-wait {
+    margin-top: 0.04em;
+  }
+  .hero__punch-wait {
+    margin-left: 0;
+  }
 }
 
 /* Cyberpunk chromatic aberration on hero title — tunable */
@@ -726,6 +774,7 @@ body.no-glitch .sys__title::after { display: none; }
 .sys-map-btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 14px;
+  min-height: 44px;
   border-radius: 999px;
   border: 1px solid var(--ink-400);
   font-family: var(--font-mono);
@@ -812,6 +861,7 @@ body.no-glitch .sys__title::after { display: none; }
 .sys-link {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 14px;
+  min-height: 44px;
   border-radius: 999px;
   border: 1px solid var(--ink-400);
   font-family: var(--font-mono);
@@ -1049,6 +1099,9 @@ body.no-glitch .sys__title::after { display: none; }
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   margin-top: 8px;
+}
+@media (max-width: 600px) {
+  .stage__gallery { grid-template-columns: 1fr 1fr; }
 }
 .stage__gallery img {
   aspect-ratio: 1;

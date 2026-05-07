@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Axiom — Decision systems for cities, governments, and operators.</title>
-<meta name="description" content="7 live systems across 5 countries. Built to stay useful under pressure. Trusted by ASEAN, the UN, and national governments.">
+<meta name="description" content="8 live systems across 5 countries. Built to stay useful under pressure. Trusted by ASEAN, the UN, and national governments.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="styles.css">
@@ -49,13 +49,13 @@
     <h1 class="hero__title reveal" data-glitch="AXIOM">
       We build the
       <em>working systems</em>
-      governments<br><span class="hero__punch">can't afford to wait for.</span>
+      governments<br><span class="hero__punch"><span class="hero__punch-afford">can't afford</span> <span class="hero__punch-wait">to wait for.</span></span>
     </h1>
 
     <p class="hero__sub reveal">
       Most "smart city" work ends as a deck. <strong>Ours runs in production.</strong>
-      Pressure-mapped in week one. Live pilot before slide polish.
-      Data trail from day one.
+      Problem mapped in week one. Something working before any presentation.
+      Every decision tracked from the start.
     </p>
 
     <div class="hero__readout reveal" aria-hidden="true">
@@ -71,7 +71,7 @@
 
     <div class="proof-strip reveal-stagger">
       <div class="proof-strip__cell">
-        <span class="num"><span class="counter" data-to="7">0</span></span>
+        <span class="num"><span class="counter" data-to="8">0</span></span>
         <span class="lbl">Systems in production</span>
       </div>
       <div class="proof-strip__cell">
@@ -115,6 +115,7 @@
       <button class="sys-tab" data-panel="panel-05" role="tab" aria-selected="false">05 · Kuching</button>
       <button class="sys-tab" data-panel="panel-06" role="tab" aria-selected="false">06 · MEM</button>
       <button class="sys-tab" data-panel="panel-07" role="tab" aria-selected="false">07 · Smart Bus</button>
+      <button class="sys-tab" data-panel="panel-08" role="tab" aria-selected="false">08 · SCTH V2</button>
     </div>
 
     <!-- SYSTEM 1: Phuket -->
@@ -570,6 +571,74 @@
                 <div class="d-node d-node--out">Rider Mobile<br>App (phone-first)</div>
                 <div class="d-node d-node--out">Arrival<br>Prediction</div>
                 <div class="d-node d-node--out">Route<br>Intelligence</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SYSTEM 8: Smart City Thailand City Data Platform -->
+    <article class="sys sys-panel" id="panel-08">
+      <div class="sys__media">
+        <span class="sys__chip"><span class="live-dot"></span>Live · City ops</span>
+        <span class="sys__coord"><b>NODE_08</b> Telegram · LINE · Satellite</span>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <img src="photos/products/SCTH-V2.png" alt="SCTH V2 — Smart City Thailand city data platform with civic report intake, AI analysis, and live map layers" data-parallax>
+      </div>
+      <div class="sys__body">
+        <div class="sys__id">PROD <span class="stitch">/</span> 08 <span class="stitch">/</span> Civic Intelligence</div>
+        <h3 class="sys__title" data-text="Reports arrive. AI turns them into action.">Reports arrive. <em>AI turns them into action.</em></h3>
+        <p class="sys__lede">SCTH V2 is a Smart City Thailand city data platform that absorbs civic reports from Telegram and LINE, analyzes problems with AI, and overlays near-real-time satellite and map layers for city builders, city developers, and city managers.</p>
+        <div class="sys__meta">
+          <div><span class="k">Intake</span><span class="v">Telegram · LINE</span></div>
+          <div><span class="k">Layers</span><span class="v">Precip · Aerosol · Clouds</span></div>
+          <div><span class="k">Mode</span><span class="v">Near real-time</span></div>
+          <div><span class="k">AI</span><span class="v">Triage · Patterning</span></div>
+        </div>
+        <div class="sys__why">
+          <div class="sys__why-row">
+            <span class="lbl">Why it's special</span>
+            <span class="txt">Most city complaint systems stop at a ticket number. <b>SCTH V2 turns the report stream into a decision surface.</b> Messenger reports, field photos, SLA risk, and AI pattern detection sit on the same map as precipitation, aerosol, cloud, terrain, and street layers.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl">What it replaced</span>
+            <span class="txt">Screenshots in chat groups, manual spreadsheet triage, static map layers, and the delay between "someone reported it" and "someone can act on it."</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl">Decision power</span>
+            <span class="txt">City teams can absorb reports, assign owners, analyze recurring patterns, export sheets or PDFs, and push response tasks while the city context is still live.</span>
+          </div>
+        </div>
+        <div class="sys__links">
+          <a class="sys-link primary" href="https://pastor-agnostic-oppose.ngrok-free.dev/v2/dashboard.html" target="_blank" rel="noopener">Open live system →</a>
+          <button class="sys-map-btn" data-map="map-08">System map ⊕</button>
+        </div>
+        <div class="sys__diagram" id="map-08">
+          <div class="diagram">
+            <div class="diagram__head">System architecture // NODE_08 · SCTH V2 Civic Intelligence</div>
+            <div class="diagram__flow">
+              <div class="diagram__col">
+                <div class="d-col-lbl">Inputs</div>
+                <div class="d-node">Telegram + LINE<br>Messenger Reports</div>
+                <div class="d-node">Problem Reporting<br>Forms + Photos</div>
+                <div class="d-node">Satellite Layers<br>Precipitation · Aerosol · Clouds</div>
+                <div class="d-node">Street · Terrain<br>Map Layers</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Processing</div>
+                <div class="d-node d-node--core">AI Triage Engine<br>Pattern Detection<br>SLA + Urgency Analysis</div>
+                <div class="d-node">Layer Fusion<br>Near-real-time Context</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Surfaces</div>
+                <div class="d-node d-node--out">City Ops<br>Command Dashboard</div>
+                <div class="d-node d-node--out">Assignment +<br>Resolution Workflow</div>
+                <div class="d-node d-node--out">Sheets / PDF<br>Decision Exports</div>
+                <div class="d-node d-node--out">Builder / Manager<br>Action View</div>
               </div>
             </div>
           </div>
