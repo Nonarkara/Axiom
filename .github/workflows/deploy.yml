@@ -1,8 +1,12 @@
-name: Deploy to GitHub Pages
+name: Deploy — Cloudflare Pages + GitHub Pages
 
 on:
   push:
     branches: [main]
+
+# Cloudflare Pages deploy runs first (priority).
+# GitHub Pages deploy runs second as backup.
+# Both run every push unless Cloudflare fails hard enough to cancel.
 
 permissions:
   contents: read
@@ -10,12 +14,27 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: deploy
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  deploy-cloudflare:
+    name: Cloudflare Pages (axiom.nonarkara.org)
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 74ad6bf8dfaaccf82de6f0847f7d2d54
+          command: pages deploy public --project-name axiom
+
+  deploy-github:
+    name: GitHub Pages (backup)
+    runs-on: ubuntu-latest
+    needs: deploy-cloudflare
+    if: always()   # runs even if Cloudflare job fails
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
