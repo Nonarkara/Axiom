@@ -1106,6 +1106,72 @@
   </div>
 </section>
 
+<!-- ============== FIELD NOTES ============== -->
+<section class="section section--dark field-notes">
+  <div class="wrap">
+    <div class="s-head" style="margin-bottom: 48px;">
+      <div>
+        <span class="kicker">How it gets built</span>
+        <h2 class="s-head__title" style="margin-top: 16px;">Things learned by actually shipping.</h2>
+      </div>
+      <p class="s-head__lede">
+        Ten systems. Two people. Twelve months. These are the patterns that held — and the ones that didn't.
+        Published here because the gap between what governments need and what the market supplies
+        only closes if people share what they've figured out.
+      </p>
+    </div>
+
+    <div class="notes-grid">
+      <div class="note-card">
+        <span class="note-num">01</span>
+        <h3 class="note-title">The vendor said no. We shipped in fourteen days.</h3>
+        <p class="note-body">Every system on this page started because a procurement cycle, a vendor quote, or a committee said the problem was too complex or too expensive. The answer was never to argue — it was to build a rough working version and put it in the room. A live surface changes the conversation faster than any proposal.</p>
+      </div>
+      <div class="note-card">
+        <span class="note-num">02</span>
+        <h3 class="note-title">AI-native is not AI-assisted.</h3>
+        <p class="note-body">Every line of code across these ten systems was written by Claude Code, directed by Dr Non. The AI is the engineer. The human is the architect. This isn't a shortcut — it's a different model of who does what. Knowing how to direct AI precisely is the skill that compounds. The code is not the hard part.</p>
+      </div>
+      <div class="note-card">
+        <span class="note-num">03</span>
+        <h3 class="note-title">The problem is never the data. It's always the decision behind the data.</h3>
+        <p class="note-body">Clients ask for dashboards. What they need is clarity on one decision that must get faster or better. Find that decision first. Everything else — the feeds, the stack, the interface — flows from it. Skip this step and you build a beautiful dashboard nobody checks after the launch week.</p>
+      </div>
+      <div class="note-card">
+        <span class="note-num">04</span>
+        <h3 class="note-title">An org chart tells you who reports to whom. It tells you nothing about who should build what with whom.</h3>
+        <p class="note-body">TKCX was built on this gap. Game archetypes, readiness scores, and a Moneyball salary cap exposed what the org chart hid: the right people for a given project, the chemistry between them, and the skill gaps that will surface midway through. Treat talent like a portfolio, not a headcount.</p>
+      </div>
+      <div class="note-card">
+        <span class="note-num">05</span>
+        <h3 class="note-title">A single AI answers. A council deliberates.</h3>
+        <p class="note-body">For decisions that matter, a single model gives you one framing — the one baked into its training. The AI Council runs eleven justices with different priors, explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS), and a shared transcript everyone reads before speaking. The disagreement is the product. You leave with a more defensible position than you started with.</p>
+      </div>
+      <div class="note-card">
+        <span class="note-num">06</span>
+        <h3 class="note-title">Instrument from day one. Not after.</h3>
+        <p class="note-body">Every Axiom system ships with a data trail: pageviews, usage signals, decision logs. Not because we need the analytics on day one — but because retrofitting measurement onto a live system is nearly impossible, and the next version is always built from what the first version taught you. Leave a record. Future you will need it.</p>
+      </div>
+    </div>
+
+    <div class="notes-stack">
+      <div class="stack-label">BUILT WITH</div>
+      <div class="stack-items">
+        <span>Claude Code</span>
+        <span>M5 Max · 128 GB</span>
+        <span>Cloudflare Pages</span>
+        <span>Neon Postgres</span>
+        <span>Google Sheets</span>
+        <span>Mapbox · Deck.gl</span>
+        <span>Next.js 16</span>
+        <span>Fly.io</span>
+        <span>GitHub</span>
+      </div>
+      <p class="stack-note">Local-first. No build team. No vendor lock-in. The M5 Max runs inference, builds, and deploys from one desk in Bangkok.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============== PRESS ============== -->
 <section class="section section--dark" id="press">
   <div class="wrap-narrow">
