@@ -647,6 +647,16 @@ section { position: relative; }
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: transform;
 }
+/* Portrait illustration — show the full poster, centred */
+.sys__media--portrait {
+  aspect-ratio: 4 / 3;
+}
+.sys__media--portrait img {
+  object-fit: contain;
+  object-position: center;
+  transform: scale(1.0);
+  background: var(--ink-050);
+}
 .sys__media::after {
   content: '';
   position: absolute; inset: 0;

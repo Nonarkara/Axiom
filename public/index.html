@@ -76,7 +76,7 @@
 
     <div class="proof-strip reveal-stagger">
       <div class="proof-strip__cell">
-        <span class="num"><span class="counter" data-to="8">0</span></span>
+        <span class="num"><span class="counter" data-to="9">0</span></span>
         <span class="lbl" data-i18n="heroCurrent.stat1lbl">Systems in production</span>
       </div>
       <div class="proof-strip__cell">
@@ -122,6 +122,7 @@
       <button class="sys-tab" data-panel="panel-06" role="tab" aria-selected="false">06 · MEM</button>
       <button class="sys-tab" data-panel="panel-07" role="tab" aria-selected="false">07 · Smart Bus</button>
       <button class="sys-tab" data-panel="panel-08" role="tab" aria-selected="false">08 · SCTH V2</button>
+      <button class="sys-tab" data-panel="panel-09" role="tab" aria-selected="false">09 · AI Council</button>
     </div>
     </div>
 
@@ -650,6 +651,75 @@
                 <div class="d-node d-node--out">Assignment +<br>Resolution Workflow</div>
                 <div class="d-node d-node--out">Sheets / PDF<br>Decision Exports</div>
                 <div class="d-node d-node--out">Builder / Manager<br>Action View</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SYSTEM 9: Dr Non's AI Council -->
+    <article class="sys sys-panel" id="panel-09">
+      <div class="sys__media sys__media--portrait">
+        <span class="sys__chip"><span class="live-dot" style="background:var(--signal);box-shadow:0 0 8px var(--signal);"></span>Proprietary · Local-first</span>
+        <span class="sys__coord"><b>NODE_09</b> Bangkok · 11 Justices · ~$3/mo</span>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <img src="images/ai-council.jpg" alt="Dr Non's AI Council — a whimsical portrait of the agentic internet journey, featuring 11 AI justices" loading="lazy" data-parallax>
+      </div>
+      <div class="sys__body">
+        <div class="sys__id">PROP <span class="stitch">/</span> 09 <span class="stitch">/</span> Agentic Intelligence</div>
+        <h3 class="sys__title" data-text="Eleven voices. One decision.">Eleven voices. <em>One decision.</em></h3>
+        <p class="sys__lede">Dr Non's AI Council is a personal multi-agent deliberation system: 11 AI justices with palindromic names (Tenet, Radar, Otto, Hannah, Ada…) running continuously on a local Mac, arguing through a shared transcript log, for around $3 a month. Trained on personal journals, decisions, and voice — proprietary by design, not by accident.</p>
+        <div class="sys__meta">
+          <div><span class="k">Justices</span><span class="v">11 · palindromic names</span></div>
+          <div><span class="k">Stack</span><span class="v">Mistral · Llama · ThaiLLM</span></div>
+          <div><span class="k">Cost</span><span class="v">~$3 / month</span></div>
+          <div><span class="k">Mode</span><span class="v">Local-first · launchd</span></div>
+        </div>
+        <div class="sys__why">
+          <div class="sys__why-row">
+            <span class="lbl">Why it exists</span>
+            <span class="txt">Single models give one answer. <b>Problems worth solving deserve argument.</b> The council runs four operating modes — VERIFY, DECIDE, EXPLORE, DEBATE — and justices use explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS) so every position change is visible and traceable.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl">What it costs</span>
+            <span class="txt">Manus-class autonomous-agent capability at $3/month. The council chair runs on Mistral Large 3. The Thai-native skeptic (Ada) runs on ThaiLLM — a government-backed model, free. The executor (Otto) handles OCR, video downloads, email drafts, PDF generation, and Google Drive sync without touching cloud infrastructure.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl">Why no demo</span>
+            <span class="txt">The council is trained on Dr Non's personal journals, decisions, meeting notes, and voice. Proprietary by necessity. The protocol stack — ~600 lines of Python — is open. <b>The IP is the coordination methodology, not the weights.</b></span>
+          </div>
+        </div>
+        <div class="sys__links">
+          <a class="sys-link primary" href="https://github.com/agentic-ai-research/dr-non-diy-ai-council" target="_blank" rel="noopener">Read the protocol →</a>
+          <button class="sys-map-btn" data-map="map-09">System map ⊕</button>
+        </div>
+        <div class="sys__diagram" id="map-09">
+          <div class="diagram">
+            <div class="diagram__head">System architecture // NODE_09 · AI Council · Agentic Deliberation</div>
+            <div class="diagram__flow">
+              <div class="diagram__col">
+                <div class="d-col-lbl">Inputs</div>
+                <div class="d-node">User question<br>via Telegram</div>
+                <div class="d-node">Shared transcript<br>~/.council/transcript.jsonl</div>
+                <div class="d-node">Personal data<br>Journals · Notes · Voice</div>
+                <div class="d-node">External tools<br>OCR · Video · Drive · PDF</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">The Council</div>
+                <div class="d-node d-node--core">Tenet (Chair)<br>Mistral Large 3<br>First-principles</div>
+                <div class="d-node d-node--core">Radar · Hannah<br>Research + Archive</div>
+                <div class="d-node d-node--core">Ada (Skeptic)<br>ThaiLLM · Bias check</div>
+                <div class="d-node d-node--core">Otto (Executor)<br>Llama · Tool runner</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Outputs</div>
+                <div class="d-node d-node--out">Deliberated answer<br>VERIFY · DECIDE · EXPLORE</div>
+                <div class="d-node d-node--out">Executed task<br>File · Email · PDF · QR</div>
+                <div class="d-node d-node--out">Decision log<br>Append-only record</div>
               </div>
             </div>
           </div>
