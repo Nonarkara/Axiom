@@ -272,6 +272,36 @@ section { position: relative; }
   .topbar__nav { display: flex; }
 }
 
+/* ---------- Locale switch ---------- */
+.locale-switch {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--ink-400);
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.locale-btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper-200);
+  background: transparent;
+  border: 0;
+  padding: 7px 10px;
+  min-height: 32px;
+  min-width: 32px;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+  touch-action: manipulation;
+  line-height: 1;
+}
+.locale-btn + .locale-btn { border-left: 1px solid var(--ink-400); }
+.locale-btn:hover { color: var(--paper-000); background: var(--ink-100); }
+.locale-btn.active { color: var(--ink-000); background: var(--paper-000); font-weight: 700; }
+
 /* ---------- Hero ---------- */
 
 .hero {

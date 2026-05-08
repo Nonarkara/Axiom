@@ -24,12 +24,17 @@
     AXIOM
   </a>
   <nav class="topbar__nav" aria-label="Primary">
-    <a href="#systems">Systems</a>
-    <a href="#stages">Stages</a>
-    <a href="#team">Team</a>
-    <a href="#press">Press</a>
+    <a href="#systems" data-i18n="navCurrent.systems">Systems</a>
+    <a href="#stages" data-i18n="navCurrent.stages">Stages</a>
+    <a href="#team" data-i18n="navCurrent.team">Team</a>
+    <a href="#press" data-i18n="navCurrent.press">Press</a>
   </nav>
-  <a href="#contact" class="topbar__cta">Work With Us</a>
+  <div id="localeSwitch" class="locale-switch" aria-label="Language">
+    <button class="locale-btn active" data-locale="en" aria-label="English">EN</button>
+    <button class="locale-btn" data-locale="th" aria-label="ภาษาไทย">TH</button>
+    <button class="locale-btn" data-locale="zh" aria-label="中文">ZH</button>
+  </div>
+  <a href="#contact" class="topbar__cta" data-i18n="navCurrent.cta">Work With Us</a>
 </header>
 
 <!-- ============== HERO ============== -->
@@ -52,7 +57,7 @@
       governments<br><span class="hero__punch"><span class="hero__punch-afford">can't afford</span> <span class="hero__punch-wait">to wait for.</span></span>
     </h1>
 
-    <p class="hero__sub reveal">
+    <p class="hero__sub reveal" data-i18n="heroCurrent.sub">
       Most "smart city" work ends as a deck. <strong>Ours runs in production.</strong>
       Problem mapped in week one. Something working before any presentation.
       Every decision tracked from the start.
@@ -65,26 +70,26 @@
     </div>
 
     <div class="hero__ctas reveal">
-      <a href="#systems" class="btn btn--primary">See live systems <span class="arrow">→</span></a>
-      <a href="#contact" class="btn btn--ghost">Start a brief</a>
+      <a href="#systems" class="btn btn--primary"><span data-i18n="heroCurrent.cta1">See live systems</span> <span class="arrow">→</span></a>
+      <a href="#contact" class="btn btn--ghost" data-i18n="heroCurrent.cta2">Start a brief</a>
     </div>
 
     <div class="proof-strip reveal-stagger">
       <div class="proof-strip__cell">
         <span class="num"><span class="counter" data-to="8">0</span></span>
-        <span class="lbl">Systems in production</span>
+        <span class="lbl" data-i18n="heroCurrent.stat1lbl">Systems in production</span>
       </div>
       <div class="proof-strip__cell">
         <span class="num"><span class="counter" data-to="5">0</span></span>
-        <span class="lbl">Countries operating</span>
+        <span class="lbl" data-i18n="heroCurrent.stat2lbl">Countries operating</span>
       </div>
       <div class="proof-strip__cell">
         <span class="num"><span class="counter" data-to="174">0</span></span>
-        <span class="lbl">Cities indexed</span>
+        <span class="lbl" data-i18n="heroCurrent.stat3lbl">Cities indexed</span>
       </div>
       <div class="proof-strip__cell">
         <span class="num"><span class="counter" data-to="1000">0</span><small>+</small></span>
-        <span class="lbl">On main stage, GITEX Asia</span>
+        <span class="lbl" data-i18n="heroCurrent.stat4lbl">On main stage, GITEX Asia</span>
       </div>
     </div>
   </div>
@@ -96,10 +101,10 @@
   <div class="wrap">
     <div class="s-head">
       <div>
-        <span class="kicker">Live in production</span>
-        <h2 class="s-head__title" style="margin-top: 16px;">Real systems. <em>Real cities.</em> Operating today.</h2>
+        <span class="kicker" data-i18n="sysSect.kicker">Live in production</span>
+        <h2 class="s-head__title" style="margin-top: 16px;" data-i18n-html="sysSect.title">Real systems. <em>Real cities.</em> Operating today.</h2>
       </div>
-      <p class="s-head__lede">
+      <p class="s-head__lede" data-i18n="sysSect.lede">
         Each one started as a sharp question, shipped as a working surface,
         and stays useful long after the launch press cycle ends.
         Click through and use them — they're live.
@@ -659,10 +664,10 @@
   <div class="wrap">
     <div class="s-head">
       <div>
-        <span class="kicker">Two stages, one signal</span>
-        <h2 class="s-head__title" style="margin-top: 16px;">Governments are tired of <em>waiting for the deck.</em></h2>
+        <span class="kicker" data-i18n="stageSect.kicker">Two stages, one signal</span>
+        <h2 class="s-head__title" style="margin-top: 16px;" data-i18n-html="stageSect.title">Governments are tired of <em>waiting for the deck.</em></h2>
       </div>
-      <p class="s-head__lede">
+      <p class="s-head__lede" data-i18n="stageSect.lede">
         In six months we took the same thesis to two of Asia's biggest stages.
         Both rooms were full. Both had the same response: build it now,
         not after the next budget cycle.
@@ -748,10 +753,10 @@
   <div class="wrap">
     <div class="s-head">
       <div>
-        <span class="kicker">Who builds it</span>
-        <h2 class="s-head__title" style="margin-top: 16px;">Two founders. <em>No handlers.</em></h2>
+        <span class="kicker" data-i18n="teamSect.kicker">Who builds it</span>
+        <h2 class="s-head__title" style="margin-top: 16px;" data-i18n-html="teamSect.title">Two founders. <em>No handlers.</em></h2>
       </div>
-      <p class="s-head__lede">
+      <p class="s-head__lede" data-i18n="teamSect.lede">
         You talk to the people who write the code and decide the architecture.
         When the work needs UAV operators or traffic engineers or policy translators,
         we pull them in for that mission only — never as a standing bench.
@@ -1014,9 +1019,9 @@
     <div class="contact__grid">
       <div>
         <img src="images/axiom-logo.png" class="contact__logo" alt="Axiom" aria-hidden="true">
-        <span class="kicker" style="color: var(--ink-500);">Work With Us</span>
-        <h2 style="margin-top: 16px;">Send the brief. <em>We'll map the pressure.</em></h2>
-        <p>
+        <span class="kicker" style="color: var(--ink-500);" data-i18n="ctaSect.kicker">Work With Us</span>
+        <h2 style="margin-top: 16px;" data-i18n-html="ctaSect.title">Send the brief. <em>We'll map the pressure.</em></h2>
+        <p data-i18n="ctaSect.body">
           If the problem is real and the decision matters,
           we'll show what can be proven inside two weeks.
           No procurement-cycle warm-ups. No moodboards.
@@ -1025,7 +1030,7 @@
           axiomaxiom.corp@gmail.com <span aria-hidden="true">→</span>
         </a>
         <div class="contact__alt">
-          Or find us on
+          <span data-i18n="ctaSect.alt">Or find us on</span>
           <a href="https://www.linkedin.com/company/axiomthailand/" target="_blank" rel="noopener">LinkedIn</a> ·
           <a href="https://www.linkedin.com/showcase/slic-index/" target="_blank" rel="noopener">SLIC Index</a>.
         </div>
@@ -1033,15 +1038,15 @@
       <div class="contact__promises reveal-stagger">
         <div class="pr">
           <span class="n">01</span>
-          <span class="t">Pressure mapped in week one. The decision, the users, the data on the table.</span>
+          <span class="t" data-i18n="ctaSect.promise1">Pressure mapped in week one. The decision, the users, the data on the table.</span>
         </div>
         <div class="pr">
           <span class="n">02</span>
-          <span class="t">Working pilot before slide polish. Free and existing data first; new infrastructure only when earned.</span>
+          <span class="t" data-i18n="ctaSect.promise2">Working pilot before slide polish. Free and existing data first; new infrastructure only when earned.</span>
         </div>
         <div class="pr">
           <span class="n">03</span>
-          <span class="t">Data trail from day one. Pageviews, content, decision log — so the next build is legible.</span>
+          <span class="t" data-i18n="ctaSect.promise3">Data trail from day one. Pageviews, content, decision log — so the next build is legible.</span>
         </div>
       </div>
     </div>

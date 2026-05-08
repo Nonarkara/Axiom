@@ -117,6 +117,39 @@ const uiCopy = {
       successTitle: 'Message sent',
       successDesc: "We'll get back to you soon.",
     },
+    navCurrent: {
+      systems: 'Systems', stages: 'Stages', team: 'Team', press: 'Press', cta: 'Work With Us',
+    },
+    heroCurrent: {
+      sub: 'Most "smart city" work ends as a deck. Ours runs in production. Problem mapped in week one. Something working before any presentation. Every decision tracked from the start.',
+      cta1: 'See live systems', cta2: 'Start a brief',
+      stat1lbl: 'Systems in production', stat2lbl: 'Countries operating',
+      stat3lbl: 'Cities indexed', stat4lbl: 'On main stage, GITEX Asia',
+    },
+    sysSect: {
+      kicker: 'Live in production',
+      title: 'Real systems. <em>Real cities.</em> Operating today.',
+      lede: "Each one started as a sharp question, shipped as a working surface, and stays useful long after the launch press cycle ends. Click through and use them — they're live.",
+    },
+    stageSect: {
+      kicker: 'Two stages, one signal',
+      title: 'Governments are tired of <em>waiting for the deck.</em>',
+      lede: "In six months we took the same thesis to two of Asia's biggest stages. Both rooms were full. Both had the same response: build it now, not after the next budget cycle.",
+    },
+    teamSect: {
+      kicker: 'Who builds it',
+      title: 'Two founders. <em>No handlers.</em>',
+      lede: 'You talk to the people who write the code and decide the architecture. When the work needs UAV operators or traffic engineers or policy translators, we pull them in for that mission only — never as a standing bench.',
+    },
+    ctaSect: {
+      kicker: 'Work With Us',
+      title: 'Send the brief. <em>We\'ll map the pressure.</em>',
+      body: 'If the problem is real and the decision matters, we\'ll show what can be proven inside two weeks. No procurement-cycle warm-ups. No moodboards.',
+      promise1: 'Pressure mapped in week one. The decision, the users, the data on the table.',
+      promise2: 'Working pilot before slide polish. Free and existing data first; new infrastructure only when earned.',
+      promise3: 'Data trail from day one. Pageviews, content, decision log — so the next build is legible.',
+      alt: 'Or find us on',
+    },
   },
 
   th: {
@@ -229,6 +262,39 @@ const uiCopy = {
       successTitle: 'ส่งข้อความแล้ว',
       successDesc: 'ผมจะติดต่อกลับเร็วๆ นี้',
     },
+    navCurrent: {
+      systems: 'ระบบ', stages: 'เวที', team: 'ทีม', press: 'สื่อ', cta: 'เริ่มงานร่วมกัน',
+    },
+    heroCurrent: {
+      sub: 'งาน "เมืองอัจฉริยะ" ส่วนใหญ่จบที่ Presentation ของผมจบที่ระบบที่ใช้งานจริง วิเคราะห์ปัญหาในสัปดาห์แรก มีระบบทำงานก่อนนำเสนอครั้งแรก วัดผลทุกการตัดสินใจตั้งแต่วันแรก',
+      cta1: 'ดูระบบที่ใช้งานจริง', cta2: 'เริ่ม Brief',
+      stat1lbl: 'ระบบที่ใช้งานจริง', stat2lbl: 'ประเทศที่ดำเนินการ',
+      stat3lbl: 'เมืองที่จัดอันดับ', stat4lbl: 'บนเวทีหลัก GITEX Asia',
+    },
+    sysSect: {
+      kicker: 'ใช้งานจริงในการผลิต',
+      title: 'ระบบจริง <em>เมืองจริง</em> ใช้งานได้วันนี้',
+      lede: 'ทุกระบบเริ่มจากคำถามที่คม ส่งมอบเป็นพื้นผิวที่ใช้งานได้ และยังคงมีประโยชน์นานหลังจากรอบข่าวเปิดตัวจบลง คลิกเข้าไปใช้งาน — ทุกอย่างทำงานอยู่จริง',
+    },
+    stageSect: {
+      kicker: 'สองเวที สัญญาณเดียว',
+      title: 'รัฐบาลเหนื่อยกับการ<em>รอ Presentation แล้ว</em>',
+      lede: 'ในหกเดือน ผมนำแนวคิดเดิมไปสู่สองเวทีใหญ่ที่สุดในเอเชีย ทั้งสองห้องเต็ม ทั้งสองห้องมีคำตอบเดียวกัน: สร้างได้เลย ไม่ต้องรอรอบงบประมาณถัดไป',
+    },
+    teamSect: {
+      kicker: 'ผู้สร้าง',
+      title: 'สองผู้ก่อตั้ง <em>ไม่มีคนกลาง</em>',
+      lede: 'คุณคุยกับคนที่เขียนโค้ดและตัดสินใจเรื่อง architecture โดยตรง เมื่องานต้องการผู้ควบคุม UAV หรือวิศวกรจราจร หรือผู้แปลนโยบาย ผมดึงพวกเขามาเฉพาะภารกิจนั้น ไม่เคยมีเป็นทีมประจำ',
+    },
+    ctaSect: {
+      kicker: 'เริ่มงานร่วมกัน',
+      title: 'ส่ง Brief มาให้ผม <em>แล้วผมจะทำแผนที่แรงกดดัน</em>',
+      body: 'ถ้าปัญหาจริงและการตัดสินใจสำคัญ ผมจะแสดงสิ่งที่พิสูจน์ได้ภายในสองสัปดาห์ ไม่มีการวอร์มอัพรอบจัดซื้อ ไม่มี Moodboard',
+      promise1: 'ทำแผนที่แรงกดดันในสัปดาห์แรก พร้อมการตัดสินใจ ผู้ใช้ และข้อมูลทั้งหมดบนโต๊ะ',
+      promise2: 'ระบบ Pilot ที่ใช้งานได้ก่อนขัดเกลาสไลด์ ใช้ข้อมูลฟรีและที่มีอยู่ก่อน โครงสร้างพื้นฐานใหม่เมื่อถึงเวลาเท่านั้น',
+      promise3: 'Data Trail ตั้งแต่วันแรก Pageview เนื้อหา บันทึกการตัดสินใจ — เพื่อให้การพัฒนาครั้งถัดไปอ่านออก',
+      alt: 'หรือหาผมได้ที่',
+    },
   },
 
   zh: {
@@ -340,6 +406,39 @@ const uiCopy = {
       submit: '发送消息',
       successTitle: '消息已发送',
       successDesc: '我们会尽快回复您。',
+    },
+    navCurrent: {
+      systems: '系统', stages: '舞台', team: '团队', press: '媒体', cta: '开始合作',
+    },
+    heroCurrent: {
+      sub: '多数"智慧城市"工作以幻灯片收场。我们的以运行中的系统收场。第一周完成问题地图。首次演示前已有可运行系统。从第一天起追踪每个决策。',
+      cta1: '查看在线系统', cta2: '发送简报',
+      stat1lbl: '在线系统', stat2lbl: '运营国家',
+      stat3lbl: '城市建档', stat4lbl: 'GITEX Asia 主舞台',
+    },
+    sysSect: {
+      kicker: '生产级实时运行',
+      title: '真实系统 <em>真实城市</em> 今日运行',
+      lede: '每个系统从一个尖锐问题开始，作为可用界面交付，在发布新闻周期结束后仍然保持有用。点击进去使用——它们都在实时运行。',
+    },
+    stageSect: {
+      kicker: '两个舞台，一个信号',
+      title: '政府已经厌倦了<em>等一份幻灯片</em>',
+      lede: '六个月内，我们将同一论点带到了亚洲最大的两个舞台。两个会议室都座无虚席，两个会议室都给出了同样的回应：现在就建，不要等下一个预算周期。',
+    },
+    teamSect: {
+      kicker: '谁来构建',
+      title: '两位创始人 <em>没有中间层</em>',
+      lede: '你直接与写代码和决定架构的人交谈。当工作需要无人机操作员、交通工程师或政策翻译时，我们仅为该任务引入他们——从不作为常设团队。',
+    },
+    ctaSect: {
+      kicker: '开始合作',
+      title: '发送简报 <em>我们将绘制压力图谱</em>',
+      body: '如果问题真实，决策重要，我们将在两周内展示可证明的内容。不需要采购周期热身，不需要情绪板。',
+      promise1: '第一周完成压力地图。决策、用户、数据全部摆上桌面。',
+      promise2: '先有可运行的试点，再打磨幻灯片。先用免费和现有数据；新基础设施只在必要时才建。',
+      promise3: '从第一天起留下数据轨迹。页面浏览、内容、决策日志——让下一次构建清晰可读。',
+      alt: '或联系我们',
     },
   },
 
