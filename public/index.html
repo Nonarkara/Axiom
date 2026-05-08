@@ -114,6 +114,7 @@
     </div>
 
     <!-- TAB STRIP -->
+    <div class="sys-tabs-hint" aria-hidden="true">11 systems — swipe to explore <span>→</span></div>
     <div class="sys-tabs-track">
     <div class="sys-tabs" role="tablist" aria-label="Production systems">
       <button class="sys-tab active" data-panel="panel-01" role="tab" aria-selected="true">01 · Phuket Ops</button>
@@ -124,9 +125,9 @@
       <button class="sys-tab" data-panel="panel-06" role="tab" aria-selected="false">06 · MEM</button>
       <button class="sys-tab" data-panel="panel-07" role="tab" aria-selected="false">07 · Smart Bus</button>
       <button class="sys-tab" data-panel="panel-08" role="tab" aria-selected="false">08 · SCTH V2</button>
-      <button class="sys-tab" data-panel="panel-09" role="tab" aria-selected="false">09 · AI Council</button>
-      <button class="sys-tab" data-panel="panel-10" role="tab" aria-selected="false">10 · TKCX</button>
-      <button class="sys-tab" data-panel="panel-11" role="tab" aria-selected="false">11 · Second Brain</button>
+      <button class="sys-tab sys-tab--preview" data-panel="panel-09" role="tab" aria-selected="false">09 · AI Council</button>
+      <button class="sys-tab sys-tab--preview" data-panel="panel-10" role="tab" aria-selected="false">10 · TKCX</button>
+      <button class="sys-tab sys-tab--preview" data-panel="panel-11" role="tab" aria-selected="false">11 · Second Brain</button>
     </div>
     </div>
 
@@ -1444,6 +1445,17 @@ document.querySelectorAll('.cv-btn').forEach(btn => {
     btn.textContent = isOpen ? 'CV ⊕' : 'CV ⊖';
   });
 });
+
+// Scroll nudge — fires once on mobile to reveal more tabs exist
+if (window.innerWidth < 880) {
+  const strip = document.querySelector('.sys-tabs');
+  if (strip && strip.scrollWidth > strip.clientWidth) {
+    setTimeout(() => {
+      strip.scrollTo({ left: 120, behavior: 'smooth' });
+      setTimeout(() => strip.scrollTo({ left: 0, behavior: 'smooth' }), 900);
+    }, 1500);
+  }
+}
 
 // System tabs
 document.querySelectorAll('.sys-tab').forEach(tab => {

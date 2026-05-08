@@ -1859,18 +1859,58 @@ body.no-glitch .sys__title::after { display: none; }
 .sys-tabs-track {
   position: relative;
 }
+/* Fade + arrow — signals "more to the right" on mobile */
 .sys-tabs-track::after {
-  content: '';
+  content: '›';
   position: absolute;
   top: 0; right: 0; bottom: 0;
-  width: 64px;
-  background: linear-gradient(to right, transparent, var(--ink-000));
+  width: 56px;
+  background: linear-gradient(to right, transparent 0%, var(--ink-000) 55%);
   pointer-events: none;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 14px;
+  font-size: 20px;
+  color: var(--paper-200);
+  animation: arrow-pulse 2s ease-in-out 1.4s 3;
+}
+@keyframes arrow-pulse {
+  0%, 100% { color: var(--paper-200); transform: translateX(0); }
+  50% { color: var(--stitch); transform: translateX(4px); }
 }
 @media (min-width: 880px) {
   .sys-tabs-track::after { display: none; }
 }
+/* Swipe hint bar — mobile only, above tab strip */
+.sys-tabs-hint {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper-200);
+  padding: 0 0 10px;
+}
+.sys-tabs-hint span { color: var(--stitch); }
+@media (max-width: 879px) { .sys-tabs-hint { display: block; } }
+
+/* Research Preview indicator on tab buttons */
+.sys-tab--preview {
+  position: relative;
+}
+.sys-tab--preview::after {
+  content: '◆ PREV';
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--stitch);
+  margin-top: 3px;
+  opacity: 0.8;
+}
+.sys-tab--preview.active::after { opacity: 1; }
 
 .sys-tabs {
   display: flex;
