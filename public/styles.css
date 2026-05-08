@@ -1471,6 +1471,11 @@ body.no-glitch .sys__title::after { display: none; }
   transition: color 0.2s, transform 0.2s;
 }
 .press-row:hover .press-row__arrow { color: var(--stitch); transform: translateX(4px); }
+.press-row--new .press-row__src::after {
+  content: ' · NEW';
+  color: var(--stitch);
+  font-weight: 700;
+}
 @media (max-width: 720px) {
   .press-row {
     grid-template-columns: 1fr auto;
