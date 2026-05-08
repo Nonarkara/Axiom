@@ -1694,6 +1694,22 @@ body.no-glitch .sys__title::after { display: none; }
   color: var(--paper-200);
   margin-bottom: 20px;
 }
+.sys-tabs-track {
+  position: relative;
+}
+.sys-tabs-track::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 64px;
+  background: linear-gradient(to right, transparent, var(--ink-000));
+  pointer-events: none;
+  z-index: 2;
+}
+@media (min-width: 880px) {
+  .sys-tabs-track::after { display: none; }
+}
+
 .sys-tabs {
   display: flex;
   overflow-x: auto;
