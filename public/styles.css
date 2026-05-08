@@ -1202,23 +1202,126 @@ body.no-glitch .sys__title::after { display: none; }
   display: grid;
   gap: 32px;
 }
-.founders {
+/* Legacy .founders / .founders__photo retained as fallback */
+.founders { display: none; }
+
+/* NEW: Horizontal founders banner — full width, faces tight */
+.founders-banner {
   position: relative;
-  border-radius: var(--radius-lg);
+  width: 100%;
+  aspect-ratio: 21 / 9;
   overflow: hidden;
-  background: var(--ink-100);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--ink-300);
   box-shadow: var(--shadow-deep);
+  margin-bottom: 32px;
 }
-.founders__photo {
-  aspect-ratio: 16 / 9;
-  position: relative;
+@media (max-width: 720px) {
+  .founders-banner { aspect-ratio: 16 / 9; }
 }
-.founders__photo img {
+.founders-banner img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 25%;
   filter: contrast(1.05) saturate(0.92);
+}
+.founders-banner__overlay {
+  position: absolute;
+  bottom: 24px;
+  left: 28px;
+  right: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+}
+.founders-banner__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.95);
+}
+.founders-banner__names {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 52px);
+  line-height: 1;
+  color: var(--paper-000);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.85);
+  letter-spacing: -0.015em;
+}
+
+/* Bios grid — modular, 2-col desktop / 1-col mobile, equal heights */
+.bios-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+@media (min-width: 880px) {
+  .bios-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+.bio-card {
+  padding: 32px;
+  border: 1px solid var(--ink-300);
+  border-radius: var(--radius-lg);
+  background: var(--ink-050);
+  display: flex;
+  flex-direction: column;
+}
+.bio-card__role {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stitch);
+  margin-bottom: 12px;
+}
+.bio-card__name {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.2vw, 30px);
+  letter-spacing: -0.015em;
+  color: var(--paper-000);
+  margin-bottom: 16px;
+  line-height: 1.05;
+}
+.bio-card__lede {
+  font-size: 15.5px;
+  color: var(--paper-100);
+  line-height: 1.55;
+  margin-bottom: 12px;
+  text-wrap: pretty;
+}
+.bio-card__bio {
+  font-size: 14px;
+  color: var(--paper-200);
+  line-height: 1.6;
+  margin-bottom: 22px;
+  text-wrap: pretty;
+}
+.bio-card__creds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+.bio-card__creds .cred {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper-200);
+  padding: 5px 10px;
+  border: 1px solid var(--ink-400);
+  border-radius: 999px;
+}
+.bio-card__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .founders__overlay {
   position: absolute;
