@@ -1217,6 +1217,7 @@ body.no-glitch .sys__title::after { display: none; }
 .founders__photo img {
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   filter: contrast(1.05) saturate(0.92);
 }
 .founders__overlay {
