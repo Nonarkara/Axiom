@@ -1103,6 +1103,7 @@ const i18nExt2 = {
       contact:'Contact',
       smallPrint:'Decision systems for cities, governments, and operators. Bangkok · Southeast Asia. © 2026 Axiom. All rights reserved. Axiom is a registered trade name. System uptime, response times, and outcome metrics are case-specific observations, not guarantees of future performance.',
     },
+    misc: { swipeHint:'11 systems — swipe to explore' },
   },
 
   th: {
@@ -1162,6 +1163,7 @@ const i18nExt2 = {
       contact:'ติดต่อ',
       smallPrint:'ระบบการตัดสินใจสำหรับเมือง รัฐบาล และผู้ปฏิบัติงาน · กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ · © 2569 Axiom สงวนลิขสิทธิ์ Axiom เป็นเครื่องหมายการค้าจดทะเบียน · uptime ของระบบ เวลาตอบสนอง และตัวชี้วัดผลลัพธ์ทั้งหมดเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
     },
+    misc: { swipeHint:'11 ระบบ — ปัดเพื่อสำรวจ' },
   },
 
   zh: {
@@ -1219,6 +1221,7 @@ const i18nExt2 = {
       contact:'联系',
       smallPrint:'面向城市、政府和运营商的决策系统。曼谷 · 东南亚。© 2026 Axiom 版权所有。Axiom 是注册商号。系统正常运行时间、响应时间和成果指标均为个案观察，并非未来表现的保证。',
     },
+    misc: { swipeHint:'11 个系统 — 滑动浏览' },
   },
 
   ts: {
@@ -1276,6 +1279,7 @@ const i18nExt2 = {
       contact:'contact()',
       smallPrint:'// decisionSystems<City | Government | Operator>\n// Bangkok · SEA · © 2026 Axiom\n// uptime, responseTime, outcomeMetrics: caseSpecific[]\n// !guarantees<FuturePerformance>',
     },
+    misc: { swipeHint:'systems[11].swipe()' },
   },
 };
 
