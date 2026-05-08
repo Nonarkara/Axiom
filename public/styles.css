@@ -246,6 +246,7 @@ section { position: relative; }
 .topbar__cta {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 16px;
+  min-height: 44px;
   border: 1px solid var(--ink-400);
   border-radius: 999px;
   font-family: var(--font-mono);
@@ -254,6 +255,7 @@ section { position: relative; }
   text-transform: uppercase;
   color: var(--paper-000);
   transition: border-color 0.2s, background 0.2s;
+  touch-action: manipulation;
 }
 .topbar__cta:hover {
   border-color: var(--stitch);
@@ -442,6 +444,7 @@ section { position: relative; }
   align-items: center;
   gap: 10px;
   padding: 14px 22px;
+  min-height: 44px;
   border-radius: 999px;
   font-family: var(--font-sans);
   font-size: 15px;
@@ -449,6 +452,7 @@ section { position: relative; }
   letter-spacing: -0.005em;
   transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s;
   white-space: nowrap;
+  touch-action: manipulation;
 }
 .btn--primary {
   background: var(--paper-000);
@@ -579,6 +583,9 @@ section { position: relative; }
   }
   .section { padding: 140px 0; }
 }
+
+/* Anchor scroll offset — fixed topbar is ~52px; add 16px breathing room */
+#systems, #stages, #team, #press, #contact { scroll-margin-top: 68px; }
 
 /* ---------- Live systems (parallax reveal) ---------- */
 
@@ -1501,10 +1508,12 @@ body.no-glitch .sys__title::after { display: none; }
   line-height: 1.4;
 }
 .contact__cta {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   padding: 18px 28px;
+  min-height: 56px;
   background: var(--ink-000);
   color: var(--paper-000);
   border-radius: 999px;
@@ -1512,8 +1521,12 @@ body.no-glitch .sys__title::after { display: none; }
   font-weight: 500;
   letter-spacing: -0.005em;
   transition: background 0.2s, transform 0.2s;
+  touch-action: manipulation;
 }
 .contact__cta:hover { background: var(--stitch); transform: translateY(-2px); }
+@media (max-width: 600px) {
+  .contact__cta { width: 100%; border-radius: 8px; }
+}
 .contact__alt {
   margin-top: 20px;
   font-family: var(--font-mono);
@@ -1725,6 +1738,7 @@ body.no-glitch .sys__title::after { display: none; }
   flex-direction: column;
   gap: 5px;
   padding: 14px 22px;
+  min-height: 44px;
   border: 0;
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
@@ -1733,6 +1747,7 @@ body.no-glitch .sys__title::after { display: none; }
   text-align: left;
   transition: border-color 0.2s, background 0.2s;
   margin-bottom: -1px;
+  touch-action: manipulation;
 }
 .sys-tab__node {
   font-family: var(--font-mono);

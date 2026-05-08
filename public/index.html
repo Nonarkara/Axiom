@@ -10,9 +10,9 @@
 <link rel="stylesheet" href="styles.css">
 
 <!-- React + Babel for Tweaks panel -->
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script defer src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script defer src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="grid-bg" aria-hidden="true"></div>
@@ -675,7 +675,7 @@
       <article class="stage reveal">
         <div class="stage__media">
           <span class="stamp">SCSE 2026 · Taipei</span>
-          <img src="images/taipei-hero.jpg" alt="Dr. Non Arkara delivering the keynote at SCSE 2026 Taipei">
+          <img src="images/taipei-hero.jpg" alt="Dr. Non Arkara delivering the keynote at SCSE 2026 Taipei" loading="lazy">
         </div>
         <div class="stage__body">
           <div class="stage__loc"><b>Taipei</b> · City Vision Stage · March 2026</div>
@@ -697,9 +697,9 @@
             <div class="stage__stat"><span class="n">45m</span><span class="l">First live demo</span></div>
           </div>
           <div class="stage__gallery">
-            <img src="images/taipei-stage.jpg" alt="On the City Vision stage in Taipei">
-            <img src="images/middle-east-monitor.webp" alt="Middle East Monitor live tactical interface">
-            <img src="images/taipei-networking.jpg" alt="Networking after the SLIC Index launch">
+            <img src="images/taipei-stage.jpg" alt="On the City Vision stage in Taipei" loading="lazy">
+            <img src="images/middle-east-monitor.webp" alt="Middle East Monitor live tactical interface" loading="lazy">
+            <img src="images/taipei-networking.jpg" alt="Networking after the SLIC Index launch" loading="lazy">
           </div>
         </div>
       </article>
@@ -708,7 +708,7 @@
       <article class="stage stage--reverse reveal">
         <div class="stage__media">
           <span class="stamp">GITEX Asia 2026 · Singapore</span>
-          <img src="images/singapore-mainstage-2.jpg" alt="Dr. Non on the main stage at GITEX Asia 2026 Singapore, with Smart City Thailand and SLIC Index as tech partners">
+          <img src="images/singapore-mainstage-2.jpg" alt="Dr. Non on the main stage at GITEX Asia 2026 Singapore, with Smart City Thailand and SLIC Index as tech partners" loading="lazy">
         </div>
         <div class="stage__body">
           <div class="stage__loc"><b>Singapore</b> · Marina Bay Sands · Main Stage · April 2026</div>
@@ -732,9 +732,9 @@
             <div class="stage__stat"><span class="n">Full</span><span class="l">Workshop capacity</span></div>
           </div>
           <div class="stage__gallery">
-            <img src="images/singapore-workshop-attentive.jpg" alt="Workshop audience fully engaged with the live demo">
-            <img src="images/singapore-mainstage.jpg" alt="Dr. Non on the main stage at Marina Bay Sands">
-            <img src="images/singapore-workshop.jpg" alt="Workshop — standing room only">
+            <img src="images/singapore-workshop-attentive.jpg" alt="Workshop audience fully engaged with the live demo" loading="lazy">
+            <img src="images/singapore-mainstage.jpg" alt="Dr. Non on the main stage at Marina Bay Sands" loading="lazy">
+            <img src="images/singapore-workshop.jpg" alt="Workshop — standing room only" loading="lazy">
           </div>
         </div>
       </article>
@@ -761,7 +761,7 @@
     <div class="people">
       <div class="founders reveal">
         <div class="founders__photo">
-          <img src="images/founders.jpg" alt="Dr. Non Arkaraprasertkul and Dr. Poon Thiengburanathum, co-founders of Axiom">
+          <img src="images/founders.jpg" alt="Dr. Non Arkaraprasertkul and Dr. Poon Thiengburanathum, co-founders of Axiom" loading="lazy">
         </div>
         <div class="founders__overlay">
           <div class="label">Co-Founders · Bangkok</div>
@@ -1166,6 +1166,16 @@ document.querySelectorAll('.sys-tab').forEach(tab => {
     tab.classList.add('active');
     tab.setAttribute('aria-selected', 'true');
     document.getElementById(tab.dataset.panel).classList.add('active');
+    // Scroll active tab into horizontal center of strip
+    tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    // On mobile: after switching panels, scroll so tab strip + new panel top is visible
+    if (window.innerWidth < 880) {
+      const strip = document.querySelector('.sys-tabs-track');
+      if (strip) {
+        const y = strip.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
   });
 });
 document.querySelector('.sys-tabs')?.addEventListener('keydown', e => {
