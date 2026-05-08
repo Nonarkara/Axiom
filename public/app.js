@@ -663,10 +663,17 @@ const i18nExt = {
       },
       p10: {
         title: 'HR has been a <em>record system</em> long enough.',
-        lede: 'TKCX is a game-based talent operating system that treats employees as party members, projects as quests, and team assembly as strategy. It makes every decision about people visible, measurable, and connected to outcomes — replacing org-chart politics with capability intelligence.',
+        lede: 'Talent Knowledge Collaborative Explorers (TKCX) is a game-based talent operating system that treats employees as party members, projects as quests, and team assembly as strategy. It makes every decision about people visible, measurable, and connected to outcomes — replacing org-chart politics with capability intelligence.',
         w1lbl:'The problem', w1:'Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.',
         w2lbl:'The engine', w2:'Built on Dragon Quest III\'s party system. Five archetypes map to real workplace roles (captain, tech, sales, ops, scout). A Moneyball budget cap — project budget ÷ 10 = monthly salary ceiling — forces allocation discipline. The readiness formula weighs coverage, quality, chemistry, and morale so the right team is visible before the project starts, not after it fails.',
         w3lbl:'What it changes', w3:'Directors stop hoarding people. Projects stop running on political capital. Skill gaps become visible before they become failures. And HR — renamed Talent Incubation — becomes the most strategic function in the building, not the most avoided one.', cta:'Explore the engine',
+      },
+      p11: {
+        title: 'The AI <em>that knows you.</em>',
+        lede: 'Second Brain OS connects your Obsidian vault to every AI coding platform simultaneously via MCP. Brain-anatomy folder structure. 19 server configs. AI agents that access your persona blueprint, write in your voice, and remember every decision you\'ve ever logged. The knowledge you\'ve been building for years — finally working for you.',
+        w1lbl:'The gap it closes', w1:'Every AI session starts cold. It doesn\'t know your voice, your values, your past decisions, or the years of journal entries that shaped your thinking. Second Brain OS feeds all of that into every coding platform simultaneously via a single MCP connection — so the AI you work with already knows who it\'s working with.',
+        w2lbl:'How it\'s built', w2:'Your Obsidian vault is structured like a brain: PrefrontalCortex for strategy, Hippocampus for atomic memories, TemporalLobe for patterns, Cerebellum for skills and procedures. 19 MCP server configurations connect this living knowledge graph to Cursor, Codex, Claude Code, and every other platform in your stack — at once.',
+        w3lbl:'Why it\'s open', w3:'The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model\'s.', cta:'Explore the architecture',
       },
     },
     stagesContent: {
@@ -785,10 +792,17 @@ const i18nExt = {
       },
       p10: {
         title: 'HR ทำหน้าที่แค่<em>ระบบบันทึก</em>มานานพอแล้ว',
-        lede: 'TKCX คือระบบปฏิบัติการด้านทักษะที่ใช้เกมเป็นฐาน มองพนักงานเป็น party member โครงการเป็น quest และการประกอบทีมเป็นกลยุทธ์ ทำให้ทุกการตัดสินใจเรื่องคนมองเห็นได้ วัดได้ และเชื่อมโยงกับผลลัพธ์ แทนที่การเมืององค์กรด้วย capability intelligence',
+        lede: 'Talent Knowledge Collaborative Explorers (TKCX) คือระบบปฏิบัติการด้านทักษะที่ใช้เกมเป็นฐาน มองพนักงานเป็น party member โครงการเป็น quest และการประกอบทีมเป็นกลยุทธ์ ทำให้ทุกการตัดสินใจเรื่องคนมองเห็นได้ วัดได้ และเชื่อมโยงกับผลลัพธ์ แทนที่การเมืององค์กรด้วย capability intelligence',
         w1lbl:'ปัญหา', w1:'ระบบ HR ส่วนใหญ่คือบันทึกการปฏิบัติตาม ไม่ใช่ intelligence บอกคุณว่าใครจ้างงานอยู่ ไม่ใช่ว่าใครควร deploy ที่ไหน และกับใคร การตัดสินใจเรื่องคนถูกทำด้วยสัญชาตญาณและทุนทางการเมือง คนเก่งที่สุดลาออก คนที่สบายๆ คงอยู่ ไม่มีใครเห็นว่าทำไม',
         w2lbl:'เครื่องยนต์', w2:'สร้างบนระบบ party ของ Dragon Quest III ห้า archetype แผนที่กับบทบาทในที่ทำงานจริง (captain, tech, sales, ops, scout) budget cap แบบ Moneyball งบโครงการ ÷ 10 = เพดานเงินเดือนรายเดือน บังคับให้มีวินัยในการจัดสรร สูตรความพร้อมให้น้ำหนัก coverage คุณภาพ chemistry และขวัญกำลังใจ เพื่อให้ทีมที่ใช่มองเห็นได้ก่อนโครงการเริ่ม ไม่ใช่หลังจากล้มเหลว',
         w3lbl:'สิ่งที่เปลี่ยนแปลง', w3:'ผู้อำนวยการหยุดกักตุนคน โครงการหยุดทำงานด้วยทุนทางการเมือง ช่องว่างทักษะมองเห็นได้ก่อนที่จะกลายเป็นความล้มเหลว และ HR ที่เปลี่ยนชื่อเป็น Talent Incubation กลายเป็นหน้าที่ที่มีกลยุทธ์ที่สุดในอาคาร ไม่ใช่ที่หลีกเลี่ยงที่สุด', cta:'สำรวจเครื่องยนต์',
+      },
+      p11: {
+        title: 'AI <em>ที่รู้จักคุณ</em>',
+        lede: 'Second Brain OS เชื่อมต่อ Obsidian vault ของคุณกับทุกแพลตฟอร์ม AI coding พร้อมกันผ่าน MCP โครงสร้างโฟลเดอร์ตามกายวิภาคของสมอง 19 server configs AI agent ที่เข้าถึง persona blueprint ของคุณ เขียนด้วยเสียงของคุณ และจดจำทุกการตัดสินใจที่คุณเคยบันทึก ความรู้ที่คุณสะสมมาหลายปี ทำงานให้คุณได้แล้ว',
+        w1lbl:'ช่องว่างที่ปิด', w1:'ทุก AI session เริ่มต้นด้วยความว่างเปล่า ไม่รู้เสียงของคุณ ค่านิยม การตัดสินใจในอดีต หรือบันทึกหลายปีที่กำหนดความคิดของคุณ Second Brain OS ส่งทั้งหมดนั้นเข้าสู่ทุกแพลตฟอร์ม coding พร้อมกันผ่าน MCP connection เดียว เพื่อให้ AI ที่คุณทำงานด้วยรู้แล้วว่ากำลังทำงานกับใคร',
+        w2lbl:'วิธีสร้าง', w2:'Obsidian vault ของคุณถูกจัดโครงสร้างเหมือนสมอง: PrefrontalCortex สำหรับกลยุทธ์ Hippocampus สำหรับความจำเชิงอะตอม TemporalLobe สำหรับรูปแบบ Cerebellum สำหรับทักษะและขั้นตอน 19 MCP server configs เชื่อมต่อ knowledge graph ที่มีชีวิตนี้กับ Cursor, Codex, Claude Code และทุกแพลตฟอร์มใน stack ของคุณพร้อมกัน',
+        w3lbl:'ทำไมถึง open', w3:'สถาปัตยกรรมนี้ MIT-licensed สมองเป็นของคุณ ทุกคน fork โครงสร้าง ปรับ MCP configs และเชื่อมต่อ vault ของตัวเองได้ รวมถึงการวินิจฉัย 12 ระดับสำหรับขจัด AI-speak ออกจากการเขียนของคุณ เพื่อให้ความรู้ที่คุณสะสมคงเสียงของคุณไว้ ไม่ใช่เสียงของโมเดล', cta:'สำรวจสถาปัตยกรรม',
       },
     },
     stagesContent: {
@@ -905,10 +919,17 @@ const i18nExt = {
       },
       p10: {
         title: 'HR当<em>记录系统</em>的时间已经够长了。',
-        lede: 'TKCX是一个基于游戏的人才运营系统，将员工视为队伍成员，将项目视为任务，将团队组建视为策略。让每一个关于人的决策都可见、可衡量、与结果相连——用能力智能取代组织图政治。',
+        lede: 'Talent Knowledge Collaborative Explorers（TKCX）是一个基于游戏的人才运营系统，将员工视为队伍成员，将项目视为任务，将团队组建视为策略。让每一个关于人的决策都可见、可衡量、与结果相连——用能力智能取代组织图政治。',
         w1lbl:'问题所在', w1:'大多数HR系统是合规记录，而非情报。它们告诉你谁被雇用——而非谁应该被部署、在哪里、和谁一起。关于人的决策靠直觉和政治资本做出。最优秀的人离开了，舒适的人留下了。没有人能看出原因。',
         w2lbl:'引擎', w2:'基于《勇者斗恶龙III》的队伍系统构建。五个原型对应真实职场角色（队长、技术、销售、运营、侦察）。Moneyball预算上限——项目预算÷10=月薪资上限——迫使分配纪律。就绪公式权衡覆盖率、质量、化学反应和士气，让合适的团队在项目开始前可见，而非失败后才发现。',
         w3lbl:'改变了什么', w3:'部门主管停止囤积人才。项目停止靠政治资本运转。技能差距在变成失败之前就变得可见。HR——更名为人才孵化——成为大楼里最具战略性的职能，而非最被回避的那个。', cta:'探索引擎',
+      },
+      p11: {
+        title: '<em>认识你的</em>AI',
+        lede: 'Second Brain OS通过MCP将你的Obsidian知识库同时连接到所有AI编程平台。按脑解剖学命名的文件夹结构。19个服务器配置。能访问你的人格蓝图、以你的声音写作、记住你每个决策的AI智能体。你多年积累的知识，终于为你工作了。',
+        w1lbl:'填补的空白', w1:'每次AI对话都从零开始。它不知道你的声音、你的价值观、你过去的决策，或塑造了你思维的多年日记。Second Brain OS通过单一MCP连接将这一切同时输入所有编程平台——让你合作的AI已经知道它在和谁合作。',
+        w2lbl:'如何构建', w2:'你的Obsidian知识库像大脑一样结构化：PrefrontalCortex用于战略，Hippocampus用于原子记忆，TemporalLobe用于模式，Cerebellum用于技能和流程。19个MCP服务器配置将这个活的知识图谱同时连接到Cursor、Codex、Claude Code和你技术栈中的所有平台。',
+        w3lbl:'为何开源', w3:'架构采用MIT许可。大脑是你的。任何人都可以fork结构、调整MCP配置并连接自己的知识库。包含一个去除AI腔的12级诊断工具——确保你积累的知识保持你的声音，而非模型的腔调。', cta:'探索架构',
       },
     },
     stagesContent: {
@@ -968,7 +989,8 @@ const i18nExt = {
       p07: { title:'bus.tracked<em>.rider.informed</em>', lede:'// GPS: realTime; telemetry: passenger\n// designed: phone.first // not controlRoom', w1lbl:'// WHY_SPECIAL', w1:'smartBus.for(operator.dashboard) // old\nthis.for(person.waiting(stop)) // new', w2lbl:'// REPLACED', w2:'noInfo + 2019schedule + "transit.cannotBeReadable"', w3lbl:'// BUILT_ON', w3:'phuket.IoT.existing\n// same sensor as governor ops room', cta:'system.open()' },
       p08: { title:'reports.arrive<em>.AI.turnsIntoAction()</em>', lede:'// telegram + LINE → AI.analyze()\n// satellite + map layers → nearRealTime', w1lbl:'// WHY_SPECIAL', w1:'complaintSystems.stop(ticketNumber)\nSCTH.stream → decisionSurface()', w2lbl:'// REPLACED', w2:'chatGroupScreenshots + manualTriage + staticLayers', w3lbl:'// DECISION_POWER', w3:'absorb + assign + analyze + export + push', w4lbl:'// LIVE_TUNNEL', w4:'system.proprietary.continuous\n// if !resolve: midUpgrade → retry()', cta:'system.open()' },
       p09: { title:'voices: 11<em>.decision: 1</em>', lede:'// 11 justices, palindromic names\n// local Mac; sharedTranscript; ~$3/month\n// trained: personal data // proprietary: byDesign', w1lbl:'// WHY_EXISTS', w1:'singleModel.gives(oneAnswer)\n// VERIFY | DECIDE | EXPLORE | DEBATE\n// moves: EXPAND | QUALIFY | CONCEDE | STAND | PASS', w2lbl:'// COST', w2:'manus.class @ $3/mo\n// chair: Mistral3; Ada: ThaiLLM(free)\n// Otto: ocr+video+email+pdf+drive', w3lbl:'// NO_DEMO', w3:'trained: { journals, decisions, voice }\n// protocol: ~600 lines Python // open\n// IP = coordinationMethodology', cta:'protocol.read()' },
-      p10: { title:'HR.recordSystem<em>.enough(years)</em>', lede:'// employees: partyMembers\n// projects: quests\n// teamAssembly: strategy', w1lbl:'// PROBLEM', w1:'HR.is(complianceRecord)\n// tells: whoEmployed\n// NOT: { deploy: where, with: whom }', w2lbl:'// ENGINE', w2:'DQ3.partySystem\n// 5 archetypes; moneyball: budget÷10\n// readiness(coverage+chemistry+morale)', w3lbl:'// CHANGES', w3:'directors.stop(hoardingPeople)\n// skillGaps.visible(beforeFailure)\n// HR.rename("TalentIncubation")', cta:'engine.explore()' },
+      p10: { title:'HR.recordSystem<em>.enough(years)</em>', lede:'// TKCX: TalentKnowledgeCollaborativeExplorers\n// employees: partyMembers; projects: quests\n// teamAssembly: strategy', w1lbl:'// PROBLEM', w1:'HR.is(complianceRecord)\n// tells: whoEmployed\n// NOT: { deploy: where, with: whom }', w2lbl:'// ENGINE', w2:'DQ3.partySystem\n// 5 archetypes; moneyball: budget÷10\n// readiness(coverage+chemistry+morale)', w3lbl:'// CHANGES', w3:'directors.stop(hoardingPeople)\n// skillGaps.visible(beforeFailure)\n// HR.rename("TalentIncubation")', cta:'engine.explore()' },
+      p11: { title:'AI<em>.knows(you)</em>', lede:'// ObsidianVault → MCP → allPlatforms: simultaneously\n// brainAnatomy.folders; serverConfigs: 19\n// agents.access(persona, voice, decisions)', w1lbl:'// GAP_CLOSED', w1:'session.starts(cold) // no context\nSecondBrainOS.feeds(voice + values + decisions)\n// AI.already.knows(whoItWorksWith)', w2lbl:'// ARCHITECTURE', w2:'vault: { PrefrontalCortex, Hippocampus, TemporalLobe }\n// 19 MCP configs → Cursor + Codex + ClaudeCode\n// livingKnowledgeGraph.connected(atOnce)', w3lbl:'// OPEN_SOURCE', w3:'license: MIT // brain: yours\n// fork(structure); adapt(mcpConfigs)\n// 12levelDiagnostic: strip(aiSpeak)', cta:'architecture.explore()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
