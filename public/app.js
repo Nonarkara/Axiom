@@ -1104,6 +1104,16 @@ const i18nExt2 = {
       smallPrint:'Decision systems for cities, governments, and operators. Bangkok · Southeast Asia. © 2026 Axiom. All rights reserved. Axiom is a registered trade name. System uptime, response times, and outcome metrics are case-specific observations, not guarantees of future performance.',
     },
     misc: { swipeHint:'11 systems — swipe to explore' },
+    metaKeys: {
+      AI:'AI', Access:'Access', Audience:'Audience', Backup:'Backup',
+      'Brain layers':'Brain layers', Cadence:'Cadence', Cities:'Cities',
+      Cost:'Cost', Coverage:'Coverage', Data:'Data', Employees:'Employees',
+      Engine:'Engine', Intake:'Intake', Interface:'Interface', Justices:'Justices',
+      Latency:'Latency', Layers:'Layers', Mode:'Mode', Pillars:'Pillars',
+      Platforms:'Platforms', Programme:'Programme', Protocol:'Protocol',
+      Region:'Region', Scope:'Scope', Screens:'Screens', Sensors:'Sensors',
+      Sources:'Sources', Stack:'Stack', Status:'Status', Tracking:'Tracking',
+    },
   },
 
   th: {
@@ -1164,6 +1174,16 @@ const i18nExt2 = {
       smallPrint:'ระบบการตัดสินใจสำหรับเมือง รัฐบาล และผู้ปฏิบัติงาน · กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ · © 2569 Axiom สงวนลิขสิทธิ์ Axiom เป็นเครื่องหมายการค้าจดทะเบียน · uptime ของระบบ เวลาตอบสนอง และตัวชี้วัดผลลัพธ์ทั้งหมดเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
     },
     misc: { swipeHint:'11 ระบบ — ปัดเพื่อสำรวจ' },
+    metaKeys: {
+      AI:'AI', Access:'การเข้าถึง', Audience:'ผู้ชม', Backup:'สำรองข้อมูล',
+      'Brain layers':'ชั้นสมอง', Cadence:'จังหวะ', Cities:'เมือง',
+      Cost:'ต้นทุน', Coverage:'พื้นที่ครอบคลุม', Data:'ข้อมูล', Employees:'พนักงาน',
+      Engine:'เครื่องยนต์', Intake:'การรับเข้า', Interface:'อินเทอร์เฟซ', Justices:'ตุลาการ',
+      Latency:'ความหน่วง', Layers:'เลเยอร์', Mode:'โหมด', Pillars:'เสาหลัก',
+      Platforms:'แพลตฟอร์ม', Programme:'โครงการ', Protocol:'โปรโตคอล',
+      Region:'ภูมิภาค', Scope:'ขอบเขต', Screens:'หน้าจอ', Sensors:'เซ็นเซอร์',
+      Sources:'แหล่งข้อมูล', Stack:'Stack', Status:'สถานะ', Tracking:'การติดตาม',
+    },
   },
 
   zh: {
@@ -1222,6 +1242,16 @@ const i18nExt2 = {
       smallPrint:'面向城市、政府和运营商的决策系统。曼谷 · 东南亚。© 2026 Axiom 版权所有。Axiom 是注册商号。系统正常运行时间、响应时间和成果指标均为个案观察，并非未来表现的保证。',
     },
     misc: { swipeHint:'11 个系统 — 滑动浏览' },
+    metaKeys: {
+      AI:'AI', Access:'访问', Audience:'受众', Backup:'备份',
+      'Brain layers':'脑层级', Cadence:'频率', Cities:'城市',
+      Cost:'成本', Coverage:'覆盖范围', Data:'数据', Employees:'员工',
+      Engine:'引擎', Intake:'输入', Interface:'界面', Justices:'法官',
+      Latency:'延迟', Layers:'图层', Mode:'模式', Pillars:'支柱',
+      Platforms:'平台', Programme:'项目', Protocol:'协议',
+      Region:'区域', Scope:'范围', Screens:'屏幕', Sensors:'传感器',
+      Sources:'数据源', Stack:'技术栈', Status:'状态', Tracking:'追踪',
+    },
   },
 
   ts: {
@@ -1280,6 +1310,16 @@ const i18nExt2 = {
       smallPrint:'// decisionSystems<City | Government | Operator>\n// Bangkok · SEA · © 2026 Axiom\n// uptime, responseTime, outcomeMetrics: caseSpecific[]\n// !guarantees<FuturePerformance>',
     },
     misc: { swipeHint:'systems[11].swipe()' },
+    metaKeys: {
+      AI:'AI', Access:'access', Audience:'audience', Backup:'backup',
+      'Brain layers':'brainLayers', Cadence:'cadence', Cities:'cities',
+      Cost:'cost', Coverage:'coverage', Data:'data', Employees:'employees',
+      Engine:'engine', Intake:'intake', Interface:'interface', Justices:'justices',
+      Latency:'latency', Layers:'layers', Mode:'mode', Pillars:'pillars',
+      Platforms:'platforms', Programme:'programme', Protocol:'protocol',
+      Region:'region', Scope:'scope', Screens:'screens', Sensors:'sensors',
+      Sources:'sources', Stack:'stack', Status:'status', Tracking:'tracking',
+    },
   },
 };
 
