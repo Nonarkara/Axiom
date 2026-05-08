@@ -550,6 +550,46 @@ const uiCopy = {
       fieldMessage: 'message: string',
       submit: 'send()',
     },
+    navCurrent: {
+      systems: 'LiveSystem[]',
+      stages: 'Stage<Keynote>',
+      team: 'class Team',
+      press: 'Press[]',
+      cta: 'workWith(us)',
+    },
+    heroCurrent: {
+      sub: '// most "smart city" work: Promise<Deck> — never resolves\n// ours: LiveSystem — deployed, instrumented, running\n// method: pressureMap() → shipRough() → instrument(day1)',
+      cta1: 'systems.getLive()',
+      cta2: 'brief.start()',
+      stat1lbl: 'LiveSystem[]',
+      stat2lbl: 'Country<T>[]',
+      stat3lbl: 'cities.indexed',
+      stat4lbl: 'GITEX.mainStage',
+    },
+    sysSect: {
+      kicker: '// LIVE_IN_PRODUCTION',
+      title: 'type Systems = Real<Cities> // operating today',
+      lede: '// each: sharpQuestion → workingSurface → staysUseful\n// click through: systems.forEach(s => assert(s.isLive()))',
+    },
+    stageSect: {
+      kicker: '// TWO_STAGES_ONE_SIGNAL',
+      title: 'governments.tireof(waitingForTheDeck)',
+      lede: '// 6 months. same thesis. asia\'s biggest stages.\n// response: { build: "now", waitForBudgetCycle: false }',
+    },
+    teamSect: {
+      kicker: '// WHO_BUILDS_IT',
+      title: 'const team: [Founder, Founder] // handlers: never[]',
+      lede: '// you.talkTo(builders) // not handlers\n// specialists.join({ when: mission.needs(them), as: "standing bench" }) // throws',
+    },
+    ctaSect: {
+      kicker: '// WORK_WITH_US',
+      title: 'brief.send() // we.will.map(pressure)',
+      body: 'if (problem.isReal && decision.matters) {\n  return show(provable, { within: "2w" })\n  // no procurementWarmups()\n  // no moodboards()\n}',
+      promise1: 'pressureMap(): Week<1> // { decision, users, data } on table',
+      promise2: 'pilot.before(slidePolish) // freeData.first(); newInfra.only(whenEarned)',
+      promise3: 'trail: DataFrom<Day1> // pageviews + content + decisionLog → nextBuild.legible()',
+      alt: '// or find us on',
+    },
   },
 };
 

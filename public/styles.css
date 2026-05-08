@@ -301,6 +301,16 @@ section { position: relative; }
 .locale-btn + .locale-btn { border-left: 1px solid var(--ink-400); }
 .locale-btn:hover { color: var(--paper-000); background: var(--ink-100); }
 .locale-btn.active { color: var(--ink-000); background: var(--paper-000); font-weight: 700; }
+.locale-btn--ts { color: var(--signal-dim); letter-spacing: 0; }
+.locale-btn--ts:hover { color: var(--signal); background: rgba(155,232,232,0.06); }
+.locale-btn--ts.active { color: var(--ink-000); background: var(--signal); }
+/* TS locale: switch body to monospace for full gimmick */
+:root:lang(ts) body { font-family: var(--font-mono); font-size: 13px; }
+:root:lang(ts) .hero__sub,
+:root:lang(ts) .s-head__lede,
+:root:lang(ts) .note-body,
+:root:lang(ts) .contact p,
+:root:lang(ts) .contact__promises .t { white-space: pre-wrap; }
 
 /* ---------- Hero ---------- */
 
