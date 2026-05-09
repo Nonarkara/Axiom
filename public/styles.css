@@ -157,6 +157,42 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     linear-gradient(rgba(40, 30, 20, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(40, 30, 20, 0.06) 1px, transparent 1px);
 }
+/* Pro bono cards — text sits on dark photo gradient, must stay light in BOTH themes */
+[data-theme="light"] .probono-card {
+  background: var(--ink-100);
+  border: 1px solid var(--ink-300);
+  box-shadow: var(--shadow-card);
+}
+[data-theme="light"] .probono-title { color: #ffffff; }
+[data-theme="light"] .probono-for { color: rgba(255,255,255,0.88); }
+[data-theme="light"] .probono__head { color: var(--paper-100); }
+[data-theme="light"] .probono__note { color: var(--paper-100); }
+[data-theme="light"] .probono { border-top-color: var(--ink-200); }
+
+/* Founders banner — same principle, text on photo */
+[data-theme="light"] .founders-banner {
+  border-color: var(--ink-300);
+  box-shadow: var(--shadow-card);
+}
+
+/* System panels: dark photo gradient overlays — keep as-is, ensure chip readability */
+[data-theme="light"] .sys__media { box-shadow: var(--shadow-card); }
+
+/* Stage cards: photos on top, body below */
+[data-theme="light"] .stage__media { box-shadow: var(--shadow-card); }
+[data-theme="light"] .stage__pull { color: var(--paper-100); border-left-color: var(--stitch); }
+[data-theme="light"] .stage__loc { color: var(--paper-100); }
+[data-theme="light"] .stage__title { color: var(--paper-000); }
+[data-theme="light"] .stage__stat { background: var(--ink-050); border-color: var(--ink-200); }
+[data-theme="light"] .stage__stat .n { color: var(--paper-000); }
+[data-theme="light"] .stage__stat .l { color: var(--paper-200); }
+[data-theme="light"] .stamp { color: var(--paper-000); }
+
+/* Hero punch — make sure on light mode the highlight still pops */
+[data-theme="light"] .hero__punch-afford {
+  color: #ffffff;  /* white text on stitch-red highlight */
+}
+
 /* Theme transition smoothness */
 html { transition: background-color 0.25s ease; }
 body, .topbar, .sys__chip, .sys-link, .sys-link.primary, .bio-card, .note-card, .proof-strip__cell, .sys__meta > div { transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
