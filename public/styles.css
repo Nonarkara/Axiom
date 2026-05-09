@@ -63,6 +63,128 @@
 
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
+/* ── Light mode — overrides core tokens ─────────────────────────────────── */
+[data-theme="light"] {
+  /* Surface tones flip — paper becomes the canvas */
+  --ink-000: #f5f1e8;          /* page bg = warm ivory */
+  --ink-050: #ece7d8;          /* card bg */
+  --ink-100: #e3ddca;          /* raised */
+  --ink-200: #d8d1bc;          /* hairline borders */
+  --ink-300: #c2baa5;          /* dividers */
+  --ink-400: #918976;          /* mute borders */
+  --ink-500: #5e5749;          /* tertiary text */
+  /* Text becomes ink */
+  --paper-000: #0a0a0c;        /* primary text */
+  --paper-050: #1c1c20;        /* body */
+  --paper-100: #3a3a42;        /* secondary */
+  --paper-200: #6b6660;        /* tertiary */
+  /* Stitch deepens for AA contrast on cream */
+  --stitch: #c8341d;
+  --stitch-dim: #962815;
+  --stitch-bg: rgba(200, 52, 29, 0.08);
+  /* Shadows recalibrated for light surfaces */
+  --shadow-deep: 0 1px 0 rgba(0,0,0,0.04) inset, 0 24px 48px -18px rgba(20,15,10,0.20);
+  --shadow-card: 0 1px 0 rgba(0,0,0,0.04) inset, 0 14px 32px -14px rgba(20,15,10,0.16);
+}
+/* Elements with literal dark backgrounds — explicit light overrides */
+[data-theme="light"] .topbar {
+  background: rgba(245, 241, 232, 0.85);
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+[data-theme="light"] .sys__chip {
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(0,0,0,0.08);
+  color: var(--paper-000);
+}
+[data-theme="light"] .sys__coord {
+  background: rgba(255,255,255,0.85);
+  color: var(--paper-100);
+}
+[data-theme="light"] .topbar__brand { color: var(--paper-000); }
+[data-theme="light"] .topbar__nav a { color: var(--paper-100); }
+[data-theme="light"] .topbar__nav a:hover { color: var(--paper-000); }
+/* Locale switch active state — keep high-contrast invert */
+[data-theme="light"] .locale-btn { color: var(--paper-100); }
+[data-theme="light"] .locale-btn:hover { color: var(--paper-000); background: rgba(0,0,0,0.04); }
+[data-theme="light"] .locale-btn.active { background: var(--paper-000); color: var(--ink-000); }
+/* Hero readout — cyan signal needs to read on light */
+[data-theme="light"] .hero__readout .v { color: var(--paper-000); }
+[data-theme="light"] .hero__readout .k { color: var(--stitch); }
+/* Section--dark blocks invert too */
+[data-theme="light"] .section--dark { background: var(--ink-050); }
+/* Press rows: text colors */
+[data-theme="light"] .press-row__title { color: var(--paper-000); }
+[data-theme="light"] .press-row__src,
+[data-theme="light"] .press-row__arrow { color: var(--paper-200); }
+/* Bio cards: subtle bg */
+[data-theme="light"] .bio-card { background: var(--ink-050); border-color: var(--ink-200); }
+/* Note cards */
+[data-theme="light"] .note-card { background: var(--ink-050); }
+[data-theme="light"] .note-card:hover { background: var(--ink-100); }
+[data-theme="light"] .note-title,
+[data-theme="light"] .note-body { color: var(--paper-000); }
+[data-theme="light"] .note-body { color: var(--paper-100); }
+/* Stack chips */
+[data-theme="light"] .stack-items span { color: var(--paper-000); border-color: var(--ink-300); }
+/* Diagram nodes */
+[data-theme="light"] .d-node { background: var(--ink-050); border-color: var(--ink-200); color: var(--paper-100); }
+[data-theme="light"] .d-node--core { background: var(--paper-000); color: var(--ink-000); border-color: var(--paper-000); }
+[data-theme="light"] .d-node--out { background: var(--ink-100); color: var(--paper-000); border-color: var(--ink-300); }
+/* Sys tabs underline still works because uses var(--ink-300) */
+[data-theme="light"] .sys-tab__name,
+[data-theme="light"] .sys-tab { color: var(--paper-100); }
+[data-theme="light"] .sys-tab:hover:not(.active) { color: var(--paper-000); }
+/* Proof strip cells — ensure bg matches */
+[data-theme="light"] .proof-strip__cell { background: var(--ink-000); }
+[data-theme="light"] .proof-strip { background: var(--ink-200); border-color: var(--ink-200); }
+/* Sys why-rows readability */
+[data-theme="light"] .sys__why-row { border-color: var(--ink-200); }
+[data-theme="light"] .sys__why-row .lbl { color: var(--stitch); }
+[data-theme="light"] .sys__why-row .txt { color: var(--paper-100); }
+/* Sys meta tiles */
+[data-theme="light"] .sys__meta > div { background: var(--ink-050); border-color: var(--ink-200); }
+[data-theme="light"] .sys__meta .k { color: var(--paper-200); }
+[data-theme="light"] .sys__meta .v { color: var(--paper-000); }
+/* Sys link buttons */
+[data-theme="light"] .sys-link.primary { background: var(--paper-000); color: var(--ink-000); border-color: var(--paper-000); }
+[data-theme="light"] .sys-link { border-color: var(--ink-300); color: var(--paper-000); }
+[data-theme="light"] .sys-map-btn { color: var(--paper-100); border-color: var(--ink-300); }
+/* Hero ghost logo opacity adjust */
+[data-theme="light"] .hero__ghost-logo { opacity: 0.06; }
+/* Grid background — subtle dark on light */
+[data-theme="light"] .grid-bg {
+  background-image:
+    linear-gradient(rgba(40, 30, 20, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(40, 30, 20, 0.06) 1px, transparent 1px);
+}
+/* Theme transition smoothness */
+html { transition: background-color 0.25s ease; }
+body, .topbar, .sys__chip, .sys-link, .sys-link.primary, .bio-card, .note-card, .proof-strip__cell, .sys__meta > div { transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
+
+/* ── Theme toggle button ── */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  min-height: 36px;
+  margin-left: 8px;
+  padding: 0;
+  border: 1px solid var(--ink-400);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--paper-100);
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  touch-action: manipulation;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { border-color: var(--paper-200); color: var(--paper-000); background: var(--ink-100); }
+[data-theme="light"] .theme-toggle:hover { background: rgba(0,0,0,0.04); }
+.theme-toggle__icon { display: inline-block; line-height: 1; }
+
+
 body {
   background: var(--ink-000);
   color: var(--paper-050);
