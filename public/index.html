@@ -17,8 +17,8 @@
   } catch(e) {}
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=20260510a">
-<script defer src="app.js?v=20260510a"></script>
+<link rel="stylesheet" href="styles.css?v=20260511a">
+<script defer src="app.js?v=20260511a"></script>
 
 <!-- React + Babel for Tweaks panel -->
 <script defer src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -33,6 +33,7 @@
   <a href="#top" class="topbar__brand" aria-label="Axiom home">
     <span class="dot" aria-hidden="true"></span>
     AXIOM
+    <span class="topbar__version" id="versionTag" aria-label="Site version" title="Loading version…"></span>
   </a>
   <nav class="topbar__nav" aria-label="Primary">
     <a href="#systems" data-i18n="navCurrent.systems">Systems</a>
@@ -642,7 +643,7 @@
           </div>
         </div>
         <div class="sys__links">
-          <a class="sys-link primary" href="https://accept-forbes-currently-bee.trycloudflare.com" target="_blank" rel="noopener"><span data-i18n="panels.p08.cta">Open live system</span> →</a>
+          <a class="sys-link primary" href="https://cdp.nonarkara.org/v2/dashboard.html" target="_blank" rel="noopener"><span data-i18n="panels.p08.cta">Open live system</span> →</a>
           <button class="sys-map-btn" data-map="map-08">System map ⊕</button>
         </div>
         <div class="sys__diagram" id="map-08">
@@ -1456,6 +1457,20 @@ if (window.innerWidth < 880) {
     }, 1500);
   }
 }
+
+// Version tag — pulled from /version.json so the deploy is the single source of truth
+(function() {
+  const tag = document.getElementById('versionTag');
+  if (!tag) return;
+  fetch('version.json', { cache: 'no-cache' })
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(data => {
+      if (!data?.version) return;
+      tag.textContent = 'v' + data.version;
+      tag.title = data.released ? 'Released ' + data.released : 'Site version';
+    })
+    .catch(() => { tag.remove(); });
+})();
 
 // Theme toggle
 (function() {

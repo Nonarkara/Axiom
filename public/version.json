@@ -1,0 +1,5 @@
+{
+  "version": "2.3.1",
+  "released": "2026-05-11",
+  "note": "Source of truth for the deployed site version. Mirrors package.json. Bumped manually with each shipped change. Surfaced in the topbar via app.js."
+}
