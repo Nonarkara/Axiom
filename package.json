@@ -1,6 +1,6 @@
 {
   "name": "axiom-landing",
-  "version": "1.0.0",
+  "version": "2.3.1",
   "description": "Axiom AI - Landing Page",
   "engines": {
     "node": ">=22.13.0"

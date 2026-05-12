@@ -1398,7 +1398,7 @@ function initScrollReveal() {
 
   // Fade-in stagger for card grids
   const fadeTargets = document.querySelectorAll(
-    '.probono-card, .health-card, .matrix-item, .featured-card'
+    '.health-card, .matrix-item, .featured-card'
   );
   if (fadeTargets.length) {
     const fadeObserver = new IntersectionObserver((entries) => {
@@ -1406,6 +1406,8 @@ function initScrollReveal() {
         if (entry.isIntersecting) {
           const idx = Array.from(fadeTargets).indexOf(entry.target) % 8;
           entry.target.style.transition = `opacity 0.4s ease ${idx * 0.05}s, transform 0.4s ease ${idx * 0.05}s`;
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
           entry.target.classList.add('revealed');
           fadeObserver.unobserve(entry.target);
         }
