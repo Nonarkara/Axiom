@@ -17,8 +17,8 @@
   } catch(e) {}
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=20260511a">
-<script defer src="app.js?v=20260511a"></script>
+<link rel="stylesheet" href="styles.css?v=20260513a">
+<script defer src="app.js?v=20260513a"></script>
 
 <!-- React + Babel for Tweaks panel -->
 <script defer src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -128,7 +128,7 @@
     </div>
 
     <!-- TAB STRIP -->
-    <div class="sys-tabs-hint" aria-hidden="true"><span data-i18n="misc.swipeHint">11 systems — swipe to explore</span> <span style="color:var(--stitch);">→</span></div>
+    <div class="sys-tabs-hint" aria-hidden="true"><span data-i18n="misc.swipeHint">12 systems — swipe to explore</span> <span style="color:var(--stitch);">→</span></div>
     <div class="sys-tabs-track">
     <div class="sys-tabs" role="tablist" aria-label="Production systems">
       <button class="sys-tab active" data-panel="panel-01" role="tab" aria-selected="true">01 · Phuket Ops</button>
@@ -142,6 +142,7 @@
       <button class="sys-tab sys-tab--preview" data-panel="panel-09" role="tab" aria-selected="false">09 · AI Council</button>
       <button class="sys-tab sys-tab--preview" data-panel="panel-10" role="tab" aria-selected="false">10 · TKCX</button>
       <button class="sys-tab sys-tab--preview" data-panel="panel-11" role="tab" aria-selected="false">11 · Second Brain</button>
+      <button class="sys-tab" data-panel="panel-12" role="tab" aria-selected="false">12 · NSP</button>
     </div>
     </div>
 
@@ -877,6 +878,77 @@
                 <div class="d-node d-node--out">Claude Code<br>Context-aware builds</div>
                 <div class="d-node d-node--out">Cursor · Codex<br>Voice-matched output</div>
                 <div class="d-node d-node--out">Memory Persistence<br>Across all sessions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SYSTEM 12: NSP — National Streaming Platform -->
+    <article class="sys sys-panel" id="panel-12">
+      <div class="sys__media">
+        <span class="sys__chip"><span class="live-dot"></span><span data-i18n="chips.p12">Live · National Broadcast</span></span>
+        <span class="sys__coord"><b>NODE_12</b> 21 Ch · 1.84M Concurrent · NBTC</span>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <img src="showcase/nsp.png" alt="NSP — Thailand National Streaming Platform, 21 free digital TV channels with live EPG, AI guide, and viewer telemetry" data-parallax>
+      </div>
+      <div class="sys__body">
+        <div class="sys__id">PROD <span class="stitch">/</span> 12 <span class="stitch">/</span> <span data-i18n="cats.c12">National Broadcast</span></div>
+        <h3 class="sys__title" data-text="21 channels. Free. Everywhere." data-i18n-html="panels.p12.title">21 channels. <em>Free. Everywhere.</em></h3>
+        <p class="sys__lede" data-i18n="panels.p12.lede">NSP is Thailand's national streaming platform — all 21 NBTC-licensed digital TV channels, free, full HD, on any device. Live EPG, per-channel viewership telemetry, AI content guide, and CAP v1.2 emergency alert integration in one interface.</p>
+        <div class="sys__meta">
+          <div><span class="k" data-i18n="metaKeys.Channels">Channels</span><span class="v">21 / Free-to-air</span></div>
+          <div><span class="k" data-i18n="metaKeys.Peak">Peak</span><span class="v">1.84M concurrent</span></div>
+          <div><span class="k" data-i18n="metaKeys.Stream">Stream</span><span class="v">LL-HLS · Full HD</span></div>
+          <div><span class="k" data-i18n="metaKeys.Authority">Authority</span><span class="v">NBTC · กสทช.</span></div>
+        </div>
+        <div class="sys__why">
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p12.w1lbl">Why it's special</span>
+            <span class="txt" data-i18n="panels.p12.w1">Most national TV portals are afterthoughts. <b>NSP puts all 21 licensed channels in one interface</b> with live EPG, per-channel concurrency, stream health telemetry, and an AI guide that answers "what's on now?" across the whole kingdom — without an app install.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p12.w2lbl">What it replaced</span>
+            <span class="txt" data-i18n="panels.p12.w2">Fragmented broadcaster apps, illegal streams, and the assumption that free-to-air TV can't be made as legible as a subscription platform.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p12.w3lbl">Decision power</span>
+            <span class="txt" data-i18n="panels.p12.w3">Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p12.w4lbl">Live access</span>
+            <span class="txt" data-i18n="panels.p12.w4">National deployment under NBTC licensing authority. Open to all devices, no account required.</span>
+          </div>
+        </div>
+        <div class="sys__links">
+          <a class="sys-link primary" href="https://nsp-thailand.netlify.app/" target="_blank" rel="noopener"><span data-i18n="panels.p12.cta">Open live platform</span> →</a>
+          <button class="sys-map-btn" data-map="map-12">System map ⊕</button>
+        </div>
+        <div class="sys__diagram" id="map-12">
+          <div class="diagram">
+            <div class="diagram__head">System architecture // NODE_12 · NSP National Streaming Platform</div>
+            <div class="diagram__flow">
+              <div class="diagram__col">
+                <div class="d-col-lbl">Inputs</div>
+                <div class="d-node">21 Licensed<br>Broadcaster Feeds</div>
+                <div class="d-node">EPG Data<br>Programme Schedule</div>
+                <div class="d-node">CAP v1.2<br>Emergency Alerts</div>
+                <div class="d-node">Viewer Telemetry<br>Concurrency · Share</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Processing</div>
+                <div class="d-node d-node--core">LL-HLS<br>Stream Engine<br>Full HD · Adaptive</div>
+                <div class="d-node">NSP Mentor AI<br>Content Guide</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Surfaces</div>
+                <div class="d-node d-node--out">Any Device<br>No Install Required</div>
+                <div class="d-node d-node--out">Live EPG<br>All 21 Channels</div>
+                <div class="d-node d-node--out">Ops Dashboard<br>Telemetry · Alerts</div>
               </div>
             </div>
           </div>
