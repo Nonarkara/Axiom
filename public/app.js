@@ -121,10 +121,14 @@ const uiCopy = {
       systems: 'Systems', stages: 'Stages', team: 'Team', press: 'Press', cta: 'Work With Us',
     },
     heroCurrent: {
+      title: 'We build the <em>working systems</em> governments<br><span class="hero__punch"><span class="hero__punch-afford">can\'t afford</span> <span class="hero__punch-wait">to wait for.</span></span>',
       sub: 'Most "smart city" work ends as a deck. Ours runs in production. Problem mapped in week one. Something working before any presentation. Every decision tracked from the start.',
       cta1: 'See live systems', cta2: 'Start a brief',
       stat1lbl: 'Systems in production', stat2lbl: 'Countries operating',
       stat3lbl: 'Cities indexed', stat4lbl: 'On main stage, GITEX Asia',
+      meta1: '<b>24/7</b> monitoring', meta2: '<b>157</b> SLIC Index cities',
+      meta3: '<b>174</b> Smart City Thailand Index cities', meta4: 'Kuching, Malaysia',
+      meta5: 'Middle East', meta6: 'Asia Pacific', meta7: 'ASEAN',
     },
     sysSect: {
       kicker: 'Live in production',
@@ -266,10 +270,14 @@ const uiCopy = {
       systems: 'ระบบ', stages: 'เวที', team: 'ทีม', press: 'สื่อ', cta: 'เริ่มงานร่วมกัน',
     },
     heroCurrent: {
+      title: 'ผมสร้าง <em>ระบบที่ใช้งานได้จริง</em> ให้รัฐบาล<br><span class="hero__punch"><span class="hero__punch-afford">ไม่ต้องรอ</span> <span class="hero__punch-wait">ให้ใครมาทำให้</span></span>',
       sub: 'งาน "เมืองอัจฉริยะ" ส่วนใหญ่จบที่งานนำเสนอ ของผมจบที่ระบบที่รันจริง ทำแผนที่ปัญหาในสัปดาห์แรก มีระบบทำงานก่อนการนำเสนอครั้งแรก วัดผลทุกการตัดสินใจตั้งแต่วันแรก',
       cta1: 'ดูระบบที่รันจริง', cta2: 'ส่งโจทย์เข้ามา',
       stat1lbl: 'ระบบที่ใช้งานอยู่', stat2lbl: 'ประเทศที่ใช้งาน',
       stat3lbl: 'เมืองที่จัดอันดับ', stat4lbl: 'บนเวทีหลัก GITEX Asia',
+      meta1: '<b>24/7</b> ติดตาม', meta2: '<b>157</b> เมือง SLIC Index',
+      meta3: '<b>174</b> เมือง Smart City Thailand Index', meta4: 'กูชิง มาเลเซีย',
+      meta5: 'ตะวันออกกลาง', meta6: 'เอเชียแปซิฟิก', meta7: 'อาเซียน',
     },
     sysSect: {
       kicker: 'ใช้งานจริงอยู่ตอนนี้',
@@ -411,10 +419,14 @@ const uiCopy = {
       systems: '系统', stages: '舞台', team: '团队', press: '媒体', cta: '开始合作',
     },
     heroCurrent: {
+      title: '我们建造<em>能运行的系统</em><br>让政府<span class="hero__punch"><span class="hero__punch-afford">不用再等</span> <span class="hero__punch-wait">别人来做</span></span>',
       sub: '多数"智慧城市"项目都停在幻灯片阶段。我们的停在运行中的系统上。第一周就把问题摸清楚 演示之前就有能跑的东西 每一个决策从第一天起就留下记录。',
       cta1: '看在线系统', cta2: '把题目发过来',
       stat1lbl: '运行中的系统', stat2lbl: '在用的国家',
       stat3lbl: '建档城市', stat4lbl: 'GITEX Asia 主舞台',
+      meta1: '<b>24/7</b> 监控', meta2: '<b>157</b> SLIC 指数城市',
+      meta3: '<b>174</b> 泰国智慧城市指数城市', meta4: '古晋 马来西亚',
+      meta5: '中东', meta6: '亚太地区', meta7: '东盟',
     },
     sysSect: {
       kicker: '正在生产中运行',
@@ -558,12 +570,16 @@ const uiCopy = {
       cta: 'workWith(us)',
     },
     heroCurrent: {
+      title: 'LiveSystem<em>.build()</em><br>// gov.cannotWait() → ship() → instrument(day1)',
       sub: '// most "smart city" work: Promise<Deck> — never resolves\n// ours: LiveSystem — deployed, instrumented, running\n// method: pressureMap() → shipRough() → instrument(day1)',
       cta1: 'systems.getLive()',
       cta2: 'brief.start()',
       stat1lbl: 'LiveSystem[]',
       stat2lbl: 'Country<T>[]',
       stat3lbl: 'cities.indexed',
+      meta1: '<b>24/7</b> monitor', meta2: '<b>157</b> SLIC.cities',
+      meta3: '<b>174</b> SCTH.cities', meta4: 'Kuching, Malaysia',
+      meta5: 'Middle East', meta6: 'Asia Pacific', meta7: 'ASEAN',
       stat4lbl: 'GITEX.mainStage',
     },
     sysSect: {
@@ -749,6 +765,15 @@ const i18nExt = {
     pressSection: {
       kicker:'In the press', title:'Read. Watch. Decide.', lede:'Outside coverage of the work, the thesis, and the systems.',
     },
+    pressContent: {
+      p1title:'With the vendor saying no, Thai civil servant built his own tools',
+      p2title:'Can Innovation-as-a-Service close the gap between policy and implementation?',
+      p3title:'They built the index, but you build the ranking',
+      p4title:'On digital connectivity, open innovation, and why smart cities only work when inclusion scales',
+      p5title:'How AI is mining city data cheaply and making them smarter',
+      p6title:'Why smart cities need citizens, not just technology',
+      p7title:'Middle East War Monitor — live conflict signal across the region',
+    },
   },
 
   th: {
@@ -903,6 +928,15 @@ const i18nExt = {
       stackNote:'Local-first ไม่มีทีม build ไม่ผูกกับเวนเดอร์ M5 Max รัน inference สร้าง และดีพลอย จากโต๊ะทำงานเดียวในกรุงเทพฯ',
     },
     pressSection: { kicker:'ในสื่อ', title:'อ่าน ดู ตัดสินใจ', lede:'รายงานจากภายนอกเกี่ยวกับงาน แนวคิด และระบบทั้งหมด' },
+    pressContent: {
+      p1title:'ผู้ขายปฏิเสธ เจ้าหน้าที่ไทยสร้างเครื่องมือเอง',
+      p2title:'Innovation-as-a-Service ปิดช่องว่างระหว่างนโยบายกับการทำจริงได้หรือไม่',
+      p3title:'เขาสร้างดัชนี แต่คุณสร้างการจัดอันดับ',
+      p4title:'การเชื่อมต่อดิจิทัล นวัตกรรมเปิด และทำไมเมืองอัจฉริยะต้องมีการคลอบคลุม',
+      p5title:'AI ขุดข้อมูลเมืองอย่างถูกและฉลาดขึ้นอย่างไร',
+      p6title:'ทำไมเมืองอัจฉริยะต้องการพลเมือง ไม่ใช่แค่เทคโนโลยี',
+      p7title:'Middle East War Monitor — สัญญาณความขัดแย้งแบบสดทั่วภูมิภาค',
+    },
   },
 
   zh: {
@@ -1099,6 +1133,15 @@ const i18nExt = {
       stackNote:'localFirst: true\nbuildTeam: never[]\nvendorLockIn: false\nM5Max.runs({ inference, builds, deploys })\n// location: oneDeskInBangkok',
     },
     pressSection: { kicker:'// IN_THE_PRESS', title:'read() // watch() // decide()', lede:'// outside coverage: { work, thesis, systems }' },
+    pressContent: {
+      p1title:'// vendor.refuse() → civilServant.build()',
+      p2title:'// InnovationService.close(gap: PolicyToImplementation)',
+      p3title:'// index.builtByThem; ranking.builtByYou',
+      p4title:'// digitalConnectivity + openInnovation + inclusion.scales()',
+      p5title:'// AI.mine(cityData).cheaply().smarter()',
+      p6title:'// smartCities.need: citizens, not just tech',
+      p7title:'// MiddleEast.monitor(conflictSignal, live)',
+    },
   },
 };
 
@@ -1322,7 +1365,16 @@ const i18nExt2 = {
       contact:'联系',
       smallPrint:'面向城市、政府和运营商的决策系统。曼谷 · 东南亚。© 2026 Axiom 版权所有。Axiom 是注册商号。系统正常运行时间、响应时间和成果指标均为个案观察，并非未来表现的保证。',
     },
-    misc: { swipeHint:'12 个系统 — 滑动浏览' },
+    misc: { swipeHint:'14 个系统 — 滑动浏览' },
+    pressContent: {
+      p1title:'供应商说不 泰国公务员自己建工具',
+      p2title:'创新即服务能否弥合政策与执行之间的鸿沟',
+      p3title:'他们建了指数 但你来建排名',
+      p4title:'数字连接、开放创新 以及为什么智慧城市只有在包容性扩展时才有效',
+      p5title:'AI 如何廉价挖掘城市数据并让它们更智能',
+      p6title:'为什么智慧城市需要公民 而不仅仅是技术',
+      p7title:'中东战争监测器 — 跨地区实时冲突信号',
+    },
     metaKeys: {
       AI:'AI', Access:'访问', Audience:'受众', Authority:'主管机构',
       Backup:'备份', 'Brain layers':'脑层级', Cadence:'频率',
@@ -2353,10 +2405,12 @@ function isEditableElement(element) {
     if (activeId) setActiveSection(activeId);
   };
 
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-    updateActiveSection();
-  }, { passive: true });
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+      updateActiveSection();
+    }, { passive: true });
+  }
 
   updateActiveSection();
   window.addEventListener('resize', updateActiveSection);

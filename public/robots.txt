@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nonarkara.github.io/Axiom/sitemap.xml
+Sitemap: https://axiom.nonarkara.org/sitemap.xml

@@ -4,7 +4,69 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Axiom — Decision systems for cities, governments, and operators.</title>
-<meta name="description" content="8 live systems across 5 countries. Built to stay useful under pressure. Trusted by ASEAN, the UN, and national governments.">
+<meta name="description" content="14 live systems across 5 countries. Built to stay useful under pressure. Trusted by ASEAN, the UN, and national governments.">
+<meta name="author" content="Axiom">
+<meta name="theme-color" content="#0a0a0c">
+<meta name="color-scheme" content="dark light">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://axiom.nonarkara.org/">
+
+<!-- Favicon -->
+<link rel="icon" href="assets/axiom-logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/axiom-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Axiom — Decision systems for cities, governments, and operators.">
+<meta property="og:description" content="14 live systems across 5 countries. Built to stay useful under pressure. Trusted by ASEAN, the UN, and national governments.">
+<meta property="og:image" content="https://axiom.nonarkara.org/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://axiom.nonarkara.org/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Axiom">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Axiom — Decision systems for cities, governments, and operators.">
+<meta name="twitter:description" content="14 live systems across 5 countries. Built to stay useful under pressure.">
+<meta name="twitter:image" content="https://axiom.nonarkara.org/assets/og-image.png">
+
+<!-- JSON-LD: Organization + WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Axiom",
+      "url": "https://axiom.nonarkara.org",
+      "logo": "https://axiom.nonarkara.org/assets/axiom-logo.png",
+      "description": "Decision systems for cities, governments, and operators.",
+      "founders": [
+        { "@type": "Person", "name": "Dr. Non Arkaraprasertkul" },
+        { "@type": "Person", "name": "Dr. Poon Thiengburanathum" }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/axiomthailand/",
+        "https://www.linkedin.com/showcase/slic-index/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Axiom",
+      "url": "https://axiom.nonarkara.org",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://axiom.nonarkara.org/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script>
@@ -17,8 +79,8 @@
   } catch(e) {}
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=20260513a">
-<script defer src="app.js?v=20260513a"></script>
+<link rel="stylesheet" href="styles.css?v=20260519a">
+<script defer src="app.js?v=20260519a"></script>
 
 <!-- React + Babel for Tweaks panel -->
 <script defer src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -59,16 +121,16 @@
 <section class="hero">
   <div class="wrap hero__inner">
     <div class="hero__meta reveal">
-      <span><b>24/7</b> monitoring</span>
-      <span><b>157</b> SLIC Index cities</span>
-      <span><b>174</b> Smart City Thailand Index cities</span>
-      <span>Kuching, Malaysia</span>
-      <span>Middle East</span>
-      <span>Asia Pacific</span>
-      <span>ASEAN</span>
+      <span data-i18n-html="heroCurrent.meta1"><b>24/7</b> monitoring</span>
+      <span data-i18n-html="heroCurrent.meta2"><b>157</b> SLIC Index cities</span>
+      <span data-i18n-html="heroCurrent.meta3"><b>174</b> Smart City Thailand Index cities</span>
+      <span data-i18n="heroCurrent.meta4">Kuching, Malaysia</span>
+      <span data-i18n="heroCurrent.meta5">Middle East</span>
+      <span data-i18n="heroCurrent.meta6">Asia Pacific</span>
+      <span data-i18n="heroCurrent.meta7">ASEAN</span>
     </div>
 
-    <h1 class="hero__title reveal" data-glitch="AXIOM">
+    <h1 class="hero__title reveal" data-glitch="AXIOM" data-i18n-html="heroCurrent.title">
       We build the
       <em>working systems</em>
       governments<br><span class="hero__punch"><span class="hero__punch-afford">can't afford</span> <span class="hero__punch-wait">to wait for.</span></span>
@@ -1476,37 +1538,37 @@
     <div class="press-grid">
       <a href="https://govinsider.asia/intl-en/article/with-the-vendor-saying-no-thai-civil-servant-built-his-own-tools" target="_blank" rel="noopener" class="press-row press-row--new">
         <span class="press-row__src">GovInsider · News</span>
-        <span class="press-row__title">With the vendor saying no, Thai civil servant built his own tools</span>
+        <span class="press-row__title" data-i18n="pressContent.p1title">With the vendor saying no, Thai civil servant built his own tools</span>
         <span class="press-row__arrow">↗</span>
       </a>
       <a href="https://govinsider.asia/intl-en/article/can-innovation-as-a-service-close-the-gap-between-policy-and-implementation" target="_blank" rel="noopener" class="press-row">
         <span class="press-row__src">GovInsider · Feature</span>
-        <span class="press-row__title">Can Innovation-as-a-Service close the gap between policy and implementation?</span>
+        <span class="press-row__title" data-i18n="pressContent.p2title">Can Innovation-as-a-Service close the gap between policy and implementation?</span>
         <span class="press-row__arrow">↗</span>
       </a>
       <a href="https://mayorsofeurope.eu/news/they-built-the-index-but-you-build-the-ranking/" target="_blank" rel="noopener" class="press-row">
         <span class="press-row__src">Mayors of Europe</span>
-        <span class="press-row__title">They built the index, but you build the ranking</span>
+        <span class="press-row__title" data-i18n="pressContent.p3title">They built the index, but you build the ranking</span>
         <span class="press-row__arrow">↗</span>
       </a>
       <a href="https://theaseanmagazine.asean.org/article/non-arkaraprasertkul-phd/" target="_blank" rel="noopener" class="press-row">
         <span class="press-row__src">The ASEAN Magazine</span>
-        <span class="press-row__title">On digital connectivity, open innovation, and why smart cities only work when inclusion scales</span>
+        <span class="press-row__title" data-i18n="pressContent.p4title">On digital connectivity, open innovation, and why smart cities only work when inclusion scales</span>
         <span class="press-row__arrow">↗</span>
       </a>
       <a href="https://www.youtube.com/watch?v=NC11q3zM6x4" target="_blank" rel="noopener" class="press-row">
         <span class="press-row__src">YouTube · Video</span>
-        <span class="press-row__title">How AI is mining city data cheaply and making them smarter</span>
+        <span class="press-row__title" data-i18n="pressContent.p5title">How AI is mining city data cheaply and making them smarter</span>
         <span class="press-row__arrow">↗</span>
       </a>
       <a href="https://technode.global/2023/01/18/a-smart-city-cannot-exist-without-its-citizens-and-technological-advances-will-foster-stronger-trust-between-citizens-and-institutions-and-encourage-civic-participation-says-dr-non-arkaraprasertkul/" target="_blank" rel="noopener" class="press-row">
         <span class="press-row__src">TechNode Global</span>
-        <span class="press-row__title">Why smart cities need citizens, not just technology</span>
+        <span class="press-row__title" data-i18n="pressContent.p6title">Why smart cities need citizens, not just technology</span>
         <span class="press-row__arrow">↗</span>
       </a>
       <a href="https://middleeast-monitor.pages.dev/" target="_blank" rel="noopener" class="press-row">
         <span class="press-row__src">Axiom · Live Product</span>
-        <span class="press-row__title">Middle East War Monitor — live conflict signal across the region</span>
+        <span class="press-row__title" data-i18n="pressContent.p7title">Middle East War Monitor — live conflict signal across the region</span>
         <span class="press-row__arrow">↗</span>
       </a>
     </div>
