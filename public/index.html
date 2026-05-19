@@ -128,7 +128,7 @@
     </div>
 
     <!-- TAB STRIP -->
-    <div class="sys-tabs-hint" aria-hidden="true"><span data-i18n="misc.swipeHint">12 systems — swipe to explore</span> <span style="color:var(--stitch);">→</span></div>
+    <div class="sys-tabs-hint" aria-hidden="true"><span data-i18n="misc.swipeHint">14 systems — swipe to explore</span> <span style="color:var(--stitch);">→</span></div>
     <div class="sys-tabs-track">
     <div class="sys-tabs" role="tablist" aria-label="Production systems">
       <button class="sys-tab active" data-panel="panel-01" role="tab" aria-selected="true">01 · Phuket Ops</button>
@@ -143,6 +143,8 @@
       <button class="sys-tab sys-tab--preview" data-panel="panel-10" role="tab" aria-selected="false">10 · TKCX</button>
       <button class="sys-tab sys-tab--preview" data-panel="panel-11" role="tab" aria-selected="false">11 · Second Brain</button>
       <button class="sys-tab" data-panel="panel-12" role="tab" aria-selected="false">12 · NSP</button>
+      <button class="sys-tab" data-panel="panel-13" role="tab" aria-selected="false">13 · Chula</button>
+      <button class="sys-tab" data-panel="panel-14" role="tab" aria-selected="false">14 · DayTraders</button>
     </div>
     </div>
 
@@ -955,6 +957,147 @@
         </div>
       </div>
     </article>
+    <!-- SYSTEM 13: Chula Control Tower -->
+    <article class="sys sys-panel" id="panel-13">
+      <div class="sys__media">
+        <span class="sys__chip"><span class="live-dot"></span><span data-i18n="chips.p13">Live · Campus Ops</span></span>
+        <span class="sys__coord"><b>NODE_13</b> 13.7380°N · 100.5318°E · Siam–Samyan</span>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <img src="screenshots/chula.jpg" alt="Chula Control Tower — real-time campus operations dashboard for Chulalongkorn University, 47 live data feeds, 7 lenses, 3D buildings" data-parallax>
+      </div>
+      <div class="sys__body">
+        <div class="sys__id">PROD <span class="stitch">/</span> 13 <span class="stitch">/</span> <span data-i18n="cats.c13">Campus Intelligence</span></div>
+        <h3 class="sys__title" data-text="47 feeds. 7 lenses. One campus." data-i18n-html="panels.p13.title">47 feeds. <em>7 lenses. One campus.</em></h3>
+        <p class="sys__lede" data-i18n="panels.p13.lede">Chula Control Tower is a real-time operations dashboard for Chulalongkorn University — 47 live data feeds across traffic, incidents, air quality, satellite imagery, CU Shuttle, news, and emergency events for Bangkok's Siam–Samyan district.</p>
+        <div class="sys__meta">
+          <div><span class="k" data-i18n="metaKeys.Feeds">Feeds</span><span class="v">47 live data feeds</span></div>
+          <div><span class="k" data-i18n="metaKeys.Lenses">Lenses</span><span class="v">7 operational views</span></div>
+          <div><span class="k" data-i18n="metaKeys.Site">Site</span><span class="v">Chulalongkorn U.</span></div>
+          <div><span class="k" data-i18n="metaKeys.Mode">Mode</span><span class="v">Real-time · 3D</span></div>
+        </div>
+        <div class="sys__why">
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p13.w1lbl">Why it's special</span>
+            <span class="txt" data-i18n="panels.p13.w1">Most university dashboards show one feed at a time. <b>CCT puts 47 live sources on a single 3D map</b> — traffic, air quality, shuttle positions, incident reports, satellite layers, and underground utilities — so the campus president has one surface for every decision.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p13.w2lbl">What it replaced</span>
+            <span class="txt" data-i18n="panels.p13.w2">Separate siloed systems for traffic, security, and environmental data. Manual incident reports. No unified view of the campus at any given moment.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p13.w3lbl">Decision power</span>
+            <span class="txt" data-i18n="panels.p13.w3">Seven operational lenses — from day-to-day campus management to presidential strategic view — let each role see exactly what they need. 3D buildings and underground utility layers turn planning from guesswork into evidence.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p13.w4lbl">Live access</span>
+            <span class="txt" data-i18n="panels.p13.w4">Deployed at Chulalongkorn University, Bangkok's Siam–Samyan district. Open access — no account required.</span>
+          </div>
+        </div>
+        <div class="sys__links">
+          <a class="sys-link primary" href="https://chula.nonarkara.org/" target="_blank" rel="noopener"><span data-i18n="panels.p13.cta">Open live system</span> →</a>
+          <button class="sys-map-btn" data-map="map-13">System map ⊕</button>
+        </div>
+        <div class="sys__diagram" id="map-13">
+          <div class="diagram">
+            <div class="diagram__head">System architecture // NODE_13 · Chula Control Tower</div>
+            <div class="diagram__flow">
+              <div class="diagram__col">
+                <div class="d-col-lbl">Inputs</div>
+                <div class="d-node">Traffic · Incidents<br>Siam–Samyan</div>
+                <div class="d-node">Air Quality<br>Satellite Imagery</div>
+                <div class="d-node">CU Shuttle<br>GPS Positions</div>
+                <div class="d-node">News · Emergency<br>Event Feeds</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Processing</div>
+                <div class="d-node d-node--core">47-Feed Fusion<br>3D Map Engine<br>Real-time Context</div>
+                <div class="d-node">Underground<br>Utility Layer</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Surfaces</div>
+                <div class="d-node d-node--out">7 Operational<br>Lenses</div>
+                <div class="d-node d-node--out">Presidential<br>Strategic View</div>
+                <div class="d-node d-node--out">3D Campus<br>Command Map</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SYSTEM 14: DayTraders -->
+    <article class="sys sys-panel" id="panel-14">
+      <div class="sys__media">
+        <span class="sys__chip"><span class="live-dot"></span><span data-i18n="chips.p14">Live · Thai Markets</span></span>
+        <span class="sys__coord"><b>NODE_14</b> SET · MAI · RMF · Thai ESG</span>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <img src="screenshots/daytraders.jpg" alt="DayTraders — Thai market intelligence dashboard with Bloomberg-style signals, Graham/Buffett/Munger frameworks, personalized KPIs" data-parallax>
+      </div>
+      <div class="sys__body">
+        <div class="sys__id">PROD <span class="stitch">/</span> 14 <span class="stitch">/</span> <span data-i18n="cats.c14">Market Intelligence</span></div>
+        <h3 class="sys__title" data-text="Bloomberg signals. Thai market. Your rules." data-i18n-html="panels.p14.title">Bloomberg signals. <em>Thai market. Your rules.</em></h3>
+        <p class="sys__lede" data-i18n="panels.p14.lede">DayTraders is a personalized Thai market intelligence platform — Bloomberg-style signals applied to SET, MAI, mutual funds, RMF, and Thai ESG instruments. Graham, Buffett, and Munger frameworks built in; you set the KPIs that matter to your portfolio.</p>
+        <div class="sys__meta">
+          <div><span class="k" data-i18n="metaKeys.Market">Market</span><span class="v">SET · MAI · RMF</span></div>
+          <div><span class="k" data-i18n="metaKeys.Signals">Signals</span><span class="v">Bloomberg-style</span></div>
+          <div><span class="k" data-i18n="metaKeys.Frameworks">Frameworks</span><span class="v">Graham · Buffett · Munger</span></div>
+          <div><span class="k" data-i18n="metaKeys.Mode">Mode</span><span class="v">Personalized KPIs</span></div>
+        </div>
+        <div class="sys__why">
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p14.w1lbl">Why it's special</span>
+            <span class="txt" data-i18n="panels.p14.w1">Thai retail investors get either raw broker data or generic apps that don't apply value-investing logic. <b>DayTraders brings institutional-grade signal analysis to the Thai SET</b> — with Graham margin-of-safety, Buffett moat screens, and Munger mental models built into the feed, not bolted on.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p14.w2lbl">What it replaced</span>
+            <span class="txt" data-i18n="panels.p14.w2">Broker portals with no analytical framework, LINE group tips, and the assumption that rigorous value investing is only for institutions with Bloomberg terminals.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p14.w3lbl">Decision power</span>
+            <span class="txt" data-i18n="panels.p14.w3">Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p14.w4lbl">Live access</span>
+            <span class="txt" data-i18n="panels.p14.w4">Live Thai market data. Open platform — no paywall, no broker lock-in.</span>
+          </div>
+        </div>
+        <div class="sys__links">
+          <a class="sys-link primary" href="https://siam-markets.pages.dev/" target="_blank" rel="noopener"><span data-i18n="panels.p14.cta">Open live platform</span> →</a>
+          <button class="sys-map-btn" data-map="map-14">System map ⊕</button>
+        </div>
+        <div class="sys__diagram" id="map-14">
+          <div class="diagram">
+            <div class="diagram__head">System architecture // NODE_14 · DayTraders · Thai Market Intelligence</div>
+            <div class="diagram__flow">
+              <div class="diagram__col">
+                <div class="d-col-lbl">Inputs</div>
+                <div class="d-node">SET · MAI<br>Live Price Feeds</div>
+                <div class="d-node">RMF · Thai ESG<br>Fund Data</div>
+                <div class="d-node">Company Filings<br>Financials · NAV</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Processing</div>
+                <div class="d-node d-node--core">Signal Engine<br>Graham · Buffett<br>Munger Screens</div>
+                <div class="d-node">Personalized<br>KPI Layer</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Surfaces</div>
+                <div class="d-node d-node--out">Bloomberg-style<br>Signal Dashboard</div>
+                <div class="d-node d-node--out">Portfolio<br>KPI Tracker</div>
+                <div class="d-node d-node--out">Value Investing<br>Screener</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
   </div>
 </section>
 
