@@ -724,8 +724,8 @@ const i18nExt = {
         w1lbl:'Why it\'s special', w1:'Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what\'s already there.',
         w2lbl:'What it replaced', w2:'Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.',
         w3lbl:'Decision power', w3:'The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don\'t), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city\'s last day of data.',
-        w4lbl:'In development', w4:'Platform at v.5, migrating from UNL to permanent hosting. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Contact Axiom to onboard your city.',
-        cta:'Contact for access',
+        w4lbl:'Live access', w4:'Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.',
+        cta:'Open live platform',
       },
     },
     stagesContent: {
@@ -898,8 +898,8 @@ const i18nExt = {
         w1lbl:'ทำไมพิเศษ', w1:'แพลตฟอร์มเมืองส่วนใหญ่สร้างขึ้นสำหรับเมืองเดียว งบประมาณรอบเดียว ไม่สามารถนำไปใช้ใหม่ได้ <b>City Hub ถือว่าชั้นข่าวกรองเป็นเทมเพลต</b> — เมืองไหนก็เข้าร่วมได้ นำเข้าข้อมูลที่มีอยู่ และระบบเริ่มเชื่อมโยงจุดต่างๆ ไม่ต้องรอจัดซื้อยาวนาน สมองสร้างตัวเองจากสิ่งที่มีอยู่แล้ว',
         w2lbl:'แทนที่อะไร', w2:'แดชบอร์ดที่สร้างขึ้นครั้งเดียวโดยไม่มีการเรียนรู้ข้ามเมือง ไม่มีการสังเคราะห์ด้วย AI และไม่สามารถตรวจจับช่องว่างที่ข้อมูลพลเมืองนำหน้าโครงสร้างพื้นฐานทางการ Bangkok SIT ROOM ติดตามคุณภาพอากาศ น้ำท่วม ความร้อน ปัญหาเมือง และโรคระบาด — สังเคราะห์ทุกวันโดย AI',
         w3lbl:'อำนาจการตัดสินใจ', w3:'บรีฟ AI สังเคราะห์ฟีดเมืองทั้งหมดเป็นรายงานเช้า: การตรวจจับช่องว่าง (ที่รายงานพลเมืองมีแต่ polygon ทางการไม่มี) รายการที่ต้องดำเนินการ การจัดอันดับ PM2.5 จังหวัด และพยากรณ์อากาศ 5 วัน เครื่องมือ +24H timeline ให้ผู้ปฏิบัติงานดูข้อมูลย้อนหลัง',
-        w4lbl:'กำลังพัฒนา', w4:'แพลตฟอร์มอยู่ที่ v.5 กำลังย้ายจาก UNL ไปยังที่โฮสต์ถาวร ห้าเมืองออนไลน์แล้ว: กรุงเทพฯ เชียงใหม่ ภูเก็ต สิงคโปร์ กูชิง ติดต่อ Axiom เพื่อนำเมืองของคุณเข้าร่วม',
-        cta:'ติดต่อเพื่อเข้าถึง',
+        w4lbl:'เข้าถึงสด', w4:'แพลตฟอร์ม v.5 ห้าเมืองออนไลน์แล้ว: กรุงเทพฯ เชียงใหม่ ภูเก็ต สิงคโปร์ กูชิง เมืองไหนก็เข้าร่วมได้ — นำข้อมูลที่มีอยู่มาเลย',
+        cta:'เปิดแพลตฟอร์มสด',
       },
     },
     stagesContent: {
@@ -1052,8 +1052,8 @@ const i18nExt = {
         w1lbl:'为什么特别', w1:'大多数城市平台都是为一座城市定制的，一个采购周期，无法复用。<b>City Hub把情报层当成模板</b>——任何城市都能接入，导入已有的数据，系统就开始把点连成线。不用等漫长的采购流程。大脑从已有的东西里自己长出来。',
         w2lbl:'替代了什么', w2:'一次性定制仪表板——城市之间不共享学习，没有AI合成，也检测不到市民数据跑在官方基础设施前面的地方。曼谷SIT ROOM现在追踪空气质量、洪水风险、热量、民事问题和疾病预警——每天由AI合成一次简报。',
         w3lbl:'决策能力', w3:'AI简报把所有实时城市信号合成成一份早间汇报：缺口检测（市民报告有数据但官方多边形没有的地方）、可操作事项、PM2.5省级排名，以及五天天气预报。+24H时间轴拉杆让运营者回放城市昨天的数据。',
-        w4lbl:'开发中', w4:'平台在v.5，正从UNL迁移到固定托管环境。五座城市已上线：曼谷、清迈、普吉、新加坡、古晋。联系Axiom把你的城市接入。',
-        cta:'联系接入',
+        w4lbl:'实时访问', w4:'平台v.5。五座城市在线：曼谷、清迈、普吉、新加坡、古晋。任何城市都能接入——带上已有的数据就行。',
+        cta:'打开在线平台',
       },
     },
     stagesContent: {
