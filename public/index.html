@@ -79,8 +79,8 @@
   } catch(e) {}
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=20260519a">
-<script defer src="app.js?v=20260519a"></script>
+<link rel="stylesheet" href="styles.css?v=20260527a">
+<script defer src="app.js?v=20260527a"></script>
 
 <!-- React + Babel for Tweaks panel -->
 <script defer src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -191,7 +191,7 @@
     </div>
 
     <!-- TAB STRIP -->
-    <div class="sys-tabs-hint" aria-hidden="true"><span data-i18n="misc.swipeHint">14 systems — swipe to explore</span> <span style="color:var(--stitch);">→</span></div>
+    <div class="sys-tabs-hint" aria-hidden="true"><span data-i18n="misc.swipeHint">15 systems — swipe to explore</span> <span style="color:var(--stitch);">→</span></div>
     <div class="sys-tabs-track">
     <div class="sys-tabs" role="tablist" aria-label="Production systems">
       <button class="sys-tab active" data-panel="panel-01" role="tab" aria-selected="true">01 · Phuket Ops</button>
@@ -208,6 +208,7 @@
       <button class="sys-tab" data-panel="panel-12" role="tab" aria-selected="false">12 · NSP</button>
       <button class="sys-tab" data-panel="panel-13" role="tab" aria-selected="false">13 · Chula</button>
       <button class="sys-tab" data-panel="panel-14" role="tab" aria-selected="false">14 · DayTraders</button>
+      <button class="sys-tab" data-panel="panel-15" role="tab" aria-selected="false">15 · City Hub</button>
     </div>
     </div>
 
@@ -1154,6 +1155,77 @@
                 <div class="d-node d-node--out">Bloomberg-style<br>Signal Dashboard</div>
                 <div class="d-node d-node--out">Portfolio<br>KPI Tracker</div>
                 <div class="d-node d-node--out">Value Investing<br>Screener</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SYSTEM 15: City Hub -->
+    <article class="sys sys-panel" id="panel-15">
+      <div class="sys__media">
+        <span class="sys__chip"><span class="live-dot"></span><span data-i18n="chips.p15">Live · 5 cities</span></span>
+        <span class="sys__coord"><b>NODE_15</b> 13.7563°N · 100.5018°E · Multi-city</span>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <img src="screenshots/cityhub.jpg" alt="City Hub v.5 — multi-city intelligence platform with AI briefing, live data feeds, PM2.5 ranking, and weather forecast for Bangkok, Chiang Mai, Phuket, Singapore, and Kuching" data-parallax>
+      </div>
+      <div class="sys__body">
+        <div class="sys__id">PROD <span class="stitch">/</span> 15 <span class="stitch">/</span> <span data-i18n="cats.c15">City Intelligence</span></div>
+        <h3 class="sys__title" data-text="Name the city. We'll build its brain." data-i18n-html="panels.p15.title">Name the city. <em>We'll build its brain.</em></h3>
+        <p class="sys__lede" data-i18n="panels.p15.lede">City Hub is a replicable city intelligence platform — give it a city name, and it maps it with satellite and base layers, absorbs whatever data you have, connects APIs and sensors, and starts synthesizing the picture. v.5 with five cities live: Bangkok, Chiang Mai, Phuket, Singapore, Kuching.</p>
+        <div class="sys__meta">
+          <div><span class="k" data-i18n="metaKeys.Cities">Cities</span><span class="v">Bangkok · Chiang Mai · Phuket · Singapore · Kuching</span></div>
+          <div><span class="k" data-i18n="metaKeys.Feeds">Feeds</span><span class="v">AQ · Flood · Heat · Civic · Disease</span></div>
+          <div><span class="k" data-i18n="metaKeys.AI">AI</span><span class="v">Daily Brief · Gap Detection</span></div>
+          <div><span class="k" data-i18n="metaKeys.Mode">Mode</span><span class="v">Multi-city · v.5</span></div>
+        </div>
+        <div class="sys__why">
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p15.w1lbl">Why it's special</span>
+            <span class="txt" data-i18n="panels.p15.w1">Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what's already there.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p15.w2lbl">What it replaced</span>
+            <span class="txt" data-i18n="panels.p15.w2">Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p15.w3lbl">Decision power</span>
+            <span class="txt" data-i18n="panels.p15.w3">The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don't), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city's last day of data.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p15.w4lbl">In development</span>
+            <span class="txt" data-i18n="panels.p15.w4">Platform at v.5, migrating from UNL to permanent hosting. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Contact Axiom to onboard your city.</span>
+          </div>
+        </div>
+        <div class="sys__links">
+          <a class="sys-link primary" href="#contact" rel="noopener"><span data-i18n="panels.p15.cta">Contact for access</span> →</a>
+          <button class="sys-map-btn" data-map="map-15">System map ⊕</button>
+        </div>
+        <div class="sys__diagram" id="map-15">
+          <div class="diagram">
+            <div class="diagram__head">System architecture // NODE_15 · City Hub · Multi-City Intelligence Platform</div>
+            <div class="diagram__flow">
+              <div class="diagram__col">
+                <div class="d-col-lbl">Inputs</div>
+                <div class="d-node">Air Quality<br>Flood · Heat Index</div>
+                <div class="d-node">Civic Issues<br>Disease Alerts</div>
+                <div class="d-node">Satellite Imagery<br>Base Map Layers</div>
+                <div class="d-node">Weather APIs<br>TMD Forecast</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Processing</div>
+                <div class="d-node d-node--core">City Brain Engine<br>AI Synthesis<br>Gap Detection</div>
+                <div class="d-node">Multi-city<br>Aggregator</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Surfaces</div>
+                <div class="d-node d-node--out">AI Daily Brief<br>Action Items</div>
+                <div class="d-node d-node--out">Live Map<br>+24H Timeline</div>
+                <div class="d-node d-node--out">PM2.5 Ranking<br>Weather Forecast</div>
               </div>
             </div>
           </div>

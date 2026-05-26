@@ -718,6 +718,15 @@ const i18nExt = {
         w4lbl:'Live access', w4:'Live Thai market data. Open platform — no paywall, no broker lock-in.',
         cta:'Open live platform',
       },
+      p15: {
+        title: 'Name the city. <em>We\'ll build its brain.</em>',
+        lede: 'City Hub is a replicable city intelligence platform — give it a city name, and it maps it with satellite and base layers, absorbs whatever data you have, connects APIs and sensors, and starts synthesizing the picture. v.5 with five cities live: Bangkok, Chiang Mai, Phuket, Singapore, Kuching.',
+        w1lbl:'Why it\'s special', w1:'Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what\'s already there.',
+        w2lbl:'What it replaced', w2:'Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.',
+        w3lbl:'Decision power', w3:'The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don\'t), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city\'s last day of data.',
+        w4lbl:'In development', w4:'Platform at v.5, migrating from UNL to permanent hosting. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Contact Axiom to onboard your city.',
+        cta:'Contact for access',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -883,6 +892,15 @@ const i18nExt = {
         w4lbl:'เข้าถึงสด', w4:'ข้อมูลตลาดไทยสด แพลตฟอร์มเปิด ไม่มีค่าสมัคร ไม่ผูกกับโบรกเกอร์',
         cta:'เปิดแพลตฟอร์มสด',
       },
+      p15: {
+        title: 'บอกชื่อเมือง <em>ผมสร้างสมองให้</em>',
+        lede: 'City Hub คือแพลตฟอร์มข่าวกรองเมืองที่ปรับใช้ซ้ำได้ — บอกชื่อเมือง ระบบแมปด้วยดาวเทียมและชั้นแผนที่ รับข้อมูลที่มีอยู่ เชื่อมต่อ API และเซ็นเซอร์ แล้วเริ่มสังเคราะห์ภาพรวม v.5 ห้าเมืองออนไลน์แล้ว: กรุงเทพฯ เชียงใหม่ ภูเก็ต สิงคโปร์ กูชิง',
+        w1lbl:'ทำไมพิเศษ', w1:'แพลตฟอร์มเมืองส่วนใหญ่สร้างขึ้นสำหรับเมืองเดียว งบประมาณรอบเดียว ไม่สามารถนำไปใช้ใหม่ได้ <b>City Hub ถือว่าชั้นข่าวกรองเป็นเทมเพลต</b> — เมืองไหนก็เข้าร่วมได้ นำเข้าข้อมูลที่มีอยู่ และระบบเริ่มเชื่อมโยงจุดต่างๆ ไม่ต้องรอจัดซื้อยาวนาน สมองสร้างตัวเองจากสิ่งที่มีอยู่แล้ว',
+        w2lbl:'แทนที่อะไร', w2:'แดชบอร์ดที่สร้างขึ้นครั้งเดียวโดยไม่มีการเรียนรู้ข้ามเมือง ไม่มีการสังเคราะห์ด้วย AI และไม่สามารถตรวจจับช่องว่างที่ข้อมูลพลเมืองนำหน้าโครงสร้างพื้นฐานทางการ Bangkok SIT ROOM ติดตามคุณภาพอากาศ น้ำท่วม ความร้อน ปัญหาเมือง และโรคระบาด — สังเคราะห์ทุกวันโดย AI',
+        w3lbl:'อำนาจการตัดสินใจ', w3:'บรีฟ AI สังเคราะห์ฟีดเมืองทั้งหมดเป็นรายงานเช้า: การตรวจจับช่องว่าง (ที่รายงานพลเมืองมีแต่ polygon ทางการไม่มี) รายการที่ต้องดำเนินการ การจัดอันดับ PM2.5 จังหวัด และพยากรณ์อากาศ 5 วัน เครื่องมือ +24H timeline ให้ผู้ปฏิบัติงานดูข้อมูลย้อนหลัง',
+        w4lbl:'กำลังพัฒนา', w4:'แพลตฟอร์มอยู่ที่ v.5 กำลังย้ายจาก UNL ไปยังที่โฮสต์ถาวร ห้าเมืองออนไลน์แล้ว: กรุงเทพฯ เชียงใหม่ ภูเก็ต สิงคโปร์ กูชิง ติดต่อ Axiom เพื่อนำเมืองของคุณเข้าร่วม',
+        cta:'ติดต่อเพื่อเข้าถึง',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -1028,6 +1046,15 @@ const i18nExt = {
         w4lbl:'实时访问', w4:'在NBTC许可权限下全国部署。向所有设备开放，无需注册。',
         cta:'打开在线平台',
       },
+      p15: {
+        title: '说出城市名字。<em>我来搭它的大脑。</em>',
+        lede: 'City Hub是可复用的城市智能平台——告诉它城市名字，它就用卫星和底图把它描出来，吸收你已有的任何数据，连接API和传感器，开始把点连成图谱。现在v.5，五座城市在线：曼谷、清迈、普吉、新加坡、古晋。',
+        w1lbl:'为什么特别', w1:'大多数城市平台都是为一座城市定制的，一个采购周期，无法复用。<b>City Hub把情报层当成模板</b>——任何城市都能接入，导入已有的数据，系统就开始把点连成线。不用等漫长的采购流程。大脑从已有的东西里自己长出来。',
+        w2lbl:'替代了什么', w2:'一次性定制仪表板——城市之间不共享学习，没有AI合成，也检测不到市民数据跑在官方基础设施前面的地方。曼谷SIT ROOM现在追踪空气质量、洪水风险、热量、民事问题和疾病预警——每天由AI合成一次简报。',
+        w3lbl:'决策能力', w3:'AI简报把所有实时城市信号合成成一份早间汇报：缺口检测（市民报告有数据但官方多边形没有的地方）、可操作事项、PM2.5省级排名，以及五天天气预报。+24H时间轴拉杆让运营者回放城市昨天的数据。',
+        w4lbl:'开发中', w4:'平台在v.5，正从UNL迁移到固定托管环境。五座城市已上线：曼谷、清迈、普吉、新加坡、古晋。联系Axiom把你的城市接入。',
+        cta:'联系接入',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -1162,6 +1189,7 @@ const i18nExt2 = {
       p12:'Live · National Broadcast',
       p13:'Live · Campus Ops',
       p14:'Live · Thai Markets',
+      p15:'Live · 5 cities',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -1171,6 +1199,7 @@ const i18nExt2 = {
       c09:'Agentic Intelligence', c10:'Talent Intelligence',
       c11:'Knowledge Intelligence', c12:'National Broadcast',
       c13:'Campus Intelligence', c14:'Market Intelligence',
+      c15:'City Intelligence',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -1213,7 +1242,7 @@ const i18nExt2 = {
       contact:'Contact',
       smallPrint:'Decision systems for cities, governments, and operators. Bangkok · Southeast Asia. © 2026 Axiom. All rights reserved. Axiom is a registered trade name. System uptime, response times, and outcome metrics are case-specific observations, not guarantees of future performance.',
     },
-    misc: { swipeHint:'14 systems — swipe to explore' },
+    misc: { swipeHint:'15 systems — swipe to explore' },
     metaKeys: {
       AI:'AI', Access:'Access', Audience:'Audience', Authority:'Authority',
       Backup:'Backup', 'Brain layers':'Brain layers', Cadence:'Cadence',
@@ -1239,6 +1268,7 @@ const i18nExt2 = {
       p12:'สด · กระจายเสียงแห่งชาติ',
       p13:'สด · ปฏิบัติการวิทยาเขต',
       p14:'สด · ตลาดไทย',
+      p15:'สด · 5 เมือง',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -1248,6 +1278,7 @@ const i18nExt2 = {
       c09:'ข่าวกรอง Agentic', c10:'ข่าวกรองบุคลากร',
       c11:'ข่าวกรองความรู้', c12:'กระจายเสียงแห่งชาติ',
       c13:'ข่าวกรองวิทยาเขต', c14:'ข่าวกรองตลาด',
+      c15:'ข่าวกรองเมือง',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -1290,7 +1321,7 @@ const i18nExt2 = {
       contact:'ติดต่อ',
       smallPrint:'ระบบการตัดสินใจสำหรับเมือง รัฐบาล และผู้ปฏิบัติงาน · กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ · © 2569 Axiom สงวนลิขสิทธิ์ Axiom เป็นเครื่องหมายการค้าจดทะเบียน · uptime ของระบบ เวลาตอบสนอง และตัวชี้วัดผลลัพธ์ทั้งหมดเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
     },
-    misc: { swipeHint:'14 ระบบ — ปัดเพื่อสำรวจ' },
+    misc: { swipeHint:'15 ระบบ — ปัดเพื่อสำรวจ' },
     metaKeys: {
       AI:'AI', Access:'การเข้าถึง', Audience:'ผู้ชม', Authority:'หน่วยงาน',
       Backup:'สำรองข้อมูล', 'Brain layers':'ชั้นสมอง', Cadence:'จังหวะ',
@@ -1316,6 +1347,7 @@ const i18nExt2 = {
       p12:'实时 · 国家广播',
       p13:'实时 · 校园运营',
       p14:'实时 · 泰国市场',
+      p15:'实时 · 5座城市',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -1323,6 +1355,7 @@ const i18nExt2 = {
       c07:'交通智能', c08:'公民智能', c09:'智能体情报',
       c10:'人才智能', c11:'知识智能', c12:'国家广播',
       c13:'校园智能', c14:'市场智能',
+      c15:'城市智能',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -1365,7 +1398,7 @@ const i18nExt2 = {
       contact:'联系',
       smallPrint:'面向城市、政府和运营商的决策系统。曼谷 · 东南亚。© 2026 Axiom 版权所有。Axiom 是注册商号。系统正常运行时间、响应时间和成果指标均为个案观察，并非未来表现的保证。',
     },
-    misc: { swipeHint:'14 个系统 — 滑动浏览' },
+    misc: { swipeHint:'15 个系统 — 滑动浏览' },
     pressContent: {
       p1title:'供应商说不 泰国公务员自己建工具',
       p2title:'创新即服务能否弥合政策与执行之间的鸿沟',
@@ -1400,6 +1433,7 @@ const i18nExt2 = {
       p12:'live: NationalBroadcast',
       p13:'live: CampusOps',
       p14:'live: ThaiMarkets',
+      p15:'live: 5cities',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -1407,6 +1441,7 @@ const i18nExt2 = {
       c07:'TransitIntel', c08:'CivicIntel', c09:'AgenticIntel',
       c10:'TalentIntel', c11:'KnowledgeIntel', c12:'NationalBroadcast',
       c13:'CampusIntel', c14:'MarketIntel',
+      c15:'CityIntel',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -1449,7 +1484,7 @@ const i18nExt2 = {
       contact:'contact()',
       smallPrint:'// decisionSystems<City | Government | Operator>\n// Bangkok · SEA · © 2026 Axiom\n// uptime, responseTime, outcomeMetrics: caseSpecific[]\n// !guarantees<FuturePerformance>',
     },
-    misc: { swipeHint:'systems[14].swipe()' },
+    misc: { swipeHint:'systems[15].swipe()' },
     metaKeys: {
       AI:'AI', Access:'access', Audience:'audience', Authority:'authority',
       Backup:'backup', 'Brain layers':'brainLayers', Cadence:'cadence',
