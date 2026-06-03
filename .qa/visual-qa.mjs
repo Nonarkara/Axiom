@@ -2,11 +2,23 @@ import { chromium, devices } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
+process.env.PW_TEST_SCREENSHOT_NO_FONTS_READY ||= '1';
+
 const baseUrl = process.env.QA_BASE_URL || 'http://127.0.0.1:3000';
 const outDir = path.join(process.cwd(), '.qa');
 
 async function ensureDir(dirPath) {
   await fs.mkdir(dirPath, { recursive: true });
+}
+
+async function gotoPage(page, url = baseUrl) {
+  try {
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
+  } catch (error) {
+    await page.goto('about:blank', { waitUntil: 'commit', timeout: 5000 }).catch(() => {});
+    await page.waitForTimeout(500);
+    await page.goto(url, { waitUntil: 'commit', timeout: 45000 });
+  }
 }
 
 function normalizeText(value) {
@@ -116,7 +128,7 @@ async function primeScrollReveals(page) {
 }
 
 async function checkAnchor(page, label, selector, expectedId) {
-  await page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
+  await gotoPage(page);
   await page.waitForLoadState('networkidle', { timeout: 6000 }).catch(() => {});
   await page.waitForTimeout(250);
 
@@ -127,7 +139,14 @@ async function checkAnchor(page, label, selector, expectedId) {
   }
 
   await link.click();
-  await page.waitForTimeout(950);
+  await page.waitForFunction((id) => {
+    const target = document.getElementById(id);
+    const rect = target?.getBoundingClientRect();
+    return Boolean(target)
+      && rect
+      && rect.top < window.innerHeight - 80
+      && rect.bottom > 80;
+  }, expectedId, { timeout: 3000 }).catch(() => {});
 
   const state = await page.evaluate((id) => {
     const target = document.getElementById(id);
@@ -157,7 +176,7 @@ async function inspectHomepage(browser, name, contextOptions) {
   const telemetry = createTelemetry(page);
   const checks = [];
 
-  await page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
+  await gotoPage(page);
   await page.waitForLoadState('networkidle', { timeout: 6000 }).catch(() => {});
   await page.waitForSelector('.hero', { timeout: 15000 });
   await page.waitForSelector('.sys-tabs', { timeout: 15000 });
@@ -299,7 +318,7 @@ async function inspectHomepage(browser, name, contextOptions) {
   checks.push(await checkAnchor(page, 'footer systems', '.foot__links a[href="#systems"]', 'systems'));
   checks.push(await checkAnchor(page, 'footer contact', '.foot__links a[href="#contact"]', 'contact'));
 
-  await page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
+  await gotoPage(page);
   await page.waitForLoadState('networkidle', { timeout: 6000 }).catch(() => {});
   await page.evaluate(() => window.postMessage({ type: '__activate_edit_mode' }, '*'));
   await page.waitForTimeout(500);
@@ -341,7 +360,7 @@ async function inspectHomepage(browser, name, contextOptions) {
     checks.push({ kind: 'tweak-panel', label: 'activate/toggle/close', ok: false, state: tweakBefore });
   }
 
-  await page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
+  await gotoPage(page);
   await page.waitForLoadState('networkidle', { timeout: 6000 }).catch(() => {});
   await page.waitForTimeout(1000);
   const evidencePath = path.join(outDir, `homepage-${name}-evidence.png`);
@@ -386,7 +405,7 @@ async function inspectAdmin(browser, name, contextOptions) {
   const telemetry = createTelemetry(page);
   const url = `${baseUrl.replace(/\/$/, '')}/admin/`;
 
-  await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await gotoPage(page, url);
   await page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {});
   await page.waitForSelector('#localeSwitch', { timeout: 15000 });
   await page.waitForTimeout(1000);
@@ -485,7 +504,7 @@ function collectFindings(results) {
         findings.push(`homepage/${result.viewportName}: failed interaction checks ${failedChecks.map((check) => check.label).join(', ')}`);
       }
 
-      if (result.counts.systemTabs !== 8 || result.counts.systemPanels !== 8 || result.counts.mapButtons !== 8) {
+      if (result.counts.systemTabs !== 17 || result.counts.systemPanels !== 17 || result.counts.mapButtons !== 17) {
         findings.push(`homepage/${result.viewportName}: system tab/map count changed unexpectedly`);
       }
 

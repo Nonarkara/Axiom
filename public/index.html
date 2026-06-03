@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Axiom — Decision systems for cities, governments, and operators.</title>
-<meta name="description" content="14 live systems across 5 countries. Built to stay useful under pressure. Trusted by ASEAN, the UN, and national governments.">
+<meta name="description" content="17 showcase systems across 5 countries. Built to stay useful under pressure. Trusted by ASEAN, the UN, and national governments.">
 <meta name="author" content="Axiom">
 <meta name="theme-color" content="#0a0a0c">
 <meta name="color-scheme" content="dark light">
@@ -18,7 +18,7 @@
 
 <!-- Open Graph -->
 <meta property="og:title" content="Axiom — Decision systems for cities, governments, and operators.">
-<meta property="og:description" content="14 live systems across 5 countries. Built to stay useful under pressure. Trusted by ASEAN, the UN, and national governments.">
+<meta property="og:description" content="17 showcase systems across 5 countries. Built to stay useful under pressure. Trusted by ASEAN, the UN, and national governments.">
 <meta property="og:image" content="https://axiom.nonarkara.org/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -30,7 +30,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Axiom — Decision systems for cities, governments, and operators.">
-<meta name="twitter:description" content="14 live systems across 5 countries. Built to stay useful under pressure.">
+<meta name="twitter:description" content="17 showcase systems across 5 countries. Built to stay useful under pressure.">
 <meta name="twitter:image" content="https://axiom.nonarkara.org/assets/og-image.png">
 
 <!-- JSON-LD: Organization + WebSite -->
@@ -79,14 +79,24 @@
   } catch(e) {}
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=20260527a">
-<script defer src="app.js?v=20260527a"></script>
+<link rel="stylesheet" href="styles.css?v=20260603a">
+<script defer src="app.js?v=20260603a"></script>
 
 <!-- React + Babel for Tweaks panel -->
 <script defer src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script defer src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0da324da0e204440a172088c0fafc92c"}'></script>
+<script>
+(function() {
+  var localHosts = ['localhost', '127.0.0.1', '::1'];
+  if (localHosts.indexOf(location.hostname) !== -1) return;
+  var beacon = document.createElement('script');
+  beacon.defer = true;
+  beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  beacon.setAttribute('data-cf-beacon', '{"token":"0da324da0e204440a172088c0fafc92c"}');
+  document.head.appendChild(beacon);
+})();
+</script>
 </head>
 <body>
 <div class="grid-bg" aria-hidden="true"></div>
@@ -191,7 +201,7 @@
     </div>
 
     <!-- TAB STRIP -->
-    <div class="sys-tabs-hint" aria-hidden="true"><span data-i18n="misc.swipeHint">15 systems — swipe to explore</span> <span style="color:var(--stitch);">→</span></div>
+    <div class="sys-tabs-hint" aria-hidden="true"><span data-i18n="misc.swipeHint">17 systems — swipe to explore</span> <span style="color:var(--stitch);">→</span></div>
     <div class="sys-tabs-track">
     <div class="sys-tabs" role="tablist" aria-label="Production systems">
       <button class="sys-tab active" data-panel="panel-01" role="tab" aria-selected="true">01 · Phuket Ops</button>
@@ -209,6 +219,8 @@
       <button class="sys-tab" data-panel="panel-13" role="tab" aria-selected="false">13 · Chula</button>
       <button class="sys-tab" data-panel="panel-14" role="tab" aria-selected="false">14 · DayTraders</button>
       <button class="sys-tab" data-panel="panel-15" role="tab" aria-selected="false">15 · City Hub</button>
+      <button class="sys-tab" data-panel="panel-16" role="tab" aria-selected="false">16 · Chonburi</button>
+      <button class="sys-tab" data-panel="panel-17" role="tab" aria-selected="false">17 · Ekkasarn</button>
     </div>
     </div>
 
@@ -1169,7 +1181,7 @@
         <span class="sys__coord"><b>NODE_15</b> 13.7563°N · 100.5018°E · Multi-city</span>
         <span class="corner tl"></span><span class="corner tr"></span>
         <span class="corner bl"></span><span class="corner br"></span>
-        <img src="screenshots/cityhub.jpg" alt="City Hub v.5 — multi-city intelligence platform with AI briefing, live data feeds, PM2.5 ranking, and weather forecast for Bangkok, Chiang Mai, Phuket, Singapore, and Kuching" data-parallax>
+        <img src="screenshots/cityhub-split-satellite.jpg" alt="City Hub v.3 — split satellite control room comparing Bangkok, Singapore, Chiang Mai, and Phuket in a multi-city command view" data-parallax>
       </div>
       <div class="sys__body">
         <div class="sys__id">PROD <span class="stitch">/</span> 15 <span class="stitch">/</span> <span data-i18n="cats.c15">City Intelligence</span></div>
@@ -1226,6 +1238,147 @@
                 <div class="d-node d-node--out">AI Daily Brief<br>Action Items</div>
                 <div class="d-node d-node--out">Live Map<br>+24H Timeline</div>
                 <div class="d-node d-node--out">PM2.5 Ranking<br>Weather Forecast</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SYSTEM 16: Chonburi Control Tower -->
+    <article class="sys sys-panel" id="panel-16">
+      <div class="sys__media">
+        <span class="sys__chip"><span class="live-dot"></span><span data-i18n="chips.p16">Live · Chonburi EEC</span></span>
+        <span class="sys__coord"><b>NODE_16</b> Chonburi · Eastern Seaboard · 42 sources</span>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <img src="screenshots/chonburi-control-tower.png" alt="Chonburi Control Tower — 3D coastal province command surface with live feeds, 42 sources, EEC trends, and civic layers" data-parallax>
+      </div>
+      <div class="sys__body">
+        <div class="sys__id">PROD <span class="stitch">/</span> 16 <span class="stitch">/</span> <span data-i18n="cats.c16">Coastal Intelligence</span></div>
+        <h3 class="sys__title" data-text="A coastal province, rendered as a control tower." data-i18n-html="panels.p16.title">A coastal province, <em>rendered as a control tower.</em></h3>
+        <p class="sys__lede" data-i18n="panels.p16.lede">Chonburi Control Tower is a 3D command surface for the Eastern Seaboard: 42 live sources, coastal weather and marine state, market and tourism signals, mayoral incident feeds, EEC trends, and building-scale overlays in one operational lens.</p>
+        <div class="sys__meta">
+          <div><span class="k" data-i18n="metaKeys.Sources">Sources</span><span class="v">42</span></div>
+          <div><span class="k" data-i18n="metaKeys.Mode">Mode</span><span class="v">3D · live</span></div>
+          <div><span class="k" data-i18n="metaKeys.Layers">Layers</span><span class="v">Buildings · AQ · Marine</span></div>
+          <div><span class="k" data-i18n="metaKeys.Region">Region</span><span class="v">Chonburi · EEC</span></div>
+        </div>
+        <div class="sys__why">
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p16.w1lbl">Why it's special</span>
+            <span class="txt" data-i18n="panels.p16.w1">Most provincial dashboards flatten the city into cards and charts. <b>Chonburi Control Tower renders the province as an operating environment</b> — 20,877 3D buildings, source health, weather, marine risk, EEC news, CCTV/AIS/AQ/WX toggles, and a mayor's desk on one surface.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p16.w2lbl">What it replaced</span>
+            <span class="txt" data-i18n="panels.p16.w2">Separate weather sites, marine dashboards, market tickers, tourism spreadsheets, news tabs, and static GIS layers that never told the same story at the same time.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p16.w3lbl">Decision power</span>
+            <span class="txt" data-i18n="panels.p16.w3">Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p16.w4lbl">Live access</span>
+            <span class="txt" data-i18n="panels.p16.w4">Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.</span>
+          </div>
+        </div>
+        <div class="sys__links">
+          <a class="sys-link primary" href="https://chonburi-control-tower.pages.dev" target="_blank" rel="noopener"><span data-i18n="panels.p16.cta">Open control tower</span> →</a>
+          <button class="sys-map-btn" data-map="map-16">System map ⊕</button>
+        </div>
+        <div class="sys__diagram" id="map-16">
+          <div class="diagram">
+            <div class="diagram__head">System architecture // NODE_16 · Chonburi Control Tower</div>
+            <div class="diagram__flow">
+              <div class="diagram__col">
+                <div class="d-col-lbl">Inputs</div>
+                <div class="d-node">Data.go.th<br>Population · Visitors</div>
+                <div class="d-node">Weather · Marine<br>Air Quality · Markets</div>
+                <div class="d-node">News Feeds<br>CCTV · AIS · AQ · WX</div>
+                <div class="d-node">OSM + Mapbox<br>20,877 3D Buildings</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Processing</div>
+                <div class="d-node d-node--core">Source Router<br>42 feeds<br>Live/degraded health</div>
+                <div class="d-node">3D Lens Engine<br>Boundary · Buildings · Layers</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Surfaces</div>
+                <div class="d-node d-node--out">Chonburi Town<br>3D Control Tower</div>
+                <div class="d-node d-node--out">Mayor's Desk<br>Incidents + Trends</div>
+                <div class="d-node d-node--out">Sheets / Sources<br>Operational Evidence</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SYSTEM 17: Ekkasarn AI -->
+    <article class="sys sys-panel" id="panel-17">
+      <div class="sys__media sys__media--light">
+        <span class="sys__chip"><span class="live-dot"></span><span data-i18n="chips.p17">Live · Thai docs</span></span>
+        <span class="sys__coord"><b>NODE_17</b> OCR · Thai receipts · Gemini</span>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <img src="screenshots/ekkasarn-ai.png" alt="Ekkasarn AI — Thai document OCR and categorization engine for receipts, tax invoices, and withholding tax certificates" data-parallax>
+      </div>
+      <div class="sys__body">
+        <div class="sys__id">PROD <span class="stitch">/</span> 17 <span class="stitch">/</span> <span data-i18n="cats.c17">Document Intelligence</span></div>
+        <h3 class="sys__title" data-text="Thai paperwork, read by the machine." data-i18n-html="panels.p17.title">Thai paperwork, <em>read by the machine.</em></h3>
+        <p class="sys__lede" data-i18n="panels.p17.lede">Ekkasarn AI is a Thai document intelligence engine for tax invoices, receipts, and withholding tax certificates. Upload a real document or pick a sample; the system runs OCR, classifies the document, and extracts usable fields without mock data or a required login.</p>
+        <div class="sys__meta">
+          <div><span class="k" data-i18n="metaKeys.Documents">Documents</span><span class="v">Tax · Receipt · WHT</span></div>
+          <div><span class="k" data-i18n="metaKeys.Engine">Engine</span><span class="v">Gemini OCR</span></div>
+          <div><span class="k" data-i18n="metaKeys.Match">Match</span><span class="v">95% sample</span></div>
+          <div><span class="k" data-i18n="metaKeys.Access">Access</span><span class="v">Upload · no login</span></div>
+        </div>
+        <div class="sys__why">
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p17.w1lbl">Why it's special</span>
+            <span class="txt" data-i18n="panels.p17.w1">Most OCR demos work only on clean, invented forms. <b>Ekkasarn AI reads real Thai paperwork</b> — crumpled receipts, VAT invoices, and withholding certificates — then returns category, confidence, shop, phone, and total as structured output.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p17.w2lbl">What it replaced</span>
+            <span class="txt" data-i18n="panels.p17.w2">Manual accounting entry, receipt photo backlogs, spreadsheet categorization, and the fragile handoff between Thai paper documents and digital finance workflows.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p17.w3lbl">Decision power</span>
+            <span class="txt" data-i18n="panels.p17.w3">A finance team can classify documents, verify extracted fields, and route them into downstream accounting logic immediately instead of waiting for human sorting.</span>
+          </div>
+          <div class="sys__why-row">
+            <span class="lbl" data-i18n="panels.p17.w4lbl">Live access</span>
+            <span class="txt" data-i18n="panels.p17.w4">Public bilingual demo with Thai-first document types. Uploads are processed live and not retained.</span>
+          </div>
+        </div>
+        <div class="sys__links">
+          <a class="sys-link primary" href="https://ekkasarn-ai.pages.dev/" target="_blank" rel="noopener"><span data-i18n="panels.p17.cta">Open live system</span> →</a>
+          <button class="sys-map-btn" data-map="map-17">System map ⊕</button>
+        </div>
+        <div class="sys__diagram" id="map-17">
+          <div class="diagram">
+            <div class="diagram__head">System architecture // NODE_17 · Ekkasarn AI Document Intelligence</div>
+            <div class="diagram__flow">
+              <div class="diagram__col">
+                <div class="d-col-lbl">Inputs</div>
+                <div class="d-node">Thai Receipts<br>Upload or Sample</div>
+                <div class="d-node">Tax Invoice / VAT<br>Document Class</div>
+                <div class="d-node">Withholding Tax<br>Certificates</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Processing</div>
+                <div class="d-node d-node--core">Gemini OCR<br>Category Detection<br>Confidence Scoring</div>
+                <div class="d-node">Field Extractor<br>Shop · Phone · Total</div>
+              </div>
+              <div class="diagram__arrow">→</div>
+              <div class="diagram__col">
+                <div class="d-col-lbl">Surfaces</div>
+                <div class="d-node d-node--out">Bilingual Demo<br>Thai / English</div>
+                <div class="d-node d-node--out">Structured<br>Finance Fields</div>
+                <div class="d-node d-node--out">Accounting<br>Workflow Hand-off</div>
               </div>
             </div>
           </div>
@@ -1948,6 +2101,8 @@ applyTweaks(TWEAK_DEFAULTS);
   <!-- NON visitor tracker — fire-and-forget, no cookies -->
   <script>
   (function(){
+    var localHosts = ['localhost', '127.0.0.1', '::1'];
+    if (localHosts.indexOf(location.hostname) !== -1) return;
     if(sessionStorage.getItem('non_v'))return;
     sessionStorage.setItem('non_v','1');
     var SH='https://script.google.com/macros/s/AKfycbwzTwBNOseKkvkkjD-LH6B3GWrsFcwS6MTDbn7W5eb3zHxA-swtlHYuwJ3w5PAVXDhU7Q/exec';

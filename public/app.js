@@ -727,6 +727,24 @@ const i18nExt = {
         w4lbl:'Live access', w4:'Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.',
         cta:'Open live platform',
       },
+      p16: {
+        title: 'A coastal province, <em>rendered as a control tower.</em>',
+        lede: 'Chonburi Control Tower is a 3D command surface for the Eastern Seaboard: 42 live sources, coastal weather and marine state, market and tourism signals, mayoral incident feeds, EEC trends, and building-scale overlays in one operational lens.',
+        w1lbl:'Why it\'s special', w1:'Most provincial dashboards flatten the city into cards and charts. <b>Chonburi Control Tower renders the province as an operating environment</b> — 20,877 3D buildings, source health, weather, marine risk, EEC news, CCTV/AIS/AQ/WX toggles, and a mayor\'s desk on one surface.',
+        w2lbl:'What it replaced', w2:'Separate weather sites, marine dashboards, market tickers, tourism spreadsheets, news tabs, and static GIS layers that never told the same story at the same time.',
+        w3lbl:'Decision power', w3:'Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.',
+        w4lbl:'Live access', w4:'Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.',
+        cta:'Open control tower',
+      },
+      p17: {
+        title: 'Thai paperwork, <em>read by the machine.</em>',
+        lede: 'Ekkasarn AI is a Thai document intelligence engine for tax invoices, receipts, and withholding tax certificates. Upload a real document or pick a sample; the system runs OCR, classifies the document, and extracts usable fields without mock data or a required login.',
+        w1lbl:'Why it\'s special', w1:'Most OCR demos work only on clean, invented forms. <b>Ekkasarn AI reads real Thai paperwork</b> — crumpled receipts, VAT invoices, and withholding certificates — then returns category, confidence, shop, phone, and total as structured output.',
+        w2lbl:'What it replaced', w2:'Manual accounting entry, receipt photo backlogs, spreadsheet categorization, and the fragile handoff between Thai paper documents and digital finance workflows.',
+        w3lbl:'Decision power', w3:'A finance team can classify documents, verify extracted fields, and route them into downstream accounting logic immediately instead of waiting for human sorting.',
+        w4lbl:'Live access', w4:'Public bilingual demo with Thai-first document types. Uploads are processed live and not retained.',
+        cta:'Open live system',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -901,6 +919,24 @@ const i18nExt = {
         w4lbl:'เข้าถึงสด', w4:'แพลตฟอร์ม v.5 ห้าเมืองออนไลน์แล้ว: กรุงเทพฯ เชียงใหม่ ภูเก็ต สิงคโปร์ กูชิง เมืองไหนก็เข้าร่วมได้ — นำข้อมูลที่มีอยู่มาเลย',
         cta:'เปิดแพลตฟอร์มสด',
       },
+      p16: {
+        title: 'จังหวัดชายฝั่ง <em>ในรูปแบบหอควบคุม</em>',
+        lede: 'Chonburi Control Tower คือพื้นผิวสั่งการ 3D สำหรับ Eastern Seaboard รวม 42 แหล่งข้อมูลสด สภาพอากาศชายฝั่ง ทะเล ตลาด ท่องเที่ยว ฟีดเหตุการณ์ของนายกเมือง เทรนด์ EEC และเลเยอร์ระดับอาคารไว้ในมุมมองเดียว',
+        w1lbl:'ทำไมพิเศษ', w1:'แดชบอร์ดจังหวัดส่วนใหญ่อัดเมืองลงเป็นการ์ดและกราฟ <b>Chonburi Control Tower ทำให้จังหวัดกลายเป็นสภาพแวดล้อมปฏิบัติการ</b> — อาคาร 3D 20,877 หลัง สุขภาพแหล่งข้อมูล ความเสี่ยงทะเล ข่าว EEC ปุ่ม CCTV/AIS/AQ/WX และโต๊ะนายกเมืองในจอเดียว',
+        w2lbl:'แทนที่อะไร', w2:'เว็บอากาศ แดชบอร์ดทะเล ticker ตลาด spreadsheet ท่องเที่ยว แท็บข่าว และ GIS แบบนิ่งที่ไม่เคยเล่าเรื่องเดียวกันในเวลาเดียวกัน',
+        w3lbl:'อำนาจการตัดสินใจ', w3:'ผู้ปฏิบัติงานเห็นสถานะ live/degraded เทรนด์ Chonburi EEC เลเยอร์พลเมือง จำนวนแหล่งข้อมูล และเหตุการณ์ของนายกเมือง โดยไม่หลุดออกจากแผนที่ 3D ที่ยังรักษาบริบทพื้นที่ไว้',
+        w4lbl:'เข้าถึงสด', w4:'หอควบคุมสาธารณะสำหรับ Chonburi Town Center และ Eastern Seaboard สร้างเพื่ออ่านสถานการณ์เร็ว ไม่ใช่รายงานวางแผนแบบนิ่ง',
+        cta:'เปิดหอควบคุม',
+      },
+      p17: {
+        title: 'เอกสารไทย <em>ให้เครื่องอ่านได้</em>',
+        lede: 'Ekkasarn AI คือเครื่องยนต์ข่าวกรองเอกสารไทยสำหรับใบกำกับภาษี ใบเสร็จ และหนังสือรับรองหักภาษี ณ ที่จ่าย อัปโหลดเอกสารจริงหรือเลือกตัวอย่าง ระบบทำ OCR จัดหมวดหมู่ และดึงฟิลด์ใช้งานได้ โดยไม่ต้องใช้ข้อมูลปลอมและไม่บังคับล็อกอิน',
+        w1lbl:'ทำไมพิเศษ', w1:'เดโม OCR ส่วนใหญ่ทำงานได้เฉพาะฟอร์มสะอาดที่สร้างขึ้นมาเอง <b>Ekkasarn AI อ่านเอกสารไทยจริง</b> — ใบเสร็จยับ ใบกำกับ VAT และหนังสือหักภาษี แล้วคืนหมวด ความมั่นใจ ร้านค้า เบอร์โทร และยอดรวมเป็นข้อมูลโครงสร้าง',
+        w2lbl:'แทนที่อะไร', w2:'การกรอกบัญชีด้วยมือ รูปใบเสร็จค้างกอง การจัดหมวดด้วย spreadsheet และจุดต่อที่เปราะบางระหว่างเอกสารกระดาษไทยกับ workflow การเงินดิจิทัล',
+        w3lbl:'อำนาจการตัดสินใจ', w3:'ทีมการเงินจัดประเภทเอกสาร ตรวจฟิลด์ที่ดึงออกมา และส่งต่อเข้าสู่ตรรกะบัญชีได้ทันที ไม่ต้องรอคนคัดแยก',
+        w4lbl:'เข้าถึงสด', w4:'เดโมสองภาษาแบบ Thai-first สำหรับประเภทเอกสารไทย อัปโหลดแล้วประมวลผลสดและไม่เก็บไฟล์ไว้',
+        cta:'เปิดระบบสด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -1073,6 +1109,24 @@ const i18nExt = {
         w4lbl:'实时访问', w4:'平台v.5。五座城市在线：曼谷、清迈、普吉、新加坡、古晋。任何城市都能接入——带上已有的数据就行。',
         cta:'打开在线平台',
       },
+      p16: {
+        title: '一座海岸省份，<em>变成控制塔。</em>',
+        lede: 'Chonburi Control Tower是面向泰国东部海岸的3D指挥界面：42个实时来源、海岸天气与海况、市场和旅游信号、市长事件流、EEC趋势，以及建筑级图层，都在同一个运营视角中。',
+        w1lbl:'为什么特别', w1:'大多数省级仪表板把城市压平成卡片和图表。<b>Chonburi Control Tower把省份渲染成一个运营环境</b>——20,877栋3D建筑、来源健康状态、天气、海事风险、EEC新闻、CCTV/AIS/AQ/WX开关和市长办公桌都在一个界面里。',
+        w2lbl:'替代了什么', w2:'分散的天气网站、海事仪表板、市场ticker、旅游表格、新闻标签页，以及永远无法同时讲同一个故事的静态GIS图层。',
+        w3lbl:'决策能力', w3:'运营者可以在3D地图内看到实时和降级状态、Chonburi EEC趋势、公民图层、来源数量和市长事件，同时保留地理语境。',
+        w4lbl:'实时访问', w4:'面向Chonburi Town Center和Eastern Seaboard的公开控制塔。为快速运营阅读而建，不是静态规划报告。',
+        cta:'打开控制塔',
+      },
+      p17: {
+        title: '泰国纸质文件，<em>让机器读懂。</em>',
+        lede: 'Ekkasarn AI是面向泰国税务发票、收据和预扣税证明的文档智能引擎。可以上传真实文件或选择样本；系统会运行OCR、分类文档，并提取可用字段，不依赖模拟数据，也不强制登录。',
+        w1lbl:'为什么特别', w1:'大多数OCR演示只适合干净的虚构表单。<b>Ekkasarn AI读取真实泰国纸面文件</b>——皱掉的收据、VAT发票和预扣税证明，然后输出类别、置信度、商店、电话和总额等结构化结果。',
+        w2lbl:'替代了什么', w2:'手工会计录入、堆积的收据照片、电子表格分类，以及泰国纸质文件进入数字财务流程时那道脆弱的交接。',
+        w3lbl:'决策能力', w3:'财务团队可以立即分类文件、核验抽取字段，并把结果送入后续会计逻辑，而不是等待人工分拣。',
+        w4lbl:'实时访问', w4:'泰国文档优先的公开双语演示。上传文件会实时处理，不会保留。',
+        cta:'打开在线系统',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -1208,6 +1262,8 @@ const i18nExt2 = {
       p13:'Live · Campus Ops',
       p14:'Live · Thai Markets',
       p15:'Live · 5 cities',
+      p16:'Live · Chonburi EEC',
+      p17:'Live · Thai docs',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -1218,6 +1274,7 @@ const i18nExt2 = {
       c11:'Knowledge Intelligence', c12:'National Broadcast',
       c13:'Campus Intelligence', c14:'Market Intelligence',
       c15:'City Intelligence',
+      c16:'Coastal Intelligence', c17:'Document Intelligence',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -1260,14 +1317,14 @@ const i18nExt2 = {
       contact:'Contact',
       smallPrint:'Decision systems for cities, governments, and operators. Bangkok · Southeast Asia. © 2026 Axiom. All rights reserved. Axiom is a registered trade name. System uptime, response times, and outcome metrics are case-specific observations, not guarantees of future performance.',
     },
-    misc: { swipeHint:'15 systems — swipe to explore' },
+    misc: { swipeHint:'17 systems — swipe to explore' },
     metaKeys: {
       AI:'AI', Access:'Access', Audience:'Audience', Authority:'Authority',
       Backup:'Backup', 'Brain layers':'Brain layers', Cadence:'Cadence',
       Channels:'Channels', Cities:'Cities', Cost:'Cost', Coverage:'Coverage',
-      Data:'Data', Employees:'Employees', Engine:'Engine', Intake:'Intake',
+      Data:'Data', Documents:'Documents', Employees:'Employees', Engine:'Engine', Intake:'Intake',
       Interface:'Interface', Justices:'Justices', Latency:'Latency',
-      Layers:'Layers', Mode:'Mode', Peak:'Peak', Pillars:'Pillars',
+      Layers:'Layers', Match:'Match', Mode:'Mode', Peak:'Peak', Pillars:'Pillars',
       Platforms:'Platforms', Programme:'Programme', Protocol:'Protocol',
       Region:'Region', Scope:'Scope', Screens:'Screens', Sensors:'Sensors',
       Sources:'Sources', Stack:'Stack', Status:'Status', Stream:'Stream',
@@ -1287,6 +1344,8 @@ const i18nExt2 = {
       p13:'สด · ปฏิบัติการวิทยาเขต',
       p14:'สด · ตลาดไทย',
       p15:'สด · 5 เมือง',
+      p16:'สด · Chonburi EEC',
+      p17:'สด · เอกสารไทย',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -1297,6 +1356,7 @@ const i18nExt2 = {
       c11:'ข่าวกรองความรู้', c12:'กระจายเสียงแห่งชาติ',
       c13:'ข่าวกรองวิทยาเขต', c14:'ข่าวกรองตลาด',
       c15:'ข่าวกรองเมือง',
+      c16:'ข่าวกรองชายฝั่ง', c17:'ข่าวกรองเอกสาร',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -1339,14 +1399,14 @@ const i18nExt2 = {
       contact:'ติดต่อ',
       smallPrint:'ระบบการตัดสินใจสำหรับเมือง รัฐบาล และผู้ปฏิบัติงาน · กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ · © 2569 Axiom สงวนลิขสิทธิ์ Axiom เป็นเครื่องหมายการค้าจดทะเบียน · uptime ของระบบ เวลาตอบสนอง และตัวชี้วัดผลลัพธ์ทั้งหมดเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
     },
-    misc: { swipeHint:'15 ระบบ — ปัดเพื่อสำรวจ' },
+    misc: { swipeHint:'17 ระบบ — ปัดเพื่อสำรวจ' },
     metaKeys: {
       AI:'AI', Access:'การเข้าถึง', Audience:'ผู้ชม', Authority:'หน่วยงาน',
       Backup:'สำรองข้อมูล', 'Brain layers':'ชั้นสมอง', Cadence:'จังหวะ',
       Channels:'ช่อง', Cities:'เมือง', Cost:'ต้นทุน', Coverage:'พื้นที่ครอบคลุม',
-      Data:'ข้อมูล', Employees:'พนักงาน', Engine:'เครื่องยนต์', Intake:'การรับเข้า',
+      Data:'ข้อมูล', Documents:'เอกสาร', Employees:'พนักงาน', Engine:'เครื่องยนต์', Intake:'การรับเข้า',
       Interface:'อินเทอร์เฟซ', Justices:'ตุลาการ', Latency:'ความหน่วง',
-      Layers:'เลเยอร์', Mode:'โหมด', Peak:'สูงสุด', Pillars:'เสาหลัก',
+      Layers:'เลเยอร์', Match:'การจับคู่', Mode:'โหมด', Peak:'สูงสุด', Pillars:'เสาหลัก',
       Platforms:'แพลตฟอร์ม', Programme:'โครงการ', Protocol:'โปรโตคอล',
       Region:'ภูมิภาค', Scope:'ขอบเขต', Screens:'หน้าจอ', Sensors:'เซ็นเซอร์',
       Sources:'แหล่งข้อมูล', Stack:'Stack', Status:'สถานะ', Stream:'สตรีม',
@@ -1366,6 +1426,8 @@ const i18nExt2 = {
       p13:'实时 · 校园运营',
       p14:'实时 · 泰国市场',
       p15:'实时 · 5座城市',
+      p16:'实时 · 春武里EEC',
+      p17:'实时 · 泰国文档',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -1374,6 +1436,7 @@ const i18nExt2 = {
       c10:'人才智能', c11:'知识智能', c12:'国家广播',
       c13:'校园智能', c14:'市场智能',
       c15:'城市智能',
+      c16:'海岸智能', c17:'文档智能',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -1416,7 +1479,7 @@ const i18nExt2 = {
       contact:'联系',
       smallPrint:'面向城市、政府和运营商的决策系统。曼谷 · 东南亚。© 2026 Axiom 版权所有。Axiom 是注册商号。系统正常运行时间、响应时间和成果指标均为个案观察，并非未来表现的保证。',
     },
-    misc: { swipeHint:'15 个系统 — 滑动浏览' },
+    misc: { swipeHint:'17 个系统 — 滑动浏览' },
     pressContent: {
       p1title:'供应商说不 泰国公务员自己建工具',
       p2title:'创新即服务能否弥合政策与执行之间的鸿沟',
@@ -1430,9 +1493,9 @@ const i18nExt2 = {
       AI:'AI', Access:'访问', Audience:'受众', Authority:'主管机构',
       Backup:'备份', 'Brain layers':'脑层级', Cadence:'频率',
       Channels:'频道', Cities:'城市', Cost:'成本', Coverage:'覆盖范围',
-      Data:'数据', Employees:'员工', Engine:'引擎', Intake:'输入',
+      Data:'数据', Documents:'文档', Employees:'员工', Engine:'引擎', Intake:'输入',
       Interface:'界面', Justices:'法官', Latency:'延迟', Layers:'图层',
-      Mode:'模式', Peak:'峰值', Pillars:'支柱', Platforms:'平台',
+      Match:'匹配', Mode:'模式', Peak:'峰值', Pillars:'支柱', Platforms:'平台',
       Programme:'项目', Protocol:'协议', Region:'区域', Scope:'范围',
       Screens:'屏幕', Sensors:'传感器', Sources:'数据源', Stack:'技术栈',
       Status:'状态', Stream:'流媒体', Tracking:'追踪',
@@ -1452,6 +1515,8 @@ const i18nExt2 = {
       p13:'live: CampusOps',
       p14:'live: ThaiMarkets',
       p15:'live: 5cities',
+      p16:'live: ChonburiEEC',
+      p17:'live: ThaiDocs',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -1460,6 +1525,7 @@ const i18nExt2 = {
       c10:'TalentIntel', c11:'KnowledgeIntel', c12:'NationalBroadcast',
       c13:'CampusIntel', c14:'MarketIntel',
       c15:'CityIntel',
+      c16:'CoastalIntel', c17:'DocumentIntel',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -1502,14 +1568,14 @@ const i18nExt2 = {
       contact:'contact()',
       smallPrint:'// decisionSystems<City | Government | Operator>\n// Bangkok · SEA · © 2026 Axiom\n// uptime, responseTime, outcomeMetrics: caseSpecific[]\n// !guarantees<FuturePerformance>',
     },
-    misc: { swipeHint:'systems[15].swipe()' },
+    misc: { swipeHint:'systems[17].swipe()' },
     metaKeys: {
       AI:'AI', Access:'access', Audience:'audience', Authority:'authority',
       Backup:'backup', 'Brain layers':'brainLayers', Cadence:'cadence',
       Channels:'channels', Cities:'cities', Cost:'cost', Coverage:'coverage',
-      Data:'data', Employees:'employees', Engine:'engine', Intake:'intake',
+      Data:'data', Documents:'documents', Employees:'employees', Engine:'engine', Intake:'intake',
       Interface:'interface', Justices:'justices', Latency:'latency',
-      Layers:'layers', Mode:'mode', Peak:'peak', Pillars:'pillars',
+      Layers:'layers', Match:'match', Mode:'mode', Peak:'peak', Pillars:'pillars',
       Platforms:'platforms', Programme:'programme', Protocol:'protocol',
       Region:'region', Scope:'scope', Screens:'screens', Sensors:'sensors',
       Sources:'sources', Stack:'stack', Status:'status', Stream:'stream',
@@ -1533,10 +1599,20 @@ function renderStaticCopy() {
     if (typeof val === 'string') return val;
     return parts.reduce((obj, k) => obj?.[k], fallback);
   };
+  const renderInlineMarkup = (value) => value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/&lt;(\/?)(b|em)&gt;/g, '<$1$2>');
 
   document.querySelectorAll('[data-i18n]').forEach((node) => {
     const value = lookup(node.getAttribute('data-i18n'));
-    if (typeof value === 'string') node.textContent = value;
+    if (typeof value !== 'string') return;
+    if (value.includes('<b>') || value.includes('<em>')) {
+      node.innerHTML = renderInlineMarkup(value);
+    } else {
+      node.textContent = value;
+    }
   });
 
   document.querySelectorAll('[data-i18n-html]').forEach((node) => {
