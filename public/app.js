@@ -1317,7 +1317,7 @@ const i18nExt2 = {
       contact:'Contact',
       smallPrint:'Decision systems for cities, governments, and operators. Bangkok · Southeast Asia. © 2026 Axiom. All rights reserved. Axiom is a registered trade name. System uptime, response times, and outcome metrics are case-specific observations, not guarantees of future performance.',
     },
-    misc: { swipeHint:'17 systems — swipe to explore' },
+    misc: { swipeHint:'4 groups · 17 systems — swipe' },
     metaKeys: {
       AI:'AI', Access:'Access', Audience:'Audience', Authority:'Authority',
       Backup:'Backup', 'Brain layers':'Brain layers', Cadence:'Cadence',
@@ -1399,7 +1399,7 @@ const i18nExt2 = {
       contact:'ติดต่อ',
       smallPrint:'ระบบการตัดสินใจสำหรับเมือง รัฐบาล และผู้ปฏิบัติงาน · กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ · © 2569 Axiom สงวนลิขสิทธิ์ Axiom เป็นเครื่องหมายการค้าจดทะเบียน · uptime ของระบบ เวลาตอบสนอง และตัวชี้วัดผลลัพธ์ทั้งหมดเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
     },
-    misc: { swipeHint:'17 ระบบ — ปัดเพื่อสำรวจ' },
+    misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     metaKeys: {
       AI:'AI', Access:'การเข้าถึง', Audience:'ผู้ชม', Authority:'หน่วยงาน',
       Backup:'สำรองข้อมูล', 'Brain layers':'ชั้นสมอง', Cadence:'จังหวะ',
@@ -1479,7 +1479,7 @@ const i18nExt2 = {
       contact:'联系',
       smallPrint:'面向城市、政府和运营商的决策系统。曼谷 · 东南亚。© 2026 Axiom 版权所有。Axiom 是注册商号。系统正常运行时间、响应时间和成果指标均为个案观察，并非未来表现的保证。',
     },
-    misc: { swipeHint:'17 个系统 — 滑动浏览' },
+    misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     pressContent: {
       p1title:'供应商说不 泰国公务员自己建工具',
       p2title:'创新即服务能否弥合政策与执行之间的鸿沟',
@@ -1568,7 +1568,7 @@ const i18nExt2 = {
       contact:'contact()',
       smallPrint:'// decisionSystems<City | Government | Operator>\n// Bangkok · SEA · © 2026 Axiom\n// uptime, responseTime, outcomeMetrics: caseSpecific[]\n// !guarantees<FuturePerformance>',
     },
-    misc: { swipeHint:'systems[17].swipe()' },
+    misc: { swipeHint:'groups[4].systems[17].swipe()' },
     metaKeys: {
       AI:'AI', Access:'access', Audience:'audience', Authority:'authority',
       Backup:'backup', 'Brain layers':'brainLayers', Cadence:'cadence',

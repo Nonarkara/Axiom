@@ -2227,6 +2227,29 @@ body.no-glitch .sys__title::after { display: none; }
 }
 .sys-tabs::-webkit-scrollbar { display: none; }
 
+/* Group separator labels within tab strip */
+.sys-group-sep {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 18px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--stitch);
+  opacity: 0.55;
+  pointer-events: none;
+  border-bottom: 1px solid var(--ink-300);
+  margin-bottom: -1px;
+  white-space: nowrap;
+}
+.sys-group-sep:not(:first-child) {
+  border-left: 1px solid var(--ink-300);
+  margin-left: 6px;
+  padding-left: 20px;
+}
+
 .sys-tab {
   flex-shrink: 0;
   display: flex;
