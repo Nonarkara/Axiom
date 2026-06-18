@@ -18,8 +18,8 @@
   --red-dim: rgba(239, 45, 62, 0.12);
   --green: #22c55e;
   --green-dim: rgba(34, 197, 94, 0.25);
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono: 'JetBrains Mono', monospace;
+  --font: 'Inter', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'JetBrains Mono', 'Noto Sans Thai', monospace;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 

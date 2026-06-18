@@ -15,9 +15,9 @@
   --success: #37d39b;
   --success-soft: rgba(55, 211, 155, 0.14);
   --shadow: 0 32px 90px rgba(0, 0, 0, 0.38);
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading: 'Outfit', var(--font-body);
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Outfit', 'Noto Sans Thai', var(--font-body);
+  --font-mono: 'JetBrains Mono', 'Noto Sans Thai', monospace;
   --radius: 24px;
 }
 
