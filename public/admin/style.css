@@ -21,6 +21,12 @@
   --radius: 24px;
 }
 
+:root:lang(th) {
+  --font-body: 'Noto Sans Thai', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Noto Sans Thai', 'Outfit', var(--font-body);
+  --font-mono: 'Noto Sans Thai', 'JetBrains Mono', monospace;
+}
+
 * {
   box-sizing: border-box;
 }

@@ -59,6 +59,12 @@
   --fs-display: clamp(64px, 16vw, 200px);
 }
 
+:root:lang(th) {
+  --font-display: 'Noto Sans Thai', 'Instrument Serif', 'Times New Roman', serif;
+  --font-sans: 'Noto Sans Thai', 'Geist', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Noto Sans Thai', 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
