@@ -30,8 +30,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="rams.css?v=20260621b">
-<script defer src="app.js?v=20260621b"></script>
+<link rel="stylesheet" href="rams.css?v=20260621">
+<script defer src="app.js?v=20260621a"></script>
 
 <!-- Cloudflare Insights (skips localhost) -->
 <script>
@@ -159,239 +159,66 @@
       <div class="s-head__meta">Real-time operations rooms · 6</div>
     </div>
     <div class="grid grid--3">
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      <a class="sys-cell" href="https://phuket.nonarkara.org/war-room" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">01</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="images/phuket-dashboard.jpg" loading="lazy" alt="Phuket operations dashboard">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Phuket Ops</div>
           <div class="sys-cell__cat" data-i18n="cats.c01">Regional Operations</div>
-          <div class="sys-cell__lede">Phuket's transit, public safety, and environmental signals, unified into one surface that an actual governor can read in 30 seconds. Built in weeks, not procurement cycles.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_01 · Phuket Operations</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">IoT Sensors × 3,200</div>
-                <div class="sys-node">Transit GPS Feeds</div>
-                <div class="sys-node">Safety Alert Network</div>
-                <div class="sys-node">Environmental Monitor</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">Edge Aggregation<br>42ms refresh<br>Vite · Mapbox · IoT</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">Governor Dashboard<br>War Room View</div>
-                <div class="sys-node sys-node--out">Smart Bus App<br>Passenger Telemetry</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://phuket.nonarkara.org/war-room" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p01.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p01.lede">Phuket's transit, public safety, and environmental signals, unified into one surface that an actual governor can read in 30 seconds. Built in weeks, not procurement cycles.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p01.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://kuching.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">05</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="photos/products/Kuching Dashboard.png" loading="lazy" alt="Greater Kuching IOC">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Kuching IOC</div>
           <div class="sys-cell__cat" data-i18n="cats.c05">Intelligent Operations</div>
-          <div class="sys-cell__lede">A full-spectrum IOC for Greater Kuching, Sarawak. Foreign exchange, flights, satellite imagery, and environmental signals — unified for the operators who run Southeast Asia's fastest-growing smart city.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_05 · Greater Kuching IOC</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">FX Markets<br>(live rates)</div>
-                <div class="sys-node">Flight APIs<br>(arrivals/deps)</div>
-                <div class="sys-node">Sentinel-2<br>Satellite Sweeps</div>
-                <div class="sys-node">Environmental<br>Sensor Network</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">Multi-domain<br>Fusion Layer<br>React · GIS · Edge</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">IOC Command<br>Surface</div>
-                <div class="sys-node sys-node--out">Operator<br>Alert Feed</div>
-                <div class="sys-node sys-node--out">Sarawak<br>Situational Map</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://kuching.nonarkara.org/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p05.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p05.lede">A full-spectrum IOC for Greater Kuching, Sarawak. Foreign exchange, flights, satellite imagery, and environmental signals — unified for the operators who run Southeast Asia's fastest-growing smart city.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p05.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://chula.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">13</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="screenshots/chula.jpg" loading="lazy" alt="Chula Control Tower">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Chula Control Tower</div>
           <div class="sys-cell__cat" data-i18n="cats.c13">Campus Intelligence</div>
-          <div class="sys-cell__lede">Chula Control Tower is a real-time operations dashboard for Chulalongkorn University — 47 live data feeds across traffic, incidents, air quality, satellite imagery, CU Shuttle, news, and emergency events for Bangkok's Siam–Samyan district.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_13 · Chula Control Tower</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">Traffic · Incidents<br>Siam–Samyan</div>
-                <div class="sys-node">Air Quality<br>Satellite Imagery</div>
-                <div class="sys-node">CU Shuttle<br>GPS Positions</div>
-                <div class="sys-node">News · Emergency<br>Event Feeds</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">47-Feed Fusion<br>3D Map Engine<br>Real-time Context</div>
-                <div class="sys-node">Underground<br>Utility Layer</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">7 Operational<br>Lenses</div>
-                <div class="sys-node sys-node--out">Presidential<br>Strategic View</div>
-                <div class="sys-node sys-node--out">3D Campus<br>Command Map</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://chula.nonarkara.org/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p13.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p13.lede">Chula Control Tower is a real-time operations dashboard for Chulalongkorn University — 47 live data feeds across traffic, incidents, air quality, satellite imagery, CU Shuttle, news, and emergency events for Bangkok's Siam–Samyan district.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p13.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://chonburi-control-tower.pages.dev" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">16</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="screenshots/chonburi-control-tower.png" loading="lazy" alt="Chonburi Control Tower">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Chonburi Control Tower</div>
           <div class="sys-cell__cat" data-i18n="cats.c16">Coastal Intelligence</div>
-          <div class="sys-cell__lede">Chonburi Control Tower is a 3D command surface for the Eastern Seaboard: 42 live sources, coastal weather and marine state, market and tourism signals, mayoral incident feeds, EEC trends, and building-scale overlays in one operational lens.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_16 · Chonburi Control Tower</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">Data.go.th<br>Population · Visitors</div>
-                <div class="sys-node">Weather · Marine<br>Air Quality · Markets</div>
-                <div class="sys-node">News Feeds<br>CCTV · AIS · AQ · WX</div>
-                <div class="sys-node">OSM + Mapbox<br>20,877 3D Buildings</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">Source Router<br>42 feeds<br>Live/degraded health</div>
-                <div class="sys-node">3D Lens Engine<br>Boundary · Buildings · Layers</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">Chonburi Town<br>3D Control Tower</div>
-                <div class="sys-node sys-node--out">Mayor's Desk<br>Incidents + Trends</div>
-                <div class="sys-node sys-node--out">Sheets / Sources<br>Operational Evidence</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://chonburi-control-tower.pages.dev" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p16.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p16.lede">Chonburi Control Tower is a 3D command surface for the Eastern Seaboard: 42 live sources, coastal weather and marine state, market and tourism signals, mayoral incident feeds, EEC trends, and building-scale overlays in one operational lens.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p16.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://kmitl-control-tower.pages.dev/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">18</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="screenshots/kmitl.jpg" loading="lazy" alt="KMITL Control Tower">
         <div class="sys-cell__body">
           <div class="sys-cell__name">KMITL Control Tower</div>
           <div class="sys-cell__cat">Campus Intelligence</div>
           <div class="sys-cell__lede">KMITL Control Tower is a real-time operations dashboard for King Mongkut's Institute of Technology Ladkrabang — 56 live data feeds across traffic, incidents, air quality, satellite imagery, campus shuttles, news, and emergency events for Bangkok's Lat Krabang district.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_18 · KMITL Control Tower</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">Traffic · Incidents<br>Lat Krabang</div>
-                <div class="sys-node">Air Quality<br>Satellite Imagery</div>
-                <div class="sys-node">Campus Shuttle<br>GPS Positions</div>
-                <div class="sys-node">News · Emergency<br>Event Feeds</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">56-Feed Fusion<br>3D Map Engine<br>Real-time Context</div>
-                <div class="sys-node">Underground<br>Utility Layer</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">Campus Control<br>Command Center</div>
-                <div class="sys-node sys-node--out">Presidential<br>Strategic View</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://kmitl-control-tower.pages.dev/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span>Open live system</span> <span class="tri">▸</span>
-          </a>
+          <span class="sys-cell__link"><span>Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://yala-control-tower.pages.dev/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">19</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="screenshots/yala.png" loading="lazy" alt="Yala Control Tower">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Yala Control Tower</div>
           <div class="sys-cell__cat">Civic Intelligence</div>
           <div class="sys-cell__lede">Yala Control Tower provides real-time civic intelligence for Yala City Municipality in Thailand's Deep South. A 3D city model, satellite layers, flood watch, Deep South security incidents, and over 30 live data feeds.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_19 · Yala Control Tower</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">Flood Watch<br>Water Levels</div>
-                <div class="sys-node">Security Incidents<br>Deep South Reports</div>
-                <div class="sys-node">Live Weather<br>Satellite Imagery</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">30+ Feed Fusion<br>3D City Engine<br>Real-time Alerts</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">City Operations<br>Dashboard</div>
-                <div class="sys-node sys-node--out">Crisis Response<br>View</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://yala-control-tower.pages.dev/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span>Open live system</span> <span class="tri">▸</span>
-          </a>
+          <span class="sys-cell__link"><span>Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
+      </a>
     </div>
 
     <!-- INTELLIGENCE -->
@@ -400,241 +227,66 @@
       <div class="s-head__meta">Signal &amp; analysis · 5</div>
     </div>
     <div class="grid grid--3">
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      <a class="sys-cell" href="https://globalmonitor.fly.dev/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">02</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="photos/products/DNGWS Monitor.png" loading="lazy" alt="DNGWS Monitor">
         <div class="sys-cell__body">
           <div class="sys-cell__name">DNGWS Monitor</div>
           <div class="sys-cell__cat" data-i18n="cats.c02">Strategic Intelligence</div>
-          <div class="sys-cell__lede">DNGWS Monitor pulls live escalation tracking, economic spillover, and cross-source crisis visualization into one surface. For decision-makers who can't wait for the briefing deck.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_02 · DNGWS Strategic Intelligence</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">OSINT Feeds × 12+</div>
-                <div class="sys-node">Sentinel-2 Satellite</div>
-                <div class="sys-node">Economic Indicators</div>
-                <div class="sys-node">Market Data Streams</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">NLP Fusion Engine<br>Escalation Deltas<br>GIS · OSINT · Edge</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">Global Monitor<br>Dashboard</div>
-                <div class="sys-node sys-node--out">53-country<br>Brief Layer</div>
-                <div class="sys-node sys-node--out">Ministerial<br>Alert Feed</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://globalmonitor.fly.dev/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p02.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p02.lede">DNGWS Monitor pulls live escalation tracking, economic spillover, and cross-source crisis visualization into one surface. For decision-makers who can't wait for the briefing deck.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p02.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://slic.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">04</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="photos/products/SLIC Index.png" loading="lazy" alt="SLIC Index">
         <div class="sys-cell__body">
           <div class="sys-cell__name">SLIC Index</div>
           <div class="sys-cell__cat" data-i18n="cats.c04">City Benchmarking</div>
-          <div class="sys-cell__lede">The SLIC Index doesn't tell cities what they're worth. It shows them five pillars and lets them test their own priorities. Mayors decide what livability means — and the math follows.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_04 · SLIC City Benchmarking</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Data Sources</div>
-                <div class="sys-node">World Bank<br>Indicators</div>
-                <div class="sys-node">UN Datasets</div>
-                <div class="sys-node">depa Thailand<br>Programme Data</div>
-                <div class="sys-node">City Submissions</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Engine</div>
-                <div class="sys-node sys-node--core">5-Pillar Calculator<br>Live weight sliders<br>157 cities · Real-time</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Outputs</div>
-                <div class="sys-node sys-node--out">Dynamic Rankings<br>(reorder on adjust)</div>
-                <div class="sys-node sys-node--out">Mayors of Europe<br>Pickup</div>
-                <div class="sys-node sys-node--out">SCSE Taipei<br>Live Demo</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://slic.nonarkara.org/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p04.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p04.lede">The SLIC Index doesn't tell cities what they're worth. It shows them five pillars and lets them test their own priorities. Mayors decide what livability means — and the math follows.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p04.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://globalmonitor.pages.dev" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">05</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="screenshots/globalmonitor.png" loading="lazy" alt="Global Monitor">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Global Monitor</div>
           <div class="sys-cell__cat">Strategic Intelligence</div>
           <div class="sys-cell__lede">Monitoring three regions (Middle East, Southeast Asia, Thailand): an ultimate monitoring platform based on open data that reveals insights through layering.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_05 · Greater Kuching IOC</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">FX Markets<br>(live rates)</div>
-                <div class="sys-node">Flight APIs<br>(arrivals/deps)</div>
-                <div class="sys-node">Sentinel-2<br>Satellite Sweeps</div>
-                <div class="sys-node">Environmental<br>Sensor Network</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">Multi-domain<br>Fusion Layer<br>React · GIS · Edge</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">IOC Command<br>Surface</div>
-                <div class="sys-node sys-node--out">Operator<br>Alert Feed</div>
-                <div class="sys-node sys-node--out">Sarawak<br>Situational Map</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://globalmonitor.pages.dev" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span>Open live system</span> <span class="tri">▸</span>
-          </a>
+          <span class="sys-cell__link"><span>Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://conflict.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">06</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="photos/products/MEM.png" loading="lazy" alt="Middle East Monitor">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Middle East Monitor</div>
           <div class="sys-cell__cat" data-i18n="cats.c06">Open Intelligence</div>
-          <div class="sys-cell__lede">MEM is the fastest open-source news surface for Middle Eastern conflict coverage. Live multi-source feeds, no editorial delay, no filter bubble. The signal before the cycle.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_06 · MEM Open Intelligence</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">Wire Services<br>(AP, Reuters)</div>
-                <div class="sys-node">Telegram<br>Channels</div>
-                <div class="sys-node">RSS / API<br>Sources</div>
-                <div class="sys-node">Social Signal<br>Layer</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">Speed-first<br>Aggregator<br>No editorial delay</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">Real-time<br>News Surface</div>
-                <div class="sys-node sys-node--out">Analyst<br>Signal Feed</div>
-                <div class="sys-node sys-node--out">Open Access<br>Free to use</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://conflict.nonarkara.org/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p06.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p06.lede">MEM is the fastest open-source news surface for Middle Eastern conflict coverage. Live multi-source feeds, no editorial delay, no filter bubble. The signal before the cycle.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p06.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://siam-markets.pages.dev/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">14</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="screenshots/daytraders-new.png" loading="lazy" alt="DayTraders">
         <div class="sys-cell__body">
           <div class="sys-cell__name">DayTraders</div>
           <div class="sys-cell__cat" data-i18n="cats.c14">Market Intelligence</div>
-          <div class="sys-cell__lede">DayTraders is a personalized Thai market intelligence platform — Bloomberg-style signals applied to SET, MAI, mutual funds, RMF, and Thai ESG instruments. Graham, Buffett, and Munger frameworks built in.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_14 · DayTraders · Thai Market Intelligence</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">SET · MAI<br>Live Price Feeds</div>
-                <div class="sys-node">RMF · Thai ESG<br>Fund Data</div>
-                <div class="sys-node">Company Filings<br>Financials · NAV</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">Signal Engine<br>Graham · Buffett<br>Munger Screens</div>
-                <div class="sys-node">Personalized<br>KPI Layer</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">Bloomberg-style<br>Signal Dashboard</div>
-                <div class="sys-node sys-node--out">Portfolio<br>KPI Tracker</div>
-                <div class="sys-node sys-node--out">Value Investing<br>Screener</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://siam-markets.pages.dev/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p14.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p14.lede">DayTraders is a personalized Thai market intelligence platform — Bloomberg-style signals applied to SET, MAI, mutual funds, RMF, and Thai ESG instruments. Graham, Buffett, and Munger frameworks built in.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p14.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://city-hub.pages.dev/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">15</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="screenshots/cityhub-split-satellite.jpg" loading="lazy" alt="City Hub">
         <div class="sys-cell__body">
           <div class="sys-cell__name">City Hub</div>
           <div class="sys-cell__cat" data-i18n="cats.c15">City Intelligence</div>
-          <div class="sys-cell__lede">City Hub is a replicable city intelligence platform — give it a city name, and it maps it with satellite and base layers, absorbs whatever data you have, and starts synthesizing the picture. v.5, five cities live.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_15 · City Hub · Multi-City Intelligence Platform</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">Air Quality<br>Flood · Heat Index</div>
-                <div class="sys-node">Civic Issues<br>Disease Alerts</div>
-                <div class="sys-node">Satellite Imagery<br>Base Map Layers</div>
-                <div class="sys-node">Weather APIs<br>TMD Forecast</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">City Brain Engine<br>AI Synthesis<br>Gap Detection</div>
-                <div class="sys-node">Multi-city<br>Aggregator</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">AI Daily Brief<br>Action Items</div>
-                <div class="sys-node sys-node--out">Live Map<br>+24H Timeline</div>
-                <div class="sys-node sys-node--out">PM2.5 Ranking<br>Weather Forecast</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://city-hub.pages.dev/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p15.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p15.lede">City Hub is a replicable city intelligence platform — give it a city name, and it maps it with satellite and base layers, absorbs whatever data you have, and starts synthesizing the picture. v.5, five cities live.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p15.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
+      </a>
     </div>
 
     <!-- CIVIC -->
@@ -643,202 +295,56 @@
       <div class="s-head__meta">National platforms &amp; citizen infrastructure · 5</div>
     </div>
     <div class="grid grid--3">
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      <a class="sys-cell" href="https://sciti.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">03</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="screenshots/sciti-new.png" loading="lazy" alt="Smart City Thailand Index (SCITI)">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Smart City Thailand Index (SCITI)</div>
           <div class="sys-cell__cat" data-i18n="cats.c03">National Programme</div>
           <div class="sys-cell__lede">The official Smart City Thailand Index (SCITI) evaluating the progress and impact of 174 urban areas across the country based on the 7 Smart City pillars.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_03 · Thailand National Programme</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">City Applications<br>(depa portal)</div>
-                <div class="sys-node">Milestone Reports</div>
-                <div class="sys-node">Programme Data<br>Updates</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">Smart City Index<br>Bilingual CMS<br>React · Index Layer</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">National Public<br>Dashboard</div>
-                <div class="sys-node sys-node--out">City Status<br>Tracker (live)</div>
-                <div class="sys-node sys-node--out">MTT Super<br>Dashboard</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://sciti.nonarkara.org/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p03.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <span class="sys-cell__link"><span data-i18n="panels.p03.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://bus.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">07</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="photos/products/Phuket Smart Bus.png" loading="lazy" alt="Phuket Smart Bus">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Phuket Smart Bus</div>
           <div class="sys-cell__cat" data-i18n="cats.c07">Transit Intelligence</div>
-          <div class="sys-cell__lede">Real-time GPS tracking and passenger telemetry for Phuket's smart bus network. Designed for the rider's phone first — not a control room screen. Works on the road, in the heat, with one thumb.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_07 · Phuket Smart Bus</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">Bus GPS<br>Trackers</div>
-                <div class="sys-node">IoT Sensor<br>Layer (Phuket)</div>
-                <div class="sys-node">Route Database<br>&amp; Schedules</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">Telemetry<br>Processor<br>TypeScript · Maps</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">Rider Mobile<br>App (phone-first)</div>
-                <div class="sys-node sys-node--out">Arrival<br>Prediction</div>
-                <div class="sys-node sys-node--out">Route<br>Intelligence</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://bus.nonarkara.org/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p07.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p07.lede">Real-time GPS tracking and passenger telemetry for Phuket's smart bus network. Designed for the rider's phone first — not a control room screen. Works on the road, in the heat, with one thumb.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p07.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://cdp.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">08</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="showcase/scth%20v2.png" loading="lazy" alt="SCTH City Data Platform">
         <div class="sys-cell__body">
           <div class="sys-cell__name">SCTH City Data Platform</div>
           <div class="sys-cell__cat" data-i18n="cats.c08">Civic Intelligence</div>
-          <div class="sys-cell__lede">SCTH V2 absorbs civic reports from Telegram and LINE, analyzes problems with AI, and overlays near-real-time satellite and map layers for city builders, developers, and managers.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_08 · SCTH V2 Civic Intelligence</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">Telegram + LINE<br>Messenger Reports</div>
-                <div class="sys-node">Problem Reporting<br>Forms + Photos</div>
-                <div class="sys-node">Satellite Layers<br>Precipitation · Aerosol · Clouds</div>
-                <div class="sys-node">Street · Terrain<br>Map Layers</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">AI Triage Engine<br>Pattern Detection<br>SLA + Urgency Analysis</div>
-                <div class="sys-node">Layer Fusion<br>Near-real-time Context</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">City Ops<br>Command Dashboard</div>
-                <div class="sys-node sys-node--out">Assignment +<br>Resolution Workflow</div>
-                <div class="sys-node sys-node--out">Sheets / PDF<br>Decision Exports</div>
-                <div class="sys-node sys-node--out">Builder / Manager<br>Action View</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://cdp.nonarkara.org/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p08.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p08.lede">SCTH V2 absorbs civic reports from Telegram and LINE, analyzes problems with AI, and overlays near-real-time satellite and map layers for city builders, developers, and managers.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p08.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://nsp.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">12</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="screenshots/nsp-new.png" loading="lazy" alt="National Streaming Platform">
         <div class="sys-cell__body">
           <div class="sys-cell__name">NSP</div>
           <div class="sys-cell__cat" data-i18n="cats.c12">National Broadcast</div>
-          <div class="sys-cell__lede">NSP is Thailand's national streaming platform — all 21 NBTC-licensed digital TV channels, free, full HD, on any device. Live EPG, viewership telemetry, AI guide, and CAP v1.2 emergency alerts.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_12 · NSP National Streaming Platform</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">21 Licensed<br>Broadcaster Feeds</div>
-                <div class="sys-node">EPG Data<br>Programme Schedule</div>
-                <div class="sys-node">CAP v1.2<br>Emergency Alerts</div>
-                <div class="sys-node">Viewer Telemetry<br>Concurrency · Share</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">LL-HLS<br>Stream Engine<br>Full HD · Adaptive</div>
-                <div class="sys-node">NSP Mentor AI<br>Content Guide</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">Any Device<br>No Install Required</div>
-                <div class="sys-node sys-node--out">Live EPG<br>All 21 Channels</div>
-                <div class="sys-node sys-node--out">Ops Dashboard<br>Telemetry · Alerts</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://nsp.nonarkara.org/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p12.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p12.lede">NSP is Thailand's national streaming platform — all 21 NBTC-licensed digital TV channels, free, full HD, on any device. Live EPG, viewership telemetry, AI guide, and CAP v1.2 emergency alerts.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p12.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://ekkasarn-ai.pages.dev/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">17</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="screenshots/ekkasarn-new.png" loading="lazy" alt="Ekkasarn AI">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Ekkasarn AI</div>
           <div class="sys-cell__cat" data-i18n="cats.c17">Document Intelligence</div>
-          <div class="sys-cell__lede">Ekkasarn AI is a Thai document intelligence engine for tax invoices, receipts, and withholding certificates. Upload a real document; the system runs OCR, classifies it, and extracts usable fields — no login.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_17 · Ekkasarn AI Document Intelligence</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">Thai Receipts<br>Upload or Sample</div>
-                <div class="sys-node">Tax Invoice / VAT<br>Document Class</div>
-                <div class="sys-node">Withholding Tax<br>Certificates</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">Gemini OCR<br>Category Detection<br>Confidence Scoring</div>
-                <div class="sys-node">Field Extractor<br>Shop · Phone · Total</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">Bilingual Demo<br>Thai / English</div>
-                <div class="sys-node sys-node--out">Structured<br>Finance Fields</div>
-                <div class="sys-node sys-node--out">Accounting<br>Workflow Hand-off</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://ekkasarn-ai.pages.dev/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p17.cta">Open live system</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p17.lede">Ekkasarn AI is a Thai document intelligence engine for tax invoices, receipts, and withholding certificates. Upload a real document; the system runs OCR, classifies it, and extracts usable fields — no login.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p17.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
+      </a>
     </div>
 
     <!-- EMERGING -->
@@ -847,181 +353,56 @@
       <div class="s-head__meta">Research-grade &amp; new operating models · 5</div>
     </div>
     <div class="grid grid--3">
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      <a class="sys-cell" href="https://github.com/agentic-ai-research/dr-non-diy-ai-council" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">09</span><span class="sys-cell__status">Preview</span></div>
         <img class="sys-cell__shot" src="images/ai-council.jpg" loading="lazy" alt="Dr Non's AI Council">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Dr Non's AI Council</div>
           <div class="sys-cell__cat" data-i18n="cats.c09">Agentic Intelligence</div>
-          <div class="sys-cell__lede">A personal multi-agent deliberation system: 11 AI justices with palindromic names running continuously on a local Mac, arguing through a shared transcript log, for around $3 a month. Proprietary by design.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_09 · AI Council · Agentic Deliberation</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">User question<br>via Telegram</div>
-                <div class="sys-node">Shared transcript<br>~/.council/transcript.jsonl</div>
-                <div class="sys-node">Personal data<br>Journals · Notes · Voice</div>
-                <div class="sys-node">External tools<br>OCR · Video · Drive · PDF</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">The Council</div>
-                <div class="sys-node sys-node--core">Tenet (Chair)<br>Mistral Large 3<br>First-principles</div>
-                <div class="sys-node sys-node--core">Radar · Hannah<br>Research + Archive</div>
-                <div class="sys-node sys-node--core">Ada (Skeptic)<br>ThaiLLM · Bias check</div>
-                <div class="sys-node sys-node--core">Otto (Executor)<br>Llama · Tool runner</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Outputs</div>
-                <div class="sys-node sys-node--out">Deliberated answer<br>VERIFY · DECIDE · EXPLORE</div>
-                <div class="sys-node sys-node--out">Executed task<br>File · Email · PDF · QR</div>
-                <div class="sys-node sys-node--out">Decision log<br>Append-only record</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://github.com/agentic-ai-research/dr-non-diy-ai-council" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p09.cta">View on GitHub</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p09.lede">A personal multi-agent deliberation system: 11 AI justices with palindromic names running continuously on a local Mac, arguing through a shared transcript log, for around $3 a month. Proprietary by design.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p09.cta">View on GitHub</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://github.com/Nonarkara/tkc-talent-support-dashboard" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">10</span><span class="sys-cell__status">Preview</span></div>
         <img class="sys-cell__shot" src="screenshots/tkcx.jpg" loading="lazy" alt="TKCX">
         <div class="sys-cell__body">
           <div class="sys-cell__name">TKCX</div>
           <div class="sys-cell__cat" data-i18n="cats.c10">Talent Intelligence</div>
-          <div class="sys-cell__lede">A game-based talent operating system that treats employees as party members, projects as quests, and team assembly as strategy — replacing org-chart politics with capability intelligence.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_10 · TKCX Talent Intelligence</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">Employee roster<br>348 heroes · skills</div>
-                <div class="sys-node">Project pipeline<br>Quests · budget · deadline</div>
-                <div class="sys-node">Check-in stream<br>Lobby · daily signals</div>
-                <div class="sys-node">Capability data<br>Certs · scores · history</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Game Engine</div>
-                <div class="sys-node sys-node--core">DQ3 Archetypes<br>Captain · Tech · Sales<br>Ops · Scout · Wildcard</div>
-                <div class="sys-node sys-node--core">Readiness Formula<br>Coverage + Chemistry<br>+ Morale + Quality</div>
-                <div class="sys-node sys-node--core">Moneyball Cap<br>Budget ÷ 10<br>= Salary ceiling / mo</div>
-                <div class="sys-node sys-node--core">Predict → Deploy<br>→ Actual → Feedback<br>Loop</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">8 Screens</div>
-                <div class="sys-node sys-node--out">Cockpit · org health<br>Formation · team assembly</div>
-                <div class="sys-node sys-node--out">Matrix · skill heatmap<br>Ninja · mission readiness</div>
-                <div class="sys-node sys-node--out">Signals · predict vs real<br>Roster · 348 cards</div>
-                <div class="sys-node sys-node--out">Lobby · live check-in<br>Ledger · audit log</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://github.com/Nonarkara/tkc-talent-support-dashboard" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p10.cta">View on GitHub</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p10.lede">A game-based talent operating system that treats employees as party members, projects as quests, and team assembly as strategy — replacing org-chart politics with capability intelligence.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p10.cta">View on GitHub</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://github.com/agentic-ai-research/second-brain-os" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">11</span><span class="sys-cell__status">Preview</span></div>
         <img class="sys-cell__shot" src="screenshots/secondbrain_obsidian.jpg" loading="lazy" alt="Second Brain OS">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Second Brain OS</div>
           <div class="sys-cell__cat" data-i18n="cats.c11">Knowledge Intelligence</div>
-          <div class="sys-cell__lede">Second Brain OS connects your Obsidian vault to every AI coding platform simultaneously via MCP. Brain-anatomy folder structure, 19 server configs, agents that write in your voice and remember every decision.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_11 · Second Brain OS · Knowledge Intelligence</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Vault Layers</div>
-                <div class="sys-node">PrefrontalCortex<br>Strategy + Planning</div>
-                <div class="sys-node">Hippocampus<br>Atomic Memories</div>
-                <div class="sys-node">TemporalLobe<br>Reference + Patterns</div>
-                <div class="sys-node">FrontalLobe<br>Daily Notes + Active Work</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">MCP Core</div>
-                <div class="sys-node sys-node--core">19 Server Configs<br>Persona Blueprint<br>Voice + Values Access</div>
-                <div class="sys-node sys-node--core">Vault Health Monitor<br>Backup Orchestration<br>Git + rsync layers</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">AI Platforms</div>
-                <div class="sys-node sys-node--out">Claude Code<br>Context-aware builds</div>
-                <div class="sys-node sys-node--out">Cursor · Codex<br>Voice-matched output</div>
-                <div class="sys-node sys-node--out">Memory Persistence<br>Across all sessions</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://github.com/agentic-ai-research/second-brain-os" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span data-i18n="panels.p11.cta">View on GitHub</span> <span class="tri">▸</span>
-          </a>
+          <div class="sys-cell__lede" data-i18n="panels.p11.lede">Second Brain OS connects your Obsidian vault to every AI coding platform simultaneously via MCP. Brain-anatomy folder structure, 19 server configs, agents that write in your voice and remember every decision.</div>
+          <span class="sys-cell__link"><span data-i18n="panels.p11.cta">View on GitHub</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://horizon-field-lab.pages.dev/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">20</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="screenshots/horizon45-new.png" loading="lazy" alt="Horizon 45">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Horizon 45</div>
           <div class="sys-cell__cat">Capability Lab</div>
           <div class="sys-cell__lede">Horizon 45 is a field instrument designed to test actual AI judgment. From deepfake detection to prompt engineering, users navigate real-world signals and leave with a capability portrait and learning roadmap.</div>
-          <div class="sys-diagram">
-
-            <div class="sys-diagram__head">System architecture // NODE_20 · Horizon 45</div>
-            <div class="sys-diagram__flow">
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Inputs</div>
-                <div class="sys-node">User Decisions</div>
-                <div class="sys-node">Deepfake Signals</div>
-                <div class="sys-node">Prompt Literacy</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Processing</div>
-                <div class="sys-node sys-node--core">Capability Assessment Engine<br>Risk Judgment Evaluation<br>Real-time Scoring</div>
-              </div>
-              <div class="sys-diagram__arrow">→</div>
-              <div class="sys-diagram__col">
-                <div class="sys-diagram__lbl">Surfaces</div>
-                <div class="sys-node sys-node--out">Capability Portrait</div>
-                <div class="sys-node sys-node--out">Learning Roadmap</div>
-              </div>
-            </div>
-          </div>
-        
-</div>
-          <a class="sys-cell__link" href="https://horizon-field-lab.pages.dev/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span>Open live system</span> <span class="tri">▸</span>
-          </a>
+          <span class="sys-cell__link"><span>Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
-      <div class="sys-cell" onclick="this.classList.toggle('is-expanded')">
+      </a>
+      <a class="sys-cell" href="https://dao.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">21</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="https://dao.nonarkara.org/public/hero.jpg" loading="lazy" alt="Reading Dao De Jing with Dr. Non">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Dao De Jing</div>
           <div class="sys-cell__cat">Digital Humanities</div>
           <div class="sys-cell__lede">A trilingual Dao De Jing reading room with Tsai comics, Buddhist parallels, psychology notes, pinyin, and a living reference shelf.</div>
-          
-          <a class="sys-cell__link" href="https://dao.nonarkara.org/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <span>Open live system</span> <span class="tri">▸</span>
-          </a>
+          <span class="sys-cell__link"><span>Open live system</span> <span class="tri">▸</span></span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
