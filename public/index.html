@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="rams.css?v=20260621">
-<script defer src="app.js?v=20260621"></script>
+<script defer src="app.js?v=20260621a"></script>
 
 <!-- Cloudflare Insights (skips localhost) -->
 <script>
@@ -114,26 +114,32 @@
       <span data-i18n="heroCurrent.meta7">ASEAN</span>
     </div>
 
-    <h1 class="t-hero hero__title" data-i18n-html="heroCurrent.title">We build the <em>working systems</em> governments can't afford to wait for.</h1>
+    <div class="hero__columns">
+      <div class="hero__main">
+        <h1 class="t-hero hero__title" data-i18n-html="heroCurrent.title">We build the <em>working systems</em> governments can't afford to wait for.</h1>
 
-    <p class="hero__sub" data-i18n="heroCurrent.sub">Most "smart city" work ends as a deck. Ours runs in production. Problem mapped in week one. Something working before any presentation. Every decision tracked from the start.</p>
+        <p class="hero__sub" data-i18n="heroCurrent.sub">Most "smart city" work ends as a deck. Ours runs in production. Problem mapped in week one. Something working before any presentation. Every decision tracked from the start.</p>
 
-    <div class="readout" aria-hidden="true">
-      <div class="ln"><span class="k">status</span><span class="v">all_systems_nominal</span></div>
-      <div class="ln"><span class="k">uptime</span><span class="v">99.94% / last 30d</span></div>
-      <div class="ln"><span class="k">deploy</span><span class="v">14d to first surface</span></div>
-    </div>
+        <div class="btn-row hero__cta">
+          <a href="#systems" class="btn btn--primary"><span data-i18n="heroCurrent.cta1">See live systems</span> <span class="tri">▸</span></a>
+          <a href="#contact" class="btn btn--ghost" data-i18n="heroCurrent.cta2">Start a brief</a>
+        </div>
+      </div>
 
-    <div class="btn-row hero__cta">
-      <a href="#systems" class="btn btn--primary"><span data-i18n="heroCurrent.cta1">See live systems</span> <span class="tri">▸</span></a>
-      <a href="#contact" class="btn btn--ghost" data-i18n="heroCurrent.cta2">Start a brief</a>
-    </div>
+      <div class="hero__side">
+        <div class="readout" aria-hidden="true" style="margin-top: 0;">
+          <div class="ln"><span class="k">status</span><span class="v">all_systems_nominal</span></div>
+          <div class="ln"><span class="k">uptime</span><span class="v">99.94% / last 30d</span></div>
+          <div class="ln"><span class="k">deploy</span><span class="v">14d to first surface</span></div>
+        </div>
 
-    <div class="grid grid--4" style="margin-top:28px;">
-      <div class="cell"><div class="stat__val">20</div><div class="stat__lbl" data-i18n="heroCurrent.stat1lbl">Showcase systems</div></div>
-      <div class="cell"><div class="stat__val">5</div><div class="stat__lbl" data-i18n="heroCurrent.stat2lbl">Countries operating</div></div>
-      <div class="cell"><div class="stat__val">174</div><div class="stat__lbl" data-i18n="heroCurrent.stat3lbl">Cities indexed</div></div>
-      <div class="cell"><div class="stat__val">1,000<small>+</small></div><div class="stat__lbl" data-i18n="heroCurrent.stat4lbl">On main stage, GITEX Asia</div></div>
+        <div class="grid grid--2" style="margin-top:28px;">
+          <div class="cell"><div class="stat__val">20</div><div class="stat__lbl" data-i18n="heroCurrent.stat1lbl">Showcase systems</div></div>
+          <div class="cell"><div class="stat__val">5</div><div class="stat__lbl" data-i18n="heroCurrent.stat2lbl">Countries operating</div></div>
+          <div class="cell"><div class="stat__val">174</div><div class="stat__lbl" data-i18n="heroCurrent.stat3lbl">Cities indexed</div></div>
+          <div class="cell"><div class="stat__val">1,000<small>+</small></div><div class="stat__lbl" data-i18n="heroCurrent.stat4lbl">On main stage, GITEX Asia</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -195,7 +201,7 @@
       </a>
       <a class="sys-cell" href="https://kmitl-control-tower.pages.dev/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">18</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
-        <img class="sys-cell__shot" src="screenshots/kmitl.png" loading="lazy" alt="KMITL Control Tower">
+        <img class="sys-cell__shot" src="screenshots/kmitl.jpg" loading="lazy" alt="KMITL Control Tower">
         <div class="sys-cell__body">
           <div class="sys-cell__name">KMITL Control Tower</div>
           <div class="sys-cell__cat">Campus Intelligence</div>
@@ -241,6 +247,16 @@
           <span class="sys-cell__link"><span data-i18n="panels.p04.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
       </a>
+      <a class="sys-cell" href="https://globalmonitor.pages.dev" target="_blank" rel="noopener">
+        <div class="sys-cell__head"><span class="sys-cell__idx">05</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
+        <img class="sys-cell__shot" src="screenshots/globalmonitor.png" loading="lazy" alt="Global Monitor">
+        <div class="sys-cell__body">
+          <div class="sys-cell__name">Global Monitor</div>
+          <div class="sys-cell__cat">Strategic Intelligence</div>
+          <div class="sys-cell__lede">Monitoring three regions (Middle East, Southeast Asia, Thailand): an ultimate monitoring platform based on open data that reveals insights through layering.</div>
+          <span class="sys-cell__link"><span>Open live system</span> <span class="tri">▸</span></span>
+        </div>
+      </a>
       <a class="sys-cell" href="https://conflict.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">06</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="photos/products/MEM.png" loading="lazy" alt="Middle East Monitor">
@@ -253,7 +269,7 @@
       </a>
       <a class="sys-cell" href="https://siam-markets.pages.dev/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">14</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
-        <img class="sys-cell__shot" src="screenshots/daytraders.jpg" loading="lazy" alt="DayTraders">
+        <img class="sys-cell__shot" src="screenshots/daytraders-new.png" loading="lazy" alt="DayTraders">
         <div class="sys-cell__body">
           <div class="sys-cell__name">DayTraders</div>
           <div class="sys-cell__cat" data-i18n="cats.c14">Market Intelligence</div>
@@ -281,11 +297,11 @@
     <div class="grid grid--3">
       <a class="sys-cell" href="https://sciti.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">03</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
-        <img class="sys-cell__shot" src="images/smart-city-thailand-index.png" loading="lazy" alt="Smart City Thailand Index">
+        <img class="sys-cell__shot" src="screenshots/sciti-new.png" loading="lazy" alt="Smart City Thailand Index (SCITI)">
         <div class="sys-cell__body">
-          <div class="sys-cell__name">Smart City Thailand</div>
+          <div class="sys-cell__name">Smart City Thailand Index (SCITI)</div>
           <div class="sys-cell__cat" data-i18n="cats.c03">National Programme</div>
-          <div class="sys-cell__lede" data-i18n="panels.p03.lede">We built the public surface for Thailand's national smart city programme with depa. Proposals go in. Progress stays visible. The programme stops disappearing into PDFs.</div>
+          <div class="sys-cell__lede">The official Smart City Thailand Index (SCITI) evaluating the progress and impact of 174 urban areas across the country based on the 7 Smart City pillars.</div>
           <span class="sys-cell__link"><span data-i18n="panels.p03.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
       </a>
@@ -299,7 +315,7 @@
           <span class="sys-cell__link"><span data-i18n="panels.p07.cta">Open live system</span> <span class="tri">▸</span></span>
         </div>
       </a>
-      <a class="sys-cell" href="https://cdp.nonarkara.org/v2/dashboard.html" target="_blank" rel="noopener">
+      <a class="sys-cell" href="https://cdp.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">08</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
         <img class="sys-cell__shot" src="showcase/scth%20v2.png" loading="lazy" alt="SCTH City Data Platform">
         <div class="sys-cell__body">
@@ -311,7 +327,7 @@
       </a>
       <a class="sys-cell" href="https://nsp.nonarkara.org/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">12</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
-        <img class="sys-cell__shot" src="showcase/nsp.png" loading="lazy" alt="National Streaming Platform">
+        <img class="sys-cell__shot" src="screenshots/nsp-new.png" loading="lazy" alt="National Streaming Platform">
         <div class="sys-cell__body">
           <div class="sys-cell__name">NSP</div>
           <div class="sys-cell__cat" data-i18n="cats.c12">National Broadcast</div>
@@ -321,7 +337,7 @@
       </a>
       <a class="sys-cell" href="https://ekkasarn-ai.pages.dev/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">17</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
-        <img class="sys-cell__shot" src="screenshots/ekkasarn-ai.png" loading="lazy" alt="Ekkasarn AI">
+        <img class="sys-cell__shot" src="screenshots/ekkasarn-new.png" loading="lazy" alt="Ekkasarn AI">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Ekkasarn AI</div>
           <div class="sys-cell__cat" data-i18n="cats.c17">Document Intelligence</div>
@@ -334,7 +350,7 @@
     <!-- EMERGING -->
     <div class="cluster-head">
       <div class="t-label">Emerging</div>
-      <div class="s-head__meta">Research-grade &amp; new operating models · 4</div>
+      <div class="s-head__meta">Research-grade &amp; new operating models · 5</div>
     </div>
     <div class="grid grid--3">
       <a class="sys-cell" href="https://github.com/agentic-ai-research/dr-non-diy-ai-council" target="_blank" rel="noopener">
@@ -369,11 +385,21 @@
       </a>
       <a class="sys-cell" href="https://horizon-field-lab.pages.dev/" target="_blank" rel="noopener">
         <div class="sys-cell__head"><span class="sys-cell__idx">20</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
-        <img class="sys-cell__shot" src="screenshots/horizon45.png" loading="lazy" alt="Horizon 45">
+        <img class="sys-cell__shot" src="screenshots/horizon45-new.png" loading="lazy" alt="Horizon 45">
         <div class="sys-cell__body">
           <div class="sys-cell__name">Horizon 45</div>
           <div class="sys-cell__cat">Capability Lab</div>
           <div class="sys-cell__lede">Horizon 45 is a field instrument designed to test actual AI judgment. From deepfake detection to prompt engineering, users navigate real-world signals and leave with a capability portrait and learning roadmap.</div>
+          <span class="sys-cell__link"><span>Open live system</span> <span class="tri">▸</span></span>
+        </div>
+      </a>
+      <a class="sys-cell" href="https://dao.nonarkara.org/" target="_blank" rel="noopener">
+        <div class="sys-cell__head"><span class="sys-cell__idx">21</span><span class="sys-cell__status"><span class="dot"></span>Live</span></div>
+        <img class="sys-cell__shot" src="https://dao.nonarkara.org/public/hero.jpg" loading="lazy" alt="Reading Dao De Jing with Dr. Non">
+        <div class="sys-cell__body">
+          <div class="sys-cell__name">Dao De Jing</div>
+          <div class="sys-cell__cat">Digital Humanities</div>
+          <div class="sys-cell__lede">A trilingual Dao De Jing reading room with Tsai comics, Buddhist parallels, psychology notes, pinyin, and a living reference shelf.</div>
           <span class="sys-cell__link"><span>Open live system</span> <span class="tri">▸</span></span>
         </div>
       </a>
@@ -404,7 +430,7 @@
       </div>
       <div class="stage__gallery">
         <img src="images/taipei-stage.jpg" loading="lazy" alt="On the City Vision stage in Taipei">
-        <img src="images/middle-east-monitor.webp" loading="lazy" alt="Middle East Monitor live tactical interface">
+        <img src="screenshots/taiwan-audience.png" loading="lazy" alt="Audience in Taiwan">
         <img src="images/taipei-networking.jpg" loading="lazy" alt="Networking after the SLIC Index launch">
       </div>
     </article>
@@ -448,7 +474,7 @@
     </div>
     <div class="cluster-head"><div class="t-label">Built with</div><div class="s-head__meta">Local-first · no vendor lock-in</div></div>
     <div class="tags">
-      <span>Claude Code</span><span>M5 Max · 128 GB</span><span>Cloudflare Pages</span><span>Neon Postgres</span><span>Google Sheets</span><span>Mapbox · Deck.gl</span><span>Next.js 16</span><span>Fly.io</span><span>GitHub</span>
+      <span>React</span><span>NextJS</span><span>ngrok</span><span>Vercel</span><span>Railway</span><span>Render</span><span>DeepSeek</span><span>Qwen</span><span>Claude Code</span><span>Cursor</span><span>VS Code</span><span>Google Antigravity</span><span>Claude Design</span><span>Google Stitch</span><span>Kimi 2.6/2.7</span><span>Google Drive</span><span>Python</span><span>JavaScript</span>
     </div>
     <p class="t-body-2" data-i18n="notesContent.stackNote" style="margin:12px 0 0;">Local-first. No build team. No vendor lock-in. The M5 Max runs inference, builds, and deploys from one desk in Bangkok.</p>
   </div>
