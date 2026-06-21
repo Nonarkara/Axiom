@@ -655,6 +655,14 @@ function pickSeedText(currentValue, seedValue, placeholderValue = null) {
   return normalized;
 }
 
+function pickSeedUrl(currentValue, seedValue) {
+  const normalized = cleanText(currentValue, '');
+  if (!normalized) return seedValue || null;
+  if (normalized === 'https://ascn.nonarkara.org/') return seedValue || null;
+  if (normalized === 'https://cdp.nonarkara.org/v2/dashboard.html') return seedValue || null;
+  return normalized;
+}
+
 function pickSeedNumber(currentValue, seedValue, placeholderValue = null) {
   if (currentValue === null || currentValue === undefined || currentValue === '') {
     return seedValue;
@@ -674,6 +682,8 @@ function syncSeedEvidenceRecords() {
       SELECT
         id,
         status,
+        link_label AS linkLabel,
+        link_url AS linkUrl,
         region_code AS regionCode,
         stakeholder,
         outcome,
@@ -700,6 +710,8 @@ function syncSeedEvidenceRecords() {
       UPDATE case_study_proof
       SET
         status = ?,
+        link_label = ?,
+        link_url = ?,
         region_code = ?,
         stakeholder = ?,
         outcome = ?,
@@ -714,6 +726,8 @@ function syncSeedEvidenceRecords() {
       WHERE slug = ?
     `).run(
       pickSeedText(existing.status, study.status, 'live'),
+      pickSeedText(existing.linkLabel, study.linkLabel),
+      pickSeedUrl(existing.linkUrl, study.linkUrl),
       pickSeedText(existing.regionCode, study.regionCode, 'global'),
       pickSeedText(existing.stakeholder, study.stakeholder),
       pickSeedText(existing.outcome, study.outcome),
@@ -733,6 +747,7 @@ function syncSeedEvidenceRecords() {
     const existing = db.prepare(`
       SELECT
         id,
+        url,
         status,
         artifact_type AS artifactType,
         confidence_score AS confidenceScore,
@@ -753,6 +768,7 @@ function syncSeedEvidenceRecords() {
       UPDATE content_history
       SET
         status = ?,
+        url = ?,
         artifact_type = ?,
         confidence_score = ?,
         proof_note = ?,
@@ -760,6 +776,7 @@ function syncSeedEvidenceRecords() {
       WHERE title = ?
     `).run(
       pickSeedText(existing.status, item.status, 'published'),
+      pickSeedUrl(existing.url, item.url),
       pickSeedText(existing.artifactType, item.artifactType, 'brief'),
       pickSeedNumber(existing.confidenceScore, item.confidenceScore, 0.75),
       pickSeedText(existing.proofNote, item.proofNote),

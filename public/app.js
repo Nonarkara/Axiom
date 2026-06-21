@@ -121,7 +121,7 @@ const uiCopy = {
       systems: 'Systems', stages: 'Stages', team: 'Team', press: 'Press', cta: 'Work With Us',
     },
     heroCurrent: {
-      title: 'We build the <em>working systems</em> governments<br><span class="hero__punch"><span class="hero__punch-afford">can\'t afford</span> <span class="hero__punch-wait">to wait for.</span></span>',
+      title: 'We build the <em>working systems</em> governments <br><span class="hero__punch"><span class="hero__punch-afford">can\'t afford</span> <span class="hero__punch-wait">to wait for.</span></span>',
       sub: 'Most "smart city" work ends as a deck. Ours runs in production. Problem mapped in week one. Something working before any presentation. Every decision tracked from the start.',
       cta1: 'See live systems', cta2: 'Start a brief',
       stat1lbl: 'Systems in production', stat2lbl: 'Countries operating',
@@ -570,7 +570,7 @@ const uiCopy = {
       cta: 'workWith(us)',
     },
     heroCurrent: {
-      title: 'LiveSystem<em>.build()</em><br>// gov.cannotWait() → ship() → instrument(day1)',
+      title: 'LiveSystem<em>.build()</em> <br>// gov.cannotWait() → ship() → instrument(day1)',
       sub: '// most "smart city" work: Promise<Deck> — never resolves\n// ours: LiveSystem — deployed, instrumented, running\n// method: pressureMap() → shipRough() → instrument(day1)',
       cta1: 'systems.getLive()',
       cta2: 'brief.start()',
@@ -1603,7 +1603,10 @@ function renderStaticCopy() {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/&lt;(\/?)(b|em)&gt;/g, '<$1$2>');
+    .replace(/&lt;(\/?)(b|em)&gt;/g, '<$1$2>')
+    .replace(/&lt;br&gt;/g, '<br>')
+    .replace(/&lt;span class="(hero__punch|hero__punch-afford|hero__punch-wait)"&gt;/g, '<span class="$1">')
+    .replace(/&lt;\/span&gt;/g, '</span>');
 
   document.querySelectorAll('[data-i18n]').forEach((node) => {
     const value = lookup(node.getAttribute('data-i18n'));
@@ -1617,7 +1620,7 @@ function renderStaticCopy() {
 
   document.querySelectorAll('[data-i18n-html]').forEach((node) => {
     const value = lookup(node.getAttribute('data-i18n-html'));
-    if (typeof value === 'string') node.innerHTML = value;
+    if (typeof value === 'string') node.innerHTML = renderInlineMarkup(value);
   });
 
   document.querySelectorAll('#localeSwitch [data-locale], #localeSwitchMobile [data-locale]').forEach((btn) => {

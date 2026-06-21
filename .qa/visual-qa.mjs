@@ -179,7 +179,7 @@ async function inspectHomepage(browser, name, contextOptions) {
   await gotoPage(page);
   await page.waitForLoadState('networkidle', { timeout: 6000 }).catch(() => {});
   await page.waitForSelector('.hero', { timeout: 15000 });
-  await page.waitForSelector('.sys-tabs', { timeout: 15000 });
+  await page.waitForSelector('#systems .sys-cell', { timeout: 15000 });
   await page.waitForSelector('#team', { timeout: 15000 });
   await page.waitForSelector('#contact', { timeout: 15000 });
   await page.waitForTimeout(1200);
@@ -188,177 +188,99 @@ async function inspectHomepage(browser, name, contextOptions) {
   const fullPath = path.join(outDir, `homepage-${name}-full.png`);
   await page.screenshot({ path: fullPath, fullPage: true });
 
-  const tabs = page.locator('.sys-tab');
-  const tabCount = await tabs.count();
-  for (let index = 0; index < tabCount; index += 1) {
-    const tab = tabs.nth(index);
-    const panelId = await tab.getAttribute('data-panel');
-    await tab.click();
-    await page.waitForTimeout(80);
-
-    const tabState = await page.evaluate((expectedPanelId) => {
-      const selectedTabs = Array.from(document.querySelectorAll('.sys-tab'))
-        .filter((item) => item.getAttribute('aria-selected') === 'true');
-      const activePanels = Array.from(document.querySelectorAll('.sys-panel.active'));
-      const panel = document.getElementById(expectedPanelId);
-      return {
-        selectedCount: selectedTabs.length,
-        activePanelCount: activePanels.length,
-        expectedPanelActive: panel?.classList.contains('active') || false,
-        expectedPanelVisible: Boolean(panel) && getComputedStyle(panel).display !== 'none',
-        title: String(panel?.querySelector('.sys__title')?.textContent || '').replace(/\s+/g, ' ').trim(),
-      };
-    }, panelId);
-
-    checks.push({
-      kind: 'system-tab',
-      label: normalizeText(await tab.innerText()),
-      ok: tabState.selectedCount === 1
-        && tabState.activePanelCount === 1
-        && tabState.expectedPanelActive
-        && tabState.expectedPanelVisible,
-      state: tabState,
-    });
-
-    const mapButton = page.locator(`#${panelId} .sys-map-btn`);
-    if (await mapButton.count() === 1) {
-      const mapId = await mapButton.getAttribute('data-map');
-      await mapButton.click();
-      await page.waitForTimeout(80);
-      const opened = await page.evaluate((id) => {
-        const diagram = document.getElementById(id);
-        return {
-          openClass: diagram?.classList.contains('open') || false,
-          visible: Boolean(diagram) && getComputedStyle(diagram).display !== 'none',
-        };
-      }, mapId);
-      const openText = normalizeText(await mapButton.innerText());
-      await mapButton.click();
-      await page.waitForTimeout(80);
-      const closed = await page.evaluate((id) => {
-        const diagram = document.getElementById(id);
-        return {
-          openClass: diagram?.classList.contains('open') || false,
-          visible: Boolean(diagram) && getComputedStyle(diagram).display !== 'none',
-        };
-      }, mapId);
-      const closeText = normalizeText(await mapButton.innerText());
-
-      checks.push({
-        kind: 'system-map',
-        label: `${panelId} system map`,
-        ok: opened.openClass
-          && opened.visible
-          && !closed.openClass
-          && !closed.visible
-          && openText.includes('⊖')
-          && closeText.includes('⊕'),
-        state: { opened, closed, openText, closeText },
-      });
+  await page.evaluate(async () => {
+    const images = Array.from(document.querySelectorAll('#systems img'));
+    for (const image of images) {
+      image.loading = 'eager';
+      image.scrollIntoView({ block: 'center' });
+      await new Promise((resolve) => setTimeout(resolve, 30));
     }
-  }
+    window.scrollTo(0, 0);
+  });
+  await page.waitForFunction(() => Array.from(document.querySelectorAll('#systems img'))
+    .every((image) => image.complete && image.naturalWidth > 0), null, { timeout: 8000 }).catch(() => {});
 
-  await tabs.nth(0).click();
-  await tabs.nth(0).focus();
-  await page.keyboard.press('ArrowRight');
-  await page.waitForTimeout(80);
-  const keyboardState = await page.evaluate(() => ({
-    selectedText: document.querySelector('.sys-tab[aria-selected="true"]')?.innerText.trim() || '',
-    activePanel: document.querySelector('.sys-panel.active')?.id || '',
-  }));
+  const systemGridState = await page.evaluate(() => {
+    const cards = Array.from(document.querySelectorAll('#systems .sys-cell'));
+    const images = cards.map((card) => {
+      const image = card.querySelector('img');
+      return {
+        name: card.querySelector('.sys-cell__name')?.textContent?.trim() || '',
+        src: image?.getAttribute('src') || '',
+        complete: Boolean(image?.complete),
+        naturalWidth: image?.naturalWidth || 0,
+      };
+    });
+    const hrefs = cards.map((card) => card.getAttribute('href') || '');
+    return {
+      cardCount: cards.length,
+      liveStatusCount: document.querySelectorAll('#systems .sys-cell__status').length,
+      imageCount: images.length,
+      brokenImages: images.filter((image) => !image.complete || image.naturalWidth < 1),
+      cdpRootLink: hrefs.includes('https://cdp.nonarkara.org/'),
+      staleCdpLink: hrefs.includes('https://cdp.nonarkara.org/v2/dashboard.html'),
+      externalLinkCount: hrefs.filter((href) => /^https?:\/\//.test(href)).length,
+    };
+  });
   checks.push({
-    kind: 'system-tab-keyboard',
-    label: 'ArrowRight from first system tab',
-    ok: keyboardState.activePanel === 'panel-02',
-    state: keyboardState,
+    kind: 'system-grid',
+    label: 'systems card grid',
+    ok: systemGridState.cardCount >= 20
+      && systemGridState.liveStatusCount >= 20
+      && systemGridState.imageCount >= 20
+      && systemGridState.brokenImages.length === 0
+      && systemGridState.cdpRootLink
+      && !systemGridState.staleCdpLink,
+    state: systemGridState,
   });
 
-  const cvButtons = page.locator('.cv-btn');
-  const cvCount = await cvButtons.count();
-  for (let index = 0; index < cvCount; index += 1) {
-    const cvButton = cvButtons.nth(index);
-    const cvId = await cvButton.getAttribute('data-cv');
-    await cvButton.click();
-    await page.waitForTimeout(80);
-    const opened = await page.evaluate((id) => {
-      const panel = document.getElementById(id);
-      return {
-        openClass: panel?.classList.contains('open') || false,
-        visible: Boolean(panel) && getComputedStyle(panel).display !== 'none',
-      };
-    }, cvId);
-    const openText = normalizeText(await cvButton.innerText());
-    await cvButton.click();
-    await page.waitForTimeout(80);
-    const closed = await page.evaluate((id) => {
-      const panel = document.getElementById(id);
-      return {
-        openClass: panel?.classList.contains('open') || false,
-        visible: Boolean(panel) && getComputedStyle(panel).display !== 'none',
-      };
-    }, cvId);
-    const closeText = normalizeText(await cvButton.innerText());
-
-    checks.push({
-      kind: 'cv-toggle',
-      label: cvId,
-      ok: opened.openClass
-        && opened.visible
-        && !closed.openClass
-        && !closed.visible
-        && openText.includes('⊖')
-        && closeText.includes('⊕'),
-      state: { opened, closed, openText, closeText },
-    });
+  const localeStates = [];
+  for (const locale of ['th', 'zh', 'ts', 'en']) {
+    await page.click(`#localeSwitch [data-locale="${locale}"]`);
+    await page.waitForTimeout(120);
+    localeStates.push(await page.evaluate((expectedLocale) => ({
+      expectedLocale,
+      htmlLang: document.documentElement.lang,
+      active: document.querySelector('#localeSwitch .active')?.getAttribute('data-locale') || '',
+      heading: document.querySelector('.hero__title')?.textContent?.replace(/\s+/g, ' ').trim() || '',
+      horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+    }), locale));
   }
+  checks.push({
+    kind: 'locale-switch',
+    label: 'homepage locale buttons',
+    ok: localeStates.every((state) => state.htmlLang === state.expectedLocale
+      && state.active === state.expectedLocale
+      && state.heading.length > 8
+      && !state.horizontalOverflow),
+    state: localeStates,
+  });
 
-  checks.push(await checkAnchor(page, 'hero systems CTA', 'a.btn--primary[href="#systems"]', 'systems'));
-  checks.push(await checkAnchor(page, 'hero contact CTA', 'a.btn--ghost[href="#contact"]', 'contact'));
-  checks.push(await checkAnchor(page, 'topbar contact CTA', 'a.topbar__cta[href="#contact"]', 'contact'));
-  checks.push(await checkAnchor(page, 'footer systems', '.foot__links a[href="#systems"]', 'systems'));
-  checks.push(await checkAnchor(page, 'footer contact', '.foot__links a[href="#contact"]', 'contact'));
+  checks.push(await checkAnchor(page, 'hero systems CTA', '.hero a.btn--primary[href="#systems"]', 'systems'));
+  checks.push(await checkAnchor(page, 'hero contact CTA', '.hero a.btn--ghost[href="#contact"]', 'contact'));
+  if (name !== 'mobile') {
+    checks.push(await checkAnchor(page, 'masthead contact CTA', '.masthead a.btn--primary[href="#contact"]', 'contact'));
+  }
+  checks.push(await checkAnchor(page, 'footer systems', '.foot .nav a[href="#systems"]', 'systems'));
+  checks.push(await checkAnchor(page, 'footer contact', '.foot .nav a[href="#contact"]', 'contact'));
 
-  await gotoPage(page);
-  await page.waitForLoadState('networkidle', { timeout: 6000 }).catch(() => {});
-  await page.evaluate(() => window.postMessage({ type: '__activate_edit_mode' }, '*'));
-  await page.waitForTimeout(500);
-  const tweakBefore = await page.evaluate(() => ({
-    panelVisible: Boolean(document.querySelector('.twk-panel')),
-    toggleCount: document.querySelectorAll('.twk-toggle').length,
-    sliderCount: document.querySelectorAll('.twk-slider').length,
-    colorCount: document.querySelectorAll('.twk-swatch').length,
+  const staticContentState = await page.evaluate(() => ({
+    founderCount: document.querySelectorAll('#team .cv__name').length,
+    cvBlockCount: document.querySelectorAll('#team .cv-block').length,
+    pressRows: document.querySelectorAll('#press .press-row').length,
+    proBonoCards: document.querySelectorAll('#team .probono-card').length,
+    contactLinks: document.querySelectorAll('#contact .btn').length,
   }));
-
-  if (tweakBefore.panelVisible) {
-    const firstToggle = page.locator('.twk-toggle').first();
-    const before = await page.evaluate(() => ({
-      gridOpacity: getComputedStyle(document.documentElement).getPropertyValue('--grid-opacity').trim(),
-      noGlitch: document.body.classList.contains('no-glitch'),
-    }));
-    await firstToggle.click();
-    await page.waitForTimeout(100);
-    const afterToggle = await page.evaluate(() => ({
-      gridOpacity: getComputedStyle(document.documentElement).getPropertyValue('--grid-opacity').trim(),
-      noGlitch: document.body.classList.contains('no-glitch'),
-    }));
-    await page.locator('.twk-x').click();
-    await page.waitForTimeout(100);
-    const afterClose = await page.evaluate(() => ({
-      panelVisible: Boolean(document.querySelector('.twk-panel')),
-    }));
-    checks.push({
-      kind: 'tweak-panel',
-      label: 'activate/toggle/close',
-      ok: tweakBefore.toggleCount >= 6
-        && tweakBefore.sliderCount >= 1
-        && tweakBefore.colorCount >= 2
-        && before.gridOpacity !== afterToggle.gridOpacity
-        && !afterClose.panelVisible,
-      state: { tweakBefore, before, afterToggle, afterClose },
-    });
-  } else {
-    checks.push({ kind: 'tweak-panel', label: 'activate/toggle/close', ok: false, state: tweakBefore });
-  }
+  checks.push({
+    kind: 'static-content',
+    label: 'team/press/contact sections',
+    ok: staticContentState.founderCount >= 2
+      && staticContentState.cvBlockCount >= 8
+      && staticContentState.pressRows >= 6
+      && staticContentState.proBonoCards >= 4
+      && staticContentState.contactLinks >= 3,
+    state: staticContentState,
+  });
 
   await gotoPage(page);
   await page.waitForLoadState('networkidle', { timeout: 6000 }).catch(() => {});
@@ -368,20 +290,19 @@ async function inspectHomepage(browser, name, contextOptions) {
 
   const diagnostics = await collectPageHealth(page, [
     '.hero',
-    '.sys-tabs',
-    '.sys-panel',
+    '.hero__columns',
+    '#systems .sys-cell',
     '#stages',
     '#team',
     '#press',
     '#contact',
-    '#tweaks-root',
   ]);
 
   const counts = await page.evaluate(() => ({
-    systemTabs: document.querySelectorAll('.sys-tab').length,
-    systemPanels: document.querySelectorAll('.sys-panel').length,
-    mapButtons: document.querySelectorAll('.sys-map-btn').length,
-    cvButtons: document.querySelectorAll('.cv-btn').length,
+    systemCards: document.querySelectorAll('#systems .sys-cell').length,
+    systemImages: document.querySelectorAll('#systems .sys-cell img').length,
+    founderNames: document.querySelectorAll('#team .cv__name').length,
+    localeButtons: document.querySelectorAll('#localeSwitch [data-locale]').length,
     pressLinks: document.querySelectorAll('.press-row').length,
     proBonoLinks: document.querySelectorAll('.probono-card').length,
   }));
@@ -504,11 +425,11 @@ function collectFindings(results) {
         findings.push(`homepage/${result.viewportName}: failed interaction checks ${failedChecks.map((check) => check.label).join(', ')}`);
       }
 
-      if (result.counts.systemTabs !== 17 || result.counts.systemPanels !== 17 || result.counts.mapButtons !== 17) {
-        findings.push(`homepage/${result.viewportName}: system tab/map count changed unexpectedly`);
+      if (result.counts.systemCards < 20 || result.counts.systemImages < 20) {
+        findings.push(`homepage/${result.viewportName}: system card/image count changed unexpectedly`);
       }
 
-      if (result.counts.cvButtons !== 2 || result.counts.pressLinks < 6 || result.counts.proBonoLinks < 4) {
+      if (result.counts.founderNames < 2 || result.counts.localeButtons < 4 || result.counts.pressLinks < 6 || result.counts.proBonoLinks < 4) {
         findings.push(`homepage/${result.viewportName}: team/press/pro-bono controls missing`);
       }
     }
