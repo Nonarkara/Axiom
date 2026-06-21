@@ -452,3 +452,31 @@ img { display: block; max-width: 100%; }
     flex: 0 0 340px;
   }
 }
+
+/* Expandable Grid & Dieter Rams Diagrams */
+.sys-cell { cursor: pointer; transition: background 0.2s; }
+.sys-cell:hover { background: var(--surface-hover, #f5f4f0); }
+.sys-cell.is-expanded { background: var(--surface); box-shadow: 0 4px 24px rgba(0,0,0,0.06); transform: scale(1.01); z-index: 10; position: relative; }
+.sys-cell.is-expanded .sys-cell__lede { -webkit-line-clamp: unset; }
+
+.sys-diagram { display: none; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); animation: fade-in 0.3s ease; }
+.sys-cell.is-expanded .sys-diagram { display: block; }
+
+.sys-diagram__head { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 16px; }
+.sys-diagram__flow { display: flex; align-items: stretch; gap: 12px; }
+.sys-diagram__col { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.sys-diagram__lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--ink-2); letter-spacing: 0.08em; padding-bottom: 4px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+.sys-node { border: 1px solid var(--ink); padding: 8px; font-size: 11px; line-height: 1.3; color: var(--ink); background: transparent; }
+.sys-node--core { background: var(--ink); color: var(--surface); }
+.sys-node--out { border-style: dashed; }
+.sys-diagram__arrow { display: flex; align-items: center; color: var(--ink-3); font-size: 12px; }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .sys-diagram__flow { flex-direction: column; }
+  .sys-diagram__arrow { transform: rotate(90deg); justify-content: center; padding: 4px 0; }
+}
