@@ -1494,6 +1494,12 @@ img {
   font-variant-numeric: tabular-nums;
 }
 
+.cred-trade-note {
+  margin: 8px 0 0;
+  max-width: 64ch;
+  color: var(--ink-3);
+}
+
 .cred-actions {
   margin-top: 14px;
 }

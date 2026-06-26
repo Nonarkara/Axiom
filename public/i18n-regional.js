@@ -512,6 +512,7 @@
       "eyebrow": "법인",
       "title": "태국에 합법 등록",
       "compactLine": "Axiom X Co., Ltd. · 등록번호 0105569099335 · 태국 · DBD 등록",
+      "tradeNameNote": "본 사이트와 서비스는 상호 Axiom으로 제공됩니다. 등록 법인은 Axiom X Co., Ltd. (태국)입니다.",
       "summaryToggle": "등록 및 표준 세부사항",
       "companyTitle": "등록 법인",
       "nameLbl": "회사명",
@@ -653,7 +654,7 @@
       "fwTwin": "디지털 트윈 및 상호운용성 — ISO/IEC 30173, ISO 23247, NIST",
       "fwAi": "AI 거버넌스 및 리스크 — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles",
       "fwPrivacy": "프라이버시 및 신뢰 — PDPA, GDPR 원칙; 관할 준수는 프로젝트별",
-      "copyright": "방콕 · 동남아시아. © 2026 Axiom. All rights reserved. Axiom은 등록 상호입니다. 여기에 인용된 가동 시간, 응답 시간, 성과 지표는 사례별 관찰이며 미래 성과를 보장하지 않습니다."
+      "copyright": "방콕 · 동남아시아. © 2026 Axiom X Co., Ltd. Axiom은 본 사이트와 서비스를 제공하는 등록 상호입니다. 여기에 인용된 가동 시간, 응답 시간, 성과 지표는 사례별 관찰이며 미래 성과를 보장하지 않습니다."
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"
@@ -1230,6 +1231,7 @@
       "eyebrow": "法人",
       "title": "タイに合法登録",
       "compactLine": "Axiom X Co., Ltd. · 登録番号 0105569099335 · タイ · DBD登録",
+      "tradeNameNote": "本サイトおよび当社サービスは商号 Axiom で提供しています。登録法人は Axiom X Co., Ltd.（タイ）です。",
       "summaryToggle": "登録・標準の詳細",
       "companyTitle": "登録法人",
       "nameLbl": "会社名",
@@ -1371,7 +1373,7 @@
       "fwTwin": "デジタルツインと相互運用性 — ISO/IEC 30173、ISO 23247、NIST",
       "fwAi": "AIガバナンスとリスク — ISO/IEC 42001、ISO/IEC 23894、NIST AI RMF、OECD AI Principles",
       "fwPrivacy": "プライバシーと信頼 — PDPA、GDPR原則；管轄遵守は案件ごと",
-      "copyright": "Bangkok · 東南アジア。© 2026 Axiom. All rights reserved. Axiomは登録商号です。ここに引用される稼働時間、応答時間、成果指標は事例ごとの観測値であり、将来のパフォーマンスを保証するものではありません。"
+      "copyright": "Bangkok · 東南アジア。© 2026 Axiom X Co., Ltd. Axiom は本サイトおよびサービスを提供する登録商号です。ここに引用される稼働時間、応答時間、成果指標は事例ごとの観測値であり、将来のパフォーマンスを保証するものではありません。"
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"
@@ -1948,6 +1950,7 @@
       "eyebrow": "Pháp nhân",
       "title": "Đăng ký hợp pháp tại Thái Lan",
       "compactLine": "Axiom X Co., Ltd. · Số đăng ký 0105569099335 · Thái Lan · Đăng ký DBD",
+      "tradeNameNote": "Trang web và dịch vụ của chúng tôi được trình bày dưới tên thương mại Axiom. Pháp nhân đăng ký là Axiom X Co., Ltd. (Thái Lan).",
       "summaryToggle": "Chi tiết đăng ký và tiêu chuẩn",
       "companyTitle": "Pháp nhân đăng ký",
       "nameLbl": "Tên công ty",
@@ -2089,7 +2092,7 @@
       "fwTwin": "Digital twin và khả năng tương tác — ISO/IEC 30173, ISO 23247, NIST",
       "fwAi": "Quản trị và rủi ro AI — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles",
       "fwPrivacy": "Quyền riêng tư và tin cậy — PDPA, nguyên tắc theo GDPR; tuân thủ pháp lý theo từng dự án",
-      "copyright": "Bangkok · Đông Nam Á. © 2026 Axiom. All rights reserved. Axiom là tên thương mại đã đăng ký. Thời gian hoạt động, phản hồi và chỉ số kết quả được trích dẫn ở đây là quan sát theo từng trường hợp, không phải cam kết về hiệu suất tương lai."
+      "copyright": "Bangkok · Đông Nam Á. © 2026 Axiom X Co., Ltd. Axiom là tên thương mại mà trang web và dịch vụ được trình bày. Thời gian hoạt động, phản hồi và chỉ số kết quả được trích dẫn ở đây là quan sát theo từng trường hợp, không phải cam kết về hiệu suất tương lai."
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"
