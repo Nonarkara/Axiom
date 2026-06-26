@@ -745,6 +745,30 @@ const i18nExt = {
         w4lbl:'Live access', w4:'Public bilingual demo with Thai-first document types. Uploads are processed live and not retained.',
         cta:'Open live system',
       },
+      p18: {
+        lede: 'KMITL Control Tower is a real-time operations dashboard for King Mongkut\'s Institute of Technology Ladkrabang — 56 live data feeds across traffic, incidents, air quality, satellite imagery, campus shuttles, news, and emergency events for Bangkok\'s Lat Krabang district.',
+        cta:'Open live system',
+      },
+      p19: {
+        lede: 'Yala Control Tower provides real-time civic intelligence for Yala City Municipality in Thailand\'s Deep South. A 3D city model, satellite layers, flood watch, Deep South security incidents, and over 30 live data feeds.',
+        cta:'Open live system',
+      },
+      p20: {
+        lede: 'Horizon 45 is a field instrument designed to test actual AI judgment. From deepfake detection to prompt engineering, users navigate real-world signals and leave with a capability portrait and learning roadmap.',
+        cta:'Open live system',
+      },
+      p21: {
+        lede: 'A massive-scale command surface for Ho Chi Minh City. Integrates live traffic, flood monitoring, air quality, and dynamic routing into a single high-performance map for urban decision-makers.',
+        cta:'Open live system',
+      },
+      p22: {
+        lede: 'Monitoring three regions (Middle East, Southeast Asia, Thailand): an ultimate monitoring platform based on open data that reveals insights through layering.',
+        cta:'Open live system',
+      },
+      p24: {
+        lede: 'A trilingual Dao De Jing reading room with Tsai comics, Buddhist parallels, psychology notes, pinyin, and a living reference shelf.',
+        cta:'Open live system',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -937,6 +961,30 @@ const i18nExt = {
         w4lbl:'เข้าถึงสด', w4:'เดโมสองภาษาแบบ Thai-first สำหรับประเภทเอกสารไทย อัปโหลดแล้วประมวลผลสดและไม่เก็บไฟล์ไว้',
         cta:'เปิดระบบสด',
       },
+      p18: {
+        lede: 'KMITL Control Tower คือแดชบอร์ดปฏิบัติการแบบเรียลไทม์สำหรับสถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง — 56 ฟีดข้อมูลสดครอบคลุมการจราจร เหตุการณ์ คุณภาพอากาศ ภาพดาวเทียม รถรับส่งในมหาวิทยาลัย ข่าว และเหตุฉุกเฉิน สำหรับเขตลาดกระบัง กรุงเทพฯ',
+        cta:'เปิดระบบสด',
+      },
+      p19: {
+        lede: 'Yala Control Tower ให้ข่าวกรองพลเมืองแบบเรียลไทม์สำหรับเทศบาลนครยะลา ในภาคใต้ลึกของไทย โมเดลเมือง 3D ชั้นดาวเทียม เฝ้าระวังน้ำท่วม เหตุการณ์ด้านความมั่นคง และฟีดข้อมูลสดกว่า 30 แหล่ง',
+        cta:'เปิดระบบสด',
+      },
+      p20: {
+        lede: 'Horizon 45 คือเครื่องมือภาคสนามสำหรับทดสอบการตัดสินใจของ AI จริง ตั้งแต่การตรวจจับดีปเฟก ไปจนถึง prompt engineering ผู้ใช้เดินผ่านสัญญาณจากโลกจริงและออกไปพร้อมภาพความสามารถและแผนการเรียนรู้',
+        cta:'เปิดระบบสด',
+      },
+      p21: {
+        lede: 'พื้นผิวสั่งการระดับมหานครสำหรับนครโฮจิมินห์ รวมการจราจรสด การเฝ้าระวังน้ำท่วม คุณภาพอากาศ และการกำหนดเส้นทางแบบไดนามิกบนแผนที่ประสิทธิภาพสูงสำหรับผู้ตัดสินใจด้านเมือง',
+        cta:'เปิดระบบสด',
+      },
+      p22: {
+        lede: 'เฝ้าติดตามสามภูมิภาค (ตะวันออกกลาง เอเชียตะวันออกเฉียงใต้ ไทย): แพลตฟอร์มมอนิเตอร์ขั้นสูงจากข้อมูลเปิดที่เปิดเผยอินไซต์ผ่านการซ้อนเลเยอร์',
+        cta:'เปิดระบบสด',
+      },
+      p24: {
+        lede: 'ห้องอ่านต้าวเต๋อจิงสามภาษา พร้อมการ์ตูนไช่ คู่ขนานทางพุทธศาสนา บันทึกจิตวิทยา พินอิน และชั้นหนังสืออ้างอิงที่ยังคงเติบโต',
+        cta:'เปิดระบบสด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -1127,6 +1175,30 @@ const i18nExt = {
         w4lbl:'实时访问', w4:'泰国文档优先的公开双语演示。上传文件会实时处理，不会保留。',
         cta:'打开在线系统',
       },
+      p18: {
+        lede: 'KMITL控制塔是泰国先皇科技大学（拉卡邦）的实时运营仪表板——56路实时数据，覆盖交通、事件、空气质量、卫星影像、校园班车、新闻和应急事件，服务曼谷拉卡邦片区。',
+        cta:'打开在线系统',
+      },
+      p19: {
+        lede: 'Yala控制塔为泰国南部深南地区的亚拉市自治政府提供实时公民情报：3D城市模型、卫星图层、洪水监测、深南安全事件，以及30多路实时数据。',
+        cta:'打开在线系统',
+      },
+      p20: {
+        lede: 'Horizon 45是一款测试真实AI判断力的现场仪器。从深度伪造识别到提示工程，用户穿行于真实世界信号，离开时带走能力画像与学习路线图。',
+        cta:'打开在线系统',
+      },
+      p21: {
+        lede: '胡志明市大规模指挥界面：将实时交通、洪水监测、空气质量与动态路径规划整合到一张高性能地图中，供城市决策者使用。',
+        cta:'打开在线系统',
+      },
+      p22: {
+        lede: '监测三个区域（中东、东南亚、泰国）：基于开放数据的终极监测平台，通过图层叠加揭示洞察。',
+        cta:'打开在线系统',
+      },
+      p24: {
+        lede: '三语《道德经》阅读室：蔡志忠漫画、佛学对照、心理学笔记、拼音，以及持续更新的参考书架。',
+        cta:'打开在线系统',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -1275,6 +1347,7 @@ const i18nExt2 = {
       c13:'Campus Intelligence', c14:'Market Intelligence',
       c15:'City Intelligence',
       c16:'Coastal Intelligence', c17:'Document Intelligence',
+      c18:'Metropolitan Operations', c20:'Capability Lab', c23:'Digital Humanities',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -1357,6 +1430,7 @@ const i18nExt2 = {
       c13:'ข่าวกรองวิทยาเขต', c14:'ข่าวกรองตลาด',
       c15:'ข่าวกรองเมือง',
       c16:'ข่าวกรองชายฝั่ง', c17:'ข่าวกรองเอกสาร',
+      c18:'ปฏิบัติการมหานคร', c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -1437,6 +1511,7 @@ const i18nExt2 = {
       c13:'校园智能', c14:'市场智能',
       c15:'城市智能',
       c16:'海岸智能', c17:'文档智能',
+      c18:'都会运营', c20:'能力实验室', c23:'数字人文',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -1526,6 +1601,7 @@ const i18nExt2 = {
       c13:'CampusIntel', c14:'MarketIntel',
       c15:'CityIntel',
       c16:'CoastalIntel', c17:'DocumentIntel',
+      c18:'MetroOps', c20:'CapabilityLab', c23:'DigitalHumanities',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
