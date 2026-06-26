@@ -1082,6 +1082,13 @@ img {
   border: 1px solid var(--line-2);
   padding: 5px 9px;
 }
+/* easter egg: the one darker box per layer = the favorite */
+.stack__items span.is-fav {
+  background: var(--line);
+  border-color: var(--ink-2);
+  color: var(--ink);
+  font-weight: 600;
+}
 
 /* ============================================================
    PROMISES / numbered notes
