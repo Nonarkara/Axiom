@@ -775,6 +775,10 @@ const i18nExt = {
         lede: 'Monitoring three regions (Middle East, Southeast Asia, Thailand): an ultimate monitoring platform based on open data that reveals insights through layering.',
         cta:'Open live system',
       },
+      p23: {
+        lede: 'The official Smart City Thailand Index (SCITI) evaluating the progress and impact of 174 urban areas across the country based on the 7 Smart City pillars.',
+        cta:'Open live system',
+      },
       p24: {
         lede: 'A trilingual Dao De Jing reading room with Tsai comics, Buddhist parallels, psychology notes, pinyin, and a living reference shelf.',
         cta:'Open live system',
@@ -1043,6 +1047,10 @@ const i18nExt = {
         lede: 'เฝ้าติดตามสามภูมิภาค (ตะวันออกกลาง เอเชียตะวันออกเฉียงใต้ ไทย): แพลตฟอร์มมอนิเตอร์ขั้นสูงจากข้อมูลเปิดที่เปิดเผยอินไซต์ผ่านการซ้อนเลเยอร์',
         cta:'เปิดระบบสด',
       },
+      p23: {
+        lede: 'ดัชนีเมืองอัจฉริยะไทยอย่างเป็นทางการ (SCITI) ประเมินความคืบหน้าและผลกระทบของ 174 พื้นที่เมืองทั่วประเทศตาม 7 เสาหลักเมืองอัจฉริยะ',
+        cta:'เปิดระบบสด',
+      },
       p24: {
         lede: 'ห้องอ่านต้าวเต๋อจิงสามภาษา พร้อมการ์ตูนไช่ คู่ขนานทางพุทธศาสนา บันทึกจิตวิทยา พินอิน และชั้นหนังสืออ้างอิงที่ยังคงเติบโต',
         cta:'เปิดระบบสด',
@@ -1309,6 +1317,10 @@ const i18nExt = {
         lede: '监测三个区域（中东、东南亚、泰国）：基于开放数据的终极监测平台，通过图层叠加揭示洞察。',
         cta:'打开在线系统',
       },
+      p23: {
+        lede: '泰国官方智慧城市指数（SCITI）依据七大智慧城市支柱，评估全国174个城市区域的进展与影响。',
+        cta:'打开在线系统',
+      },
       p24: {
         lede: '三语《道德经》阅读室：蔡志忠漫画、佛学对照、心理学笔记、拼音，以及持续更新的参考书架。',
         cta:'打开在线系统',
@@ -1539,6 +1551,11 @@ Object.keys(i18nExt).forEach(locale => {
   if (uiCopy[locale]) Object.assign(uiCopy[locale], i18nExt[locale]);
 });
 
+// Regional locales (KO, JA, VI) — loaded from i18n-regional.js
+if (typeof window !== 'undefined' && window.AXIOM_REGIONAL_LOCALES) {
+  Object.assign(uiCopy, window.AXIOM_REGIONAL_LOCALES);
+}
+
 // ── Phase 2: chips, categories, bios, network, footer ─────────────────────
 const i18nExt2 = {
   en: {
@@ -1609,6 +1626,7 @@ const i18nExt2 = {
       smallPrint:'Decision systems for cities, governments, and operators. Bangkok · Southeast Asia. © 2026 Axiom. All rights reserved. Axiom is a registered trade name. System uptime, response times, and outcome metrics are case-specific observations, not guarantees of future performance.',
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
+    sysClusters: { sysMeta: '21 systems · 5 countries' },
     metaKeys: {
       AI:'AI', Access:'Access', Audience:'Audience', Authority:'Authority',
       Backup:'Backup', 'Brain layers':'Brain layers', Cadence:'Cadence',
@@ -1692,6 +1710,7 @@ const i18nExt2 = {
       smallPrint:'ระบบการตัดสินใจสำหรับเมือง รัฐบาล และผู้ปฏิบัติงาน · กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ · © 2569 Axiom สงวนลิขสิทธิ์ Axiom เป็นเครื่องหมายการค้าจดทะเบียน · uptime ของระบบ เวลาตอบสนอง และตัวชี้วัดผลลัพธ์ทั้งหมดเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
+    sysClusters: { sysMeta: '21 ระบบ · 5 ประเทศ' },
     metaKeys: {
       AI:'AI', Access:'การเข้าถึง', Audience:'ผู้ชม', Authority:'หน่วยงาน',
       Backup:'สำรองข้อมูล', 'Brain layers':'ชั้นสมอง', Cadence:'จังหวะ',
@@ -1773,6 +1792,7 @@ const i18nExt2 = {
       smallPrint:'面向城市、政府和运营商的决策系统。曼谷 · 东南亚。© 2026 Axiom 版权所有。Axiom 是注册商号。系统正常运行时间、响应时间和成果指标均为个案观察，并非未来表现的保证。',
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
+    sysClusters: { sysMeta: '21 个系统 · 5 个国家' },
     pressContent: {
       p1title:'供应商说不 泰国公务员自己建工具',
       p2title:'创新即服务能否弥合政策与执行之间的鸿沟',
@@ -1886,7 +1906,8 @@ Object.keys(i18nExt2).forEach(locale => {
 function renderStaticCopy() {
   const copy = uiCopy[activeLocale] || uiCopy.en;
   const fallback = uiCopy.en;
-  document.documentElement.lang = activeLocale;
+  const LOCALE_HTML_LANG = { en: 'en', th: 'th', zh: 'zh-Hans', ko: 'ko', ja: 'ja', vi: 'vi', ts: 'en' };
+  document.documentElement.lang = LOCALE_HTML_LANG[activeLocale] || activeLocale;
   const lookup = (key) => {
     const parts = key.split('.');
     const val = parts.reduce((obj, k) => obj?.[k], copy);
