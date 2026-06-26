@@ -423,6 +423,11 @@
       "p24": {
         "lede": "삼언어 도덕경 읽는 방: 채지중 만화, 불교 대응, 심리 노트, 병음, 살아있는 참고 서가.",
         "cta": "라이브 시스템 열기"
+      },
+      "ikigai": {
+        "name": "Ikigai Finance Engine",
+        "lede": "중소기업 금융 인텔리전스 — 재무상태표를 신호로, 현금 런웨이, 은행 스코어카드, 복합 금융 지수(Ikigai, Lean, Zero, Default, Solvency). 개발 단계 연구 프로토타입, 스크린샷만 공개 — ABC Company Limited는 가상 시연 데이터이며 아직 공개 배포 없음.",
+        "cta": "연구 저장소 보기"
       }
     },
     "stagesContent": {
@@ -587,7 +592,8 @@
       "c17": "문서 인텔리전스",
       "c18": "대도시 운영",
       "c20": "역량 랩",
-      "c23": "디지털 휴머니티"
+      "c23": "디지털 휴머니티",
+      "c25": "금융 인텔리전스"
     },
     "bioCommon": {
       "cvBtn": "이력서 보기",
@@ -641,7 +647,7 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "21개 시스템 · 5개국",
+      "sysMeta": "22개 시스템 · 5개국",
       "command": "지휘",
       "commandMeta": "실시간 운영실 · 7",
       "intelligence": "인텔리전스",
@@ -649,11 +655,12 @@
       "civic": "시민",
       "civicMeta": "국가 플랫폼 및 시민 인프라 · 5",
       "emerging": "신규",
-      "emergingMeta": "연구급 및 새 운영 모델 · 5"
+      "emergingMeta": "연구급 및 새 운영 모델 · 6"
     },
     "sysStatus": {
       "live": "라이브",
-      "preview": "미리보기"
+      "preview": "미리보기",
+      "dev": "개발 중"
     },
     "metaKeys": {
       "AI": "AI",
@@ -1122,6 +1129,11 @@
       "p24": {
         "lede": "三言語『道德經』読書室 — 蔡志忠コミック、仏教対照、心理学ノート、ピンイン、ライブ参考書棚。",
         "cta": "稼働中のシステムを開く"
+      },
+      "ikigai": {
+        "name": "Ikigai Finance Engine",
+        "lede": "中小企業向け金融インテリジェンス — 貸借対照表をシグナルとして、キャッシュランウェイ、銀行スコアカード、複合金融指数（Ikigai、Lean、Zero、Default、Solvency）。開発段階の研究プロトタイプ、スクリーンショットのみ — ABC Company Limited は架空のデモデータ、公開デプロイは未実施。",
+        "cta": "研究リポジトリを見る"
       }
     },
     "stagesContent": {
@@ -1286,7 +1298,8 @@
       "c17": "ドキュメントインテリジェンス",
       "c18": "大都市オペレーション",
       "c20": "ケイパビリティラボ",
-      "c23": "デジタルヒューマニティーズ"
+      "c23": "デジタルヒューマニティーズ",
+      "c25": "金融インテリジェンス"
     },
     "bioCommon": {
       "cvBtn": "履歴書を見る",
@@ -1340,7 +1353,7 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "21システム · 5か国",
+      "sysMeta": "22システム · 5か国",
       "command": "コマンド",
       "commandMeta": "リアルタイム運用室 · 7",
       "intelligence": "インテリジェンス",
@@ -1348,11 +1361,12 @@
       "civic": "シビック",
       "civicMeta": "国家プラットフォームと市民インフラ · 5",
       "emerging": "新興",
-      "emergingMeta": "研究グレードと新運用モデル · 5"
+      "emergingMeta": "研究グレードと新運用モデル · 6"
     },
     "sysStatus": {
       "live": "稼働中",
-      "preview": "プレビュー"
+      "preview": "プレビュー",
+      "dev": "開発中"
     },
     "metaKeys": {
       "AI": "AI",
@@ -1821,6 +1835,11 @@
       "p24": {
         "lede": "Phòng đọc Đạo Đức Kinh ba ngôn ngữ — truyện tranh Tsai, đối chiếu Phật giáo, ghi chú tâm lý, pinyin và kệ sách tham khảo sống.",
         "cta": "Mở hệ thống đang chạy"
+      },
+      "ikigai": {
+        "name": "Ikigai Finance Engine",
+        "lede": "Tình báo tài chính cho SME — bảng cân đối kế toán như tín hiệu, đường băng tiền mặt, thẻ điểm ngân hàng và các chỉ số tài chính tổng hợp (Ikigai, Lean, Zero, Default, Solvency). Nguyên mẫu nghiên cứu đang phát triển, chỉ có ảnh chụp màn hình — ABC Company Limited là dữ liệu demo giả định, chưa triển khai công khai.",
+        "cta": "Xem kho nghiên cứu"
       }
     },
     "stagesContent": {
@@ -1985,7 +2004,8 @@
       "c17": "Tình báo tài liệu",
       "c18": "Vận hành đô thị lớn",
       "c20": "Phòng thí nghiệm năng lực",
-      "c23": "Nhân văn số"
+      "c23": "Nhân văn số",
+      "c25": "Tình báo tài chính"
     },
     "bioCommon": {
       "cvBtn": "Xem CV",
@@ -2039,7 +2059,7 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "21 hệ thống · 5 quốc gia",
+      "sysMeta": "22 hệ thống · 5 quốc gia",
       "command": "Chỉ huy",
       "commandMeta": "Phòng vận hành thời gian thực · 7",
       "intelligence": "Tình báo",
@@ -2047,11 +2067,12 @@
       "civic": "Công dân",
       "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 5",
       "emerging": "Mới nổi",
-      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 5"
+      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 6"
     },
     "sysStatus": {
       "live": "Trực tiếp",
-      "preview": "Xem trước"
+      "preview": "Xem trước",
+      "dev": "Đang phát triển"
     },
     "metaKeys": {
       "AI": "AI",

@@ -783,6 +783,11 @@ const i18nExt = {
         lede: 'A trilingual Dao De Jing reading room with Tsai comics, Buddhist parallels, psychology notes, pinyin, and a living reference shelf.',
         cta:'Open live system',
       },
+      ikigai: {
+        name: 'Ikigai Finance Engine',
+        lede: 'SME finance intelligence — balance sheet as signal, cash runway, bank scorecard, and composite finance indices (Ikigai, Lean, Zero, Default, Solvency). Development-stage research prototype; screenshots only — ABC Company Limited is fictitious mock data. No live deployment yet.',
+        cta: 'View research repo',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1066,6 +1071,11 @@ const i18nExt = {
         lede: 'ห้องอ่านต้าวเต๋อจิงสามภาษา พร้อมการ์ตูนไช่ คู่ขนานทางพุทธศาสนา บันทึกจิตวิทยา พินอิน และชั้นหนังสืออ้างอิงที่ยังคงเติบโต',
         cta:'เปิดระบบสด',
       },
+      ikigai: {
+        name: 'Ikigai Finance Engine',
+        lede: 'ข่าวกรองการเงินสำหรับ SME — งบดุลเป็นสัญญาณ เงินสดคงเหลือ runway สกอร์การ์ดธนาคาร และดัชนีการเงินรวม (Ikigai, Lean, Zero, Default, Solvency) ต้นแบบวิจัยระหว่างพัฒนา มีเฉพาะภาพหน้าจอ — ABC Company Limited เป็นข้อมูลจำลอง ยังไม่มีการ deploy สาธารณะ',
+        cta: 'ดู research repo',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -1347,6 +1357,11 @@ const i18nExt = {
         lede: '三语《道德经》阅读室：蔡志忠漫画、佛学对照、心理学笔记、拼音，以及持续更新的参考书架。',
         cta:'打开在线系统',
       },
+      ikigai: {
+        name: 'Ikigai Finance Engine',
+        lede: '中小企业金融情报——资产负债表即信号、现金跑道、银行评分卡与综合金融指数（Ikigai、Lean、Zero、Default、Solvency）。开发阶段研究原型，仅提供截图——ABC Company Limited 为虚构演示数据，尚无公开部署。',
+        cta: '查看研究仓库',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -1470,6 +1485,11 @@ const i18nExt = {
       p09: { title:'voices: 11<em>.decision: 1</em>', lede:'// 11 justices, palindromic names\n// local Mac; sharedTranscript; ~$3/month\n// trained: personal data // proprietary: byDesign', w1lbl:'// WHY_EXISTS', w1:'singleModel.gives(oneAnswer)\n// VERIFY | DECIDE | EXPLORE | DEBATE\n// moves: EXPAND | QUALIFY | CONCEDE | STAND | PASS', w2lbl:'// COST', w2:'manus.class @ $3/mo\n// chair: Mistral3; Ada: ThaiLLM(free)\n// Otto: ocr+video+email+pdf+drive', w3lbl:'// NO_DEMO', w3:'trained: { journals, decisions, voice }\n// protocol: ~600 lines Python // open\n// IP = coordinationMethodology', cta:'protocol.v1.read()', cta2:'agentic.v2.run()' },
       p10: { title:'HR.recordSystem<em>.enough(years)</em>', lede:'// TKCX: TalentKnowledgeCollaborativeExplorers\n// employees: partyMembers; projects: quests\n// teamAssembly: strategy', w1lbl:'// PROBLEM', w1:'HR.is(complianceRecord)\n// tells: whoEmployed\n// NOT: { deploy: where, with: whom }', w2lbl:'// ENGINE', w2:'DQ3.partySystem\n// 5 archetypes; moneyball: budget÷10\n// readiness(coverage+chemistry+morale)', w3lbl:'// CHANGES', w3:'directors.stop(hoardingPeople)\n// skillGaps.visible(beforeFailure)\n// HR.rename("TalentIncubation")', cta:'engine.explore()' },
       p11: { title:'AI<em>.knows(you)</em>', lede:'// ObsidianVault → MCP → allPlatforms: simultaneously\n// brainAnatomy.folders; serverConfigs: 19\n// agents.access(persona, voice, decisions)', w1lbl:'// GAP_CLOSED', w1:'session.starts(cold) // no context\nSecondBrainOS.feeds(voice + values + decisions)\n// AI.already.knows(whoItWorksWith)', w2lbl:'// ARCHITECTURE', w2:'vault: { PrefrontalCortex, Hippocampus, TemporalLobe }\n// 19 MCP configs → Cursor + Codex + ClaudeCode\n// livingKnowledgeGraph.connected(atOnce)', w3lbl:'// OPEN_SOURCE', w3:'license: MIT // brain: yours\n// fork(structure); adapt(mcpConfigs)\n// 12levelDiagnostic: strip(aiSpeak)', cta:'architecture.explore()' },
+      ikigai: {
+        name: 'IkigaiFinanceEngine',
+        lede: '// SME.financeIntel: balanceSheet.asSignal + cashRunway + bankScorecard\n// indices: { Ikigai, Lean, Zero, Default, Solvency }\n// status: dev.stage // screenshots.only\n// ABCCompanyLtd: fictitious.mockData // !liveDeployment',
+        cta: 'researchRepo.open()',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -1626,7 +1646,7 @@ const i18nExt2 = {
       c13:'Campus Intelligence', c14:'Market Intelligence',
       c15:'City Intelligence',
       c16:'Coastal Intelligence', c17:'Document Intelligence',
-      c18:'Metropolitan Operations', c20:'Capability Lab', c23:'Digital Humanities',
+      c18:'Metropolitan Operations', c20:'Capability Lab', c23:'Digital Humanities', c25:'Finance Intelligence',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -1671,7 +1691,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '21 systems · 5 countries',
+      sysMeta: '22 systems · 5 countries',
       command: 'Command',
       commandMeta: 'Real-time operations rooms · 7',
       intelligence: 'Intelligence',
@@ -1679,9 +1699,9 @@ const i18nExt2 = {
       civic: 'Civic',
       civicMeta: 'National platforms & citizen infrastructure · 5',
       emerging: 'Emerging',
-      emergingMeta: 'Research-grade & new operating models · 5',
+      emergingMeta: 'Research-grade & new operating models · 6',
     },
-    sysStatus: { live: 'Live', preview: 'Preview' },
+    sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development' },
     metaKeys: {
       AI:'AI', Access:'Access', Audience:'Audience', Authority:'Authority',
       Backup:'Backup', 'Brain layers':'Brain layers', Cadence:'Cadence',
@@ -1721,7 +1741,7 @@ const i18nExt2 = {
       c13:'ข่าวกรองวิทยาเขต', c14:'ข่าวกรองตลาด',
       c15:'ข่าวกรองเมือง',
       c16:'ข่าวกรองชายฝั่ง', c17:'ข่าวกรองเอกสาร',
-      c18:'ปฏิบัติการมหานคร', c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล',
+      c18:'ปฏิบัติการมหานคร', c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล', c25:'ข่าวกรองการเงิน',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -1774,9 +1794,9 @@ const i18nExt2 = {
       civic: 'พลเมือง',
       civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 5',
       emerging: 'ระบบใหม่',
-      emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 5',
+      emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 6',
     },
-    sysStatus: { live: 'สด', preview: 'พรีวิว' },
+    sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา' },
     metaKeys: {
       AI:'AI', Access:'การเข้าถึง', Audience:'ผู้ชม', Authority:'หน่วยงาน',
       Backup:'สำรองข้อมูล', 'Brain layers':'ชั้นสมอง', Cadence:'จังหวะ',
@@ -1814,7 +1834,7 @@ const i18nExt2 = {
       c13:'校园智能', c14:'市场智能',
       c15:'城市智能',
       c16:'海岸智能', c17:'文档智能',
-      c18:'都会运营', c20:'能力实验室', c23:'数字人文',
+      c18:'都会运营', c20:'能力实验室', c23:'数字人文', c25:'金融情报',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -1867,9 +1887,9 @@ const i18nExt2 = {
       civic: '民生',
       civicMeta: '国家级平台与公民基础设施 · 5',
       emerging: '新兴',
-      emergingMeta: '研究级与新运营模式 · 5',
+      emergingMeta: '研究级与新运营模式 · 6',
     },
-    sysStatus: { live: '在线', preview: '预览' },
+    sysStatus: { live: '在线', preview: '预览', dev: '开发中' },
     pressContent: {
       p1title:'供应商说不 泰国公务员自己建工具',
       p2title:'创新即服务能否弥合政策与执行之间的鸿沟',
@@ -1916,7 +1936,7 @@ const i18nExt2 = {
       c13:'CampusIntel', c14:'MarketIntel',
       c15:'CityIntel',
       c16:'CoastalIntel', c17:'DocumentIntel',
-      c18:'MetroOps', c20:'CapabilityLab', c23:'DigitalHumanities',
+      c18:'MetroOps', c20:'CapabilityLab', c23:'DigitalHumanities', c25:'FinanceIntel',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -1961,7 +1981,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '21 systems · 5 countries',
+      sysMeta: '22 systems · 5 countries',
       command: 'Command',
       commandMeta: 'opsRooms.realtime · count[7]',
       intelligence: 'Intelligence',
@@ -1969,9 +1989,9 @@ const i18nExt2 = {
       civic: 'Civic',
       civicMeta: 'nationalPlatforms & citizenInfra · count[5]',
       emerging: 'Emerging',
-      emergingMeta: 'researchGrade & newOperatingModels · count[5]',
+      emergingMeta: 'researchGrade & newOperatingModels · count[6]',
     },
-    sysStatus: { live: 'live', preview: 'preview' },
+    sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage' },
     metaKeys: {
       AI:'AI', Access:'access', Audience:'audience', Authority:'authority',
       Backup:'backup', 'Brain layers':'brainLayers', Cadence:'cadence',
