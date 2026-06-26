@@ -36,7 +36,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20260624">
+  <link rel="stylesheet" href="rams.css?v=20260626c">
   <script src="i18n-regional.js?v=20260626"></script>
   <script defer src="app.js?v=20260626b"></script>
 
@@ -720,13 +720,41 @@
         </div>
         <div class="cluster-head">
           <div class="t-label">Built with</div>
-          <div class="s-head__meta">Local-first · no vendor lock-in</div>
+          <div class="s-head__meta">8 layers · top to bottom</div>
         </div>
-        <div class="tags">
-          <span>React</span><span>NextJS</span><span>ngrok</span><span>Vercel</span><span>Railway</span><span>Render</span><span>DeepSeek</span><span>Qwen</span><span>Claude
-            Code</span><span>Cursor</span><span>VS Code</span><span>Google Antigravity</span><span>Claude
-            Design</span><span>Google Stitch</span><span>Kimi 2.6/2.7</span><span>Google
-            Drive</span><span>Python</span><span>JavaScript</span>
+        <div class="stack">
+          <div class="stack__layer">
+            <div class="stack__head"><span class="stack__idx">01</span><span class="stack__name">Cloud Infrastructure</span><span class="stack__role">where it runs</span></div>
+            <div class="stack__items"><span>Cloudflare Pages</span><span>Cloudflare Workers</span><span>Cloudflare R2</span><span>Cloudflare DNS</span><span>Vercel</span><span>Render</span><span>Railway</span><span>Netlify</span><span>GitHub Pages</span><span>Hetzner VPS</span><span>Docker</span><span>Supabase</span></div>
+          </div>
+          <div class="stack__layer">
+            <div class="stack__head"><span class="stack__idx">02</span><span class="stack__name">Framework &amp; Connectors</span><span class="stack__role">what wires it</span></div>
+            <div class="stack__items"><span>Next.js</span><span>React</span><span>Vite</span><span>Node.js</span><span>Express</span><span>Fastify</span><span>Tailwind CSS</span><span>ngrok</span><span>Cloudflare Tunnel</span><span>GitHub Actions</span></div>
+          </div>
+          <div class="stack__layer">
+            <div class="stack__head"><span class="stack__idx">03</span><span class="stack__name">Platform &amp; Build Tools</span><span class="stack__role">where we build</span></div>
+            <div class="stack__items"><span>Claude Code</span><span>Cursor</span><span>VS Code</span><span>Google Antigravity</span><span>Claude Design</span><span>Google Stitch</span><span>GitHub</span><span>Obsidian</span></div>
+          </div>
+          <div class="stack__layer">
+            <div class="stack__head"><span class="stack__idx">04</span><span class="stack__name">AI Models &amp; Engines</span><span class="stack__role">the intelligence</span></div>
+            <div class="stack__items"><span>Anthropic Claude</span><span>OpenAI GPT</span><span>Google Gemini</span><span>DeepSeek</span><span>Qwen</span><span>Kimi</span><span>Ollama</span><span>litellm</span></div>
+          </div>
+          <div class="stack__layer">
+            <div class="stack__head"><span class="stack__idx">05</span><span class="stack__name">Software &amp; Libraries</span><span class="stack__role">the working parts</span></div>
+            <div class="stack__items"><span>Mapbox GL</span><span>MapLibre</span><span>Deck.gl</span><span>Leaflet</span><span>D3</span><span>Chart.js</span><span>PostGIS</span><span>pgvector</span><span>Redis</span><span>SQLite</span><span>vis-network</span><span>OpenCV</span><span>YOLO</span><span>grammY</span><span>LINE SDK</span></div>
+          </div>
+          <div class="stack__layer">
+            <div class="stack__head"><span class="stack__idx">06</span><span class="stack__name">Languages</span><span class="stack__role">the source</span></div>
+            <div class="stack__items"><span>TypeScript</span><span>JavaScript</span><span>Python</span><span>Go</span></div>
+          </div>
+          <div class="stack__layer">
+            <div class="stack__head"><span class="stack__idx">07</span><span class="stack__name">Live Data Sources</span><span class="stack__role">the inputs</span></div>
+            <div class="stack__items"><span>NASA FIRMS</span><span>NASA GIBS</span><span>Copernicus Sentinel</span><span>ACLED</span><span>Open-Meteo</span><span>OpenAQ</span><span>GISTDA</span><span>World Bank</span><span>GDELT</span><span>EIA</span><span>FRED</span><span>AISStream</span><span>OpenSky</span><span>CelesTrak</span></div>
+          </div>
+          <div class="stack__layer">
+            <div class="stack__head"><span class="stack__idx">08</span><span class="stack__name">Channels</span><span class="stack__role">the outputs</span></div>
+            <div class="stack__items"><span>Telegram</span><span>LINE</span><span>Discord</span><span>Slack</span><span>WhatsApp</span><span>Feishu</span></div>
+          </div>
         </div>
         <p class="t-body-2" data-i18n="notesContent.stackNote" style="margin:12px 0 0;">Local-first. No build team. No
           vendor lock-in. The M5 Max runs inference, builds, and deploys from one desk in Bangkok.</p>

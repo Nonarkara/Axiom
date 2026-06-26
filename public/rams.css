@@ -1029,6 +1029,44 @@ img {
 }
 
 /* ============================================================
+   BUILT-WITH STACK — layered hairline rows, top -> bottom
+   ============================================================ */
+
+.stack {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 1px;
+}
+.stack__layer { background: var(--panel); padding: 14px 16px; }
+.stack__head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 11px;
+}
+.stack__idx { font-size: 9px; font-weight: 600; letter-spacing: 0.14em; color: var(--ink-3); flex-shrink: 0; }
+.stack__name { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.stack__role {
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+.stack__items { display: flex; flex-wrap: wrap; gap: 6px; }
+.stack__items span {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-2);
+  border: 1px solid var(--line-2);
+  padding: 5px 9px;
+}
+
+/* ============================================================
    PROMISES / numbered notes
    ============================================================ */
 
