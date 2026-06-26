@@ -828,7 +828,7 @@ const i18nExt = {
       stackNote:'Local-first. No build team. No vendor lock-in. The M5 Max runs inference, builds, and deploys from one desk in Bangkok.',
     },
     builtStack: {
-      heading:'Built with', meta:'8 layers · top to bottom',
+      heading:'Built with', meta:'77 tools · 8 layers',
       l1name:'Cloud Infrastructure', l1role:'where it runs',
       l2name:'Framework & Connectors', l2role:'what wires it',
       l3name:'Platform & Build Tools', l3role:'where we build',
@@ -1111,7 +1111,7 @@ const i18nExt = {
       stackNote:'Local-first ไม่มีทีม build ไม่ผูกกับเวนเดอร์ M5 Max รัน inference สร้าง และดีพลอย จากโต๊ะทำงานเดียวในกรุงเทพฯ',
     },
     builtStack: {
-      heading:'สร้างด้วย', meta:'8 ชั้น · จากบนลงล่าง',
+      heading:'สร้างด้วย', meta:'77 เครื่องมือ · 8 ชั้น',
       l1name:'โครงสร้างพื้นฐานคลาวด์', l1role:'ที่ระบบทำงาน',
       l2name:'เฟรมเวิร์กและตัวเชื่อม', l2role:'สิ่งที่เชื่อมระบบ',
       l3name:'แพลตฟอร์มและเครื่องมือสร้าง', l3role:'ที่เราสร้างงาน',
@@ -1392,7 +1392,7 @@ const i18nExt = {
       stackNote:'本地优先 没有构建团队 不被供应商锁定 一台M5 Max在曼谷一张桌子上跑推理、构建和部署',
     },
     builtStack: {
-      heading:'技术栈', meta:'8 层 · 自上而下',
+      heading:'技术栈', meta:'77 项工具 · 8 层',
       l1name:'云基础设施', l1role:'运行所在',
       l2name:'框架与连接', l2role:'把系统接起来',
       l3name:'平台与构建工具', l3role:'我们构建的地方',
@@ -1515,7 +1515,7 @@ const i18nExt = {
       stackNote:'localFirst: true\nbuildTeam: never[]\nvendorLockIn: false\nM5Max.runs({ inference, builds, deploys })\n// location: oneDeskInBangkok',
     },
     builtStack: {
-      heading:'buildStack[]', meta:'// 8 layers, top-down',
+      heading:'buildStack[]', meta:'// 77 tools, 8 layers',
       l1name:'infra.cloud()', l1role:'// runtime host',
       l2name:'framework.connect()', l2role:'// the wiring',
       l3name:'platform.build()', l3role:'// dev surface',

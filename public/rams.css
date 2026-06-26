@@ -1033,20 +1033,38 @@ img {
    ============================================================ */
 
 .stack {
-  display: grid;
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-2);
+  background: var(--panel);
   margin-top: 1px;
 }
-.stack__layer { background: var(--panel); padding: 14px 16px; }
+/* each layer = a stratum: big index numeral (spine) + content, hairline axis between */
+.stack__layer {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  align-items: stretch;
+  border-top: 1px solid var(--line);
+}
+.stack__layer:first-child { border-top: 0; }
+.stack__num {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  padding: 16px 0 0 16px;
+  border-right: 1px solid var(--line);
+}
+.stack__main { padding: 14px 16px 16px; min-width: 0; }
 .stack__head {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px 10px;
   margin-bottom: 11px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
 }
-.stack__idx { font-size: 9px; font-weight: 600; letter-spacing: 0.14em; color: var(--ink-3); flex-shrink: 0; }
 .stack__name { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .stack__role {
   margin-left: auto;
@@ -1057,6 +1075,7 @@ img {
   color: var(--ink-3);
   white-space: nowrap;
 }
+.stack__count { font-size: 11px; font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .stack__items { display: flex; flex-wrap: wrap; gap: 6px; }
 .stack__items span {
   font-size: 11px;
