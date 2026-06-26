@@ -1045,16 +1045,14 @@ img {
   border-top: 1px solid var(--line);
 }
 .stack__layer:first-child { border-top: 0; }
-.stack__num {
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--ink-3);
-  font-variant-numeric: tabular-nums;
-  padding: 16px 0 0 16px;
+.stack__icon {
+  display: flex;
+  justify-content: center;
+  padding: 16px 14px 0;
+  color: var(--ink-2);
   border-right: 1px solid var(--line);
 }
+.stack__icon svg { width: 26px; height: 26px; display: block; }
 .stack__main { padding: 14px 16px 16px; min-width: 0; }
 .stack__head {
   display: flex;
