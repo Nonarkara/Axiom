@@ -353,6 +353,39 @@ img {
   margin-top: 0;
 }
 
+/* sandbox operational note — systems section footnote */
+.sandbox-note {
+  display: flex;
+  align-items: stretch;
+  max-width: 64ch;
+  margin: 0 0 20px;
+  border: 1px solid var(--line-2);
+  background: var(--panel);
+}
+
+.sandbox-note__tag {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-right: 1px solid var(--line-2);
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+}
+
+.sandbox-note__body {
+  margin: 0;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
 /* ============================================================
    §3.2 HAIRLINE CELL GRID — the workhorse
    1px hairlines. Structural whitespace. No arbitrary offsets.

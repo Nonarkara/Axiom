@@ -134,6 +134,8 @@ const uiCopy = {
       kicker: 'Live in production',
       title: 'Real systems. <em>Real cities.</em> Operating today.',
       lede: "Each one started as a sharp question, shipped as a working surface, and stays useful long after the launch press cycle ends. Click through and use them — they're live.",
+      sandboxKicker: 'Sandbox // Live',
+      sandboxNote: "These aren't demos — they're working systems in a sandbox. Built to scale, not to impress. Production deployments under client NDAs are larger; what runs here behaves like them, with advanced modules withheld.",
     },
     stageSect: {
       kicker: 'Two stages, one signal',
@@ -283,6 +285,8 @@ const uiCopy = {
       kicker: 'ใช้งานจริงอยู่ตอนนี้',
       title: 'ระบบจริง <em>เมืองจริง</em> รันอยู่วันนี้',
       lede: 'ทุกระบบเริ่มจากคำถามที่คม ส่งมอบเป็นเครื่องมือใช้งานได้ และยังมีประโยชน์อยู่อีกนานหลังรอบข่าวเปิดตัวจบ คลิกเข้าไปใช้ได้เลย — ทุกตัวรันอยู่จริง',
+      sandboxKicker: 'Sandbox // Live',
+      sandboxNote: 'ไม่ใช่ demo — ทุกระบบรันใน sandbox จริง สร้างให้ scale ได้ ไม่ใช่สร้างมาโชว์ การ deploy จริงของลูกค้าอยู่ภายใต้ NDA ใหญ่กว่าและซับซ้อนกว่า สิ่งที่รันที่นี่ทำงานแบบเดียวกัน โมดูลขั้นสูงถูกถอดออกเพราะ NDA ไม่ใช่เพราะของปลอม',
     },
     stageSect: {
       kicker: 'สองเวที สัญญาณเดียว',
@@ -432,6 +436,8 @@ const uiCopy = {
       kicker: '正在生产中运行',
       title: '真实系统 <em>真实城市</em> 今天就在跑',
       lede: '每个系统都从一个尖锐的问题开始 以可用的界面交付 在发布新闻周期结束之后依然有用 点进去用就行 全部都在线跑着',
+      sandboxKicker: 'Sandbox // Live',
+      sandboxNote: '不是演示稿——是运行在沙盒里的可用系统。按可扩展的方式搭建，不是为了好看。客户生产部署在保密协议下规模更大；这里运行的逻辑与之一致，敏感模块不对外展示，不是因为它们是假的。',
     },
     stageSect: {
       kicker: '两个舞台 一个信号',
@@ -588,6 +594,8 @@ const uiCopy = {
       kicker: '// LIVE_IN_PRODUCTION',
       title: 'type Systems = Real<Cities> // operating today',
       lede: '// each: sharpQuestion → workingSurface → staysUseful\n// click through: systems.forEach(s => assert(s.isLive()))',
+      sandboxKicker: '// SANDBOX // LIVE',
+      sandboxNote: '// not demos — systems.runIn(sandbox)\n// built.toScale(), not.toImpress()\n// prod under NDA: larger; behavior.same(); advancedModules.withheld(not.faked)',
     },
     stageSect: {
       kicker: '// TWO_STAGES_ONE_SIGNAL',
