@@ -8,6 +8,8 @@
 > Problem mapped in week one. Something working before any presentation.  
 > Every decision tracked from the start.
 
+![Axiom — AI as a Service, in Thailand, for the World](public/axiom-github-repo.png)
+
 ---
 
 ## The Thesis
