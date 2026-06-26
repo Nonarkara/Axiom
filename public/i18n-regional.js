@@ -647,7 +647,13 @@
     },
     "footer": {
       "contact": "연락처",
-      "smallPrint": "도시, 정부, 운영자를 위한 의사결정 시스템. 방콕 · 동남아시아. © 2026 Axiom. All rights reserved. Axiom은 등록 상호입니다. 시스템 가동 시간, 응답 시간, 성과 지표는 사례별 관찰이며 미래 성과를 보장하지 않습니다."
+      "p1": "Axiom은 도시, 정부, 운영자를 위한 의사결정 시스템을 구축합니다. 인도는 디지털 트윈, AI 거버넌스, 데이터 보호에 관한 국제적으로 인정된 프레임워크를 참고하여 설계됩니다.",
+      "p2": "서면으로 명시하지 않는 한 ISO 인증, 공식 인가, 제3자 감사를 주장하지 않습니다. 이 사이트의 시연 및 샌드박스 환경은 설명용 데이터를 사용합니다. 여기의 내용은 법률, 금융 또는 투자 조언이 아닙니다. 고객 프로젝트는 별도 계약에 따르며, NDA 하의 운영 시스템은 공개 시연과 다를 수 있습니다.",
+      "frameworksLabel": "참고 프레임워크(실무 정렬, 인증 아님)",
+      "fwTwin": "디지털 트윈 및 상호운용성 — ISO/IEC 30173, ISO 23247, NIST",
+      "fwAi": "AI 거버넌스 및 리스크 — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles",
+      "fwPrivacy": "프라이버시 및 신뢰 — PDPA, GDPR 원칙; 관할 준수는 프로젝트별",
+      "copyright": "방콕 · 동남아시아. © 2026 Axiom. All rights reserved. Axiom은 등록 상호입니다. 여기에 인용된 가동 시간, 응답 시간, 성과 지표는 사례별 관찰이며 미래 성과를 보장하지 않습니다."
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"
@@ -1359,7 +1365,13 @@
     },
     "footer": {
       "contact": "お問い合わせ",
-      "smallPrint": "都市、政府、オペレーターのための意思決定システム。Bangkok · 東南アジア。© 2026 Axiom. All rights reserved. Axiomは登録商号です。システム稼働時間、応答時間、成果指標は事例ごとの観測値であり、将来のパフォーマンスを保証するものではありません。"
+      "p1": "Axiomは都市、政府、オペレーターのための意思決定システムを構築します。納品はデジタルツイン、AIガバナンス、データ保護に関する国際的に認められたフレームワークを参照して設計されています。",
+      "p2": "書面で明示しない限り、ISO認証、正式な認定、第三者監査を主張しません。このサイトのデモおよびサンドボックス環境は説明用データを使用します。ここに記載の内容は法的、金融、投資のアドバイスではありません。クライアント案件は個別契約に準拠し、NDA下の本番システムは公開デモと異なる場合があります。",
+      "frameworksLabel": "参照フレームワーク（実務による整合、認証ではない）",
+      "fwTwin": "デジタルツインと相互運用性 — ISO/IEC 30173、ISO 23247、NIST",
+      "fwAi": "AIガバナンスとリスク — ISO/IEC 42001、ISO/IEC 23894、NIST AI RMF、OECD AI Principles",
+      "fwPrivacy": "プライバシーと信頼 — PDPA、GDPR原則；管轄遵守は案件ごと",
+      "copyright": "Bangkok · 東南アジア。© 2026 Axiom. All rights reserved. Axiomは登録商号です。ここに引用される稼働時間、応答時間、成果指標は事例ごとの観測値であり、将来のパフォーマンスを保証するものではありません。"
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"
@@ -2071,7 +2083,13 @@
     },
     "footer": {
       "contact": "Liên hệ",
-      "smallPrint": "Hệ thống ra quyết định cho thành phố, chính phủ và đơn vị vận hành. Bangkok · Đông Nam Á. © 2026 Axiom. All rights reserved. Axiom là tên thương mại đã đăng ký. Thời gian hoạt động, thời gian phản hồi và chỉ số kết quả là quan sát theo từng trường hợp, không phải cam kết về hiệu suất tương lai."
+      "p1": "Axiom xây dựng hệ thống ra quyết định cho thành phố, chính phủ và đơn vị vận hành. Việc bàn giao được thiết kế với tham chiếu đến các khung quốc tế được công nhận về digital twin, quản trị AI và bảo vệ dữ liệu.",
+      "p2": "Trừ khi được nêu rõ bằng văn bản, không tuyên bố chứng nhận ISO, công nhận chính thức hay kiểm toán bên thứ ba. Môi trường trình diễn và sandbox trên trang này dùng dữ liệu minh họa. Nội dung ở đây không phải tư vấn pháp lý, tài chính hay đầu tư. Dự án khách hàng tuân theo thỏa thuận riêng; hệ thống sản xuất dưới NDA có thể khác với phần trình diễn công khai.",
+      "frameworksLabel": "Khung tham chiếu (căn chỉnh theo thực hành, không phải chứng nhận)",
+      "fwTwin": "Digital twin và khả năng tương tác — ISO/IEC 30173, ISO 23247, NIST",
+      "fwAi": "Quản trị và rủi ro AI — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles",
+      "fwPrivacy": "Quyền riêng tư và tin cậy — PDPA, nguyên tắc theo GDPR; tuân thủ pháp lý theo từng dự án",
+      "copyright": "Bangkok · Đông Nam Á. © 2026 Axiom. All rights reserved. Axiom là tên thương mại đã đăng ký. Thời gian hoạt động, phản hồi và chỉ số kết quả được trích dẫn ở đây là quan sát theo từng trường hợp, không phải cam kết về hiệu suất tương lai."
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"

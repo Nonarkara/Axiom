@@ -1695,7 +1695,13 @@ const i18nExt2 = {
     },
     footer: {
       contact:'Contact',
-      smallPrint:'Decision systems for cities, governments, and operators. Bangkok · Southeast Asia. © 2026 Axiom. All rights reserved. Axiom is a registered trade name. System uptime, response times, and outcome metrics are case-specific observations, not guarantees of future performance.',
+      p1:'Axiom builds decision systems for cities, governments, and operators. Delivery is designed with reference to recognised international frameworks for digital twins, AI governance, and data protection.',
+      p2:'Unless expressly stated in writing, no ISO certification, formal accreditation, or third-party audit is claimed. Demonstration and sandbox environments on this site use illustrative data. Nothing here constitutes legal, financial, or investment advice. Client engagements are governed by separate agreements; production systems under NDA may differ from public demonstrations.',
+      frameworksLabel:'Reference frameworks (alignment by practice, not certification)',
+      fwTwin:'Digital twin & interoperability — ISO/IEC 30173, ISO 23247, NIST',
+      fwAi:'AI governance & risk — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles',
+      fwPrivacy:'Privacy & trust — PDPA, GDPR-informed principles; jurisdictional compliance is engagement-specific',
+      copyright:'Bangkok · Southeast Asia. © 2026 Axiom. All rights reserved. Axiom is a registered trade name. Uptime, response times, and outcome metrics cited here are case-specific observations, not guarantees of future performance.',
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
@@ -1790,7 +1796,13 @@ const i18nExt2 = {
     },
     footer: {
       contact:'ติดต่อ',
-      smallPrint:'ระบบการตัดสินใจสำหรับเมือง รัฐบาล และผู้ปฏิบัติงาน · กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ · © 2569 Axiom สงวนลิขสิทธิ์ Axiom เป็นเครื่องหมายการค้าจดทะเบียน · uptime ของระบบ เวลาตอบสนอง และตัวชี้วัดผลลัพธ์ทั้งหมดเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
+      p1:'Axiom สร้างระบบการตัดสินใจสำหรับเมือง รัฐบาล และผู้ปฏิบัติงาน การส่งมอบงานออกแบบโดยอ้างอิงกรอบมาตรฐานสากลที่ได้รับการยอมรับด้าน digital twin การกำกับดูแล AI และการคุ้มครองข้อมูล',
+      p2:'เว้นแต่จะระบุเป็นลายลักษณ์อักษรอย่างชัดเจน จะไม่อ้างการรับรอง ISO การให้สิทธิ์อย่างเป็นทางการ หรือการตรวจสอบโดยบุคคลที่สาม สภาพแวดล้อมสาธิตและ sandbox บนเว็บไซต์นี้ใช้ข้อมูลเพื่อประกอบการนำเสนอเท่านั้น เนื้อหาที่นี่ไม่ใช่คำแนะนำทางกฎหมาย การเงิน หรือการลงทุน งานลูกค้าอยู่ภายใต้สัญญาแยกต่างหาก ระบบจริงภายใต้ NDA อาจแตกต่างจากที่แสดงต่อสาธารณะ',
+      frameworksLabel:'กรอบอ้างอิง (จัดแนวตามการปฏิบัติ ไม่ใช่การรับรอง)',
+      fwTwin:'Digital twin และการทำงานร่วมกัน — ISO/IEC 30173, ISO 23247, NIST',
+      fwAi:'การกำกับดูแลและความเสี่ยง AI — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles',
+      fwPrivacy:'ความเป็นส่วนตัวและความน่าเชื่อถือ — PDPA หลักการตาม GDPR การปฏิบัติตามกฎหมายขึ้นกับขอบเขตงานแต่ละรายการ',
+      copyright:'กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ © 2569 Axiom สงวนลิขสิทธิ์ Axiom เป็นเครื่องหมายการค้าจดทะเบียน ตัวเลข uptime เวลาตอบสนอง และผลลัพธ์ที่อ้างถึงเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
@@ -1883,7 +1895,13 @@ const i18nExt2 = {
     },
     footer: {
       contact:'联系',
-      smallPrint:'面向城市、政府和运营商的决策系统。曼谷 · 东南亚。© 2026 Axiom 版权所有。Axiom 是注册商号。系统正常运行时间、响应时间和成果指标均为个案观察，并非未来表现的保证。',
+      p1:'Axiom 为城市、政府和运营商构建决策系统。交付实践参照公认的数字孪生、AI 治理和数据保护国际框架进行设计。',
+      p2:'除非书面明确说明，不宣称 ISO 认证、正式认可或第三方审计。本网站的演示和沙箱环境使用示意数据。本站内容不构成法律、财务或投资建议。客户项目受单独协议约束；受 NDA 保护的生产系统可能与公开展示不同。',
+      frameworksLabel:'参考框架（实践对齐，非认证声明）',
+      fwTwin:'数字孪生与互操作 — ISO/IEC 30173、ISO 23247、NIST',
+      fwAi:'AI 治理与风险 — ISO/IEC 42001、ISO/IEC 23894、NIST AI RMF、OECD AI 原则',
+      fwPrivacy:'隐私与信任 — PDPA、GDPR 原则；司法管辖合规因项目而异',
+      copyright:'曼谷 · 东南亚。© 2026 Axiom 版权所有。Axiom 为注册商号。本站引用的正常运行时间、响应时间和成果指标均为个案观察，不构成对未来表现的保证。',
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
@@ -1985,7 +2003,13 @@ const i18nExt2 = {
     },
     footer: {
       contact:'contact()',
-      smallPrint:'// decisionSystems<City | Government | Operator>\n// Bangkok · SEA · © 2026 Axiom\n// uptime, responseTime, outcomeMetrics: caseSpecific[]\n// !guarantees<FuturePerformance>',
+      p1:'// delivery: decisionSystems<City|Government|Operator>\n// design.ref: internationalFrameworks{digitalTwin, aiGovernance, dataProtection}',
+      p2:'// !claims: ISO.cert | accreditation | thirdPartyAudit // unless written.explicit\n// demo + sandbox: illustrativeData\n// !advice: legal | financial | investment\n// clientWork: separateAgreements; NDA.production !== public.demo',
+      frameworksLabel:'// referenceFrameworks[] // alignmentByPractice NOT certification',
+      fwTwin:'// digitalTwin + interoperability: ISO/IEC_30173, ISO_23247, NIST',
+      fwAi:'// aiGovernance + risk: ISO/IEC_42001, ISO/IEC_23894, NIST_AI_RMF, OECD',
+      fwPrivacy:'// privacy + trust: PDPA, GDPR.informed; compliance.engagementSpecific',
+      copyright:'// Bangkok · SEA · © 2026 Axiom · registered.tradeName\n// metrics: caseSpecific[] // !guarantees<futurePerformance>',
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {

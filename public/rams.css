@@ -886,6 +886,68 @@ img {
   letter-spacing: 0.04em;
 }
 
+.foot__fineprint {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  max-width: 72ch;
+}
+
+.foot__fineprint-p,
+.foot__fineprint-copy {
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ink-2);
+  letter-spacing: 0.01em;
+}
+
+.foot__fineprint-label {
+  margin: 4px 0 8px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ink-3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.foot__fineprint-list {
+  margin: 0 0 14px;
+  padding: 0 0 0 1.1em;
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.foot__fineprint-list li {
+  margin-bottom: 4px;
+}
+
+.foot__fineprint-list li:last-child {
+  margin-bottom: 0;
+}
+
+.foot__fineprint-copy {
+  margin-bottom: 0;
+  font-size: 10px;
+  color: var(--ink-3);
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 480px) {
+  .foot__fineprint {
+    max-width: none;
+  }
+
+  .foot__fineprint-p,
+  .foot__fineprint-list {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+}
+
 .foot a {
   color: var(--ink-2);
 }
