@@ -1903,15 +1903,18 @@ Object.keys(i18nExt2).forEach(locale => {
   if (uiCopy[locale]) Object.assign(uiCopy[locale], i18nExt2[locale]);
 });
 
+const REGIONAL_LOCALES = new Set(['ko', 'ja', 'vi']);
+
 function renderStaticCopy() {
   const copy = uiCopy[activeLocale] || uiCopy.en;
-  const fallback = uiCopy.en;
+  const fallback = REGIONAL_LOCALES.has(activeLocale) ? copy : uiCopy.en;
   const LOCALE_HTML_LANG = { en: 'en', th: 'th', zh: 'zh-Hans', ko: 'ko', ja: 'ja', vi: 'vi', ts: 'en' };
   document.documentElement.lang = LOCALE_HTML_LANG[activeLocale] || activeLocale;
   const lookup = (key) => {
     const parts = key.split('.');
     const val = parts.reduce((obj, k) => obj?.[k], copy);
     if (typeof val === 'string') return val;
+    if (REGIONAL_LOCALES.has(activeLocale)) return undefined;
     return parts.reduce((obj, k) => obj?.[k], fallback);
   };
   const renderInlineMarkup = (value) => value

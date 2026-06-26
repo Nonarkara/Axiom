@@ -171,8 +171,8 @@
       "kicker": "운영 중",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
       "lede": "각각은 날카로운 질문에서 시작해 작동하는 화면으로 출시되었고, 런칭 뉴스 사이클이 끝난 뒤에도 유용합니다. 클릭해서 사용하세요 — 모두 라이브입니다.",
-      "sandboxKicker": "Sandbox // Live",
-      "sandboxNote": "These aren't demos — they're working systems in a sandbox. Built to scale, not to impress. Production deployments under client NDAs are larger; what runs here behaves like them, with advanced modules withheld."
+      "sandboxKicker": "샌드박스 // 라이브",
+      "sandboxNote": "데모가 아닙니다 — 샌드박스에서 작동하는 시스템입니다. 인상이 아니라 확장을 위해 구축했습니다. 고객 NDA 하의 프로덕션 배포는 더 크지만, 여기서 실행되는 것은 동일하게 동작하며 고급 모듈만 제외됩니다."
     },
     "stageSect": {
       "kicker": "두 무대, 하나의 신호",
@@ -858,8 +858,8 @@
       "kicker": "本番稼働中",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
       "lede": "それぞれが鋭い問いから始まり、稼働する画面としてリリースされ、ローンチ後の報道サイクルが終わっても有用であり続けます。クリックしてご利用ください — すべてライブです。",
-      "sandboxKicker": "Sandbox // Live",
-      "sandboxNote": "These aren't demos — they're working systems in a sandbox. Built to scale, not to impress. Production deployments under client NDAs are larger; what runs here behaves like them, with advanced modules withheld."
+      "sandboxKicker": "サンドボックス // ライブ",
+      "sandboxNote": "デモではありません — サンドボックスで稼働する実システムです。見せるためではなく、スケールするために構築しています。クライアント NDA 下の本番展開はより大規模ですが、ここで動くものは同じ挙動をし、高度なモジュールのみ非公開です。"
     },
     "stageSect": {
       "kicker": "2つのステージ、1つのシグナル",
@@ -1545,8 +1545,8 @@
       "kicker": "Đang chạy thực tế",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
       "lede": "Mỗi hệ thống bắt đầu từ một câu hỏi sắc bén, được triển khai thành giao diện hoạt động và vẫn hữu ích lâu sau khi chu kỳ báo chí ra mắt kết thúc. Nhấp vào và sử dụng — tất cả đều đang live.",
-      "sandboxKicker": "Sandbox // Live",
-      "sandboxNote": "These aren't demos — they're working systems in a sandbox. Built to scale, not to impress. Production deployments under client NDAs are larger; what runs here behaves like them, with advanced modules withheld."
+      "sandboxKicker": "Sandbox // Trực tiếp",
+      "sandboxNote": "Đây không phải bản demo — là hệ thống đang chạy trong sandbox. Xây để mở rộng, không phải để gây ấn tượng. Triển khai production dưới NDA của khách hàng lớn hơn; những gì chạy ở đây hoạt động tương tự, chỉ giữ lại các module nâng cao."
     },
     "stageSect": {
       "kicker": "Hai sân khấu, một tín hiệu",
