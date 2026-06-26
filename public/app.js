@@ -833,7 +833,7 @@ const i18nExt = {
       stackNote:'Local-first. No build team. No vendor lock-in. The M5 Max runs inference, builds, and deploys from one desk in Bangkok.',
     },
     builtStack: {
-      heading:'Built with', meta:'103 tools · 8 layers',
+      heading:'Built with', meta:'109 tools · 9 layers',
       l1name:'Cloud Infrastructure', l1role:'where it runs',
       l2name:'Framework & Connectors', l2role:'what wires it',
       l3name:'Platform & Build Tools', l3role:'where we build',
@@ -842,6 +842,8 @@ const i18nExt = {
       l6name:'Languages', l6role:'the source',
       l7name:'Live Data Sources', l7role:'the inputs',
       l8name:'Channels', l8role:'the outputs',
+      l9name:'Local Runtime', l9role:'the desk',
+      legend:'<span data-runtime="cloud">cloud</span><span data-runtime="local">// local</span>',
     },
     pressSection: {
       kicker:'In the press', title:'Read. Watch. Decide.', lede:'Outside coverage of the work, the thesis, and the systems.',
@@ -1121,7 +1123,7 @@ const i18nExt = {
       stackNote:'Local-first ไม่มีทีม build ไม่ผูกกับเวนเดอร์ M5 Max รัน inference สร้าง และดีพลอย จากโต๊ะทำงานเดียวในกรุงเทพฯ',
     },
     builtStack: {
-      heading:'สร้างด้วย', meta:'103 เครื่องมือ · 8 ชั้น',
+      heading:'สร้างด้วย', meta:'109 เครื่องมือ · 9 ชั้น',
       l1name:'โครงสร้างพื้นฐานคลาวด์', l1role:'ที่ระบบทำงาน',
       l2name:'เฟรมเวิร์กและตัวเชื่อม', l2role:'สิ่งที่เชื่อมระบบ',
       l3name:'แพลตฟอร์มและเครื่องมือสร้าง', l3role:'ที่เราสร้างงาน',
@@ -1130,6 +1132,8 @@ const i18nExt = {
       l6name:'ภาษาโปรแกรม', l6role:'โค้ดต้นทาง',
       l7name:'แหล่งข้อมูลสด', l7role:'ข้อมูลขาเข้า',
       l8name:'ช่องทาง', l8role:'ข้อมูลขาออก',
+      l9name:'รันไทม์ในเครื่อง', l9role:'โต๊ะทำงาน',
+      legend:'<span data-runtime="cloud">คลาวด์</span><span data-runtime="local">// local</span>',
     },
     pressSection: { kicker:'ในสื่อ', title:'อ่าน ดู ตัดสินใจ', lede:'รายงานจากภายนอกเกี่ยวกับงาน แนวคิด และระบบทั้งหมด' },
     pressContent: {
@@ -1407,7 +1411,7 @@ const i18nExt = {
       stackNote:'本地优先 没有构建团队 不被供应商锁定 一台M5 Max在曼谷一张桌子上跑推理、构建和部署',
     },
     builtStack: {
-      heading:'技术栈', meta:'103 项工具 · 8 层',
+      heading:'技术栈', meta:'109 项工具 · 9 层',
       l1name:'云基础设施', l1role:'运行所在',
       l2name:'框架与连接', l2role:'把系统接起来',
       l3name:'平台与构建工具', l3role:'我们构建的地方',
@@ -1416,6 +1420,8 @@ const i18nExt = {
       l6name:'编程语言', l6role:'源码',
       l7name:'实时数据源', l7role:'输入',
       l8name:'通道', l8role:'输出',
+      l9name:'本地运行时', l9role:'工作台',
+      legend:'<span data-runtime="cloud">云端</span><span data-runtime="local">// local</span>',
     },
     pressSection: { kicker:'媒体报道', title:'读 看 决定', lede:'外界对这些工作、论点和系统的报道' },
     credentialsSect: {
@@ -1535,7 +1541,7 @@ const i18nExt = {
       stackNote:'localFirst: true\nbuildTeam: never[]\nvendorLockIn: false\nM5Max.runs({ inference, builds, deploys })\n// location: oneDeskInBangkok',
     },
     builtStack: {
-      heading:'buildStack[]', meta:'// 103 tools, 8 layers',
+      heading:'buildStack[]', meta:'// 109 tools, 9 layers',
       l1name:'infra.cloud()', l1role:'// runtime host',
       l2name:'framework.connect()', l2role:'// the wiring',
       l3name:'platform.build()', l3role:'// dev surface',
@@ -1544,6 +1550,8 @@ const i18nExt = {
       l6name:'lang.src', l6role:'// the source',
       l7name:'data.live()', l7role:'// inputs',
       l8name:'channels.out', l8role:'// outputs',
+      l9name:'runtime.local()', l9role:'// the desk',
+      legend:'<span data-runtime="cloud">// cloud</span><span data-runtime="local">// local</span>',
     },
     pressSection: { kicker:'// IN_THE_PRESS', title:'read() // watch() // decide()', lede:'// outside coverage: { work, thesis, systems }' },
     pressContent: {
@@ -2033,6 +2041,7 @@ function renderStaticCopy() {
     .replace(/&lt;(\/?)(b|em)&gt;/g, '<$1$2>')
     .replace(/&lt;br&gt;/g, '<br>')
     .replace(/&lt;span class="(hero__punch|hero__punch-afford|hero__punch-wait)"&gt;/g, '<span class="$1">')
+    .replace(/&lt;span data-runtime="(cloud|local)"&gt;/g, '<span data-runtime="$1">')
     .replace(/&lt;\/span&gt;/g, '</span>');
 
   document.querySelectorAll('[data-i18n]').forEach((node) => {

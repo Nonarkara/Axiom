@@ -1125,7 +1125,55 @@ img {
   border: 1px solid var(--line-2);
   padding: 5px 9px;
 }
+/* runtime Easter egg — cloud: solid hairline (default); local: dashed + signal bar */
+.stack__items [data-runtime="local"] {
+  border-style: dashed;
+  border-color: var(--line-2);
+  border-left: 2px solid var(--accent);
+  padding-left: 8px;
+}
+.stack__items [data-runtime="local"]:hover::after {
+  content: " // LOCAL";
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+.stack__items [data-runtime="local"].is-fav {
+  border-left-color: var(--accent);
+}
+.stack__legend {
+  margin-top: 8px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.stack__legend [data-runtime="local"],
+.stack__legend [data-runtime="cloud"] {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border: 1px solid var(--line-2);
+  padding: 4px 8px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.stack__legend [data-runtime="local"] {
+  border-style: dashed;
+  border-left: 2px solid var(--accent);
+  padding-left: 7px;
+}
 /* easter egg: the only clickable chip — reveals the accent on hover */
+.stack__items a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
 .stack__items a:hover { border-color: var(--accent); color: var(--accent); }
 /* easter egg: the one darker box per layer = the favorite */
 .stack__items span.is-fav {

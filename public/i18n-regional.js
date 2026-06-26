@@ -487,6 +487,12 @@
       "n6body": "모든 Axiom 시스템은 페이지뷰, 사용 신호, 결정 로그가 포함된 데이터 트레일과 함께 출시됩니다. 기록을 남기세요. 미래의 당신이 필요로 할 것입니다.",
       "stackNote": "로컬 우선. 빌드 팀 없음. 벤더 락인 없음. M5 Max가 방콕 한 책상에서 추론, 빌드, 배포를 실행합니다."
     },
+    "builtStack": {
+      "meta": "109개 도구 · 9계층",
+      "l9name": "로컬 런타임",
+      "l9role": "작업 데스크",
+      "legend": "<span data-runtime=\"cloud\">클라우드</span><span data-runtime=\"local\">// local</span>"
+    },
     "pressSection": {
       "kicker": "언론 보도",
       "title": "읽고. 보고. 결정하라.",
@@ -1193,6 +1199,12 @@
       "n6body": "すべてのAxiomシステムは、ページビュー、利用シグナル、判断ログを含むデータトレイルとともにリリースされます。記録を残してください。未来の自分が必要とします。",
       "stackNote": "ローカルファースト。ビルドチームなし。ベンダーロックインなし。M5 MaxがBangkokの1つのデスクから推論、ビルド、デプロイを実行します。"
     },
+    "builtStack": {
+      "meta": "109ツール · 9層",
+      "l9name": "ローカルランタイム",
+      "l9role": "作業机",
+      "legend": "<span data-runtime=\"cloud\">クラウド</span><span data-runtime=\"local\">// local</span>"
+    },
     "pressSection": {
       "kicker": "メディア報道",
       "title": "読む。見る。判断する。",
@@ -1898,6 +1910,12 @@
       "n6title": "Đo lường từ ngày đầu. Không phải sau.",
       "n6body": "Mọi hệ thống Axiom ra mắt kèm dấu vết dữ liệu: lượt xem, tín hiệu sử dụng, nhật ký quyết định. Ghi lại. Bản thân tương lai sẽ cần.",
       "stackNote": "Local-first. Không đội build. Không vendor lock-in. M5 Max chạy suy luận, build và deploy từ một bàn làm việc tại Bangkok."
+    },
+    "builtStack": {
+      "meta": "109 công cụ · 9 tầng",
+      "l9name": "Runtime cục bộ",
+      "l9role": "bàn làm việc",
+      "legend": "<span data-runtime=\"cloud\">đám mây</span><span data-runtime=\"local\">// local</span>"
     },
     "pressSection": {
       "kicker": "Báo chí",
