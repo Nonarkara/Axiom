@@ -489,9 +489,17 @@
     },
     "builtStack": {
       "meta": "109개 도구 · 9계층",
+      "expandFull": "전체 기술 스택 보기",
       "l9name": "로컬 런타임",
       "l9role": "작업 데스크",
       "legend": "<span data-runtime=\"cloud\">클라우드</span><span data-runtime=\"local\">// local</span>"
+    },
+    "brandSect": {
+      "kicker": "브랜드 키트",
+      "meta": "8장 · Axiom 아이덴티티 시스템",
+      "lede": "표지, 로고, 색상, 서체, 레이아웃 — 8장. 전체 패키지를 다운로드하거나 각 시트를 둘러보세요.",
+      "downloadCta": "브랜드 키트 다운로드",
+      "expandAll": "모든 브랜드 시트 보기"
     },
     "pressSection": {
       "kicker": "언론 보도",
@@ -1208,9 +1216,17 @@
     },
     "builtStack": {
       "meta": "109ツール · 9層",
+      "expandFull": "技術スタック全体を見る",
       "l9name": "ローカルランタイム",
       "l9role": "作業机",
       "legend": "<span data-runtime=\"cloud\">クラウド</span><span data-runtime=\"local\">// local</span>"
+    },
+    "brandSect": {
+      "kicker": "ブランドキット",
+      "meta": "8シート · Axiomアイデンティティシステム",
+      "lede": "表紙、ロゴ、カラー、タイポ、レイアウト——8シート。パッケージをダウンロードするか、各シートを閲覧。",
+      "downloadCta": "ブランドキットをダウンロード",
+      "expandAll": "すべてのブランドシートを見る"
     },
     "pressSection": {
       "kicker": "メディア報道",
@@ -1927,9 +1943,17 @@
     },
     "builtStack": {
       "meta": "109 công cụ · 9 tầng",
+      "expandFull": "Xem toàn bộ technology stack",
       "l9name": "Runtime cục bộ",
       "l9role": "bàn làm việc",
       "legend": "<span data-runtime=\"cloud\">đám mây</span><span data-runtime=\"local\">// local</span>"
+    },
+    "brandSect": {
+      "kicker": "Bộ nhận diện thương hiệu",
+      "meta": "8 tờ · Hệ thống nhận diện Axiom",
+      "lede": "Bìa, logo, màu, typography, layout — 8 tờ. Tải gói đầy đủ hoặc duyệt từng tờ.",
+      "downloadCta": "Tải Brand Kit",
+      "expandAll": "Xem tất cả brand sheet"
     },
     "pressSection": {
       "kicker": "Báo chí",

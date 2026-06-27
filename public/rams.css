@@ -1615,3 +1615,102 @@ img {
   font-size: 12px;
   line-height: 1.5;
 }
+
+/* ============================================================
+   §4.9 BRAND KIT + STACK — compact glimpse + expandable
+   ============================================================ */
+
+.brand--compact,
+.stack-block--compact {
+  padding: calc(var(--gap) * 1.1) 0;
+}
+
+.brand-lede {
+  margin: 8px 0 0;
+  max-width: 60ch;
+  color: var(--ink-3);
+}
+
+.brand-actions {
+  margin-top: 14px;
+}
+
+.brand-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 16px;
+  background: var(--line);
+  border: 1px solid var(--line-2);
+}
+
+.brand-preview__item {
+  display: block;
+  background: var(--panel);
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-preview__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
+}
+
+.brand-preview__lbl {
+  display: block;
+  padding: 8px 10px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.brand-preview__item:hover .brand-preview__lbl {
+  color: var(--accent);
+}
+
+.brand-details {
+  margin-top: 16px;
+}
+
+.stack-block--compact {
+  margin-top: 24px;
+}
+
+.stack__legend--compact {
+  margin-top: 10px;
+}
+
+.stack-glimpse {
+  margin-top: 10px;
+}
+
+.stack-glimpse__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stack-details {
+  margin-top: 12px;
+}
+
+.stack-details .stack {
+  margin-top: 0;
+}
+
+.stack-note {
+  margin: 12px 0 0;
+  max-width: 64ch;
+  color: var(--ink-3);
+}
+
+@media (max-width: 480px) {
+  .brand-preview {
+    grid-template-columns: 1fr;
+  }
+}

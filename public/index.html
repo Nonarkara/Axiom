@@ -736,10 +736,28 @@
             </div>
           </div>
         </div>
+        <div class="stack-block stack-block--compact">
         <div class="cluster-head">
           <div class="t-label" data-i18n="builtStack.heading">Built with</div>
           <div class="s-head__meta" data-i18n="builtStack.meta">109 tools · 9 layers</div>
         </div>
+        <p class="stack__legend stack__legend--compact" data-i18n-html="builtStack.legend"><span data-runtime="cloud">cloud</span><span data-runtime="local">// local</span></p>
+        <div class="stack-glimpse">
+          <div class="stack__items stack-glimpse__items">
+            <span class="is-fav" data-runtime="cloud">GitHub Pages</span>
+            <span class="is-fav" data-runtime="local">React</span>
+            <span class="is-fav" data-runtime="local">Claude Code</span>
+            <span class="is-fav" data-runtime="cloud">Opus 4.8</span>
+            <span class="is-fav" data-runtime="local">Deck.gl</span>
+            <span class="is-fav" data-runtime="local">Python</span>
+            <span class="is-fav" data-runtime="cloud">GISTDA</span>
+            <span class="is-fav" data-runtime="cloud">Telegram</span>
+            <span class="is-fav" data-runtime="local">M5 Max · 128GB</span>
+          </div>
+        </div>
+        <details class="cred-details stack-details">
+          <summary class="cred-details__summary" data-i18n="builtStack.expandFull">Full technology stack</summary>
+          <div class="cred-details__body">
         <div class="stack">
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="4.5"/><rect x="3.5" y="11" width="17" height="4.5"/><rect x="3.5" y="17.5" width="17" height="4.5"/><circle cx="6.5" cy="6.75" r="0.6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="13.25" r="0.6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="19.75" r="0.6" fill="currentColor" stroke="none"/></svg></div>
@@ -806,8 +824,11 @@
           </div>
         </div>
         <p class="stack__legend" data-i18n-html="builtStack.legend"><span data-runtime="cloud">cloud</span><span data-runtime="local">// local</span></p>
-        <p class="t-body-2" data-i18n="notesContent.stackNote" style="margin:12px 0 0;">Local-first. No build team. No
+        <p class="t-body-2 stack-note" data-i18n="notesContent.stackNote">Local-first. No build team. No
           vendor lock-in. The M5 Max runs inference, builds, and deploys from one desk in Bangkok.</p>
+          </div>
+        </details>
+        </div>
       </div>
     </section>
 
@@ -1102,19 +1123,35 @@
     </section>
 
     <!-- ============== BRAND KIT ============== -->
-    <section class="section" id="brand">
+    <section class="section brand brand--compact" id="brand">
       <div class="wrap">
-        <div class="s-head">
-          <div class="s-head__title">Brand Kit</div>
-          <div class="s-head__meta">8 sheets · Axiom Identity System</div>
+        <div class="brand-header">
+          <div class="s-head">
+            <div class="s-head__title" data-i18n="brandSect.kicker">Brand Kit</div>
+            <div class="s-head__meta" data-i18n="brandSect.meta">8 sheets · Axiom Identity System</div>
+          </div>
+          <p class="brand-lede t-body-2" data-i18n="brandSect.lede">Cover, logo, colors, type, layout — eight sheets. Download the package or browse every sheet.</p>
+          <div class="btn-row brand-actions">
+            <a class="btn btn--primary" href="axiom-brand-kit.zip" download><span data-i18n="brandSect.downloadCta">Download Brand Kit</span> <span class="tri">▸</span></a>
+          </div>
+          <div class="brand-preview">
+            <a class="brand-preview__item" href="corporate%20identity/axiom-brand-01-cover.png" target="_blank" rel="noopener">
+              <img src="corporate%20identity/axiom-brand-01-cover.png" loading="lazy" alt="Axiom brand cover sheet preview">
+              <span class="brand-preview__lbl">01 Cover</span>
+            </a>
+            <a class="brand-preview__item" href="corporate%20identity/axiom-brand-02-logo.png" target="_blank" rel="noopener">
+              <img src="corporate%20identity/axiom-brand-02-logo.png" loading="lazy" alt="Axiom logo guidelines preview">
+              <span class="brand-preview__lbl">02 Logo</span>
+            </a>
+            <a class="brand-preview__item" href="corporate%20identity/axiom-brand-03-colors.png" target="_blank" rel="noopener">
+              <img src="corporate%20identity/axiom-brand-03-colors.png" loading="lazy" alt="Axiom color palette preview">
+              <span class="brand-preview__lbl">03 Colors</span>
+            </a>
+          </div>
         </div>
-        <p class="t-body-2" style="max-width:60ch;margin:12px 0 18px;">The complete Axiom brand guidelines — cover,
-          logo, colors, typography, layout, applications, photography, and voice. Download the full package or browse
-          the sheets below.</p>
-        <div class="btn-row" style="margin:0 0 24px;">
-          <a class="btn btn--primary" href="axiom-brand-kit.zip" download><span>Download Brand Kit</span> <span
-              class="tri">▸</span></a>
-        </div>
+        <details class="cred-details brand-details">
+          <summary class="cred-details__summary" data-i18n="brandSect.expandAll">View all brand sheets</summary>
+          <div class="cred-details__body">
         <div class="grid grid--4" id="brandGrid">
           <a class="sys-cell" href="corporate%20identity/axiom-brand-01-cover.png" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">01</span><span class="sys-cell__status">Cover</span>
@@ -1198,6 +1235,8 @@
             </div>
           </a>
         </div>
+          </div>
+        </details>
       </div>
     </section>
 

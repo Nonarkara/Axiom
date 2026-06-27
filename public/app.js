@@ -834,6 +834,7 @@ const i18nExt = {
     },
     builtStack: {
       heading:'Built with', meta:'109 tools · 9 layers',
+      expandFull:'Full technology stack',
       l1name:'Cloud Infrastructure', l1role:'where it runs',
       l2name:'Framework & Connectors', l2role:'what wires it',
       l3name:'Platform & Build Tools', l3role:'where we build',
@@ -844,6 +845,13 @@ const i18nExt = {
       l8name:'Channels', l8role:'the outputs',
       l9name:'Local Runtime', l9role:'the desk',
       legend:'<span data-runtime="cloud">cloud</span><span data-runtime="local">// local</span>',
+    },
+    brandSect: {
+      kicker:'Brand Kit',
+      meta:'8 sheets · Axiom Identity System',
+      lede:'Cover, logo, colors, type, layout — eight sheets. Download the package or browse every sheet.',
+      downloadCta:'Download Brand Kit',
+      expandAll:'View all brand sheets',
     },
     pressSection: {
       kicker:'In the press', title:'Read. Watch. Decide.', lede:'Outside coverage of the work, the thesis, and the systems.',
@@ -1125,6 +1133,7 @@ const i18nExt = {
     },
     builtStack: {
       heading:'สร้างด้วย', meta:'109 เครื่องมือ · 9 ชั้น',
+      expandFull:'ดูเทคโนโลยีสแต็กทั้งหมด',
       l1name:'โครงสร้างพื้นฐานคลาวด์', l1role:'ที่ระบบทำงาน',
       l2name:'เฟรมเวิร์กและตัวเชื่อม', l2role:'สิ่งที่เชื่อมระบบ',
       l3name:'แพลตฟอร์มและเครื่องมือสร้าง', l3role:'ที่เราสร้างงาน',
@@ -1135,6 +1144,13 @@ const i18nExt = {
       l8name:'ช่องทาง', l8role:'ข้อมูลขาออก',
       l9name:'รันไทม์ในเครื่อง', l9role:'โต๊ะทำงาน',
       legend:'<span data-runtime="cloud">คลาวด์</span><span data-runtime="local">// local</span>',
+    },
+    brandSect: {
+      kicker:'Brand Kit',
+      meta:'8 แผ่น · ระบบอัตลักษณ์ Axiom',
+      lede:'ปก โลโก้ สี ตัวอักษร เลย์เอาต์ — 8 แผ่น ดาวน์โหลดชุดเต็มหรือเปิดดูทีละแผ่น',
+      downloadCta:'ดาวน์โหลด Brand Kit',
+      expandAll:'ดูแผ่นแบรนด์ทั้งหมด',
     },
     pressSection: { kicker:'ในสื่อ', title:'อ่าน ดู ตัดสินใจ', lede:'รายงานจากภายนอกเกี่ยวกับงาน แนวคิด และระบบทั้งหมด' },
     pressContent: {
@@ -1414,6 +1430,7 @@ const i18nExt = {
     },
     builtStack: {
       heading:'技术栈', meta:'109 项工具 · 9 层',
+      expandFull:'查看完整技术栈',
       l1name:'云基础设施', l1role:'运行所在',
       l2name:'框架与连接', l2role:'把系统接起来',
       l3name:'平台与构建工具', l3role:'我们构建的地方',
@@ -1424,6 +1441,13 @@ const i18nExt = {
       l8name:'通道', l8role:'输出',
       l9name:'本地运行时', l9role:'工作台',
       legend:'<span data-runtime="cloud">云端</span><span data-runtime="local">// local</span>',
+    },
+    brandSect: {
+      kicker:'品牌工具包',
+      meta:'8 张 · Axiom 识别系统',
+      lede:'封面、标志、色彩、字体、版式——八张规范。下载完整包或逐张浏览。',
+      downloadCta:'下载品牌工具包',
+      expandAll:'查看全部品牌规范',
     },
     pressSection: { kicker:'媒体报道', title:'读 看 决定', lede:'外界对这些工作、论点和系统的报道' },
     credentialsSect: {
@@ -1545,6 +1569,7 @@ const i18nExt = {
     },
     builtStack: {
       heading:'buildStack[]', meta:'// 109 tools, 9 layers',
+      expandFull:'stack.expandAll() // 109 tools, 9 layers',
       l1name:'infra.cloud()', l1role:'// runtime host',
       l2name:'framework.connect()', l2role:'// the wiring',
       l3name:'platform.build()', l3role:'// dev surface',
@@ -1555,6 +1580,13 @@ const i18nExt = {
       l8name:'channels.out', l8role:'// outputs',
       l9name:'runtime.local()', l9role:'// the desk',
       legend:'<span data-runtime="cloud">// cloud</span><span data-runtime="local">// local</span>',
+    },
+    brandSect: {
+      kicker:'brandKit[]',
+      meta:'// 8 sheets · axiom.identitySystem',
+      lede:'// cover, logo, colors, type, layout — 8 sheets\n// download.zip() || browse.all()',
+      downloadCta:'brandKit.download()',
+      expandAll:'brandSheets.viewAll()',
     },
     pressSection: { kicker:'// IN_THE_PRESS', title:'read() // watch() // decide()', lede:'// outside coverage: { work, thesis, systems }' },
     pressContent: {
