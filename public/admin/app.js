@@ -20,7 +20,7 @@
  *   summary: string,
  *   note: string,
  *   outcome: string,
- *   evidenceType: string,
+ *   recordType: string,
  *   evidenceSourceLabel: string,
  *   evidenceSourceUrl: string,
  *   confidenceScore: number,
@@ -48,7 +48,7 @@
  *   historyOrder: number,
  *   metadata: Record<string, unknown>,
  *   status: string,
- *   artifactType: string,
+ *   recordType: string,
  *   confidenceScore: number,
  *   proofNote: string,
  *   translations: Record<string, Partial<Record<'source' | 'title' | 'summary' | 'category' | 'eventPeriod' | 'proofNote', string>>>
@@ -87,7 +87,7 @@ const uiCopy = {
         sector: 'Type of work',
         status: 'Delivery status',
         regionCode: 'Region grouping',
-        evidenceType: 'Proof type',
+        recordType: 'Proof type',
         confidenceScore: 'Confidence score',
         artifactCount: 'Proof artifacts',
         lastVerifiedAt: 'Last verified',
@@ -136,7 +136,7 @@ const uiCopy = {
         location: 'Location',
         url: 'Source URL',
         status: 'Record status',
-        artifactType: 'Artifact type',
+        recordType: 'Artifact type',
         confidenceScore: 'Confidence score',
         source: 'Source',
         title: 'Headline',
@@ -233,7 +233,7 @@ const uiCopy = {
         sector: 'ประเภทงาน',
         status: 'สถานะการส่งมอบ',
         regionCode: 'กลุ่มภูมิภาค',
-        evidenceType: 'ประเภทหลักฐาน',
+        recordType: 'ประเภทหลักฐาน',
         confidenceScore: 'คะแนนความเชื่อมั่น',
         artifactCount: 'จำนวนชิ้นหลักฐาน',
         lastVerifiedAt: 'ตรวจล่าสุดเมื่อ',
@@ -270,7 +270,7 @@ const uiCopy = {
         location: 'สถานที่',
         url: 'ลิงก์แหล่งอ้างอิง',
         status: 'สถานะระเบียน',
-        artifactType: 'ประเภทชิ้นงาน',
+        recordType: 'ประเภทชิ้นงาน',
         confidenceScore: 'คะแนนความเชื่อมั่น',
         source: 'แหล่งที่มา',
         title: 'หัวข้อ',
@@ -353,7 +353,7 @@ const uiCopy = {
         sector: '工作类型',
         status: '交付状态',
         regionCode: '区域分组',
-        evidenceType: '证据类型',
+        recordType: '证据类型',
         confidenceScore: '可信度分数',
         artifactCount: '证据件数',
         lastVerifiedAt: '最近核验时间',
@@ -390,7 +390,7 @@ const uiCopy = {
         location: '地点',
         url: '来源链接',
         status: '记录状态',
-        artifactType: '成果类型',
+        recordType: '成果类型',
         confidenceScore: '可信度分数',
         source: '来源',
         title: '标题',
@@ -473,7 +473,7 @@ const uiCopy = {
         sector: 'sector',
         status: 'status',
         regionCode: 'regionCode',
-        evidenceType: 'evidenceType',
+        recordType: 'recordType',
         confidenceScore: 'confidenceScore',
         artifactCount: 'artifactCount',
         lastVerifiedAt: 'lastVerifiedAt',
@@ -510,7 +510,7 @@ const uiCopy = {
         location: 'location',
         url: 'url',
         status: 'status',
-        artifactType: 'artifactType',
+        recordType: 'recordType',
         confidenceScore: 'confidenceScore',
         source: 'source',
         title: 'title',
@@ -608,7 +608,7 @@ const formFields = {
     sector: /** @type {HTMLInputElement | null} */ (document.getElementById('caseSector')),
     status: /** @type {HTMLSelectElement | null} */ (document.getElementById('caseStatus')),
     regionCode: /** @type {HTMLInputElement | null} */ (document.getElementById('caseRegionCode')),
-    evidenceType: /** @type {HTMLInputElement | null} */ (document.getElementById('caseEvidenceType')),
+    recordType: /** @type {HTMLInputElement | null} */ (document.getElementById('caseEvidenceType')),
     confidenceScore: /** @type {HTMLInputElement | null} */ (document.getElementById('caseConfidenceScore')),
     artifactCount: /** @type {HTMLInputElement | null} */ (document.getElementById('caseArtifactCount')),
     lastVerifiedAt: /** @type {HTMLInputElement | null} */ (document.getElementById('caseLastVerifiedAt')),
@@ -621,7 +621,7 @@ const formFields = {
     location: /** @type {HTMLInputElement | null} */ (document.getElementById('historyLocation')),
     url: /** @type {HTMLInputElement | null} */ (document.getElementById('historyUrl')),
     status: /** @type {HTMLSelectElement | null} */ (document.getElementById('historyStatus')),
-    artifactType: /** @type {HTMLInputElement | null} */ (document.getElementById('historyArtifactType')),
+    recordType: /** @type {HTMLInputElement | null} */ (document.getElementById('historyArtifactType')),
     confidenceScore: /** @type {HTMLInputElement | null} */ (document.getElementById('historyConfidenceScore')),
   },
 };
@@ -698,6 +698,11 @@ function bindActions() {
   document.getElementById('cancelPipelineBtn')?.addEventListener('click', () => {
     state.selectedPipelineId = null;
     document.getElementById('pipelineForm')?.setAttribute('hidden', '');
+    renderPipelineNotes([]);
+  });
+
+  document.getElementById('addNoteBtn')?.addEventListener('click', async () => {
+    await addPipelineNote();
   });
 }
 
@@ -844,7 +849,7 @@ function renderStaticCopy() {
   setText('caseSectorLabel', copy.case.labels.sector);
   setText('caseStatusLabel', copy.case.labels.status);
   setText('caseRegionCodeLabel', copy.case.labels.regionCode);
-  setText('caseEvidenceTypeLabel', copy.case.labels.evidenceType);
+  setText('caseEvidenceTypeLabel', copy.case.labels.recordType);
   setText('caseConfidenceScoreLabel', copy.case.labels.confidenceScore);
   setText('caseArtifactCountLabel', copy.case.labels.artifactCount);
   setText('caseLastVerifiedAtLabel', copy.case.labels.lastVerifiedAt);
@@ -856,7 +861,7 @@ function renderStaticCopy() {
   setText('historyLocationLabel', copy.history.labels.location);
   setText('historyUrlLabel', copy.history.labels.url);
   setText('historyStatusLabel', copy.history.labels.status);
-  setText('historyArtifactTypeLabel', copy.history.labels.artifactType);
+  setText('historyArtifactTypeLabel', copy.history.labels.recordType);
   setText('historyConfidenceScoreLabel', copy.history.labels.confidenceScore);
 }
 
@@ -982,7 +987,7 @@ function renderCaseForm() {
   setInputValue(formFields.case.sector, draft.sector);
   setInputValue(formFields.case.status, draft.status || 'live');
   setInputValue(formFields.case.regionCode, draft.regionCode || 'global');
-  setInputValue(formFields.case.evidenceType, draft.evidenceType || 'reference');
+  setInputValue(formFields.case.recordType, draft.recordType || 'reference');
   setInputValue(formFields.case.confidenceScore, formatConfidenceInput(draft.confidenceScore));
   setInputValue(formFields.case.artifactCount, String(draft.artifactCount ?? 1));
   setInputValue(formFields.case.lastVerifiedAt, formatDateTimeLocalInput(draft.lastVerifiedAt));
@@ -1037,7 +1042,7 @@ function renderHistoryForm() {
   setInputValue(formFields.history.location, draft.location);
   setInputValue(formFields.history.url, draft.url);
   setInputValue(formFields.history.status, draft.status || 'published');
-  setInputValue(formFields.history.artifactType, draft.artifactType || 'brief');
+  setInputValue(formFields.history.recordType, draft.recordType || 'brief');
   setInputValue(formFields.history.confidenceScore, formatConfidenceInput(draft.confidenceScore));
 
   const localeMeta = copy.history.locale[state.activeLocale];
@@ -1137,7 +1142,7 @@ function persistCaseDraft() {
   state.caseDraft.sector = formFields.case.sector?.value.trim() || '';
   state.caseDraft.status = formFields.case.status?.value || 'live';
   state.caseDraft.regionCode = formFields.case.regionCode?.value.trim() || 'global';
-  state.caseDraft.evidenceType = formFields.case.evidenceType?.value.trim() || 'reference';
+  state.caseDraft.recordType = formFields.case.recordType?.value.trim() || 'reference';
   state.caseDraft.confidenceScore = clampConfidence(formFields.case.confidenceScore?.value);
   state.caseDraft.artifactCount = Math.max(1, Number.parseInt(formFields.case.artifactCount?.value || '1', 10) || 1);
   state.caseDraft.lastVerifiedAt = parseDateTimeLocalOutput(formFields.case.lastVerifiedAt?.value || '');
@@ -1180,7 +1185,7 @@ function persistHistoryDraft() {
   state.historyDraft.location = formFields.history.location?.value.trim() || '';
   state.historyDraft.url = formFields.history.url?.value.trim() || '';
   state.historyDraft.status = formFields.history.status?.value || 'published';
-  state.historyDraft.artifactType = formFields.history.artifactType?.value.trim() || 'brief';
+  state.historyDraft.recordType = formFields.history.recordType?.value.trim() || 'brief';
   state.historyDraft.confidenceScore = clampConfidence(formFields.history.confidenceScore?.value);
 
   if (state.activeLocale === 'ts') return;
@@ -1232,7 +1237,7 @@ async function saveCaseStudy() {
     summary: state.caseDraft.summary,
     note: state.caseDraft.note,
     outcome: state.caseDraft.outcome,
-    evidenceType: state.caseDraft.evidenceType,
+    recordType: state.caseDraft.recordType,
     evidenceSourceLabel: state.caseDraft.evidenceSourceLabel,
     evidenceSourceUrl: state.caseDraft.evidenceSourceUrl,
     confidenceScore: state.caseDraft.confidenceScore,
@@ -1293,7 +1298,7 @@ async function saveHistory() {
     translations: state.historyDraft.translations,
     metadata: state.historyDraft.metadata || {},
     status: state.historyDraft.status,
-    artifactType: state.historyDraft.artifactType,
+    recordType: state.historyDraft.recordType,
     confidenceScore: state.historyDraft.confidenceScore,
     proofNote: state.historyDraft.proofNote,
   };
@@ -1420,7 +1425,7 @@ function createEmptyCaseStudy(count = 0) {
     summary: '',
     note: '',
     outcome: '',
-    evidenceType: 'reference',
+    recordType: 'reference',
     evidenceSourceLabel: '',
     evidenceSourceUrl: '',
     confidenceScore: 0.75,
@@ -1448,7 +1453,7 @@ function createEmptyHistory(count = 0) {
     historyOrder: count + 1,
     metadata: {},
     status: 'published',
-    artifactType: 'brief',
+    recordType: 'brief',
     confidenceScore: 0.75,
     proofNote: '',
     translations: {},
@@ -1657,6 +1662,7 @@ function renderPipelineTable() {
       renderPipelineForm(item);
       document.getElementById('pipelineForm')?.removeAttribute('hidden');
       document.getElementById('pipelineForm')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      fetchAndRenderNotes(id);
     });
   });
 }
@@ -1722,6 +1728,75 @@ async function deletePipelineEntry() {
     renderPipelineTable();
     setText('statPipeline', numberFormat(state.pipeline.length));
     showBanner('Pipeline lead deleted.', 'success');
+  } catch (err) {
+    showBanner(`Delete failed: ${err.message}`, 'error');
+  }
+}
+
+// ── Pipeline notes ───────────────────────────────────────────────────────────
+
+function renderPipelineNotes(notes) {
+  const list = document.getElementById('plNotesList');
+  if (!list) return;
+
+  if (!notes || notes.length === 0) {
+    list.innerHTML = '<div class="notes-list-empty">No notes yet — add the first one above.</div>';
+    return;
+  }
+
+  list.innerHTML = notes.map((note) => `
+    <div class="note-item" data-note-id="${note.id}">
+      <div class="note-body">${escapeHtml(note.body)}</div>
+      <span class="note-source source-${escapeHtml(note.sourceType || 'manual')}">${escapeHtml(note.sourceType || 'manual')}</span>
+      <div class="note-meta">${escapeHtml(note.createdAt ? note.createdAt.slice(0, 16).replace('T', ' ') : '')}</div>
+      <button type="button" class="note-delete" data-note-id="${note.id}" title="Delete note">delete</button>
+    </div>
+  `).join('');
+
+  list.querySelectorAll('.note-delete').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const noteId = Number(btn.dataset.noteId);
+      await deletePipelineNote(noteId);
+    });
+  });
+}
+
+async function fetchAndRenderNotes(pipelineId) {
+  if (!pipelineId || state.readOnly) { renderPipelineNotes([]); return; }
+  try {
+    const res = await fetchJson(apiUrl(`api/admin/pipeline/${pipelineId}/notes`));
+    renderPipelineNotes(res.items || []);
+  } catch {
+    renderPipelineNotes([]);
+  }
+}
+
+async function addPipelineNote() {
+  if (!state.selectedPipelineId || state.readOnly) return;
+  const body = document.getElementById('plNoteBody')?.value?.trim();
+  if (!body) return;
+
+  try {
+    const res = await fetchJson(apiUrl(`api/admin/pipeline/${state.selectedPipelineId}/notes`), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ body, sourceType: 'manual' }),
+    });
+    const noteEl = document.getElementById('plNoteBody');
+    if (noteEl) noteEl.value = '';
+
+    // Re-fetch and render
+    await fetchAndRenderNotes(state.selectedPipelineId);
+  } catch (err) {
+    showBanner(`Note failed: ${err.message}`, 'error');
+  }
+}
+
+async function deletePipelineNote(noteId) {
+  if (!state.selectedPipelineId || state.readOnly) return;
+  try {
+    await fetchJson(apiUrl(`api/admin/pipeline/${state.selectedPipelineId}/notes/${noteId}`), { method: 'DELETE' });
+    await fetchAndRenderNotes(state.selectedPipelineId);
   } catch (err) {
     showBanner(`Delete failed: ${err.message}`, 'error');
   }

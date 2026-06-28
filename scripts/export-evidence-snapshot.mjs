@@ -72,7 +72,7 @@ function getCaseStudyProof() {
       summary,
       note,
       outcome,
-      evidence_type AS evidenceType,
+      record_type AS recordType,
       evidence_source_label AS evidenceSourceLabel,
       evidence_source_url AS evidenceSourceUrl,
       confidence_score AS confidenceScore,
@@ -130,9 +130,10 @@ function getContentHistory() {
       history_order AS historyOrder,
       metadata,
       status,
-      artifact_type AS artifactType,
+      record_type AS recordType,
       confidence_score AS confidenceScore,
       proof_note AS proofNote,
+      source_type AS sourceType,
       translations
     FROM content_history
     ORDER BY history_order ASC, id ASC
@@ -143,16 +144,32 @@ function getContentHistory() {
   }));
 }
 
+function getPipeline() {
+  return db.prepare(`
+    SELECT
+      id, project_name AS projectName, client_name AS clientName,
+      stage, has_contract AS hasContract, sector, notes,
+      record_type AS recordType, source_type AS sourceType,
+      external_ref AS externalRef, pipeline_order AS pipelineOrder,
+      created_at AS createdAt, updated_at AS updatedAt
+    FROM pipeline
+    ORDER BY pipeline_order ASC, id ASC
+  `).all();
+}
+
 const generatedAt = new Date().toISOString();
+const pipeline = getPipeline();
 const snapshot = {
   generatedAt,
   source: 'static-snapshot',
   analytics: {
     ...getAnalyticsSummary(),
+    pipelineCount: pipeline.length,
     snapshotGeneratedAt: generatedAt,
   },
   caseStudies: getCaseStudyProof(),
   contentHistory: getContentHistory(),
+  pipeline,
 };
 
 await mkdir(outDir, { recursive: true });
@@ -163,5 +180,6 @@ console.log(JSON.stringify({
   outPath,
   caseStudies: snapshot.caseStudies.length,
   contentHistory: snapshot.contentHistory.length,
+  pipeline: pipeline.length,
   generatedAt,
 }, null, 2));

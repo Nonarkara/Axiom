@@ -96,6 +96,17 @@ db.exec(`
 
   CREATE INDEX IF NOT EXISTS idx_pipeline_order ON pipeline(pipeline_order);
   CREATE INDEX IF NOT EXISTS idx_pipeline_stage ON pipeline(stage);
+
+  CREATE TABLE IF NOT EXISTS pipeline_notes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pipeline_id INTEGER NOT NULL REFERENCES pipeline(id) ON DELETE CASCADE,
+    body TEXT NOT NULL,
+    source_type TEXT NOT NULL DEFAULT 'manual',
+    external_ref TEXT,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_pipeline_notes_pipeline ON pipeline_notes(pipeline_id);
 `);
 
 ensureColumn('case_study_proof', 'translations', `TEXT DEFAULT '{}'`);
@@ -103,7 +114,7 @@ ensureColumn('case_study_proof', 'status', `TEXT DEFAULT 'live'`);
 ensureColumn('case_study_proof', 'region_code', `TEXT DEFAULT 'global'`);
 ensureColumn('case_study_proof', 'stakeholder', `TEXT`);
 ensureColumn('case_study_proof', 'outcome', `TEXT`);
-ensureColumn('case_study_proof', 'evidence_type', `TEXT DEFAULT 'reference'`);
+ensureColumn('case_study_proof', 'record_type', `TEXT DEFAULT 'reference'`);
 ensureColumn('case_study_proof', 'evidence_source_label', `TEXT`);
 ensureColumn('case_study_proof', 'evidence_source_url', `TEXT`);
 ensureColumn('case_study_proof', 'confidence_score', `REAL DEFAULT 0.75`);
@@ -112,9 +123,17 @@ ensureColumn('case_study_proof', 'artifact_count', `INTEGER DEFAULT 1`);
 ensureColumn('case_study_proof', 'last_verified_at', `TEXT`);
 ensureColumn('content_history', 'translations', `TEXT DEFAULT '{}'`);
 ensureColumn('content_history', 'status', `TEXT DEFAULT 'published'`);
-ensureColumn('content_history', 'artifact_type', `TEXT DEFAULT 'brief'`);
+ensureColumn('content_history', 'record_type', `TEXT DEFAULT 'brief'`);
 ensureColumn('content_history', 'confidence_score', `REAL DEFAULT 0.75`);
 ensureColumn('content_history', 'proof_note', `TEXT`);
+ensureColumn('case_study_proof', 'source_type', `TEXT NOT NULL DEFAULT 'manual'`);
+ensureColumn('case_study_proof', 'external_ref', `TEXT`);
+ensureColumn('content_history', 'source_type', `TEXT NOT NULL DEFAULT 'manual'`);
+ensureColumn('content_history', 'external_ref', `TEXT`);
+ensureColumn('content_history', 'updated_at', `TEXT`);
+ensureColumn('pipeline', 'source_type', `TEXT NOT NULL DEFAULT 'manual'`);
+ensureColumn('pipeline', 'external_ref', `TEXT`);
+ensureColumn('pipeline', 'record_type', `TEXT NOT NULL DEFAULT 'pipeline'`);
 
 const seededCaseStudies = [
   {
@@ -132,7 +151,7 @@ const seededCaseStudies = [
     summary: 'A working surface for geopolitical monitoring built for people who do not have time for PowerPoint latency.',
     note: 'The system keeps the room focused on a narrowing set of actions instead of a widening pile of feeds.',
     outcome: 'One monitoring surface replaced fragmented feed-checking and sharpened escalation briefings.',
-    evidenceType: 'monitor',
+    recordType: 'monitor',
     evidenceSourceLabel: 'Live system',
     evidenceSourceUrl: 'https://globalmonitor.fly.dev/',
     confidenceScore: 0.93,
@@ -188,7 +207,7 @@ const seededCaseStudies = [
     summary: 'A regional command layer that cuts city operations down to the few decisions the room actually needs to make fast.',
     note: 'The product logic is simple: use the existing data, compress the decision, and keep the interface awake enough for live operations.',
     outcome: 'Transit, safety, and environmental inputs were compressed into one governor-facing operating room.',
-    evidenceType: 'operations',
+    recordType: 'operations',
     evidenceSourceLabel: 'Governor war room',
     evidenceSourceUrl: 'https://nonarkara.github.io/phuket-dashboard/war-room',
     confidenceScore: 0.88,
@@ -244,7 +263,7 @@ const seededCaseStudies = [
     summary: 'A national smart city tracking surface that makes the programme legible and keeps the evidence visible.',
     note: 'This is the clearest proof of the Axiom stance that governance systems should make bureaucracy readable, not ceremonial.',
     outcome: 'A national programme became inspectable in public instead of hidden in slide decks and reporting loops.',
-    evidenceType: 'index',
+    recordType: 'index',
     evidenceSourceLabel: 'Public index',
     evidenceSourceUrl: 'https://nonarkara.github.io/smart-city-thailand-index/',
     confidenceScore: 0.91,
@@ -297,7 +316,7 @@ const seededContentHistory = [
     location: 'Taipei',
     url: '',
     status: 'published',
-    artifactType: 'keynote',
+    recordType: 'keynote',
     confidenceScore: 0.95,
     proofNote: 'Public keynote backed by on-stage screenshots and live demonstrations.',
     translations: {
@@ -329,7 +348,7 @@ const seededContentHistory = [
     location: 'Thailand',
     url: 'https://nonarkara.github.io/smart-city-thailand-index/',
     status: 'published',
-    artifactType: 'index',
+    recordType: 'index',
     confidenceScore: 0.9,
     proofNote: 'Public index surface and launch references remain accessible online.',
     translations: {
@@ -361,7 +380,7 @@ const seededContentHistory = [
     location: 'Phuket',
     url: 'https://nonarkara.github.io/phuket-dashboard/war-room',
     status: 'field',
-    artifactType: 'operations',
+    recordType: 'operations',
     confidenceScore: 0.87,
     proofNote: 'Working interface and operational screenshots demonstrate the field build.',
     translations: {
@@ -393,7 +412,7 @@ const seededContentHistory = [
     location: 'ASEAN',
     url: 'https://nonarkara.github.io/ascn-smart-cities-network/',
     status: 'published',
-    artifactType: 'network',
+    recordType: 'network',
     confidenceScore: 0.84,
     proofNote: 'Regional project layer and supporting materials remain published online.',
     translations: {
@@ -425,7 +444,7 @@ const seededContentHistory = [
     location: 'Honiara',
     url: 'https://nonarkara.github.io/solomon-islands-workshop/#institutions',
     status: 'published',
-    artifactType: 'roadmap',
+    recordType: 'roadmap',
     confidenceScore: 0.82,
     proofNote: 'Workshop materials and institutional framing remain available online.',
     translations: {
@@ -462,9 +481,10 @@ const insertCaseStudyStatement = db.prepare(`
   INSERT INTO case_study_proof (
     slug, badge, title, location, client, sector, deployment_window,
     decision_surface, summary, note, link_label, link_url, proof_order,
-    status, region_code, stakeholder, outcome, evidence_type, evidence_source_label,
-    evidence_source_url, confidence_score, language_coverage, artifact_count, last_verified_at
-  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    status, region_code, stakeholder, outcome, record_type, evidence_source_label,
+    evidence_source_url, confidence_score, language_coverage, artifact_count, last_verified_at,
+    source_type, external_ref
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 
 const updateCaseStudyStatement = db.prepare(`
@@ -487,13 +507,15 @@ const updateCaseStudyStatement = db.prepare(`
     region_code = ?,
     stakeholder = ?,
     outcome = ?,
-    evidence_type = ?,
+    record_type = ?,
     evidence_source_label = ?,
     evidence_source_url = ?,
     confidence_score = ?,
     language_coverage = ?,
     artifact_count = ?,
     last_verified_at = ?,
+    source_type = ?,
+    external_ref = ?,
     updated_at = CURRENT_TIMESTAMP
   WHERE id = ?
 `);
@@ -516,8 +538,8 @@ const insertCaseStudyMetricStatement = db.prepare(`
 const insertContentHistoryStatement = db.prepare(`
   INSERT INTO content_history (
     source, title, summary, category, event_period, location, url, history_order, metadata,
-    status, artifact_type, confidence_score, proof_note
-  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    status, record_type, confidence_score, proof_note, source_type, external_ref
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 
 const updateContentHistoryStatement = db.prepare(`
@@ -533,9 +555,12 @@ const updateContentHistoryStatement = db.prepare(`
     history_order = ?,
     metadata = ?,
     status = ?,
-    artifact_type = ?,
+    record_type = ?,
     confidence_score = ?,
-    proof_note = ?
+    proof_note = ?,
+    source_type = ?,
+    external_ref = ?,
+    updated_at = CURRENT_TIMESTAMP
   WHERE id = ?
 `);
 
@@ -557,6 +582,15 @@ const updatePipelineStatement = db.prepare(`
 
 const deletePipelineStatement = db.prepare(`
   DELETE FROM pipeline WHERE id = ?
+`);
+
+const insertPipelineNoteStatement = db.prepare(`
+  INSERT INTO pipeline_notes (pipeline_id, body, source_type, external_ref)
+  VALUES (?, ?, ?, ?)
+`);
+
+const deletePipelineNoteStatement = db.prepare(`
+  DELETE FROM pipeline_notes WHERE id = ? AND pipeline_id = ?
 `);
 
 function ensureColumn(tableName, columnName, definition) {
@@ -595,13 +629,15 @@ function seedDatabase() {
           study.regionCode,
           study.stakeholder,
           study.outcome,
-          study.evidenceType,
+          study.recordType,
           study.evidenceSourceLabel,
           study.evidenceSourceUrl,
           study.confidenceScore,
           study.languageCoverage,
           study.artifactCount,
-          study.lastVerifiedAt
+          study.lastVerifiedAt,
+          study.sourceType || 'manual',
+          study.externalRef || null
         );
 
         db.prepare(`
@@ -637,9 +673,11 @@ function seedDatabase() {
           item.historyOrder,
           JSON.stringify({}),
           item.status,
-          item.artifactType,
+          item.recordType,
           item.confidenceScore,
-          item.proofNote
+          item.proofNote,
+          item.sourceType || 'manual',
+          item.externalRef || null
         );
 
         db.prepare(`
@@ -718,7 +756,7 @@ function syncSeedEvidenceRecords() {
         region_code AS regionCode,
         stakeholder,
         outcome,
-        evidence_type AS evidenceType,
+        record_type AS recordType,
         evidence_source_label AS evidenceSourceLabel,
         evidence_source_url AS evidenceSourceUrl,
         confidence_score AS confidenceScore,
@@ -746,7 +784,7 @@ function syncSeedEvidenceRecords() {
         region_code = ?,
         stakeholder = ?,
         outcome = ?,
-        evidence_type = ?,
+        record_type = ?,
         evidence_source_label = ?,
         evidence_source_url = ?,
         confidence_score = ?,
@@ -762,7 +800,7 @@ function syncSeedEvidenceRecords() {
       pickSeedText(existing.regionCode, study.regionCode, 'global'),
       pickSeedText(existing.stakeholder, study.stakeholder),
       pickSeedText(existing.outcome, study.outcome),
-      pickSeedText(existing.evidenceType, study.evidenceType, 'reference'),
+      pickSeedText(existing.recordType, study.recordType, 'reference'),
       pickSeedText(existing.evidenceSourceLabel, study.evidenceSourceLabel),
       pickSeedText(existing.evidenceSourceUrl, study.evidenceSourceUrl),
       pickSeedNumber(existing.confidenceScore, study.confidenceScore, 0.75),
@@ -780,7 +818,7 @@ function syncSeedEvidenceRecords() {
         id,
         url,
         status,
-        artifact_type AS artifactType,
+        record_type AS recordType,
         confidence_score AS confidenceScore,
         proof_note AS proofNote,
         translations
@@ -800,7 +838,7 @@ function syncSeedEvidenceRecords() {
       SET
         status = ?,
         url = ?,
-        artifact_type = ?,
+        record_type = ?,
         confidence_score = ?,
         proof_note = ?,
         translations = ?
@@ -808,7 +846,7 @@ function syncSeedEvidenceRecords() {
     `).run(
       pickSeedText(existing.status, item.status, 'published'),
       pickSeedUrl(existing.url, item.url),
-      pickSeedText(existing.artifactType, item.artifactType, 'brief'),
+      pickSeedText(existing.recordType, item.recordType, 'brief'),
       pickSeedNumber(existing.confidenceScore, item.confidenceScore, 0.75),
       pickSeedText(existing.proofNote, item.proofNote),
       JSON.stringify(translations),
@@ -979,7 +1017,7 @@ function normalizeCaseStudyPayload(input) {
     summary: cleanNullableText(input?.summary),
     note: cleanNullableText(input?.note),
     outcome: cleanNullableText(input?.outcome),
-    evidenceType: cleanText(input?.evidenceType, 'reference') || 'reference',
+    recordType: cleanText(input?.recordType, 'reference') || 'reference',
     evidenceSourceLabel: cleanNullableText(input?.evidenceSourceLabel),
     evidenceSourceUrl: cleanNullableText(input?.evidenceSourceUrl),
     confidenceScore: Math.max(0, Math.min(1, cleanFloat(input?.confidenceScore, 0.75))),
@@ -991,6 +1029,8 @@ function normalizeCaseStudyPayload(input) {
     proofOrder: cleanInteger(input?.proofOrder, 0),
     translations,
     metrics: normalizeCaseStudyMetrics(input?.metrics),
+    sourceType: cleanText(input?.sourceType, 'manual') || 'manual',
+    externalRef: cleanNullableText(input?.externalRef),
   };
 }
 
@@ -1010,10 +1050,12 @@ function normalizeHistoryPayload(input) {
     historyOrder: cleanInteger(input?.historyOrder, 0),
     metadata,
     status: cleanText(input?.status, 'published') || 'published',
-    artifactType: cleanText(input?.artifactType, 'brief') || 'brief',
+    recordType: cleanText(input?.recordType, 'brief') || 'brief',
     confidenceScore: Math.max(0, Math.min(1, cleanFloat(input?.confidenceScore, 0.75))),
     proofNote: cleanNullableText(input?.proofNote),
     translations: normalizeHistoryTranslations(input?.translations),
+    sourceType: cleanText(input?.sourceType, 'manual') || 'manual',
+    externalRef: cleanNullableText(input?.externalRef),
   };
 }
 
@@ -1039,7 +1081,8 @@ function getPipelineById(id) {
            sector, notes, pipeline_order AS pipelineOrder, created_at AS createdAt, updated_at AS updatedAt
     FROM pipeline WHERE id = ?
   `).get(id);
-  return row || null;
+  if (!row) return null;
+  return { ...row, pipelineNotes: getPipelineNotes(id) };
 }
 
 function normalizePipelinePayload(input) {
@@ -1074,6 +1117,27 @@ function deletePipelineEntry(id) {
   return result.changes > 0;
 }
 
+function getPipelineNotes(pipelineId) {
+  return db.prepare(`
+    SELECT id, pipeline_id AS pipelineId, body, source_type AS sourceType, external_ref AS externalRef, created_at AS createdAt
+    FROM pipeline_notes
+    WHERE pipeline_id = ?
+    ORDER BY created_at ASC
+  `).all(pipelineId);
+}
+
+function createPipelineNote(pipelineId, input) {
+  const body = cleanRequiredText(input?.body, 'Note body');
+  const sourceType = cleanText(input?.sourceType, 'manual') || 'manual';
+  const externalRef = cleanNullableText(input?.externalRef);
+  const result = insertPipelineNoteStatement.run(pipelineId, body, sourceType, externalRef);
+  return getPipelineNotes(pipelineId).find(n => n.id === Number(result.lastInsertRowid));
+}
+
+function deletePipelineNote(pipelineId, noteId) {
+  return deletePipelineNoteStatement.run(noteId, pipelineId).changes > 0;
+}
+
 function getAdminCaseStudies() {
   const studies = db.prepare(`
     SELECT
@@ -1092,7 +1156,7 @@ function getAdminCaseStudies() {
       summary,
       note,
       outcome,
-      evidence_type AS evidenceType,
+      record_type AS recordType,
       evidence_source_label AS evidenceSourceLabel,
       evidence_source_url AS evidenceSourceUrl,
       confidence_score AS confidenceScore,
@@ -1103,6 +1167,8 @@ function getAdminCaseStudies() {
       link_url AS linkUrl,
       proof_order AS proofOrder,
       translations,
+      source_type AS sourceType,
+      external_ref AS externalRef,
       created_at AS createdAt,
       updated_at AS updatedAt
     FROM case_study_proof
@@ -1166,13 +1232,15 @@ function createCaseStudy(input) {
       payload.regionCode,
       payload.stakeholder,
       payload.outcome,
-      payload.evidenceType,
+      payload.recordType,
       payload.evidenceSourceLabel,
       payload.evidenceSourceUrl,
       payload.confidenceScore,
       payload.languageCoverage,
       payload.artifactCount,
-      payload.lastVerifiedAt
+      payload.lastVerifiedAt,
+      payload.sourceType,
+      payload.externalRef
     );
 
     db.prepare(`
@@ -1213,13 +1281,15 @@ function updateCaseStudy(caseStudyId, input) {
       payload.regionCode,
       payload.stakeholder,
       payload.outcome,
-      payload.evidenceType,
+      payload.recordType,
       payload.evidenceSourceLabel,
       payload.evidenceSourceUrl,
       payload.confidenceScore,
       payload.languageCoverage,
       payload.artifactCount,
       payload.lastVerifiedAt,
+      payload.sourceType,
+      payload.externalRef,
       caseStudyId
     );
 
@@ -1261,10 +1331,13 @@ function getAdminContentHistory() {
       history_order AS historyOrder,
       metadata,
       status,
-      artifact_type AS artifactType,
+      record_type AS recordType,
       confidence_score AS confidenceScore,
       proof_note AS proofNote,
       translations,
+      source_type AS sourceType,
+      external_ref AS externalRef,
+      updated_at AS updatedAt,
       created_at AS createdAt
     FROM content_history
     ORDER BY history_order ASC, id ASC
@@ -1295,9 +1368,11 @@ function createContentHistory(input) {
       payload.historyOrder,
       JSON.stringify(payload.metadata),
       payload.status,
-      payload.artifactType,
+      payload.recordType,
       payload.confidenceScore,
-      payload.proofNote
+      payload.proofNote,
+      payload.sourceType,
+      payload.externalRef
     );
 
     db.prepare(`
@@ -1330,9 +1405,11 @@ function updateContentHistory(historyId, input) {
       payload.historyOrder,
       JSON.stringify(payload.metadata),
       payload.status,
-      payload.artifactType,
+      payload.recordType,
       payload.confidenceScore,
       payload.proofNote,
+      payload.sourceType,
+      payload.externalRef,
       historyId
     );
 
@@ -1415,7 +1492,7 @@ function getCaseStudyProof() {
       summary,
       note,
       outcome,
-      evidence_type AS evidenceType,
+      record_type AS recordType,
       evidence_source_label AS evidenceSourceLabel,
       evidence_source_url AS evidenceSourceUrl,
       confidence_score AS confidenceScore,
@@ -1466,7 +1543,7 @@ function getContentHistory() {
       url,
       history_order AS historyOrder,
       status,
-      artifact_type AS artifactType,
+      record_type AS recordType,
       confidence_score AS confidenceScore,
       proof_note AS proofNote,
       translations
@@ -1654,6 +1731,30 @@ async function handleApi(req, res, pathname) {
           ? 404
           : 400;
       return sendJson(res, statusCode, { error: error.message || 'Unable to save timeline entry' });
+    }
+  }
+
+  const notesMatch = pathname.match(/^\/api\/admin\/pipeline\/(\d+)\/notes(?:\/(\d+))?$/);
+  if (notesMatch) {
+    const pid = Number(notesMatch[1]);
+    const nid = notesMatch[2] ? Number(notesMatch[2]) : null;
+    try {
+      if (nid === null) {
+        if (req.method === 'GET') return sendJson(res, 200, { items: getPipelineNotes(pid) });
+        if (req.method === 'POST') {
+          const body = await readJsonBody(req);
+          return sendJson(res, 201, { item: createPipelineNote(pid, body) });
+        }
+        return sendMethodNotAllowed(res, ['GET', 'POST']);
+      }
+      if (req.method === 'DELETE') {
+        const deleted = deletePipelineNote(pid, nid);
+        if (!deleted) return sendJson(res, 404, { error: 'Note not found' });
+        return sendJson(res, 200, { ok: true });
+      }
+      return sendMethodNotAllowed(res, ['DELETE']);
+    } catch (err) {
+      return sendJson(res, 400, { error: err.message || 'Unable to save note' });
     }
   }
 

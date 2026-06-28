@@ -85,7 +85,7 @@
                 <th>Sector</th>
                 <th>Stage</th>
                 <th>Contract</th>
-                <th>Notes</th>
+                <th>Log</th>
                 <th></th>
               </tr>
             </thead>
@@ -131,12 +131,19 @@
               <input id="plOrder" type="number" min="0" step="1" value="0">
             </label>
           </div>
-          <label class="field">
-            <span>Notes</span>
-            <textarea id="plNotes" rows="3"></textarea>
-          </label>
+          <section class="notes-log">
+            <div class="notes-log-head">
+              <span class="section-kicker">Activity log</span>
+              <p>Notes accumulate here. Each entry is timestamped and source-tagged — manual, telegram, or OCR.</p>
+            </div>
+            <div id="plNotesList" class="notes-list"></div>
+            <div class="notes-add">
+              <textarea id="plNoteBody" rows="2" placeholder="Add a note — meeting outcome, next action, signal…"></textarea>
+              <button type="button" class="panel-btn" id="addNoteBtn">Add note</button>
+            </div>
+          </section>
           <div class="form-actions">
-            <button type="submit" class="panel-btn panel-btn-primary" id="savePipelineBtn">Save</button>
+            <button type="submit" class="panel-btn panel-btn-primary" id="savePipelineBtn">Save lead</button>
             <button type="button" class="panel-btn panel-btn-danger" id="deletePipelineBtn">Delete lead</button>
             <button type="button" class="panel-btn" id="cancelPipelineBtn">Cancel</button>
           </div>
@@ -206,7 +213,7 @@
                 </label>
                 <label class="field">
                   <span id="caseEvidenceTypeLabel">Proof type</span>
-                  <input id="caseEvidenceType" name="evidenceType" type="text" autocomplete="off">
+                  <input id="caseEvidenceType" name="recordType" type="text" autocomplete="off">
                 </label>
                 <label class="field">
                   <span id="caseConfidenceScoreLabel">Confidence score</span>
@@ -299,7 +306,7 @@
                 </label>
                 <label class="field">
                   <span id="historyArtifactTypeLabel">Artifact type</span>
-                  <input id="historyArtifactType" name="artifactType" type="text" autocomplete="off">
+                  <input id="historyArtifactType" name="recordType" type="text" autocomplete="off">
                 </label>
                 <label class="field">
                   <span id="historyConfidenceScoreLabel">Confidence score</span>
