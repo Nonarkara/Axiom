@@ -56,10 +56,92 @@
             <strong class="stat-value" id="statTimeline">0</strong>
             <span class="stat-meta" id="statTimelineMeta">Waiting for data.</span>
           </article>
+          <article class="stat-block">
+            <span class="stat-label">Pipeline leads</span>
+            <strong class="stat-value" id="statPipeline">0</strong>
+            <span class="stat-meta">Active leads — no contract yet.</span>
+          </article>
         </div>
       </section>
 
       <div id="globalBanner" class="global-banner" hidden></div>
+
+      <section class="workspace-panel pipeline-panel">
+        <div class="panel-head">
+          <div>
+            <span class="section-kicker">Sales pipeline</span>
+            <h2>Active leads &amp; prospects</h2>
+            <p>Projects with clear leads but no signed contract yet. Stage: lead → proposal → negotiation → won / lost.</p>
+          </div>
+          <button type="button" class="panel-btn" id="newPipelineBtn">New lead</button>
+        </div>
+
+        <div id="pipelineTableWrap">
+          <table class="pipeline-table" id="pipelineTable">
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>Client</th>
+                <th>Sector</th>
+                <th>Stage</th>
+                <th>Contract</th>
+                <th>Notes</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="pipelineBody"></tbody>
+          </table>
+        </div>
+
+        <form id="pipelineForm" class="editor-form pipeline-form" hidden>
+          <div class="form-grid form-grid-three">
+            <label class="field">
+              <span>Project name</span>
+              <input id="plProjectName" type="text" autocomplete="off">
+            </label>
+            <label class="field">
+              <span>Client name</span>
+              <input id="plClientName" type="text" autocomplete="off">
+            </label>
+            <label class="field">
+              <span>Sector</span>
+              <input id="plSector" type="text" autocomplete="off">
+            </label>
+          </div>
+          <div class="form-grid form-grid-four">
+            <label class="field">
+              <span>Stage</span>
+              <select id="plStage">
+                <option value="lead">Lead</option>
+                <option value="proposal">Proposal</option>
+                <option value="negotiation">Negotiation</option>
+                <option value="won">Won</option>
+                <option value="lost">Lost</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Has contract</span>
+              <select id="plHasContract">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Display order</span>
+              <input id="plOrder" type="number" min="0" step="1" value="0">
+            </label>
+          </div>
+          <label class="field">
+            <span>Notes</span>
+            <textarea id="plNotes" rows="3"></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="panel-btn panel-btn-primary" id="savePipelineBtn">Save</button>
+            <button type="button" class="panel-btn panel-btn-danger" id="deletePipelineBtn">Delete lead</button>
+            <button type="button" class="panel-btn" id="cancelPipelineBtn">Cancel</button>
+          </div>
+        </form>
+      </section>
 
       <section class="workspace-grid">
         <section class="workspace-panel">

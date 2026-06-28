@@ -80,6 +80,22 @@ db.exec(`
   );
 
   CREATE INDEX IF NOT EXISTS idx_content_history_order ON content_history(history_order);
+
+  CREATE TABLE IF NOT EXISTS pipeline (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    project_name TEXT NOT NULL,
+    client_name TEXT NOT NULL,
+    stage TEXT NOT NULL DEFAULT 'lead',
+    has_contract INTEGER NOT NULL DEFAULT 0,
+    sector TEXT,
+    notes TEXT,
+    pipeline_order INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_pipeline_order ON pipeline(pipeline_order);
+  CREATE INDEX IF NOT EXISTS idx_pipeline_stage ON pipeline(stage);
 `);
 
 ensureColumn('case_study_proof', 'translations', `TEXT DEFAULT '{}'`);
@@ -526,6 +542,21 @@ const updateContentHistoryStatement = db.prepare(`
 const deleteContentHistoryStatement = db.prepare(`
   DELETE FROM content_history
   WHERE id = ?
+`);
+
+const insertPipelineStatement = db.prepare(`
+  INSERT INTO pipeline (project_name, client_name, stage, has_contract, sector, notes, pipeline_order)
+  VALUES (?, ?, ?, ?, ?, ?, ?)
+`);
+
+const updatePipelineStatement = db.prepare(`
+  UPDATE pipeline
+  SET project_name = ?, client_name = ?, stage = ?, has_contract = ?, sector = ?, notes = ?, pipeline_order = ?, updated_at = CURRENT_TIMESTAMP
+  WHERE id = ?
+`);
+
+const deletePipelineStatement = db.prepare(`
+  DELETE FROM pipeline WHERE id = ?
 `);
 
 function ensureColumn(tableName, columnName, definition) {
@@ -991,6 +1022,56 @@ function replaceCaseStudyMetrics(caseStudyId, metrics) {
   metrics.forEach((metric, metricIndex) => {
     insertCaseStudyMetricStatement.run(caseStudyId, metric.value, metric.label, metricIndex + 1);
   });
+}
+
+function getPipeline() {
+  return db.prepare(`
+    SELECT id, project_name AS projectName, client_name AS clientName, stage, has_contract AS hasContract,
+           sector, notes, pipeline_order AS pipelineOrder, created_at AS createdAt, updated_at AS updatedAt
+    FROM pipeline
+    ORDER BY pipeline_order ASC, id ASC
+  `).all();
+}
+
+function getPipelineById(id) {
+  const row = db.prepare(`
+    SELECT id, project_name AS projectName, client_name AS clientName, stage, has_contract AS hasContract,
+           sector, notes, pipeline_order AS pipelineOrder, created_at AS createdAt, updated_at AS updatedAt
+    FROM pipeline WHERE id = ?
+  `).get(id);
+  return row || null;
+}
+
+function normalizePipelinePayload(input) {
+  const VALID_STAGES = ['lead', 'proposal', 'negotiation', 'won', 'lost'];
+  const stage = cleanText(input?.stage, 'lead');
+  return {
+    projectName: cleanRequiredText(input?.projectName, 'Project name'),
+    clientName: cleanRequiredText(input?.clientName, 'Client name'),
+    stage: VALID_STAGES.includes(stage) ? stage : 'lead',
+    hasContract: input?.hasContract ? 1 : 0,
+    sector: cleanNullableText(input?.sector),
+    notes: cleanNullableText(input?.notes),
+    pipelineOrder: cleanInteger(input?.pipelineOrder, 0),
+  };
+}
+
+function createPipelineEntry(input) {
+  const p = normalizePipelinePayload(input);
+  const result = insertPipelineStatement.run(p.projectName, p.clientName, p.stage, p.hasContract, p.sector, p.notes, p.pipelineOrder);
+  return getPipelineById(Number(result.lastInsertRowid));
+}
+
+function updatePipelineEntry(id, input) {
+  const p = normalizePipelinePayload(input);
+  const result = updatePipelineStatement.run(p.projectName, p.clientName, p.stage, p.hasContract, p.sector, p.notes, p.pipelineOrder, id);
+  if (result.changes === 0) throw new Error('Pipeline entry not found.');
+  return getPipelineById(id);
+}
+
+function deletePipelineEntry(id) {
+  const result = deletePipelineStatement.run(id);
+  return result.changes > 0;
 }
 
 function getAdminCaseStudies() {
@@ -1576,12 +1657,45 @@ async function handleApi(req, res, pathname) {
     }
   }
 
+  const pipelineMatch = pathname.match(/^\/api\/admin\/pipeline(?:\/(\d+))?$/);
+  if (pipelineMatch) {
+    const pipelineId = pipelineMatch[1] ? Number(pipelineMatch[1]) : null;
+    try {
+      if (pipelineId === null) {
+        if (req.method === 'GET') return sendJson(res, 200, { items: getPipeline() });
+        if (req.method === 'POST') {
+          const body = await readJsonBody(req);
+          return sendJson(res, 201, { item: createPipelineEntry(body) });
+        }
+        return sendMethodNotAllowed(res, ['GET', 'POST']);
+      }
+      if (req.method === 'GET') {
+        const item = getPipelineById(pipelineId);
+        if (!item) return sendJson(res, 404, { error: 'Pipeline entry not found' });
+        return sendJson(res, 200, { item });
+      }
+      if (req.method === 'PUT') {
+        const body = await readJsonBody(req);
+        return sendJson(res, 200, { item: updatePipelineEntry(pipelineId, body) });
+      }
+      if (req.method === 'DELETE') {
+        const deleted = deletePipelineEntry(pipelineId);
+        if (!deleted) return sendJson(res, 404, { error: 'Pipeline entry not found' });
+        return sendJson(res, 200, { ok: true });
+      }
+      return sendMethodNotAllowed(res, ['GET', 'PUT', 'DELETE']);
+    } catch (error) {
+      return sendJson(res, 400, { error: error.message || 'Unable to save pipeline entry' });
+    }
+  }
+
   if (pathname === '/api/admin/bootstrap') {
     if (req.method !== 'GET') return sendMethodNotAllowed(res, ['GET']);
     return sendJson(res, 200, {
       analytics: getAnalyticsSummary(),
       caseStudies: getAdminCaseStudies(),
       contentHistory: getAdminContentHistory(),
+      pipeline: getPipeline(),
       localeSupport: {
         ui: ['en', 'th', 'zh', 'ts'],
         content: ['en', 'th', 'zh'],

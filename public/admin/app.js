@@ -571,8 +571,10 @@ const state = {
   activeLocale: /** @type {UiLocale} */ ('en'),
   caseStudies: /** @type {CaseStudyRecord[]} */ ([]),
   contentHistory: /** @type {HistoryRecord[]} */ ([]),
+  pipeline: /** @type {Array<{id:number,projectName:string,clientName:string,stage:string,hasContract:number,sector:string|null,notes:string|null,pipelineOrder:number}>} */ ([]),
   selectedCaseStudyId: /** @type {number | null} */ (null),
   selectedHistoryId: /** @type {number | null} */ (null),
+  selectedPipelineId: /** @type {number | null} */ (null),
   caseDraft: /** @type {CaseStudyRecord} */ (createEmptyCaseStudy()),
   historyDraft: /** @type {HistoryRecord} */ (createEmptyHistory()),
   lastAnalytics: null,
@@ -677,6 +679,26 @@ function bindActions() {
   document.getElementById('deleteHistoryBtn')?.addEventListener('click', async () => {
     await deleteHistory();
   });
+
+  document.getElementById('newPipelineBtn')?.addEventListener('click', () => {
+    state.selectedPipelineId = null;
+    renderPipelineForm(null);
+    document.getElementById('pipelineForm')?.removeAttribute('hidden');
+  });
+
+  document.getElementById('pipelineForm')?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    await savePipelineEntry();
+  });
+
+  document.getElementById('deletePipelineBtn')?.addEventListener('click', async () => {
+    await deletePipelineEntry();
+  });
+
+  document.getElementById('cancelPipelineBtn')?.addEventListener('click', () => {
+    state.selectedPipelineId = null;
+    document.getElementById('pipelineForm')?.setAttribute('hidden', '');
+  });
 }
 
 function siteAssetUrl(assetPath) {
@@ -715,6 +737,7 @@ function hydrateStateFromPayload(payload, readOnly) {
   state.readOnly = readOnly;
   state.caseStudies = normalizeCaseStudies(payload.caseStudies);
   state.contentHistory = normalizeContentHistory(payload.contentHistory);
+  state.pipeline = Array.isArray(payload.pipeline) ? payload.pipeline : [];
   state.selectedCaseStudyId = state.caseStudies[0]?.id ?? null;
   state.selectedHistoryId = state.contentHistory[0]?.id ?? null;
   state.caseDraft = cloneRecord(state.caseStudies[0] || createEmptyCaseStudy(state.caseStudies.length));
@@ -795,6 +818,7 @@ function render(analytics = null) {
   renderHistoryList();
   renderCaseForm();
   renderHistoryForm();
+  renderPipelineTable();
   renderGuide();
   renderTypeScriptPreview(analytics);
   syncReadOnlyState();
@@ -851,6 +875,7 @@ function renderOverview(analytics) {
   setText('statPageviews', numberFormat(pageviews));
   setText('statCaseStudies', numberFormat(caseStudies));
   setText('statTimeline', numberFormat(timeline));
+  setText('statPipeline', numberFormat(state.pipeline.length));
 
   const copy = currentCopy();
   const latestVisit = state.lastAnalytics.latestPageviewAt
@@ -1596,4 +1621,108 @@ function escapeHtml(value) {
     '"': '&quot;',
     "'": '&#39;',
   }[character]));
+}
+
+// ── Pipeline ────────────────────────────────────────────────────────────────
+
+const STAGE_LABELS = { lead: 'Lead', proposal: 'Proposal', negotiation: 'Negotiation', won: 'Won', lost: 'Lost' };
+
+function renderPipelineTable() {
+  const tbody = document.getElementById('pipelineBody');
+  if (!tbody) return;
+
+  if (state.pipeline.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7" style="color:var(--ink-muted,#6b7280);padding:16px 0;">No pipeline entries yet.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = state.pipeline.map((item) => `
+    <tr class="pipeline-row${item.id === state.selectedPipelineId ? ' is-active' : ''}">
+      <td>${escapeHtml(item.projectName)}</td>
+      <td>${escapeHtml(item.clientName)}</td>
+      <td>${escapeHtml(item.sector || '—')}</td>
+      <td><span class="stage-tag stage-${escapeHtml(item.stage)}">${escapeHtml(STAGE_LABELS[item.stage] || item.stage)}</span></td>
+      <td>${item.hasContract ? 'Yes' : 'No'}</td>
+      <td class="pipeline-notes">${escapeHtml(item.notes || '—')}</td>
+      <td><button type="button" class="pipeline-edit-btn" data-pipeline-id="${item.id}">Edit</button></td>
+    </tr>
+  `).join('');
+
+  tbody.querySelectorAll('.pipeline-edit-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = Number(btn.dataset.pipelineId);
+      const item = state.pipeline.find((p) => p.id === id) || null;
+      state.selectedPipelineId = id;
+      renderPipelineTable();
+      renderPipelineForm(item);
+      document.getElementById('pipelineForm')?.removeAttribute('hidden');
+      document.getElementById('pipelineForm')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+}
+
+function renderPipelineForm(item) {
+  const v = (id, value) => { const el = document.getElementById(id); if (el) el.value = value ?? ''; };
+  v('plProjectName', item?.projectName ?? '');
+  v('plClientName', item?.clientName ?? '');
+  v('plSector', item?.sector ?? '');
+  v('plStage', item?.stage ?? 'lead');
+  v('plHasContract', item?.hasContract ? '1' : '0');
+  v('plOrder', item?.pipelineOrder ?? state.pipeline.length + 1);
+  v('plNotes', item?.notes ?? '');
+  const deleteBtn = document.getElementById('deletePipelineBtn');
+  if (deleteBtn) deleteBtn.style.display = item ? '' : 'none';
+}
+
+async function savePipelineEntry() {
+  if (state.readOnly) { showBanner('Read-only mode — start local server to edit.', 'error'); return; }
+
+  const payload = {
+    projectName: document.getElementById('plProjectName')?.value?.trim() || '',
+    clientName: document.getElementById('plClientName')?.value?.trim() || '',
+    sector: document.getElementById('plSector')?.value?.trim() || null,
+    stage: document.getElementById('plStage')?.value || 'lead',
+    hasContract: document.getElementById('plHasContract')?.value === '1',
+    pipelineOrder: Number(document.getElementById('plOrder')?.value || 0),
+    notes: document.getElementById('plNotes')?.value?.trim() || null,
+  };
+
+  try {
+    let result;
+    if (state.selectedPipelineId) {
+      result = await fetchJson(apiUrl(`api/admin/pipeline/${state.selectedPipelineId}`), {
+        method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
+      });
+      state.pipeline = state.pipeline.map((p) => p.id === state.selectedPipelineId ? result.item : p);
+    } else {
+      result = await fetchJson(apiUrl('api/admin/pipeline'), {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
+      });
+      state.pipeline = [...state.pipeline, result.item];
+    }
+    state.selectedPipelineId = result.item.id;
+    renderPipelineTable();
+    setText('statPipeline', numberFormat(state.pipeline.length));
+    showBanner('Pipeline entry saved.', 'success');
+  } catch (err) {
+    showBanner(`Save failed: ${err.message}`, 'error');
+  }
+}
+
+async function deletePipelineEntry() {
+  if (!state.selectedPipelineId) return;
+  if (state.readOnly) { showBanner('Read-only mode — start local server to edit.', 'error'); return; }
+  if (!confirm('Delete this pipeline lead?')) return;
+
+  try {
+    await fetchJson(apiUrl(`api/admin/pipeline/${state.selectedPipelineId}`), { method: 'DELETE' });
+    state.pipeline = state.pipeline.filter((p) => p.id !== state.selectedPipelineId);
+    state.selectedPipelineId = null;
+    document.getElementById('pipelineForm')?.setAttribute('hidden', '');
+    renderPipelineTable();
+    setText('statPipeline', numberFormat(state.pipeline.length));
+    showBanner('Pipeline lead deleted.', 'success');
+  } catch (err) {
+    showBanner(`Delete failed: ${err.message}`, 'error');
+  }
 }
