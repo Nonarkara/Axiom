@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="masterpiece">
 
 <head>
   <meta charset="utf-8">
@@ -36,9 +36,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20260626i">
+  <link rel="stylesheet" href="rams.css?v=20260705">
   <script src="i18n-regional.js?v=20260626"></script>
-  <script defer src="app.js?v=20260626h"></script>
+  <script defer src="app.js?v=20260705"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -80,6 +80,10 @@
   ]
 }
 </script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="theme-masterpiece.css">
 </head>
 
 <body>
@@ -116,6 +120,82 @@
 
     <!-- ============== HERO ============== -->
     <section class="hero">
+<div id="heroMap"></div>
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-gradient"></div>
+    <div class="hero-city-label" id="heroCityLabel">BANGKOK</div>
+
+    <!-- Map Mode Indicator -->
+    <div class="map-mode" id="mapMode">
+      <div class="map-mode-indicator">
+        <span class="map-mode-dot" id="mapModeDot"></span>
+        <span class="map-mode-label" id="mapModeLabel">AUTO TOUR</span>
+      </div>
+      <button class="map-mode-btn" id="mapModeBtn" type="button" title="Toggle auto tour" aria-label="Pause auto tour" aria-pressed="true">
+        <svg class="map-mode-icon-pause" id="mapModePause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        <svg class="map-mode-icon-play" id="mapModePlay" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+
+    <!-- Map Explore Hint -->
+    <div class="map-explore-hint" id="mapExploreHint">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l4-4 4 4"/><path d="M9 5v14"/><path d="M15 19l4-4-4-4"/><path d="M19 15H5"/></svg>
+      <span>Drag to explore &middot; Scroll to zoom</span>
+    </div>
+
+    <!-- Satellite Controls -->
+    <div class="sat-controls" id="satControls">
+      <div class="sat-control-group">
+        <span class="sat-control-label">Layer</span>
+        <button class="sat-btn" data-layer="satellite">SAT</button>
+        <button class="sat-btn" data-layer="terrain">TER</button>
+        <button class="sat-btn sat-btn-active" data-layer="dark">DRK</button>
+        <button class="sat-btn" data-layer="topo">TPO</button>
+      </div>
+      <div class="sat-control-divider"></div>
+      <div class="sat-control-group">
+        <button class="sat-btn" id="gridToggle" data-active="false">GRID 1KM</button>
+      </div>
+      <div class="sat-control-divider"></div>
+      <span class="sat-source-note" id="satSourceNote">CartoDB Dark Matter</span>
+    </div>
+
+    <!-- Urban Intelligence Overlays (Moneyball) -->
+    <div class="intel-overlay" id="intelOverlayDubai">
+      <div class="intel-overlay-header">PROJECTED ASSET YIELD</div>
+      <div class="intel-overlay-value">+14.2% YoY</div>
+      <div class="intel-overlay-meta">DUBAI AREA-04 &middot; LOGISTICAL HUB</div>
+    </div>
+
+    <div class="intel-overlay" id="intelOverlayBangkok">
+      <div class="intel-overlay-header">URBAN DENSITY PULSE</div>
+      <div class="intel-overlay-value">CRITICAL</div>
+      <div class="intel-overlay-meta">BKK CENTRAL &middot; INFRASTRUCTURE GAP</div>
+    </div>
+
+    <!-- Live Satellite Telemetry HUD -->
+    <div class="sat-hud" id="satHud">
+      <div class="sat-hud-row">
+        <span class="sat-hud-live"><span class="sat-hud-live-dot"></span>LIVE SATELLITE</span>
+        <span class="sat-hud-provider" id="satProvider">ESRI World Imagery</span>
+      </div>
+      <div class="sat-hud-row">
+        <span class="sat-hud-coord" id="satCoord">13.7563°N 100.5018°E</span>
+        <span class="sat-hud-zoom" id="satZoom">Z12</span>
+        <span class="sat-hud-res" id="satRes">~19m/px</span>
+      </div>
+      <div class="sat-hud-row">
+        <span class="sat-hud-tile" id="satTile">Tile: arcgisonline.com/World_Imagery</span>
+        <span class="sat-hud-time" id="satTime">—</span>
+      </div>
+    </div>
+
+    <!-- Hero SITREP HUD -->
+    <div class="hero-tracker"></div>
+    <div class="telemetry-axis-x"></div>
+    <div class="telemetry-axis-y"></div>
+
+    
       <div class="wrap">
         <div class="hero__metaline">
           <span data-i18n-html="heroCurrent.meta1"><b>24/7</b> monitoring</span>
@@ -156,7 +236,7 @@
         <!-- Zone C: 4-stat strip — full width, edges snap to wrap -->
         <div class="hero__strip">
           <div class="hero__stat">
-            <div class="stat__val">21</div>
+            <div class="stat__val">24</div>
             <div class="stat__lbl" data-i18n="heroCurrent.stat1lbl">Showcase systems</div>
           </div>
           <div class="hero__stat">
@@ -180,7 +260,7 @@
       <div class="wrap">
         <div class="s-head">
           <div class="s-head__title" data-i18n="sysSect.kicker">Live in production</div>
-          <div class="s-head__meta" data-i18n="sysClusters.sysMeta">22 systems · 5 countries</div>
+          <div class="s-head__meta" data-i18n="sysClusters.sysMeta">24 systems · 5 countries</div>
         </div>
         <p class="t-body-2" data-i18n="sysSect.lede" style="max-width:64ch;margin:0 0 8px;">Each one started as a sharp
           question, shipped as a working surface, and stays useful long after the launch press cycle ends. Click through
@@ -194,9 +274,22 @@
         <!-- COMMAND -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.command">Command</div>
-          <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time operations rooms · 7</div>
+          <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time operations rooms · 8</div>
         </div>
         <div class="grid grid--3">
+          <a class="sys-cell" href="https://lcbcity.pages.dev/dashboard" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">22</span><span class="sys-cell__status"><span
+                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+            <img class="sys-cell__shot" src="screenshots/lcbcity.png" loading="lazy"
+              alt="Laem Chabang City Truck Traffic Regulation">
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">Laem Chabang Operations</div>
+              <div class="sys-cell__cat">Traffic Regulation</div>
+              <div class="sys-cell__lede">A live command surface monitoring truck traffic and regulatory compliance across Laem Chabang City. Designed to coordinate port traffic, minimize congestion, and ensure urban safety.</div>
+              <span class="sys-cell__link"><span>Open live system</span> <span
+                  class="tri">▸</span></span>
+            </div>
+          </a>
           <a class="sys-cell" href="https://phuket.nonarkara.org/war-room" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">01</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
@@ -399,9 +492,22 @@
         <!-- CIVIC -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.civic">Civic</div>
-          <div class="s-head__meta" data-i18n="sysClusters.civicMeta">National platforms &amp; citizen infrastructure · 5</div>
+          <div class="s-head__meta" data-i18n="sysClusters.civicMeta">National platforms &amp; citizen infrastructure · 6</div>
         </div>
         <div class="grid grid--3">
+          <a class="sys-cell" href="https://flood-ami.pages.dev/" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">23</span><span class="sys-cell__status"><span
+                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+            <img class="sys-cell__shot" src="screenshots/flood-ami.png" loading="lazy"
+              alt="FLOODDASH — Thailand Flood Watch">
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">FLOODDASH (Thailand Flood Watch)</div>
+              <div class="sys-cell__cat">National Programme</div>
+              <div class="sys-cell__lede">A real-time, openly-sourced flood watch built so every Thai province can read the same situation picture from official public data. Streams 9 public sources every 3–60 minutes.</div>
+              <span class="sys-cell__link"><span>Open live system</span> <span
+                  class="tri">▸</span></span>
+            </div>
+          </a>
           <a class="sys-cell" href="https://sciti.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">03</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
@@ -592,6 +698,7 @@
         <article class="stage">
           <div class="stage__loc" data-i18n-html="stagesContent.taipeiLoc"><b>Taipei</b> · City Vision Stage · March
             2026</div>
+          <span class="section-tag">[EVENT_ID: SCSE_2026_TPE]</span>
           <h3 class="stage__title" data-i18n="stagesContent.taipeiTitle">Live dashboard, demo'd in 45 minutes.</h3>
           <p class="stage__lead" data-i18n="stagesContent.taipeiLede">Keynote at the Smart City Summit &amp; Expo.
             Working surface in the room, not concept art. SLIC went live during the talk: 157 cities, five pillars,
@@ -617,6 +724,25 @@
               <div class="stat__lbl" data-i18n="stagesContent.taipeiS4">First live demo</div>
             </div>
           </div>
+          <div class="launch-text intelligence-log" style="margin-top: 2rem;">
+            <div class="log-entry">
+              <span class="log-timestamp">[T+00:00:00]</span>
+              <p>Keynote delivered at SCSE 2026 Taipei. Focus: rapid urban response, public dashboards, and cross-border data governance.</p>
+            </div>
+            <div class="log-entry">
+              <span class="log-timestamp">[T+00:45:00]</span>
+              <p>Live dashboard demonstration completed inside 45 minutes. Working surface, not concept art.</p>
+            </div>
+            <div class="log-entry">
+              <span class="log-timestamp">[T+01:15:00]</span>
+              <p>SLIC live: 157 cities, five pillars, adjustable ranking logic. Interest confirmed across mayoral and city-network audiences.</p>
+            </div>
+            <div class="field-transmission">
+              <div class="transmission-header">ENCRYPTED_TRANSMISSION // FIELD_01</div>
+              <p>&ldquo;We didn't build an index for the shelf. We built a command system for the street. You build the ranking; we build the reality.&rdquo;</p>
+            </div>
+          </div>
+
           <div class="stage__gallery">
             <img src="images/taipei-stage.jpg" loading="lazy" alt="On the City Vision stage in Taipei">
             <img src="images/taipei-slic-live.png" loading="lazy" alt="SLIC Index Live Demo in Taipei">
@@ -653,6 +779,17 @@
               <div class="stat__lbl" data-i18n="stagesContent.sgS4">Workshop capacity</div>
             </div>
           </div>
+          <div class="launch-text intelligence-log" style="margin-top: 2rem;">
+            <div class="log-entry">
+              <span class="log-timestamp">[T+00:00:00]</span>
+              <p>Axiom invited to GITEX Asia 2026, Marina Bay Sands, Singapore.</p>
+            </div>
+            <div class="field-transmission">
+              <div class="transmission-header">ENCRYPTED_TRANSMISSION // FIELD_02</div>
+              <p>&ldquo;The argument is clear: better screens lead to better questions. Better questions lead to better governance.&rdquo;</p>
+            </div>
+          </div>
+
           <div class="stage__gallery">
             <img src="images/singapore-workshop-attentive.jpg" loading="lazy"
               alt="Workshop audience fully engaged with the live demo">
