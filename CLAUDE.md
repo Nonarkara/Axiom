@@ -16,9 +16,8 @@ Axiom is Dr Non's "Innovation as a Service" consultancy landing page. Positioned
 
 ## Deployment
 
-- GitHub Actions → GitHub Pages
-- Workflow: `.github/workflows/deploy.yml` — pushes to `main` auto-deploy the `public/` folder
-- Live URL: https://nonarkara.github.io/Axiom/
+- Deployment: GitHub Actions -> Cloudflare Pages (project: axiom)
+- Live URL: https://axiom.pages.dev (and axiom.nonarkara.org via Cloudflare custom domain)
 - The workflow has NO pre-checks. Do not add `node --check` or similar validation steps that reference files by name — the Codex Incident originated exactly there.
 
 ## Anti-Regression — Do Not Touch
@@ -32,12 +31,11 @@ These items are the personality of Axiom. Do not remove, replace, or "simplify" 
 - **Canvas 2D background animation.** Do not disable.
 - **Rotating hero text / headline carousel.** Do not replace with a static headline.
 - **City-node strip** — Bangkok / Phuket / Middle East / SE Asia dots. Do not remove.
-- **`[EVENT_ID]` protocol sections** — both Alpha (`SCSE_2026_TPE`) and Beta (`GITEX_ASIA_2026_SGP`). Do not rename, do not re-theme.
+- **`[EVENT_ID]` protocol sections** — Alpha (`SCSE_2026_TPE`). Do not rename, do not re-theme.
 - **HTML patterns that carry the aesthetic:** `intelligence-log`, `log-entry`, `field-transmission`, `protocol-header`. Preserve the class names — the CSS hangs off them.
 - **`theme-masterpiece.css`** and the `data-theme="masterpiece"` attribute on `<html>`. The theme enforces `border-radius: 0 !important`. Do not remove either.
 - **Mono-amber palette** — amber accent on black/obsidian. ZERO pastels. ZERO gradients. ZERO soft shadows.
-- **EN / TH / ZH locale switch** wired through `public/app.js`. All three locales stay in sync. Thai first-person is strictly "ผม".
-- **`.section-meta` telemetry counterweight** — the right-hand mono card with `SEC_NN // TAG`, telemetry rows, and `TELEMETRY //` footer in every section-header. This is what gives the site horizontal balance on wide screens. Added 2026-04-24 after the page felt "left-heavy." Do not delete. Do not "consolidate." Do not "simplify" it into a one-liner. If you add a new section, add a matching `.section-meta` block.
+- **EN / TH / ZH / KO / JA / VI / TS locale switch (7 locales)** wired through `public/app.js`. All locales stay in sync. Thai first-person is strictly "ผม".
 
 ## Forbidden on this project
 

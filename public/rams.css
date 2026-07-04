@@ -97,7 +97,7 @@ body {
 
 body {
   color: var(--ink);
-  font-family: 'Helvetica Neue', Inter, Helvetica, Arial, 'IBM Plex Sans Thai', 'Noto Sans KR', 'Noto Sans JP', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'IBM Plex Sans Thai', 'Noto Sans KR', 'Noto Sans JP', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-variant-numeric: tabular-nums;
   font-size: 13px;
   line-height: 1.42;

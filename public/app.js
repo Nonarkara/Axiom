@@ -2150,3 +2150,570 @@ document.addEventListener('DOMContentLoaded', () => {
   setPageLocale(activeLocale, { silent: true });
   bindLocaleSwitch();
 });
+(function initSatelliteHero() {
+  const container = document.getElementById('heroMap');
+  if (!container || !window.L) return;
+  const useLiteMotion = axiomMedia.isTouch || axiomMedia.isReduced || axiomMedia.isMobile;
+
+  // Cities Axiom operates in
+  const CITIES = [
+    { key: 'bangkok', name: 'Bangkok', meta: 'Urban command', lat: 13.7563, lng: 100.5018, zoom: 12 },
+    { key: 'phuket', name: 'Phuket', meta: 'Regional ops', lat: 7.8804, lng: 98.3923, zoom: 13 },
+    { key: 'middle-east', name: 'Middle East', meta: 'Strategic signal', lat: 25.2048, lng: 55.2708, zoom: 11 },
+    { key: 'southeast-asia', name: 'Southeast Asia', meta: 'Scale layer', lat: 10.5, lng: 105.0, zoom: 5 },
+  ];
+
+  const map = L.map(container, {
+    center: [CITIES[0].lat, CITIES[0].lng],
+    zoom: CITIES[0].zoom,
+    minZoom: 3,
+    worldCopyJump: false,
+    zoomControl: false,
+    attributionControl: false,
+    dragging: true,
+    scrollWheelZoom: false,
+    doubleClickZoom: true,
+    touchZoom: true,
+    keyboard: true,
+    boxZoom: true,
+    fadeAnimation: !useLiteMotion,
+    zoomAnimation: !useLiteMotion,
+  });
+
+  // Tile layers are added in the layer switching section below
+
+  // Pulse markers for active cities
+  const pulseIcon = L.divIcon({
+    className: 'sat-pulse-marker',
+    iconSize: [12, 12],
+    iconAnchor: [6, 6],
+  });
+
+  const markerLocations = [
+    [13.7563, 100.5018],  // Bangkok
+    [7.8804, 98.3923],    // Phuket
+    [25.2048, 55.2708],   // Dubai
+    [24.7136, 46.6753],   // Riyadh
+  ];
+
+  markerLocations.forEach(coords => {
+    L.marker(coords, { icon: pulseIcon }).addTo(map);
+  });
+
+  // ── Intelligence Overlays Trigger (V6) ──
+  function updateIntelligenceOverlays(lat, lng) {
+    const dubaiDist = Math.sqrt(Math.pow(lat - 25.2048, 2) + Math.pow(lng - 55.2708, 2));
+    const bkkDist = Math.sqrt(Math.pow(lat - 13.7563, 2) + Math.pow(lng - 100.5018, 2));
+    
+    const dubaiOverlay = document.getElementById('intelOverlayDubai');
+    const bkkOverlay = document.getElementById('intelOverlayBangkok');
+    
+    if (dubaiOverlay) dubaiOverlay.classList.toggle('active', dubaiDist < 0.5);
+    if (bkkOverlay) bkkOverlay.classList.toggle('active', bkkDist < 0.5);
+  }
+
+  const heroCityLabel = document.getElementById('heroCityLabel');
+  const satSourceNote = document.getElementById('satSourceNote');
+
+  function syncCityDisplay(city) {
+    if (!city) return;
+    if (heroCityLabel) heroCityLabel.textContent = city.name.toUpperCase();
+  }
+
+  function getClosestCity(lat, lng) {
+    let closest = CITIES[0];
+    let minDistance = Number.POSITIVE_INFINITY;
+
+    CITIES.forEach((city) => {
+      const distance = Math.hypot(lat - city.lat, lng - city.lng);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closest = city;
+      }
+    });
+
+    return closest;
+  }
+
+  window.axiom = window.axiom || {};
+  window.axiom.showroom = {
+    goLive: function(id) {
+      const container = document.querySelector(`.mockup-container[data-id="${id}"]`);
+      if (!container) return;
+      
+      const iframeContainer = container.querySelector('.live-iframe-container');
+      if (!iframeContainer) return;
+      const src = iframeContainer.dataset.src;
+      
+      if (!iframeContainer.querySelector('iframe')) {
+        const iframe = document.createElement('iframe');
+        iframe.src = src;
+        iframeContainer.appendChild(iframe);
+      }
+      
+      container.classList.add('is-live');
+    },
+    exitLive: function(id) {
+      const container = document.querySelector(`.mockup-container[data-id="${id}"]`);
+      if (container) container.classList.remove('is-live');
+    },
+    revealMore: function() {
+      document.querySelectorAll('.project-card').forEach(c => c.style.display = 'flex');
+      const btn = document.querySelector('.projects-see-all');
+      if (btn) btn.style.display = 'none';
+    },
+    initV6: function() {
+      // SITREP HUD Telemetry
+      const xLine = document.querySelector('.telemetry-axis-x');
+      const yLine = document.querySelector('.telemetry-axis-y');
+      const tracker = document.querySelector('.hero-tracker');
+      
+      map.on('move', () => {
+        const center = map.getCenter();
+        const screenPos = map.latLngToContainerPoint(center);
+        if (xLine) xLine.style.top = screenPos.y + 'px';
+        if (yLine) yLine.style.left = screenPos.x + 'px';
+        if (tracker) {
+          tracker.style.top = screenPos.y + 'px';
+          tracker.style.left = screenPos.x + 'px';
+        }
+        updateIntelligenceOverlays(center.lat, center.lng);
+        syncCityDisplay(getClosestCity(center.lat, center.lng));
+      });
+    }
+  };
+
+  axiom.showroom.initV6();
+
+  // ── Auto Tour Mode ──
+  const mapModeDot = document.getElementById('mapModeDot');
+  const mapModeLabel = document.getElementById('mapModeLabel');
+  const mapModeBtn = document.getElementById('mapModeBtn');
+  const mapModePause = document.getElementById('mapModePause');
+  const mapModePlay = document.getElementById('mapModePlay');
+
+  let autoTour = true;
+  let cityIndex = 0;
+  let driftTimer = null;
+  let driftInterval = null;
+  let resumeTimeout = null;
+  const tourIntervalMs = useLiteMotion ? 16000 : 12000;
+  const tourDuration = useLiteMotion ? 7 : 10;
+
+  function setModeUI(touring) {
+    if (mapModeDot) mapModeDot.className = 'map-mode-dot' + (touring ? '' : ' exploring');
+    if (mapModeLabel) {
+      mapModeLabel.textContent = touring ? 'AUTO TOUR' : 'EXPLORING';
+      mapModeLabel.className = 'map-mode-label' + (touring ? '' : ' exploring');
+    }
+    if (mapModeBtn) {
+      mapModeBtn.setAttribute('aria-label', touring ? 'Pause auto tour' : 'Resume auto tour');
+      mapModeBtn.setAttribute('aria-pressed', String(touring));
+    }
+    if (mapModePause) mapModePause.style.display = touring ? 'block' : 'none';
+    if (mapModePlay) mapModePlay.style.display = touring ? 'none' : 'block';
+  }
+
+  function driftToNext() {
+    if (!autoTour) return;
+    cityIndex = (cityIndex + 1) % CITIES.length;
+    const city = CITIES[cityIndex];
+    syncCityDisplay(city, { shouldScroll: axiomMedia.isMobile });
+    map.flyTo([city.lat, city.lng], city.zoom, {
+      duration: tourDuration,
+      easeLinearity: useLiteMotion ? 0.1 : 0.05,
+    });
+  }
+
+  function startTour() {
+    autoTour = true;
+    setModeUI(true);
+    if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
+    driftToNext();
+    driftInterval = setInterval(driftToNext, tourIntervalMs);
+  }
+
+  function pauseTour(fromUser) {
+    autoTour = false;
+    setModeUI(false);
+    if (driftInterval) { clearInterval(driftInterval); driftInterval = null; }
+    if (driftTimer) { clearTimeout(driftTimer); driftTimer = null; }
+    map.stop(); // stop any in-progress flyTo
+
+    const center = map.getCenter();
+    updateIntelligenceOverlays(center.lat, center.lng);
+    syncCityDisplay(getClosestCity(center.lat, center.lng));
+
+
+    // If user paused by interacting, offer resume after 20s of inactivity
+    if (fromUser && resumeTimeout) clearTimeout(resumeTimeout);
+    if (fromUser) {
+      resumeTimeout = setTimeout(() => {
+        // Gently blink the play button to suggest resuming
+        if (mapModeBtn) mapModeBtn.classList.add('map-mode-btn-pulse');
+        setTimeout(() => { if (mapModeBtn) mapModeBtn.classList.remove('map-mode-btn-pulse'); }, 3000);
+      }, 20000);
+    }
+  }
+
+  // Toggle button
+  if (mapModeBtn) {
+    mapModeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (autoTour) {
+        pauseTour(true);
+      } else {
+        startTour();
+      }
+    });
+  }
+
+  // Detect user interaction with the map → pause tour
+  map.on('dragstart', () => { if (autoTour) pauseTour(true); });
+  map.on('zoomstart', () => {
+    // Only pause if zoom was initiated by user (not flyTo)
+    if (autoTour && !map._flyInProgress) pauseTour(true);
+  });
+
+  // Intercept flyTo to track in-progress state
+  const origFlyTo = map.flyTo.bind(map);
+  map.flyTo = function(latlng, zoom, options) {
+    map._flyInProgress = true;
+    return origFlyTo(latlng, zoom, options);
+  };
+  map.on('moveend', () => {
+    map._flyInProgress = false;
+    const center = map.getCenter();
+    const closest = getClosestCity(center.lat, center.lng);
+    cityIndex = CITIES.findIndex((city) => city.key === closest.key);
+    syncCityDisplay(closest);
+  });
+
+  // Start auto tour after initial pause
+  driftTimer = setTimeout(() => {
+    driftToNext();
+    driftInterval = setInterval(driftToNext, tourIntervalMs);
+  }, useLiteMotion ? 2500 : 5000);
+
+  // ── Layer switching ──
+
+  const tileLayers = {
+    satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 18 }),
+    terrain: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', { maxZoom: 18 }),
+    dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }),
+    topo: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { maxZoom: 17 }),
+  };
+
+  const layerProviders = {
+    satellite: { name: 'ESRI World Imagery', tile: 'arcgisonline.com/World_Imagery' },
+    terrain: { name: 'ESRI World Street Map', tile: 'arcgisonline.com/World_Street_Map' },
+    dark: { name: 'CartoDB Dark Matter', tile: 'basemaps.cartocdn.com/dark_all' },
+    topo: { name: 'OpenTopoMap', tile: 'tile.opentopomap.org' },
+  };
+
+  let currentLayerName = 'dark';
+  let activeLayer = tileLayers[currentLayerName];
+  activeLayer.addTo(map);
+
+  function updateLayerUI(layerName) {
+    currentLayerName = layerName;
+    document.querySelectorAll('.sat-btn[data-layer]').forEach((button) => {
+      button.classList.toggle('sat-btn-active', button.dataset.layer === layerName);
+    });
+    if (satSourceNote) {
+      satSourceNote.textContent = (layerProviders[layerName] || layerProviders.dark).name;
+    }
+  }
+
+  function switchMapLayer(layerName) {
+    if (tileLayers[layerName] && tileLayers[layerName] !== activeLayer) {
+      map.removeLayer(activeLayer);
+      activeLayer = tileLayers[layerName];
+      activeLayer.addTo(map);
+      updateLayerUI(layerName);
+      updateHud();
+    }
+  }
+
+  document.querySelectorAll('.sat-btn[data-layer]').forEach((button) => {
+    button.addEventListener('click', () => {
+      switchMapLayer(button.dataset.layer);
+    });
+  });
+
+  updateLayerUI(currentLayerName);
+
+  // ── 1km Grid Overlay ──
+
+  let gridLayer = null;
+
+  function createGrid() {
+    const bounds = map.getBounds();
+    const lines = [];
+
+    // Calculate 1km grid spacing in degrees (approx)
+    const latCenter = map.getCenter().lat;
+    const kmPerDegreeLat = 111.32;
+    const kmPerDegreeLng = 111.32 * Math.cos(latCenter * Math.PI / 180);
+    const dLat = 1 / kmPerDegreeLat;
+    const dLng = 1 / kmPerDegreeLng;
+
+    const south = Math.floor(bounds.getSouth() / dLat) * dLat;
+    const north = bounds.getNorth();
+    const west = Math.floor(bounds.getWest() / dLng) * dLng;
+    const east = bounds.getEast();
+
+    // Latitude lines
+    for (let lat = south; lat <= north; lat += dLat) {
+      lines.push(L.polyline([[lat, west], [lat, east]], {
+        color: 'rgba(37, 99, 255, 0.18)',
+        weight: 0.5,
+        interactive: false,
+      }));
+    }
+
+    // Longitude lines
+    for (let lng = west; lng <= east; lng += dLng) {
+      lines.push(L.polyline([[south, lng], [north, lng]], {
+        color: 'rgba(37, 99, 255, 0.18)',
+        weight: 0.5,
+        interactive: false,
+      }));
+    }
+
+    return L.layerGroup(lines);
+  }
+
+  function updateGrid() {
+    if (gridLayer) {
+      map.removeLayer(gridLayer);
+      gridLayer = createGrid();
+      gridLayer.addTo(map);
+    }
+  }
+
+  const gridToggle = document.getElementById('gridToggle');
+  if (gridToggle) {
+    gridToggle.addEventListener('click', () => {
+      const active = gridToggle.dataset.active === 'true';
+      if (active) {
+        if (gridLayer) { map.removeLayer(gridLayer); gridLayer = null; }
+        gridToggle.dataset.active = 'false';
+      } else {
+        gridLayer = createGrid();
+        gridLayer.addTo(map);
+        gridToggle.dataset.active = 'true';
+      }
+    });
+  }
+
+  // Rebuild grid on move/zoom
+  map.on('moveend', () => { if (gridLayer) updateGrid(); });
+  map.on('zoomend', () => { if (gridLayer) updateGrid(); });
+
+  // ── Live Satellite HUD Telemetry ──
+
+  const satCoord = document.getElementById('satCoord');
+  const satZoom = document.getElementById('satZoom');
+  const satRes = document.getElementById('satRes');
+  const satTile = document.getElementById('satTile');
+  const satTime = document.getElementById('satTime');
+  const satProvider = document.getElementById('satProvider');
+
+  function updateHud() {
+    const center = map.getCenter();
+    const zoom = map.getZoom();
+    const lat = center.lat.toFixed(4);
+    const lng = center.lng.toFixed(4);
+    const latDir = center.lat >= 0 ? 'N' : 'S';
+    const lngDir = center.lng >= 0 ? 'E' : 'W';
+
+    // Resolution: at equator, zoom 0 = ~156543 m/px, halves each zoom
+    const metersPerPx = (156543.03392 * Math.cos(center.lat * Math.PI / 180)) / Math.pow(2, zoom);
+    let resText;
+    if (metersPerPx >= 1000) resText = '~' + (metersPerPx / 1000).toFixed(1) + 'km/px';
+    else resText = '~' + Math.round(metersPerPx) + 'm/px';
+
+    if (satCoord) satCoord.textContent = Math.abs(lat) + '°' + latDir + ' ' + Math.abs(lng) + '°' + lngDir;
+    if (satZoom) satZoom.textContent = 'Z' + Math.round(zoom);
+    if (satRes) satRes.textContent = resText;
+
+    const prov = layerProviders[currentLayerName] || layerProviders.satellite;
+    if (satProvider) satProvider.textContent = prov.name;
+    if (satTile) satTile.textContent = 'Tile: ' + prov.tile;
+    if (satSourceNote) satSourceNote.textContent = prov.name;
+
+    if (satTime) {
+      const now = new Date();
+      const fmt = new Intl.DateTimeFormat('en-GB', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Bangkok'
+      });
+      satTime.textContent = 'Fetched: ' + fmt.format(now) + ' BKK';
+    }
+  }
+
+  map.on('moveend', updateHud);
+  map.on('zoomend', updateHud);
+  updateHud();
+  setInterval(updateHud, 1000); // keep time fresh
+
+
+  // Subtle parallax on mouse move — only during auto tour
+  if (!useLiteMotion) {
+    let rafId;
+    document.addEventListener('mousemove', (e) => {
+      if (!autoTour) return;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        if (!autoTour) return;
+        const dx = (e.clientX / window.innerWidth - 0.5) * 0.003;
+        const dy = (e.clientY / window.innerHeight - 0.5) * 0.003;
+        const center = map.getCenter();
+        map.panTo([center.lat + dy, center.lng + dx], { animate: false });
+      });
+    });
+  }
+
+  syncCityDisplay(CITIES[0]);
+  updateIntelligenceOverlays(CITIES[0].lat, CITIES[0].lng);
+})();
+(function initDataLines() {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas || axiomMedia.isReduced) return;
+  const useLiteCanvas = axiomMedia.isTouch || axiomMedia.isMobile;
+
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.round(canvas.offsetWidth * dpr);
+    canvas.height = Math.round(canvas.offsetHeight * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Scanning line effect
+  const lines = [];
+  for (let i = 0; i < (useLiteCanvas ? 2 : 5); i++) {
+    lines.push({
+      y: Math.random() * canvas.offsetHeight,
+      speed: 0.3 + Math.random() * 0.5,
+      alpha: 0.03 + Math.random() * 0.04,
+    });
+  }
+
+  // Data nodes — scattered points of light
+  const nodes = [];
+  for (let i = 0; i < (useLiteCanvas ? 18 : 40); i++) {
+    nodes.push({
+      x: Math.random() * canvas.offsetWidth,
+      y: Math.random() * canvas.offsetHeight,
+      r: 1 + Math.random() * 2,
+      pulse: Math.random() * Math.PI * 2,
+      speed: 0.02 + Math.random() * 0.03,
+    });
+  }
+
+  // Grid overlay
+  function drawGrid() {
+    const cw = canvas.offsetWidth;
+    const ch = canvas.offsetHeight;
+    ctx.strokeStyle = 'rgba(37, 99, 255, 0.04)';
+    ctx.lineWidth = 0.5;
+    const gridSize = 80;
+
+    for (let x = 0; x < cw; x += gridSize) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, ch);
+      ctx.stroke();
+    }
+    for (let y = 0; y < ch; y += gridSize) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(cw, y);
+      ctx.stroke();
+    }
+  }
+
+  let rafId = null;
+  let running = true;
+
+  function animate() {
+    if (!running) return;
+    rafId = requestAnimationFrame(animate);
+
+    const cw = canvas.offsetWidth;
+    const ch = canvas.offsetHeight;
+    ctx.clearRect(0, 0, cw, ch);
+
+    // Grid
+    drawGrid();
+
+    // Scan lines
+    lines.forEach(line => {
+      line.y += line.speed;
+      if (line.y > ch) line.y = -2;
+
+      ctx.strokeStyle = `rgba(37, 99, 255, ${line.alpha})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, line.y);
+      ctx.lineTo(cw, line.y);
+      ctx.stroke();
+    });
+
+    // Data nodes
+    nodes.forEach(node => {
+      node.pulse += node.speed;
+      const alpha = 0.2 + Math.sin(node.pulse) * 0.15;
+      const r = node.r + Math.sin(node.pulse) * 0.5;
+
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(37, 99, 255, ${alpha})`;
+      ctx.fill();
+
+      // Outer ring
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, r + 4, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(37, 99, 255, ${alpha * 0.3})`;
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+    });
+
+    // Connection lines between nearby nodes
+    ctx.lineWidth = 0.3;
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 200) {
+          const alpha = (1 - dist / 200) * 0.06;
+          ctx.strokeStyle = `rgba(37, 99, 255, ${alpha})`;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      running = false;
+      if (rafId) cancelAnimationFrame(rafId);
+      return;
+    }
+
+    if (!running) {
+      running = true;
+      animate();
+    }
+  });
+
+  animate();
+})();

@@ -16,7 +16,7 @@
   --text-dim: #505060;
   --accent: #4287f5; /* Axiom Cobalt */
   --accent-glow: rgba(66, 135, 245, 0.3);
-  --font-heading: 'Inter', sans-serif;
+  --font-heading: 'Source Sans 3', sans-serif;
   --font-body: 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -1878,7 +1878,6 @@
     filter: saturate(1.35) contrast(1.08) brightness(0.78);
   }
 
-  [data-theme="masterpiece"] .hero-city-label,
   [data-theme="masterpiece"] .hero-scroll-indicator {
     display: none;
   }

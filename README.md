@@ -26,12 +26,12 @@ Every system on this page started because someone said "too complex" or "too exp
 
 ## The Site
 
-This repository is the source for `axiom.nonarkara.org` — a live dashboard built in static HTML, vanilla JS, and custom CSS. No framework, no build step. It deploys via GitHub Actions → GitHub Pages → Cloudflare Pages on every push to `main`.
+This repository is the source for `axiom.nonarkara.org` — a live dashboard built in static HTML, vanilla JS, and custom CSS. No framework, no build step. It deploys via GitHub Actions → Cloudflare Pages on every push to `main`.
 
 The site is itself an Axiom product: it demonstrates, by existing, what the methodology produces.
 
 **Stack:** Static HTML · Vanilla JS · Custom CSS (Rams-grade light theme) · Leaflet (live map with auto-tour) · Canvas 2D animation · EN/TH/ZH/KO/JA/VI locale switch  
-**Deploy:** GitHub Actions → GitHub Pages · Cloudflare Pages (axiom.nonarkara.org)  
+**Deploy:** GitHub Actions → Cloudflare Pages (axiom.nonarkara.org)  
 **Design systems:** [Axiom-Design-Core](https://github.com/Nonarkara/Axiom-Design-Core) · [Rams-NYCTA-Design-Core](https://github.com/Nonarkara/Rams-NYCTA-Design-Core)
 
 ---

@@ -14,6 +14,7 @@
     "check": "node --check server.mjs && node --check public/app.js && node --check public/admin/app.js && node --check scripts/export-evidence-snapshot.mjs && node --check .qa/release-audit.mjs && node --check .qa/visual-qa.mjs"
   },
   "devDependencies": {
-    "playwright": "^1.59.1"
+    "@playwright/test": "^1.61.1",
+    "playwright": "^1.61.1"
   }
 }
