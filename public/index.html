@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="masterpiece">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -80,10 +80,6 @@
   ]
 }
 </script>
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="theme-masterpiece.css">
 </head>
 
 <body>
@@ -120,82 +116,6 @@
 
     <!-- ============== HERO ============== -->
     <section class="hero">
-<div id="heroMap"></div>
-    <canvas id="heroCanvas"></canvas>
-    <div class="hero-gradient"></div>
-    <div class="hero-city-label" id="heroCityLabel">BANGKOK</div>
-
-    <!-- Map Mode Indicator -->
-    <div class="map-mode" id="mapMode">
-      <div class="map-mode-indicator">
-        <span class="map-mode-dot" id="mapModeDot"></span>
-        <span class="map-mode-label" id="mapModeLabel">AUTO TOUR</span>
-      </div>
-      <button class="map-mode-btn" id="mapModeBtn" type="button" title="Toggle auto tour" aria-label="Pause auto tour" aria-pressed="true">
-        <svg class="map-mode-icon-pause" id="mapModePause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-        <svg class="map-mode-icon-play" id="mapModePlay" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5,3 19,12 5,21"/></svg>
-      </button>
-    </div>
-
-    <!-- Map Explore Hint -->
-    <div class="map-explore-hint" id="mapExploreHint">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l4-4 4 4"/><path d="M9 5v14"/><path d="M15 19l4-4-4-4"/><path d="M19 15H5"/></svg>
-      <span>Drag to explore &middot; Scroll to zoom</span>
-    </div>
-
-    <!-- Satellite Controls -->
-    <div class="sat-controls" id="satControls">
-      <div class="sat-control-group">
-        <span class="sat-control-label">Layer</span>
-        <button class="sat-btn" data-layer="satellite">SAT</button>
-        <button class="sat-btn" data-layer="terrain">TER</button>
-        <button class="sat-btn sat-btn-active" data-layer="dark">DRK</button>
-        <button class="sat-btn" data-layer="topo">TPO</button>
-      </div>
-      <div class="sat-control-divider"></div>
-      <div class="sat-control-group">
-        <button class="sat-btn" id="gridToggle" data-active="false">GRID 1KM</button>
-      </div>
-      <div class="sat-control-divider"></div>
-      <span class="sat-source-note" id="satSourceNote">CartoDB Dark Matter</span>
-    </div>
-
-    <!-- Urban Intelligence Overlays (Moneyball) -->
-    <div class="intel-overlay" id="intelOverlayDubai">
-      <div class="intel-overlay-header">PROJECTED ASSET YIELD</div>
-      <div class="intel-overlay-value">+14.2% YoY</div>
-      <div class="intel-overlay-meta">DUBAI AREA-04 &middot; LOGISTICAL HUB</div>
-    </div>
-
-    <div class="intel-overlay" id="intelOverlayBangkok">
-      <div class="intel-overlay-header">URBAN DENSITY PULSE</div>
-      <div class="intel-overlay-value">CRITICAL</div>
-      <div class="intel-overlay-meta">BKK CENTRAL &middot; INFRASTRUCTURE GAP</div>
-    </div>
-
-    <!-- Live Satellite Telemetry HUD -->
-    <div class="sat-hud" id="satHud">
-      <div class="sat-hud-row">
-        <span class="sat-hud-live"><span class="sat-hud-live-dot"></span>LIVE SATELLITE</span>
-        <span class="sat-hud-provider" id="satProvider">ESRI World Imagery</span>
-      </div>
-      <div class="sat-hud-row">
-        <span class="sat-hud-coord" id="satCoord">13.7563°N 100.5018°E</span>
-        <span class="sat-hud-zoom" id="satZoom">Z12</span>
-        <span class="sat-hud-res" id="satRes">~19m/px</span>
-      </div>
-      <div class="sat-hud-row">
-        <span class="sat-hud-tile" id="satTile">Tile: arcgisonline.com/World_Imagery</span>
-        <span class="sat-hud-time" id="satTime">—</span>
-      </div>
-    </div>
-
-    <!-- Hero SITREP HUD -->
-    <div class="hero-tracker"></div>
-    <div class="telemetry-axis-x"></div>
-    <div class="telemetry-axis-y"></div>
-
-    
       <div class="wrap">
         <div class="hero__metaline">
           <span data-i18n-html="heroCurrent.meta1"><b>24/7</b> monitoring</span>
