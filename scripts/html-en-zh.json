@@ -1,0 +1,1001 @@
+{
+  "bioCommon.cvBtn": {
+    "en": "View CV",
+    "zh": "查看简历"
+  },
+  "bioCommon.education": {
+    "en": "Education",
+    "zh": "教育背景"
+  },
+  "bioNon.bio": {
+    "en": "Harvard PhD in Anthropology. MIT and Oxford alumnus. Former Visiting Lecturer at MIT, postdoctoral fellow at NYU. He designs from fieldwork first — because people aren't spreadsheets and cities aren't slides.",
+    "zh": "哈佛人类学博士。MIT 和牛津校友。前 MIT 客座讲师，纽约大学博士后研究员。他从田野调查出发设计——因为人不是表格，城市不是幻灯片。"
+  },
+  "bioNon.cvAwards": {
+    "en": "Selected Awards",
+    "zh": "部分获奖"
+  },
+  "bioNon.cvCurrentRole": {
+    "en": "Current Role",
+    "zh": "现任职位"
+  },
+  "bioNon.cvCurrentRoleBody": {
+    "en": "Senior Expert in Smart City Promotion, Digital Economy Promotion Agency (depa), Bangkok — May 2019–present. Advisor to Thailand Media Fund, SLIC, NXPO, and the National Strategic Taskforce on Northern Economic Corridor (NeEC).",
+    "zh": "数字经济促进局（depa）智慧城市促进高级专家，曼谷，2019年5月至今。担任泰国媒体基金、SLIC、NXPO 以及北部经济走廊（NeEC）国家战略工作组顾问。"
+  },
+  "bioNon.cvScale": {
+    "en": "Scale of Work",
+    "zh": "工作规模"
+  },
+  "bioNon.cvScale1": {
+    "en": "120+ technology and public-private projects across 77 Thai provinces",
+    "zh": "120+ 技术与公私合作项目，覆盖泰国 77 府"
+  },
+  "bioNon.cvScale2": {
+    "en": "5,000+ government officials trained in digital literacy and smart city",
+    "zh": "5,000+ 政府官员接受数字素养与智慧城市培训"
+  },
+  "bioNon.cvScale3": {
+    "en": "300+ keynote appearances at global and domestic forums",
+    "zh": "300+ 全球及国内论坛主题演讲"
+  },
+  "bioNon.cvScale4": {
+    "en": "50+ publications in Urban Studies, Journal of Urban Design, and others",
+    "zh": "50+ 篇论文发表于《Urban Studies》、《Journal of Urban Design》等"
+  },
+  "bioNon.cvSelectedRoles": {
+    "en": "Selected Roles",
+    "zh": "部分职务"
+  },
+  "bioNon.lede": {
+    "en": "Anthropologist, architect, builder. He watches how cities actually behave, then turns that mess into interfaces people use without a training manual.",
+    "zh": "人类学家、建筑师、建造者。他观察城市真实的运行方式，然后把那种混乱转化为人们无需培训手册就能使用的界面。"
+  },
+  "bioNon.role": {
+    "en": "Co-Founder · Systems & Story",
+    "zh": "联合创始人 · 系统与叙事"
+  },
+  "bioPoon.bio": {
+    "en": "Associate Professor at Chiang Mai University. Co-author of Chiang Mai's Smart City Master Plan. Works on cities as complex adaptive systems — real-time bus prediction, transit decision support, sustainable infrastructure.",
+    "zh": "清迈大学副教授。清迈智慧城市总体规划共同作者。研究城市作为复杂适应系统——实时公交预测、交通决策支持、可持续基础设施。"
+  },
+  "bioPoon.cvCurrentRoles": {
+    "en": "Current Roles",
+    "zh": "现任职务"
+  },
+  "bioPoon.cvCurrentRolesBody": {
+    "en": "Deputy Director, Program Management Unit for Area-Based Development (PMU-A), Ministry of Higher Education, Science, Research and Innovation, Thailand; Director, Excellence Center for Urban Study and Public Policy (ECUP), Chiang Mai University.",
+    "zh": "泰国高等教育、科学、研究与创新部 PMU-A 副主任；清迈大学 ECUP 主任。"
+  },
+  "bioPoon.cvExpertise": {
+    "en": "Core Expertise",
+    "zh": "核心专长"
+  },
+  "bioPoon.cvExpertiseBody": {
+    "en": "Civil engineering, construction management, sustainable infrastructure development, climate change, disaster management, logistics, urban planning, urban mobility, and transportation systems.",
+    "zh": "土木工程、建筑管理、可持续基础设施开发、气候变化、灾害管理、物流、城市规划、城市移动性和交通系统。"
+  },
+  "bioPoon.cvSelectedWork": {
+    "en": "Selected Work",
+    "zh": "部分工作"
+  },
+  "bioPoon.cvWork1": {
+    "en": "Head of Sustainable Infrastructure Development and Climate Change Research Unit, Chiang Mai University, 2010–present",
+    "zh": "清迈大学可持续基础设施开发与气候变化研究中心负责人，2010 至今"
+  },
+  "bioPoon.cvWork2": {
+    "en": "Lead Coordinator, Research University Network (RUN) for Climate Change and Disaster Management, 2015–present",
+    "zh": "气候变化与灾害管理研究型大学网络（RUN）首席协调员，2015 至今"
+  },
+  "bioPoon.cvWork3": {
+    "en": "Bus rapid transit and mass transportation studies in Chiang Mai",
+    "zh": "清迈快速公交与公共交通研究"
+  },
+  "bioPoon.cvWork4": {
+    "en": "Integrated land-use, logistics, and transport management with World Bank",
+    "zh": "与世界银行合作的综合土地利用、物流与交通管理"
+  },
+  "bioPoon.cvWork5": {
+    "en": "Green logistics and renewable energy projects for agriculture and industry",
+    "zh": "农业与工业的绿色物流与可再生能源项目"
+  },
+  "bioPoon.cvWork6": {
+    "en": "Disaster management for critical infrastructure and supply chains",
+    "zh": "关键基础设施与供应链的灾害管理"
+  },
+  "bioPoon.lede": {
+    "en": "Engineer, strategist, operational anchor. He keeps ambition tied to working systems and makes sure the product survives contact with reality.",
+    "zh": "工程师、战略家、运营之锚。他让野心与可运行的系统挂钩，确保产品在与现实接触后仍能存活。"
+  },
+  "bioPoon.role": {
+    "en": "Co-Founder · Infrastructure & Delivery",
+    "zh": "联合创始人 · 基础设施与交付"
+  },
+  "cats.c01": {
+    "en": "Regional Operations",
+    "zh": "区域运营"
+  },
+  "cats.c02": {
+    "en": "Strategic Intelligence",
+    "zh": "战略情报"
+  },
+  "cats.c03": {
+    "en": "National Programme",
+    "zh": "国家级项目"
+  },
+  "cats.c04": {
+    "en": "City Benchmarking",
+    "zh": "城市基准评分"
+  },
+  "cats.c05": {
+    "en": "Intelligent Operations",
+    "zh": "智能运营"
+  },
+  "cats.c06": {
+    "en": "Open Intelligence",
+    "zh": "开放情报"
+  },
+  "cats.c07": {
+    "en": "Transit Intelligence",
+    "zh": "交通智能"
+  },
+  "cats.c08": {
+    "en": "Civic Intelligence",
+    "zh": "公民智能"
+  },
+  "cats.c09": {
+    "en": "Agentic Intelligence",
+    "zh": "智能体情报"
+  },
+  "cats.c10": {
+    "en": "Talent Intelligence",
+    "zh": "人才智能"
+  },
+  "cats.c11": {
+    "en": "Knowledge Intelligence",
+    "zh": "知识智能"
+  },
+  "cats.c12": {
+    "en": "National Broadcast",
+    "zh": "国家广播"
+  },
+  "cats.c13": {
+    "en": "Campus Intelligence",
+    "zh": "校园智能"
+  },
+  "cats.c14": {
+    "en": "Market Intelligence",
+    "zh": "市场智能"
+  },
+  "cats.c15": {
+    "en": "City Intelligence",
+    "zh": "城市智能"
+  },
+  "cats.c16": {
+    "en": "Coastal Intelligence",
+    "zh": "海岸智能"
+  },
+  "cats.c17": {
+    "en": "Document Intelligence",
+    "zh": "文档智能"
+  },
+  "cats.c18": {
+    "en": "Metropolitan Operations",
+    "zh": "都会运营"
+  },
+  "cats.c20": {
+    "en": "Capability Lab",
+    "zh": "能力实验室"
+  },
+  "cats.c23": {
+    "en": "Digital Humanities",
+    "zh": "数字人文"
+  },
+  "credentialsSect.address": {
+    "en": "16 Soi Phahonyothin 59 Yaek 1, Anusawari, Bang Khen, Bangkok",
+    "zh": "曼谷邦肯区阿努萨瓦里 拍凤裕庭路59巷1弄16号"
+  },
+  "credentialsSect.addressLbl": {
+    "en": "Registered address",
+    "zh": "注册地址"
+  },
+  "credentialsSect.authority": {
+    "en": "Department of Business Development, Ministry of Commerce",
+    "zh": "泰国商业部企业发展局"
+  },
+  "credentialsSect.authorityLbl": {
+    "en": "Issuing authority",
+    "zh": "发证机关"
+  },
+  "credentialsSect.business": {
+    "en": "Technology, AI, digital systems, smart-city consulting, innovation services",
+    "zh": "技术、人工智能、数字系统、智慧城市咨询、创新服务"
+  },
+  "credentialsSect.businessLbl": {
+    "en": "Core business scope",
+    "zh": "核心业务范围"
+  },
+  "credentialsSect.capital": {
+    "en": "THB 1,000,000",
+    "zh": "100万泰铢"
+  },
+  "credentialsSect.capitalLbl": {
+    "en": "Registered capital",
+    "zh": "注册资本"
+  },
+  "credentialsSect.compactLine": {
+    "en": "Axiom X Co., Ltd. · Reg. 0105569099335 · Thailand · DBD registered",
+    "zh": "Axiom X Co., Ltd. · 注册号 0105569099335 · 泰国 · 企业发展局登记"
+  },
+  "credentialsSect.companyTitle": {
+    "en": "Registered entity",
+    "zh": "注册法人"
+  },
+  "credentialsSect.disclaimer": {
+    "en": "Alignment means we design and operate to these frameworks in our delivery practice. It does not imply formal certification, accreditation, or third-party audit unless explicitly stated and evidenced. The attached PDF is a Thai company registration certificate issued by DBD — not an ISO certificate.",
+    "zh": "对齐是指我们在交付实践中按这些框架设计和运营。除非明确说明并有证据，否则不意味着正式认证、认可或第三方审计。附件 PDF 是泰国企业发展局签发的公司注册证书——不是 ISO 证书。"
+  },
+  "credentialsSect.eyebrow": {
+    "en": "Entity",
+    "zh": "法人"
+  },
+  "credentialsSect.jurisdiction": {
+    "en": "Kingdom of Thailand",
+    "zh": "泰王国"
+  },
+  "credentialsSect.jurisdictionLbl": {
+    "en": "Jurisdiction",
+    "zh": "管辖"
+  },
+  "credentialsSect.kicker": {
+    "en": "Credentials",
+    "zh": "资质"
+  },
+  "credentialsSect.nameEn": {
+    "en": "Axiom X Co., Ltd.",
+    "zh": "Axiom X Co., Ltd."
+  },
+  "credentialsSect.nameEnLbl": {
+    "en": "English name",
+    "zh": "英文名称"
+  },
+  "credentialsSect.nameLbl": {
+    "en": "Company name",
+    "zh": "公司名称"
+  },
+  "credentialsSect.nameTh": {
+    "en": "บริษัท แอคเซี่ยม เอ็กซ์ จำกัด",
+    "zh": "บริษัท แอคเซี่ยม เอ็กซ์ จำกัด"
+  },
+  "credentialsSect.pdfCta": {
+    "en": "View registration certificate",
+    "zh": "查看注册证书"
+  },
+  "credentialsSect.regDate": {
+    "en": "28 May 2026 (28 พ.ค. 2569)",
+    "zh": "2026年5月28日（28 พ.ค. 2569）"
+  },
+  "credentialsSect.regDateLbl": {
+    "en": "Registered",
+    "zh": "注册日期"
+  },
+  "credentialsSect.regNoLbl": {
+    "en": "Registration no.",
+    "zh": "注册编号"
+  },
+  "credentialsSect.stackCallout": {
+    "en": "Recommended reference stack: ISO/IEC 30173 + ISO 23247 + ISO/IEC 42001 + ISO/IEC 23894 + PDPA + GDPR",
+    "zh": "推荐参考栈：ISO/IEC 30173 + ISO 23247 + ISO/IEC 42001 + ISO/IEC 23894 + PDPA + GDPR"
+  },
+  "credentialsSect.stackTag": {
+    "en": "Stack",
+    "zh": "技术栈"
+  },
+  "credentialsSect.standardsLede": {
+    "en": "We design and deliver against these frameworks. This is operational alignment — not a claim of formal ISO certification unless independently audited and stated.",
+    "zh": "我们按这些框架设计和交付。这是运营层面的对齐——除非经过独立审计并明确说明，否则不构成正式的 ISO 认证声明。"
+  },
+  "credentialsSect.standardsMeta": {
+    "en": "4 tiers · practice-based",
+    "zh": "四层 · 实践导向"
+  },
+  "credentialsSect.standardsTitle": {
+    "en": "Standards alignment",
+    "zh": "标准对齐"
+  },
+  "credentialsSect.summaryToggle": {
+    "en": "Registration & standards details",
+    "zh": "注册与标准详情"
+  },
+  "credentialsSect.t1i1": {
+    "en": "ISO/IEC 30173:2023 — digital twin concepts",
+    "zh": "ISO/IEC 30173:2023 — 数字孪生概念"
+  },
+  "credentialsSect.t1i2": {
+    "en": "ISO 23247 — digital twin framework",
+    "zh": "ISO 23247 — 数字孪生框架"
+  },
+  "credentialsSect.t1i3": {
+    "en": "IEC / ISO / IEEE digital-twin ecosystem",
+    "zh": "IEC / ISO / IEEE 数字孪生生态"
+  },
+  "credentialsSect.t1i4": {
+    "en": "NIST digital twin programme",
+    "zh": "NIST 数字孪生计划"
+  },
+  "credentialsSect.t2i1": {
+    "en": "ISO/IEC JTC 1 — ICT standards base",
+    "zh": "ISO/IEC JTC 1 — ICT 标准基础"
+  },
+  "credentialsSect.t2i2": {
+    "en": "Interoperability & data-exchange frameworks",
+    "zh": "互操作与数据交换框架"
+  },
+  "credentialsSect.t2i3": {
+    "en": "ISO/IEC 42001 — AI management system",
+    "zh": "ISO/IEC 42001 — AI 管理体系"
+  },
+  "credentialsSect.t2i4": {
+    "en": "ISO/IEC 23894 — AI risk management",
+    "zh": "ISO/IEC 23894 — AI 风险管理"
+  },
+  "credentialsSect.t2i5": {
+    "en": "NIST AI RMF",
+    "zh": "NIST AI RMF"
+  },
+  "credentialsSect.t3i1": {
+    "en": "PDPA — Thailand Personal Data Protection Act",
+    "zh": "PDPA — 泰国个人数据保护法"
+  },
+  "credentialsSect.t3i2": {
+    "en": "GDPR — advisory alignment for EU-facing work",
+    "zh": "GDPR — 面向欧盟工作的咨询对齐"
+  },
+  "credentialsSect.t3i3": {
+    "en": "Sectoral privacy & trust guidelines",
+    "zh": "行业隐私与信任指南"
+  },
+  "credentialsSect.t4i1": {
+    "en": "OECD AI Principles",
+    "zh": "OECD AI 原则"
+  },
+  "credentialsSect.t4i2": {
+    "en": "UNESCO AI Ethics Recommendation",
+    "zh": "UNESCO AI 伦理建议"
+  },
+  "credentialsSect.t4i3": {
+    "en": "Transparency · fairness · human oversight",
+    "zh": "透明 · 公平 · 人类监督"
+  },
+  "credentialsSect.t4i4": {
+    "en": "Safety · robustness · accountable deployment",
+    "zh": "安全 · 稳健 · 负责任部署"
+  },
+  "credentialsSect.tier1": {
+    "en": "Foundational standards",
+    "zh": "基础标准"
+  },
+  "credentialsSect.tier2": {
+    "en": "Governance standards",
+    "zh": "治理标准"
+  },
+  "credentialsSect.tier3": {
+    "en": "Legal frameworks",
+    "zh": "法律框架"
+  },
+  "credentialsSect.tier4": {
+    "en": "Ethics frameworks",
+    "zh": "伦理框架"
+  },
+  "credentialsSect.title": {
+    "en": "Legally registered in Thailand",
+    "zh": "在泰国合法注册"
+  },
+  "ctaSect.body": {
+    "en": "If the problem is real and the decision matters, we'll show what can be proven inside two weeks. No procurement-cycle warm-ups. No moodboards.",
+    "zh": "如果问题是真的 决策也重要 两周内我们让你看到能证明的东西 不走采购周期热身 不做情绪板"
+  },
+  "ctaSect.kicker": {
+    "en": "Work With Us",
+    "zh": "一起来做"
+  },
+  "ctaSect.promise1": {
+    "en": "Pressure mapped in week one. The decision, the users, the data on the table.",
+    "zh": "第一周就把压力图画完 决策、用户、数据全部摆上桌"
+  },
+  "ctaSect.promise2": {
+    "en": "Working pilot before slide polish. Free and existing data first; new infrastructure only when earned.",
+    "zh": "在打磨幻灯片之前 先有能跑的试点 优先用免费和现有的数据 新基础设施只在该建的时候才建"
+  },
+  "ctaSect.promise3": {
+    "en": "Data trail from day one. Pageviews, content, decision log — so the next build is legible.",
+    "zh": "从第一天起就留下数据轨迹 页面浏览、内容、决策日志 让下一版构建读得懂"
+  },
+  "ctaSect.title": {
+    "en": "Send the brief. <em>We'll map the pressure.</em>",
+    "zh": "把题目发过来 <em>我们来画压力图</em>"
+  },
+  "footer.contact": {
+    "en": "Contact",
+    "zh": "联系"
+  },
+  "footer.smallPrint": {
+    "en": "Decision systems for cities, governments, and operators. Bangkok · Southeast Asia. © 2026 Axiom. All rights reserved. Axiom is a registered trade name. System uptime, response times, and outcome metrics are case-specific observations, not guarantees of future performance.",
+    "zh": "面向城市、政府和运营商的决策系统。曼谷 · 东南亚。© 2026 Axiom 版权所有。Axiom 是注册商号。系统正常运行时间、响应时间和成果指标均为个案观察，并非未来表现的保证。"
+  },
+  "heroCurrent.cta1": {
+    "en": "See live systems",
+    "zh": "看在线系统"
+  },
+  "heroCurrent.cta2": {
+    "en": "Start a brief",
+    "zh": "把题目发过来"
+  },
+  "heroCurrent.meta1": {
+    "en": "<b>24/7</b> monitoring",
+    "zh": "<b>24/7</b> 监控"
+  },
+  "heroCurrent.meta2": {
+    "en": "<b>157</b> SLIC Index cities",
+    "zh": "<b>157</b> SLIC 指数城市"
+  },
+  "heroCurrent.meta3": {
+    "en": "<b>174</b> Smart City Thailand Index cities",
+    "zh": "<b>174</b> 泰国智慧城市指数城市"
+  },
+  "heroCurrent.meta4": {
+    "en": "Kuching, Malaysia",
+    "zh": "古晋 马来西亚"
+  },
+  "heroCurrent.meta5": {
+    "en": "Middle East",
+    "zh": "中东"
+  },
+  "heroCurrent.meta6": {
+    "en": "Asia Pacific",
+    "zh": "亚太地区"
+  },
+  "heroCurrent.meta7": {
+    "en": "ASEAN",
+    "zh": "东盟"
+  },
+  "heroCurrent.stat1lbl": {
+    "en": "Systems in production",
+    "zh": "运行中的系统"
+  },
+  "heroCurrent.stat2lbl": {
+    "en": "Countries operating",
+    "zh": "在用的国家"
+  },
+  "heroCurrent.stat3lbl": {
+    "en": "Cities indexed",
+    "zh": "建档城市"
+  },
+  "heroCurrent.stat4lbl": {
+    "en": "On main stage, GITEX Asia",
+    "zh": "GITEX Asia 主舞台"
+  },
+  "heroCurrent.sub": {
+    "en": "Most \"smart city\" work ends as a deck. Ours runs in production. Problem mapped in week one. Something working before any presentation. Every decision tracked from the start.",
+    "zh": "多数\"智慧城市\"项目都停在幻灯片阶段。我们的停在运行中的系统上。第一周就把问题摸清楚 演示之前就有能跑的东西 每一个决策从第一天起就留下记录。"
+  },
+  "heroCurrent.title": {
+    "en": "We build the <em>working systems</em> governments <br><span class=\"hero__punch\"><span class=\"hero__punch-afford\">can't afford</span> <span class=\"hero__punch-wait\">to wait for.</span></span>",
+    "zh": "我们建造<em>能运行的系统</em><br>让政府<span class=\"hero__punch\"><span class=\"hero__punch-afford\">不用再等</span> <span class=\"hero__punch-wait\">别人来做</span></span>"
+  },
+  "navCurrent.brand": {
+    "en": "Brand Kit",
+    "zh": "品牌套件"
+  },
+  "navCurrent.credentials": {
+    "en": "Credentials",
+    "zh": "资质"
+  },
+  "navCurrent.cta": {
+    "en": "Work With Us",
+    "zh": "开始合作"
+  },
+  "navCurrent.press": {
+    "en": "Press",
+    "zh": "媒体"
+  },
+  "navCurrent.stages": {
+    "en": "Stages",
+    "zh": "舞台"
+  },
+  "navCurrent.systems": {
+    "en": "Systems",
+    "zh": "系统"
+  },
+  "navCurrent.team": {
+    "en": "Team",
+    "zh": "团队"
+  },
+  "network.economists": {
+    "en": "Economists",
+    "zh": "经济学家"
+  },
+  "network.financiers": {
+    "en": "Financiers",
+    "zh": "金融专家"
+  },
+  "network.media": {
+    "en": "Media operators",
+    "zh": "媒体运营"
+  },
+  "network.policy": {
+    "en": "Policy translators",
+    "zh": "政策翻译"
+  },
+  "network.traffic": {
+    "en": "Traffic engineers",
+    "zh": "交通工程师"
+  },
+  "network.uav": {
+    "en": "UAV operators",
+    "zh": "无人机操作员"
+  },
+  "network.urban": {
+    "en": "Urban researchers",
+    "zh": "城市研究员"
+  },
+  "notesContent.kicker": {
+    "en": "How it gets built",
+    "zh": "怎么搭出来的"
+  },
+  "notesContent.lede": {
+    "en": "Ten systems. Two people. Twelve months. These are the patterns that held — and the ones that didn't. Published here because the gap between what governments need and what the market supplies only closes if people share what they've figured out.",
+    "zh": "十一个系统 两个人 十二个月 这些是坚持下来的模式 以及那些没坚持住的 把它们放在这里 因为政府的需求和市场的供给之间那道缝 只有大家把弄明白的东西分享出来 才能慢慢闭合"
+  },
+  "notesContent.n1body": {
+    "en": "Every system on this page started because a procurement cycle, a vendor quote, or a committee said the problem was too complex or too expensive. The answer was never to argue — it was to build a rough working version and put it in the room. A live surface changes the conversation faster than any proposal.",
+    "zh": "这一页上每一个系统都是这么来的：采购周期、供应商报价或者委员会说问题太复杂或者太贵 答案从来不是辩论 而是搭一个粗糙能跑的版本 然后摆进会议室 一个能跑的真界面 比任何提案都能更快地改变对话"
+  },
+  "notesContent.n1title": {
+    "en": "The vendor said no. We shipped in fourteen days.",
+    "zh": "供应商说不行 我们十四天就交付了"
+  },
+  "notesContent.n2body": {
+    "en": "Every line of code across these ten systems was written by Claude Code, directed by Dr Non. The AI is the engineer. The human is the architect. This isn't a shortcut — it's a different model of who does what. Knowing how to direct AI precisely is the skill that compounds. The code is not the hard part.",
+    "zh": "这十一个系统每一行代码都是Claude Code写的 由我来指挥 AI是工程师 人是建筑师 这不是捷径 这是一种不同的分工模型 精准地指挥AI的能力是会复利的技能 代码不是难的部分"
+  },
+  "notesContent.n2title": {
+    "en": "AI-native is not AI-assisted.",
+    "zh": "AI原生 跟AI辅助不是一回事"
+  },
+  "notesContent.n3body": {
+    "en": "Clients ask for dashboards. What they need is clarity on one decision that must get faster or better. Find that decision first. Everything else — the feeds, the stack, the interface — flows from it. Skip this step and you build a beautiful dashboard nobody checks after the launch week.",
+    "zh": "客户要的是仪表板 真正需要的是把一个必须更快或者更准的决策搞清楚 先找到那个决策 剩下的一切 数据流、技术栈、界面 都顺着它流出来 跳过这一步 你会做出一个漂亮的仪表板 发布周一过就没人再开了"
+  },
+  "notesContent.n3title": {
+    "en": "The problem is never the data. It's always the decision behind the data.",
+    "zh": "问题从来不是数据 永远是数据背后的那个决策"
+  },
+  "notesContent.n4body": {
+    "en": "TKCX was built on this gap. Game archetypes, readiness scores, and a Moneyball salary cap exposed what the org chart hid: the right people for a given project, the chemistry between them, and the skill gaps that will surface midway through. Treat talent like a portfolio, not a headcount.",
+    "zh": "TKCX就是建在这道缝上 游戏原型、就绪分数、Moneyball式的薪资上限 把组织图遮住的东西显出来：合适的人选、他们之间的化学反应、会在半路上冒出来的技能缺口 把人才当成投资组合看 不是当成人头数"
+  },
+  "notesContent.n4title": {
+    "en": "An org chart tells you who reports to whom. It tells you nothing about who should build what with whom.",
+    "zh": "组织图告诉你谁向谁汇报 它一句也不告诉你谁该跟谁一起搭什么"
+  },
+  "notesContent.n5body": {
+    "en": "For decisions that matter, a single model gives you one framing — the one baked into its training. The AI Council runs eleven justices with different priors, explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS), and a shared transcript everyone reads before speaking. The disagreement is the product. You leave with a more defensible position than you started with.",
+    "zh": "重要决策上 单个模型只给你一种框架 那种烘进训练里的框架 AI Council跑十一位有不同先验的法官 明确的动作（EXPAND、QUALIFY、CONCEDE、STAND、PASS）和一份每个人发言前都得读的共享transcript 分歧就是产品 你离开的时候 立场比进来时更站得住脚"
+  },
+  "notesContent.n5title": {
+    "en": "A single AI answers. A council deliberates.",
+    "zh": "单个AI回答 委员会审议"
+  },
+  "notesContent.n6body": {
+    "en": "Every Axiom system ships with a data trail: pageviews, usage signals, decision logs. Not because we need the analytics on day one — but because retrofitting measurement onto a live system is nearly impossible, and the next version is always built from what the first version taught you. Leave a record. Future you will need it.",
+    "zh": "每一个Axiom系统交付时都自带数据轨迹：页面浏览、使用信号、决策日志 不是因为第一天就要看分析 而是因为之后再往一个跑着的系统上加测量 几乎做不到 下一版总是从上一版教给你的东西里建起来 留下记录 未来的你会需要它"
+  },
+  "notesContent.n6title": {
+    "en": "Instrument from day one. Not after.",
+    "zh": "从第一天就装好仪表 不是后面再补"
+  },
+  "notesContent.stackNote": {
+    "en": "Local-first. No build team. No vendor lock-in. The M5 Max runs inference, builds, and deploys from one desk in Bangkok.",
+    "zh": "本地优先 没有构建团队 不被供应商锁定 一台M5 Max在曼谷一张桌子上跑推理、构建和部署"
+  },
+  "notesContent.title": {
+    "en": "Things learned by actually shipping.",
+    "zh": "真做出来才学到的事"
+  },
+  "panels.p01.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p01.lede": {
+    "en": "Phuket's transit, public safety, and environmental signals, unified into one surface that an actual governor can read in 30 seconds. Built in weeks, not procurement cycles.",
+    "zh": "普吉的交通、公共安全、环境信号，全部集成在一个界面上，省长30秒就能看明白。几周交付，不用等采购周期走完。"
+  },
+  "panels.p02.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p02.lede": {
+    "en": "DNGWS Monitor pulls live escalation tracking, economic spillover, and cross-source crisis visualization into one surface. For decision-makers who can't wait for the briefing deck.",
+    "zh": "DNGWS Monitor把实时升级追踪、经济外溢、跨来源的危机可视化全部塞进一个界面，给那些等不到简报文档的决策者用。"
+  },
+  "panels.p04.cta": {
+    "en": "Open SLIC v3",
+    "zh": "打开 SLIC v3"
+  },
+  "panels.p04.lede": {
+    "en": "The SLIC Index doesn't tell cities what they're worth. It shows them five pillars and lets them test their own priorities. Mayors decide what livability means — and the math follows.",
+    "zh": "SLIC Index不告诉城市自己值多少。它把五根支柱摆出来，让城市自己测试优先级。市长定义\"宜居\"是什么意思，数学跟着走。"
+  },
+  "panels.p05.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p05.lede": {
+    "en": "A full-spectrum IOC for Greater Kuching, Sarawak. Foreign exchange, flights, satellite imagery, and environmental signals — unified for the operators who run Southeast Asia's fastest-growing smart city.",
+    "zh": "砂拉越大古晋的全谱IOC。外汇、航班、卫星图像、环境信号——给运营东南亚增长最快智慧城市的团队，全部整合到一个地方。"
+  },
+  "panels.p06.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p06.lede": {
+    "en": "MEM is the fastest open-source news surface for Middle Eastern conflict coverage. Live multi-source feeds, no editorial delay, no filter bubble. The signal before the cycle.",
+    "zh": "MEM是中东冲突报道里最快的开源新闻界面。实时多源信息流，没有编辑层延迟，没有过滤气泡。新闻周期开始之前的那个信号。"
+  },
+  "panels.p07.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p07.lede": {
+    "en": "Real-time GPS tracking and passenger telemetry for Phuket's smart bus network. Designed for the rider's phone first — not a control room screen. Works on the road, in the heat, with one thumb.",
+    "zh": "普吉智能巴士网络的实时GPS追踪和乘客数据。先为乘客的手机而设计，不是为控制室的大屏。在路上、在高温下、用一只大拇指就能操作。"
+  },
+  "panels.p08.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p08.lede": {
+    "en": "SCTH V2 is a Smart City Thailand city data platform that absorbs civic reports from Telegram and LINE, analyzes problems with AI, and overlays near-real-time satellite and map layers for city builders, city developers, and city managers.",
+    "zh": "SCTH V2是Smart City Thailand的城市数据平台，通过Telegram和LINE接收市民报告，用AI分析问题，并把准实时的卫星和地图图层叠在上面，给城市建设者、开发商和管理者用。"
+  },
+  "panels.p09.cta": {
+    "en": "v1 · DIY Protocol",
+    "zh": "v1 · DIY 协议"
+  },
+  "panels.p09.lede": {
+    "en": "Dr Non's AI Council is a personal multi-agent deliberation system: 11 AI justices with palindromic names (Tenet, Radar, Otto, Hannah, Ada…) running continuously on a local Mac, arguing through a shared transcript log, for around $3 a month. Trained on personal journals, decisions, and voice — proprietary by design, not by accident.",
+    "zh": "我的AI Council是个个人多智能体的审议系统：11位名字是回文的AI法官（Tenet、Radar、Otto、Hannah、Ada……）在本地Mac上持续运行，通过一个共享的transcript日志互相辩论，每月大概3美元。基于个人日记、决策和声音训练——专有是设计选择，不是意外。"
+  },
+  "panels.p10.cta": {
+    "en": "Explore the engine",
+    "zh": "探索引擎"
+  },
+  "panels.p10.lede": {
+    "en": "Talent Knowledge Collaborative Explorers (TKCX) is a game-based talent operating system that treats employees as party members, projects as quests, and team assembly as strategy. It makes every decision about people visible, measurable, and connected to outcomes — replacing org-chart politics with capability intelligence.",
+    "zh": "Talent Knowledge Collaborative Explorers（TKCX）是个用游戏机制的人才操作系统，把员工当成队伍成员、把项目当成任务、把组队当成策略。每一个关于人的决定都可见、可量化、跟结果挂钩——用能力情报取代组织图政治。"
+  },
+  "panels.p11.cta": {
+    "en": "Explore the architecture",
+    "zh": "探索架构"
+  },
+  "panels.p11.lede": {
+    "en": "Second Brain OS connects your Obsidian vault to every AI coding platform simultaneously via MCP. Brain-anatomy folder structure. 19 server configs. AI agents that access your persona blueprint, write in your voice, and remember every decision you've ever logged. The knowledge you've been building for years — finally working for you.",
+    "zh": "Second Brain OS通过MCP把你的Obsidian知识库同时接到所有AI编程平台。按脑解剖命名的文件夹结构、19个服务器配置、能读取你人格蓝图、用你的声音写作、记得你每一个曾经记下的决定的AI智能体。你这些年积累的知识，终于开始替你工作了。"
+  },
+  "panels.p12.cta": {
+    "en": "Open live platform",
+    "zh": "打开在线平台"
+  },
+  "panels.p12.lede": {
+    "en": "NSP is Thailand's national streaming platform — all 21 NBTC-licensed digital TV channels, free, full HD, on any device. Live EPG, per-channel viewership telemetry, AI content guide, and CAP v1.2 emergency alert integration in one interface.",
+    "zh": "NSP是泰国国家流媒体平台——NBTC授权的全部21个数字电视频道，免费，全高清，支持任何设备。实时节目指南、逐频道收视遥测、AI内容助手，以及CAP v1.2紧急预警集成，全在一个界面里。"
+  },
+  "panels.p13.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p13.lede": {
+    "en": "Chula Control Tower is a real-time operations dashboard for Chulalongkorn University — 47 live data feeds across traffic, incidents, air quality, satellite imagery, CU Shuttle, news, and emergency events for Bangkok's Siam–Samyan district.",
+    "zh": "Chula Control Tower是朱拉隆功大学的实时运营仪表板——47条实时数据流，横跨交通、事件、空气质量、卫星图像、CU校车、新闻和紧急事件，覆盖曼谷暹罗–三岩地区。"
+  },
+  "panels.p14.cta": {
+    "en": "Open live platform",
+    "zh": "打开在线平台"
+  },
+  "panels.p14.lede": {
+    "en": "DayTraders is a personalized Thai market intelligence platform — Bloomberg-style signals applied to SET, MAI, mutual funds, RMF, and Thai ESG instruments. Graham, Buffett, and Munger frameworks built in; you set the KPIs that matter to your portfolio.",
+    "zh": "DayTraders是个性化的泰国市场情报平台——Bloomberg级别的信号分析，适用于SET、MAI、公募基金、RMF和泰国ESG产品。Graham、Buffett和Munger的投资框架已经内嵌；你来设定对自己投资组合重要的KPI。"
+  },
+  "panels.p15.cta": {
+    "en": "Open live platform",
+    "zh": "打开在线平台"
+  },
+  "panels.p15.lede": {
+    "en": "City Hub is a replicable city intelligence platform — give it a city name, and it maps it with satellite and base layers, absorbs whatever data you have, connects APIs and sensors, and starts synthesizing the picture. v.5 with five cities live: Bangkok, Chiang Mai, Phuket, Singapore, Kuching.",
+    "zh": "City Hub是可复用的城市智能平台——告诉它城市名字，它就用卫星和底图把它描出来，吸收你已有的任何数据，连接API和传感器，开始把点连成图谱。现在v.5，五座城市在线：曼谷、清迈、普吉、新加坡、古晋。"
+  },
+  "panels.p16.cta": {
+    "en": "Open control tower",
+    "zh": "打开控制塔"
+  },
+  "panels.p16.lede": {
+    "en": "Chonburi Control Tower is a 3D command surface for the Eastern Seaboard: 42 live sources, coastal weather and marine state, market and tourism signals, mayoral incident feeds, EEC trends, and building-scale overlays in one operational lens.",
+    "zh": "Chonburi Control Tower是面向泰国东部海岸的3D指挥界面：42个实时来源、海岸天气与海况、市场和旅游信号、市长事件流、EEC趋势，以及建筑级图层，都在同一个运营视角中。"
+  },
+  "panels.p17.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p17.lede": {
+    "en": "Ekkasarn AI is a Thai document intelligence engine for tax invoices, receipts, and withholding tax certificates. Upload a real document or pick a sample; the system runs OCR, classifies the document, and extracts usable fields without mock data or a required login.",
+    "zh": "Ekkasarn AI是面向泰国税务发票、收据和预扣税证明的文档智能引擎。可以上传真实文件或选择样本；系统会运行OCR、分类文档，并提取可用字段，不依赖模拟数据，也不强制登录。"
+  },
+  "panels.p18.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p18.lede": {
+    "en": "KMITL Control Tower is a real-time operations dashboard for King Mongkut's Institute of Technology Ladkrabang — 56 live data feeds across traffic, incidents, air quality, satellite imagery, campus shuttles, news, and emergency events for Bangkok's Lat Krabang district.",
+    "zh": "KMITL控制塔是泰国先皇科技大学（拉卡邦）的实时运营仪表板——56路实时数据，覆盖交通、事件、空气质量、卫星影像、校园班车、新闻和应急事件，服务曼谷拉卡邦片区。"
+  },
+  "panels.p19.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p19.lede": {
+    "en": "Yala Control Tower provides real-time civic intelligence for Yala City Municipality in Thailand's Deep South. A 3D city model, satellite layers, flood watch, Deep South security incidents, and over 30 live data feeds.",
+    "zh": "Yala控制塔为泰国南部深南地区的亚拉市自治政府提供实时公民情报：3D城市模型、卫星图层、洪水监测、深南安全事件，以及30多路实时数据。"
+  },
+  "panels.p20.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p20.lede": {
+    "en": "Horizon 45 is a field instrument designed to test actual AI judgment. From deepfake detection to prompt engineering, users navigate real-world signals and leave with a capability portrait and learning roadmap.",
+    "zh": "Horizon 45是一款测试真实AI判断力的现场仪器。从深度伪造识别到提示工程，用户穿行于真实世界信号，离开时带走能力画像与学习路线图。"
+  },
+  "panels.p21.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p21.lede": {
+    "en": "A massive-scale command surface for Ho Chi Minh City. Integrates live traffic, flood monitoring, air quality, and dynamic routing into a single high-performance map for urban decision-makers.",
+    "zh": "胡志明市大规模指挥界面：将实时交通、洪水监测、空气质量与动态路径规划整合到一张高性能地图中，供城市决策者使用。"
+  },
+  "panels.p22.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p22.lede": {
+    "en": "Monitoring three regions (Middle East, Southeast Asia, Thailand): an ultimate monitoring platform based on open data that reveals insights through layering.",
+    "zh": "监测三个区域（中东、东南亚、泰国）：基于开放数据的终极监测平台，通过图层叠加揭示洞察。"
+  },
+  "panels.p23.cta": {},
+  "panels.p23.lede": {},
+  "panels.p24.cta": {
+    "en": "Open live system",
+    "zh": "打开在线系统"
+  },
+  "panels.p24.lede": {
+    "en": "A trilingual Dao De Jing reading room with Tsai comics, Buddhist parallels, psychology notes, pinyin, and a living reference shelf.",
+    "zh": "三语《道德经》阅读室：蔡志忠漫画、佛学对照、心理学笔记、拼音，以及持续更新的参考书架。"
+  },
+  "pressContent.p1title": {
+    "en": "With the vendor saying no, Thai civil servant built his own tools",
+    "zh": "供应商说不 泰国公务员自己建工具"
+  },
+  "pressContent.p2title": {
+    "en": "Can Innovation-as-a-Service close the gap between policy and implementation?",
+    "zh": "创新即服务能否弥合政策与执行之间的鸿沟"
+  },
+  "pressContent.p3title": {
+    "en": "They built the index, but you build the ranking",
+    "zh": "他们建了指数 但你来建排名"
+  },
+  "pressContent.p4title": {
+    "en": "On digital connectivity, open innovation, and why smart cities only work when inclusion scales",
+    "zh": "数字连接、开放创新 以及为什么智慧城市只有在包容性扩展时才有效"
+  },
+  "pressContent.p5title": {
+    "en": "How AI is mining city data cheaply and making them smarter",
+    "zh": "AI 如何廉价挖掘城市数据并让它们更智能"
+  },
+  "pressContent.p6title": {
+    "en": "Why smart cities need citizens, not just technology",
+    "zh": "为什么智慧城市需要公民 而不仅仅是技术"
+  },
+  "pressContent.p7title": {
+    "en": "Middle East War Monitor — live conflict signal across the region",
+    "zh": "中东战争监测器 — 跨地区实时冲突信号"
+  },
+  "pressSection.kicker": {
+    "en": "In the press",
+    "zh": "媒体报道"
+  },
+  "pressSection.lede": {
+    "en": "Outside coverage of the work, the thesis, and the systems.",
+    "zh": "外界对这些工作、论点和系统的报道"
+  },
+  "pressSection.title": {
+    "en": "Read. Watch. Decide.",
+    "zh": "读 看 决定"
+  },
+  "stageSect.kicker": {
+    "en": "Two stages, one signal",
+    "zh": "两个舞台 一个信号"
+  },
+  "stageSect.lede": {
+    "en": "In six months we took the same thesis to two of Asia's biggest stages. Both rooms were full. Both had the same response: build it now, not after the next budget cycle.",
+    "zh": "六个月里我们把同一个论点带上亚洲最大的两个舞台 两个会议室都满 两个房间给的反应一样：现在就开始建 不用等下一个预算周期"
+  },
+  "stageSect.title": {
+    "en": "Governments are tired of <em>waiting for the deck.</em>",
+    "zh": "政府已经<em>厌倦等一份幻灯片</em>了"
+  },
+  "stagesContent.sgCite": {
+    "en": "— Dr. Non, post-keynote",
+    "zh": "— 阿南博士 演讲后"
+  },
+  "stagesContent.sgLede": {
+    "en": "Main-stage keynote at GITEX AI Asia. Then a workshop on Government Innovation as a Service that hit capacity within minutes — standing room taken, hallway full, every face locked on the live demo.",
+    "zh": "GITEX AI Asia主舞台的主题演讲 接着是一场政府创新即服务的工作坊 几分钟就满员 站位被站满 走廊挤满 每张脸都锁定在现场演示上"
+  },
+  "stagesContent.sgLoc": {
+    "en": "Singapore · Marina Bay Sands · Main Stage · April 2026",
+    "zh": "新加坡 · 滨海湾金沙 · 主舞台 · 2026年4月"
+  },
+  "stagesContent.sgQuote": {
+    "en": "\"The room was standing-room only. That is not applause — that is a demand signal. Governments want working systems. They are tired of waiting for the deck.\"",
+    "zh": "\"会议室只剩站位 那不是掌声 那是需求信号 政府要的是能跑的系统 已经厌倦等一份幻灯片了\""
+  },
+  "stagesContent.sgS1": {
+    "en": "Main stage audience",
+    "zh": "主舞台观众"
+  },
+  "stagesContent.sgS2": {
+    "en": "Total attendees",
+    "zh": "总参会人数"
+  },
+  "stagesContent.sgS3": {
+    "en": "Nations represented",
+    "zh": "参会国家"
+  },
+  "stagesContent.sgS4": {
+    "en": "Workshop capacity",
+    "zh": "工作坊容量"
+  },
+  "stagesContent.sgTitle": {
+    "en": "Standing room only.",
+    "zh": "只剩站位"
+  },
+  "stagesContent.taipeiCite": {
+    "en": "— Dr. Non, Taipei keynote",
+    "zh": "— 阿南博士 台北主题演讲"
+  },
+  "stagesContent.taipeiLede": {
+    "en": "Keynote at the Smart City Summit & Expo. Working surface in the room, not concept art. SLIC went live during the talk: 157 cities, five pillars, adjustable ranking logic.",
+    "zh": "智慧城市峰会暨展览的主题演讲 现场跑的是真界面 不是概念图 SLIC在演讲过程中上线：157座城市 五根支柱 可以调整的排名逻辑"
+  },
+  "stagesContent.taipeiLoc": {
+    "en": "Taipei · City Vision Stage · March 2026",
+    "zh": "台北 · 城市愿景舞台 · 2026年3月"
+  },
+  "stagesContent.taipeiQuote": {
+    "en": "\"We didn't build an index for the shelf. We built a command system for the street. You build the ranking; we build the reality.\"",
+    "zh": "\"我们不是为了摆上书架做了个指数 我们做的是一个街头指挥系统 你来排名 我们来造现实\""
+  },
+  "stagesContent.taipeiS1": {
+    "en": "Cities indexed",
+    "zh": "建档城市"
+  },
+  "stagesContent.taipeiS2": {
+    "en": "Nations represented",
+    "zh": "参会国家"
+  },
+  "stagesContent.taipeiS3": {
+    "en": "Intel partners",
+    "zh": "情报伙伴"
+  },
+  "stagesContent.taipeiS4": {
+    "en": "First live demo",
+    "zh": "首次现场演示"
+  },
+  "stagesContent.taipeiTitle": {
+    "en": "Live dashboard, demo'd in 45 minutes.",
+    "zh": "实时仪表板 45分钟内现场演示"
+  },
+  "sysClusters.sysMeta": {},
+  "sysSect.kicker": {
+    "en": "Live in production",
+    "zh": "正在生产中运行"
+  },
+  "sysSect.lede": {
+    "en": "Each one started as a sharp question, shipped as a working surface, and stays useful long after the launch press cycle ends. Click through and use them — they're live.",
+    "zh": "每个系统都从一个尖锐的问题开始 以可用的界面交付 在发布新闻周期结束之后依然有用 点进去用就行 全部都在线跑着"
+  },
+  "teamContent.collectiveLede": {
+    "en": "Researchers, traffic engineers, anthropologists, financiers, policy translators, and media operators. They join by problem, not by org chart. We pay for the brains we need, when we need them.",
+    "zh": "研究员、交通工程师、人类学家、金融人士、政策翻译、媒体运营 他们按问题加入 不按组织图 需要哪颗大脑 在那个时候付钱给那颗大脑"
+  },
+  "teamContent.collectiveTitle": {
+    "en": "The collective, on call.",
+    "zh": "随时待命的协作圈"
+  },
+  "teamContent.pb1for": {
+    "en": "ASEAN Smart Cities Network",
+    "zh": "东盟智慧城市网络"
+  },
+  "teamContent.pb1org": {
+    "en": "For ASEAN Secretariat",
+    "zh": "为东盟秘书处"
+  },
+  "teamContent.pb1title": {
+    "en": "38 cities. 10 nations. One platform.",
+    "zh": "38座城市 10个国家 一个平台"
+  },
+  "teamContent.pb2for": {
+    "en": "ASEAN CSCO Handbook",
+    "zh": "东盟CSCO手册"
+  },
+  "teamContent.pb2org": {
+    "en": "ASEAN · UNDP · UN-Habitat",
+    "zh": "东盟 · UNDP · UN-Habitat"
+  },
+  "teamContent.pb2title": {
+    "en": "112,000 users. Born from real flooding.",
+    "zh": "112,000用户 起源于真实的洪灾"
+  },
+  "teamContent.pb3for": {
+    "en": "Honiara · Two-day workshop",
+    "zh": "霍尼亚拉 · 两天工作坊"
+  },
+  "teamContent.pb3org": {
+    "en": "UN DESA · Solomon Islands Gov.",
+    "zh": "联合国经社部 · 所罗门群岛政府"
+  },
+  "teamContent.pb3title": {
+    "en": "Whole-of-government digital roadmap.",
+    "zh": "覆盖整个政府的数字化路线图"
+  },
+  "teamContent.pb4for": {
+    "en": "Smart City Leadership · Bilingual",
+    "zh": "智慧城市领导力 · 双语"
+  },
+  "teamContent.pb4org": {
+    "en": "For depa Thailand",
+    "zh": "为泰国depa"
+  },
+  "teamContent.pb4title": {
+    "en": "Thailand's digital agency, online.",
+    "zh": "泰国数字机构 上线了"
+  },
+  "teamContent.probonoNote": {
+    "en": "These are live, working platforms — not decks or reports. Each one was built with real institutional partners, deployed publicly, and is still in use. Click through and see what the work actually looks like when it ships.",
+    "zh": "这些全是在跑的平台 不是幻灯片也不是报告 每一个都跟真实的机构合作方一起做出来 对外公开部署 现在还在用 点进去看看真东西交付出来是什么样"
+  },
+  "teamContent.probonoTitle": {
+    "en": "Pro bono · Institutional work",
+    "zh": "公益工作 · 机构项目"
+  },
+  "teamSect.kicker": {
+    "en": "Who builds it",
+    "zh": "谁在搭"
+  },
+  "teamSect.lede": {
+    "en": "You talk to the people who write the code and decide the architecture. When the work needs UAV operators or traffic engineers or policy translators, we pull them in for that mission only — never as a standing bench.",
+    "zh": "你直接跟写代码、定架构的人对话 工作需要无人机操作员 交通工程师 或者政策翻译时 我们只为那个任务把人请进来 从不养成常设团队"
+  },
+  "teamSect.title": {
+    "en": "Two founders. <em>No handlers.</em>",
+    "zh": "两位创始人 <em>没有中间人</em>"
+  },
+  "sysSect.sandboxKicker": {
+    "en": "Sandbox // Live",
+    "zh": "Sandbox // Live"
+  },
+  "sysSect.sandboxNote": {
+    "en": "These aren't demos — they're working systems in a sandbox. Built to scale, not to impress. Production deployments under client NDAs are larger; what runs here behaves like them, with advanced modules withheld.",
+    "zh": "不是演示稿——是运行在沙盒里的可用系统。按可扩展的方式搭建，不是为了好看。客户生产部署在保密协议下规模更大；这里运行的逻辑与之一致，敏感模块不对外展示，不是因为它们是假的。"
+  }
+}

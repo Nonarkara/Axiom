@@ -1,0 +1,636 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Axiom Framework - Thailand Municipal Overview Dashboard",
+  "editable": true,
+  "fiscalYearStartMonth": 10,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Axiom Framework Docs",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://github.com/your-org/axiom-framework"
+    }
+  ],
+  "liveNow": true,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {"h": 1, "w": 24, "x": 0, "y": 0},
+      "id": 1,
+      "panels": [],
+      "title": "Municipality Overview",
+      "type": "row"
+    },
+    {
+      "datasource": {"type": "postgres", "uid": "${datasource}"},
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {"color": "green", "value": null},
+              {"color": "yellow", "value": 35},
+              {"color": "orange", "value": 55},
+              {"color": "red", "value": 75}
+            ]
+          },
+          "unit": "concentration"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 4, "w": 6, "x": 0, "y": 1},
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "datasource": {"type": "postgres", "uid": "${datasource}"},
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT AVG(metric_value) as pm25_avg FROM telemetry WHERE metric_name = 'pm25' AND municipality_id = '$municipality' AND time >= NOW() - INTERVAL '1 hour'",
+          "refId": "A",
+          "sql": {"columns": [{"parameters": [], "type": "function"}], "groupBy": [{"property": {"type": "string"}, "type": "groupBy"}], "limit": 50},
+          "table": "telemetry"
+        }
+      ],
+      "title": "PM2.5 (1h avg)",
+      "type": "stat"
+    },
+    {
+      "datasource": {"type": "postgres", "uid": "${datasource}"},
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [
+            {"options": {"0": {"text": "Good"}}, "type": "value"},
+            {"options": {"1": {"text": "Moderate"}}, "type": "value"},
+            {"options": {"2": {"text": "Unhealthy (SG)"}}, "type": "value"},
+            {"options": {"3": {"text": "Unhealthy"}}, "type": "value"},
+            {"options": {"4": {"text": "Very Unhealthy"}}, "type": "value"},
+            {"options": {"5": {"text": "Hazardous"}}, "type": "value"}
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {"color": "green", "value": null},
+              {"color": "yellow", "value": 1},
+              {"color": "orange", "value": 2},
+              {"color": "red", "value": 3},
+              {"color": "dark-red", "value": 4},
+              {"color": "purple", "value": 5}
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 4, "w": 6, "x": 6, "y": 1},
+      "id": 3,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "datasource": {"type": "postgres", "uid": "${datasource}"},
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT CASE WHEN avg_val <= 25 THEN 0 WHEN avg_val <= 37 THEN 1 WHEN avg_val <= 50 THEN 2 WHEN avg_val <= 90 THEN 3 WHEN avg_val <= 120 THEN 4 ELSE 5 END as aqi_level FROM (SELECT AVG(metric_value) as avg_val FROM telemetry WHERE metric_name = 'pm25' AND municipality_id = '$municipality' AND time >= NOW() - INTERVAL '1 hour') t",
+          "refId": "A"
+        }
+      ],
+      "title": "Air Quality Level",
+      "type": "stat"
+    },
+    {
+      "datasource": {"type": "postgres", "uid": "${datasource}"},
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {"color": "green", "value": null},
+              {"color": "yellow", "value": 10},
+              {"color": "orange", "value": 25},
+              {"color": "red", "value": 50}
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 4, "w": 6, "x": 12, "y": 1},
+      "id": 4,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "datasource": {"type": "postgres", "uid": "${datasource}"},
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(*) as open_incidents FROM incidents WHERE municipality_id = '$municipality' AND status NOT IN ('resolved', 'closed')",
+          "refId": "A"
+        }
+      ],
+      "title": "Open Incidents",
+      "type": "stat"
+    },
+    {
+      "datasource": {"type": "postgres", "uid": "${datasource}"},
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "thresholds"},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {"color": "blue", "value": null},
+              {"color": "green", "value": 15},
+              {"color": "yellow", "value": 25},
+              {"color": "orange", "value": 35}
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 4, "w": 6, "x": 18, "y": 1},
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "datasource": {"type": "postgres", "uid": "${datasource}"},
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT AVG(metric_value) as temperature FROM telemetry WHERE metric_name = 'temperature' AND municipality_id = '$municipality' AND time >= NOW() - INTERVAL '1 hour'",
+          "refId": "A"
+        }
+      ],
+      "title": "Temperature",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {"h": 1, "w": 24, "x": 0, "y": 5},
+      "id": 6,
+      "panels": [],
+      "title": "Geographic View",
+      "type": "row"
+    },
+    {
+      "datasource": {"type": "postgres", "uid": "${datasource}"},
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "hideFrom": {"legend": false, "tooltip": false, "viz": false}
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {"color": "green", "value": null},
+              {"color": "yellow", "value": 35},
+              {"color": "orange", "value": 55},
+              {"color": "red", "value": 75}
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 12, "w": 16, "x": 0, "y": 6},
+      "id": 7,
+      "options": {
+        "basemap": {
+          "config": {},
+          "name": "Dark",
+          "type": "default"
+        },
+        "controls": {
+          "mouseWheelZoom": true,
+          "showAttribution": true,
+          "showDebug": false,
+          "showLayercontrol": true,
+          "showScale": true,
+          "showZoom": true
+        },
+        "layers": [
+          {
+            "config": {
+              "cluster": true,
+              "clusterDistance": 20,
+              "clusterMinDistance": 0,
+              "color": {
+                "fixed": "dark-green",
+                "mode": "fixed"
+              },
+              "fillOpacity": 0.4,
+              "shape": "circle",
+              "showLegend": true,
+              "size": {
+                "fixed": 5,
+                "max": 15,
+                "min": 2,
+                "mode": "fixed"
+              }
+            },
+            "location": {
+              "latitude": "lat",
+              "longitude": "lon",
+              "mode": "coords"
+            },
+            "name": "Air Quality Stations",
+            "tooltip": true,
+            "type": "markers"
+          }
+        ],
+        "view": {
+          "center": {
+            "lat": 13.7563,
+            "lon": 100.5018
+          },
+          "shared": false,
+          "zoom": 6
+        }
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "datasource": {"type": "postgres", "uid": "${datasource}"},
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT s.name as station, t.metric_value as pm25, ST_Y(t.location::geometry) as lat, ST_X(t.location::geometry) as lon, t.time FROM telemetry t JOIN sensors s ON t.sensor_id = s.id WHERE t.metric_name = 'pm25' AND t.municipality_id = '$municipality' AND t.time >= NOW() - INTERVAL '1 hour' ORDER BY t.time DESC",
+          "refId": "A"
+        }
+      ],
+      "title": "PM2.5 Sensor Map",
+      "type": "geomap"
+    },
+    {
+      "datasource": {"type": "postgres", "uid": "${datasource}"},
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background",
+              "wrapText": false
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {"color": "green", "value": null},
+              {"color": "yellow", "value": 35},
+              {"color": "orange", "value": 55},
+              {"color": "red", "value": 75}
+            ]
+          },
+          "unit": "concentration"
+        },
+        "overrides": [
+          {
+            "matcher": {"id": "byName", "options": "Station"},
+            "properties": [{"id": "custom.width", "value": 200}]
+          }
+        ]
+      },
+      "gridPos": {"h": 12, "w": 8, "x": 16, "y": 6},
+      "id": 8,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": ["sum"],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [{"desc": true, "displayName": "PM2.5"}]
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "datasource": {"type": "postgres", "uid": "${datasource}"},
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT s.name as station, t.metric_value as pm25, t.time as last_update FROM telemetry t JOIN sensors s ON t.sensor_id = s.id WHERE t.metric_name = 'pm25' AND t.municipality_id = '$municipality' AND t.time >= NOW() - INTERVAL '1 hour' ORDER BY t.time DESC LIMIT 10",
+          "refId": "A"
+        }
+      ],
+      "title": "Station Readings",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {"h": 1, "w": 24, "x": 0, "y": 18},
+      "id": 9,
+      "panels": [],
+      "title": "Trends",
+      "type": "row"
+    },
+    {
+      "datasource": {"type": "postgres", "uid": "${datasource}"},
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "palette-classic"},
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {"legend": false, "tooltip": false, "viz": false},
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 4,
+            "scaleDistribution": {"type": "linear"},
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {"group": "A", "mode": "none"},
+            "thresholdsStyle": {"mode": "off"}
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {"color": "green", "value": null},
+              {"color": "red", "value": 75}
+            ]
+          },
+          "unit": "concentration"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 19},
+      "id": 10,
+      "options": {
+        "legend": {"calcs": ["mean", "max"], "displayMode": "table", "placement": "bottom", "showLegend": true},
+        "tooltip": {"mode": "multi", "sort": "none"}
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "datasource": {"type": "postgres", "uid": "${datasource}"},
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time as \"time\", sensor_id, metric_value as pm25 FROM telemetry WHERE metric_name = 'pm25' AND municipality_id = '$municipality' AND time >= NOW() - INTERVAL '24 hours' ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "PM2.5 Trend (24h)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {"type": "postgres", "uid": "${datasource}"},
+      "fieldConfig": {
+        "defaults": {
+          "color": {"mode": "palette-classic"},
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {"legend": false, "tooltip": false, "viz": false},
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 4,
+            "scaleDistribution": {"type": "linear"},
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {"group": "A", "mode": "none"},
+            "thresholdsStyle": {"mode": "off"}
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [{"color": "green", "value": null}]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 19},
+      "id": 11,
+      "options": {
+        "legend": {"calcs": ["mean", "min", "max"], "displayMode": "table", "placement": "bottom", "showLegend": true},
+        "tooltip": {"mode": "multi", "sort": "none"}
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "datasource": {"type": "postgres", "uid": "${datasource}"},
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time as \"time\", sensor_id, metric_value as temperature FROM telemetry WHERE metric_name = 'temperature' AND municipality_id = '$municipality' AND time >= NOW() - INTERVAL '24 hours' ORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "Temperature Trend (24h)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {"h": 1, "w": 24, "x": 0, "y": 27},
+      "id": 12,
+      "panels": [],
+      "title": "Incidents & Alerts",
+      "type": "row"
+    },
+    {
+      "datasource": {"type": "postgres", "uid": "${datasource}"},
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {"type": "auto", "wrapText": true},
+            "inspect": false
+          },
+          "mappings": [
+            {"options": {"reported": {"color": "yellow", "text": "Reported"}}, "type": "value"},
+            {"options": {"in_progress": {"color": "blue", "text": "In Progress"}}, "type": "value"},
+            {"options": {"resolved": {"color": "green", "text": "Resolved"}}, "type": "value"}
+          ],
+          "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}]}
+        },
+        "overrides": []
+      },
+      "gridPos": {"h": 10, "w": 24, "x": 0, "y": 28},
+      "id": 13,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {"countRows": true, "fields": "", "reducer": ["count"], "show": true},
+        "showHeader": true,
+        "sortBy": [{"desc": true, "displayName": "Reported"}]
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "datasource": {"type": "postgres", "uid": "${datasource}"},
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT incident_type as type, severity, title_en as title, status, created_at as reported, EXTRACT(EPOCH FROM (NOW() - created_at))/3600 as hours_open FROM incidents WHERE municipality_id = '$municipality' AND status NOT IN ('resolved', 'closed') ORDER BY created_at DESC LIMIT 50",
+          "refId": "A"
+        }
+      ],
+      "title": "Active Incidents",
+      "type": "table"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "tags": ["axiom", "thailand", "municipal"],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "MunicipalDB",
+          "value": " municipalDB"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "postgres",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "sikhio",
+          "value": "sikhio"
+        },
+        "datasource": {"type": "postgres", "uid": "${datasource}"},
+        "definition": "SELECT id FROM municipalities WHERE active = true ORDER BY name_en",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Municipality",
+        "multi": false,
+        "name": "municipality",
+        "options": [],
+        "query": "SELECT id FROM municipalities WHERE active = true ORDER BY name_en",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": ["5s", "10s", "30s", "1m", "5m", "15m", "30m", "1h", "2h", "1d"]
+  },
+  "timezone": "Asia/Bangkok",
+  "title": "Thailand Municipal Overview",
+  "uid": "axiom-thailand-overview",
+  "version": 1,
+  "weekStart": "sunday"
+}

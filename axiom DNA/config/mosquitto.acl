@@ -1,0 +1,26 @@
+# Axiom Framework - Mosquitto Access Control List
+# Format: user <username>
+#         topic [read|write|readwrite] <topic-pattern>
+
+# Admin user - full access to all topics
+user axiom_admin
+topic readwrite #
+
+# Data poller service - write telemetry, read configuration
+user axiom_poller
+topic write municipal/+/telemetry/+
+topic write municipal/+/incidents/+
+topic read municipal/+/config/+
+
+# Grafana live MQTT source - read-only
+topic read municipal/+/telemetry/+
+topic read municipal/+/alerts/+
+
+# ThingsBoard device integration
+# Devices publish to their own topics based on access token
+topic write v1/devices/me/telemetry
+topic write v1/devices/me/attributes
+topic read v1/devices/me/rpc/request/+
+
+# Anonymous users (public dashboards) - read aggregated data only
+# pattern read municipal/public/#

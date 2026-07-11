@@ -1,0 +1,32 @@
+# Axiom Framework - API Poller Dependencies
+# Install: pip install -r requirements.txt
+
+# Database
+psycopg2-binary>=2.9.9
+
+# HTTP requests
+requests>=2.31.0
+urllib3>=2.0.0
+
+# GTFS Realtime parsing
+gtfs-realtime-bindings>=1.0.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Geospatial
+shapely>=2.0.0
+
+# Environment configuration
+python-dotenv>=1.0.0
+
+# MQTT client (for direct MQTT publishing)
+paho-mqtt>=1.6.0
+
+# Scheduling (for cron-style pollers)
+schedule>=1.2.0
+
+# Web framework (for webhook receivers)
+flask>=3.0.0
+gunicorn>=21.0.0

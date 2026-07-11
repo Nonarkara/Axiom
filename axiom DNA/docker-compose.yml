@@ -1,0 +1,409 @@
+# Axiom Framework - Full Stack Docker Compose
+# Production-ready configuration for municipal intelligence dashboards
+# Supports: PostgreSQL + PostGIS + TimescaleDB, Grafana, Metabase,
+#           ThingsBoard, Kong API Gateway, Mosquitto MQTT
+#
+# Usage:
+#   docker compose up -d          # Start all services
+#   docker compose logs -f        # View logs
+#   docker compose down           # Stop all services
+#   docker compose down -v        # Stop and remove all data volumes
+
+version: '3.8'
+
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+x-restart-policy: &restart-policy
+  restart: unless-stopped
+
+x-network: &default-network
+  networks:
+    - axiom-network
+
+services:
+  # ============================================================================
+  # DATABASE LAYER
+  # ============================================================================
+
+  postgres:
+    image: timescale/timescaledb-postgis:latest-pg15
+    container_name: axiom-postgres
+    <<: *restart-policy
+    <<: *default-network
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-axiom}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+      POSTGRES_DB: ${POSTGRES_DB:-municipal}
+      TZ: Asia/Bangkok
+      PGTZ: Asia/Bangkok
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./config/postgres-init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+      - postgres_backups:/backups
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    command:
+      - "postgres"
+      - "-c"
+      - "shared_buffers=${PG_SHARED_BUFFERS:-2GB}"
+      - "-c"
+      - "effective_cache_size=${PG_EFFECTIVE_CACHE_SIZE:-6GB}"
+      - "-c"
+      - "work_mem=${PG_WORK_MEM:-32MB}"
+      - "-c"
+      - "maintenance_work_mem=${PG_MAINTENANCE_WORK_MEM:-512MB}"
+      - "-c"
+      - "max_connections=${PG_MAX_CONNECTIONS:-200}"
+      - "-c"
+      - "max_parallel_workers_per_gather=${PG_MAX_PARALLEL_WORKERS:-4}"
+      - "-c"
+      - "max_parallel_workers=${PG_MAX_PARALLEL_WORKERS:-8}"
+      - "-c"
+      - "timescaledb.max_background_workers=${TSDB_MAX_BG_WORKERS:-8}"
+      - "-c"
+      - "wal_level=replica"
+      - "-c"
+      - "max_wal_size=2GB"
+      - "-c"
+      - "min_wal_size=512MB"
+      - "-c"
+      - "checkpoint_completion_target=0.9"
+      - "-c"
+      - "random_page_cost=1.1"
+      - "-c"
+      - "effective_io_concurrency=200"
+      - "-c"
+      - "default_statistics_target=100"
+      - "-c"
+      - "log_min_duration_statement=1000"
+      - "-c"
+      - "log_connections=on"
+      - "-c"
+      - "log_disconnections=on"
+      - "-c"
+      - "log_checkpoints=on"
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-axiom} -d ${POSTGRES_DB:-municipal}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # ============================================================================
+  # IOT / MQTT LAYER
+  # ============================================================================
+
+  mosquitto:
+    image: eclipse-mosquitto:2.0.18
+    container_name: axiom-mosquitto
+    <<: *restart-policy
+    <<: *default-network
+    ports:
+      - "${MQTT_PORT:-1883}:1883"
+      - "${MQTT_WS_PORT:-9001}:9001"
+    volumes:
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_logs:/mosquitto/log
+      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./config/mosquitto.passwd:/mosquitto/config/passwd:ro
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD", "mosquitto_pub", "-t", "$SYS/broker/uptime", "-m", "test", "-r"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  thingsboard:
+    image: thingsboard/tb-postgres:3.6.0
+    container_name: axiom-thingsboard
+    <<: *restart-policy
+    <<: *default-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mosquitto:
+        condition: service_started
+    ports:
+      - "${THINGSBOARD_HTTP_PORT:-8080}:9090"
+      - "${THINGSBOARD_MQTT_PORT:-1884}:1883"
+    environment:
+      TB_QUEUE_TYPE: in-memory
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/thingsboard
+      SPRING_DATASOURCE_USERNAME: thingsboard
+      SPRING_DATASOURCE_PASSWORD: ${THINGSBOARD_DB_PASSWORD:?THINGSBOARD_DB_PASSWORD is required}
+      TB_MQTT_BIND_ADDRESS: 0.0.0.0
+      TB_MQTT_BIND_PORT: 1883
+      MQTT_ENABLED: "true"
+    volumes:
+      - thingsboard_data:/data
+      - thingsboard_logs:/var/log/thingsboard
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9090/api/health"]
+      interval: 60s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+
+  # ============================================================================
+  # API GATEWAY LAYER
+  # ============================================================================
+
+  kong:
+    image: kong:3.6.0
+    container_name: axiom-kong
+    <<: *restart-policy
+    <<: *default-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "${KONG_PROXY_HTTP:-8000}:8000"
+      - "${KONG_PROXY_HTTPS:-8443}:8443"
+      - "${KONG_ADMIN_HTTP:-8001}:8001"
+      - "${KONG_ADMIN_HTTPS:-8444}:8444"
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: postgres
+      KONG_PG_USER: kong
+      KONG_PG_PASSWORD: ${KONG_DB_PASSWORD:?KONG_DB_PASSWORD is required}
+      KONG_PG_DATABASE: kong
+      KONG_CASSANDRA_CONTACT_POINTS: postgres
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_PLUGINS: bundled,rate-limiting,key-auth,jwt,cors,prometheus
+      KONG_TRUSTED_IPS: 0.0.0.0/0,::/0
+      KONG_REAL_IP_RECURSIVE: "on"
+    command: >
+      sh -c "
+        kong migrations bootstrap 2>/dev/null || true &&
+        kong migrations up 2>/dev/null || true &&
+        kong start
+      "
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD", "kong", "health"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+  # ============================================================================
+  # VISUALIZATION LAYER
+  # ============================================================================
+
+  grafana:
+    image: grafana/grafana:10.4.0
+    container_name: axiom-grafana
+    <<: *restart-policy
+    <<: *default-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "${GRAFANA_PORT:-3000}:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-admin}
+      GF_SECURITY_SECRET_KEY: ${GRAFANA_SECRET_KEY:-axiom-secret-key-change-me}
+      GF_SERVER_ROOT_URL: ${GRAFANA_ROOT_URL:-http://localhost:3000}
+      GF_DATABASE_TYPE: postgres
+      GF_DATABASE_HOST: postgres:5432
+      GF_DATABASE_NAME: grafana
+      GF_DATABASE_USER: grafana
+      GF_DATABASE_PASSWORD: ${GRAFANA_DB_PASSWORD:?GRAFANA_DB_PASSWORD is required}
+      GF_DATABASE_SSL_MODE: disable
+      GF_DEFAULT_INSTANCE_NAME: axiom-grafana
+      GF_DEFAULT_THEME: dark
+      GF_DATE_FORMATS_DEFAULT_TIMEZONE: Asia/Bangkok
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_NEWS_NEWS_FEED_ENABLED: "false"
+      GF_INSTALL_PLUGINS: >
+        grafana-clock-panel,
+        grafana-geomap-panel,
+        marcusolsson-json-datasource,
+        yesoreyeram-infinity-datasource
+      GF_FEATURE_TOGGLES_ENABLE: publicDashboards
+      GF_UNIFIED_ALERTING_ENABLED: "true"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./config/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./config/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  metabase:
+    image: metabase/metabase:v0.49.0
+    container_name: axiom-metabase
+    <<: *restart-policy
+    <<: *default-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "${METABASE_PORT:-3002}:3000"
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_PORT: 5432
+      MB_DB_USER: metabase
+      MB_DB_PASS: ${METABASE_DB_PASSWORD:?METABASE_DB_PASSWORD is required}
+      MB_DB_HOST: postgres
+      MB_APPLICATION_NAME: axiom-metabase
+      MB_SITE_NAME: "Axiom Municipal Analytics"
+      MB_SITE_LOCALE: th
+      MB_START_OF_WEEK: sunday
+      MB_ENABLE_EMBEDDING: "true"
+      MB_ANON_TRACKING_ENABLED: "false"
+      MB_CHECK_FOR_UPDATES: "false"
+    volumes:
+      - metabase_data:/metabase-data
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+
+  # ============================================================================
+  # REVERSE PROXY / SSL LAYER
+  # ============================================================================
+
+  traefik:
+    image: traefik:v3.0
+    container_name: axiom-traefik
+    <<: *restart-policy
+    <<: *default-network
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      TRAEFIK_API_DASHBOARD: "true"
+      TRAEFIK_API_INSECURE: "true"
+      TRAEFIK_PROVIDERS_DOCKER: "true"
+      TRAEFIK_PROVIDERS_DOCKER_EXPOSEDBYDEFAULT: "false"
+      TRAEFIK_ENTRYPOINTS_WEB_ADDRESS: ":80"
+      TRAEFIK_ENTRYPOINTS_WEBSECURE_ADDRESS: ":443"
+      TRAEFIK_CERTIFICATESRESOLVERS_LE_ACME_TLSCHALLENGE: "true"
+      TRAEFIK_CERTIFICATESRESOLVERS_LE_ACME_EMAIL: ${ACME_EMAIL:-admin@localhost}
+      TRAEFIK_CERTIFICATESRESOLVERS_LE_ACME_STORAGE: /letsencrypt/acme.json
+      TRAEFIK_LOG_LEVEL: INFO
+      TRAEFIK_ACCESSLOG: "true"
+      TRAEFIK_PING: "true"
+      TRAEFIK_METRICS_PROMETHEUS: "true"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_certs:/letsencrypt
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.tls.certresolver=le"
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ============================================================================
+  # DATA INTEGRATION / POLLING LAYER
+  # ============================================================================
+
+  poller:
+    build:
+      context: ./poller
+      dockerfile: Dockerfile
+    container_name: axiom-poller
+    <<: *restart-policy
+    <<: *default-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kong:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-axiom}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-municipal}
+      KONG_ADMIN_URL: http://kong:8001
+      DATA_GO_TH_API_KEY: ${DATA_GO_TH_API_KEY:-}
+      BMA_API_KEY: ${BMA_API_KEY:-}
+      TRAFFY_API_KEY: ${TRAFFY_API_KEY:-}
+      WAQI_TOKEN: ${WAQI_TOKEN:-}
+      GISTDA_TOKEN: ${GISTDA_TOKEN:-}
+      POLL_INTERVAL: 300
+      LOG_LEVEL: INFO
+    volumes:
+      - ./poller/scripts:/app/scripts:ro
+      - poller_state:/app/state
+    logging: *default-logging
+
+  # ============================================================================
+  # CACHE / QUEUE LAYER
+  # ============================================================================
+
+  redis:
+    image: redis:7-alpine
+    container_name: axiom-redis
+    <<: *restart-policy
+    <<: *default-network
+    volumes:
+      - redis_data:/data
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru --appendonly yes
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+# ============================================================================
+# NETWORKS
+# ============================================================================
+
+networks:
+  axiom-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# ============================================================================
+# VOLUMES
+# ============================================================================
+
+volumes:
+  postgres_data:
+    driver: local
+  postgres_backups:
+    driver: local
+  mosquitto_data:
+    driver: local
+  mosquitto_logs:
+    driver: local
+  thingsboard_data:
+    driver: local
+  thingsboard_logs:
+    driver: local
+  grafana_data:
+    driver: local
+  metabase_data:
+    driver: local
+  traefik_certs:
+    driver: local
+  poller_state:
+    driver: local
+  redis_data:
+    driver: local

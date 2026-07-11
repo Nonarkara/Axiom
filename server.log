@@ -1,0 +1,6 @@
+
+> axiom-landing@2.5.0 start
+> node server.mjs
+
+Axiom server running on http://127.0.0.1:3000
+SQLite evidence layer ready at /Users/nonarkara/Projects/axiom/data/axiom.sqlite
