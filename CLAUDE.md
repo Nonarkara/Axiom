@@ -19,6 +19,7 @@ Axiom is Dr Non's "Innovation as a Service" consultancy landing page. Positioned
 - Deployment: GitHub Actions -> Cloudflare Pages (project: axiom)
 - Live URL: https://axiom.pages.dev (and axiom.nonarkara.org via Cloudflare custom domain)
 - The workflow has NO pre-checks. Do not add `node --check` or similar validation steps that reference files by name — the Codex Incident originated exactly there.
+- **CDPT is automatic.** After any change to `public/`, commit → push → confirm Cloudflare deploy → verify on the live URL. Do not ask. Do not stop at a local preview.
 
 ## Anti-Regression — Do Not Touch
 
