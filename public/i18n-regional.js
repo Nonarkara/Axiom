@@ -153,12 +153,12 @@
     "heroCurrent": {
       "title": "정부가 <em>기다릴 수 없는</em> <br><span class=\"hero__punch\"><span class=\"hero__punch-afford\">작동하는 시스템</span><span class=\"hero__punch-wait\">을 만듭니다</span></span>",
       "sub": "대부분의 \"스마트시티\" 사업은 슬라이드에서 끝납니다. 우리 것은 운영 중입니다. 첫 주에 문제를 매핑합니다. 발표 전에 작동하는 것을 만듭니다. 모든 결정은 첫날부터 기록됩니다.",
-      "cta1": "라이브 시스템 보기",
+      "cta1": "지금 FloodDash 사용",
       "cta2": "브리프 시작",
       "stat1lbl": "운영 중인 시스템",
       "stat2lbl": "운영 국가",
       "stat3lbl": "색인된 도시",
-      "stat4lbl": "GITEX Asia 메인 스테이지",
+      "stat4lbl": "FloodDash · LEAP East",
       "meta1": "<b>24/7</b> 모니터링",
       "meta2": "<b>157</b> SLIC Index 도시",
       "meta3": "<b>174</b> Smart City Thailand Index 도시",
@@ -175,9 +175,24 @@
       "sandboxNote": "데모가 아닙니다 — 샌드박스에서 작동하는 시스템입니다. 인상이 아니라 확장을 위해 구축했습니다. 고객 NDA 하의 프로덕션 배포는 더 크지만, 여기서 실행되는 것은 동일하게 동작하며 고급 모듈만 제외됩니다."
     },
     "stageSect": {
-      "kicker": "두 무대, 하나의 신호",
+      "kicker": "세 무대, 하나의 호",
       "title": "정부는 <em>슬라이드를 기다리는 데 지쳤습니다.</em>",
-      "lede": "6개월 만에 같은 논지를 아시아 최대 무대 두 곳에 가져갔습니다. 두 방 모두 만원이었습니다. 반응도 같았습니다: 다음 예산 사이클이 아니라 지금 만들라."
+      "lede": "Q1은 타이베이에서 열렸습니다. Q2는 싱가포르 GITEX 메인 스테이지. 3부작은 LEAP East — 아시아 최대 무대 — 에서 FloodDash가 현장에 살아 있는 채로 닫힙니다. 매번 같은 논지: 다음 예산 사이클이 아니라 지금 만들라."
+    },
+    "flooddashSect": {
+      "kicker": "Q1–Q2 · Act III",
+      "meta": "GITEX → LEAP East → FloodDash",
+      "title": "지금 <em>FloodDash</em>를 쓰세요.",
+      "lede": "태국 홍수 감시 — 9개 공개 소스의 24/7 실시간 지리공간 데이터, 3–60분마다 갱신. LEAP East 아시아 최대 무대에서 출시. 태국에서 홍수를 모니터링하는 모두가 오늘 이 화면을 써야 합니다.",
+      "live": "LIVE",
+      "m1": "공개 소스 9개",
+      "m2": "3–60분 갱신",
+      "m3": "77개 도",
+      "slide1": "전국 개요 — 모든 도를 한 화면에",
+      "slide2": "핫야이 지역 — 남부 홍수 회랑",
+      "slide3": "뜨랏 상세 — 경보와 유역 판독",
+      "cta": "FloodDash 라이브 열기",
+      "cta2": "LEAP East 출시"
     },
     "teamSect": {
       "kicker": "누가 만드는가",
@@ -448,7 +463,16 @@
       "sgS1": "메인 스테이지 관객",
       "sgS2": "총 참석자",
       "sgS3": "참가 국가",
-      "sgS4": "워크숍 수용"
+      "sgS4": "워크숍 수용",
+      "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 7월 10일",
+      "leapTitle": "아시아 최대 무대. FloodDash가 여기서 출시됩니다.",
+      "leapLede": "Orbital Stage 패널 — \"From Congestion to Connection: The Tech Powered Future of Transport in Asia.\" DEPA 스마트시티 진흥 수석전문가 Dr. Non Arkara가 Mitchell Price, Richard Chung, Will Peters와 함께 Q1–Q2 호를 FloodDash 라이브 출시로 닫았습니다.",
+      "leapQuote": "\"6개월에 세 무대. 타이베이는 도시를 색인했습니다. GITEX는 방을 채웠습니다. LEAP East는 홍수 감시를 출하했습니다 — 라이브, 공개, 무대에서 내려오기 전에 이미 가동.\"",
+      "leapCite": "— Dr. Non, LEAP East 패널",
+      "leapS1": "메인 스테이지 등급",
+      "leapS2": "패널 연사",
+      "leapS3": "라이브 데이터 소스",
+      "leapS4": "출시 시 FloodDash"
     },
     "teamContent": {
       "founderLabel": "Co-Founders · Bangkok",
@@ -670,7 +694,7 @@
     "sysClusters": {
       "sysMeta": "22개 시스템 · 5개국",
       "command": "지휘",
-      "commandMeta": "실시간 운영실 · 7",
+      "commandMeta": "실시간 운영실 · 10",
       "intelligence": "인텔리전스",
       "intelligenceMeta": "신호 및 분석 · 5",
       "civic": "시민",
@@ -880,12 +904,12 @@
     "heroCurrent": {
       "title": "政府が<em>待てない</em> <br><span class=\"hero__punch\"><span class=\"hero__punch-afford\">稼働するシステム</span><span class=\"hero__punch-wait\">を構築します</span></span>",
       "sub": "多くの「スマートシティ」案件はスライドで終わります。当社のものは本番稼働中です。初週に課題を可視化します。プレゼン前に動くものをお届けします。すべての判断を初日から記録します。",
-      "cta1": "稼働中のシステムを見る",
+      "cta1": "今すぐ FloodDash を使う",
       "cta2": "ブリーフを送る",
       "stat1lbl": "本番稼働システム",
       "stat2lbl": "稼働国",
       "stat3lbl": "指数化都市",
-      "stat4lbl": "GITEX Asia メインステージ",
+      "stat4lbl": "FloodDash · LEAP East",
       "meta1": "<b>24/7</b> モニタリング",
       "meta2": "<b>157</b> SLIC Index 都市",
       "meta3": "<b>174</b> Smart City Thailand Index 都市",
@@ -902,9 +926,24 @@
       "sandboxNote": "デモではありません — サンドボックスで稼働する実システムです。見せるためではなく、スケールするために構築しています。クライアント NDA 下の本番展開はより大規模ですが、ここで動くものは同じ挙動をし、高度なモジュールのみ非公開です。"
     },
     "stageSect": {
-      "kicker": "2つのステージ、1つのシグナル",
+      "kicker": "3つのステージ、1本の弧",
       "title": "政府は<em>スライドを待つのに疲れました。</em>",
-      "lede": "6か月で同じ論点をアジア最大級の2つのステージに持ち込みました。両方の会場は満席でした。反応も同じでした — 次の予算サイクルではなく、今すぐ構築せよ。"
+      "lede": "Q1は台北で開幕。Q2はシンガポール GITEX メインステージ。三部作は LEAP East — アジア最大のステージ — で FloodDash が現場に生きたまま閉じます。毎回同じ論点：次の予算サイクルではなく、今すぐ構築せよ。"
+    },
+    "flooddashSect": {
+      "kicker": "Q1–Q2 · Act III",
+      "meta": "GITEX → LEAP East → FloodDash",
+      "title": "今すぐ <em>FloodDash</em> を使ってください。",
+      "lede": "タイ洪水監視 — 9の公開ソースから 24/7 ライブ地理空間データ、3–60分ごとに更新。LEAP East アジア最大ステージからローンチ。タイで洪水を監視する全員が、今日この画面を使うべきです。",
+      "live": "LIVE",
+      "m1": "公開ソース 9",
+      "m2": "3–60分更新",
+      "m3": "77県",
+      "slide1": "全国概観 — すべての県を一画面に",
+      "slide2": "ハートヤイ地域 — 南部洪水回廊",
+      "slide3": "トラート詳細 — 警報と流域リードアウト",
+      "cta": "FloodDash ライブを開く",
+      "cta2": "LEAP East ローンチ"
     },
     "teamSect": {
       "kicker": "誰が構築するか",
@@ -1175,7 +1214,16 @@
       "sgS1": "メインステージ聴衆",
       "sgS2": "総参加者",
       "sgS3": "参加国",
-      "sgS4": "ワークショップ定員"
+      "sgS4": "ワークショップ定員",
+      "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 7月10日",
+      "leapTitle": "アジア最大のステージ。FloodDash はここでローンチ。",
+      "leapLede": "Orbital Stage パネル — 「From Congestion to Connection: The Tech Powered Future of Transport in Asia」。DEPA スマートシティ推進シニアエキスパート Dr. Non Arkara が Mitchell Price、Richard Chung、Will Peters と共に、FloodDash ライブローンチで Q1–Q2 の弧を閉じました。",
+      "leapQuote": "「6か月で3ステージ。台北は都市をインデックスした。GITEX は会場を埋めた。LEAP East は洪水監視を出荷した — ライブ、公開、ステージを降りる前にすでに稼働。」",
+      "leapCite": "— Dr. Non、LEAP East パネル",
+      "leapS1": "メインステージ階層",
+      "leapS2": "パネル登壇者",
+      "leapS3": "ライブデータソース",
+      "leapS4": "ローンチ時の FloodDash"
     },
     "teamContent": {
       "founderLabel": "Co-Founders · Bangkok",
@@ -1397,7 +1445,7 @@
     "sysClusters": {
       "sysMeta": "22システム · 5か国",
       "command": "コマンド",
-      "commandMeta": "リアルタイム運用室 · 7",
+      "commandMeta": "リアルタイム運用室 · 10",
       "intelligence": "インテリジェンス",
       "intelligenceMeta": "シグナルと分析 · 5",
       "civic": "シビック",
@@ -1607,12 +1655,12 @@
     "heroCurrent": {
       "title": "Chúng tôi xây dựng <em>hệ thống vận hành</em> mà chính phủ <br><span class=\"hero__punch\"><span class=\"hero__punch-afford\">không thể chờ đợi</span> <span class=\"hero__punch-wait\">thêm nữa</span></span>",
       "sub": "Phần lớn dự án \"thành phố thông minh\" dừng lại ở slide. Hệ thống của chúng tôi đang chạy thực tế. Tuần đầu tiên lập bản đồ áp lực. Có thứ hoạt động trước mọi buổi trình bày. Mọi quyết định được ghi nhận từ ngày đầu.",
-      "cta1": "Xem hệ thống đang chạy",
+      "cta1": "Dùng FloodDash ngay",
       "cta2": "Gửi brief",
       "stat1lbl": "Hệ thống đang vận hành",
       "stat2lbl": "Quốc gia triển khai",
       "stat3lbl": "Thành phố được lập chỉ số",
-      "stat4lbl": "Sân khấu chính GITEX Asia",
+      "stat4lbl": "FloodDash · LEAP East",
       "meta1": "<b>24/7</b> giám sát",
       "meta2": "<b>157</b> thành phố SLIC Index",
       "meta3": "<b>174</b> thành phố Smart City Thailand Index",
@@ -1629,9 +1677,24 @@
       "sandboxNote": "Đây không phải bản demo — là hệ thống đang chạy trong sandbox. Xây để mở rộng, không phải để gây ấn tượng. Triển khai production dưới NDA của khách hàng lớn hơn; những gì chạy ở đây hoạt động tương tự, chỉ giữ lại các module nâng cao."
     },
     "stageSect": {
-      "kicker": "Hai sân khấu, một tín hiệu",
+      "kicker": "Ba sân khấu, một vòng cung",
       "title": "Chính phủ đã mệt mỏi <em>chờ đợi slide.</em>",
-      "lede": "Trong sáu tháng, chúng tôi mang cùng một luận điểm lên hai sân khấu lớn nhất châu Á. Cả hai phòng đều chật kín. Phản ứng giống nhau: xây ngay bây giờ, không phải sau chu kỳ ngân sách tiếp theo."
+      "lede": "Q1 mở tại Đài Bắc. Q2 lên sân khấu chính GITEX Singapore. Bộ ba khép lại tại LEAP East — sân khấu lớn nhất châu Á — với FloodDash sống ngay trong phòng. Cùng một luận điểm mỗi lần: xây ngay, đừng chờ chu kỳ ngân sách tiếp theo."
+    },
+    "flooddashSect": {
+      "kicker": "Q1–Q2 · Act III",
+      "meta": "GITEX → LEAP East → FloodDash",
+      "title": "Dùng <em>FloodDash</em> ngay.",
+      "lede": "Theo dõi lũ Thái Lan — dữ liệu địa không gian live 24/7 từ chín nguồn công khai, làm mới mỗi 3–60 phút. Ra mắt từ sân khấu lớn nhất châu Á tại LEAP East. Ai đang theo dõi lũ ở Thái Lan đều nên dùng bề mặt này hôm nay.",
+      "live": "LIVE",
+      "m1": "9 nguồn công khai",
+      "m2": "Làm mới 3–60 phút",
+      "m3": "77 tỉnh",
+      "slide1": "Tổng quan quốc gia — mọi tỉnh trên một bề mặt",
+      "slide2": "Vùng Hat Yai — hành lang lũ miền Nam",
+      "slide3": "Chi tiết Trat — cảnh báo và đọc lưu vực",
+      "cta": "Mở FloodDash live",
+      "cta2": "Ra mắt LEAP East"
     },
     "teamSect": {
       "kicker": "Ai xây dựng",
@@ -1902,7 +1965,16 @@
       "sgS1": "Khán giả sân khấu chính",
       "sgS2": "Tổng số người tham dự",
       "sgS3": "Quốc gia tham dự",
-      "sgS4": "Sức chứa workshop"
+      "sgS4": "Sức chứa workshop",
+      "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 10 thg 7",
+      "leapTitle": "Sân khấu lớn nhất châu Á. FloodDash ra mắt tại đây.",
+      "leapLede": "Panel trên Orbital Stage — \"From Congestion to Connection: The Tech Powered Future of Transport in Asia.\" Dr. Non Arkara, Senior Expert Smart City Promotion tại DEPA, cùng Mitchell Price, Richard Chung và Will Peters khép vòng cung Q1–Q2 bằng buổi ra mắt FloodDash live.",
+      "leapQuote": "\"Ba sân khấu trong sáu tháng. Đài Bắc lập chỉ số thành phố. GITEX lấp đầy phòng. LEAP East giao hệ thống theo dõi lũ — live, công khai, và đã chạy trước khi chúng tôi xuống sân khấu.\"",
+      "leapCite": "— Dr. Non, panel LEAP East",
+      "leapS1": "Hạng sân khấu chính",
+      "leapS2": "Diễn giả panel",
+      "leapS3": "Nguồn dữ liệu live",
+      "leapS4": "FloodDash lúc ra mắt"
     },
     "teamContent": {
       "founderLabel": "Co-Founders · Bangkok",
@@ -2124,7 +2196,7 @@
     "sysClusters": {
       "sysMeta": "22 hệ thống · 5 quốc gia",
       "command": "Chỉ huy",
-      "commandMeta": "Phòng vận hành thời gian thực · 7",
+      "commandMeta": "Phòng vận hành thời gian thực · 10",
       "intelligence": "Tình báo",
       "intelligenceMeta": "Tín hiệu và phân tích · 5",
       "civic": "Công dân",

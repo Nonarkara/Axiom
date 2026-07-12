@@ -36,9 +36,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20260705d">
-  <script src="i18n-regional.js?v=20260705c"></script>
-  <script defer src="app.js?v=20260705d"></script>
+  <link rel="stylesheet" href="rams.css?v=20260713a">
+  <script src="i18n-regional.js?v=20260713a"></script>
+  <script defer src="app.js?v=20260713b"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -139,7 +139,7 @@
               production. Problem mapped in week one. Something working before any presentation. Every decision tracked
               from the start.</p>
             <div class="btn-row hero__cta">
-              <a href="#systems" class="btn btn--primary"><span data-i18n="heroCurrent.cta1">See live systems</span>
+              <a href="#flooddash" class="btn btn--primary"><span data-i18n="heroCurrent.cta1">Use FloodDash now</span>
                 <span class="tri">▸</span></a>
               <a href="#contact" class="btn btn--ghost" data-i18n="heroCurrent.cta2">Start a brief</a>
             </div>
@@ -169,8 +169,77 @@
           </div>
           <div class="hero__stat">
             <div class="stat__val">1,000<small>+</small></div>
-            <div class="stat__lbl" data-i18n="heroCurrent.stat4lbl">On main stage, GITEX Asia</div>
+            <div class="stat__lbl" data-i18n="heroCurrent.stat4lbl">FloodDash · LEAP East</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== FLOODDASH — Q1–Q2 ACT III ============== -->
+    <section class="section flooddash-spotlight" id="flooddash">
+      <div class="wrap">
+        <div class="s-head">
+          <div class="s-head__title" data-i18n="flooddashSect.kicker">Q1–Q2 · Act III</div>
+          <div class="s-head__meta" data-i18n="flooddashSect.meta">GITEX → LEAP East → FloodDash</div>
+        </div>
+        <span class="section-tag">[EVENT_ID: FLOODDASH_LIVE]</span>
+        <h2 class="t-big" data-i18n-html="flooddashSect.title">Use <em>FloodDash</em> now.</h2>
+        <p class="t-body-2" data-i18n="flooddashSect.lede" style="max-width:62ch;margin:12px 0 14px;">Thailand flood
+          watch — 24/7 live geospatial data from nine public sources, refreshed every 3–60 minutes. Launched from Asia's
+          largest stage at LEAP East. Everyone monitoring floods in Thailand should be on this surface today.</p>
+        <div class="flooddash-meta" aria-label="FloodDash status">
+          <span class="flooddash-meta__live"><span class="dot"></span> <span
+              data-i18n="flooddashSect.live">LIVE</span></span>
+          <span data-i18n="flooddashSect.m1">9 public sources</span>
+          <span data-i18n="flooddashSect.m2">3–60 min refresh</span>
+          <span data-i18n="flooddashSect.m3">77 provinces</span>
+        </div>
+        <div class="flooddash-carousel" data-carousel="flooddash" aria-roledescription="carousel"
+          aria-label="FloodDash live dashboard views">
+          <div class="flooddash-carousel__progress" aria-hidden="true">
+            <div class="flooddash-carousel__progress-bar"></div>
+          </div>
+          <div class="flooddash-carousel__viewport">
+            <figure class="flooddash-carousel__slide is-active" data-carousel-slide>
+              <img src="images/flooddash-national-overview.png" width="1920" height="1080" loading="eager"
+                decoding="async" alt="FloodDash national overview — all provinces">
+              <figcaption class="flooddash-carousel__cap" data-i18n="flooddashSect.slide1">National overview — every
+                province on one surface</figcaption>
+            </figure>
+            <figure class="flooddash-carousel__slide" data-carousel-slide>
+              <img src="images/flooddash-hat-yai-regional.png" width="1920" height="1080" loading="lazy"
+                decoding="async" alt="FloodDash Hat Yai regional flood watch">
+              <figcaption class="flooddash-carousel__cap" data-i18n="flooddashSect.slide2">Hat Yai regional — southern
+                flood corridor</figcaption>
+            </figure>
+            <figure class="flooddash-carousel__slide" data-carousel-slide>
+              <img src="images/flooddash-trat-alerts.png" width="1920" height="1080" loading="lazy"
+                decoding="async" alt="FloodDash Trat detail with live alerts">
+              <figcaption class="flooddash-carousel__cap" data-i18n="flooddashSect.slide3">Trat detail — alerts and
+                basin-level readout</figcaption>
+            </figure>
+          </div>
+          <div class="flooddash-carousel__controls">
+            <button type="button" class="flooddash-carousel__btn" data-carousel-prev
+              aria-label="Previous FloodDash view">←</button>
+            <div class="flooddash-carousel__dots" role="tablist" aria-label="FloodDash views">
+              <button type="button" class="flooddash-carousel__dot is-active" role="tab" aria-selected="true"
+                aria-label="National overview" data-carousel-dot="0"></button>
+              <button type="button" class="flooddash-carousel__dot" role="tab" aria-selected="false"
+                aria-label="Hat Yai regional" data-carousel-dot="1"></button>
+              <button type="button" class="flooddash-carousel__dot" role="tab" aria-selected="false"
+                aria-label="Trat detail" data-carousel-dot="2"></button>
+            </div>
+            <button type="button" class="flooddash-carousel__btn" data-carousel-next
+              aria-label="Next FloodDash view">→</button>
+            <button type="button" class="flooddash-carousel__pause" data-carousel-pause
+              aria-label="Pause autoplay" aria-pressed="false">❚❚</button>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:16px;">
+          <a href="https://flood-ami.pages.dev/" target="_blank" rel="noopener" class="btn btn--primary"><span
+              data-i18n="flooddashSect.cta">Open FloodDash live</span> <span class="tri">▸</span></a>
+          <a href="#stages" class="btn btn--ghost" data-i18n="flooddashSect.cta2">LEAP East launch</a>
         </div>
       </div>
     </section>
@@ -194,9 +263,22 @@
         <!-- COMMAND -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.command">Command</div>
-          <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time operations rooms · 9</div>
+          <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time operations rooms · 10</div>
         </div>
         <div class="grid grid--3">
+          <a class="sys-cell" href="https://flood-ami.pages.dev/" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">23</span><span class="sys-cell__status"><span
+                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+            <img class="sys-cell__shot" src="screenshots/flood-ami.png" loading="lazy"
+              alt="FLOODDASH — Thailand Flood Watch">
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">FLOODDASH (Thailand Flood Watch)</div>
+              <div class="sys-cell__cat">National Programme</div>
+              <div class="sys-cell__lede">A real-time, openly-sourced flood watch built so every Thai province can read the same situation picture from official public data. Streams 9 public sources every 3–60 minutes.</div>
+              <span class="sys-cell__link"><span>Open live system</span> <span
+                  class="tri">▸</span></span>
+            </div>
+          </a>
           <a class="sys-cell" href="https://sikhio.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">26</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
@@ -425,22 +507,9 @@
         <!-- CIVIC -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.civic">Civic</div>
-          <div class="s-head__meta" data-i18n="sysClusters.civicMeta">National platforms &amp; citizen infrastructure · 6</div>
+          <div class="s-head__meta" data-i18n="sysClusters.civicMeta">National platforms &amp; citizen infrastructure · 5</div>
         </div>
         <div class="grid grid--3">
-          <a class="sys-cell" href="https://flood-ami.pages.dev/" target="_blank" rel="noopener">
-            <div class="sys-cell__head"><span class="sys-cell__idx">23</span><span class="sys-cell__status"><span
-                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <img class="sys-cell__shot" src="screenshots/flood-ami.png" loading="lazy"
-              alt="FLOODDASH — Thailand Flood Watch">
-            <div class="sys-cell__body">
-              <div class="sys-cell__name">FLOODDASH (Thailand Flood Watch)</div>
-              <div class="sys-cell__cat">National Programme</div>
-              <div class="sys-cell__lede">A real-time, openly-sourced flood watch built so every Thai province can read the same situation picture from official public data. Streams 9 public sources every 3–60 minutes.</div>
-              <span class="sys-cell__link"><span>Open live system</span> <span
-                  class="tri">▸</span></span>
-            </div>
-          </a>
           <a class="sys-cell" href="https://sciti.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">03</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
@@ -632,13 +701,13 @@
     <section class="section" id="stages">
       <div class="wrap">
         <div class="s-head">
-          <div class="s-head__title" data-i18n="stageSect.kicker">Two stages, one signal</div>
-          <div class="s-head__meta">2026 · Taipei · Singapore</div>
+          <div class="s-head__title" data-i18n="stageSect.kicker">Three stages, one arc</div>
+          <div class="s-head__meta" data-i18n="stageSect.meta">2026 · Taipei · Singapore · Bangkok</div>
         </div>
         <h2 class="t-big" data-i18n-html="stageSect.title">Governments are tired of <em>waiting for the deck.</em></h2>
-        <p class="t-body-2" data-i18n="stageSect.lede" style="max-width:62ch;margin:12px 0 20px;">In six months we took
-          the same thesis to two of Asia's biggest stages. Both rooms were full. Both had the same response: build it
-          now, not after the next budget cycle.</p>
+        <p class="t-body-2" data-i18n="stageSect.lede" style="max-width:62ch;margin:12px 0 20px;">Q1 opened in Taipei.
+          Q2 hit Singapore's main stage at GITEX. The trilogy closes at LEAP East — Asia's largest stage — with
+          FloodDash live in the room. Same thesis every time: build it now, not after the next budget cycle.</p>
 
         <article class="stage">
           <div class="stage__loc" data-i18n-html="stagesContent.taipeiLoc"><b>Taipei</b> · City Vision Stage · March
@@ -741,6 +810,69 @@
             <img src="images/singapore-mainstage.jpg" loading="lazy"
               alt="Dr. Non on the main stage at Marina Bay Sands">
             <img src="images/singapore-workshop.jpg" loading="lazy" alt="Workshop — standing room only">
+          </div>
+        </article>
+
+        <article class="stage">
+          <div class="stage__loc" data-i18n-html="stagesContent.leapLoc"><b>LEAP East 2026</b> · Orbital Stage · Jul 10
+          </div>
+          <span class="section-tag">[EVENT_ID: LEAP_EAST_2026_BKK]</span>
+          <h3 class="stage__title" data-i18n="stagesContent.leapTitle">Asia's largest stage. FloodDash launches here.</h3>
+          <p class="stage__lead" data-i18n="stagesContent.leapLede">Panel on the Orbital Stage — "From Congestion to
+            Connection: The Tech Powered Future of Transport in Asia." Dr. Non Arkara, Senior Expert Smart City
+            Promotion at DEPA, joined Mitchell Price, Richard Chung, and Will Peters to close the Q1–Q2 arc with a live
+            FloodDash launch.</p>
+          <blockquote class="stage__pull"><span data-i18n="stagesContent.leapQuote">"Three stages in six months. Taipei
+              indexed the cities. GITEX filled the room. LEAP East shipped the flood watch — live, public, and running
+              before we left the stage."</span><cite class="stage__cite" data-i18n="stagesContent.leapCite">— Dr. Non,
+              LEAP East panel</cite></blockquote>
+          <div class="grid grid--4" style="margin-top:16px;">
+            <div class="cell">
+              <div class="stat__val">Orbital</div>
+              <div class="stat__lbl" data-i18n="stagesContent.leapS1">Main stage tier</div>
+            </div>
+            <div class="cell">
+              <div class="stat__val">4</div>
+              <div class="stat__lbl" data-i18n="stagesContent.leapS2">Panel speakers</div>
+            </div>
+            <div class="cell">
+              <div class="stat__val">9</div>
+              <div class="stat__lbl" data-i18n="stagesContent.leapS3">Live data sources</div>
+            </div>
+            <div class="cell">
+              <div class="stat__val">Live</div>
+              <div class="stat__lbl" data-i18n="stagesContent.leapS4">FloodDash at launch</div>
+            </div>
+          </div>
+          <div class="launch-text intelligence-log" style="margin-top: 2rem;">
+            <div class="log-entry">
+              <span class="log-timestamp">[T+00:00:00]</span>
+              <p>LEAP East 2026, Orbital Stage, Bangkok. Session: From Congestion to Connection — The Tech Powered Future
+                of Transport in Asia.</p>
+            </div>
+            <div class="log-entry">
+              <span class="log-timestamp">[T+00:45:00]</span>
+              <p>Panel: Mitchell Price, Richard Chung, Will Peters, Dr. Non Arkara (Senior Expert Smart City Promotion,
+                DEPA).</p>
+            </div>
+            <div class="log-entry">
+              <span class="log-timestamp">[T+01:00:00]</span>
+              <p>FloodDash launched live — Thailand flood watch, 24/7 geospatial data, nine public sources. Q1–Q2 trilogy
+                complete: GITEX → LEAP East → FloodDash.</p>
+            </div>
+            <div class="field-transmission">
+              <div class="transmission-header">ENCRYPTED_TRANSMISSION // FIELD_03</div>
+              <p>&ldquo;Everyone monitoring floods in Thailand should be on FloodDash today. Not next quarter. Today.&rdquo;</p>
+            </div>
+          </div>
+
+          <div class="stage__gallery">
+            <img src="images/leap-east-panel-speakers.png" loading="lazy"
+              alt="LEAP East panel — Mitchell Price, Richard Chung, Will Peters, Dr. Non with DEPA backdrop">
+            <img src="images/leap-east-group-selfie.png" loading="lazy"
+              alt="LEAP East panel group photo on the Orbital Stage">
+            <img src="images/leap-east-orbital-wide.png" loading="lazy"
+              alt="LEAP East Orbital Stage — full panel wide shot">
           </div>
         </article>
       </div>

@@ -123,9 +123,9 @@ const uiCopy = {
     heroCurrent: {
       title: 'We build the <em>working systems</em> governments <br><span class="hero__punch"><span class="hero__punch-afford">can\'t afford</span> <span class="hero__punch-wait">to wait for.</span></span>',
       sub: 'Most "smart city" work ends as a deck. Ours runs in production. Problem mapped in week one. Something working before any presentation. Every decision tracked from the start.',
-      cta1: 'See live systems', cta2: 'Start a brief',
+      cta1: 'Use FloodDash now', cta2: 'Start a brief',
       stat1lbl: 'Systems in production', stat2lbl: 'Countries operating',
-      stat3lbl: 'Cities indexed', stat4lbl: 'On main stage, GITEX Asia',
+      stat3lbl: 'Cities indexed', stat4lbl: 'FloodDash · LEAP East',
       meta1: '<b>24/7</b> monitoring', meta2: '<b>157</b> SLIC Index cities',
       meta3: '<b>174</b> Smart City Thailand Index cities', meta4: 'Kuching, Malaysia',
       meta5: 'Middle East', meta6: 'Asia Pacific', meta7: 'ASEAN',
@@ -138,9 +138,24 @@ const uiCopy = {
       sandboxNote: "These aren't demos — they're working systems in a sandbox. Built to scale, not to impress. Production deployments under client NDAs are larger; what runs here behaves like them, with advanced modules withheld.",
     },
     stageSect: {
-      kicker: 'Two stages, one signal',
+      kicker: 'Three stages, one arc',
       title: 'Governments are tired of <em>waiting for the deck.</em>',
-      lede: "In six months we took the same thesis to two of Asia's biggest stages. Both rooms were full. Both had the same response: build it now, not after the next budget cycle.",
+      lede: "Q1 opened in Taipei. Q2 hit Singapore's main stage at GITEX. The trilogy closes at LEAP East — Asia's largest stage — with FloodDash live in the room. Same thesis every time: build it now, not after the next budget cycle.",
+    },
+    flooddashSect: {
+      kicker: 'Q1–Q2 · Act III',
+      meta: 'GITEX → LEAP East → FloodDash',
+      title: 'Use <em>FloodDash</em> now.',
+      lede: "Thailand flood watch — 24/7 live geospatial data from nine public sources, refreshed every 3–60 minutes. Launched from Asia's largest stage at LEAP East. Everyone monitoring floods in Thailand should be on this surface today.",
+      live: 'LIVE',
+      m1: '9 public sources',
+      m2: '3–60 min refresh',
+      m3: '77 provinces',
+      slide1: 'National overview — every province on one surface',
+      slide2: 'Hat Yai regional — southern flood corridor',
+      slide3: 'Trat detail — alerts and basin-level readout',
+      cta: 'Open FloodDash live',
+      cta2: 'LEAP East launch',
     },
     teamSect: {
       kicker: 'Who builds it',
@@ -274,9 +289,9 @@ const uiCopy = {
     heroCurrent: {
       title: 'เราสร้าง <em>ระบบที่ใช้งานได้จริง</em> ให้รัฐบาล<br><span class="hero__punch"><span class="hero__punch-afford">ไม่ต้องรอ</span> <span class="hero__punch-wait">ให้ใครมาทำให้</span></span>',
       sub: 'งาน "เมืองอัจฉริยะ" ส่วนใหญ่จบที่งานนำเสนอ ของเราจบที่ระบบที่รันจริง ทำแผนที่ปัญหาในสัปดาห์แรก มีระบบทำงานก่อนการนำเสนอครั้งแรก วัดผลทุกการตัดสินใจตั้งแต่วันแรก',
-      cta1: 'ดูระบบที่รันจริง', cta2: 'ส่งโจทย์เข้ามา',
+      cta1: 'ใช้ FloodDash ตอนนี้', cta2: 'ส่งโจทย์เข้ามา',
       stat1lbl: 'ระบบที่ใช้งานอยู่', stat2lbl: 'ประเทศที่ใช้งาน',
-      stat3lbl: 'เมืองที่จัดอันดับ', stat4lbl: 'บนเวทีหลัก GITEX Asia',
+      stat3lbl: 'เมืองที่จัดอันดับ', stat4lbl: 'FloodDash · LEAP East',
       meta1: '<b>24/7</b> ติดตาม', meta2: '<b>157</b> เมือง SLIC Index',
       meta3: '<b>174</b> เมือง Smart City Thailand Index', meta4: 'กูชิง มาเลเซีย',
       meta5: 'ตะวันออกกลาง', meta6: 'เอเชียแปซิฟิก', meta7: 'อาเซียน',
@@ -289,9 +304,24 @@ const uiCopy = {
       sandboxNote: 'ไม่ใช่ demo — ทุกระบบรันใน sandbox จริง สร้างให้ scale ได้ ไม่ใช่สร้างมาโชว์ การ deploy จริงของลูกค้าอยู่ภายใต้ NDA ใหญ่กว่าและซับซ้อนกว่า สิ่งที่รันที่นี่ทำงานแบบเดียวกัน โมดูลขั้นสูงถูกถอดออกเพราะ NDA ไม่ใช่เพราะของปลอม',
     },
     stageSect: {
-      kicker: 'สองเวที สัญญาณเดียว',
+      kicker: 'สามเวที หนึ่งเส้นเรื่อง',
       title: 'รัฐบาลเหนื่อย<em>กับการรองานนำเสนอ</em>แล้ว',
-      lede: 'ในหกเดือน ผมพาแนวคิดเดียวกันขึ้นเวทีใหญ่ที่สุดของเอเชียสองครั้ง ห้องเต็มทั้งสองครั้ง คำตอบจากห้องเดียวกัน: สร้างเลย ไม่ต้องรอรอบงบประมาณถัดไป',
+      lede: 'Q1 เปิดที่ไทเป Q2 ขึ้นเวทีหลัก GITEX ที่สิงคโปร์ ไตรภาคีจบที่ LEAP East — เวทีใหญ่ที่สุดของเอเชีย — พร้อม FloodDash สดในห้อง วิทยานิพนธ์เดิมทุกครั้ง: สร้างเลย ไม่ต้องรอรอบงบประมาณถัดไป',
+    },
+    flooddashSect: {
+      kicker: 'Q1–Q2 · บทที่ 3',
+      meta: 'GITEX → LEAP East → FloodDash',
+      title: 'ใช้ <em>FloodDash</em> ตอนนี้',
+      lede: 'ระบบเฝ้าดูน้ำท่วมประเทศไทย — ข้อมูลภูมิสารสนเทศสด 24/7 จากแหล่งสาธารณะ 9 แหล่ง อัปเดตทุก 3–60 นาที เปิดตัวจากเวทีใหญ่ที่สุดของเอเชียที่ LEAP East ทุกคนที่ติดตามน้ำท่วมในไทยควรใช้พื้นผิวนี้วันนี้',
+      live: 'LIVE',
+      m1: '9 แหล่งสาธารณะ',
+      m2: 'รีเฟรช 3–60 นาที',
+      m3: '77 จังหวัด',
+      slide1: 'ภาพรวมประเทศ — ทุกจังหวัดบนพื้นผิวเดียว',
+      slide2: 'หาดใหญ่ระดับภูมิภาค — ระเบียงน้ำท่วมภาคใต้',
+      slide3: 'ตราดละเอียด — การแจ้งเตือนและระดับลุ่มน้ำ',
+      cta: 'เปิด FloodDash สด',
+      cta2: 'เปิดตัวที่ LEAP East',
     },
     teamSect: {
       kicker: 'คนที่สร้าง',
@@ -425,9 +455,9 @@ const uiCopy = {
     heroCurrent: {
       title: '我们建造<em>能运行的系统</em><br>让政府<span class="hero__punch"><span class="hero__punch-afford">不用再等</span> <span class="hero__punch-wait">别人来做</span></span>',
       sub: '多数"智慧城市"项目都停在幻灯片阶段。我们的停在运行中的系统上。第一周就把问题摸清楚 演示之前就有能跑的东西 每一个决策从第一天起就留下记录。',
-      cta1: '看在线系统', cta2: '把题目发过来',
+      cta1: '立刻使用 FloodDash', cta2: '把题目发过来',
       stat1lbl: '运行中的系统', stat2lbl: '在用的国家',
-      stat3lbl: '建档城市', stat4lbl: 'GITEX Asia 主舞台',
+      stat3lbl: '建档城市', stat4lbl: 'FloodDash · LEAP East',
       meta1: '<b>24/7</b> 监控', meta2: '<b>157</b> SLIC 指数城市',
       meta3: '<b>174</b> 泰国智慧城市指数城市', meta4: '古晋 马来西亚',
       meta5: '中东', meta6: '亚太地区', meta7: '东盟',
@@ -440,9 +470,24 @@ const uiCopy = {
       sandboxNote: '不是演示稿——是运行在沙盒里的可用系统。按可扩展的方式搭建，不是为了好看。客户生产部署在保密协议下规模更大；这里运行的逻辑与之一致，敏感模块不对外展示，不是因为它们是假的。',
     },
     stageSect: {
-      kicker: '两个舞台 一个信号',
+      kicker: '三个舞台 一条弧线',
       title: '政府已经<em>厌倦等一份幻灯片</em>了',
-      lede: '六个月里我们把同一个论点带上亚洲最大的两个舞台 两个会议室都满 两个房间给的反应一样：现在就开始建 不用等下一个预算周期',
+      lede: 'Q1 在台北开场。Q2 登上新加坡 GITEX 主舞台。三部曲在 LEAP East——亚洲最大舞台——收束，FloodDash 在现场上线。同一条论点每次都一样：现在就建，别等下一个预算周期。',
+    },
+    flooddashSect: {
+      kicker: 'Q1–Q2 · 第三幕',
+      meta: 'GITEX → LEAP East → FloodDash',
+      title: '立刻使用 <em>FloodDash</em>。',
+      lede: '泰国洪水监测——来自九个公开数据源的 24/7 实时地理空间数据，每 3–60 分钟刷新。从 LEAP East 亚洲最大舞台发布。每一位在泰国盯洪水的人，今天就该用这张面。',
+      live: 'LIVE',
+      m1: '9 个公开数据源',
+      m2: '3–60 分钟刷新',
+      m3: '77 个府',
+      slide1: '全国总览 — 每个府都在同一张面上',
+      slide2: '合艾区域 — 南部洪水走廊',
+      slide3: '达叻明细 — 警报与流域读数',
+      cta: '打开 FloodDash 实时版',
+      cta2: 'LEAP East 发布现场',
     },
     teamSect: {
       kicker: '谁在搭',
@@ -580,7 +625,7 @@ const uiCopy = {
     heroCurrent: {
       title: 'LiveSystem<em>.build()</em> <br>// gov.cannotWait() → ship() → instrument(day1)',
       sub: '// most "smart city" work: Promise<Deck> — never resolves\n// ours: LiveSystem — deployed, instrumented, running\n// method: pressureMap() → shipRough() → instrument(day1)',
-      cta1: 'systems.getLive()',
+      cta1: 'FloodDash.useNow()',
       cta2: 'brief.start()',
       stat1lbl: 'LiveSystem[]',
       stat2lbl: 'Country<T>[]',
@@ -588,7 +633,7 @@ const uiCopy = {
       meta1: '<b>24/7</b> monitor', meta2: '<b>157</b> SLIC.cities',
       meta3: '<b>174</b> SCTH.cities', meta4: 'Kuching, Malaysia',
       meta5: 'Middle East', meta6: 'Asia Pacific', meta7: 'ASEAN',
-      stat4lbl: 'GITEX.mainStage',
+      stat4lbl: 'FloodDash@LEAP.East',
     },
     sysSect: {
       kicker: '// LIVE_IN_PRODUCTION',
@@ -598,9 +643,24 @@ const uiCopy = {
       sandboxNote: '// not demos — systems.runIn(sandbox)\n// built.toScale(), not.toImpress()\n// prod under NDA: larger; behavior.same(); advancedModules.withheld(not.faked)',
     },
     stageSect: {
-      kicker: '// TWO_STAGES_ONE_SIGNAL',
+      kicker: '// THREE_STAGES_ONE_ARC',
       title: 'governments.tireof(waitingForTheDeck)',
-      lede: '// 6 months. same thesis. asia\'s biggest stages.\n// response: { build: "now", waitForBudgetCycle: false }',
+      lede: '// Q1: Taipei → Q2: GITEX.mainStage → LEAP.East closes trilogy\n// FloodDash.liveInRoom(); thesis: { build: "now" }',
+    },
+    flooddashSect: {
+      kicker: '// Q1_Q2.ACT_III',
+      meta: 'GITEX → LEAP.East → FloodDash',
+      title: 'FloodDash<em>.useNow()</em>',
+      lede: '// ThailandFloodWatch: geospatial.live(24/7)\n// sources: 9.public; refresh: 3..60min\n// launched: LEAP.East // asia.largestStage\n// everyone.monitoringFloods.shouldUse(today)',
+      live: 'LIVE',
+      m1: 'sources: 9.public',
+      m2: 'refresh: 3..60min',
+      m3: 'provinces: 77',
+      slide1: 'national.overview // everyProvince',
+      slide2: 'hatYai.regional // southCorridor',
+      slide3: 'trat.detail // alerts + basin',
+      cta: 'FloodDash.openLive()',
+      cta2: 'LEAP.East.launch',
     },
     teamSect: {
       kicker: '// WHO_BUILDS_IT',
@@ -802,6 +862,12 @@ const i18nExt = {
       sgQuote:'"The room was standing-room only. That is not applause — that is a demand signal. Governments want working systems. They are tired of waiting for the deck."',
       sgCite:'— Dr. Non, post-keynote',
       sgS1:'Main stage audience', sgS2:'Total attendees', sgS3:'Nations represented', sgS4:'Workshop capacity',
+      leapLoc:'LEAP East 2026 · Orbital Stage · Jul 10',
+      leapTitle:"Asia's largest stage. FloodDash launches here.",
+      leapLede:'Panel on the Orbital Stage — "From Congestion to Connection: The Tech Powered Future of Transport in Asia." Dr. Non Arkara, Senior Expert Smart City Promotion at DEPA, joined Mitchell Price, Richard Chung, and Will Peters to close the Q1–Q2 arc with a live FloodDash launch.',
+      leapQuote:'"Three stages in six months. Taipei indexed the cities. GITEX filled the room. LEAP East shipped the flood watch — live, public, and running before we left the stage."',
+      leapCite:'— Dr. Non, LEAP East panel',
+      leapS1:'Main stage tier', leapS2:'Panel speakers', leapS3:'Live data sources', leapS4:'FloodDash at launch',
     },
     teamContent: {
       founderLabel:'Co-Founders · Bangkok',
@@ -1101,6 +1167,12 @@ const i18nExt = {
       sgQuote:'"ห้องเต็มจนต้องยืน นั่นไม่ใช่เสียงปรบมือ นั่นคือสัญญาณดีมานด์ รัฐบาลต้องการระบบที่ทำงานได้จริง เหนื่อยกับการรองานนำเสนอแล้ว"',
       sgCite:'— ดร.นน, หลัง keynote',
       sgS1:'ผู้ชมเวทีหลัก', sgS2:'ผู้เข้าร่วมทั้งหมด', sgS3:'ชาติที่เข้าร่วม', sgS4:'ความจุ workshop',
+      leapLoc:'LEAP East 2026 · Orbital Stage · 10 ก.ค.',
+      leapTitle:'เวทีใหญ่ที่สุดของเอเชีย FloodDash เปิดตัวที่นี่',
+      leapLede:'Panel บน Orbital Stage — "From Congestion to Connection: The Tech Powered Future of Transport in Asia" ดร.นน อัครา Senior Expert Smart City Promotion ที่ DEPA ร่วมกับ Mitchell Price, Richard Chung และ Will Peters เพื่อปิดเส้นเรื่อง Q1–Q2 ด้วยการเปิดตัว FloodDash สด',
+      leapQuote:'"สามเวทีในหกเดือน ไทเปจัดอันดับเมือง GITEX เติมห้อง LEAP East ส่งมอบระบบเฝ้าดูน้ำท่วม — สด สาธารณะ และรันก่อนที่เราจะลงจากเวที"',
+      leapCite:'— ดร.นน, panel ที่ LEAP East',
+      leapS1:'ระดับเวทีหลัก', leapS2:'วิทยากร panel', leapS3:'แหล่งข้อมูลสด', leapS4:'FloodDash ตอนเปิดตัว',
     },
     teamContent: {
       founderLabel:'ผู้ก่อตั้งร่วม · กรุงเทพฯ',
@@ -1398,6 +1470,12 @@ const i18nExt = {
       sgQuote:'"会议室只剩站位 那不是掌声 那是需求信号 政府要的是能跑的系统 已经厌倦等一份幻灯片了"',
       sgCite:'— 阿南博士 演讲后',
       sgS1:'主舞台观众', sgS2:'总参会人数', sgS3:'参会国家', sgS4:'工作坊容量',
+      leapLoc:'LEAP East 2026 · Orbital Stage · 7月10日',
+      leapTitle:'亚洲最大舞台。FloodDash 在这里发布。',
+      leapLede:'Orbital Stage 圆桌——「From Congestion to Connection: The Tech Powered Future of Transport in Asia」。Dr. Non Arkara（DEPA 智慧城市推广高级专家）与 Mitchell Price、Richard Chung、Will Peters 一起，用 FloodDash 现场发布收束 Q1–Q2 弧线。',
+      leapQuote:'"六个月三场舞台。台北建了城市索引。GITEX 把房间坐满。LEAP East 把洪水监测交出去——上线、公开，还没下台就已经在跑。"',
+      leapCite:'— 阿南博士，LEAP East 圆桌',
+      leapS1:'主舞台档位', leapS2:'圆桌发言人', leapS3:'实时数据源', leapS4:'FloodDash 发布',
     },
     teamContent: {
       founderLabel:'联合创始人 · 曼谷',
@@ -1537,6 +1615,12 @@ const i18nExt = {
       sgQuote:'"standingRoom: not applause\nstandingRoom: demandSignal\ngovernments.want(workingSystems)\ntired.of(waitingForTheDeck)"',
       sgCite:'// Dr.Non, postKeynote',
       sgS1:'mainStage.audience', sgS2:'total.attendees', sgS3:'nations.represented', sgS4:'workshop.capacity',
+      leapLoc:'LEAP.East2026<OrbitalStage> Jul10',
+      leapTitle:'asia.largestStage // FloodDash.launches()',
+      leapLede:'// OrbitalStage.panel: FromCongestionToConnection\n// speakers: MitchellPrice, RichardChung, WillPeters, DrNon(DEPA)\n// closes: Q1_Q2.arc with FloodDash.liveLaunch',
+      leapQuote:'"stages: 3; months: 6\nTaipei.indexed(cities); GITEX.filled(room)\nLEAP.East.shipped(floodWatch) // live, public, running"',
+      leapCite:'// Dr.Non, LEAP.East.panel',
+      leapS1:'stage.tier: Orbital', leapS2:'panel.speakers: 4', leapS3:'data.sources: 9', leapS4:'FloodDash: live',
     },
     teamContent: {
       founderLabel:'CoFounders<Bangkok>',
@@ -1743,7 +1827,7 @@ const i18nExt2 = {
     sysClusters: {
       sysMeta: '22 systems · 5 countries',
       command: 'Command',
-      commandMeta: 'Real-time operations rooms · 7',
+      commandMeta: 'Real-time operations rooms · 10',
       intelligence: 'Intelligence',
       intelligenceMeta: 'Signal & analysis · 5',
       civic: 'Civic',
@@ -1844,7 +1928,7 @@ const i18nExt2 = {
     sysClusters: {
       sysMeta: '21 ระบบ · 5 ประเทศ',
       command: 'บัญชาการ',
-      commandMeta: 'ห้องปฏิบัติการแบบเรียลไทม์ · 7',
+      commandMeta: 'ห้องปฏิบัติการแบบเรียลไทม์ · 10',
       intelligence: 'ข่าวกรอง',
       intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 5',
       civic: 'พลเมือง',
@@ -1943,7 +2027,7 @@ const i18nExt2 = {
     sysClusters: {
       sysMeta: '21 个系统 · 5 个国家',
       command: '指挥',
-      commandMeta: '实时作战室 · 7',
+      commandMeta: '实时作战室 · 10',
       intelligence: '情报',
       intelligenceMeta: '信号与分析 · 5',
       civic: '民生',
@@ -2051,7 +2135,7 @@ const i18nExt2 = {
     sysClusters: {
       sysMeta: '22 systems · 5 countries',
       command: 'Command',
-      commandMeta: 'opsRooms.realtime · count[7]',
+      commandMeta: 'opsRooms.realtime · count[10]',
       intelligence: 'Intelligence',
       intelligenceMeta: 'signal & analysis · count[5]',
       civic: 'Civic',
@@ -2149,7 +2233,137 @@ function bindLocaleSwitch() {
 document.addEventListener('DOMContentLoaded', () => {
   setPageLocale(activeLocale, { silent: true });
   bindLocaleSwitch();
+  initFlooddashCarousel();
 });
+
+function initFlooddashCarousel() {
+  const root = document.querySelector('[data-carousel="flooddash"]');
+  if (!root) return;
+
+  const slides = Array.from(root.querySelectorAll('[data-carousel-slide]'));
+  const dots = Array.from(root.querySelectorAll('[data-carousel-dot]'));
+  const prevBtn = root.querySelector('[data-carousel-prev]');
+  const nextBtn = root.querySelector('[data-carousel-next]');
+  const pauseBtn = root.querySelector('[data-carousel-pause]');
+  const progressBar = root.querySelector('.flooddash-carousel__progress-bar');
+  if (!slides.length) return;
+
+  const INTERVAL_MS = 5200;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let index = Math.max(0, slides.findIndex((s) => s.classList.contains('is-active')));
+  let timer = null;
+  let userPaused = reduced;
+  let softPaused = false;
+  let progressToken = 0;
+
+  root.style.setProperty('--carousel-ms', `${INTERVAL_MS}ms`);
+  if (reduced) root.classList.add('is-reduced');
+  root.setAttribute('tabindex', '0');
+
+  function isHeld() {
+    return userPaused || softPaused || reduced;
+  }
+
+  function paint() {
+    slides.forEach((slide, i) => {
+      const on = i === index;
+      slide.classList.toggle('is-active', on);
+      slide.setAttribute('aria-hidden', on ? 'false' : 'true');
+    });
+    dots.forEach((dot, i) => {
+      const on = i === index;
+      dot.classList.toggle('is-active', on);
+      dot.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+
+  function restartProgress() {
+    if (!progressBar) return;
+    progressToken += 1;
+    root.classList.remove('is-running');
+    void progressBar.offsetWidth;
+    if (!isHeld()) root.classList.add('is-running');
+  }
+
+  function go(to) {
+    index = ((to % slides.length) + slides.length) % slides.length;
+    paint();
+    arm();
+  }
+
+  function clearTimer() {
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+  }
+
+  function arm() {
+    clearTimer();
+    root.classList.toggle('is-paused', isHeld());
+    restartProgress();
+    if (isHeld()) return;
+    timer = setTimeout(() => go(index + 1), INTERVAL_MS);
+  }
+
+  function syncPauseBtn() {
+    if (!pauseBtn) return;
+    pauseBtn.classList.toggle('is-paused', userPaused);
+    pauseBtn.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
+    pauseBtn.setAttribute('aria-label', userPaused ? 'Resume autoplay' : 'Pause autoplay');
+    pauseBtn.textContent = userPaused ? '▶' : '❚❚';
+  }
+
+  function setUserPaused(next) {
+    userPaused = next;
+    syncPauseBtn();
+    arm();
+  }
+
+  function setSoftPaused(next) {
+    softPaused = next;
+    arm();
+  }
+
+  prevBtn?.addEventListener('click', () => go(index - 1));
+  nextBtn?.addEventListener('click', () => go(index + 1));
+  pauseBtn?.addEventListener('click', () => setUserPaused(!userPaused));
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const n = Number(dot.getAttribute('data-carousel-dot'));
+      if (Number.isFinite(n)) go(n);
+    });
+  });
+
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      go(index - 1);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      go(index + 1);
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      setUserPaused(!userPaused);
+    }
+  });
+
+  root.addEventListener('pointerenter', () => setSoftPaused(true));
+  root.addEventListener('pointerleave', () => setSoftPaused(false));
+  root.addEventListener('focusin', () => setSoftPaused(true));
+  root.addEventListener('focusout', (e) => {
+    if (!root.contains(e.relatedTarget)) setSoftPaused(false);
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) clearTimer();
+    else arm();
+  });
+
+  paint();
+  syncPauseBtn();
+  arm();
+}
 (function initSatelliteHero() {
   const container = document.getElementById('heroMap');
   if (!container || !window.L) return;
