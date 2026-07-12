@@ -564,7 +564,6 @@
       "capital": "THB 1,000,000",
       "businessLbl": "핵심 사업 범위",
       "business": "기술, AI, 디지털 시스템, 스마트시티 컨설팅, 혁신 서비스",
-      "pdfCta": "등록 증명서 보기",
       "standardsTitle": "표준 정렬",
       "standardsMeta": "4계층 · 실무 기반",
       "standardsLede": "이 프레임워크에 맞춰 설계·인도합니다. 독립 감사·명시적 진술 없이는 공식 ISO 인증 주장이 아닙니다.",
@@ -590,7 +589,7 @@
       "t4i4": "안전 · 견고성 · 책임 있는 배포",
       "stackTag": "스택",
       "stackCallout": "권장 참조 스택: ISO/IEC 30173 + ISO 23247 + ISO/IEC 42001 + ISO/IEC 23894 + PDPA + GDPR",
-      "disclaimer": "정렬은 인도 실무에서 이 프레임워크에 맞춰 설계·운영한다는 뜻입니다. 명시·입증 없이는 공식 인증, 인가, 제3자 감사를 의미하지 않습니다. 첨부 PDF는 DBD 발급 태국 회사 등록증이며 ISO 인증서가 아닙니다."
+      "disclaimer": "정렬은 인도 실무에서 이 프레임워크에 맞춰 설계·운영한다는 뜻입니다. 명시·입증 없이는 공식 인증, 인가, 제3자 감사를 의미하지 않습니다."
     },
     "chips": {
       "p01": "Live · Phuket",
@@ -1315,7 +1314,6 @@
       "capital": "THB 1,000,000",
       "businessLbl": "主要事業範囲",
       "business": "テクノロジー、AI、デジタルシステム、スマートシティコンサルティング、イノベーションサービス",
-      "pdfCta": "登録証明書を見る",
       "standardsTitle": "標準アライメント",
       "standardsMeta": "4層 · 実務ベース",
       "standardsLede": "これらのフレームワークに沿って設計・納品します。独立監査や明示的声明がない限り、公式ISO認証を主張するものではありません。",
@@ -1341,7 +1339,7 @@
       "t4i4": "安全性 · 堅牢性 · 責任あるデプロイ",
       "stackTag": "スタック",
       "stackCallout": "推奨参照スタック：ISO/IEC 30173 + ISO 23247 + ISO/IEC 42001 + ISO/IEC 23894 + PDPA + GDPR",
-      "disclaimer": "アライメントとは、納品実務においてこれらのフレームワークに沿って設計・運用することを意味します。明示的な記載と立証がない限り、公式認証、認定、第三者監査を意味するものではありません。添付PDFはDBD発行のタイ会社登録証であり、ISO認証書ではありません。"
+      "disclaimer": "アライメントとは、納品実務においてこれらのフレームワークに沿って設計・運用することを意味します。明示的な記載と立証がない限り、公式認証、認定、第三者監査を意味するものではありません。"
     },
     "chips": {
       "p01": "Live · Phuket",
@@ -2066,7 +2064,6 @@
       "capital": "THB 1,000,000",
       "businessLbl": "Phạm vi kinh doanh chính",
       "business": "Công nghệ, AI, hệ thống số, tư vấn thành phố thông minh, dịch vụ đổi mới",
-      "pdfCta": "Xem giấy chứng nhận đăng ký",
       "standardsTitle": "Căn chỉnh tiêu chuẩn",
       "standardsMeta": "4 tầng · Thực hành triển khai",
       "standardsLede": "Chúng tôi thiết kế và bàn giao theo các khung này. Đây không phải tuyên bố chứng nhận ISO chính thức nếu không có kiểm toán độc lập và tuyên bố rõ ràng.",
@@ -2092,7 +2089,7 @@
       "t4i4": "An toàn · Bền vững · Triển khai có trách nhiệm",
       "stackTag": "Stack",
       "stackCallout": "Stack tham chiếu khuyến nghị: ISO/IEC 30173 + ISO 23247 + ISO/IEC 42001 + ISO/IEC 23894 + PDPA + GDPR",
-      "disclaimer": "Căn chỉnh có nghĩa là chúng tôi thiết kế và vận hành theo các khung này trong thực hành bàn giao. Điều này không ngụ ý chứng nhận chính thức, công nhận hoặc kiểm toán bên thứ ba trừ khi được nêu rõ và có bằng chứng. PDF đính kèm là giấy chứng nhận đăng ký công ty Thái Lan do DBD cấp — không phải chứng chỉ ISO."
+      "disclaimer": "Căn chỉnh có nghĩa là chúng tôi thiết kế và vận hành theo các khung này trong thực hành bàn giao. Điều này không ngụ ý chứng nhận chính thức, công nhận hoặc kiểm toán bên thứ ba trừ khi được nêu rõ và có bằng chứng."
     },
     "chips": {
       "p01": "Live · Phuket",
