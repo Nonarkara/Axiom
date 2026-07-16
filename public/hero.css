@@ -1,0 +1,753 @@
+/* ============================================================
+   AXIOM · HERO — restored from ee756b7 (interactive satellite
+   dashboard). Re-themed to match the current Thailand-flag /
+   light-paper aesthetic. No gradients. No rounded corners.
+
+   Stack:
+     z=0  #hero  (paper frame)
+     z=1  #heroMap (Leaflet dark tiles)
+     z=2  #heroCanvas (data lines / grid)
+     z=3  HUD chrome (city label, sat-hud, intel overlays,
+          sat-controls, map-mode, map-explore-hint, axes)
+     z=4  .hero-content (badge, title, subtitle, actions,
+          node strip, stats)
+     z=5  .hero-scroll-indicator
+
+   Variables are inherited from :root in rams.css.
+   ============================================================ */
+
+#hero {
+  position: relative;
+  width: 100%;
+  min-height: 88vh;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ----- Map (Leaflet container) ----- */
+#heroMap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #0a0a0a;
+  filter: brightness(0.55) contrast(1.05) saturate(0.7);
+}
+
+/* Leaflet attribution / zoom controls: hide, keep keyboard nav */
+#heroMap .leaflet-control-attribution {
+  display: none !important;
+}
+#heroMap .leaflet-control-zoom {
+  display: none !important;
+}
+
+/* ----- Canvas (data lines / grid overlay) ----- */
+#heroCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ----- Hero flat dark wash (for legibility) ----- */
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(10, 10, 12, 0.45);
+  /* The map's filter:brightness already darkens tiles; this overlay
+     sits BEHIND the map (z=0) so it does not stack on top. It is
+     here as a fallback for when JS fails to mount the map. */
+}
+
+/* ----- Pulse markers (Leaflet divIcon) ----- */
+.sat-pulse-marker {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border: 1px solid var(--paper);
+  box-shadow: 0 0 0 0 var(--accent);
+  animation: sat-pulse 2.4s infinite;
+}
+
+@keyframes sat-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(0, 36, 125, 0.6); }
+  70%  { box-shadow: 0 0 0 12px rgba(0, 36, 125, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 36, 125, 0); }
+}
+
+/* ----- Telemetry axes (decorative crosshair) ----- */
+.telemetry-axis-x,
+.telemetry-axis-y {
+  position: absolute;
+  z-index: 3;
+  background: var(--accent);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.telemetry-axis-x {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+}
+
+.telemetry-axis-y {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+}
+
+/* ----- Hero tracker (decorative) ----- */
+.hero-tracker {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hero-tracker::before,
+.hero-tracker::after {
+  content: "";
+  position: absolute;
+  background: var(--accent);
+}
+
+.hero-tracker::before {
+  top: -8px;
+  left: 50%;
+  width: 1px;
+  height: 8px;
+  margin-left: -0.5px;
+}
+
+.hero-tracker::after {
+  top: 50%;
+  left: -8px;
+  width: 8px;
+  height: 1px;
+  margin-top: -0.5px;
+}
+
+/* ----- City label (top-right, large mono) ----- */
+.hero-city-label {
+  position: absolute;
+  z-index: 3;
+  top: 28px;
+  right: 28px;
+  font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--paper);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+/* ----- Map Mode Indicator (top-left, AUTO TOUR pill) ----- */
+.map-mode {
+  position: absolute;
+  z-index: 4;
+  top: 22px;
+  left: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-mode-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  background: rgba(10, 10, 12, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--paper);
+  text-transform: uppercase;
+}
+
+.map-mode-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #1ec96b;
+  box-shadow: 0 0 0 0 rgba(30, 201, 107, 0.5);
+  animation: map-mode-pulse 1.6s infinite;
+}
+
+.map-mode-dot.exploring {
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(0, 36, 125, 0.5);
+}
+
+@keyframes map-mode-pulse {
+  0%   { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+  70%  { box-shadow: 0 0 0 8px transparent; opacity: 0.8; }
+  100% { box-shadow: 0 0 0 0 transparent; opacity: 1; }
+}
+
+.map-mode-label.exploring {
+  color: var(--paper);
+  opacity: 0.85;
+}
+
+.map-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: rgba(10, 10, 12, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--paper);
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.map-mode-btn:hover {
+  background: rgba(0, 36, 125, 0.85);
+  border-color: var(--accent);
+}
+
+.map-mode-btn-pulse {
+  animation: map-mode-btn-pulse 0.6s ease 3;
+}
+
+@keyframes map-mode-btn-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
+
+/* ----- Map Explore Hint (bottom-left) ----- */
+.map-explore-hint {
+  position: absolute;
+  z-index: 3;
+  bottom: 22px;
+  left: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: rgba(10, 10, 12, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--paper);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.map-explore-hint svg {
+  flex-shrink: 0;
+}
+
+/* ----- Satellite Controls (bottom-right layer switcher) ----- */
+.sat-controls {
+  position: absolute;
+  z-index: 4;
+  bottom: 22px;
+  right: 22px;
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0;
+  background: rgba(10, 10, 12, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.sat-control-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.sat-control-label {
+  padding: 0 8px;
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--paper);
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.sat-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 28px;
+  padding: 0 8px;
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--paper);
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.sat-btn:hover {
+  background: rgba(0, 36, 125, 0.4);
+  color: var(--paper);
+}
+
+.sat-btn-active {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.sat-btn-active:hover {
+  background: var(--accent);
+}
+
+.sat-btn[data-active="true"] {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.sat-control-divider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.sat-source-note {
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  opacity: 0.55;
+}
+
+/* ----- Urban Intelligence Overlays (Moneyball) ----- */
+.intel-overlay {
+  position: absolute;
+  z-index: 4;
+  padding: 10px 12px;
+  background: rgba(10, 10, 12, 0.82);
+  border: 1px solid var(--accent);
+  color: var(--paper);
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 350ms ease, transform 350ms ease;
+  pointer-events: none;
+  min-width: 180px;
+}
+
+.intel-overlay.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intel-overlay-header {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--paper);
+  opacity: 0.55;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.intel-overlay-value {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 4px;
+}
+
+.intel-overlay-meta {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--paper);
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+#intelOverlayDubai {
+  top: 80px;
+  right: 60px;
+}
+
+#intelOverlayBangkok {
+  top: 80px;
+  left: 60px;
+}
+
+/* ----- Live Satellite HUD (top-center telemetry) ----- */
+.sat-hud {
+  position: absolute;
+  z-index: 4;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 14px;
+  background: rgba(10, 10, 12, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  color: var(--paper);
+  min-width: 460px;
+  max-width: 90vw;
+}
+
+.sat-hud-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.sat-hud-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.sat-hud-live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 var(--accent);
+  animation: sat-hud-live-dot 1.4s infinite;
+}
+
+@keyframes sat-hud-live-dot {
+  0%   { box-shadow: 0 0 0 0 rgba(0, 36, 125, 0.6); }
+  70%  { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.sat-hud-provider {
+  margin-left: auto;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--paper);
+  opacity: 0.7;
+}
+
+.sat-hud-coord,
+.sat-hud-zoom,
+.sat-hud-res,
+.sat-hud-tile,
+.sat-hud-time {
+  font-variant-numeric: tabular-nums;
+  color: var(--paper);
+  opacity: 0.88;
+}
+
+.sat-hud-tile {
+  font-size: 9px;
+  opacity: 0.55;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+
+.sat-hud-time {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ----- Hero Content (centered) ----- */
+.hero-content {
+  position: relative;
+  z-index: 4;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18vh var(--pad) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  text-align: left;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--accent);
+  color: var(--paper);
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-badge-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--paper);
+}
+
+.hero-title {
+  margin: 0;
+  font-family: var(--font-display, inherit);
+  font-size: clamp(2.4rem, 6.2vw, 4.6rem);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hero-line {
+  display: block;
+}
+
+.hero-line-accent {
+  display: block;
+  color: var(--accent);
+  /* Plain flag-blue accent — no gradient (anti-regression §11.1.3) */
+}
+
+.hero-subtitle {
+  max-width: 540px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 500;
+  color: var(--paper);
+  opacity: 0.88;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.hero-actions .btn--primary,
+.hero-actions .btn--ghost {
+  /* Pick up the global .btn base; override surfaces for legibility on map */
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+
+.hero-actions .btn--primary:hover {
+  background: #001a5c;
+  border-color: #001a5c;
+}
+
+.hero-actions .btn--ghost {
+  background: rgba(10, 10, 12, 0.7);
+  border-color: var(--paper);
+  color: var(--paper);
+}
+
+.hero-actions .btn--ghost:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ----- City node strip ----- */
+.hero-node-strip {
+  margin-top: 22px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.hero-node-strip-label {
+  margin-bottom: 8px;
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.55;
+}
+
+.hero-node-strip-scroller {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.hero-node {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 10px 12px;
+  background: rgba(10, 10, 12, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--paper);
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+.hero-node:hover {
+  background: rgba(0, 36, 125, 0.5);
+  border-color: var(--accent);
+}
+
+.hero-node.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.hero-node-name {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.hero-node-meta {
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ----- Hero stats ----- */
+.hero-stats {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-left: 2px solid var(--accent);
+  padding-left: 10px;
+}
+
+.hero-stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-stat-label {
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.6;
+}
+
+/* ----- Scroll indicator ----- */
+.hero-scroll-indicator {
+  position: absolute;
+  z-index: 5;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 32px;
+  pointer-events: none;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 100%;
+  background: var(--paper);
+  opacity: 0.6;
+  animation: hero-scroll-down 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-scroll-down {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 900px) {
+  #hero { min-height: 78vh; }
+  .hero-content { padding-top: 14vh; }
+  .hero-title { font-size: clamp(2rem, 9vw, 3.4rem); }
+  .hero-stats { gap: 18px; }
+  .hero-stat-value { font-size: 18px; }
+  .sat-hud { min-width: 0; left: 12px; right: 12px; transform: none; max-width: none; }
+  .hero-city-label { top: 14px; right: 14px; font-size: 10px; }
+  .map-mode { top: 12px; left: 12px; }
+  .sat-controls { bottom: 12px; right: 12px; flex-wrap: wrap; }
+  .map-explore-hint { display: none; }
+  #intelOverlayDubai,
+  #intelOverlayBangkok { display: none; }
+}
+
+@media (max-width: 600px) {
+  .hero-node-strip-scroller {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-actions { gap: 8px; }
+  .hero-actions .btn--primary,
+  .hero-actions .btn--ghost {
+    min-height: 40px;
+    padding: 10px 14px;
+    font-size: 10px;
+  }
+  .sat-hud { font-size: 9px; padding: 6px 8px; }
+  .sat-hud-row { gap: 8px; flex-wrap: wrap; }
+  .hero-city-label { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sat-pulse-marker,
+  .map-mode-dot,
+  .sat-hud-live-dot,
+  .hero-scroll-line,
+  .map-mode-btn-pulse {
+    animation: none !important;
+  }
+}

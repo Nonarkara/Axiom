@@ -2440,11 +2440,21 @@ function initFlooddashCarousel() {
   }
 
   const heroCityLabel = document.getElementById('heroCityLabel');
+  const heroNodeButtons = Array.from(document.querySelectorAll('.hero-node'));
   const satSourceNote = document.getElementById('satSourceNote');
 
-  function syncCityDisplay(city) {
+  function syncCityDisplay(city, options = {}) {
+    const { shouldScroll = false } = options;
     if (!city) return;
     if (heroCityLabel) heroCityLabel.textContent = city.name.toUpperCase();
+    heroNodeButtons.forEach((button) => {
+      const isActive = button.dataset.city === city.key;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-pressed', String(isActive));
+      if (isActive && shouldScroll && typeof button.scrollIntoView === 'function') {
+        button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
   }
 
   function getClosestCity(lat, lng) {
@@ -2594,6 +2604,22 @@ function initFlooddashCarousel() {
       }
     });
   }
+
+  // City node clicks → fly to that city, pause the tour
+  heroNodeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const city = CITIES.find((item) => item.key === button.dataset.city);
+      if (!city) return;
+      const newIndex = CITIES.findIndex((item) => item.key === city.key);
+      if (newIndex >= 0) cityIndex = newIndex;
+      pauseTour(true);
+      syncCityDisplay(city, { shouldScroll: true });
+      map.flyTo([city.lat, city.lng], city.zoom, {
+        duration: useLiteMotion ? 5 : 8,
+        easeLinearity: useLiteMotion ? 0.15 : 0.08,
+      });
+    });
+  });
 
   // Detect user interaction with the map → pause tour
   map.on('dragstart', () => { if (autoTour) pauseTour(true); });
@@ -2943,4 +2969,36 @@ function initFlooddashCarousel() {
   });
 
   animate();
+})();
+
+// ── Rotating Hero Text (restored from ee756b7) ────────────────
+// Cycles the second line of the hero title every 3.5s.
+(function initRotatingText() {
+  const el = document.getElementById('heroRotatingText');
+  if (!el) return;
+
+  const phrases = [
+    'as a Service',
+    'that disappears',
+    'that works',
+    'for cities',
+    'for decisions',
+    'as water',
+  ];
+
+  let index = 0;
+
+  el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+
+  setInterval(() => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(8px)';
+
+    setTimeout(() => {
+      index = (index + 1) % phrases.length;
+      el.textContent = phrases[index];
+      el.style.opacity = 1;
+      el.style.transform = 'translateY(0)';
+    }, 400);
+  }, 3500);
 })();
