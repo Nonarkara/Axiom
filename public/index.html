@@ -10,7 +10,7 @@
   <meta name="keywords"
     content="smart city dashboard, government dashboard, govtech, urban intelligence, city operations centre, decision systems, geospatial dashboard, smart city consultant, smart city keynote speaker, Dr Non Arkaraprasertkul, depa, ASEAN smart cities, เมืองอัจฉริยะ, แดชบอร์ดเมืองอัจฉริยะ, ที่ปรึกษาสมาร์ทซิตี้, วิทยากรสมาร์ทซิตี้, ระบบข้อมูลรัฐบาล">
   <meta name="author" content="Dr Non Arkaraprasertkul · Axiom">
-  <meta name="theme-color" content="#faf9f7">
+  <meta name="theme-color" content="#00247d">
   <meta name="color-scheme" content="light">
 
   <link rel="canonical" href="https://axiom.nonarkara.org/">
@@ -43,9 +43,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20260713a">
-  <script src="i18n-regional.js?v=20260713c"></script>
-  <script defer src="app.js?v=20260713c"></script>
+  <link rel="stylesheet" href="rams.css?v=20260717a">
+  <script src="i18n-regional.js?v=20260717a"></script>
+  <script defer src="app.js?v=20260717a"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -153,6 +153,7 @@
 
   <!-- ============== MASTHEAD (cockpit) ============== -->
   <header class="masthead">
+    <div class="flag-stripe" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
     <div class="masthead__inner">
       <a href="#top" class="brand">
         <span class="brand__name">Axiom</span>
@@ -946,8 +947,11 @@
     </section>
 
     <!-- ============== FIELD NOTES ============== -->
-    <section class="section" id="notes">
+    <section class="section section--fold" id="notes">
       <div class="wrap">
+        <details class="fold-row">
+          <summary class="fold-row__summary" data-i18n="notesContent.foldLine">Field notes · 6 patterns · how we ship</summary>
+          <div class="fold-row__body">
         <div class="s-head">
           <div class="s-head__title" data-i18n="notesContent.kicker">How it gets built</div>
           <div class="s-head__meta">Field notes</div>
@@ -1110,12 +1114,17 @@
           </div>
         </details>
         </div>
+          </div>
+        </details>
       </div>
     </section>
 
     <!-- ============== TEAM ============== -->
-    <section class="section" id="team">
+    <section class="section section--fold" id="team">
       <div class="wrap">
+        <details class="fold-row">
+          <summary class="fold-row__summary" data-i18n="teamSect.foldLine">Team · Dr Non &amp; Dr Poon · two founders, collective on call</summary>
+          <div class="fold-row__body">
         <div class="s-head">
           <div class="s-head__title" data-i18n="teamSect.kicker">Who builds it</div>
           <div class="s-head__meta">Bangkok</div>
@@ -1322,12 +1331,17 @@
         <p class="t-body-2" data-i18n="teamContent.probonoNote" style="margin:12px 0 0;">These are live, working
           platforms — not decks or reports. Each one was built with real institutional partners, deployed publicly, and
           is still in use. Click through and see what the work actually looks like when it ships.</p>
+          </div>
+        </details>
       </div>
     </section>
 
+    <div class="wrap fold-strip">
     <!-- ============== PRESS ============== -->
-    <section class="section" id="press">
-      <div class="wrap">
+    <section class="section section--fold" id="press">
+        <details class="fold-row">
+          <summary class="fold-row__summary" data-i18n="pressSection.foldLine">Press · 7 articles · GovInsider, ASEAN Magazine, YouTube</summary>
+          <div class="fold-row__body">
         <div class="s-head">
           <div class="s-head__title" data-i18n="pressSection.kicker">In the press</div>
           <div class="s-head__meta" data-i18n="pressSection.title">Read. Watch. Decide.</div>
@@ -1400,12 +1414,15 @@
             <span class="press-row__meta">↗</span>
           </a>
         </div>
-      </div>
+          </div>
+        </details>
     </section>
 
     <!-- ============== BRAND KIT ============== -->
-    <section class="section brand brand--compact" id="brand">
-      <div class="wrap">
+    <section class="section section--fold" id="brand">
+        <details class="fold-row">
+          <summary class="fold-row__summary" data-i18n="brandSect.foldLine">Brand Kit · 8 sheets · download available</summary>
+          <div class="fold-row__body">
         <div class="brand-header">
           <div class="s-head">
             <div class="s-head__title" data-i18n="brandSect.kicker">Brand Kit</div>
@@ -1518,25 +1535,17 @@
         </div>
           </div>
         </details>
-      </div>
+          </div>
+        </details>
     </section>
 
     <!-- ============== CREDENTIALS & STANDARDS ============== -->
-    <section class="section credentials credentials--compact" id="credentials">
-      <div class="wrap">
-        <div class="cred-header">
-          <div class="s-head">
-            <div class="s-head__title" data-i18n="credentialsSect.kicker">Credentials</div>
-            <div class="s-head__meta" data-i18n="credentialsSect.eyebrow">Entity</div>
-          </div>
-          <h2 class="cred-title" data-i18n="credentialsSect.title">Legally registered in Thailand</h2>
-          <p class="cred-compact t-body" data-i18n="credentialsSect.compactLine">Axiom X Co., Ltd. · Reg. 0105569099335 · Thailand · DBD registered</p>
+    <section class="section section--fold credentials" id="credentials">
+        <details class="fold-row">
+          <summary class="fold-row__summary" data-i18n="credentialsSect.foldLine">Axiom X Co., Ltd. · Reg. 0105569099335 · Thailand · DBD registered</summary>
+          <div class="fold-row__body">
           <p class="cred-trade-note t-body-2" data-i18n="credentialsSect.tradeNameNote">This site and our services are presented under the trade name Axiom. The registered legal entity is Axiom X Co., Ltd. (Thailand).</p>
-        </div>
 
-        <details class="cred-details">
-          <summary class="cred-details__summary" data-i18n="credentialsSect.summaryToggle">Registration &amp; standards details</summary>
-          <div class="cred-details__body">
             <div class="plate cred-plate">
               <div class="plate__tag" data-i18n="credentialsSect.companyTitle">Registered entity</div>
               <div class="plate__body">
@@ -1634,8 +1643,8 @@
             <p class="t-body-2 cred-disclaimer" data-i18n="credentialsSect.disclaimer">Alignment means we design and operate to these frameworks in our delivery practice. It does not imply formal certification, accreditation, or third-party audit unless explicitly stated and evidenced.</p>
           </div>
         </details>
-      </div>
     </section>
+    </div>
 
     <!-- ============== CONTACT ============== -->
     <section class="contact" id="contact">

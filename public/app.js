@@ -159,6 +159,7 @@ const uiCopy = {
     },
     teamSect: {
       kicker: 'Who builds it',
+      foldLine: 'Team · Dr Non & Dr Poon · two founders, collective on call',
       title: 'Two founders. <em>No handlers.</em>',
       lede: 'You talk to the people who write the code and decide the architecture. When the work needs UAV operators or traffic engineers or policy translators, we pull them in for that mission only — never as a standing bench.',
     },
@@ -325,6 +326,7 @@ const uiCopy = {
     },
     teamSect: {
       kicker: 'คนที่สร้าง',
+      foldLine: 'ทีม · ดร.นน และ ดร.พูน · สองผู้ก่อตั้ง ทีมเสริมตามภารกิจ',
       title: 'สองผู้ก่อตั้ง <em>ไม่มีคนกลาง</em>',
       lede: 'คุณคุยกับคนที่เขียนโค้ดและตัดสินใจสถาปัตยกรรมโดยตรง เมื่องานต้องการคนคุมโดรน วิศวกรจราจร หรือผู้แปลนโยบาย ผมดึงเข้ามาเฉพาะภารกิจนั้น ไม่เคยมีเป็นทีมประจำ',
     },
@@ -491,6 +493,7 @@ const uiCopy = {
     },
     teamSect: {
       kicker: '谁在搭',
+      foldLine: '团队 · 诺博士与蓬博士 · 两位创始人 按需集结',
       title: '两位创始人 <em>没有中间人</em>',
       lede: '你直接跟写代码、定架构的人对话 工作需要无人机操作员 交通工程师 或者政策翻译时 我们只为那个任务把人请进来 从不养成常设团队',
     },
@@ -664,6 +667,7 @@ const uiCopy = {
     },
     teamSect: {
       kicker: '// WHO_BUILDS_IT',
+      foldLine: '// team: [DrNon, DrPoon] · founders: 2 · handlers: never[]',
       title: 'const team: [Founder, Founder] // handlers: never[]',
       lede: '// you.talkTo(builders) // not handlers\n// specialists.join({ when: mission.needs(them), as: "standing bench" }) // throws',
     },
@@ -881,6 +885,7 @@ const i18nExt = {
       pb4org:'For depa Thailand', pb4title:'Thailand\'s digital agency, online.', pb4for:'Smart City Leadership · Bilingual',
     },
     notesContent: {
+      foldLine:'Field notes · 6 patterns · how we ship',
       kicker:'How it gets built',
       title:'Things learned by actually shipping.',
       lede:'Ten systems. Two people. Twelve months. These are the patterns that held — and the ones that didn\'t. Published here because the gap between what governments need and what the market supplies only closes if people share what they\'ve figured out.',
@@ -913,6 +918,7 @@ const i18nExt = {
       legend:'<span data-runtime="cloud">cloud</span><span data-runtime="local">// local</span>',
     },
     brandSect: {
+      foldLine:'Brand Kit · 8 sheets · download available',
       kicker:'Brand Kit',
       meta:'8 sheets · Axiom Identity System',
       lede:'Cover, logo, colors, type, layout — eight sheets. Download the package or browse every sheet.',
@@ -920,6 +926,7 @@ const i18nExt = {
       expandAll:'View all brand sheets',
     },
     pressSection: {
+      foldLine:'Press · 7 articles · GovInsider, ASEAN Magazine, YouTube',
       kicker:'In the press', title:'Read. Watch. Decide.', lede:'Outside coverage of the work, the thesis, and the systems.',
     },
     pressContent: {
@@ -932,6 +939,7 @@ const i18nExt = {
       p7title:'Middle East War Monitor — live conflict signal across the region',
     },
     credentialsSect: {
+      foldLine:'Axiom X Co., Ltd. · Reg. 0105569099335 · Thailand · DBD registered',
       kicker:'Credentials',
       eyebrow:'Entity',
       title:'Legally registered in Thailand',
@@ -1185,6 +1193,7 @@ const i18nExt = {
       pb4org:'สำหรับ depa ประเทศไทย', pb4title:'หน่วยงานดิจิทัลของไทย ออนไลน์แล้ว', pb4for:'Smart City Leadership · สองภาษา',
     },
     notesContent: {
+      foldLine:'บันทึกภาคสนาม · 6 บทเรียน · วิธีส่งมอบ',
       kicker:'วิธีสร้างจริง',
       title:'บทเรียนจากการส่งมอบของจริง',
       lede:'สิบเอ็ดระบบ สองคน สิบสองเดือน นี่คือรูปแบบที่ใช้ได้ และที่ใช้ไม่ได้ เผยแพร่ตรงนี้เพราะช่องว่างระหว่างสิ่งที่รัฐบาลต้องการกับสิ่งที่ตลาดจัดหาให้ จะปิดได้ก็ต่อเมื่อคนแบ่งปันสิ่งที่ค้นพบ',
@@ -1217,13 +1226,14 @@ const i18nExt = {
       legend:'<span data-runtime="cloud">คลาวด์</span><span data-runtime="local">// local</span>',
     },
     brandSect: {
+      foldLine:'Brand Kit · 8 แผ่น · ดาวน์โหลดได้',
       kicker:'Brand Kit',
       meta:'8 แผ่น · ระบบอัตลักษณ์ Axiom',
       lede:'ปก โลโก้ สี ตัวอักษร เลย์เอาต์ — 8 แผ่น ดาวน์โหลดชุดเต็มหรือเปิดดูทีละแผ่น',
       downloadCta:'ดาวน์โหลด Brand Kit',
       expandAll:'ดูแผ่นแบรนด์ทั้งหมด',
     },
-    pressSection: { kicker:'ในสื่อ', title:'อ่าน ดู ตัดสินใจ', lede:'รายงานจากภายนอกเกี่ยวกับงาน แนวคิด และระบบทั้งหมด' },
+    pressSection: { foldLine:'สื่อ · 7 บทความ · GovInsider, ASEAN Magazine, YouTube', kicker:'ในสื่อ', title:'อ่าน ดู ตัดสินใจ', lede:'รายงานจากภายนอกเกี่ยวกับงาน แนวคิด และระบบทั้งหมด' },
     pressContent: {
       p1title:'ผู้ขายปฏิเสธ เจ้าหน้าที่ไทยสร้างเครื่องมือเอง',
       p2title:'Innovation-as-a-Service ปิดช่องว่างระหว่างนโยบายกับการทำจริงได้หรือไม่',
@@ -1234,6 +1244,7 @@ const i18nExt = {
       p7title:'Middle East War Monitor — สัญญาณความขัดแย้งแบบสดทั่วภูมิภาค',
     },
     credentialsSect: {
+      foldLine:'บริษัท แอคเซี่ยม เอ็กซ์ จำกัด · เลขทะเบียน 0105569099335 · ประเทศไทย · จดทะเบียน กรมพัฒนาธุรกิจการค้า',
       kicker:'หนังสือรับรอง',
       eyebrow:'นิติบุคคล',
       title:'จดทะเบียนถูกต้องในประเทศไทย',
@@ -1487,6 +1498,7 @@ const i18nExt = {
       pb4org:'为泰国depa', pb4title:'泰国数字机构 上线了', pb4for:'智慧城市领导力 · 双语',
     },
     notesContent: {
+      foldLine:'现场笔记 · 6条经验 · 交付方式',
       kicker:'怎么搭出来的',
       title:'真做出来才学到的事',
       lede:'十一个系统 两个人 十二个月 这些是坚持下来的模式 以及那些没坚持住的 把它们放在这里 因为政府的需求和市场的供给之间那道缝 只有大家把弄明白的东西分享出来 才能慢慢闭合',
@@ -1519,14 +1531,16 @@ const i18nExt = {
       legend:'<span data-runtime="cloud">云端</span><span data-runtime="local">// local</span>',
     },
     brandSect: {
+      foldLine:'品牌工具包 · 8张 · 可下载',
       kicker:'品牌工具包',
       meta:'8 张 · Axiom 识别系统',
       lede:'封面、标志、色彩、字体、版式——八张规范。下载完整包或逐张浏览。',
       downloadCta:'下载品牌工具包',
       expandAll:'查看全部品牌规范',
     },
-    pressSection: { kicker:'媒体报道', title:'读 看 决定', lede:'外界对这些工作、论点和系统的报道' },
+    pressSection: { foldLine:'媒体报道 · 7篇 · GovInsider、东盟杂志、YouTube', kicker:'媒体报道', title:'读 看 决定', lede:'外界对这些工作、论点和系统的报道' },
     credentialsSect: {
+      foldLine:'Axiom X Co., Ltd. · 注册号 0105569099335 · 泰国 · 商务部登记',
       kicker:'资质',
       eyebrow:'法人',
       title:'在泰国合法注册',
@@ -1631,6 +1645,7 @@ const i18nExt = {
       pb4org:'for: depaThailand', pb4title:'digitalAgency.online()', pb4for:'SmartCityLeadership<Bilingual>',
     },
     notesContent: {
+      foldLine:'// fieldNotes: 6 patterns · howWeShip()',
       kicker:'// HOW_IT_GETS_BUILT',
       title:'type Lessons = LearnedByActuallyShipping',
       lede:'// 10 systems; 2 people; 12 months\n// patterns.that.held + patterns.that.didnt\n// published: because gap.closes(whenPeopleShare)',
@@ -1663,13 +1678,14 @@ const i18nExt = {
       legend:'<span data-runtime="cloud">// cloud</span><span data-runtime="local">// local</span>',
     },
     brandSect: {
+      foldLine:'// brandKit[8] · download.available()',
       kicker:'brandKit[]',
       meta:'// 8 sheets · axiom.identitySystem',
       lede:'// cover, logo, colors, type, layout — 8 sheets\n// download.zip() || browse.all()',
       downloadCta:'brandKit.download()',
       expandAll:'brandSheets.viewAll()',
     },
-    pressSection: { kicker:'// IN_THE_PRESS', title:'read() // watch() // decide()', lede:'// outside coverage: { work, thesis, systems }' },
+    pressSection: { foldLine:'// press: 7 articles · GovInsider | ASEAN | YouTube', kicker:'// IN_THE_PRESS', title:'read() // watch() // decide()', lede:'// outside coverage: { work, thesis, systems }' },
     pressContent: {
       p1title:'// vendor.refuse() → civilServant.build()',
       p2title:'// InnovationService.close(gap: PolicyToImplementation)',
@@ -1680,6 +1696,7 @@ const i18nExt = {
       p7title:'// MiddleEast.monitor(conflictSignal, live)',
     },
     credentialsSect: {
+      foldLine:'// AxiomXCoLtd · reg:0105569099335 · TH · DBD',
       kicker:'// CREDENTIALS',
       eyebrow:'entity',
       title:'legalEntity.registered(TH)',

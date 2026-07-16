@@ -195,6 +195,7 @@
       "cta2": "LEAP East 출시"
     },
     "teamSect": {
+      "foldLine": "팀 · Dr Non & Dr Poon · 창업자 2명 · 임무별 네트워크",
       "kicker": "누가 만드는가",
       "title": "두 명의 창업자. <em>중간 관리자 없음.</em>",
       "lede": "코드를 쓰고 아키텍처를 결정하는 사람과 직접 이야기합니다. UAV 운영자, 교통 엔지니어, 정책 번역가가 필요할 때만 그 임무를 위해 불러옵니다 — 상설 인력으로 두지 않습니다."
@@ -494,6 +495,7 @@
       "pb4for": "Smart City Leadership · 이중언어"
     },
     "notesContent": {
+      "foldLine": "현장 노트 · 6가지 패턴 · 출시 방식",
       "kicker": "구축 방식",
       "title": "실제로 출시하며 배운 것",
       "lede": "열한 개 시스템. 두 사람. 열두 달. 유지된 패턴과 그렇지 않은 패턴. 정부가 필요로 하는 것과 시장이 공급하는 것 사이의 간극은 사람들이 깨달은 것을 나눌 때만 좁아집니다.",
@@ -519,6 +521,7 @@
       "legend": "<span data-runtime=\"cloud\">클라우드</span><span data-runtime=\"local\">// local</span>"
     },
     "brandSect": {
+      "foldLine": "브랜드 키트 · 8장 · 다운로드 가능",
       "kicker": "브랜드 키트",
       "meta": "8장 · Axiom 아이덴티티 시스템",
       "lede": "표지, 로고, 색상, 서체, 레이아웃 — 8장. 전체 패키지를 다운로드하거나 각 시트를 둘러보세요.",
@@ -526,6 +529,7 @@
       "expandAll": "모든 브랜드 시트 보기"
     },
     "pressSection": {
+      "foldLine": "언론 · 7건 · GovInsider, ASEAN Magazine, YouTube",
       "kicker": "언론 보도",
       "title": "읽고. 보고. 결정하라.",
       "lede": "작업, 논지, 시스템에 대한 외부 보도."
@@ -540,6 +544,7 @@
       "p7title": "Middle East War Monitor — 지역 전역 실시간 분쟁 신호"
     },
     "credentialsSect": {
+      "foldLine": "Axiom X Co., Ltd. · 등록번호 0105569099335 · 태국 · DBD 등록",
       "kicker": "자격",
       "eyebrow": "법인",
       "title": "태국에 합법 등록",
@@ -945,6 +950,7 @@
       "cta2": "LEAP East ローンチ"
     },
     "teamSect": {
+      "foldLine": "チーム · Dr Non & Dr Poon · 創業者2名 · ミッション別ネットワーク",
       "kicker": "誰が構築するか",
       "title": "創業者2名。<em>中間管理なし。</em>",
       "lede": "コードを書き、アーキテクチャを決める人と直接お話しいただけます。UAVオペレーター、交通エンジニア、政策通訳が必要なときだけ、そのミッションのために招集します — 常設チームにはしません。"
@@ -1244,6 +1250,7 @@
       "pb4for": "Smart City Leadership · 二言語"
     },
     "notesContent": {
+      "foldLine": "フィールドノート · 6パターン · 出荷の仕方",
       "kicker": "構築の方法",
       "title": "実際にリリースして学んだこと",
       "lede": "11システム。2名。12か月。維持されたパターンとそうでないパターン。政府が必要とするものと市場が供給するもののギャップは、人々が学びを共有したときだけ狭まります。",
@@ -1269,6 +1276,7 @@
       "legend": "<span data-runtime=\"cloud\">クラウド</span><span data-runtime=\"local\">// local</span>"
     },
     "brandSect": {
+      "foldLine": "ブランドキット · 8シート · ダウンロード可",
       "kicker": "ブランドキット",
       "meta": "8シート · Axiomアイデンティティシステム",
       "lede": "表紙、ロゴ、カラー、タイポ、レイアウト——8シート。パッケージをダウンロードするか、各シートを閲覧。",
@@ -1276,6 +1284,7 @@
       "expandAll": "すべてのブランドシートを見る"
     },
     "pressSection": {
+      "foldLine": "報道 · 7件 · GovInsider、ASEAN Magazine、YouTube",
       "kicker": "メディア報道",
       "title": "読む。見る。判断する。",
       "lede": "業務、論点、システムに関する外部報道。"
@@ -1290,6 +1299,7 @@
       "p7title": "Middle East War Monitor — 地域全体のリアルタイム紛争シグナル"
     },
     "credentialsSect": {
+      "foldLine": "Axiom X Co., Ltd. · 登録番号 0105569099335 · タイ · DBD登録",
       "kicker": "資格",
       "eyebrow": "法人",
       "title": "タイに合法登録",
@@ -1695,6 +1705,7 @@
       "cta2": "Ra mắt LEAP East"
     },
     "teamSect": {
+      "foldLine": "Đội ngũ · Dr Non & Dr Poon · hai nhà sáng lập · mạng lưới theo nhiệm vụ",
       "kicker": "Ai xây dựng",
       "title": "Hai nhà sáng lập. <em>Không có lớp trung gian.</em>",
       "lede": "Quý vị trao đổi trực tiếp với người viết mã và quyết định kiến trúc. Khi cần điều hành viên UAV, kỹ sư giao thông hoặc chuyên gia chuyển ngữ chính sách, chúng tôi triệu tập họ cho nhiệm vụ đó — không duy trì đội ngũ cố định."
@@ -1994,6 +2005,7 @@
       "pb4for": "Smart City Leadership · Song ngữ"
     },
     "notesContent": {
+      "foldLine": "Ghi chú hiện trường · 6 mẫu · cách chúng tôi giao hàng",
       "kicker": "Cách chúng tôi xây",
       "title": "Những gì học được khi thực sự ra mắt",
       "lede": "Mười một hệ thống. Hai người. Mười hai tháng. Mẫu được giữ và mẫu không. Khoảng cách giữa điều chính phủ cần và thị trường cung chỉ thu hẹp khi mọi người chia sẻ bài học.",
@@ -2019,6 +2031,7 @@
       "legend": "<span data-runtime=\"cloud\">đám mây</span><span data-runtime=\"local\">// local</span>"
     },
     "brandSect": {
+      "foldLine": "Bộ nhận diện · 8 tờ · có thể tải xuống",
       "kicker": "Bộ nhận diện thương hiệu",
       "meta": "8 tờ · Hệ thống nhận diện Axiom",
       "lede": "Bìa, logo, màu, typography, layout — 8 tờ. Tải gói đầy đủ hoặc duyệt từng tờ.",
@@ -2026,6 +2039,7 @@
       "expandAll": "Xem tất cả brand sheet"
     },
     "pressSection": {
+      "foldLine": "Báo chí · 7 bài · GovInsider, ASEAN Magazine, YouTube",
       "kicker": "Báo chí",
       "title": "Đọc. Xem. Quyết định.",
       "lede": "Đưa tin bên ngoài về công việc, luận điểm và hệ thống."
@@ -2040,6 +2054,7 @@
       "p7title": "Middle East War Monitor — tín hiệu xung đột thời gian thực toàn khu vực"
     },
     "credentialsSect": {
+      "foldLine": "Axiom X Co., Ltd. · Mã ĐK 0105569099335 · Thái Lan · DBD",
       "kicker": "Hồ sơ pháp lý",
       "eyebrow": "Pháp nhân",
       "title": "Đăng ký hợp pháp tại Thái Lan",

@@ -4,8 +4,8 @@
    Calm, precise, dense, legible. Built for operators under pressure.
 
    Rules:
-   • One signal accent (green) for live / positive / primary action.
-   • Identity colors (navy/blue/red) never leak into general UI.
+   • One signal accent (Thai flag blue) for live / positive / primary action.
+   • Thailand flag palette: red · white · blue.
    • Red is negative data only — never buttons or headings.
    • Hairline grids. Left-aligned labels. Right-aligned numbers.
    • No gradients, shadows, glows, glass, icons, pure black/white.
@@ -29,19 +29,21 @@
   --line-2: #d2cfc5;
   /* stronger borders, structural dividers */
 
-  /* §1.2 Signal — the single UI accent */
-  --accent: #1f6e43;
-  /* signal green — live, positive, primary action */
-  --neg: #b31828;
-  /* negative data only — never buttons or headings */
+  /* §1.2 Thailand flag — red · white · blue */
+  --th-red: #a51931;
+  --th-white: #f8f7f5;
+  --th-blue: #00247d;
 
-  /* §1.3 Identity — corporate logo colors, NOT for general UI */
-  --id-navy: #161d31;
-  /* identity field / logo background */
-  --id-blue: #123ed3;
-  /* logo command tile only */
-  --id-red: #b31828;
-  /* logo risk tile only (alias of --neg) */
+  /* §1.3 Signal — the single UI accent */
+  --accent: #00247d;
+  /* flag blue — live, positive, primary action */
+  --neg: #a51931;
+  /* flag red — negative data only */
+
+  /* §1.4 Identity — corporate logo colors */
+  --id-navy: #00247d;
+  --id-blue: #00247d;
+  --id-red: #a51931;
 
   /* §1.4 neutral fills for categories */
   --fill-1: #8f8b80;
@@ -214,6 +216,27 @@ img {
   z-index: 50;
   background: var(--paper);
   border-bottom: 1px solid var(--line-2);
+}
+
+.flag-stripe {
+  display: flex;
+  height: 3px;
+  width: 100%;
+}
+
+.flag-stripe span {
+  flex: 1;
+  background: var(--th-red);
+}
+
+.flag-stripe span:nth-child(2),
+.flag-stripe span:nth-child(4) {
+  background: var(--th-white);
+}
+
+.flag-stripe span:nth-child(3) {
+  flex: 2;
+  background: var(--th-blue);
 }
 
 .masthead__inner {
@@ -558,7 +581,7 @@ img {
 }
 
 /* ============================================================
-   §4.7 BUTTONS — flat, square, no radius, green for primary
+   §4.7 BUTTONS — flat, square, no radius, flag blue for primary
    ============================================================ */
 
 .btn {
@@ -583,7 +606,7 @@ img {
 }
 
 .btn--primary:hover {
-  background: #1a5c39;
+  background: #001a5c;
 }
 
 .btn--ghost {
@@ -1816,7 +1839,7 @@ img {
 }
 
 .cred-plate {
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
 .cred-plate .row__v {
@@ -1966,4 +1989,103 @@ img {
   .brand-preview {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================================
+   §4.10 FOLD ROWS — one-line about-us sections
+   ============================================================ */
+
+.section--fold {
+  padding: 0;
+}
+
+.fold-strip {
+  border: 1px solid var(--line-2);
+  background: var(--panel);
+  margin: calc(var(--gap) * 0.75) 0;
+}
+
+.fold-strip .section--fold .wrap {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  max-width: none;
+}
+
+.fold-strip .fold-row {
+  border-bottom: 1px solid var(--line);
+}
+
+.fold-strip .section--fold:last-child .fold-row {
+  border-bottom: none;
+}
+
+.fold-row {
+  border: 1px solid var(--line-2);
+  background: var(--panel);
+}
+
+.fold-strip .fold-row {
+  border: none;
+  border-radius: 0;
+}
+
+.fold-row__summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-2);
+  list-style: none;
+  user-select: none;
+}
+
+.fold-row__summary::-webkit-details-marker {
+  display: none;
+}
+
+.fold-row__summary::after {
+  content: "+";
+  margin-left: auto;
+  padding-left: 12px;
+  flex-shrink: 0;
+  font-family: ui-monospace, monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.fold-row[open] > .fold-row__summary {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+}
+
+.fold-row[open] > .fold-row__summary::after {
+  content: "−";
+}
+
+.fold-row__summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.fold-row__body {
+  padding: 16px;
+}
+
+.fold-row__body .s-head:first-child {
+  margin-top: 0;
+}
+
+.section--fold:not(.fold-strip .section--fold) {
+  margin: calc(var(--gap) * 0.75) 0;
+}
+
+.section--fold:not(.fold-strip .section--fold) .fold-row {
+  width: min(var(--maxw), calc(100% - (var(--pad) * 2)));
+  margin: 0 auto;
 }
