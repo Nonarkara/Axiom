@@ -312,17 +312,29 @@ public/
 
 ## Anti-Regression Note
 
-This site has a documented history (`CLAUDE.md`) of being silently overwritten by AI coding assistants defaulting to generic templates. Several elements are permanent and must never be removed or "simplified":
+This site has a documented history (`CLAUDE.md`) of being silently overwritten by AI coding assistants defaulting to generic templates. On 2026-04-22, a single commit removed 81 lines and destroyed the live map, satellite HUD, canvas animation, and `[EVENT_ID]` sections. These elements are permanent and must never be removed or "simplified":
 
 - The Leaflet map with AUTO TOUR loop
 - The satellite HUD with coordinate overlays
 - The Canvas 2D background animation
 - The rotating headline carousel
-- The `[EVENT_ID]` protocol sections (SCSE_2026_TPE / GITEX_ASIA_2026_SGP)
-- The mono-amber palette — `border-radius: 0 !important`, zero gradients, zero pastels
-- The `data-theme="masterpiece"` attribute on `<html>`
+- The city-node strip (Bangkok / Phuket / Middle East / SE Asia)
+- The `[EVENT_ID]` protocol sections (SCSE_2026_TPE / GITEX_ASIA_2026_SGP / FLOODDASH_LIVE)
+- The mono-accent palette — `border-radius: 0 !important`, zero gradients, zero drop shadows
+- The 7-locale switch (EN / TH / ZH / KO / JA / VI / TS) wired through `app.js` + `i18n-regional.js`
 
-Last known-good rich version: commit `ee756b7`. Recovery: `git show ee756b7:public/index.html`
+Current accent: **Thailand flag blue `#00247d`** on warm paper `#faf9f7`. Negative data: flag red `#a51931`. These three colors and the 3px masthead stripe (red · white · blue) are the project signature.
+
+**Note on `data-theme="masterpiece"`:** historically the `<html>` carried this attribute and `theme-masterpiece.css` was linked. The August 2026 hero recovery (`8bdf126`) deliberately did *not* re-impose the masterpiece dark theme globally — that would have undone the user's deliberate Thailand-flag light aesthetic. The `theme-masterpiece.css` file is kept on disk for reference. See `AGENTS.md` §4 for the full anti-regression list.
+
+**Recovery references** (in order of preference):
+
+```bash
+git show 8bdf126:public/index.html   # current HEAD — full hero + Thailand-flag theme
+git show ee756b7:public/index.html   # 2026-04-22 last-known-good before the Codex Incident
+```
+
+See [`QUICKSTART.md`](./QUICKSTART.md) to run this locally, [`AGENTS.md`](./AGENTS.md) for AI-agent context, and [`FINANCE.md`](./FINANCE.md) for the founder-finance framework.
 
 ---
 
