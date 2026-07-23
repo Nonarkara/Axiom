@@ -3,15 +3,17 @@
    dashboard). Re-themed to match the current Thailand-flag /
    light-paper aesthetic. No gradients. No rounded corners.
 
-   Stack:
+   Stack (z-index must be integer):
      z=0  #hero  (paper frame)
      z=1  #heroMap (Leaflet dark tiles)
      z=2  #heroCanvas (data lines / grid)
-     z=3  HUD chrome (city label, sat-hud, intel overlays,
+     z=3  .hero-featured-bg (rotating system screenshots)
+     z=4  HUD chrome (city label, sat-hud, intel overlays,
           sat-controls, map-mode, map-explore-hint, axes)
-     z=4  .hero-content (badge, title, subtitle, actions,
+     z=5  .hero-featured-badge (the FEATURED panel)
+     z=6  .hero-content (badge, title, subtitle, actions,
           node strip, stats)
-     z=5  .hero-scroll-indicator
+     z=7  .hero-scroll-indicator
 
    Variables are inherited from :root in rams.css.
    ============================================================ */
@@ -763,7 +765,7 @@
 .hero-featured-bg {
   position: absolute;
   inset: 0;
-  z-index: 2.5;        /* between canvas (z=2) and HUD chrome (z=3) */
+  z-index: 3;         /* above canvas (z=2); below HUD chrome (z=4) */
   pointer-events: none;
   overflow: hidden;
 }
@@ -806,7 +808,7 @@
   position: absolute;
   bottom: 32px;
   left: 32px;
-  z-index: 5;
+  z-index: 6;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
