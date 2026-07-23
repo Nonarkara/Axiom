@@ -492,7 +492,10 @@
       "pb3for": "호니아라 · 2일 워크숍",
       "pb4org": "태국 depa를 위해",
       "pb4title": "태국 디지털 기관, <em>온라인.</em>",
-      "pb4for": "Smart City Leadership · 이중언어"
+      "pb4for": "Smart City Leadership · 이중언어",
+      "pb5org": "depa · US DOT",
+      "pb5title": "현장에서 소프트웨어로. <em>도시 시스템 툴킷.</em>",
+      "pb5for": "미국-아세안 스마트 시티 파트너십"
     },
     "notesContent": {
       "foldLine": "현장 노트 · 6가지 패턴 · 출시 방식",
@@ -1247,7 +1250,10 @@
       "pb3for": "ホニアラ · 2日ワークショップ",
       "pb4org": "タイ depa のために",
       "pb4title": "タイのデジタル機関、<em>オンライン。</em>",
-      "pb4for": "Smart City Leadership · 二言語"
+      "pb4for": "Smart City Leadership · 二言語",
+      "pb5org": "depa · US DOT",
+      "pb5title": "フィールドワークからソフトウェアへ。<em>都市システムツールキット。</em>",
+      "pb5for": "米国・ASEANスマートシティ・パートナーシップ"
     },
     "notesContent": {
       "foldLine": "フィールドノート · 6パターン · 出荷の仕方",
@@ -2002,7 +2008,10 @@
       "pb3for": "Honiara · Workshop 2 ngày",
       "pb4org": "Cho depa Thái Lan",
       "pb4title": "Cơ quan số Thái Lan, <em>trực tuyến.</em>",
-      "pb4for": "Smart City Leadership · Song ngữ"
+      "pb4for": "Smart City Leadership · Song ngữ",
+      "pb5org": "depa · US DOT",
+      "pb5title": "Từ thực địa đến phần mềm. <em>Bộ công cụ hệ thống đô thị.</em>",
+      "pb5for": "Đối tác Thành phố Thông minh Mỹ - ASEAN"
     },
     "notesContent": {
       "foldLine": "Ghi chú hiện trường · 6 mẫu · cách chúng tôi giao hàng",

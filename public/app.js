@@ -883,6 +883,7 @@ const i18nExt = {
       pb2org:'ASEAN · UNDP · UN-Habitat', pb2title:'112,000 users. Born from real flooding.', pb2for:'ASEAN CSCO Handbook',
       pb3org:'UN DESA · Solomon Islands Gov.', pb3title:'Whole-of-government digital roadmap.', pb3for:'Honiara · Two-day workshop',
       pb4org:'For depa Thailand', pb4title:'Thailand\'s digital agency, online.', pb4for:'Smart City Leadership · Bilingual',
+      pb5org:'depa · US DOT', pb5title:'Fieldwork to software. City systems toolkit.', pb5for:'US-ASEAN Smart Cities Partnership',
     },
     notesContent: {
       foldLine:'Field notes · 6 patterns · how we ship',
@@ -1191,6 +1192,7 @@ const i18nExt = {
       pb2org:'ASEAN · UNDP · UN-Habitat', pb2title:'112,000 ผู้ใช้ เกิดจากน้ำท่วมจริง', pb2for:'ASEAN CSCO Handbook',
       pb3org:'UN DESA · รัฐบาลหมู่เกาะโซโลมอน', pb3title:'โรดแมปดิจิทัลทั่วทั้งรัฐบาล', pb3for:'โฮนีอารา · workshop สองวัน',
       pb4org:'สำหรับ depa ประเทศไทย', pb4title:'หน่วยงานดิจิทัลของไทย ออนไลน์แล้ว', pb4for:'Smart City Leadership · สองภาษา',
+      pb5org:'depa · US DOT', pb5title:'จากภาคสนามสู่ซอฟต์แวร์ ชุดเครื่องมือระบบเมือง', pb5for:'พันธมิตรเมืองอัจฉริยะ สหรัฐฯ-อาเซียน',
     },
     notesContent: {
       foldLine:'บันทึกภาคสนาม · 6 บทเรียน · วิธีส่งมอบ',
@@ -1496,6 +1498,7 @@ const i18nExt = {
       pb2org:'东盟 · UNDP · UN-Habitat', pb2title:'112,000用户 起源于真实的洪灾', pb2for:'东盟CSCO手册',
       pb3org:'联合国经社部 · 所罗门群岛政府', pb3title:'覆盖整个政府的数字化路线图', pb3for:'霍尼亚拉 · 两天工作坊',
       pb4org:'为泰国depa', pb4title:'泰国数字机构 上线了', pb4for:'智慧城市领导力 · 双语',
+      pb5org:'depa · US DOT', pb5title:'从田野到软件 城市系统工具包', pb5for:'美-东盟智慧城市伙伴关系',
     },
     notesContent: {
       foldLine:'现场笔记 · 6条经验 · 交付方式',
@@ -1643,6 +1646,7 @@ const i18nExt = {
       pb2org:'ASEAN + UNDP + UNHabitat', pb2title:'users: 112_000 // born: realFlooding', pb2for:'ASEAN CSCO Handbook',
       pb3org:'UNDESA + SolomonIslandsGov', pb3title:'digital.roadmap: wholeOfGovernment', pb3for:'Honiara<Workshop, 2days>',
       pb4org:'for: depaThailand', pb4title:'digitalAgency.online()', pb4for:'SmartCityLeadership<Bilingual>',
+      pb5org:'depa<USDOT>', pb5title:'fieldworkToSoftware(toolkit)', pb5for:'US_ASEAN_SmartCitiesPartnership',
     },
     notesContent: {
       foldLine:'// fieldNotes: 6 patterns · howWeShip()',
