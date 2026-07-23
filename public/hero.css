@@ -592,6 +592,14 @@
   margin-top: 22px;
   width: 100%;
   max-width: 720px;
+  /* leave room for the FEATURED badge at bottom-left on wide screens */
+  margin-left: clamp(0px, calc(100vw - 1440px), 480px);
+}
+
+@media (min-width: 1280px) {
+  .hero-node-strip {
+    margin-left: 460px;
+  }
 }
 
 .hero-node-strip-label {
