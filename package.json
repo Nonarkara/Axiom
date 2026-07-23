@@ -9,9 +9,7 @@
     "start": "node server.mjs",
     "dev": "PORT=3000 node server.mjs",
     "export:evidence": "node scripts/export-evidence-snapshot.mjs",
-    "qa:links": "node .qa/release-audit.mjs",
-    "qa:visual": "node .qa/visual-qa.mjs",
-    "check": "node --check server.mjs && node --check public/app.js && node --check public/admin/app.js && node --check scripts/export-evidence-snapshot.mjs && node --check .qa/release-audit.mjs && node --check .qa/visual-qa.mjs"
+    "check": "node --check server.mjs && node --check public/app.js && node --check public/admin/app.js && node --check scripts/export-evidence-snapshot.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
