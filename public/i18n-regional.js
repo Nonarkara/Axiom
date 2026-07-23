@@ -18,7 +18,15 @@
       "nodeLabel": "Tap a live system",
       "statSystems": "Live Systems",
       "statMonitoring": "Live Monitoring",
-      "statCountries": "Countries"
+      "statCountries": "Countries",
+      "featured": {
+        "kicker": "FEATURED",
+        "event": "EVENT_ID: FLOODDASH_LIVE",
+        "name": "FloodDash",
+        "lede": "Thailand flood watch · 24/7 live · 9 sources",
+        "cta": "Open live system",
+        "counter": "slide {current} of {total}"
+      }
     },
     "engagement": {
       "tag": "Operating Model",
@@ -517,7 +525,7 @@
       "stackNote": "로컬 우선. 빌드 팀 없음. 벤더 락인 없음. M5 Max가 방콕 한 책상에서 추론, 빌드, 배포를 실행합니다."
     },
     "builtStack": {
-      "meta": "109개 도구 · 9계층",
+      "meta": "114개 도구 · 9계층",
       "expandFull": "전체 기술 스택 보기",
       "l9name": "로컬 런타임",
       "l9role": "작업 데스크",
@@ -699,15 +707,15 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "22개 시스템 · 5개국",
-      "command": "지휘",
-      "commandMeta": "실시간 운영실 · 10",
+      "sysMeta": "28개 시스템 · 5개국",
+      "command": "도시 대시보드",
+      "commandMeta": "실시간 도시 운영실 및 환경 관측 · 12",
       "intelligence": "인텔리전스",
-      "intelligenceMeta": "신호 및 분석 · 5",
+      "intelligenceMeta": "신호 및 분석 · 4",
       "civic": "시민",
       "civicMeta": "국가 플랫폼 및 시민 인프라 · 5",
       "emerging": "신규",
-      "emergingMeta": "연구급 및 새 운영 모델 · 6"
+      "emergingMeta": "연구급 및 새 운영 모델 · 8"
     },
     "sysStatus": {
       "live": "라이브",
@@ -776,7 +784,15 @@
       "nodeLabel": "Tap a live system",
       "statSystems": "Live Systems",
       "statMonitoring": "Live Monitoring",
-      "statCountries": "Countries"
+      "statCountries": "Countries",
+      "featured": {
+        "kicker": "FEATURED",
+        "event": "EVENT_ID: FLOODDASH_LIVE",
+        "name": "FloodDash",
+        "lede": "Thailand flood watch · 24/7 live · 9 sources",
+        "cta": "Open live system",
+        "counter": "slide {current} of {total}"
+      }
     },
     "engagement": {
       "tag": "Operating Model",
@@ -1275,7 +1291,7 @@
       "stackNote": "ローカルファースト。ビルドチームなし。ベンダーロックインなし。M5 MaxがBangkokの1つのデスクから推論、ビルド、デプロイを実行します。"
     },
     "builtStack": {
-      "meta": "109ツール · 9層",
+      "meta": "114ツール · 9層",
       "expandFull": "技術スタック全体を見る",
       "l9name": "ローカルランタイム",
       "l9role": "作業机",
@@ -1457,15 +1473,15 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "22システム · 5か国",
-      "command": "コマンド",
-      "commandMeta": "リアルタイム運用室 · 10",
+      "sysMeta": "28システム · 5か国",
+      "command": "シティダッシュボード",
+      "commandMeta": "リアルタイム都市運用室と環境観測 · 12",
       "intelligence": "インテリジェンス",
-      "intelligenceMeta": "シグナルと分析 · 5",
+      "intelligenceMeta": "シグナルと分析 · 4",
       "civic": "シビック",
       "civicMeta": "国家プラットフォームと市民インフラ · 5",
       "emerging": "新興",
-      "emergingMeta": "研究グレードと新運用モデル · 6"
+      "emergingMeta": "研究グレードと新運用モデル · 8"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -1534,7 +1550,15 @@
       "nodeLabel": "Tap a live system",
       "statSystems": "Live Systems",
       "statMonitoring": "Live Monitoring",
-      "statCountries": "Countries"
+      "statCountries": "Countries",
+      "featured": {
+        "kicker": "FEATURED",
+        "event": "EVENT_ID: FLOODDASH_LIVE",
+        "name": "FloodDash",
+        "lede": "Thailand flood watch · 24/7 live · 9 sources",
+        "cta": "Open live system",
+        "counter": "slide {current} of {total}"
+      }
     },
     "engagement": {
       "tag": "Operating Model",
@@ -2033,7 +2057,7 @@
       "stackNote": "Local-first. Không đội build. Không vendor lock-in. M5 Max chạy suy luận, build và deploy từ một bàn làm việc tại Bangkok."
     },
     "builtStack": {
-      "meta": "109 công cụ · 9 tầng",
+      "meta": "114 công cụ · 9 tầng",
       "expandFull": "Xem toàn bộ technology stack",
       "l9name": "Runtime cục bộ",
       "l9role": "bàn làm việc",
@@ -2215,15 +2239,15 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "22 hệ thống · 5 quốc gia",
-      "command": "Chỉ huy",
-      "commandMeta": "Phòng vận hành thời gian thực · 10",
+      "sysMeta": "28 hệ thống · 5 quốc gia",
+      "command": "Bảng điều khiển thành phố",
+      "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 12",
       "intelligence": "Tình báo",
-      "intelligenceMeta": "Tín hiệu và phân tích · 5",
+      "intelligenceMeta": "Tín hiệu và phân tích · 4",
       "civic": "Công dân",
       "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 5",
       "emerging": "Mới nổi",
-      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 6"
+      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 8"
     },
     "sysStatus": {
       "live": "Trực tiếp",

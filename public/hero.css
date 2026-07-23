@@ -751,3 +751,180 @@
     animation: none !important;
   }
 }
+
+/* ============================================================
+   HERO FEATURED — rotating system behind the headline.
+   When a system is worthy of the front page, it lives here.
+   Three rotating screenshots, low opacity, cross-fade every 6s.
+   A small badge in the top-right says what's featured.
+   ============================================================ */
+
+.hero-featured-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 3;          /* above map + canvas (z=1, z=2); below content (z=4) */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-featured-bg__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 28%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1400ms ease-in-out, transform 12s linear;
+  filter: saturate(0.65) contrast(0.95) brightness(0.85);
+  will-change: opacity, transform;
+}
+
+.hero-featured-bg__slide.is-active {
+  opacity: 0.22;        /* light enough to see, not enough to distract */
+  transform: scale(1.0);
+}
+
+/* soft top-bottom gradient to keep text legible */
+.hero-featured-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.15) 35%,
+      rgba(0, 0, 0, 0.20) 65%,
+      rgba(0, 0, 0, 0.65) 100%),
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.10) 35%,
+      rgba(0, 0, 0, 0.10) 65%,
+      rgba(0, 0, 0, 0.55) 100%);
+  z-index: 1;
+}
+
+/* FEATURED badge — top-right, above the hero content layer */
+.hero-featured-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 14px 16px 12px;
+  min-width: 240px;
+  max-width: 320px;
+  background: rgba(0, 0, 0, 0.78);
+  border: 1px solid var(--accent);
+  color: var(--paper);
+  font-family: var(--mono, 'IBM Plex Mono', monospace);
+  text-decoration: none;
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.hero-featured-badge:hover {
+  background: rgba(0, 0, 0, 0.92);
+  transform: translateY(-1px);
+}
+
+.hero-featured-badge__kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.hero-featured-badge__kicker::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  display: inline-block;
+}
+
+.hero-featured-badge__event {
+  font-size: 9px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.55;
+  margin-top: 2px;
+}
+
+.hero-featured-badge__name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  margin-top: 4px;
+}
+
+.hero-featured-badge__lede {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--paper);
+  opacity: 0.85;
+  font-family: var(--body, 'IBM Plex Sans', system-ui, sans-serif);
+}
+
+.hero-featured-badge__cta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.hero-featured-badge__cta .tri {
+  transition: transform 200ms ease;
+}
+
+.hero-featured-badge:hover .hero-featured-badge__cta .tri {
+  transform: translateX(3px);
+}
+
+.hero-featured-badge__counter {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.45;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-featured-badge__dot {
+  width: 5px;
+  height: 5px;
+  background: var(--paper);
+  opacity: 0.3;
+}
+
+.hero-featured-badge__dot.is-active {
+  background: var(--accent);
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .hero-featured-badge {
+    top: auto;
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    min-width: 0;
+    max-width: none;
+  }
+}

@@ -25,6 +25,14 @@ const uiCopy = {
       statSystems: 'Live Systems',
       statMonitoring: 'Live Monitoring',
       statCountries: 'Countries',
+      featured: {
+        kicker: 'FEATURED',
+        event: 'EVENT_ID: FLOODDASH_LIVE',
+        name: 'FloodDash',
+        lede: 'Thailand flood watch · 24/7 live · 9 sources',
+        cta: 'Open live system',
+        counter: 'slide {current} of {total}',
+      },
     },
     engagement: {
       tag: 'Operating Model',
@@ -192,6 +200,14 @@ const uiCopy = {
       statSystems: 'ระบบที่ใช้งาน',
       statMonitoring: 'ติดตามตลอดเวลา',
       statCountries: 'ประเทศ',
+      featured: {
+        kicker: 'ไฮไลต์',
+        event: 'EVENT_ID: FLOODDASH_LIVE',
+        name: 'FloodDash',
+        lede: 'เฝ้าน้ำท่วมไทย · สด 24/7 · 9 แหล่ง',
+        cta: 'เปิดระบบสด',
+        counter: 'ภาพ {current}/{total}',
+      },
     },
     engagement: {
       tag: 'โมเดลการทำงาน',
@@ -526,6 +542,14 @@ const uiCopy = {
       statSystems: 'LiveSystem[]',
       statMonitoring: 'readonly 24/7',
       statCountries: 'Country<T>',
+      featured: {
+        kicker: '// FEATURED',
+        event: 'EVENT_ID: FLOODDASH_LIVE',
+        name: 'FloodDash',
+        lede: '// thailand.floodWatch // live.24/7 // sources: 9',
+        cta: 'system.open()',
+        counter: '// slide: {current}/{total}',
+      },
     },
     engagement: {
       tag: '// OPERATING_MODEL',
@@ -852,6 +876,14 @@ const i18nExt = {
         lede: 'SME finance intelligence — balance sheet as signal, cash runway, bank scorecard, and composite finance indices (Ikigai, Lean, Zero, Default, Solvency). Development-stage research prototype; screenshots only — ABC Company Limited is fictitious mock data. No live deployment yet.',
         cta: 'View research repo',
       },
+      p27: {
+        lede: 'AirDash is a 24/7 Thailand air quality and dust watch — province watch ranking, 3-day CAMS-minus-rain forecast, top-5 AT-risk and PM2.5 provinces, washout logic, and a national pattern donut on one surface. Built so every Thai province can read the same air picture from the same public data.',
+        cta: 'Open live system',
+      },
+      p28: {
+        lede: 'The FloodDash Blueprint is the open research companion to the live Thailand Flood Watch — sensor network, drainage logic, AI flood prediction, response playbooks, and the full data-to-decision pipeline laid out for any city to read, fork, and adapt. The blueprint that makes the system replicable, not a one-off.',
+        cta: 'View on GitHub',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -905,7 +937,7 @@ const i18nExt = {
       stackNote:'Local-first. No build team. No vendor lock-in. The M5 Max runs inference, builds, and deploys from one desk in Bangkok.',
     },
     builtStack: {
-      heading:'Built with', meta:'109 tools · 9 layers',
+      heading:'Built with', meta:'114 tools · 9 layers',
       expandFull:'Full technology stack',
       l1name:'Cloud Infrastructure', l1role:'where it runs',
       l2name:'Framework & Connectors', l2role:'what wires it',
@@ -1160,6 +1192,14 @@ const i18nExt = {
         name: 'Ikigai Finance Engine',
         lede: 'ข่าวกรองการเงินสำหรับ SME — งบดุลเป็นสัญญาณ เงินสดคงเหลือ runway สกอร์การ์ดธนาคาร และดัชนีการเงินรวม (Ikigai, Lean, Zero, Default, Solvency) ต้นแบบวิจัยระหว่างพัฒนา มีเฉพาะภาพหน้าจอ — ABC Company Limited เป็นข้อมูลจำลอง ยังไม่มีการ deploy สาธารณะ',
         cta: 'ดู research repo',
+      },
+      p27: {
+        lede: 'AirDash คือระบบเฝ้าคุณภาพอากาศและฝุ่นของไทย 24/7 — อันดับจังหวัดเสี่ยง 3 วัน พยากรณ์ CAMS ลบ rain washout, 5 จังหวัดเสี่ยง AT-risk และ PM2.5, donut รูปแบบทั้งประเทศ บนหน้าจอเดียว เพื่อให้ทุกจังหวัดอ่านภาพอากาศเดียวกันจากข้อมูลสาธารณะชุดเดียวกัน',
+        cta: 'เปิดระบบสด',
+      },
+      p28: {
+        lede: 'FloodDash Blueprint คือคู่มือวิจัยเปิดของระบบเฝ้าน้ำท่วมไทย — เครือข่ายเซ็นเซอร์ ตรรกะท่อระบายน้ำ AI พยากรณ์น้ำท่วม คู่มือตอบสนอง และ pipeline ข้อมูล-สู่-การตัดสินใจครบชุด ให้ทุกเมืองอ่าน fork และปรับใช้ เพื่อให้ระบบทำซ้ำได้ ไม่ใช่ one-off',
+        cta: 'ดูบน GitHub',
       },
     },
     stagesContent: {
@@ -1467,6 +1507,14 @@ const i18nExt = {
         lede: '中小企业金融情报——资产负债表即信号、现金跑道、银行评分卡与综合金融指数（Ikigai、Lean、Zero、Default、Solvency）。开发阶段研究原型，仅提供截图——ABC Company Limited 为虚构演示数据，尚无公开部署。',
         cta: '查看研究仓库',
       },
+      p27: {
+        lede: 'AirDash 是 24/7 泰国空气质量与粉尘监测——省份关注度排名、3 天 CAMS 减雨预报、AT-risk 与 PM2.5 前 5 省份、雨洗逻辑、全国模式环图，全部在一张界面上。让每个泰国省份从同一份公开数据看到同一张空气质量图。',
+        cta: '打开在线系统',
+      },
+      p28: {
+        lede: 'FloodDash Blueprint 是泰国洪水监测的开放研究配套——传感网络、排水逻辑、AI 洪水预测、响应剧本，以及完整的数据到决策流水线，向所有城市开放阅读、复用与适配。让系统可被复制，而不是一次性交付。',
+        cta: '在 GitHub 查看',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -1615,6 +1663,14 @@ const i18nExt = {
         lede: '// SME.financeIntel: balanceSheet.asSignal + cashRunway + bankScorecard\n// indices: { Ikigai, Lean, Zero, Default, Solvency }\n// status: dev.stage // screenshots.only\n// ABCCompanyLtd: fictitious.mockData // !liveDeployment',
         cta: 'researchRepo.open()',
       },
+      p27: {
+        lede: '// AirDash = thailand.aqDust.watch(24/7)\n// provinceRanking + 3day.CAMSminusRain + top5.AT-risk + top5.PM25\n// + washoutLogic + nationalPatternDonut\n// every.province.reads(sameAirPicture // from publicData)',
+        cta: 'system.open()',
+      },
+      p28: {
+        lede: '// FloodDash.Blueprint = open.research.companion\n// sensors + drainageLogic + AI.predict() + responsePlaybooks\n// + data.to.decision.pipeline(complete)\n// cities: read.fork.adapt // system.replicable(not one-off)',
+        cta: 'github.open()',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -1668,8 +1724,8 @@ const i18nExt = {
       stackNote:'localFirst: true\nbuildTeam: never[]\nvendorLockIn: false\nM5Max.runs({ inference, builds, deploys })\n// location: oneDeskInBangkok',
     },
     builtStack: {
-      heading:'buildStack[]', meta:'// 109 tools, 9 layers',
-      expandFull:'stack.expandAll() // 109 tools, 9 layers',
+      heading:'buildStack[]', meta:'// 114 tools, 9 layers',
+      expandFull:'stack.expandAll() // 114 tools, 9 layers',
       l1name:'infra.cloud()', l1role:'// runtime host',
       l2name:'framework.connect()', l2role:'// the wiring',
       l3name:'platform.build()', l3role:'// dev surface',
@@ -1780,6 +1836,8 @@ const i18nExt2 = {
       p15:'Live · 5 cities',
       p16:'Live · Chonburi EEC',
       p17:'Live · Thai docs',
+      p27:'Live · 24/7 Air Watch',
+      p28:'Open Blueprint · GitHub',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -1791,7 +1849,9 @@ const i18nExt2 = {
       c13:'Campus Intelligence', c14:'Market Intelligence',
       c15:'City Intelligence',
       c16:'Coastal Intelligence', c17:'Document Intelligence',
-      c18:'Metropolitan Operations', c20:'Capability Lab', c23:'Digital Humanities', c25:'Finance Intelligence',
+      c18:'Metropolitan Operations', c19:'Environmental Watch',
+      c20:'Capability Lab', c23:'Digital Humanities', c25:'Finance Intelligence',
+      c26:'Open Blueprint',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -1842,9 +1902,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '22 systems · 5 countries',
-      command: 'Command',
-      commandMeta: 'Real-time operations rooms · 10',
+      sysMeta: '28 systems · 5 countries',
+      command: 'City Dashboards',
+      commandMeta: 'Real-time city operations rooms & environmental watch · 12',
       intelligence: 'Intelligence',
       intelligenceMeta: 'Signal & analysis · 5',
       civic: 'Civic',
@@ -1881,6 +1941,8 @@ const i18nExt2 = {
       p15:'สด · 5 เมือง',
       p16:'สด · Chonburi EEC',
       p17:'สด · เอกสารไทย',
+      p27:'สด · เฝ้าอากาศ 24/7',
+      p28:'Blueprint เปิด · GitHub',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -1892,7 +1954,9 @@ const i18nExt2 = {
       c13:'ข่าวกรองวิทยาเขต', c14:'ข่าวกรองตลาด',
       c15:'ข่าวกรองเมือง',
       c16:'ข่าวกรองชายฝั่ง', c17:'ข่าวกรองเอกสาร',
-      c18:'ปฏิบัติการมหานคร', c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล', c25:'ข่าวกรองการเงิน',
+      c18:'ปฏิบัติการมหานคร', c19:'เฝ้าสิ่งแวดล้อม',
+      c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล', c25:'ข่าวกรองการเงิน',
+      c26:'Blueprint เปิด',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -1943,9 +2007,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '21 ระบบ · 5 ประเทศ',
-      command: 'บัญชาการ',
-      commandMeta: 'ห้องปฏิบัติการแบบเรียลไทม์ · 10',
+      sysMeta: '28 ระบบ · 5 ประเทศ',
+      command: 'แดชบอร์ดเมือง',
+      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 12',
       intelligence: 'ข่าวกรอง',
       intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 5',
       civic: 'พลเมือง',
@@ -1982,6 +2046,8 @@ const i18nExt2 = {
       p15:'实时 · 5座城市',
       p16:'实时 · 春武里EEC',
       p17:'实时 · 泰国文档',
+      p27:'实时 · 24/7空气质量',
+      p28:'开放蓝图 · GitHub',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -1991,7 +2057,9 @@ const i18nExt2 = {
       c13:'校园智能', c14:'市场智能',
       c15:'城市智能',
       c16:'海岸智能', c17:'文档智能',
-      c18:'都会运营', c20:'能力实验室', c23:'数字人文', c25:'金融情报',
+      c18:'都会运营', c19:'环境监测',
+      c20:'能力实验室', c23:'数字人文', c25:'金融情报',
+      c26:'开放蓝图',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2042,9 +2110,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '21 个系统 · 5 个国家',
-      command: '指挥',
-      commandMeta: '实时作战室 · 10',
+      sysMeta: '28 个系统 · 5 个国家',
+      command: '城市仪表板',
+      commandMeta: '实时城市作战室与环境监测 · 12',
       intelligence: '情报',
       intelligenceMeta: '信号与分析 · 5',
       civic: '民生',
@@ -2090,6 +2158,8 @@ const i18nExt2 = {
       p15:'live: 5cities',
       p16:'live: ChonburiEEC',
       p17:'live: ThaiDocs',
+      p27:'live: airWatch.24_7',
+      p28:'openBlueprint: github',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -2099,7 +2169,9 @@ const i18nExt2 = {
       c13:'CampusIntel', c14:'MarketIntel',
       c15:'CityIntel',
       c16:'CoastalIntel', c17:'DocumentIntel',
-      c18:'MetroOps', c20:'CapabilityLab', c23:'DigitalHumanities', c25:'FinanceIntel',
+      c18:'MetroOps', c19:'EnvWatch',
+      c20:'CapabilityLab', c23:'DigitalHumanities', c25:'FinanceIntel',
+      c26:'OpenBlueprint',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -2150,9 +2222,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '22 systems · 5 countries',
-      command: 'Command',
-      commandMeta: 'opsRooms.realtime · count[10]',
+      sysMeta: '28 systems · 5 countries',
+      command: 'CityDashboards',
+      commandMeta: 'cityOps.realtime & envWatch · count[12]',
       intelligence: 'Intelligence',
       intelligenceMeta: 'signal & analysis · count[5]',
       civic: 'Civic',
@@ -2381,6 +2453,37 @@ function initFlooddashCarousel() {
   syncPauseBtn();
   arm();
 }
+
+// ── Hero featured carousel — rotates background screenshots ────────────────
+(function initHeroFeatured() {
+  const bg = document.getElementById('heroFeaturedBg');
+  if (!bg) return;
+  const slides = Array.from(bg.querySelectorAll('[data-featured-slide]'));
+  const dots = Array.from(document.querySelectorAll('[data-featured-dot]'));
+  if (slides.length < 2) return;
+  const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const INTERVAL = isReduced ? 12000 : 6000;
+  let idx = 0;
+  let timer = null;
+  function show(n) {
+    idx = (n + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+  }
+  function tick() { show(idx + 1); }
+  function arm() {
+    if (timer) clearInterval(timer);
+    if (isReduced) return;
+    timer = setInterval(tick, INTERVAL);
+  }
+  // Pause when tab hidden so the cycle doesn't burn cycles
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { if (timer) clearInterval(timer); }
+    else arm();
+  });
+  arm();
+})();
+
 (function initSatelliteHero() {
   const container = document.getElementById('heroMap');
   if (!container || !window.L) return;

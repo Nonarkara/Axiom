@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Axiom — Smart-City Dashboards & GovTech Systems for Governments</title>
   <meta name="description"
-    content="Smart-city dashboards and GovTech decision systems that run in production, not slideware — plus keynotes that ship live on stage. By Dr Non Arkaraprasertkul (depa). 24 live systems across ASEAN.">
+    content="Smart-city dashboards and GovTech decision systems that run in production, not slideware — plus keynotes that ship live on stage. By Dr Non Arkaraprasertkul (depa). 28 live systems across 5 countries.">
   <meta name="keywords"
     content="smart city dashboard, government dashboard, govtech, urban intelligence, city operations centre, decision systems, geospatial dashboard, smart city consultant, smart city keynote speaker, Dr Non Arkaraprasertkul, depa, ASEAN smart cities, เมืองอัจฉริยะ, แดชบอร์ดเมืองอัจฉริยะ, ที่ปรึกษาสมาร์ทซิตี้, วิทยากรสมาร์ทซิตี้, ระบบข้อมูลรัฐบาล">
   <meta name="author" content="Dr Non Arkaraprasertkul · Axiom">
@@ -19,7 +19,7 @@
 
   <meta property="og:title" content="Axiom — Smart-City Dashboards & GovTech Systems for Governments">
   <meta property="og:description"
-    content="Working smart-city dashboards and GovTech decision systems for governments across ASEAN — 24 live systems in 5 countries. Keynote speaker on smart cities and urban data. By Dr Non Arkaraprasertkul, Senior Expert, Smart City Promotion, depa.">
+    content="Working smart-city dashboards and GovTech decision systems for governments across ASEAN — 28 live systems in 5 countries. Keynote speaker on smart cities and urban data. By Dr Non Arkaraprasertkul, Senior Expert, Smart City Promotion, depa.">
   <meta property="og:image" content="https://axiom.nonarkara.org/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -35,7 +35,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Axiom — Smart-City Dashboards & GovTech Systems for Governments">
   <meta name="twitter:description"
-    content="Working smart-city dashboards and GovTech decision systems for governments across ASEAN — 24 live systems in 5 countries. By Dr Non Arkaraprasertkul (depa).">
+    content="Working smart-city dashboards and GovTech decision systems for governments across ASEAN — 28 live systems in 5 countries. By Dr Non Arkaraprasertkul (depa).">
   <meta name="twitter:image" content="https://axiom.nonarkara.org/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -192,6 +192,32 @@
       <div class="hero-gradient"></div>
       <div class="hero-city-label" id="heroCityLabel">BANGKOK</div>
 
+      <!-- FEATURED — rotating system behind the hero. Lives here when
+           a system is worthy of the front page. Layer 3/4 chrome. -->
+      <div class="hero-featured-bg" id="heroFeaturedBg" aria-hidden="true">
+        <div class="hero-featured-bg__slide is-active" data-featured-slide="0"
+          style="background-image: url('images/flooddash-national-overview.png')"></div>
+        <div class="hero-featured-bg__slide" data-featured-slide="1"
+          style="background-image: url('images/flooddash-hat-yai-regional.png')"></div>
+        <div class="hero-featured-bg__slide" data-featured-slide="2"
+          style="background-image: url('images/flooddash-trat-alerts.png')"></div>
+      </div>
+      <a class="hero-featured-badge" id="heroFeaturedBadge" href="https://flood-ami.pages.dev/" target="_blank"
+        rel="noopener">
+        <span class="hero-featured-badge__kicker" data-i18n="hero.featured.kicker">FEATURED</span>
+        <span class="hero-featured-badge__event" data-i18n="hero.featured.event">EVENT_ID: FLOODDASH_LIVE</span>
+        <span class="hero-featured-badge__name" data-i18n="hero.featured.name">FloodDash</span>
+        <span class="hero-featured-badge__lede" data-i18n="hero.featured.lede">Thailand flood watch · 24/7 live · 9
+          sources</span>
+        <span class="hero-featured-badge__cta"><span data-i18n="hero.featured.cta">Open live system</span> <span
+            class="tri">▸</span></span>
+        <span class="hero-featured-badge__counter" id="heroFeaturedCounter" aria-hidden="true">
+          <span class="hero-featured-badge__dot is-active" data-featured-dot="0"></span>
+          <span class="hero-featured-badge__dot" data-featured-dot="1"></span>
+          <span class="hero-featured-badge__dot" data-featured-dot="2"></span>
+        </span>
+      </a>
+
       <!-- Map Mode Indicator -->
       <div class="map-mode" id="mapMode">
         <div class="map-mode-indicator">
@@ -322,81 +348,18 @@
       </div>
     </section>
 
-    <!-- ============== FLOODDASH — Q1–Q2 ACT III ============== -->
-    <section class="section flooddash-spotlight" id="flooddash">
-      <div class="wrap">
-        <div class="s-head">
-          <div class="s-head__title" data-i18n="flooddashSect.kicker">Q1–Q2 · Act III</div>
-          <div class="s-head__meta" data-i18n="flooddashSect.meta">GITEX → LEAP East → FloodDash</div>
-        </div>
-        <span class="section-tag">[EVENT_ID: FLOODDASH_LIVE]</span>
-        <h2 class="t-big" data-i18n-html="flooddashSect.title">Use <em>FloodDash</em> now.</h2>
-        <p class="t-body-2" data-i18n="flooddashSect.lede" style="max-width:62ch;margin:12px 0 14px;">Thailand flood
-          watch — 24/7 live geospatial data from nine public sources, refreshed every 3–60 minutes. Launched from Asia's
-          largest stage at LEAP East. Everyone monitoring floods in Thailand should be on this surface today.</p>
-        <div class="flooddash-meta" aria-label="FloodDash status">
-          <span class="flooddash-meta__live"><span class="dot"></span> <span
-              data-i18n="flooddashSect.live">LIVE</span></span>
-          <span data-i18n="flooddashSect.m1">9 public sources</span>
-          <span data-i18n="flooddashSect.m2">3–60 min refresh</span>
-          <span data-i18n="flooddashSect.m3">77 provinces</span>
-        </div>
-        <div class="flooddash-carousel" data-carousel="flooddash" aria-roledescription="carousel"
-          aria-label="FloodDash live dashboard views">
-          <div class="flooddash-carousel__progress" aria-hidden="true">
-            <div class="flooddash-carousel__progress-bar"></div>
-          </div>
-          <div class="flooddash-carousel__viewport">
-            <figure class="flooddash-carousel__slide is-active" data-carousel-slide>
-              <img src="images/flooddash-national-overview.png" width="1920" height="1080" loading="eager"
-                decoding="async" alt="FloodDash national overview — all provinces">
-              <figcaption class="flooddash-carousel__cap" data-i18n="flooddashSect.slide1">National overview — every
-                province on one surface</figcaption>
-            </figure>
-            <figure class="flooddash-carousel__slide" data-carousel-slide>
-              <img src="images/flooddash-hat-yai-regional.png" width="1920" height="1080" loading="lazy"
-                decoding="async" alt="FloodDash Hat Yai regional flood watch">
-              <figcaption class="flooddash-carousel__cap" data-i18n="flooddashSect.slide2">Hat Yai regional — southern
-                flood corridor</figcaption>
-            </figure>
-            <figure class="flooddash-carousel__slide" data-carousel-slide>
-              <img src="images/flooddash-trat-alerts.png" width="1920" height="1080" loading="lazy"
-                decoding="async" alt="FloodDash Trat detail with live alerts">
-              <figcaption class="flooddash-carousel__cap" data-i18n="flooddashSect.slide3">Trat detail — alerts and
-                basin-level readout</figcaption>
-            </figure>
-          </div>
-          <div class="flooddash-carousel__controls">
-            <button type="button" class="flooddash-carousel__btn" data-carousel-prev
-              aria-label="Previous FloodDash view">←</button>
-            <div class="flooddash-carousel__dots" role="tablist" aria-label="FloodDash views">
-              <button type="button" class="flooddash-carousel__dot is-active" role="tab" aria-selected="true"
-                aria-label="National overview" data-carousel-dot="0"></button>
-              <button type="button" class="flooddash-carousel__dot" role="tab" aria-selected="false"
-                aria-label="Hat Yai regional" data-carousel-dot="1"></button>
-              <button type="button" class="flooddash-carousel__dot" role="tab" aria-selected="false"
-                aria-label="Trat detail" data-carousel-dot="2"></button>
-            </div>
-            <button type="button" class="flooddash-carousel__btn" data-carousel-next
-              aria-label="Next FloodDash view">→</button>
-            <button type="button" class="flooddash-carousel__pause" data-carousel-pause
-              aria-label="Pause autoplay" aria-pressed="false">❚❚</button>
-          </div>
-        </div>
-        <div class="btn-row" style="margin-top:16px;">
-          <a href="https://flood-ami.pages.dev/" target="_blank" rel="noopener" class="btn btn--primary"><span
-              data-i18n="flooddashSect.cta">Open FloodDash live</span> <span class="tri">▸</span></a>
-          <a href="#stages" class="btn btn--ghost" data-i18n="flooddashSect.cta2">LEAP East launch</a>
-        </div>
-      </div>
-    </section>
+    <!-- ============== FLOODDASH — promoted to hero background ==============
+         The old standalone #flooddash section is intentionally removed.
+         FloodDash now lives behind the hero (see .hero-featured-bg) and
+         in the City Dashboards cluster. When the next system is worthy of
+         the front page, replace the slides + the badge link. -->
 
     <!-- ============== SYSTEMS ============== -->
     <section class="section" id="systems">
       <div class="wrap">
         <div class="s-head">
           <div class="s-head__title" data-i18n="sysSect.kicker">Live in production</div>
-          <div class="s-head__meta" data-i18n="sysClusters.sysMeta">26 systems · 5 countries</div>
+          <div class="s-head__meta" data-i18n="sysClusters.sysMeta">28 systems · 5 countries</div>
         </div>
         <p class="t-body-2" data-i18n="sysSect.lede" style="max-width:64ch;margin:0 0 8px;">Each one started as a sharp
           question, shipped as a working surface, and stays useful long after the launch press cycle ends. Click through
@@ -407,10 +370,10 @@
           <p class="sandbox-note__body" data-i18n="sysSect.sandboxNote">These aren't demos — they're working systems in a sandbox. Built to scale, not to impress. Production deployments under client NDAs are larger; what runs here behaves like them, with advanced modules withheld.</p>
         </div>
 
-        <!-- COMMAND -->
+        <!-- CITY DASHBOARDS -->
         <div class="cluster-head">
-          <div class="t-label" data-i18n="sysClusters.command">Command</div>
-          <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time operations rooms · 10</div>
+          <div class="t-label" data-i18n="sysClusters.command">City Dashboards</div>
+          <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time city operations rooms &amp; environmental watch · 12</div>
         </div>
         <div class="grid grid--3">
           <a class="sys-cell" href="https://flood-ami.pages.dev/" target="_blank" rel="noopener">
@@ -557,12 +520,42 @@
                   class="tri">▸</span></span>
             </div>
           </a>
+          <a class="sys-cell" href="https://city-hub.pages.dev/" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">15</span><span class="sys-cell__status"><span
+                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+            <img class="sys-cell__shot" src="screenshots/cityhub-split-satellite.jpg" loading="lazy" alt="City Hub">
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">City Hub</div>
+              <div class="sys-cell__cat" data-i18n="cats.c15">City Intelligence</div>
+              <div class="sys-cell__lede" data-i18n="panels.p15.lede">City Hub is a replicable city intelligence
+                platform — give it a city name, and it maps it with satellite and base layers, absorbs whatever data you
+                have, and starts synthesizing the picture. v.5, five cities live.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.p15.cta">Open live system</span> <span
+                  class="tri">▸</span></span>
+            </div>
+          </a>
+          <a class="sys-cell" href="https://air-dnd.pages.dev/" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">27</span><span class="sys-cell__status"><span
+                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+            <img class="sys-cell__shot" src="showcase/airdash-thailand.png" loading="lazy"
+              alt="AirDash — Thailand Air Quality &amp; Dust Watch">
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">AirDash</div>
+              <div class="sys-cell__cat" data-i18n="cats.c19">Environmental Watch</div>
+              <div class="sys-cell__lede" data-i18n="panels.p27.lede">AirDash is a 24/7 Thailand air quality and dust
+                watch — province watch ranking, 3-day CAMS-minus-rain forecast, top-5 AT-risk and PM2.5 provinces,
+                washout logic, and a national pattern donut on one surface. Built so every Thai province can read the
+                same air picture from the same public data.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.p27.cta">Open live system</span> <span
+                  class="tri">▸</span></span>
+            </div>
+          </a>
         </div>
 
         <!-- INTELLIGENCE -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.intelligence">Intelligence</div>
-          <div class="s-head__meta" data-i18n="sysClusters.intelligenceMeta">Signal &amp; analysis · 5</div>
+          <div class="s-head__meta" data-i18n="sysClusters.intelligenceMeta">Signal &amp; analysis · 4</div>
         </div>
         <div class="grid grid--3">
           <a class="sys-cell" href="https://globalmonitor.fly.dev/" target="_blank" rel="noopener">
@@ -632,20 +625,6 @@
                 intelligence platform — Bloomberg-style signals applied to SET, MAI, mutual funds, RMF, and Thai ESG
                 instruments. Graham, Buffett, and Munger frameworks built in.</div>
               <span class="sys-cell__link"><span data-i18n="panels.p14.cta">Open live system</span> <span
-                  class="tri">▸</span></span>
-            </div>
-          </a>
-          <a class="sys-cell" href="https://city-hub.pages.dev/" target="_blank" rel="noopener">
-            <div class="sys-cell__head"><span class="sys-cell__idx">15</span><span class="sys-cell__status"><span
-                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <img class="sys-cell__shot" src="screenshots/cityhub-split-satellite.jpg" loading="lazy" alt="City Hub">
-            <div class="sys-cell__body">
-              <div class="sys-cell__name">City Hub</div>
-              <div class="sys-cell__cat" data-i18n="cats.c15">City Intelligence</div>
-              <div class="sys-cell__lede" data-i18n="panels.p15.lede">City Hub is a replicable city intelligence
-                platform — give it a city name, and it maps it with satellite and base layers, absorbs whatever data you
-                have, and starts synthesizing the picture. v.5, five cities live.</div>
-              <span class="sys-cell__link"><span data-i18n="panels.p15.cta">Open live system</span> <span
                   class="tri">▸</span></span>
             </div>
           </a>
@@ -734,7 +713,7 @@
         <!-- EMERGING -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.emerging">Emerging</div>
-          <div class="s-head__meta" data-i18n="sysClusters.emergingMeta">Research-grade &amp; new operating models · 7</div>
+          <div class="s-head__meta" data-i18n="sysClusters.emergingMeta">Research-grade &amp; new operating models · 8</div>
         </div>
         <div class="grid grid--3">
           <a class="sys-cell" href="https://github.com/agentic-ai-research/dr-non-diy-ai-council" target="_blank"
@@ -837,6 +816,23 @@
                 signal, cash runway, bank scorecard, and composite finance indices. Development-stage research prototype;
                 screenshots only — ABC Company Limited is fictitious mock data. No live deployment yet.</div>
               <span class="sys-cell__link"><span data-i18n="panels.ikigai.cta">View research repo</span> <span
+                  class="tri">▸</span></span>
+            </div>
+          </a>
+          <a class="sys-cell" href="https://github.com/Nonarkara/FloodDash-Blueprint" target="_blank"
+            rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">28</span><span
+                class="sys-cell__status"><span data-i18n="sysStatus.preview">Preview</span></span></div>
+            <img class="sys-cell__shot" src="images/flooddash-blueprint.png" loading="lazy"
+              alt="FloodDash Blueprint — data-driven AI dashboard and analytics for effective flood prevention">
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">FloodDash Blueprint</div>
+              <div class="sys-cell__cat" data-i18n="cats.c26">Open Blueprint</div>
+              <div class="sys-cell__lede" data-i18n="panels.p28.lede">The FloodDash Blueprint is the open research
+                companion to the live Thailand Flood Watch — sensor network, drainage logic, AI flood prediction,
+                response playbooks, and the full data-to-decision pipeline laid out for any city to read, fork, and
+                adapt. The blueprint that makes the system replicable, not a one-off.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.p28.cta">View on GitHub</span> <span
                   class="tri">▸</span></span>
             </div>
           </a>
@@ -1103,7 +1099,7 @@
         <div class="stack-block stack-block--compact">
         <div class="cluster-head">
           <div class="t-label" data-i18n="builtStack.heading">Built with</div>
-          <div class="s-head__meta" data-i18n="builtStack.meta">109 tools · 9 layers</div>
+          <div class="s-head__meta" data-i18n="builtStack.meta">114 tools · 9 layers</div>
         </div>
         <p class="stack__legend stack__legend--compact" data-i18n-html="builtStack.legend"><span data-runtime="cloud">cloud</span><span data-runtime="local">// local</span></p>
         <div class="stack-glimpse">
@@ -1119,6 +1115,9 @@
             <span class="is-fav" data-runtime="local">M5 Max · 128GB</span>
           </div>
         </div>
+        <p class="t-body-2 stack-glimpse-note" style="margin: 6px 0 0; font-size: 11px; opacity: 0.7;"
+          data-i18n="builtStack.expandHint">9 layers · 117 tools · built and run from one desk in Bangkok. Click below for
+          the full list.</p>
         <details class="cred-details stack-details">
           <summary class="cred-details__summary" data-i18n="builtStack.expandFull">Full technology stack</summary>
           <div class="cred-details__body">
@@ -1126,8 +1125,8 @@
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="4.5"/><rect x="3.5" y="11" width="17" height="4.5"/><rect x="3.5" y="17.5" width="17" height="4.5"/><circle cx="6.5" cy="6.75" r="0.6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="13.25" r="0.6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="19.75" r="0.6" fill="currentColor" stroke="none"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l1name">Cloud Infrastructure</span><span class="stack__role" data-i18n="builtStack.l1role">where it runs</span><span class="stack__count">13</span></div>
-              <div class="stack__items"><span data-runtime="local">Docker</span><span class="is-fav" data-runtime="cloud">GitHub Pages</span><span data-runtime="cloud">Vercel</span><span data-runtime="cloud">Cloudflare Pages</span><span data-runtime="cloud">Cloudflare Workers</span><span data-runtime="cloud">Cloudflare DNS</span><span data-runtime="cloud">Cloudflare R2</span><span data-runtime="cloud">Netlify</span><span data-runtime="cloud">Supabase</span><span data-runtime="cloud">Render</span><span data-runtime="cloud">Railway</span><span data-runtime="cloud">Fly.io</span><span data-runtime="cloud">Hetzner VPS</span></div>
+              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l1name">Cloud Infrastructure</span><span class="stack__role" data-i18n="builtStack.l1role">where it runs</span><span class="stack__count">14</span></div>
+              <div class="stack__items"><span data-runtime="local">Docker</span><span class="is-fav" data-runtime="cloud">GitHub Pages</span><span data-runtime="cloud">Vercel</span><span data-runtime="cloud">Cloudflare Pages</span><span data-runtime="cloud">Cloudflare Workers</span><span data-runtime="cloud" title="CLI for Pages + Workers deploys">Wrangler</span><span data-runtime="cloud">Cloudflare DNS</span><span data-runtime="cloud">Cloudflare R2</span><span data-runtime="cloud">Netlify</span><span data-runtime="cloud">Supabase</span><span data-runtime="cloud">Render</span><span data-runtime="cloud">Railway</span><span data-runtime="cloud">Fly.io</span><span data-runtime="cloud">Hetzner VPS</span></div>
             </div>
           </div>
           <div class="stack__layer">
@@ -1140,8 +1139,8 @@
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15"/><line x1="3.5" y1="9" x2="20.5" y2="9"/><circle cx="6.5" cy="6.75" r="0.6" fill="currentColor" stroke="none"/><circle cx="9" cy="6.75" r="0.6" fill="currentColor" stroke="none"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l3name">Platform &amp; Build Tools</span><span class="stack__role" data-i18n="builtStack.l3role">where we build</span><span class="stack__count">15</span></div>
-              <div class="stack__items"><span data-runtime="local">VS Code</span><span data-runtime="cloud">GitHub</span><span data-runtime="local">Cursor</span><span class="is-fav" data-runtime="local">Claude Code</span><span data-runtime="cloud">OpenAI Codex</span><span data-runtime="local">Terminal</span><span data-runtime="local">Warp</span><span data-runtime="local">Obsidian</span><span data-runtime="local">Cline</span><span data-runtime="local">Wispr Flow</span><span data-runtime="local">Kilocode</span><span data-runtime="cloud">Google Antigravity</span><span data-runtime="cloud">Google Stitch</span><span data-runtime="cloud">Claude Design</span><span data-runtime="local">Blip</span></div>
+              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l3name">Platform &amp; Build Tools</span><span class="stack__role" data-i18n="builtStack.l3role">where we build</span><span class="stack__count">16</span></div>
+              <div class="stack__items"><span data-runtime="local">VS Code</span><span data-runtime="cloud">GitHub</span><span data-runtime="local">Cursor</span><span class="is-fav" data-runtime="local">Claude Code</span><span data-runtime="cloud">OpenAI Codex</span><span data-runtime="local">Terminal</span><span data-runtime="local">Warp</span><span data-runtime="local">Obsidian</span><span data-runtime="local">Cline</span><span data-runtime="local">Wispr Flow</span><span data-runtime="local">Kilocode</span><span data-runtime="cloud">Google Antigravity</span><span data-runtime="cloud">Google Stitch</span><span data-runtime="cloud">Claude Design</span><span data-runtime="local" title="Visual + locale + release QA across 6 locales">Playwright</span><span data-runtime="local">Blip</span></div>
             </div>
           </div>
           <div class="stack__layer">
@@ -1154,8 +1153,8 @@
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l5name">Software &amp; Libraries</span><span class="stack__role" data-i18n="builtStack.l5role">the working parts</span><span class="stack__count">16</span></div>
-              <div class="stack__items"><span data-runtime="local">Redis</span><span data-runtime="local">SQLite</span><span data-runtime="local">D3</span><span data-runtime="local">OpenCV</span><span data-runtime="local">Leaflet</span><span data-runtime="cloud">Mapbox GL</span><span data-runtime="local">Chart.js</span><span data-runtime="cloud">PostGIS</span><span data-runtime="local">YOLO</span><span class="is-fav" data-runtime="local">Deck.gl</span><span data-runtime="local">MapLibre</span><span data-runtime="local">pgvector</span><span data-runtime="local">grammY</span><span data-runtime="local">vis-network</span><span data-runtime="local">LINE SDK</span><a href="https://github.com/helloianneo/ian-xiaohei-illustrations" target="_blank" rel="noopener" data-runtime="cloud">Xiaohei illustration</a></div>
+              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l5name">Software &amp; Libraries</span><span class="stack__role" data-i18n="builtStack.l5role">the working parts</span><span class="stack__count">19</span></div>
+              <div class="stack__items"><span data-runtime="local">Redis</span><span data-runtime="local">SQLite</span><span data-runtime="local">D3</span><span data-runtime="local">OpenCV</span><span data-runtime="local">Leaflet</span><span data-runtime="cloud">Mapbox GL</span><span data-runtime="local">Chart.js</span><span data-runtime="cloud">PostGIS</span><span data-runtime="local">YOLO</span><span class="is-fav" data-runtime="local">Deck.gl</span><span data-runtime="local">MapLibre</span><span data-runtime="local">pgvector</span><span data-runtime="local">grammY</span><span data-runtime="local">vis-network</span><span data-runtime="local">LINE SDK</span><span data-runtime="cloud" title="Firestore · sabai-sabai backend">Firebase</span><span data-runtime="local">React Router</span><span data-runtime="local" title="Telegram Bot API via grammY">Telegram Bot API</span><a href="https://github.com/helloianneo/ian-xiaohei-illustrations" target="_blank" rel="noopener" data-runtime="cloud">Xiaohei illustration</a></div>
             </div>
           </div>
           <div class="stack__layer">
