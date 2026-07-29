@@ -6,6 +6,327 @@
 
 let activeLocale = 'en';
 
+// Lightweight media-query helper (pre-existing axiomMedia was referenced
+// but never defined; recreate it here so the satellite hero and data
+// lines can still detect touch / reduced-motion / mobile).
+const axiomMedia = (() => {
+  if (typeof window === 'undefined') return { isTouch: false, isReduced: false, isMobile: false };
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  const coarse = window.matchMedia?.('(pointer: coarse)').matches ?? false;
+  const narrow = window.matchMedia?.('(max-width: 700px)').matches ?? false;
+  return { isTouch: coarse, isReduced: reduced, isMobile: narrow };
+})();
+
+// ── System architecture popovers ────────────────────────────────────────────
+// On hover (or on mobile tap), each .sys-cell[data-arch] gets a small
+// floating diagram showing inputs → core → outputs. Architecture data
+// lives here so the HTML stays clean.
+
+const ARCHITECTURES = {
+  // CITY DASHBOARDS
+  'flood-ami': {
+    name: 'FLOODDASH',
+    idx: '23',
+    inputs: ['NASA FIRMS', 'GISTDA', 'CEMS', 'HIMAWARI-9', 'TMD', 'Open-Meteo', 'OpenStreetMap', 'Tide stations', 'Rain gauges'],
+    core: { name: 'FLOODDASH', meta: ['3–60 min refresh', '77 provinces'] },
+    outputs: ['National map', 'Province detail', 'Watch list', '3-day forecast'],
+    foot: '9 public sources · 24/7 · Thailand-wide',
+  },
+  'sikhio': {
+    name: 'SIKHIO OPS',
+    idx: '26',
+    inputs: ['AQI sensors', 'Weather', 'Traffic', 'Live city data'],
+    core: { name: 'SIKHIO', meta: ['town-scale', 'real-time'] },
+    outputs: ['City pulse', 'Traffic patterns', 'Environmental reads'],
+    foot: 'town-scale command room · Nakhon Ratchasima',
+  },
+  'lcbcity': {
+    name: 'LAEM CHABANG',
+    idx: '22',
+    inputs: ['Truck GPS', 'Port traffic', 'Regulatory data', 'CCTV (where available)'],
+    core: { name: 'LAEM CHABANG', meta: ['port + city', 'live'] },
+    outputs: ['Truck monitor', 'Compliance tracker', 'Congestion alerts'],
+    foot: 'Thailand Eastern Seaboard · port logistics',
+  },
+  'phuket': {
+    name: 'PHUKET OPS',
+    idx: '01',
+    inputs: ['Transit', 'Public safety', 'Environmental signals', 'Tourism feeds'],
+    core: { name: 'PHUKET OPS', meta: ['governor view', '30-second read'] },
+    outputs: ['Unified ops room', 'Incident board', 'Alert timeline'],
+    foot: 'governor-grade · Andaman coast',
+  },
+  'hcmc': {
+    name: 'HCMCx',
+    idx: '21',
+    inputs: ['Traffic cameras', 'Flood sensors', 'Air quality', 'News / reports'],
+    core: { name: 'HCMCx', meta: ['3D city map', 'metropolitan scale'] },
+    outputs: ['Dynamic routing', 'Incident board', '3D city view'],
+    foot: 'Ho Chi Minh City · metropolitan command',
+  },
+  'kuching': {
+    name: 'KUCHING IOC',
+    idx: '05',
+    inputs: ['Foreign exchange', 'Flights', 'Satellite imagery', 'Environmental reads'],
+    core: { name: 'KUCHING IOC', meta: ['full-spectrum', 'Sarawak'] },
+    outputs: ['Cross-domain board', 'FX monitor', 'Flight log'],
+    foot: 'Greater Kuching · IOC for the operator',
+  },
+  'chula': {
+    name: 'CHULA TOWER',
+    idx: '13',
+    inputs: ['Traffic', 'Incidents', 'Air quality', 'Satellite', 'CU Shuttle', 'News', 'Emergency'],
+    core: { name: 'CHULA TOWER', meta: ['47 live feeds', 'campus scale'] },
+    outputs: ['3D campus map', 'Strategic alerts', 'Civic reports'],
+    foot: 'Chulalongkorn University · Siam–Samyan',
+  },
+  'chonburi': {
+    name: 'CHONBURI TOWER',
+    idx: '16',
+    inputs: ['Weather', 'Marine state', 'EEC news', 'CCTV / AIS / AQ / WX'],
+    core: { name: 'CHONBURI TOWER', meta: ['20,877 3D buildings', 'mayor\'s desk'] },
+    outputs: ['3D province render', 'Coastal watch', 'EEC trends'],
+    foot: 'Eastern Seaboard · 3D command surface',
+  },
+  'kmitl': {
+    name: 'KMITL TOWER',
+    idx: '18',
+    inputs: ['Traffic', 'Incidents', 'Air quality', 'Satellite', 'Shuttles', 'News', 'Emergency'],
+    core: { name: 'KMITL TOWER', meta: ['56 live feeds', 'campus scale'] },
+    outputs: ['3D campus map', 'Operational view', 'Civic reports'],
+    foot: 'King Mongkut\'s IT Ladkrabang',
+  },
+  'yala': {
+    name: 'YALA TOWER',
+    idx: '19',
+    inputs: ['3D city model', 'Satellite layers', 'Flood watch', 'Deep South security', '30+ feeds'],
+    core: { name: 'YALA TOWER', meta: ['3D city', 'civic intelligence'] },
+    outputs: ['3D city view', 'Incident board', 'Initiative tracker'],
+    foot: 'Yala Municipality · Deep South',
+  },
+  'city-hub': {
+    name: 'CITY HUB',
+    idx: '15',
+    inputs: ['City name', 'Whatever data exists', 'Satellite + base layers'],
+    core: { name: 'CITY HUB', meta: ['replicable', '5 cities live'] },
+    outputs: ['Side-by-side compare', 'Per-city pulse', 'Lens toolkit'],
+    foot: 'name a city → start its brain',
+  },
+  'air-dnd': {
+    name: 'AIRDASH',
+    idx: '27',
+    inputs: ['PM2.5 ground obs', 'CAMS satellite', 'Weather', 'Rain washout'],
+    core: { name: 'AIRDASH', meta: ['province ranking', '24/7'] },
+    outputs: ['Watch list', '3-day forecast', 'Top-5 AT-risk', 'National pattern donut'],
+    foot: 'Thailand air quality + dust watch',
+  },
+  // INTELLIGENCE
+  'dngws': {
+    name: 'DNGWS',
+    idx: '02',
+    inputs: ['Escalation tracking', 'Economic spillover', 'Multi-source crisis feeds'],
+    core: { name: 'DNGWS MONITOR', meta: ['crisis fusion', 'global'] },
+    outputs: ['Cross-source map', 'Escalation deltas', 'Crisis brief'],
+    foot: 'macro signal before the room starts guessing',
+  },
+  'slic': {
+    name: 'SLIC',
+    idx: '04',
+    inputs: ['157 cities', '5 livability pillars', 'User weights'],
+    core: { name: 'SLIC INDEX', meta: ['adjustable ranking', 'transparent math'] },
+    outputs: ['Live ranking', 'Pillar breakdown', 'Cross-city compare'],
+    foot: 'a ranking that argues back',
+  },
+  'globalmonitor': {
+    name: 'GLOBAL MONITOR',
+    idx: '24',
+    inputs: ['Middle East', 'SE Asia', 'Thailand', 'Open data', 'Fires', 'Conflict', 'Ships'],
+    core: { name: 'GLOBAL MONITOR', meta: ['3 regions', 'heat + conflict + ports'] },
+    outputs: ['Layered world map', 'Event stream', 'Energy + port watch'],
+    foot: 'three regions, one open data lens',
+  },
+  'mem': {
+    name: 'MEM',
+    idx: '06',
+    inputs: ['Multi-source news', 'OSINT feeds', 'No editorial layer'],
+    core: { name: 'MIDDLE EAST MONITOR', meta: ['machine speed', 'no filter bubble'] },
+    outputs: ['Live news surface', 'Multi-source feed', 'Geo timeline'],
+    foot: 'news before the algorithm decides what\'s war',
+  },
+  'daytraders': {
+    name: 'DAY TRADERS',
+    idx: '14',
+    inputs: ['SET / MAI', 'US markets', 'Graham / Buffett / Munger frameworks'],
+    core: { name: 'DAY TRADERS', meta: ['Thai + global', 'value lens'] },
+    outputs: ['Stability range', 'Bump radar', 'News × market map'],
+    foot: 'Bloomberg signals · Thai market · your rules',
+  },
+  // CIVIC
+  'sciti': {
+    name: 'SCITI',
+    idx: '03',
+    inputs: ['174 urban areas', '7 Smart City pillars', 'Milestone events'],
+    core: { name: 'SCITI', meta: ['depa · national programme'] },
+    outputs: ['City index', 'Bilingual progress', 'Milestone ledger'],
+    foot: 'Smart City Thailand Index · depa',
+  },
+  'phuket-bus': {
+    name: 'PHUKET BUS',
+    idx: '07',
+    inputs: ['GPS tracking', 'Passenger telemetry', 'Route definitions'],
+    core: { name: 'PHUKET SMART BUS', meta: ['rider-first', 'no control room needed'] },
+    outputs: ['Real-time bus position', 'Next arrival', 'Route clarity'],
+    foot: 'designed for the phone, not the dashboard',
+  },
+  'scth': {
+    name: 'SCTH V2',
+    idx: '08',
+    inputs: ['Telegram reports', 'LINE reports', 'Field photos', 'SLA data'],
+    core: { name: 'SCTH V2', meta: ['AI classification', 'AI pattern detection'] },
+    outputs: ['AI-classified reports', 'Pattern map', 'Response tasks'],
+    foot: 'reports arrive → AI turns them into action',
+  },
+  'nsp': {
+    name: 'NSP',
+    idx: '12',
+    inputs: ['21 NBTC-licensed channels', 'EPG feed', 'Viewership telemetry'],
+    core: { name: 'NSP', meta: ['national broadcast', 'free HD'] },
+    outputs: ['Live streaming', 'EPG guide', 'CAP v1.2 emergency alerts'],
+    foot: 'all 21 Thai digital TV channels · one surface',
+  },
+  'ekkasarn': {
+    name: 'EKKASARN AI',
+    idx: '17',
+    inputs: ['Thai tax invoices', 'Receipts', 'Withholding certificates'],
+    core: { name: 'EKKASARN', meta: ['OCR + classify', 'no login'] },
+    outputs: ['Extracted fields', 'Document type', 'Structured JSON'],
+    foot: 'Thai document intelligence · no login',
+  },
+  'nonwriter': {
+    name: 'NON-WRITER',
+    idx: '29',
+    inputs: ['Your draft', 'Source language', 'Target language'],
+    core: { name: 'NON-WRITER', meta: ['rewrite → voice → language', 'proxy chain'] },
+    outputs: ['Cleaner text', 'Dr Non\'s voice', 'Any language'],
+    foot: 'paste → pick the line → ship · up to 3,000 words',
+  },
+  // EMERGING
+  'ai-council': {
+    name: 'AI COUNCIL',
+    idx: '09',
+    inputs: ['Decision question', 'Personal journals', 'Decision history'],
+    core: { name: '11 JUSTICES', meta: ['palindromic names', '4 operating modes'] },
+    outputs: ['Deliberation transcript', 'Mode moves', 'Defensible position'],
+    foot: 'eleven voices · one decision',
+  },
+  'tkcx': {
+    name: 'TKCX',
+    idx: '10',
+    inputs: ['Employees', 'Projects', 'Skill profiles', 'Moneyball budget'],
+    core: { name: 'TKCX', meta: ['5 archetypes', 'readiness formula'] },
+    outputs: ['Optimal formation', 'Skill gap map', 'Allocation discipline'],
+    foot: 'treat talent like a portfolio, not a headcount',
+  },
+  'second-brain': {
+    name: 'SECOND BRAIN OS',
+    idx: '11',
+    inputs: ['Obsidian vault', 'MCP server configs', 'Voice + decisions'],
+    core: { name: 'SECOND BRAIN OS', meta: ['19 server configs', 'voice-cloned agents'] },
+    outputs: ['Agents that write in your voice', 'Decision memory', 'Tool routing'],
+    foot: 'brain-anatomy folder structure · make your vault operational',
+  },
+  'horizon45': {
+    name: 'HORIZON 45',
+    idx: '20',
+    inputs: ['Real AI tasks', 'User attempts', 'Capability scoring'],
+    core: { name: 'HORIZON 45', meta: ['field instrument', '45 challenges'] },
+    outputs: ['Capability portrait', 'Learning roadmap', 'Honest score'],
+    foot: 'a test of actual AI judgment · not a survey',
+  },
+  'ascn': {
+    name: 'ASCN DIRECTOR\'S CUT',
+    idx: '24',
+    inputs: ['134 ASCN projects', '38 cities', '4 M&E cycles'],
+    core: { name: 'ASCN DIRECTOR', meta: ['portfolio momentum', 'focus shift'] },
+    outputs: ['Network insights', 'Momentum panels', 'Cross-cycle compare'],
+    foot: 'the 134-project ASCN portfolio · read by a director',
+  },
+  'dao': {
+    name: 'DAO DE JING',
+    idx: '25',
+    inputs: ['Dao De Jing text', 'Tsai comics', 'Buddhist parallels', 'Psychology notes'],
+    core: { name: 'READING ROOM', meta: ['trilingual', 'living reference'] },
+    outputs: ['TH / EN / ZH reading', 'Pinyin', 'Cross-tradition map'],
+    foot: 'a trilingual reading room · still growing',
+  },
+  'ikigai': {
+    name: 'IKIGAI ENGINE',
+    idx: '26',
+    inputs: ['SME balance sheet', 'Income statement', 'Cash flow'],
+    core: { name: 'IKIGAI', meta: ['5 indices', 'research prototype'] },
+    outputs: ['Balance sheet signal', 'Cash runway', 'Bank scorecard'],
+    foot: 'finance as signal · ABC Company is fictitious mock data',
+  },
+  'flood-blueprint': {
+    name: 'FLOODDASH BLUEPRINT',
+    idx: '28',
+    inputs: ['Sensor network specs', 'Drainage logic', 'AI flood prediction', 'Response playbooks'],
+    core: { name: 'BLUEPRINT', meta: ['open research', 'replicable'] },
+    outputs: ['Sensors', 'Drainage', 'AI predict', 'Decision pipeline'],
+    foot: 'the open companion to FloodDash · fork and adapt',
+  },
+};
+
+function injectSystemArchitectures() {
+  const cells = Array.from(document.querySelectorAll('.sys-cell[data-arch]'));
+  for (const cell of cells) {
+    const key = cell.getAttribute('data-arch');
+    const arch = ARCHITECTURES[key];
+    if (!arch) continue;
+
+    // Skip if already injected
+    if (cell.querySelector('.sys-arch')) continue;
+
+    const inputsHtml = (arch.inputs || [])
+      .map(s => `<div class="sys-arch__chip">${escapeHtml(s)}</div>`)
+      .join('');
+    const outputsHtml = (arch.outputs || [])
+      .map(s => `<div class="sys-arch__chip is-emph">${escapeHtml(s)}</div>`)
+      .join('');
+    const coreMeta = (arch.core.meta || [])
+      .map(s => `<span>${escapeHtml(s)}</span>`)
+      .join('');
+
+    const html = `
+      <div class="sys-arch" data-arch-pop="${escapeHtml(key)}" role="tooltip" aria-label="How ${escapeHtml(arch.name)} works">
+        <div class="sys-arch__head">
+          <span class="sys-arch__tag">HOW IT WORKS</span>
+          <span class="sys-arch__idx">${escapeHtml(arch.idx || '')}</span>
+        </div>
+        <div class="sys-arch__row sys-arch__row--inputs">${inputsHtml}</div>
+        <div class="sys-arch__arrow">▸</div>
+        <div class="sys-arch__core">
+          <div class="sys-arch__core-name">${escapeHtml(arch.name)}</div>
+          <div class="sys-arch__core-row">${coreMeta}</div>
+        </div>
+        <div class="sys-arch__arrow">▸</div>
+        <div class="sys-arch__row sys-arch__row--outputs">${outputsHtml}</div>
+        ${arch.foot ? `<div class="sys-arch__foot">${escapeHtml(arch.foot)}</div>` : ''}
+      </div>`;
+
+    cell.insertAdjacentHTML('beforeend', html);
+  }
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 const uiCopy = {
   en: {
     nav: {
@@ -884,6 +1205,10 @@ const i18nExt = {
         lede: 'The FloodDash Blueprint is the open research companion to the live Thailand Flood Watch — sensor network, drainage logic, AI flood prediction, response playbooks, and the full data-to-decision pipeline laid out for any city to read, fork, and adapt. The blueprint that makes the system replicable, not a one-off.',
         cta: 'View on GitHub',
       },
+      p29: {
+        lede: "Paste a draft. The Non-Writer runs it through a chain of proxies and boxes, and comes out the other side as the sentence you meant to write — in the voice Dr Non would have used. Now also translates into any language you ask for.",
+        cta: 'Open live system',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1201,6 +1526,10 @@ const i18nExt = {
         lede: 'FloodDash Blueprint คือคู่มือวิจัยเปิดของระบบเฝ้าน้ำท่วมไทย — เครือข่ายเซ็นเซอร์ ตรรกะท่อระบายน้ำ AI พยากรณ์น้ำท่วม คู่มือตอบสนอง และ pipeline ข้อมูล-สู่-การตัดสินใจครบชุด ให้ทุกเมืองอ่าน fork และปรับใช้ เพื่อให้ระบบทำซ้ำได้ ไม่ใช่ one-off',
         cta: 'ดูบน GitHub',
       },
+      p29: {
+        lede: 'วางดราฟต์ลงไป The Non-Writer จะส่งข้อความผ่านห่วงโซ่ของพร็อกซีและบ็อกซ์ แล้วออกมาอีกฝั่งเป็นประโยคที่คุณตั้งใจเขียน — ในน้ำเสียงที่ดร.นนจะใช้ ตอนนี้ยังแปลเป็นภาษาใดก็ได้ที่คุณต้องการ',
+        cta: 'เปิดระบบสด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -1515,6 +1844,10 @@ const i18nExt = {
         lede: 'FloodDash Blueprint 是泰国洪水监测的开放研究配套——传感网络、排水逻辑、AI 洪水预测、响应剧本，以及完整的数据到决策流水线，向所有城市开放阅读、复用与适配。让系统可被复制，而不是一次性交付。',
         cta: '在 GitHub 查看',
       },
+      p29: {
+        lede: '贴上一段草稿。The Non-Writer 会把它送过一连串代理与处理单元,从另一端出来时,就变成你本来想写的那句话——用 Dr Non 会用的声音。现在还可以翻译成你想要的任何语言。',
+        cta: '打开在线系统',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -1670,6 +2003,10 @@ const i18nExt = {
       p28: {
         lede: '// FloodDash.Blueprint = open.research.companion\n// sensors + drainageLogic + AI.predict() + responsePlaybooks\n// + data.to.decision.pipeline(complete)\n// cities: read.fork.adapt // system.replicable(not one-off)',
         cta: 'github.open()',
+      },
+      p29: {
+        lede: '// paste.draft()\n// Non-Writer: chainOfProxies.run()\n// outputs: cleaner.text | drNon.voice | any.language()',
+        cta: 'system.open()',
       },
     },
     stagesContent: {
@@ -1838,6 +2175,7 @@ const i18nExt2 = {
       p17:'Live · Thai docs',
       p27:'Live · 24/7 Air Watch',
       p28:'Open Blueprint · GitHub',
+      p29:'Live · Writing Service',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -1851,7 +2189,7 @@ const i18nExt2 = {
       c16:'Coastal Intelligence', c17:'Document Intelligence',
       c18:'Metropolitan Operations', c19:'Environmental Watch',
       c20:'Capability Lab', c23:'Digital Humanities', c25:'Finance Intelligence',
-      c26:'Open Blueprint',
+      c26:'Open Blueprint', c27:'Writing Intelligence',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -1902,15 +2240,15 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '28 systems · 5 countries',
+      sysMeta: '29 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 12',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'Signal & analysis · 5',
+      intelligenceMeta: 'Signal & analysis · 4',
       civic: 'Civic',
-      civicMeta: 'National platforms & citizen infrastructure · 5',
+      civicMeta: 'National platforms & citizen infrastructure · 6',
       emerging: 'Emerging',
-      emergingMeta: 'Research-grade & new operating models · 6',
+      emergingMeta: 'Research-grade & new operating models · 8',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development' },
     metaKeys: {
@@ -1943,6 +2281,7 @@ const i18nExt2 = {
       p17:'สด · เอกสารไทย',
       p27:'สด · เฝ้าอากาศ 24/7',
       p28:'Blueprint เปิด · GitHub',
+      p29:'สด · บริการเขียน',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -1956,7 +2295,7 @@ const i18nExt2 = {
       c16:'ข่าวกรองชายฝั่ง', c17:'ข่าวกรองเอกสาร',
       c18:'ปฏิบัติการมหานคร', c19:'เฝ้าสิ่งแวดล้อม',
       c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล', c25:'ข่าวกรองการเงิน',
-      c26:'Blueprint เปิด',
+      c26:'Blueprint เปิด', c27:'ข่าวกรองการเขียน',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2007,15 +2346,15 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '28 ระบบ · 5 ประเทศ',
+      sysMeta: '29 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 12',
       intelligence: 'ข่าวกรอง',
-      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 5',
+      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 4',
       civic: 'พลเมือง',
-      civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 5',
+      civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 6',
       emerging: 'ระบบใหม่',
-      emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 6',
+      emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 8',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา' },
     metaKeys: {
@@ -2048,6 +2387,7 @@ const i18nExt2 = {
       p17:'实时 · 泰国文档',
       p27:'实时 · 24/7空气质量',
       p28:'开放蓝图 · GitHub',
+      p29:'在线 · 写作服务',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2059,7 +2399,7 @@ const i18nExt2 = {
       c16:'海岸智能', c17:'文档智能',
       c18:'都会运营', c19:'环境监测',
       c20:'能力实验室', c23:'数字人文', c25:'金融情报',
-      c26:'开放蓝图',
+      c26:'开放蓝图', c27:'写作智能',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2110,15 +2450,15 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '28 个系统 · 5 个国家',
+      sysMeta: '29 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 12',
       intelligence: '情报',
-      intelligenceMeta: '信号与分析 · 5',
+      intelligenceMeta: '信号与分析 · 4',
       civic: '民生',
-      civicMeta: '国家级平台与公民基础设施 · 5',
+      civicMeta: '国家级平台与公民基础设施 · 6',
       emerging: '新兴',
-      emergingMeta: '研究级与新运营模式 · 6',
+      emergingMeta: '研究级与新运营模式 · 8',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中' },
     pressContent: {
@@ -2160,6 +2500,7 @@ const i18nExt2 = {
       p17:'live: ThaiDocs',
       p27:'live: airWatch.24_7',
       p28:'openBlueprint: github',
+      p29:'live: writingService',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -2171,7 +2512,7 @@ const i18nExt2 = {
       c16:'CoastalIntel', c17:'DocumentIntel',
       c18:'MetroOps', c19:'EnvWatch',
       c20:'CapabilityLab', c23:'DigitalHumanities', c25:'FinanceIntel',
-      c26:'OpenBlueprint',
+      c26:'OpenBlueprint', c27:'WritingIntel',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -2222,15 +2563,15 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '28 systems · 5 countries',
+      sysMeta: '29 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[12]',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'signal & analysis · count[5]',
+      intelligenceMeta: 'signal & analysis · count[4]',
       civic: 'Civic',
-      civicMeta: 'nationalPlatforms & citizenInfra · count[5]',
+      civicMeta: 'nationalPlatforms & citizenInfra · count[6]',
       emerging: 'Emerging',
-      emergingMeta: 'researchGrade & newOperatingModels · count[6]',
+      emergingMeta: 'researchGrade & newOperatingModels · count[8]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage' },
     metaKeys: {
@@ -2323,6 +2664,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setPageLocale(activeLocale, { silent: true });
   bindLocaleSwitch();
   initFlooddashCarousel();
+  injectSystemArchitectures();
 });
 
 function initFlooddashCarousel() {
@@ -3109,3 +3451,4 @@ function initFlooddashCarousel() {
     }, 400);
   }, 3500);
 })();
+

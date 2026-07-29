@@ -707,13 +707,13 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "28개 시스템 · 5개국",
+      "sysMeta": "29개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 12",
       "intelligence": "인텔리전스",
       "intelligenceMeta": "신호 및 분석 · 4",
       "civic": "시민",
-      "civicMeta": "국가 플랫폼 및 시민 인프라 · 5",
+      "civicMeta": "국가 플랫폼 및 시민 인프라 · 6",
       "emerging": "신규",
       "emergingMeta": "연구급 및 새 운영 모델 · 8"
     },
@@ -1473,13 +1473,13 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "28システム · 5か国",
+      "sysMeta": "29システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 12",
       "intelligence": "インテリジェンス",
       "intelligenceMeta": "シグナルと分析 · 4",
       "civic": "シビック",
-      "civicMeta": "国家プラットフォームと市民インフラ · 5",
+      "civicMeta": "国家プラットフォームと市民インフラ · 6",
       "emerging": "新興",
       "emergingMeta": "研究グレードと新運用モデル · 8"
     },
@@ -2239,13 +2239,13 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "28 hệ thống · 5 quốc gia",
+      "sysMeta": "29 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 12",
       "intelligence": "Tình báo",
       "intelligenceMeta": "Tín hiệu và phân tích · 4",
       "civic": "Công dân",
-      "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 5",
+      "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 6",
       "emerging": "Mới nổi",
       "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 8"
     },
