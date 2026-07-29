@@ -22,6 +22,19 @@ const axiomMedia = (() => {
 // floating diagram showing inputs → core → outputs. Architecture data
 // lives here so the HTML stays clean.
 
+// i18n helper for architecture text — looks up a flat key in the active
+// locale's uiCopy, falling back to English, then to the supplied default.
+function _t(key, fallback) {
+  try {
+    const copy = (typeof uiCopy !== 'undefined' && uiCopy) || {};
+    const locale = (typeof activeLocale !== 'undefined' && activeLocale) || 'en';
+    const cur = copy[locale] || {};
+    if (typeof cur[key] === 'string') return cur[key];
+    if (copy.en && typeof copy.en[key] === 'string') return copy.en[key];
+  } catch (e) { /* ignore */ }
+  return fallback;
+}
+
 const ARCHITECTURES = {
   // CITY DASHBOARDS
   'flood-ami': {
@@ -316,7 +329,7 @@ function injectSystemArchitectures() {
     const html = `
       <div class="sys-arch" data-arch-pop="${escapeHtml(key)}" role="tooltip" aria-label="How ${escapeHtml(arch.name)} works">
         <div class="sys-arch__head">
-          <span class="sys-arch__tag">HOW IT WORKS</span>
+          <span class="sys-arch__tag">${escapeHtml(_t('HOW_IT_WORKS', 'HOW IT WORKS'))}</span>
           <span class="sys-arch__idx">${escapeHtml(arch.idx || '')}</span>
         </div>
         <div class="sys-arch__row sys-arch__row--inputs">${inputsHtml}</div>
@@ -2309,6 +2322,21 @@ const i18nExt2 = {
       Tracking:'Tracking', Feeds:'Feeds', Lenses:'Lenses', Site:'Site',
       Market:'Market', Signals:'Signals', Frameworks:'Frameworks',
     },
+    HOW_IT_WORKS: 'HOW IT WORKS',
+    archTag: 'Architecture',
+    stackLbl: 'Stack',
+    pb1in1:'38 cities', pb1in2:'134 projects', pb1in3:'11 nations', pb1in4:'M&E submissions',
+    pb1cm:'multi-tenant city benchmarking',
+    pb1out1:'Scorecards', pb1out2:'Public dashboards', pb1out3:'Mayoral insights',
+    pb2in1:'112,000 residents', pb2in2:'City officials', pb2in3:'UNDP + UN-Habitat', pb2in4:'Field evidence',
+    pb2cm:'12-chapter citizen-first playbook',
+    pb2out1:'Policy playbook', pb2out2:'Workshop toolkit', pb2out3:'Field case studies',
+    pb3in1:'8 ministries', pb3in2:'UN DESA team', pb3in3:'2-day workshop', pb3in4:'Honiara field input',
+    pb3cm:'whole-of-government digital transformation',
+    pb3out1:'Digital roadmap', pb3out2:'Implementation timeline', pb3out3:'Capacity-building plan',
+    pb5in1:'depa Thailand', pb5in2:'US DOT Volpe', pb5in3:'Field research', pb5in4:'Survey data',
+    pb5cm:'institutional capacity building',
+    pb5out1:'Toolkit portal', pb5out2:'Best-practices library', pb5out3:'City-to-city modules',
   },
 
   th: {
@@ -2420,6 +2448,21 @@ const i18nExt2 = {
       Tracking:'การติดตาม', Feeds:'ฟีดข้อมูล', Lenses:'มุมมอง', Site:'สถานที่',
       Market:'ตลาด', Signals:'สัญญาณ', Frameworks:'กรอบคิด',
     },
+    HOW_IT_WORKS: 'มันทำงานยังไง',
+    archTag:'สถาปัตยกรรม',
+    stackLbl:'สแต็ก',
+    pb1in1:'38 เมือง', pb1in2:'134 โครงการ', pb1in3:'11 ประเทศ', pb1in4:'ข้อมูล M&E',
+    pb1cm:'การเปรียบเทียบเมืองแบบหลายผู้เช่า',
+    pb1out1:'คะแนน', pb1out2:'แดชบอร์ดสาธารณะ', pb1out3:'ข้อมูลเชิงลึกสำหรับผู้ว่าฯ',
+    pb2in1:'ชาวเมือง 112,000 คน', pb2in2:'เจ้าหน้าที่เมือง', pb2in3:'UNDP + UN-Habitat', pb2in4:'หลักฐานภาคสนาม',
+    pb2cm:'คู่มือ 12 บท ที่ประชาชนเป็นศูนย์กลาง',
+    pb2out1:'คู่มือนโยบาย', pb2out2:'ชุดเครื่องมือเวิร์กช็อป', pb2out3:'กรณีศึกษาภาคสนาม',
+    pb3in1:'8 กระทรวง', pb3in2:'ทีม UN DESA', pb3in3:'เวิร์กช็อป 2 วัน', pb3in4:'ข้อมูลภาคสนามโฮนีอารา',
+    pb3cm:'การเปลี่ยนผ่านดิจิทัลทั่วทั้งรัฐบาล',
+    pb3out1:'โรดแมปดิจิทัล', pb3out2:'ไทม์ไลน์การดำเนินงาน', pb3out3:'แผนเสริมสร้างศักยภาพ',
+    pb5in1:'depa ไทย', pb5in2:'US DOT Volpe', pb5in3:'งานวิจัยภาคสนาม', pb5in4:'ข้อมูลสำรวจ',
+    pb5cm:'การเสริมสร้างศักยภาพของสถาบัน',
+    pb5out1:'พอร์ทัลชุดเครื่องมือ', pb5out2:'คลังแนวปฏิบัติที่ดี', pb5out3:'โมดูลเมืองสู่เมือง',
   },
 
   zh: {
@@ -2538,6 +2581,21 @@ const i18nExt2 = {
       Feeds:'数据源', Lenses:'视角', Site:'地点',
       Market:'市场', Signals:'信号', Frameworks:'分析框架',
     },
+    HOW_IT_WORKS: '它是如何工作的',
+    archTag:'架构',
+    stackLbl:'技术栈',
+    pb1in1:'38座城市', pb1in2:'134个项目', pb1in3:'11个国家', pb1in4:'M&E 提交',
+    pb1cm:'多租户城市对标',
+    pb1out1:'评分卡', pb1out2:'公开仪表板', pb1out3:'市长洞察',
+    pb2in1:'11.2万居民', pb2in2:'市政府官员', pb2in3:'UNDP + UN-Habitat', pb2in4:'田野证据',
+    pb2cm:'12章公民优先手册',
+    pb2out1:'政策手册', pb2out2:'工作坊工具包', pb2out3:'田野案例',
+    pb3in1:'8个部委', pb3in2:'UN DESA 团队', pb3in3:'两天工作坊', pb3in4:'霍尼亚拉田野',
+    pb3cm:'全政府数字化转型',
+    pb3out1:'数字化路线图', pb3out2:'实施时间表', pb3out3:'能力建设计划',
+    pb5in1:'泰国 depa', pb5in2:'US DOT Volpe', pb5in3:'田野研究', pb5in4:'调研数据',
+    pb5cm:'机构能力建设',
+    pb5out1:'工具门户', pb5out2:'最佳实践库', pb5out3:'城对城模块',
   },
 
   ts: {
@@ -2647,6 +2705,21 @@ const i18nExt2 = {
       Tracking:'tracking', Feeds:'feeds[]', Lenses:'lenses[]', Site:'site',
       Market:'market', Signals:'signals[]', Frameworks:'frameworks[]',
     },
+    HOW_IT_WORKS: 'arch.dataFlow',
+    archTag:'arch:dataFlow',
+    stackLbl:'stack',
+    pb1in1:'cities: 38', pb1in2:'projects: 134', pb1in3:'nations: 11', pb1in4:'submissions: M&E',
+    pb1cm:'city.benchmark(multiTenant)',
+    pb1out1:'scorecards', pb1out2:'dashboards(public)', pb1out3:'insights(forMayors)',
+    pb2in1:'residents: 112_000', pb2in2:'officials: city', pb2in3:'partners: UNDP+UNHabitat', pb2in4:'evidence: field',
+    pb2cm:'playbook(citizenFirst)<12chapters>',
+    pb2out1:'playbook(policy)', pb2out2:'toolkit(workshop)', pb2out3:'cases(field)',
+    pb3in1:'ministries: 8', pb3in2:'team: UNDESA', pb3in3:'workshop: 2days', pb3in4:'input: honiara',
+    pb3cm:'digitalTransform(wholeOfGovernment)',
+    pb3out1:'roadmap(digital)', pb3out2:'timeline(implementation)', pb3out3:'plan(capacityBuilding)',
+    pb5in1:'depa: thailand', pb5in2:'USDOT: volpe', pb5in3:'research: field', pb5in4:'data: survey',
+    pb5cm:'capacityBuilding(institutional)',
+    pb5out1:'portal(toolkit)', pb5out2:'library(bestPractices)', pb5out3:'modules(cityToCity)',
   },
 };
 
