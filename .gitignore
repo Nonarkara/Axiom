@@ -13,3 +13,10 @@ data/*.sqlite-wal
 public/admin/schema.js
 public/admin/schema.js.map
 tsconfig.tsbuildinfo
+.worktrees/
+shot-*.mjs
+debug-*.mjs
+grab-*.mjs
+preview.mjs
+retry-*.mjs
+nw-shot.mjs
