@@ -499,7 +499,8 @@ const uiCopy = {
       kicker: 'Three stages, one arc',
       title: 'Governments are tired of <em>waiting for the deck.</em>',
       lede: "Q1 opened in Taipei. Q2 hit Singapore's main stage at GITEX. The trilogy closes at LEAP East — Asia's largest stage — with FloodDash live in the room. Same thesis every time: build it now, not after the next budget cycle.",
-    },
+    
+      meta: '2026 · Taipei · Singapore · Bangkok',},
     flooddashSect: {
       kicker: 'Q1–Q2 · Act III',
       meta: 'GITEX → LEAP East → FloodDash',
@@ -674,7 +675,8 @@ const uiCopy = {
       kicker: 'สามเวที หนึ่งเส้นเรื่อง',
       title: 'รัฐบาลเหนื่อย<em>กับการรองานนำเสนอ</em>แล้ว',
       lede: 'Q1 เปิดที่ไทเป Q2 ขึ้นเวทีหลัก GITEX ที่สิงคโปร์ ไตรภาคีจบที่ LEAP East — เวทีใหญ่ที่สุดของเอเชีย — พร้อม FloodDash สดในห้อง วิทยานิพนธ์เดิมทุกครั้ง: สร้างเลย ไม่ต้องรอรอบงบประมาณถัดไป',
-    },
+    
+      meta: '2569 · ไทเป · สิงคโปร์ · กรุงเทพฯ',},
     flooddashSect: {
       kicker: 'Q1–Q2 · บทที่ 3',
       meta: 'GITEX → LEAP East → FloodDash',
@@ -725,7 +727,16 @@ const uiCopy = {
       statSystems: '在线系统',
       statMonitoring: '全天候监控',
       statCountries: '国家',
-    },
+    
+      featured: {
+        kicker: '精选',
+        event: 'EVENT_ID: FLOODDASH_LIVE',
+        name: 'FloodDash',
+        lede: '泰国洪水监测 · 24/7 实时 · 9 个数据源',
+        cta: '打开在线系统',
+        counter: '幻灯片 {current}/{total}',
+      },
+},
     engagement: {
       tag: '运营模式',
       title: '从压力出发，而非表演',
@@ -841,7 +852,8 @@ const uiCopy = {
       kicker: '三个舞台 一条弧线',
       title: '政府已经<em>厌倦等一份幻灯片</em>了',
       lede: 'Q1 在台北开场。Q2 登上新加坡 GITEX 主舞台。三部曲在 LEAP East——亚洲最大舞台——收束，FloodDash 在现场上线。同一条论点每次都一样：现在就建，别等下一个预算周期。',
-    },
+    
+      meta: '2026 · 台北 · 新加坡 · 曼谷',},
     flooddashSect: {
       kicker: 'Q1–Q2 · 第三幕',
       meta: 'GITEX → LEAP East → FloodDash',
@@ -1023,7 +1035,8 @@ const uiCopy = {
       kicker: '// THREE_STAGES_ONE_ARC',
       title: 'governments.tireof(waitingForTheDeck)',
       lede: '// Q1: Taipei → Q2: GITEX.mainStage → LEAP.East closes trilogy\n// FloodDash.liveInRoom(); thesis: { build: "now" }',
-    },
+    
+      meta: '// 2026.taipei.singapore.bangkok',},
     flooddashSect: {
       kicker: '// Q1_Q2.ACT_III',
       meta: 'GITEX → LEAP.East → FloodDash',
@@ -1311,7 +1324,8 @@ const i18nExt = {
       l8name:'Channels', l8role:'the outputs',
       l9name:'Local Runtime', l9role:'the desk',
       legend:'<span data-runtime="cloud">cloud</span><span data-runtime="local">// local</span>',
-    },
+    
+      expandHint:'9 layers · 117 tools · built and run from one desk in Bangkok. Click below for the full list.',},
     brandSect: {
       foldLine:'Brand Kit · 8 sheets · download available',
       kicker:'Brand Kit',
@@ -1640,7 +1654,8 @@ const i18nExt = {
       l8name:'ช่องทาง', l8role:'ข้อมูลขาออก',
       l9name:'รันไทม์ในเครื่อง', l9role:'โต๊ะทำงาน',
       legend:'<span data-runtime="cloud">คลาวด์</span><span data-runtime="local">// local</span>',
-    },
+    
+      expandHint:'9 ชั้น · 117 เครื่องมือ · สร้างและรันจากโต๊ะทำงานเดียวในกรุงเทพฯ คลิกด้านล่างเพื่อดูรายการทั้งหมด',},
     brandSect: {
       foldLine:'Brand Kit · 8 แผ่น · ดาวน์โหลดได้',
       kicker:'Brand Kit',
@@ -1966,7 +1981,8 @@ const i18nExt = {
       l8name:'通道', l8role:'输出',
       l9name:'本地运行时', l9role:'工作台',
       legend:'<span data-runtime="cloud">云端</span><span data-runtime="local">// local</span>',
-    },
+    
+      expandHint:'9 层 · 117 项工具 · 从曼谷的一张桌子上构建和运行。点击下方查看完整列表',},
     brandSect: {
       foldLine:'品牌工具包 · 8张 · 可下载',
       kicker:'品牌工具包',
@@ -2061,6 +2077,21 @@ const i18nExt = {
         lede: '// paste.draft()\n// Non-Writer: chainOfProxies.run()\n// outputs: cleaner.text | drNon.voice | any.language()',
         cta: 'system.open()',
       },
+      p12: { lede: '// NSP.thailand.streamingPlatform()\n// 21 NBTC-licensed digital TV channels // free, full HD, any device // live EPG + viewership telemetry + AI guide + CAP v1.2 emergency alerts', cta: 'platform.open()' },
+      p13: { lede: '// Chula.ControlTower\n// 47 live data streams: traffic, events, AQ, satellite, campus, security, transport // one surface for the operations team', cta: 'system.open()' },
+      p14: { lede: '// DayTraders.thaiMarketIntelligence()\n// Bloomberg-class signals for SET, MAI, mutual funds, RMF // personalized watchlists and AI summaries', cta: 'platform.open()' },
+      p15: { lede: '// CityHub.replicableCityIntelligence()\n// give it a city name, it draws the map, absorbs your data, wires APIs and dashboards // one city at a time', cta: 'platform.open()' },
+      p16: { lede: '// Chonburi.ControlTower\n// 3D command surface for the Eastern Seaboard: 42 live sources // coast weather, sea state, market and tourism, all in one', cta: 'tower.open()' },
+      p17: { lede: '// Ekkasarn.AI.thaiDocumentIntelligence()\n// tax invoices, receipts, withholding certificates // OCR + validation + structured output', cta: 'system.open()' },
+      p18: { lede: '// KMITL.ControlTower\n// 56 live data streams for King Mongkut\'s Institute of Technology Ladkrabang // traffic, events, AQ, satellite, campus, security', cta: 'system.open()' },
+      p19: { lede: '// Yala.ControlTower\n// real-time civic intelligence for Yala City Municipality // 3D city model + satellite + flood monitoring + deep-south security events', cta: 'system.open()' },
+      p20: { lede: '// Horizon45.aiJudgmentFieldInstrument()\n// deepfake detection → prompt engineering // users navigate real-world signals, leave with a capability portrait', cta: 'system.open()' },
+      p21: { lede: '// HCMC.massiveScaleCommandSurface()\n// live traffic + flood monitoring + AQ + dynamic routing // one high-performance map for city decision-makers', cta: 'system.open()' },
+      p22: { lede: '// threeRegionsMonitor()\n// Middle East, Southeast Asia, Thailand on one surface // open-data + layer overlays = insight', cta: 'system.open()' },
+      p23: { lede: '// SCITI.smartCityThailandIndex()\n// official Thai index: 174 city areas, 7 smart-city pillars // progress and impact evaluated', cta: 'system.open()' },
+      p24: { lede: '// DaoDeJing.trilingualReadingRoom()\n// Tsai comics + Buddhist parallels + psychology notes + pinyin + reference bookshelf // continuously updated', cta: 'system.open()' },
+      p30: { lede: '// the desk.byTheNumbers()\n// daily AI-frontier brief // what is shipping, what is hot air, what to read tonight // sector watch + manual picks + compounding archive', cta: 'system.open()' },
+      p31: { lede: '// NonScrape.scrapingAsAService()\n// no code // give it a URL + a question, it reads the page in source language, returns the answer in yours // with citations + structured JSON', cta: 'system.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2126,7 +2157,8 @@ const i18nExt = {
       l8name:'channels.out', l8role:'// outputs',
       l9name:'runtime.local()', l9role:'// the desk',
       legend:'<span data-runtime="cloud">// cloud</span><span data-runtime="local">// local</span>',
-    },
+    
+      expandHint:'// 9 layers, 117 tools, one desk.bangkok() // click below for the full list',},
     brandSect: {
       foldLine:'// brandKit[8] · download.available()',
       kicker:'brandKit[]',
