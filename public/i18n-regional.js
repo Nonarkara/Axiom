@@ -624,7 +624,9 @@
       "p14": "Live · Thai Markets",
       "p15": "Live · 5 cities",
       "p16": "Live · Chonburi EEC",
-      "p17": "Live · Thai docs"
+      "p17": "Live · Thai docs",
+      "p30": "Live · Daily Digest",
+      "p31": "Live · Scraping"
     },
     "cats": {
       "c01": "지역 운영",
@@ -647,7 +649,9 @@
       "c18": "대도시 운영",
       "c20": "역량 랩",
       "c23": "디지털 휴머니티",
-      "c25": "금융 인텔리전스"
+      "c25": "금융 인텔리전스",
+      "c28": "뉴스 인텔리전스",
+      "c29": "스크래핑 서비스"
     },
     "bioCommon": {
       "cvBtn": "이력서 보기",
@@ -707,15 +711,17 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "29개 시스템 · 5개국",
+      "sysMeta": "31개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 12",
       "intelligence": "인텔리전스",
       "intelligenceMeta": "신호 및 분석 · 4",
       "civic": "시민",
-      "civicMeta": "국가 플랫폼 및 시민 인프라 · 6",
+      "civicMeta": "국가 플랫폼 및 시민 인프라 · 4",
       "emerging": "신규",
-      "emergingMeta": "연구급 및 새 운영 모델 · 8"
+      "emergingMeta": "연구급 및 새 운영 모델 · 8",
+      "lab": "랩",
+      "labMeta": "보조 도구 · 공개 진행 · 4"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1473,15 +1479,17 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "29システム · 5か国",
+      "sysMeta": "31システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 12",
       "intelligence": "インテリジェンス",
       "intelligenceMeta": "シグナルと分析 · 4",
       "civic": "シビック",
-      "civicMeta": "国家プラットフォームと市民インフラ · 6",
+      "civicMeta": "国家プラットフォームと市民インフラ · 4",
       "emerging": "新興",
-      "emergingMeta": "研究グレードと新運用モデル · 8"
+      "emergingMeta": "研究グレードと新運用モデル · 8",
+      "lab": "ラボ",
+      "labMeta": "補助ツール · 公開中 · 4"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2239,15 +2247,17 @@
       "swipeHint": "4 groups · 17 systems — swipe"
     },
     "sysClusters": {
-      "sysMeta": "29 hệ thống · 5 quốc gia",
+      "sysMeta": "31 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 12",
       "intelligence": "Tình báo",
       "intelligenceMeta": "Tín hiệu và phân tích · 4",
       "civic": "Công dân",
-      "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 6",
+      "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 4",
       "emerging": "Mới nổi",
-      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 8"
+      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 8",
+      "lab": "Lab",
+      "labMeta": "Công cụ phụ · mở công khai · 4"
     },
     "sysStatus": {
       "live": "Trực tiếp",

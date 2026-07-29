@@ -275,6 +275,22 @@ const ARCHITECTURES = {
     outputs: ['Sensors', 'Drainage', 'AI predict', 'Decision pipeline'],
     foot: 'the open companion to FloodDash · fork and adapt',
   },
+  'drnon-digests': {
+    name: "DR NON'S DIGESTS",
+    idx: '30',
+    inputs: ['News feeds', 'Substack radar', 'AI frontier sources', 'Manual picks'],
+    core: { name: "DR NON'S DIGESTS", meta: ['daily digest', 'AI frontier'] },
+    outputs: ["Today's lead", 'AI frontier briefs', 'Sector watch', 'Archive'],
+    foot: 'the desk, by the numbers',
+  },
+  'nonscrape': {
+    name: 'NON-SCRAPE',
+    idx: '31',
+    inputs: ['URLs', 'Your question', 'Source language'],
+    core: { name: 'NON-SCRAPE', meta: ['read + extract', 'multi-language'] },
+    outputs: ['Answer in any language', 'Source citations', 'Structured JSON'],
+    foot: 'scraping as a service · no code',
+  },
 };
 
 function injectSystemArchitectures() {
@@ -1209,6 +1225,14 @@ const i18nExt = {
         lede: "Paste a draft. The Non-Writer runs it through a chain of proxies and boxes, and comes out the other side as the sentence you meant to write — in the voice Dr Non would have used. Now also translates into any language you ask for.",
         cta: 'Open live system',
       },
+      p30: {
+        lede: "The desk, by the numbers. A daily intelligence brief on the AI frontier — what's actually shipping, what is hot air, and what to read tonight. Sector watch, manual picks, and an archive that compounds.",
+        cta: 'Open live system',
+      },
+      p31: {
+        lede: 'Scraping as a service — no code. Hand it a URL and a question; it goes out, reads the page in the source language, and comes back with the answer in yours, with citations and structured JSON you can pipe downstream.',
+        cta: 'Open live system',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1530,6 +1554,14 @@ const i18nExt = {
         lede: 'วางดราฟต์ลงไป The Non-Writer จะส่งข้อความผ่านห่วงโซ่ของพร็อกซีและบ็อกซ์ แล้วออกมาอีกฝั่งเป็นประโยคที่คุณตั้งใจเขียน — ในน้ำเสียงที่ดร.นนจะใช้ ตอนนี้ยังแปลเป็นภาษาใดก็ได้ที่คุณต้องการ',
         cta: 'เปิดระบบสด',
       },
+      p30: {
+        lede: 'โต๊ะทำงาน วัดด้วยตัวเลข บทสรุปข่าวกรองรายวันเกี่ยวกับ AI frontier — อะไรกำลัง ship จริง อะไรคือลม และอะไรควรอ่านคืนนี้ sector watch ทางเลือกจากมือ และ archive ที่สะสมมูลค่า',
+        cta: 'เปิดระบบสด',
+      },
+      p31: {
+        lede: 'บริการดูดข้อมูล — ไม่ต้องเขียนโค้ด ส่ง URL กับคำถามมา ระบบจะออกไปอ่านเพจในภาษาต้นทาง แล้วกลับมาตอบเป็นภาษาของคุณ พร้อมอ้างอิงแหล่งที่มา และ JSON โครงสร้างที่ต่อท่อลง downstream ได้เลย',
+        cta: 'เปิดระบบสด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -1846,6 +1878,14 @@ const i18nExt = {
       },
       p29: {
         lede: '贴上一段草稿。The Non-Writer 会把它送过一连串代理与处理单元,从另一端出来时,就变成你本来想写的那句话——用 Dr Non 会用的声音。现在还可以翻译成你想要的任何语言。',
+        cta: '打开在线系统',
+      },
+      p30: {
+        lede: '那张桌子,用数字说话。每天一期的 AI 前沿情报简报——什么真的在出货,什么是噱头,今晚该读什么。行业关注、人工精选、以及会随时间复利的存档。',
+        cta: '打开在线系统',
+      },
+      p31: {
+        lede: '抓取即服务——无需代码。给它一个 URL 和一个问题,它就去读源语言页面,然后用你的语言回答你,带引用、可直接接入下游的结构化 JSON。',
         cta: '打开在线系统',
       },
     },
@@ -2176,6 +2216,8 @@ const i18nExt2 = {
       p27:'Live · 24/7 Air Watch',
       p28:'Open Blueprint · GitHub',
       p29:'Live · Writing Service',
+      p30:'Live · Daily Digest',
+      p31:'Live · Scraping',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2190,6 +2232,7 @@ const i18nExt2 = {
       c18:'Metropolitan Operations', c19:'Environmental Watch',
       c20:'Capability Lab', c23:'Digital Humanities', c25:'Finance Intelligence',
       c26:'Open Blueprint', c27:'Writing Intelligence',
+      c28:'News Intelligence', c29:'Scraping Service',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2240,15 +2283,17 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '29 systems · 5 countries',
+      sysMeta: '31 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 12',
       intelligence: 'Intelligence',
       intelligenceMeta: 'Signal & analysis · 4',
       civic: 'Civic',
-      civicMeta: 'National platforms & citizen infrastructure · 6',
+      civicMeta: 'National platforms & citizen infrastructure · 4',
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 8',
+      lab: 'Lab',
+      labMeta: 'Side tools · in the open · 4',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development' },
     metaKeys: {
@@ -2282,6 +2327,8 @@ const i18nExt2 = {
       p27:'สด · เฝ้าอากาศ 24/7',
       p28:'Blueprint เปิด · GitHub',
       p29:'สด · บริการเขียน',
+      p30:'สด · บทความรายวัน',
+      p31:'สด · ดูดข้อมูล',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2296,6 +2343,7 @@ const i18nExt2 = {
       c18:'ปฏิบัติการมหานคร', c19:'เฝ้าสิ่งแวดล้อม',
       c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล', c25:'ข่าวกรองการเงิน',
       c26:'Blueprint เปิด', c27:'ข่าวกรองการเขียน',
+      c28:'ข่าวกรองข่าว', c29:'บริการดูดข้อมูล',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2346,15 +2394,17 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '29 ระบบ · 5 ประเทศ',
+      sysMeta: '31 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 12',
       intelligence: 'ข่าวกรอง',
       intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 4',
       civic: 'พลเมือง',
-      civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 6',
+      civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 4',
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 8',
+      lab: 'แล็บ',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 4',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา' },
     metaKeys: {
@@ -2388,6 +2438,8 @@ const i18nExt2 = {
       p27:'实时 · 24/7空气质量',
       p28:'开放蓝图 · GitHub',
       p29:'在线 · 写作服务',
+      p30:'在线 · 每日摘要',
+      p31:'在线 · 抓取',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2400,6 +2452,7 @@ const i18nExt2 = {
       c18:'都会运营', c19:'环境监测',
       c20:'能力实验室', c23:'数字人文', c25:'金融情报',
       c26:'开放蓝图', c27:'写作智能',
+      c28:'新闻情报', c29:'抓取服务',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2450,15 +2503,17 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '29 个系统 · 5 个国家',
+      sysMeta: '31 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 12',
       intelligence: '情报',
       intelligenceMeta: '信号与分析 · 4',
       civic: '民生',
-      civicMeta: '国家级平台与公民基础设施 · 6',
+      civicMeta: '国家级平台与公民基础设施 · 4',
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 8',
+      lab: '实验室',
+      labMeta: '辅助工具 · 开放中 · 4',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中' },
     pressContent: {
@@ -2501,6 +2556,8 @@ const i18nExt2 = {
       p27:'live: airWatch.24_7',
       p28:'openBlueprint: github',
       p29:'live: writingService',
+      p30:'live: dailyDigest',
+      p31:'live: scraping',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -2513,6 +2570,7 @@ const i18nExt2 = {
       c18:'MetroOps', c19:'EnvWatch',
       c20:'CapabilityLab', c23:'DigitalHumanities', c25:'FinanceIntel',
       c26:'OpenBlueprint', c27:'WritingIntel',
+      c28:'NewsIntel', c29:'ScrapingService',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -2563,15 +2621,17 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '29 systems · 5 countries',
+      sysMeta: '31 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[12]',
       intelligence: 'Intelligence',
       intelligenceMeta: 'signal & analysis · count[4]',
       civic: 'Civic',
-      civicMeta: 'nationalPlatforms & citizenInfra · count[6]',
+      civicMeta: 'nationalPlatforms & citizenInfra · count[4]',
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[8]',
+      lab: 'Lab',
+      labMeta: 'sideTools & openProcess · count[4]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage' },
     metaKeys: {
