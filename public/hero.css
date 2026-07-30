@@ -947,14 +947,14 @@
    is the confusion the user flagged. When the user pauses — either
    by hitting the pause button or by interacting with the map — the
    panel reappears so they have a clear "this is what to look at" anchor. */
-.hero.is-touring .hero-featured-badge {
+#hero.is-touring .hero-featured-badge {
   opacity: 0;
   pointer-events: none;
   transform: translateY(-50%) translateX(8px);
   transition: opacity 240ms ease, transform 240ms ease;
 }
 
-.hero:not(.is-touring) .hero-featured-badge {
+#hero:not(.is-touring) .hero-featured-badge {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(-50%) translateX(0);

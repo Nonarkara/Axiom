@@ -3165,7 +3165,7 @@ function initFlooddashCarousel() {
     // two different things at once — that was the confusing bit.
     // Hide the panel when touring; reveal it when the user has
     // paused on a specific city.
-    const heroEl = document.querySelector('.hero');
+    const heroEl = document.getElementById('hero');
     if (heroEl) heroEl.classList.toggle('is-touring', touring);
   }
 
