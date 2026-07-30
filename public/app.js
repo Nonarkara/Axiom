@@ -133,16 +133,7 @@ const ARCHITECTURES = {
     outputs: ['Watch list', '3-day forecast', 'Top-5 AT-risk', 'National pattern donut'],
     foot: 'Thailand air quality + dust watch',
   },
-  // INTELLIGENCE
-  'dngws': {
-    name: 'DNGWS',
-    idx: '02',
-    inputs: ['Escalation tracking', 'Economic spillover', 'Multi-source crisis feeds'],
-    core: { name: 'DNGWS MONITOR', meta: ['crisis fusion', 'global'] },
-    outputs: ['Cross-source map', 'Escalation deltas', 'Crisis brief'],
-    foot: 'macro signal before the room starts guessing',
-  },
-  'slic': {
+    'slic': {
     name: 'SLIC',
     idx: '04',
     inputs: ['157 cities', '5 livability pillars', 'User weights'],
@@ -1081,14 +1072,7 @@ const i18nExt = {
         w2lbl:'What it replaced', w2:'Three siloed agency reports, an SMS escalation chain, and a Tuesday-morning briefing slot.',
         w3lbl:'Earned on day one', w3:'Built on existing IoT infrastructure — no new hardware procurement.', cta:'Open live system',
       },
-      p02: {
-        title: 'Macro signal, <em>before the room starts guessing.</em>',
-        lede: 'DNGWS Monitor pulls live escalation tracking, economic spillover, and cross-source crisis visualization into one surface. For decision-makers who can\'t wait for the briefing deck.',
-        w1lbl:'Why it\'s special', w1:'Bloomberg Terminal costs $25K/seat/year. This runs on open data. Cross-source crisis fusion, escalation deltas, and economic spillover — surfaced fast enough to brief a minister before the cable news cycle catches up.',
-        w2lbl:'What it replaced', w2:'Subscription intelligence platforms, ad-hoc analyst PDFs, and the gap between "something happened" and "we have a position."',
-        w3lbl:'Earned on day one', w3:'Sentinel-2 satellite imagery, OSINT feed fusion, and 53-country NLP brief layer — deployed at the edge for sub-second region switches.', cta:'Open live system',
-      },
-      p03: {
+            p03: {
         title: 'Bureaucracy, <em>made legible.</em>',
         lede: 'We built the public surface for Thailand\'s national smart city programme with depa. Proposals go in. Progress stays visible. The programme stops disappearing into PDFs.',
         w1lbl:'Why it\'s special', w1:'National programmes usually live in annual reports nobody reads. This one is online, bilingual, and tied to outcomes — not ceremony. A candidate city\'s status moves the moment a milestone clears.',
@@ -1411,14 +1395,7 @@ const i18nExt = {
         w2lbl:'สิ่งที่ถูกแทนที่', w2:'รายงานสามหน่วยงานที่ต่างคนต่างทำ เครือข่ายส่ง SMS แจ้งเตือน และคิวประชุมบรีฟเช้าวันอังคาร',
         w3lbl:'ได้ตั้งแต่วันแรก', w3:'สร้างบนโครงสร้าง IoT ที่มีอยู่แล้วของจังหวัด ไม่ต้องจัดซื้อฮาร์ดแวร์ใหม่', cta:'เปิดระบบสด',
       },
-      p02: {
-        title: 'สัญญาณภาพรวม <em>ก่อนคนในห้องเริ่มเดา</em>',
-        lede: 'DNGWS Monitor รวมการติดตามสถานการณ์แบบเรียลไทม์ ผลกระทบเศรษฐกิจ และการแสดงวิกฤตจากหลายแหล่งไว้ในจอเดียว สำหรับผู้ตัดสินใจที่รอเอกสารบรีฟไม่ไหว',
-        w1lbl:'จุดที่พิเศษ', w1:'Bloomberg Terminal ราคา 25,000 ดอลลาร์ต่อที่นั่งต่อปี ระบบนี้รันบนข้อมูลสาธารณะ ผสมวิกฤตจากหลายแหล่ง ส่วนต่างของการยกระดับ และผลกระทบเศรษฐกิจ เร็วพอที่จะบรีฟรัฐมนตรีก่อนรอบข่าวจะตามทัน',
-        w2lbl:'สิ่งที่ถูกแทนที่', w2:'แพลตฟอร์มข่าวกรองแบบจ่ายรายเดือน PDF เฉพาะกิจจากนักวิเคราะห์ และช่องว่างระหว่าง "มีอะไรเกิดขึ้น" กับ "เรามีจุดยืนแล้ว"',
-        w3lbl:'ได้ตั้งแต่วันแรก', w3:'ภาพดาวเทียม Sentinel-2 การรวม OSINT feed และชั้น NLP บรีฟ 53 ประเทศ ทำงานที่ edge สลับภูมิภาคได้ในเสี้ยววินาที', cta:'เปิดระบบสด',
-      },
-      p03: {
+            p03: {
         title: 'ระบบราชการ <em>ที่อ่านออก</em>',
         lede: 'ผมสร้างหน้าเว็บสาธารณะให้โครงการเมืองอัจฉริยะแห่งชาติของไทย ร่วมกับ depa ข้อเสนอเข้ามา ความคืบหน้าเห็นได้ตลอด โครงการไม่หายเข้าไปใน PDF อีกต่อไป',
         w1lbl:'จุดที่พิเศษ', w1:'โครงการระดับชาติส่วนใหญ่อยู่ในรายงานประจำปีที่ไม่มีใครอ่าน อันนี้ออนไลน์ สองภาษา และผูกกับผลลัพธ์ ไม่ใช่พิธีการ สถานะของเมืองที่สมัครเปลี่ยนทันทีเมื่อผ่านหมุดหมาย',
@@ -1738,14 +1715,7 @@ const i18nExt = {
         w2lbl:'替代了什么', w2:'三个部门各自交的孤立报告、一条SMS上报链，加上每周二早上的固定汇报会议。',
         w3lbl:'第一天就有价值', w3:'建在已有的IoT基础设施上，没多采购一件新硬件。', cta:'打开在线系统',
       },
-      p02: {
-        title: '宏观信号，<em>在房间里开始瞎猜之前</em>',
-        lede: 'DNGWS Monitor把实时升级追踪、经济外溢、跨来源的危机可视化全部塞进一个界面，给那些等不到简报文档的决策者用。',
-        w1lbl:'特别之处', w1:'彭博终端一个席位每年两万五千美元，这个跑在公开数据上。跨来源的危机融合、升级幅度、经济外溢，快到可以在有线电视追上之前给部长做简报。',
-        w2lbl:'替代了什么', w2:'订阅制情报平台、临时打的分析师PDF，以及"出事了"和"我们有立场了"之间那段真空。',
-        w3lbl:'第一天就有价值', w3:'Sentinel-2卫星图像、OSINT信息流融合、53国NLP简报层——部署在边缘节点，切换区域不到一秒。', cta:'打开在线系统',
-      },
-      p03: {
+            p03: {
         title: '官僚体系，<em>变得看得懂</em>',
         lede: '我和depa一起，给泰国国家智慧城市项目搭了对外的公开页面。提案进来，进度全程可见，项目不再消失在PDF里。',
         w1lbl:'特别之处', w1:'国家级项目通常活在没人翻的年度报告里。这一个在线、双语，跟着结果走，不走仪式。候选城市过了里程碑，状态当场就更新。',
@@ -2050,8 +2020,7 @@ const i18nExt = {
   ts: {
     panels: {
       p01: { title:'Governor<em>.situationRoom</em>: BrowserTab', lede:'// phuket.transit + safety + env → 30s read\n// built: weeks; not: procurementCycle', w1lbl:'// WHY_SPECIAL', w1:'// govDashboards: ReadonlyPDF[]\n// phuket: WorkingOpsRoom — transit & safety & env\n// refresh: 42ms; analysts: never[]', w2lbl:'// REPLACED', w2:'threeAgencyReports + smsChain + tuesdayBriefing', w3lbl:'// DAY_ONE', w3:'existingIoT.build() // no new hardware', cta:'system.open()' },
-      p02: { title:'macroSignal<em>.before(roomStartsGuessing)</em>', lede:'// DNGWS: escalation + spillover + crossSourceCrisis\n// for: DecisionMaker.cannotWait(briefingDeck)', w1lbl:'// WHY_SPECIAL', w1:'bloomberg.cost: $25k/seat // this: openData\ncrisis.fuse() // minister.brief(beforeCycle)', w2lbl:'// REPLACED', w2:'subscriptionPlatforms + adHocPDFs + positionGap', w3lbl:'// DAY_ONE', w3:'sentinel2 + OSINT + nlpBrief(53countries)', cta:'system.open()' },
-      p03: { title:'bureaucracy<em>.makeLegible()</em>', lede:'// thailand.smartCity.programme → public surface\n// proposals.in; progress.visible; pdfs.never()', w1lbl:'// WHY_SPECIAL', w1:'nationalProgramme.online(bilingual)\n// outcomes not ceremony; status.update(onMilestone)', w2lbl:'// FUNDED_BY', w2:'depa // digital economy promotion agency\n// direct gov engagement, not sub-vendor', w3lbl:'// MATTERS', w3:'template.for(nationalSmartCity.programmes)', cta:'system.open()' },
+            p03: { title:'bureaucracy<em>.makeLegible()</em>', lede:'// thailand.smartCity.programme → public surface\n// proposals.in; progress.visible; pdfs.never()', w1lbl:'// WHY_SPECIAL', w1:'nationalProgramme.online(bilingual)\n// outcomes not ceremony; status.update(onMilestone)', w2lbl:'// FUNDED_BY', w2:'depa // digital economy promotion agency\n// direct gov engagement, not sub-vendor', w3lbl:'// MATTERS', w3:'template.for(nationalSmartCity.programmes)', cta:'system.open()' },
       p04: { title:'ranking<em>.arguesBack()</em>', lede:'SLIC.show(5pillars)\n// mayors.define(livability)\n// math.follows()', w1lbl:'// WHY_SPECIAL', w1:'others.hand(finishedVerdict)\nSLIC.hand(math) // weights.move() → ranking.change()', w2lbl:'// REPLACED', w2:'staticLeaderboards + annualPDF + methodology.dispute', w3lbl:'// SIGNAL', w3:'MayorsOfEurope.adopted()\n// live-demo: SCSE 45min', cta:'SLIC.v3.open()' },
       p05: { title:'Kuching<em>.oneCommandSurface()</em>', lede:'// IOC: fullSpectrum\n// fx + flights + satellite + env → unified', w1lbl:'// WHY_SPECIAL', w1:'most: IOC<SingleDomain>\nkuching: crossDomain.fuse() // never switchTabs()', w2lbl:'// USERS', w2:'cityOperators + planners\n// realTime situational awareness, daily use', w3lbl:'// MATTERS', w3:'bloomberg.density / city // fraction.of.cost', cta:'system.open()' },
       p06: { title:'news<em>.before(algorithm.decidesWar)</em>', lede:'MEM: fastest opensource news surface\n// multiSource; noEditorialDelay; noFilterBubble', w1lbl:'// WHY_SPECIAL', w1:'platforms.have(editorial.layer)\nMEM.remove(that) // same signals, machineSpeed', w2lbl:'// REPLACED', w2:'3tabs + 2telegramChannels + twitterList', w3lbl:'// USERS', w3:'journalists + analysts + ngoFieldTeams', cta:'system.open()' },

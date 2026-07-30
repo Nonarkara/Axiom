@@ -230,18 +230,7 @@
         "w3": "Built on existing IoT infrastructure — no new hardware procurement.",
         "cta": "라이브 시스템 열기"
       },
-      "p02": {
-        "title": "Macro signal, <em>before the room starts guessing.</em>",
-        "lede": "DNGWS Monitor는 실시간 에스컬레이션 추적, 경제 파급, 다중 소스 위기 시각화를 한 화면에 모읍니다. 브리핑 문서를 기다릴 수 없는 의사결정자를 위해.",
-        "w1lbl": "Why it's special",
-        "w1": "Bloomberg Terminal costs $25K/seat/year. This runs on open data. Cross-source crisis fusion, escalation deltas, and economic spillover — surfaced fast enough to brief a minister before the cable news cycle catches up.",
-        "w2lbl": "What it replaced",
-        "w2": "Subscription intelligence platforms, ad-hoc analyst PDFs, and the gap between \"something happened\" and \"we have a position.\"",
-        "w3lbl": "Earned on day one",
-        "w3": "Sentinel-2 satellite imagery, OSINT feed fusion, and 53-country NLP brief layer — deployed at the edge for sub-second region switches.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p03": {
+            "p03": {
         "title": "Bureaucracy, <em>made legible.</em>",
         "lede": "We built the public surface for Thailand's national smart city programme with depa. Proposals go in. Progress stays visible. The programme stops disappearing into PDFs.",
         "w1lbl": "Why it's special",
@@ -745,11 +734,11 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "31개 시스템 · 5개국",
+      "sysMeta": "30개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 12",
       "intelligence": "인텔리전스",
-      "intelligenceMeta": "신호 및 분석 · 4",
+      "intelligenceMeta": "신호 및 분석 · 3",
       "civic": "시민",
       "civicMeta": "국가 플랫폼 및 시민 인프라 · 4",
       "emerging": "신규",
@@ -1036,18 +1025,7 @@
         "w3": "Built on existing IoT infrastructure — no new hardware procurement.",
         "cta": "稼働中のシステムを開く"
       },
-      "p02": {
-        "title": "Macro signal, <em>before the room starts guessing.</em>",
-        "lede": "DNGWS Monitorは、ライブのエスカレーション追跡、経済波及、多ソース危機の可視化を1画面に集約します。ブリーフィング資料を待てない意思決定者のために。",
-        "w1lbl": "Why it's special",
-        "w1": "Bloomberg Terminal costs $25K/seat/year. This runs on open data. Cross-source crisis fusion, escalation deltas, and economic spillover — surfaced fast enough to brief a minister before the cable news cycle catches up.",
-        "w2lbl": "What it replaced",
-        "w2": "Subscription intelligence platforms, ad-hoc analyst PDFs, and the gap between \"something happened\" and \"we have a position.\"",
-        "w3lbl": "Earned on day one",
-        "w3": "Sentinel-2 satellite imagery, OSINT feed fusion, and 53-country NLP brief layer — deployed at the edge for sub-second region switches.",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p03": {
+            "p03": {
         "title": "Bureaucracy, <em>made legible.</em>",
         "lede": "We built the public surface for Thailand's national smart city programme with depa. Proposals go in. Progress stays visible. The programme stops disappearing into PDFs.",
         "w1lbl": "Why it's special",
@@ -1549,11 +1527,11 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "31システム · 5か国",
+      "sysMeta": "30システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 12",
       "intelligence": "インテリジェンス",
-      "intelligenceMeta": "シグナルと分析 · 4",
+      "intelligenceMeta": "シグナルと分析 · 3",
       "civic": "シビック",
       "civicMeta": "国家プラットフォームと市民インフラ · 4",
       "emerging": "新興",
@@ -1840,18 +1818,7 @@
         "w3": "Built on existing IoT infrastructure — no new hardware procurement.",
         "cta": "Mở hệ thống đang chạy"
       },
-      "p02": {
-        "title": "Macro signal, <em>before the room starts guessing.</em>",
-        "lede": "DNGWS Monitor gom theo dõi leo thang trực tiếp, lan truyền kinh tế và trực quan hóa khủng hoảng đa nguồn trên một giao diện. Dành cho người ra quyết định không thể chờ bản briefing.",
-        "w1lbl": "Why it's special",
-        "w1": "Bloomberg Terminal costs $25K/seat/year. This runs on open data. Cross-source crisis fusion, escalation deltas, and economic spillover — surfaced fast enough to brief a minister before the cable news cycle catches up.",
-        "w2lbl": "What it replaced",
-        "w2": "Subscription intelligence platforms, ad-hoc analyst PDFs, and the gap between \"something happened\" and \"we have a position.\"",
-        "w3lbl": "Earned on day one",
-        "w3": "Sentinel-2 satellite imagery, OSINT feed fusion, and 53-country NLP brief layer — deployed at the edge for sub-second region switches.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p03": {
+            "p03": {
         "title": "Bureaucracy, <em>made legible.</em>",
         "lede": "We built the public surface for Thailand's national smart city programme with depa. Proposals go in. Progress stays visible. The programme stops disappearing into PDFs.",
         "w1lbl": "Why it's special",
@@ -2353,11 +2320,11 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "31 hệ thống · 5 quốc gia",
+      "sysMeta": "30 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 12",
       "intelligence": "Tình báo",
-      "intelligenceMeta": "Tín hiệu và phân tích · 4",
+      "intelligenceMeta": "Tín hiệu và phân tích · 3",
       "civic": "Công dân",
       "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 4",
       "emerging": "Mới nổi",
