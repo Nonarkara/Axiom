@@ -313,6 +313,7 @@
       "p10": {
         "title": "HR has been a <em>record system</em> long enough.",
         "lede": "TKCX는 직원을 파티원, 프로젝트를 퀘스트, 팀 구성을 전략으로 다루는 게임 기반 인재 운영 시스템입니다.",
+        "cta": "GitHub 저장소 — 출시 예정",
         "w1lbl": "The problem",
         "w1": "Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.",
         "w2lbl": "The engine",
@@ -713,7 +714,14 @@
       "fwTwin": "디지털 트윈 및 상호운용성 — ISO/IEC 30173, ISO 23247, NIST",
       "fwAi": "AI 거버넌스 및 리스크 — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles",
       "fwPrivacy": "프라이버시 및 신뢰 — PDPA, GDPR 원칙; 관할 준수는 프로젝트별",
-      "copyright": "방콕 · 동남아시아. © 2026 Axiom X Co., Ltd. Axiom은 본 사이트와 서비스를 제공하는 등록 상호입니다. 여기에 인용된 가동 시간, 응답 시간, 성과 지표는 사례별 관찰이며 미래 성과를 보장하지 않습니다."
+      "legalLabel": "약관 · 프라이버시 · 책임 · 법률",
+      "terms": "본 사이트를 사용하면 합법적으로 사용하며 스크린샷, 대시보드, 모델 출력, 시스템 내부를 서면 허가 없이 재배포하지 않는 데 동의합니다. Axiom, Axiom 명칭, 표시된 시스템 명칭은 Axiom X Co., Ltd.의 상호입니다.",
+      "privacy": "본 사이트는 속도 제한과 집계 트래픽 측정을 위한 12자 해시 방문자 태그 외에는 어떠한 개인 데이터도 수집하지 않습니다. 여기서 연결된 시스템은 각자의 프라이버시 정책을 가지며, 해당 데이터를 붙여넣기 전에 해당 정책을 읽으십시오. 광고 쿠키를 설정하지 않으며, 방문자 데이터를 제3자에게 판매하거나 공유하지 않습니다.",
+      "dataAttribution": "샌드박스 시스템에 표시되는 실시간 데이터는 TMD, GISTDA, JICA, NBTC, 미세먼지정책과, OpenStreetMap 기여자, TomTom 및 시스템 내에 출처가 명시된 기타 공개·개방형 라이선스 출처에서 가져옵니다. 상업적 출처(예: Air4Thai o61, 33V, 34T, Naver CFT)가 혼합된 경우 시스템 화면에 출처가 표시됩니다.",
+      "liability": "본 사이트의 샌드박스 및 데모 시스템은 작동하지만 보장하지 않습니다. 모든 지표는 힌트이며 판정이 아닙니다. 실제 결정은 원본 관할 기관을 통해 검증해야 합니다. Axiom은 샌드박스 데이터에 근거한 결정에 대해 책임을 지지 않습니다.",
+      "governingLaw": "본 약관은 태국 왕국의 법률에 따릅니다. 분쟁은 방콕 법원의 전속 관할에 따릅니다. 영문 텍스트와 번역본이 충돌할 경우 영문 텍스트가 우선합니다.",
+      "hosting": "Cloudflare Pages에서 호스팅 · 방콕에서 구축 및 운영 · 본 사이트 소스: github.com/Nonarkara/Axiom (공개 사이트만, 고객 시스템은 비공개).",
+      "copyright": "방콕 · 동남아시아. © 2026 Axiom X Co., Ltd. 여기에 인용된 가동 시간, 응답 시간, 성과 지표는 사례별 관찰이며 미래 성과를 보장하지 않습니다."
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"
@@ -749,7 +757,8 @@
     "sysStatus": {
       "live": "라이브",
       "preview": "미리보기",
-      "dev": "개발 중"
+      "dev": "개발 중",
+      "soon": "출시 예정"
     },
     "metaKeys": {
       "AI": "AI",
@@ -1108,6 +1117,7 @@
       "p10": {
         "title": "HR has been a <em>record system</em> long enough.",
         "lede": "TKCXは、従業員をパーティーメンバー、プロジェクトをクエスト、チーム編成を戦略として扱うゲームベースのタレント運用システムです。",
+        "cta": "GitHub リポジトリ — 近日公開",
         "w1lbl": "The problem",
         "w1": "Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.",
         "w2lbl": "The engine",
@@ -1506,7 +1516,14 @@
       "fwTwin": "デジタルツインと相互運用性 — ISO/IEC 30173、ISO 23247、NIST",
       "fwAi": "AIガバナンスとリスク — ISO/IEC 42001、ISO/IEC 23894、NIST AI RMF、OECD AI Principles",
       "fwPrivacy": "プライバシーと信頼 — PDPA、GDPR原則；管轄遵守は案件ごと",
-      "copyright": "Bangkok · 東南アジア。© 2026 Axiom X Co., Ltd. Axiom は本サイトおよびサービスを提供する登録商号です。ここに引用される稼働時間、応答時間、成果指標は事例ごとの観測値であり、将来のパフォーマンスを保証するものではありません。"
+      "legalLabel": "規約 · プライバシー · 責任 · 法律",
+      "terms": "本サイトを利用することで、合法的に利用し、書面による許可なくスクリーンショット、ダッシュボード、モデル出力、システム内部を再公開しないことに同意したものと見なします。Axiom、Axiomの名称、および表示されるシステム名は Axiom X Co., Ltd. の商号です。",
+      "privacy": "本サイトは、流量制限と集計トラフィック計測に使用される12文字のハッシュ化された訪問者タグ以外の個人データを収集しません。ここからリンクされているシステムはそれぞれ独自のプライバシー方針を持っており、データを貼り付ける前にそれらをお読みください。広告クッキーは設定せず、訪問者データを第三者に販売・共有しません。",
+      "dataAttribution": "サンドボックスシステムに表示されるライブデータは、TMD、GISTDA、JICA、NBTC、汚染管理局、OpenStreetMap コントリビューター、TomTom、およびシステム内にクレジット表示されるその他の公開・オープンライセンスのフィードから取得しています。商用フィード（例: Air4Thai o61、33V、34T、Naver CFT）が混在している場合、ソースはシステム画面に表示されます。",
+      "liability": "本サイトのサンドボックスおよびデモシステムは動作しますが、保証するものではありません。すべての指標はヒントであり、判定ではありません。実際の意思決定は、元の所管当局との検証が必要です。Axiom はサンドボックスデータに基づく決定について責任を負いません。",
+      "governingLaw": "本規約はタイ王国の法律に準拠します。紛争はバンコクの裁判所の専属管轄に服します。英文テキストと翻訳が矛盾する場合、英文テキストが優先します。",
+      "hosting": "Cloudflare Pages でホスティング · バンコクで構築・運用 · 本サイトのソース: github.com/Nonarkara/Axiom (公開サイトのみ、クライアントシステムは非公開)。",
+      "copyright": "Bangkok · 東南アジア。© 2026 Axiom X Co., Ltd. ここに引用される稼働時間、応答時間、成果指標は事例ごとの観測値であり、将来のパフォーマンスを保証するものではありません。"
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"
@@ -1542,7 +1559,8 @@
     "sysStatus": {
       "live": "稼働中",
       "preview": "プレビュー",
-      "dev": "開発中"
+      "dev": "開発中",
+      "soon": "近日公開"
     },
     "metaKeys": {
       "AI": "AI",
@@ -1901,6 +1919,7 @@
       "p10": {
         "title": "HR has been a <em>record system</em> long enough.",
         "lede": "TKCX là hệ thống vận hành nhân tài dựa trên game: nhân viên là thành viên đội, dự án là nhiệm vụ, lắp đội là chiến lược.",
+        "cta": "Kho GitHub — sắp ra mắt",
         "w1lbl": "The problem",
         "w1": "Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.",
         "w2lbl": "The engine",
@@ -2299,7 +2318,14 @@
       "fwTwin": "Digital twin và khả năng tương tác — ISO/IEC 30173, ISO 23247, NIST",
       "fwAi": "Quản trị và rủi ro AI — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles",
       "fwPrivacy": "Quyền riêng tư và tin cậy — PDPA, nguyên tắc theo GDPR; tuân thủ pháp lý theo từng dự án",
-      "copyright": "Bangkok · Đông Nam Á. © 2026 Axiom X Co., Ltd. Axiom là tên thương mại mà trang web và dịch vụ được trình bày. Thời gian hoạt động, phản hồi và chỉ số kết quả được trích dẫn ở đây là quan sát theo từng trường hợp, không phải cam kết về hiệu suất tương lai."
+      "legalLabel": "Điều khoản · Quyền riêng tư · Trách nhiệm · Luật",
+      "terms": "Bằng việc sử dụng trang này, bạn đồng ý sử dụng hợp pháp và không tái xuất bản ảnh chụp màn hình, bảng điều khiển, đầu ra mô hình hoặc hệ thống nội bộ khi chưa có văn bản cho phép. Axiom, tên gọi Axiom và tên các hệ thống hiển thị là tên thương mại của Axiom X Co., Ltd.",
+      "privacy": "Trang này không thu thập dữ liệu cá nhân ngoài thẻ khách truy cập dạng băm 12 ký tự dùng cho giới hạn tốc độ và đo lường lưu lượng tổng hợp. Các hệ thống liên kết từ đây có chính sách riêng tư của riêng chúng — hãy đọc trước khi dán dữ liệu của họ vào bất kỳ đâu. Chúng tôi không đặt cookie quảng cáo, không bán và không chia sẻ dữ liệu khách truy cập với bên thứ ba.",
+      "dataAttribution": "Dữ liệu trực tiếp hiển thị trong hệ thống sandbox đến từ các nguồn công khai bao gồm TMD, GISTDA, JICA, NBTC, Cục Kiểm soát Ô nhiễm, cộng tác viên OpenStreetMap, TomTom và các nguồn cấp dữ liệu công khai hoặc cấp phép mở khác được ghi công trong hệ thống. Khi nguồn thương mại được trộn vào (ví dụ: Air4Thai o61, 33V, 34T, Naver CFT), nguồn sẽ được nêu trong giao diện hệ thống.",
+      "liability": "Các hệ thống sandbox và trình diễn trên trang này hoạt động nhưng không được bảo đảm. Hãy coi mọi chỉ số là gợi ý, không phải phán quyết. Quyết định thực sự cần xác minh với cơ quan có thẩm quyền gốc. Axiom không chịu trách nhiệm cho các quyết định dựa trên dữ liệu sandbox.",
+      "governingLaw": "Các điều khoản này tuân theo pháp luật Vương quốc Thái Lan. Tranh chấp thuộc thẩm quyền riêng của các tòa án Bangkok. Khi văn bản tiếng Anh xung đột với bất kỳ bản dịch nào, văn bản tiếng Anh sẽ được ưu tiên.",
+      "hosting": "Lưu trữ trên Cloudflare Pages · Xây dựng và vận hành tại Bangkok · Mã nguồn trang: github.com/Nonarkara/Axiom (chỉ trang công khai; hệ thống khách hàng là riêng tư).",
+      "copyright": "Bangkok · Đông Nam Á. © 2026 Axiom X Co., Ltd. Thời gian hoạt động, phản hồi và chỉ số kết quả được trích dẫn ở đây là quan sát theo từng trường hợp, không phải cam kết về hiệu suất tương lai."
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"
@@ -2335,7 +2361,8 @@
     "sysStatus": {
       "live": "Trực tiếp",
       "preview": "Xem trước",
-      "dev": "Đang phát triển"
+      "dev": "Đang phát triển",
+      "soon": "Sắp ra mắt"
     },
     "metaKeys": {
       "AI": "AI",

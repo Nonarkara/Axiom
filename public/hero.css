@@ -941,3 +941,22 @@
   .hero-featured-badge:hover { transform: translateX(-3px); }
   .hero-featured-badge__name { font-size: 22px; }
 }
+
+/* Hide the FEATURED panel while the AUTO TOUR is running.
+   Two things showing at once (the touring map + a static featured card)
+   is the confusion the user flagged. When the user pauses — either
+   by hitting the pause button or by interacting with the map — the
+   panel reappears so they have a clear "this is what to look at" anchor. */
+.hero.is-touring .hero-featured-badge {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) translateX(8px);
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.hero:not(.is-touring) .hero-featured-badge {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+  transition: opacity 240ms ease, transform 240ms ease;
+}

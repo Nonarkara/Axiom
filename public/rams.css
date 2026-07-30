@@ -2398,3 +2398,32 @@ img {
   width: min(var(--maxw), calc(100% - (var(--pad) * 2)));
   margin: 0 auto;
 }
+/* Soon / non-link system card — for systems in development.
+   Keeps the card in the grid (so the showcase stays at 30 systems)
+   but removes the affordance of a link. */
+.sys-cell--soon {
+  cursor: default;
+}
+
+.sys-cell--soon .sys-cell__link {
+  color: var(--ink-2, #555);
+}
+
+.sys-cell--soon .sys-cell__shot {
+  filter: grayscale(0.55) contrast(0.92);
+  opacity: 0.88;
+}
+
+.sys-cell--soon:hover {
+  transform: none;
+  border-color: var(--line, #d6d2c4);
+}
+
+.sys-cell--soon:hover .sys-cell__link {
+  color: var(--ink-2, #555);
+}
+
+.sys-cell--soon:hover .sys-cell__shot {
+  filter: grayscale(0.55) contrast(0.92);
+  opacity: 0.88;
+}

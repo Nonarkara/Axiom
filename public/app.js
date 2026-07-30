@@ -1127,7 +1127,7 @@ const i18nExt = {
         lede: 'Talent Knowledge Collaborative Explorers (TKCX) is a game-based talent operating system that treats employees as party members, projects as quests, and team assembly as strategy. It makes every decision about people visible, measurable, and connected to outcomes — replacing org-chart politics with capability intelligence.',
         w1lbl:'The problem', w1:'Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.',
         w2lbl:'The engine', w2:'Built on Dragon Quest III\'s party system. Five archetypes map to real workplace roles (captain, tech, sales, ops, scout). A Moneyball budget cap — project budget ÷ 10 = monthly salary ceiling — forces allocation discipline. The readiness formula weighs coverage, quality, chemistry, and morale so the right team is visible before the project starts, not after it fails.',
-        w3lbl:'What it changes', w3:'Directors stop hoarding people. Projects stop running on political capital. Skill gaps become visible before they become failures. And HR — renamed Talent Incubation — becomes the most strategic function in the building, not the most avoided one.', cta:'Explore the engine',
+        w3lbl:'What it changes', w3:'Directors stop hoarding people. Projects stop running on political capital. Skill gaps become visible before they become failures. And HR — renamed Talent Incubation — becomes the most strategic function in the building, not the most avoided one.', cta:'GitHub repo — coming soon',
       },
       p11: {
         title: 'The AI <em>that knows you.</em>',
@@ -1450,7 +1450,7 @@ const i18nExt = {
         lede: 'Talent Knowledge Collaborative Explorers (TKCX) คือระบบปฏิบัติการด้านบุคลากรที่ใช้กลไกของเกม มองพนักงานเป็นสมาชิกปาร์ตี้ โครงการเป็นเควสต์ และการประกอบทีมเป็นกลยุทธ์ ทำให้ทุกการตัดสินใจเรื่องคนมองเห็นได้ วัดได้ และผูกกับผลลัพธ์ แทนการเมืององค์กรด้วยข่าวกรองเรื่องขีดความสามารถ',
         w1lbl:'ปัญหา', w1:'ระบบ HR ส่วนใหญ่คือบันทึกการปฏิบัติตาม ไม่ใช่ข่าวกรอง บอกว่าใครเป็นพนักงาน ไม่ได้บอกว่าใครควรไปทำอะไร ที่ไหน กับใคร การตัดสินใจเรื่องคนใช้สัญชาตญาณและทุนทางการเมือง คนเก่งที่สุดลาออก คนที่อยู่สบายคงอยู่ ไม่มีใครเห็นว่าทำไม',
         w2lbl:'เครื่องยนต์', w2:'สร้างบนระบบปาร์ตี้ของ Dragon Quest III ห้า archetype จับคู่กับบทบาทจริงในที่ทำงาน (captain, tech, sales, ops, scout) เพดานงบแบบ Moneyball งบโครงการหารด้วย 10 = เพดานเงินเดือนรายเดือน บีบให้มีวินัยในการจัดสรร สูตรความพร้อมถ่วงน้ำหนัก coverage คุณภาพ chemistry และขวัญกำลังใจ ทีมที่ใช่จึงมองเห็นได้ก่อนโครงการเริ่ม ไม่ใช่หลังจากล้ม',
-        w3lbl:'สิ่งที่เปลี่ยนไป', w3:'ผู้อำนวยการเลิกกักตุนคน โครงการเลิกขับเคลื่อนด้วยทุนการเมือง ช่องว่างทักษะมองเห็นได้ก่อนกลายเป็นความล้มเหลว และ HR ที่เปลี่ยนชื่อเป็น Talent Incubation กลายเป็นฟังก์ชันที่มียุทธศาสตร์มากที่สุดในตึก ไม่ใช่ฟังก์ชันที่ทุกคนหลีกเลี่ยง', cta:'สำรวจเครื่องยนต์',
+        w3lbl:'สิ่งที่เปลี่ยนไป', w3:'ผู้อำนวยการเลิกกักตุนคน โครงการเลิกขับเคลื่อนด้วยทุนการเมือง ช่องว่างทักษะมองเห็นได้ก่อนกลายเป็นความล้มเหลว และ HR ที่เปลี่ยนชื่อเป็น Talent Incubation กลายเป็นฟังก์ชันที่มียุทธศาสตร์มากที่สุดในตึก ไม่ใช่ฟังก์ชันที่ทุกคนหลีกเลี่ยง', cta:'GitHub repo — เร็ว ๆ นี้',
       },
       p11: {
         title: 'AI <em>ที่รู้จักคุณ</em>',
@@ -1770,7 +1770,7 @@ const i18nExt = {
         lede: 'Talent Knowledge Collaborative Explorers（TKCX）是个用游戏机制的人才操作系统，把员工当成队伍成员、把项目当成任务、把组队当成策略。每一个关于人的决定都可见、可量化、跟结果挂钩——用能力情报取代组织图政治。',
         w1lbl:'问题在哪', w1:'大多数HR系统是合规记录，不是情报。告诉你谁是员工，不告诉你谁该被派去哪里、跟谁一起。关于人的决定靠直觉和政治资本做出来。最好的那批人离开，舒服的那批人留下，谁也看不出来为什么。',
         w2lbl:'引擎', w2:'建在《勇者斗恶龙III》的队伍系统上。五个原型对应真实职场角色（队长、技术、销售、运营、侦察）。Moneyball式的预算上限——项目预算÷10=月薪上限——逼出分配纪律。就绪公式权衡覆盖率、质量、化学反应和士气，合适的团队在项目开始之前就看得出来，不是失败之后才知道。',
-        w3lbl:'改变了什么', w3:'部门主管不再囤人。项目不再靠政治资本跑。技能缺口在变成失败之前就显出来。而HR——改名叫人才孵化——变成大楼里最有战略性的部门，不再是最被绕开的那个。', cta:'探索引擎',
+        w3lbl:'改变了什么', w3:'部门主管不再囤人。项目不再靠政治资本跑。技能缺口在变成失败之前就显出来。而HR——改名叫人才孵化——变成大楼里最有战略性的部门，不再是最被绕开的那个。', cta:'GitHub 仓库 — 即将推出',
       },
       p11: {
         title: '<em>认识你的</em>AI',
@@ -2027,7 +2027,7 @@ const i18nExt = {
       p07: { title:'bus.tracked<em>.rider.informed</em>', lede:'// GPS: realTime; telemetry: passenger\n// designed: phone.first // not controlRoom', w1lbl:'// WHY_SPECIAL', w1:'smartBus.for(operator.dashboard) // old\nthis.for(person.waiting(stop)) // new', w2lbl:'// REPLACED', w2:'noInfo + 2019schedule + "transit.cannotBeReadable"', w3lbl:'// BUILT_ON', w3:'phuket.IoT.existing\n// same sensor as governor ops room', cta:'system.open()' },
       p08: { title:'reports.arrive<em>.AI.turnsIntoAction()</em>', lede:'// telegram + LINE → AI.analyze()\n// satellite + map layers → nearRealTime', w1lbl:'// WHY_SPECIAL', w1:'complaintSystems.stop(ticketNumber)\nSCTH.stream → decisionSurface()', w2lbl:'// REPLACED', w2:'chatGroupScreenshots + manualTriage + staticLayers', w3lbl:'// DECISION_POWER', w3:'absorb + assign + analyze + export + push', w4lbl:'// LIVE_TUNNEL', w4:'system.proprietary.continuous\n// if !resolve: midUpgrade → retry()', cta:'system.open()' },
       p09: { title:'voices: 11<em>.decision: 1</em>', lede:'// 11 justices, palindromic names\n// local Mac; sharedTranscript; ~$3/month\n// trained: personal data // proprietary: byDesign', w1lbl:'// WHY_EXISTS', w1:'singleModel.gives(oneAnswer)\n// VERIFY | DECIDE | EXPLORE | DEBATE\n// moves: EXPAND | QUALIFY | CONCEDE | STAND | PASS', w2lbl:'// COST', w2:'manus.class @ $3/mo\n// chair: Mistral3; Ada: ThaiLLM(free)\n// Otto: ocr+video+email+pdf+drive', w3lbl:'// NO_DEMO', w3:'trained: { journals, decisions, voice }\n// protocol: ~600 lines Python // open\n// IP = coordinationMethodology', cta:'protocol.v1.read()', cta2:'agentic.v2.run()' },
-      p10: { title:'HR.recordSystem<em>.enough(years)</em>', lede:'// TKCX: TalentKnowledgeCollaborativeExplorers\n// employees: partyMembers; projects: quests\n// teamAssembly: strategy', w1lbl:'// PROBLEM', w1:'HR.is(complianceRecord)\n// tells: whoEmployed\n// NOT: { deploy: where, with: whom }', w2lbl:'// ENGINE', w2:'DQ3.partySystem\n// 5 archetypes; moneyball: budget÷10\n// readiness(coverage+chemistry+morale)', w3lbl:'// CHANGES', w3:'directors.stop(hoardingPeople)\n// skillGaps.visible(beforeFailure)\n// HR.rename("TalentIncubation")', cta:'engine.explore()' },
+      p10: { title:'HR.recordSystem<em>.enough(years)</em>', lede:'// TKCX: TalentKnowledgeCollaborativeExplorers\n// employees: partyMembers; projects: quests\n// teamAssembly: strategy', w1lbl:'// PROBLEM', w1:'HR.is(complianceRecord)\n// tells: whoEmployed\n// NOT: { deploy: where, with: whom }', w2lbl:'// ENGINE', w2:'DQ3.partySystem\n// 5 archetypes; moneyball: budget÷10\n// readiness(coverage+chemistry+morale)', w3lbl:'// CHANGES', w3:'directors.stop(hoardingPeople)\n// skillGaps.visible(beforeFailure)\n// HR.rename("TalentIncubation")', cta:'github.repo.coming.soon' },
       p11: { title:'AI<em>.knows(you)</em>', lede:'// ObsidianVault → MCP → allPlatforms: simultaneously\n// brainAnatomy.folders; serverConfigs: 19\n// agents.access(persona, voice, decisions)', w1lbl:'// GAP_CLOSED', w1:'session.starts(cold) // no context\nSecondBrainOS.feeds(voice + values + decisions)\n// AI.already.knows(whoItWorksWith)', w2lbl:'// ARCHITECTURE', w2:'vault: { PrefrontalCortex, Hippocampus, TemporalLobe }\n// 19 MCP configs → Cursor + Codex + ClaudeCode\n// livingKnowledgeGraph.connected(atOnce)', w3lbl:'// OPEN_SOURCE', w3:'license: MIT // brain: yours\n// fork(structure); adapt(mcpConfigs)\n// 12levelDiagnostic: strip(aiSpeak)', cta:'architecture.explore()' },
       ikigai: {
         name: 'IkigaiFinanceEngine',
@@ -2293,7 +2293,14 @@ const i18nExt2 = {
       fwTwin:'Digital twin & interoperability — ISO/IEC 30173, ISO 23247, NIST',
       fwAi:'AI governance & risk — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles',
       fwPrivacy:'Privacy & trust — PDPA, GDPR-informed principles; jurisdictional compliance is engagement-specific',
-      copyright:'Bangkok · Southeast Asia. © 2026 Axiom X Co., Ltd. Axiom is the trade name under which this site and our services are presented. Uptime, response times, and outcome metrics cited here are case-specific observations, not guarantees of future performance.',
+      legalLabel:'Terms · Privacy · Liability · Law',
+      terms:'By using this site you agree to use it lawfully and not to republish the screenshots, dashboards, model outputs, or system internals without written permission. Axiom, the Axiom name, and the system names shown here are trade names of Axiom X Co., Ltd.',
+      privacy:'This site does not collect personal data beyond a 12-character hashed visitor tag used for rate limiting and aggregate traffic measurement. The systems linked from here have their own privacy practices — read theirs before you paste their data anywhere. We do not set advertising cookies and we do not sell or share visitor data with third parties.',
+      dataAttribution:'Live data shown in the sandbox systems comes from public sources including TMD, GISTDA, JICA, NBTC, Pollution Control Department, OpenStreetMap contributors, TomTom, and other public or open-licensed feeds credited in-system. Where commercial feeds are mixed in (e.g. Air4Thai o61, 33V, 34T, Naver CFT) the source is named in the system view.',
+      liability:'Sandbox and demonstration systems on this site are working, not guaranteed. Treat every metric as a hint, not a verdict. Real decisions need real verification with the originating authority. Axiom is not liable for decisions made on sandbox data.',
+      governingLaw:'These terms are governed by the laws of the Kingdom of Thailand. Disputes are subject to the exclusive jurisdiction of the courts of Bangkok. Where this English text conflicts with any translation, the English text prevails.',
+      hosting:'Hosted on Cloudflare Pages · Built and operated from Bangkok, Thailand · Source for this site: github.com/Nonarkara/Axiom (public site only; client systems are private).',
+      copyright:'Bangkok · Southeast Asia. © 2026 Axiom X Co., Ltd. Uptime, response times, and outcome metrics cited here are case-specific observations, not guarantees of future performance.',
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
@@ -2309,7 +2316,7 @@ const i18nExt2 = {
       lab: 'Lab',
       labMeta: 'Side tools · in the open · 4',
     },
-    sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development' },
+    sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
       AI:'AI', Access:'Access', Audience:'Audience', Authority:'Authority',
       Backup:'Backup', 'Brain layers':'Brain layers', Cadence:'Cadence',
@@ -2419,7 +2426,14 @@ const i18nExt2 = {
       fwTwin:'Digital twin และการทำงานร่วมกัน — ISO/IEC 30173, ISO 23247, NIST',
       fwAi:'การกำกับดูแลและความเสี่ยง AI — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles',
       fwPrivacy:'ความเป็นส่วนตัวและความน่าเชื่อถือ — PDPA หลักการตาม GDPR การปฏิบัติตามกฎหมายขึ้นกับขอบเขตงานแต่ละรายการ',
-      copyright:'กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ © 2569 บริษัท แอคเซี่ยม เอ็กซ์ จำกัด ใช้ชื่อทางการค้า Axiom ในการนำเสนอเว็บไซต์และบริการ ตัวเลข uptime เวลาตอบสนอง และผลลัพธ์ที่อ้างถึงเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
+      legalLabel:'ข้อกำหนด · ความเป็นส่วนตัว · ความรับผิด · กฎหมาย',
+      terms:'การใช้เว็บไซต์นี้ถือว่าคุณยอมรับที่จะใช้อย่างถูกกฎหมาย และจะไม่เผยแพร่ซ้ำภาพหน้าจอ แดชบอร์ด ผลลัพธ์จากโมเดล หรือระบบภายในโดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร Axiom ชื่อ Axiom และชื่อระบบที่ปรากฏ เป็นชื่อทางการค้าของบริษัท แอคเซี่ยม เอ็กซ์ จำกัด',
+      privacy:'เว็บไซต์นี้ไม่เก็บข้อมูลส่วนบุคคลใด ๆ นอกเหนือจากแฮชผู้เข้าชม 12 ตัวอักษร เพื่อจำกัดอัตราการร้องขอและวัดปริมาณการใช้งานรวม ระบบที่เชื่อมโยงจากที่นี่มีนโยบายความเป็นส่วนตัวของตนเอง โปรดอ่านก่อนนำข้อมูลไปใช้ เราไม่ตั้งคุกกี้โฆษณา ไม่ขาย และไม่แบ่งปันข้อมูลผู้เข้าชมกับบุคคลที่สาม',
+      dataAttribution:'ข้อมูลสดในระบบ sandbox มาจากแหล่งสาธารณะ รวมถึง TMD, GISTDA, JICA, NBTC, กรมควบคุมมลพิษ, ผู้มีส่วนร่วม OpenStreetMap, TomTom และแหล่งข้อมูลสาธารณะหรือที่มีสัญญาอนุญาตแบบเปิดอื่น ๆ ที่ระบุในระบบ หากมีการผสมแหล่งข้อมูลเชิงพาณิชย์ (เช่น Air4Thai o61, 33V, 34T, Naver CFT) จะระบุแหล่งที่มาในมุมมองของระบบ',
+      liability:'ระบบ sandbox และสาธิตบนเว็บไซต์นี้ทำงานได้จริง แต่ไม่รับประกัน ตัวเลขทุกตัวเป็นเพียงสัญญาณ ไม่ใช่คำตัดสิน การตัดสินใจจริงต้องตรวจสอบกับหน่วยงานต้นทาง Axiom ไม่รับผิดชอบต่อการตัดสินใจที่อิงข้อมูล sandbox',
+      governingLaw:'ข้อกำหนดเหล่านี้อยู่ภายใต้กฎหมายแห่งราชอาณาจักรไทย ข้อพิพาทอยู่ในเขตอำนาจศาลแห่งกรุงเทพมหานครโดยเฉพาะ หากข้อความภาษาอังกฤษขัดแย้งกับคำแปล ให้ใช้ภาษาอังกฤษเป็นหลัก',
+      hosting:'โฮสต์บน Cloudflare Pages · สร้างและดำเนินงานจากกรุงเทพฯ · ซอร์สของเว็บไซต์นี้: github.com/Nonarkara/Axiom (เฉพาะเว็บสาธารณะ ระบบลูกค้าเป็นส่วนตัว)',
+      copyright:'กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ © 2569 บริษัท แอคเซี่ยม เอ็กซ์ จำกัด ตัวเลข uptime เวลาตอบสนอง และผลลัพธ์ที่อ้างถึงเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
@@ -2435,7 +2449,7 @@ const i18nExt2 = {
       lab: 'แล็บ',
       labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 4',
     },
-    sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา' },
+    sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
       AI:'AI', Access:'การเข้าถึง', Audience:'ผู้ชม', Authority:'หน่วยงาน',
       Backup:'สำรองข้อมูล', 'Brain layers':'ชั้นสมอง', Cadence:'จังหวะ',
@@ -2543,7 +2557,14 @@ const i18nExt2 = {
       fwTwin:'数字孪生与互操作 — ISO/IEC 30173、ISO 23247、NIST',
       fwAi:'AI 治理与风险 — ISO/IEC 42001、ISO/IEC 23894、NIST AI RMF、OECD AI 原则',
       fwPrivacy:'隐私与信任 — PDPA、GDPR 原则；司法管辖合规因项目而异',
-      copyright:'曼谷 · 东南亚。© 2026 Axiom X Co., Ltd. Axiom 为本网站及服务所使用的商号。本站引用的正常运行时间、响应时间和成果指标均为个案观察，不构成对未来表现的保证。',
+      legalLabel:'条款 · 隐私 · 责任 · 法律',
+      terms:'使用本网站即表示您同意合法使用，且未经书面许可不得转载截图、仪表板、模型输出或系统内部。Axiom、Axiom 名称以及此处显示的系统名称均为 Axiom X Co., Ltd. 的商号。',
+      privacy:'本网站除用于限流和聚合流量统计的 12 字符哈希访客标签外，不收集任何个人数据。从此处链接的系统各自有独立的隐私惯例——粘贴其数据前请先阅读其条款。我们不设置广告 Cookie，不出售、不与第三方共享访客数据。',
+      dataAttribution:'沙箱系统中显示的实时数据来自公共来源，包括 TMD、GISTDA、JICA、NBTC、污染控制厅、OpenStreetMap 贡献者、TomTom 以及其他在系统内注明出处的公共或开放许可数据源。如混入商业数据源（如 Air4Thai o61、33V、34T、Naver CFT），来源会在系统视图中标明。',
+      liability:'本网站上的沙箱与演示系统可工作，但不构成保证。所有指标仅为提示，不是定论。真实决策需与原始主管单位核实。Axiom 不对基于沙箱数据做出的决策承担责任。',
+      governingLaw:'本条款受泰王国法律管辖。争议由曼谷法院专属管辖。如英文文本与任何翻译有冲突，以英文文本为准。',
+      hosting:'托管于 Cloudflare Pages · 在曼谷建造并运营 · 本站源码：github.com/Nonarkara/Axiom（仅限公开站点；客户系统为私有）。',
+      copyright:'曼谷 · 东南亚。© 2026 Axiom X Co., Ltd. 本站引用的正常运行时间、响应时间和成果指标均为个案观察，不构成对未来表现的保证。',
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
@@ -2559,7 +2580,7 @@ const i18nExt2 = {
       lab: '实验室',
       labMeta: '辅助工具 · 开放中 · 4',
     },
-    sysStatus: { live: '在线', preview: '预览', dev: '开发中' },
+    sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
       p1title:'供应商说不 泰国公务员自己建工具',
       p2title:'创新即服务能否弥合政策与执行之间的鸿沟',
@@ -2676,7 +2697,14 @@ const i18nExt2 = {
       fwTwin:'// digitalTwin + interoperability: ISO/IEC_30173, ISO_23247, NIST',
       fwAi:'// aiGovernance + risk: ISO/IEC_42001, ISO/IEC_23894, NIST_AI_RMF, OECD',
       fwPrivacy:'// privacy + trust: PDPA, GDPR.informed; compliance.engagementSpecific',
-      copyright:'// Bangkok · SEA · © 2026 Axiom X Co., Ltd. · tradeName: Axiom\n// metrics: caseSpecific[] // !guarantees<futurePerformance>',
+      legalLabel:'// terms · privacy · liability · law',
+      terms:'// usingThisSite = agree(lawfulUse); noRepublish{screenshots, dashboards, modelOutput, internals} withoutWritten(permission); Axiom + systemNames = tradeNames(Axiom X Co., Ltd.)',
+      privacy:'// collectedData: NONE.personal; visitorTag: 12char.hash forRateLimit; no.adCookies; no.sell(); no.share(visitorData, thirdParties)',
+      dataAttribution:'// liveData: TMD | GISTDA | JICA | NBTC | PCD | OSM.contributors | TomTom | openLicense.feeds; commercial: Air4Thai{o61,33V,34T} | Naver.CFT // source.named(inSystem)',
+      liability:'// sandbox.working.withoutGuarantee; metrics: hints, NOT.verdicts; realDecisions: verify(originAuthority); !Axiom.liable(decision.onSandboxData)',
+      governingLaw:'// governedBy: laws(KingdomOfThailand); jurisdiction: courts(Bangkok).exclusive; conflict<enText vs i18n>: enText.prevails',
+      hosting:'// hosting: cloudflare.pages; builtIn: Bangkok; source: github.com/Nonarkara/Axiom // publicSiteOnly; clientSystems.private',
+      copyright:'// Bangkok · SEA · © 2026 Axiom X Co., Ltd.\n// metrics: caseSpecific[] // !guarantees<futurePerformance>',
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
@@ -2692,7 +2720,7 @@ const i18nExt2 = {
       lab: 'Lab',
       labMeta: 'sideTools & openProcess · count[4]',
     },
-    sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage' },
+    sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
       AI:'AI', Access:'access', Audience:'audience', Authority:'authority',
       Backup:'backup', 'Brain layers':'brainLayers', Cadence:'cadence',
@@ -3132,6 +3160,13 @@ function initFlooddashCarousel() {
     }
     if (mapModePause) mapModePause.style.display = touring ? 'block' : 'none';
     if (mapModePlay) mapModePlay.style.display = touring ? 'none' : 'block';
+    // While the AUTO TOUR is running, the static FEATURED panel
+    // (which always points to FloodDash) and the live map show
+    // two different things at once — that was the confusing bit.
+    // Hide the panel when touring; reveal it when the user has
+    // paused on a specific city.
+    const heroEl = document.querySelector('.hero');
+    if (heroEl) heroEl.classList.toggle('is-touring', touring);
   }
 
   function driftToNext() {
