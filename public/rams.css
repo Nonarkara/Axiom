@@ -1455,26 +1455,31 @@ img {
 
 .probono-arch__core {
   margin: 2px 0;
-  padding: 3px 6px 2px;
+  padding: 3px 6px;
   background: var(--accent);
   color: #faf9f7;
   text-align: center;
   border: 1px solid #0033a8;
-  line-height: 1.2;
+  line-height: 1.15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .probono-arch__core-name {
   font-size: 8.5px;
   font-weight: 700;
   letter-spacing: 0.10em;
-  margin-bottom: 1px;
+  line-height: 1;
 }
 
 .probono-arch__core-meta {
   font-size: 7.5px;
   color: rgba(255, 255, 255, 0.82);
   letter-spacing: 0.03em;
-  line-height: 1.2;
+  line-height: 1;
 }
 
 /* === pro bono stack (visible tech list) === */
