@@ -453,7 +453,8 @@
         "p28": { "lede": "FloodDash Blueprint은 태국 홍수 모니터링의 공개 연구 동반자로서 — 센서 네트워크, 배수 로직, AI 홍수 예측, 대응 플레이북, 데이터-의사결정 파이프라인 전체를 모든 도시에 공개합니다.", "cta": "GitHub에서 보기" },
         "p29": { "lede": "초안을 붙여넣으세요. The Non-Writer는 프록시와 박스의 사슬을 통해 실행하고, 반대편에서 나오는 것은 Dr Non의 목소리로 당신이 실제로 의미했던 문장입니다. 이제 어떤 레이어가 어떤 단어를 바꿨는지 정확히 볼 수 있는 공개 readout이 함께 제공됩니다.", "cta": "라이브 시스템 열기" },
         "p30": { "lede": "책상을 숫자로 말하다. AI 최전선의 일일 인텔리전스 브리핑 — 무엇이 실제로 출하되고, 무엇이 허풍인지, 오늘 밤 무엇을 읽을지. 섹터 워치, 수동 픽, 복리로 쌓이는 아카이브.", "cta": "라이브 시스템 열기" },
-        "p31": { "lede": "스크래핑을 서비스로 — 코드 없이. URL과 질문을 주세요. 시스템이 나가서 원본 언어로 페이지를 읽고, 당신의 언어로 답과 함께 인용·구조화 JSON을 돌려보냅니다. 다운스트림에 바로 연결할 수 있습니다.", "cta": "라이브 시스템 열기" },},
+        "p31": { "lede": "스크래핑을 서비스로 — 코드 없이. URL과 질문을 주세요. 시스템이 나가서 원본 언어로 페이지를 읽고, 당신의 언어로 답과 함께 인용·구조화 JSON을 돌려보냅니다. 다운스트림에 바로 연결할 수 있습니다.", "cta": "라이브 시스템 열기" },
+      "p34": { "lede": "살아 있는 시계 아카이브 — 출처가 있는 도씨에, 크레딧이 붙은 영화 스틸, 과장 없는 희소성, 솔직한 재배치 브리프. 과시가 아니라 공동 주연으로서의 오브제.", "cta": "라이브 시스템 열기" },},
     "stagesContent": {
       "taipeiLoc": "<b>타이베이</b> · City Vision Stage · 2026년 3월",
       "taipeiTitle": "라이브 대시보드, 45분 데모.",
@@ -636,7 +637,8 @@
       "p16": "Live · Chonburi EEC",
       "p17": "Live · Thai docs",
       "p30": "Live · Daily Digest",
-      "p31": "Live · Scraping"
+      "p31": "Live · Scraping",
+      "p34": "Live · Watch Archive"
     },
     "cats": {
       "c01": "지역 운영",
@@ -661,7 +663,8 @@
       "c23": "디지털 휴머니티",
       "c25": "금융 인텔리전스",
       "c28": "뉴스 인텔리전스",
-      "c29": "스크래핑 서비스"
+      "c29": "스크래핑 서비스",
+      "c30": "시계 아카이브"
     ,
         "c19": "환경 모니터링",
         "c26": "오픈 청사진",
@@ -749,7 +752,7 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "32개 시스템 · 5개국",
+      "sysMeta": "33개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 13",
       "intelligence": "인텔리전스",
@@ -759,7 +762,7 @@
       "emerging": "신규",
       "emergingMeta": "연구급 및 새 운영 모델 · 8",
       "lab": "랩",
-      "labMeta": "보조 도구 · 공개 진행 · 4"
+      "labMeta": "보조 도구 · 공개 진행 · 5"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1264,7 +1267,8 @@
         "p28": { "lede": "FloodDash Blueprintはタイ洪水監視のオープン研究コンパニオンです — センサーネットワーク、排水ロジック、AI洪水予測、対応プレイブック、データから意思決定までのパイプライン全体をすべての都市に開放。", "cta": "GitHubで見る" },
         "p29": { "lede": "下書きを貼り付け。The Non-Writerはプロキシとボックスの連鎖を通して実行し、反対側から出てくるのはDr Nonの声であなたが実際に意味した文です。今では、どのレイヤーがどの単語を動かしたかを正確に見られる公開readoutも付属。", "cta": "ライブシステムを開く" },
         "p30": { "lede": "机を数字で語る。AI最前線の日次インテリジェンスブリーフ — 本当に何が出荷されているのか、何がハットエアーか、今夜何を読むか。セクターウォッチ、手動ピック、複利で積み上がるアーカイブ。", "cta": "ライブシステムを開く" },
-        "p31": { "lede": "スクレイピングをサービスとして — コード不要。URLと質問を投げれば、システムが外に出て原文言語でページを読み、あなたの言語で答えと引用・構造化JSONを返します。下流にすぐ接続可能。", "cta": "ライブシステムを開く" },},
+        "p31": { "lede": "スクレイピングをサービスとして — コード不要。URLと質問を投げれば、システムが外に出て原文言語でページを読み、あなたの言語で答えと引用・構造化JSONを返します。下流にすぐ接続可能。", "cta": "ライブシステムを開く" },
+      "p34": { "lede": "生きた時計アーカイブ — 出典付きドシエ、クレジット付き映画スチール、誇張のない希少性、正直な再配置ブリーフ。自慢ではなく共演者としてのオブジェクト。", "cta": "ライブシステムを開く" },},
     "stagesContent": {
       "taipeiLoc": "<b>台北</b> · City Vision Stage · 2026年3月",
       "taipeiTitle": "ライブダッシュボード、45分デモ。",
@@ -1474,7 +1478,8 @@
         "c26": "オープンブループリント",
         "c27": "ライティングインテリジェンス",
         "c28": "ニュースインテリジェンス",
-        "c29": "スクレイピングサービス",},
+        "c29": "スクレイピングサービス",
+        "c30": "時計アーカイブ",},
     "bioCommon": {
       "cvBtn": "履歴書を見る",
       "education": "学歴"
@@ -1558,7 +1563,7 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "32システム · 5か国",
+      "sysMeta": "33システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 13",
       "intelligence": "インテリジェンス",
@@ -1568,7 +1573,7 @@
       "emerging": "新興",
       "emergingMeta": "研究グレードと新運用モデル · 8",
       "lab": "ラボ",
-      "labMeta": "補助ツール · 公開中 · 4"
+      "labMeta": "補助ツール · 公開中 · 5"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2073,7 +2078,8 @@
         "p28": { "lede": "FloodDash Blueprint là bạn đồng hành nghiên cứu mở của hệ thống giám sát lũ lụt Thái Lan — mạng cảm biến, logic thoát nước, dự báo lũ AI, playbook ứng phó, toàn bộ pipeline dữ liệu-đến-quyết định, mở cho mọi thành phố.", "cta": "Xem trên GitHub" },
         "p29": { "lede": "Dán một bản thảo. The Non-Writer chạy nó qua chuỗi proxy và box, và phía bên kia là câu bạn thực sự muốn nói — bằng giọng Dr Non. Bây giờ có kèm readout công khai để bạn thấy chính xác layer nào đã dịch chuyển từ nào.", "cta": "Mở hệ thống trực tiếp" },
         "p30": { "lede": "Cái bàn, bằng con số. Bản tóm tắt tình báo hằng ngày về ranh giới AI — cái gì thực sự xuất xưởng, cái gì phét, tối nay đọc gì. Theo dõi ngành, chọn thủ công, kho lưu trữ cộng dồn.", "cta": "Mở hệ thống trực tiếp" },
-        "p31": { "lede": "Scraping như một dịch vụ — không cần code. Đưa URL và câu hỏi; hệ thống ra ngoài, đọc trang bằng ngôn ngữ gốc, rồi quay lại với câu trả lời bằng ngôn ngữ của bạn, kèm trích dẫn và JSON có cấu trúc để đẩy xuống hạ nguồn.", "cta": "Mở hệ thống trực tiếp" },},
+        "p31": { "lede": "Scraping như một dịch vụ — không cần code. Đưa URL và câu hỏi; hệ thống ra ngoài, đọc trang bằng ngôn ngữ gốc, rồi quay lại với câu trả lời bằng ngôn ngữ của bạn, kèm trích dẫn và JSON có cấu trúc để đẩy xuống hạ nguồn.", "cta": "Mở hệ thống trực tiếp" },
+      "p34": { "lede": "Kho lưu trữ đồng hồ sống — hồ sơ có nguồn, ảnh tĩnh phim có ghi công, độ khan hiếm không thổi phồng, và bản tóm tắt chuyển nhượng trung thực. Vật thể là đồng diễn, không phải khoe.", "cta": "Mở hệ thống trực tiếp" },},
     "stagesContent": {
       "taipeiLoc": "<b>Đài Bắc</b> · City Vision Stage · tháng 3/2026",
       "taipeiTitle": "Dashboard trực tiếp, demo 45 phút.",
@@ -2283,7 +2289,8 @@
         "c26": "Bản thiết kế mở",
         "c27": "Trí tuệ viết",
         "c28": "Tình báo tin tức",
-        "c29": "Dịch vụ scraping",},
+        "c29": "Dịch vụ scraping",
+        "c30": "Kho lưu trữ đồng hồ",},
     "bioCommon": {
       "cvBtn": "Xem CV",
       "education": "Học vấn"
@@ -2367,7 +2374,7 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "32 hệ thống · 5 quốc gia",
+      "sysMeta": "33 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 13",
       "intelligence": "Tình báo",
@@ -2377,7 +2384,7 @@
       "emerging": "Mới nổi",
       "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 8",
       "lab": "Lab",
-      "labMeta": "Công cụ phụ · mở công khai · 4"
+      "labMeta": "Công cụ phụ · mở công khai · 5"
     },
     "sysStatus": {
       "live": "Trực tiếp",

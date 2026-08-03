@@ -338,6 +338,15 @@ const ARCHITECTURES = {
     outputs: ['Answer in any language', 'Source citations', 'Structured JSON'],
     foot: 'scraping as a service · no code',
   },
+  'time-pop': {
+    name: 'TIME POP',
+    ver: '1.0.0',
+    idx: '34',
+    inputs: ['Watch dossiers', 'Film / screen stills', 'Scarcity signals', 'Rehoming briefs'],
+    core: { name: 'TIME POP', meta: ['living archive', 'object + co-star'] },
+    outputs: ['Sourced dossier', 'Credited stills', 'Honest rehoming brief'],
+    foot: 'watches as objects and co-stars · no hype',
+  },
 };
 
 function injectSystemVersions() {
@@ -1342,6 +1351,10 @@ const i18nExt = {
         lede: 'Scraping as a service — no code. Hand it a URL and a question; it goes out, reads the page in the source language, and comes back with the answer in yours, with citations and structured JSON you can pipe downstream.',
         cta: 'Open live system',
       },
+      p34: {
+        lede: 'A living archive of watches — sourced dossiers, credited film stills, scarcity without the hype, and honest rehoming briefs. Objects as co-stars, not flex.',
+        cta: 'Open live system',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1669,6 +1682,10 @@ const i18nExt = {
         lede: 'บริการดูดข้อมูล — ไม่ต้องเขียนโค้ด ส่ง URL กับคำถามมา ระบบจะออกไปอ่านเพจในภาษาต้นทาง แล้วกลับมาตอบเป็นภาษาของคุณ พร้อมอ้างอิงแหล่งที่มา และ JSON โครงสร้างที่ต่อท่อลง downstream ได้เลย',
         cta: 'เปิดระบบสด',
       },
+      p34: {
+        lede: 'คลังนาฬิกาที่มีชีวิต — เอกสารแหล่งที่มาที่ตรวจสอบได้ ภาพนิ่งจากภาพยนตร์พร้อมเครดิต ความหายากโดยไม่โฆษณาเกินจริง และบันทึกส่งต่อที่ตรงไปตรงมา วัตถุในฐานะตัวละครร่วม ไม่ใช่ของอวด',
+        cta: 'เปิดระบบสด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -1993,6 +2010,10 @@ const i18nExt = {
         lede: '抓取即服务——无需代码。给它一个 URL 和一个问题,它就去读源语言页面,然后用你的语言回答你,带引用、可直接接入下游的结构化 JSON。',
         cta: '打开在线系统',
       },
+      p34: {
+        lede: '一部活的腕表档案——有出处的卷宗、署名电影剧照、不含炒作的稀缺信息，以及诚实的转手简报。物件是共演，不是炫富。',
+        cta: '打开在线系统',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2169,6 +2190,7 @@ const i18nExt = {
       p24: { lede: '// DaoDeJing.trilingualReadingRoom()\n// Tsai comics + Buddhist parallels + psychology notes + pinyin + reference bookshelf // continuously updated', cta: 'system.open()' },
       p30: { lede: '// the desk.byTheNumbers()\n// daily AI-frontier brief // what is shipping, what is hot air, what to read tonight // sector watch + manual picks + compounding archive', cta: 'system.open()' },
       p31: { lede: '// NonScrape.scrapingAsAService()\n// no code // give it a URL + a question, it reads the page in source language, returns the answer in yours // with citations + structured JSON', cta: 'system.open()' },
+      p34: { lede: '// TimePop.livingWatchArchive()\n// sourced dossiers + credited film stills + scarcity without hype + honest rehoming briefs // objects as co-stars, not flex', cta: 'system.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2341,6 +2363,7 @@ const i18nExt2 = {
       p30:'Live · Daily Digest',
       p31:'Live · Scraping',
       p33:'Live · District Ops',
+      p34:'Live · Watch Archive',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2355,7 +2378,7 @@ const i18nExt2 = {
       c18:'Metropolitan Operations', c19:'Environmental Watch',
       c20:'Capability Lab', c23:'Digital Humanities', c25:'Finance Intelligence',
       c26:'Open Blueprint', c27:'Writing Intelligence',
-      c28:'News Intelligence', c29:'Scraping Service',
+      c28:'News Intelligence', c29:'Scraping Service', c30:'Watch Archive',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2413,7 +2436,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '32 systems · 5 countries',
+      sysMeta: '33 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 13',
       intelligence: 'Intelligence',
@@ -2423,7 +2446,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 8',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 4',
+      labMeta: 'Side tools · in the open · 5',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -2478,6 +2501,7 @@ const i18nExt2 = {
       p30:'สด · บทความรายวัน',
       p31:'สด · ดูดข้อมูล',
       p33:'สด · ปฏิบัติการเขต',
+      p34:'สด · คลังนาฬิกา',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2492,7 +2516,7 @@ const i18nExt2 = {
       c18:'ปฏิบัติการมหานคร', c19:'เฝ้าสิ่งแวดล้อม',
       c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล', c25:'ข่าวกรองการเงิน',
       c26:'Blueprint เปิด', c27:'ข่าวกรองการเขียน',
-      c28:'ข่าวกรองข่าว', c29:'บริการดูดข้อมูล',
+      c28:'ข่าวกรองข่าว', c29:'บริการดูดข้อมูล', c30:'คลังนาฬิกา',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2550,7 +2574,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '32 ระบบ · 5 ประเทศ',
+      sysMeta: '33 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 13',
       intelligence: 'ข่าวกรอง',
@@ -2560,7 +2584,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 8',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 4',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 5',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -2615,6 +2639,7 @@ const i18nExt2 = {
       p30:'在线 · 每日摘要',
       p31:'在线 · 抓取',
       p33:'在线 · 片区运营',
+      p34:'在线 · 腕表档案',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2627,7 +2652,7 @@ const i18nExt2 = {
       c18:'都会运营', c19:'环境监测',
       c20:'能力实验室', c23:'数字人文', c25:'金融情报',
       c26:'开放蓝图', c27:'写作智能',
-      c28:'新闻情报', c29:'抓取服务',
+      c28:'新闻情报', c29:'抓取服务', c30:'腕表档案',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2685,7 +2710,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '32 个系统 · 5 个国家',
+      sysMeta: '33 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 13',
       intelligence: '情报',
@@ -2695,7 +2720,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 8',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 4',
+      labMeta: '辅助工具 · 开放中 · 5',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -2759,6 +2784,7 @@ const i18nExt2 = {
       p30:'live: dailyDigest',
       p31:'live: scraping',
       p33:'live: districtOps',
+      p34:'live: watchArchive',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -2771,7 +2797,7 @@ const i18nExt2 = {
       c18:'MetroOps', c19:'EnvWatch',
       c20:'CapabilityLab', c23:'DigitalHumanities', c25:'FinanceIntel',
       c26:'OpenBlueprint', c27:'WritingIntel',
-      c28:'NewsIntel', c29:'ScrapingService',
+      c28:'NewsIntel', c29:'ScrapingService', c30:'WatchArchive',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -2829,7 +2855,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '32 systems · 5 countries',
+      sysMeta: '33 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[13]',
       intelligence: 'Intelligence',
@@ -2839,7 +2865,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[8]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[4]',
+      labMeta: 'sideTools & openProcess · count[5]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
