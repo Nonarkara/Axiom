@@ -342,10 +342,10 @@ const ARCHITECTURES = {
     name: 'TIME POP',
     ver: '1.0.0',
     idx: '34',
-    inputs: ['Watch dossiers', 'Film / screen stills', 'Scarcity signals', 'Rehoming briefs'],
-    core: { name: 'TIME POP', meta: ['living archive', 'object + co-star'] },
-    outputs: ['Sourced dossier', 'Credited stills', 'Honest rehoming brief'],
-    foot: 'watches as objects and co-stars · no hype',
+    inputs: ['Reference tables', 'Auction comps', 'Provenance records', 'On-screen stills'],
+    core: { name: 'TIME POP', meta: ['evidence-first', 'honesty ladder'] },
+    outputs: ['Cited price comparisons', 'Sourced provenance', 'Inventory summary'],
+    foot: 'a living archive of watches · 261 references',
   },
 };
 
@@ -1282,7 +1282,7 @@ const i18nExt = {
         cta: 'Open live system',
       },
       p34: {
-        lede: 'A living archive of watches — sourced dossiers, credited film stills, scarcity without the hype, and honest rehoming briefs. Objects as co-stars, not flex.',
+        lede: 'A free, evidence-first register of 261 luxury and collectible watch references. Cited comps, sourced provenance, credited on-screen stills — and the honesty ladder that shows where the data refuses to estimate.',
         cta: 'Open live system',
       },
     },
@@ -1614,7 +1614,7 @@ const i18nExt = {
         cta: 'เปิดระบบสด',
       },
       p34: {
-        lede: 'คลังนาฬิกาที่มีชีวิต — เอกสารแหล่งที่มาที่ตรวจสอบได้ ภาพนิ่งจากภาพยนตร์พร้อมเครดิต ความหายากโดยไม่โฆษณาเกินจริง และบันทึกส่งต่อที่ตรงไปตรงมา วัตถุในฐานะตัวละครร่วม ไม่ใช่ของอวด',
+        lede: 'ทะเบียนอ้างอิงหลักฐานชัด 261 เรื่อง — นาฬิกาหรูและนาฬิกาสะสม เปรียบเทียบราคาที่อ้างอิงได้ บันทึกแหล่งที่มา ภาพนิ่งจากจอที่ให้เครดิต และสะพานแห่งความจริงใจที่แสดงว่าข้อมูลตรงไหนปฏิเสธจะประมาณ',
         cta: 'เปิดระบบสด',
       },
     },
@@ -1943,7 +1943,7 @@ const i18nExt = {
         cta: '打开在线系统',
       },
       p34: {
-        lede: '一部活的腕表档案——有出处的卷宗、署名电影剧照、不含炒作的稀缺信息，以及诚实的转手简报。物件是共演，不是炫富。',
+        lede: '一份免费的、以证据为先的 261 款奢华与收藏级腕表参考册——引用比对、出处来源、署名屏幕剧照——以及诚实阶梯,显示数据在哪里拒绝估算。',
         cta: '打开在线系统',
       },
     },
@@ -2123,7 +2123,7 @@ const i18nExt = {
       p24: { lede: '// DaoDeJing.trilingualReadingRoom()\n// Tsai comics + Buddhist parallels + psychology notes + pinyin + reference bookshelf // continuously updated', cta: 'system.open()' },
       p30: { lede: '// the desk.byTheNumbers()\n// daily AI-frontier brief // what is shipping, what is hot air, what to read tonight // sector watch + manual picks + compounding archive', cta: 'system.open()' },
       p31: { lede: '// NonScrape.scrapingAsAService()\n// no code // give it a URL + a question, it reads the page in source language, returns the answer in yours // with citations + structured JSON', cta: 'system.open()' },
-      p34: { lede: '// TimePop.livingWatchArchive()\n// sourced dossiers + credited film stills + scarcity without hype + honest rehoming briefs // objects as co-stars, not flex', cta: 'system.open()' },
+      p34: { lede: '// TimePop.evidenceFirstRegister()\n// 261 references · cited comps · sourced provenance · credited stills // honesty ladder: where data refuses to estimate', cta: 'system.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2297,7 +2297,7 @@ const i18nExt2 = {
       p30:'Live · Daily Digest',
       p31:'Live · Scraping',
       p33:'Live · District Ops',
-      p34:'Live · Watch Archive',
+      p34:'Live · Watch Intelligence',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2312,7 +2312,7 @@ const i18nExt2 = {
       c18:'Metropolitan Operations', c19:'Environmental Watch',
       c20:'Capability Lab', c23:'Digital Humanities', c25:'Finance Intelligence',
       c26:'Open Blueprint', c27:'Writing Intelligence',
-      c28:'News Intelligence', c29:'Scraping Service', c30:'Watch Archive',
+      c28:'News Intelligence', c29:'Scraping Service', c30:'Watch Intelligence',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2435,7 +2435,7 @@ const i18nExt2 = {
       p30:'สด · บทความรายวัน',
       p31:'สด · ดูดข้อมูล',
       p33:'สด · ปฏิบัติการเขต',
-      p34:'สด · คลังนาฬิกา',
+      p34:'สด · ข่าวกรองนาฬิกา',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2450,7 +2450,7 @@ const i18nExt2 = {
       c18:'ปฏิบัติการมหานคร', c19:'เฝ้าสิ่งแวดล้อม',
       c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล', c25:'ข่าวกรองการเงิน',
       c26:'Blueprint เปิด', c27:'ข่าวกรองการเขียน',
-      c28:'ข่าวกรองข่าว', c29:'บริการดูดข้อมูล', c30:'คลังนาฬิกา',
+      c28:'ข่าวกรองข่าว', c29:'บริการดูดข้อมูล', c30:'ข่าวกรองนาฬิกา',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2573,7 +2573,7 @@ const i18nExt2 = {
       p30:'在线 · 每日摘要',
       p31:'在线 · 抓取',
       p33:'在线 · 片区运营',
-      p34:'在线 · 腕表档案',
+      p34:'在线 · 腕表情报',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2586,7 +2586,7 @@ const i18nExt2 = {
       c18:'都会运营', c19:'环境监测',
       c20:'能力实验室', c23:'数字人文', c25:'金融情报',
       c26:'开放蓝图', c27:'写作智能',
-      c28:'新闻情报', c29:'抓取服务', c30:'腕表档案',
+      c28:'新闻情报', c29:'抓取服务', c30:'腕表情报',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2718,7 +2718,7 @@ const i18nExt2 = {
       p30:'live: dailyDigest',
       p31:'live: scraping',
       p33:'live: districtOps',
-      p34:'live: watchArchive',
+      p34:'live: WatchIntel',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -2731,7 +2731,7 @@ const i18nExt2 = {
       c18:'MetroOps', c19:'EnvWatch',
       c20:'CapabilityLab', c23:'DigitalHumanities', c25:'FinanceIntel',
       c26:'OpenBlueprint', c27:'WritingIntel',
-      c28:'NewsIntel', c29:'ScrapingService', c30:'WatchArchive',
+      c28:'NewsIntel', c29:'ScrapingService', c30:'WatchIntel',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
