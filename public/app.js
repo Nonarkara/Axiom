@@ -39,6 +39,7 @@ const ARCHITECTURES = {
   // CITY DASHBOARDS
   'flood-ami': {
     name: 'FLOODDASH',
+    ver: '2.4.1',
     idx: '23',
     inputs: ['NASA FIRMS', 'GISTDA', 'CEMS', 'HIMAWARI-9', 'TMD', 'Open-Meteo', 'OpenStreetMap', 'Tide stations', 'Rain gauges'],
     core: { name: 'FLOODDASH', meta: ['3–60 min refresh', '77 provinces'] },
@@ -47,6 +48,7 @@ const ARCHITECTURES = {
   },
   'sikhio': {
     name: 'SIKHIO OPS',
+    ver: '1.0.0',
     idx: '26',
     inputs: ['AQI sensors', 'Weather', 'Traffic', 'Live city data'],
     core: { name: 'SIKHIO', meta: ['town-scale', 'real-time'] },
@@ -55,6 +57,7 @@ const ARCHITECTURES = {
   },
   'lcbcity': {
     name: 'LAEM CHABANG',
+    ver: '1.2.0',
     idx: '22',
     inputs: ['Truck GPS', 'Port traffic', 'Regulatory data', 'CCTV (where available)'],
     core: { name: 'LAEM CHABANG', meta: ['port + city', 'live'] },
@@ -63,6 +66,7 @@ const ARCHITECTURES = {
   },
   'phuket': {
     name: 'PHUKET OPS',
+    ver: '3.1.2',
     idx: '01',
     inputs: ['Transit', 'Public safety', 'Environmental signals', 'Tourism feeds'],
     core: { name: 'PHUKET OPS', meta: ['governor view', '30-second read'] },
@@ -71,6 +75,7 @@ const ARCHITECTURES = {
   },
   'hcmc': {
     name: 'HCMCx',
+    ver: '1.8.0',
     idx: '21',
     inputs: ['Traffic cameras', 'Flood sensors', 'Air quality', 'News / reports'],
     core: { name: 'HCMCx', meta: ['3D city map', 'metropolitan scale'] },
@@ -79,6 +84,7 @@ const ARCHITECTURES = {
   },
   'mtt': {
     name: 'MTT SUPER',
+    ver: '2.0.1',
     idx: '33',
     inputs: ['IMPACT events', 'Flood gauges', 'Traffic / CWR', 'AQI', 'Parking', 'CCTV / feeds'],
     core: { name: 'MTT SUPER', meta: ['3D district twin', 'event load'] },
@@ -87,6 +93,7 @@ const ARCHITECTURES = {
   },
   'kuching': {
     name: 'KUCHING IOC',
+    ver: '2.3.0',
     idx: '05',
     inputs: ['Foreign exchange', 'Flights', 'Satellite imagery', 'Environmental reads'],
     core: { name: 'KUCHING IOC', meta: ['full-spectrum', 'Sarawak'] },
@@ -95,6 +102,7 @@ const ARCHITECTURES = {
   },
   'chula': {
     name: 'CHULA TOWER',
+    ver: '1.4.2',
     idx: '13',
     inputs: ['Traffic', 'Incidents', 'Air quality', 'Satellite', 'CU Shuttle', 'News', 'Emergency'],
     core: { name: 'CHULA TOWER', meta: ['47 live feeds', 'campus scale'] },
@@ -103,6 +111,7 @@ const ARCHITECTURES = {
   },
   'chonburi': {
     name: 'CHONBURI TOWER',
+    ver: '1.5.0',
     idx: '16',
     inputs: ['Weather', 'Marine state', 'EEC news', 'CCTV / AIS / AQ / WX'],
     core: { name: 'CHONBURI TOWER', meta: ['20,877 3D buildings', 'mayor\'s desk'] },
@@ -111,6 +120,7 @@ const ARCHITECTURES = {
   },
   'kmitl': {
     name: 'KMITL TOWER',
+    ver: '1.3.1',
     idx: '18',
     inputs: ['Traffic', 'Incidents', 'Air quality', 'Satellite', 'Shuttles', 'News', 'Emergency'],
     core: { name: 'KMITL TOWER', meta: ['56 live feeds', 'campus scale'] },
@@ -119,6 +129,7 @@ const ARCHITECTURES = {
   },
   'yala': {
     name: 'YALA TOWER',
+    ver: '1.2.0',
     idx: '19',
     inputs: ['3D city model', 'Satellite layers', 'Flood watch', 'Deep South security', '30+ feeds'],
     core: { name: 'YALA TOWER', meta: ['3D city', 'civic intelligence'] },
@@ -127,6 +138,7 @@ const ARCHITECTURES = {
   },
   'city-hub': {
     name: 'CITY HUB',
+    ver: '5.0.0',
     idx: '15',
     inputs: ['City name', 'Whatever data exists', 'Satellite + base layers'],
     core: { name: 'CITY HUB', meta: ['replicable', '5 cities live'] },
@@ -135,6 +147,7 @@ const ARCHITECTURES = {
   },
   'air-dnd': {
     name: 'AIRDASH',
+    ver: '1.1.0',
     idx: '27',
     inputs: ['PM2.5 ground obs', 'CAMS satellite', 'Weather', 'Rain washout'],
     core: { name: 'AIRDASH', meta: ['province ranking', '24/7'] },
@@ -143,6 +156,7 @@ const ARCHITECTURES = {
   },
     'slic': {
     name: 'SLIC',
+    ver: '3.2.0',
     idx: '04',
     inputs: ['157 cities', '5 livability pillars', 'User weights'],
     core: { name: 'SLIC INDEX', meta: ['adjustable ranking', 'transparent math'] },
@@ -151,6 +165,7 @@ const ARCHITECTURES = {
   },
   'globalmonitor': {
     name: 'GLOBAL MONITOR',
+    ver: '2.6.1',
     idx: '24',
     inputs: ['Middle East', 'SE Asia', 'Thailand', 'Open data', 'Fires', 'Conflict', 'Ships'],
     core: { name: 'GLOBAL MONITOR', meta: ['3 regions', 'heat + conflict + ports'] },
@@ -159,6 +174,7 @@ const ARCHITECTURES = {
   },
   'mem': {
     name: 'MEM',
+    ver: '2.1.0',
     idx: '06',
     inputs: ['Multi-source news', 'OSINT feeds', 'No editorial layer'],
     core: { name: 'MIDDLE EAST MONITOR', meta: ['machine speed', 'no filter bubble'] },
@@ -167,6 +183,7 @@ const ARCHITECTURES = {
   },
   'daytraders': {
     name: 'DAY TRADERS',
+    ver: '2.0.0',
     idx: '14',
     inputs: ['SET / MAI', 'US markets', 'Graham / Buffett / Munger frameworks'],
     core: { name: 'DAY TRADERS', meta: ['Thai + global', 'value lens'] },
@@ -176,6 +193,7 @@ const ARCHITECTURES = {
   // CIVIC
   'sciti': {
     name: 'SCITI',
+    ver: '2.0.3',
     idx: '03',
     inputs: ['174 urban areas', '7 Smart City pillars', 'Milestone events'],
     core: { name: 'SCITI', meta: ['depa · national programme'] },
@@ -184,6 +202,7 @@ const ARCHITECTURES = {
   },
   'phuket-bus': {
     name: 'PHUKET BUS',
+    ver: '1.0.0',
     idx: '07',
     inputs: ['GPS tracking', 'Passenger telemetry', 'Route definitions'],
     core: { name: 'PHUKET SMART BUS', meta: ['rider-first', 'no control room needed'] },
@@ -192,6 +211,7 @@ const ARCHITECTURES = {
   },
   'scth': {
     name: 'SCTH V2',
+    ver: '2.1.0',
     idx: '08',
     inputs: ['Telegram reports', 'LINE reports', 'Field photos', 'SLA data'],
     core: { name: 'SCTH V2', meta: ['AI classification', 'AI pattern detection'] },
@@ -200,6 +220,7 @@ const ARCHITECTURES = {
   },
   'nsp': {
     name: 'NSP',
+    ver: '2.1.0',
     idx: '12',
     inputs: ['21 NBTC-licensed channels', 'EPG feed', 'Viewership telemetry'],
     core: { name: 'NSP', meta: ['national broadcast', 'free HD'] },
@@ -208,6 +229,7 @@ const ARCHITECTURES = {
   },
   'ekkasarn': {
     name: 'EKKASARN AI',
+    ver: '1.1.0',
     idx: '17',
     inputs: ['Thai tax invoices', 'Receipts', 'Withholding certificates'],
     core: { name: 'EKKASARN', meta: ['OCR + classify', 'no login'] },
@@ -216,6 +238,7 @@ const ARCHITECTURES = {
   },
   'nonwriter': {
     name: 'NON-WRITER',
+    ver: '1.4.0',
     idx: '29',
     inputs: ['Your draft', 'Source language', 'Target language'],
     core: { name: 'NON-WRITER', meta: ['rewrite → voice → language', 'proxy chain'] },
@@ -225,6 +248,7 @@ const ARCHITECTURES = {
   // EMERGING
   'ai-council': {
     name: 'AI COUNCIL',
+    ver: '1.0.0',
     idx: '09',
     inputs: ['Decision question', 'Personal journals', 'Decision history'],
     core: { name: '11 JUSTICES', meta: ['palindromic names', '4 operating modes'] },
@@ -233,6 +257,7 @@ const ARCHITECTURES = {
   },
   'tkcx': {
     name: 'TKCX',
+    ver: '1.0.0',
     idx: '10',
     inputs: ['Employees', 'Projects', 'Skill profiles', 'Moneyball budget'],
     core: { name: 'TKCX', meta: ['5 archetypes', 'readiness formula'] },
@@ -241,6 +266,7 @@ const ARCHITECTURES = {
   },
   'second-brain': {
     name: 'SECOND BRAIN OS',
+    ver: '1.6.0',
     idx: '11',
     inputs: ['Obsidian vault', 'MCP server configs', 'Voice + decisions'],
     core: { name: 'SECOND BRAIN OS', meta: ['19 server configs', 'voice-cloned agents'] },
@@ -249,6 +275,7 @@ const ARCHITECTURES = {
   },
   'horizon45': {
     name: 'HORIZON 45',
+    ver: '1.0.0',
     idx: '20',
     inputs: ['Real AI tasks', 'User attempts', 'Capability scoring'],
     core: { name: 'HORIZON 45', meta: ['field instrument', '45 challenges'] },
@@ -257,6 +284,7 @@ const ARCHITECTURES = {
   },
   'ascn': {
     name: 'ASCN DIRECTOR\'S CUT',
+    ver: '1.2.0',
     idx: '24',
     inputs: ['134 ASCN projects', '38 cities', '4 M&E cycles'],
     core: { name: 'ASCN DIRECTOR', meta: ['portfolio momentum', 'focus shift'] },
@@ -265,6 +293,7 @@ const ARCHITECTURES = {
   },
   'dao': {
     name: 'DAO DE JING',
+    ver: '1.3.0',
     idx: '25',
     inputs: ['Dao De Jing text', 'Tsai comics', 'Buddhist parallels', 'Psychology notes'],
     core: { name: 'READING ROOM', meta: ['trilingual', 'living reference'] },
@@ -273,6 +302,7 @@ const ARCHITECTURES = {
   },
   'ikigai': {
     name: 'IKIGAI ENGINE',
+    ver: '1.0.0',
     idx: '26',
     inputs: ['SME balance sheet', 'Income statement', 'Cash flow'],
     core: { name: 'IKIGAI', meta: ['5 indices', 'research prototype'] },
@@ -283,6 +313,7 @@ const ARCHITECTURES = {
   },
   'flood-blueprint': {
     name: 'FLOODDASH BLUEPRINT',
+    ver: '1.0.0',
     idx: '28',
     inputs: ['Sensor network specs', 'Drainage logic', 'AI flood prediction', 'Response playbooks'],
     core: { name: 'BLUEPRINT', meta: ['open research', 'replicable'] },
@@ -291,6 +322,7 @@ const ARCHITECTURES = {
   },
   'drnon-digests': {
     name: "DR NON'S DIGESTS",
+    ver: '1.0.0',
     idx: '30',
     inputs: ['News feeds', 'Substack radar', 'AI frontier sources', 'Manual picks'],
     core: { name: "DR NON'S DIGESTS", meta: ['daily digest', 'AI frontier'] },
@@ -299,6 +331,7 @@ const ARCHITECTURES = {
   },
   'nonscrape': {
     name: 'NON-SCRAPE',
+    ver: '1.0.0',
     idx: '31',
     inputs: ['URLs', 'Your question', 'Source language'],
     core: { name: 'NON-SCRAPE', meta: ['read + extract', 'multi-language'] },
@@ -306,6 +339,25 @@ const ARCHITECTURES = {
     foot: 'scraping as a service · no code',
   },
 };
+
+function injectSystemVersions() {
+  const cells = Array.from(document.querySelectorAll('.sys-cell[data-arch]'));
+  for (const cell of cells) {
+    const key = cell.getAttribute('data-arch');
+    const arch = ARCHITECTURES[key];
+    if (!arch || !arch.ver) continue;
+    if (cell.querySelector('.sys-cell__ver')) continue;
+    const head = cell.querySelector('.sys-cell__head');
+    if (!head) continue;
+    const ver = document.createElement('span');
+    ver.className = 'sys-cell__ver';
+    ver.textContent = `v${arch.ver}`;
+    ver.setAttribute('title', `${arch.name || key} v${arch.ver}`);
+    const status = head.querySelector('.sys-cell__status');
+    if (status) head.insertBefore(ver, status);
+    else head.appendChild(ver);
+  }
+}
 
 function injectSystemArchitectures() {
   const cells = Array.from(document.querySelectorAll('.sys-cell[data-arch]'));
@@ -340,7 +392,7 @@ function injectSystemArchitectures() {
             <span class="sys-arch__tag">${escapeHtml(_t('HOW_IT_WORKS', 'HOW IT WORKS'))}</span>
             <span class="sys-arch__spec">${inCount} FEEDS → ${outCount} VIEWS</span>
           </div>
-          <span class="sys-arch__idx">#${escapeHtml(arch.idx || '')}</span>
+          <span class="sys-arch__idx">#${escapeHtml(arch.idx || '')}${arch.ver ? ` · v${escapeHtml(arch.ver)}` : ''}</span>
         </div>
         <div class="sys-arch__flow">
           <div class="sys-arch__stage sys-arch__stage--inputs">
@@ -2898,6 +2950,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setPageLocale(activeLocale, { silent: true });
   bindLocaleSwitch();
   initFlooddashCarousel();
+  injectSystemVersions();
   injectSystemArchitectures();
 });
 

@@ -1768,6 +1768,18 @@ img {
   color: var(--ink-2);
 }
 
+.sys-cell__ver {
+  margin-left: auto;
+  margin-right: 2px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
 .sys-cell__shot {
   width: 100%;
   aspect-ratio: 16 / 10;
@@ -2445,6 +2457,7 @@ html:not([lang="th"]) .foot-th-only { display: none; }
   .sys-cell__cat { font-size: 10.5px !important; }
   .sys-cell__idx { font-size: 10.5px !important; }
   .sys-cell__status { font-size: 10.5px !important; }
+  .sys-cell__ver { font-size: 10.5px !important; }
   .sandbox-note__tag { font-size: 10.5px !important; }
   .s-head__meta { font-size: 11px !important; }
   .locale-btn { font-size: 11px !important; min-height: 32px; padding: 6px 8px; }
@@ -2474,6 +2487,7 @@ html:not([lang="th"]) .foot-th-only { display: none; }
   .sys-cell__cat { font-size: 10.5px !important; }
   .sys-cell__idx { font-size: 10.5px !important; }
   .sys-cell__status { font-size: 10.5px !important; }
+  .sys-cell__ver { font-size: 10.5px !important; }
   .sat-hud-tile { display: none !important; }
   /* On iPad touch, hero stat + node labels are still 9px — bump them too */
   .hero-stat-label { font-size: 10.5px !important; }
