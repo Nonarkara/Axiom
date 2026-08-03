@@ -2028,6 +2028,34 @@ img {
   text-overflow: ellipsis;
 }
 
+.sys-arch__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 5px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.sys-arch__meta-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.sys-arch__meta-row .sys-arch__lbl {
+  flex-shrink: 0;
+  min-width: 52px;
+}
+
+.sys-arch__ai-copy {
+  margin: 0;
+  font-size: 8px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: normal;
+}
+
 .sys-arch__dot {
   color: var(--accent);
   font-size: 6px;

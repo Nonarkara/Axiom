@@ -270,6 +270,8 @@ const ARCHITECTURES = {
     core: { name: 'IKIGAI', meta: ['5 indices', 'research prototype'] },
     outputs: ['Balance sheet signal', 'Cash runway', 'Bank scorecard'],
     foot: 'finance as signal · ABC Company is fictitious mock data',
+    stack: ['Next.js 16', 'React 19', 'Cloudflare Workers', 'D1', 'KV', 'R2'],
+    ai: 'Generative: NL journal capture (photo/text → structured entry proposal), Gemini/Claude vision OCR on receipts, and a multi-agent research pass (registry, financials, market). Deterministic: every score, runway figure, and balance-sheet number is computed by typed finance-toolkit functions after a human approves the entry — the model drafts, it never posts.',
   },
   'flood-blueprint': {
     name: 'FLOODDASH BLUEPRINT',
@@ -319,6 +321,9 @@ function injectSystemArchitectures() {
     const coreMeta = (arch.core.meta || [])
       .map(s => `<span class="sys-arch__core-tag">${escapeHtml(s)}</span>`)
       .join('');
+    const stackHtml = (arch.stack || [])
+      .map(s => `<span class="sys-arch__chip">${escapeHtml(s)}</span>`)
+      .join('');
 
     const html = `
       <div class="sys-arch" data-arch-pop="${escapeHtml(key)}" role="tooltip" aria-label="How ${escapeHtml(arch.name)} works">
@@ -348,6 +353,19 @@ function injectSystemArchitectures() {
             <div class="sys-arch__chips">${outputsHtml}</div>
           </div>
         </div>
+        ${arch.stack || arch.ai ? `
+        <div class="sys-arch__meta">
+          ${arch.stack ? `
+          <div class="sys-arch__meta-row">
+            <span class="sys-arch__lbl">STACK</span>
+            <div class="sys-arch__chips">${stackHtml}</div>
+          </div>` : ''}
+          ${arch.ai ? `
+          <div class="sys-arch__meta-row">
+            <span class="sys-arch__lbl">GENERATIVE AI</span>
+            <p class="sys-arch__ai-copy">${escapeHtml(arch.ai)}</p>
+          </div>` : ''}
+        </div>` : ''}
         ${arch.foot ? `<div class="sys-arch__foot"><span class="sys-arch__dot">●</span> ${escapeHtml(arch.foot)}</div>` : ''}
       </div>`;
 
