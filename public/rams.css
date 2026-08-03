@@ -254,6 +254,9 @@ img {
   display: flex;
   align-items: baseline;
   gap: 9px;
+  min-height: 44px;
+  padding: 8px 0;
+  align-items: center;
 }
 
 .brand__name {
@@ -903,6 +906,21 @@ img {
   justify-content: space-between;
 }
 
+.foot__row .nav {
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 6px 4px;
+  margin-top: 4px;
+}
+
+.foot__row .nav a {
+  min-height: 36px;
+  padding: 6px 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+}
+
 .foot__note {
   font-size: 10px;
   font-weight: 500;
@@ -929,24 +947,26 @@ img {
 
 .foot__fineprint-label {
   margin: 4px 0 8px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   line-height: 1.5;
   color: var(--ink-3);
   letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
+  text-transform: uppercase;}
 
 .foot__fineprint-list {
   margin: 0 0 14px;
   padding: 0 0 0 1.1em;
-  font-size: 11px;
-  line-height: 1.55;
+  font-size: 12px;
+  line-height: 1.6;
   color: var(--ink-2);
 }
 
 .foot__fineprint-list li {
   margin-bottom: 4px;
+  padding: 4px 0;
+  min-height: 24px;
+  line-height: 1.6;
 }
 
 .foot__fineprint-list li:last-child {
@@ -955,9 +975,10 @@ img {
 
 .foot__fineprint-copy {
   margin-bottom: 0;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink-3);
   letter-spacing: 0.03em;
+  line-height: 1.6;
 }
 
 @media (max-width: 480px) {
