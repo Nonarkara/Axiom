@@ -369,77 +369,7 @@ function injectSystemVersions() {
 }
 
 function injectSystemArchitectures() {
-  const cells = Array.from(document.querySelectorAll('.sys-cell[data-arch]'));
-  for (const cell of cells) {
-    const key = cell.getAttribute('data-arch');
-    const arch = ARCHITECTURES[key];
-    if (!arch) continue;
-
-    // Skip if already injected
-    if (cell.querySelector('.sys-arch')) continue;
-
-    const inCount = (arch.inputs || []).length;
-    const outCount = (arch.outputs || []).length;
-
-    const inputsHtml = (arch.inputs || [])
-      .map(s => `<span class="sys-arch__chip">${escapeHtml(s)}</span>`)
-      .join('');
-    const outputsHtml = (arch.outputs || [])
-      .map(s => `<span class="sys-arch__chip is-emph">${escapeHtml(s)}</span>`)
-      .join('');
-    const coreMeta = (arch.core.meta || [])
-      .map(s => `<span class="sys-arch__core-tag">${escapeHtml(s)}</span>`)
-      .join('');
-    const stackHtml = (arch.stack || [])
-      .map(s => `<span class="sys-arch__chip">${escapeHtml(s)}</span>`)
-      .join('');
-
-    const html = `
-      <div class="sys-arch" data-arch-pop="${escapeHtml(key)}" role="tooltip" aria-label="How ${escapeHtml(arch.name)} works">
-        <div class="sys-arch__head">
-          <div class="sys-arch__head-left">
-            <span class="sys-arch__tag">${escapeHtml(_t('HOW_IT_WORKS', 'HOW IT WORKS'))}</span>
-            <span class="sys-arch__spec">${inCount} FEEDS → ${outCount} VIEWS</span>
-          </div>
-          <span class="sys-arch__idx">#${escapeHtml(arch.idx || '')}${arch.ver ? ` · v${escapeHtml(arch.ver)}` : ''}</span>
-        </div>
-        <div class="sys-arch__flow">
-          <div class="sys-arch__stage sys-arch__stage--inputs">
-            <span class="sys-arch__lbl">SOURCES (${inCount})</span>
-            <div class="sys-arch__chips">${inputsHtml}</div>
-          </div>
-          <div class="sys-arch__arrow">→</div>
-          <div class="sys-arch__stage sys-arch__stage--core">
-            <span class="sys-arch__lbl">ENGINE</span>
-            <div class="sys-arch__core-box">
-              <div class="sys-arch__core-name">${escapeHtml(arch.name)}</div>
-              <div class="sys-arch__core-tags">${coreMeta}</div>
-            </div>
-          </div>
-          <div class="sys-arch__arrow">→</div>
-          <div class="sys-arch__stage sys-arch__stage--outputs">
-            <span class="sys-arch__lbl">OUTPUTS (${outCount})</span>
-            <div class="sys-arch__chips">${outputsHtml}</div>
-          </div>
-        </div>
-        ${arch.stack || arch.ai ? `
-        <div class="sys-arch__meta">
-          ${arch.stack ? `
-          <div class="sys-arch__meta-row">
-            <span class="sys-arch__lbl">STACK</span>
-            <div class="sys-arch__chips">${stackHtml}</div>
-          </div>` : ''}
-          ${arch.ai ? `
-          <div class="sys-arch__meta-row">
-            <span class="sys-arch__lbl">GENERATIVE AI</span>
-            <p class="sys-arch__ai-copy">${escapeHtml(arch.ai)}</p>
-          </div>` : ''}
-        </div>` : ''}
-        ${arch.foot ? `<div class="sys-arch__foot"><span class="sys-arch__dot">●</span> ${escapeHtml(arch.foot)}</div>` : ''}
-      </div>`;
-
-    cell.insertAdjacentHTML('beforeend', html);
-  }
+  return; // Disabled: black architecture boxes removed per design review
 }
 
 function escapeHtml(s) {

@@ -448,6 +448,10 @@ img {
   .grid--4 {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .grid--5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 /* §4.2 STAT CELL — label left-grey, value large, tabular */
@@ -1856,7 +1860,10 @@ img {
 .sys-cell { position: relative; }
 .sys-cell[href] { cursor: pointer; }
 
-.sys-arch {
+.sys-arch,
+.probono-arch {
+  display: none !important;
+}
   position: absolute;
   left: 0;
   right: 0;
