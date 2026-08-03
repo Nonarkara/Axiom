@@ -2347,6 +2347,66 @@ img {
 }
 
 /* ============================================================
+   §X MOBILE TEXT BOOST — 9px mono labels become unreadable on
+   small screens. Bump the user-facing content labels to 10.5px
+   on phones only. Desktop design stays sharp at 9px.
+   ============================================================ */
+@media (max-width: 600px) {
+  .brand__ver { font-size: 10px; }
+  .stat__lbl { font-size: 10.5px; }
+  .field label { font-size: 10.5px; }
+  .stage__loc { font-size: 10.5px; }
+  .press-row__outlet { font-size: 10.5px; }
+  .cv-block__h { font-size: 10.5px; }
+  .probono-card__org { font-size: 10.5px; }
+  .sys-cell__cat { font-size: 10.5px; }
+  .sys-cell__idx { font-size: 10.5px; }
+  .sandbox-note__tag { font-size: 10.5px; }
+  .s-head__meta { font-size: 11px; }
+  .locale-btn { font-size: 11px; min-height: 32px; padding: 6px 8px; }
+  .hero-featured-badge__kicker { font-size: 10.5px; }
+  .hero-featured-badge__event { font-size: 9.5px; }
+  .hero-city-label { font-size: 10.5px; }
+  .hero-node-strip-label { font-size: 10px; }
+  .hero-node-meta { font-size: 10px; }
+  .hero-stat-label { font-size: 10px; }
+  .sat-hud-provider,
+  .sat-hud-coord,
+  .sat-hud-zoom,
+  .sat-hud-res,
+  .sat-hud-time { font-size: 10px; }
+  .map-mode-label { font-size: 10.5px; }
+  .intel-overlay-header { font-size: 10px; }
+  .intel-overlay-meta { font-size: 9.5px; }
+  /* Architecture popover renders inline on mobile (no hover) */
+  .sys-arch { font-size: 11px; }
+  .sys-arch__tag { font-size: 10.5px; }
+  .sys-arch__idx { font-size: 10.5px; }
+  .sys-arch__chip { font-size: 10.5px; padding: 4px 8px; }
+  .sys-arch__arrow { font-size: 12px; }
+  .sys-arch__core-name { font-size: 11px; }
+  .sys-arch__core-row { font-size: 10.5px; }
+  .sys-arch__core-meta { font-size: 9.5px; }
+  .sys-arch__foot { font-size: 10px; }
+}
+
+/* Tablet: also bump the critical labels. Touch + smaller screen = same
+   readability concern. iPad at 768-1023 still benefits from these bumps. */
+@media (min-width: 601px) and (max-width: 1023px) {
+  .stat__lbl { font-size: 10px; }
+  .field label { font-size: 10px; }
+  .stage__loc { font-size: 10px; }
+  .probono-card__org { font-size: 10px; }
+  .sys-cell__cat { font-size: 10px; }
+  .sys-cell__idx { font-size: 10px; }
+  .sys-arch__tag { font-size: 10px; }
+  .sys-arch__idx { font-size: 10px; }
+  .sys-arch__core-row { font-size: 10px; }
+  .sys-arch__chip { font-size: 10px; }
+  .sat-hud-tile { display: none; }
+}
+
+/* ============================================================
    §4.10 FOLD ROWS — one-line about-us sections
    ============================================================ */
 

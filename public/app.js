@@ -3032,11 +3032,13 @@ function initFlooddashCarousel() {
 
   // Tile layers are added in the layer switching section below
 
-  // Pulse markers for active cities
+  // Pulse markers for active cities.
+  // iconSize = 32x32 (real touch target). Visual pulse stays 14x14
+  // centered inside via CSS (margin 9px + box-sizing content-box).
   const pulseIcon = L.divIcon({
     className: 'sat-pulse-marker',
-    iconSize: [12, 12],
-    iconAnchor: [6, 6],
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
   });
 
   const markerLocations = [

@@ -49,6 +49,8 @@
 #heroCanvas {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   pointer-events: none;
 }
@@ -67,12 +69,15 @@
 /* ----- Pulse markers (Leaflet divIcon) ----- */
 .sat-pulse-marker {
   position: relative;
-  width: 12px;
-  height: 12px;
+  box-sizing: content-box;
+  width: 14px;
+  height: 14px;
+  margin: 9px;
   background: var(--accent);
   border: 1px solid var(--paper);
   box-shadow: 0 0 0 0 var(--accent);
   animation: sat-pulse 2.4s infinite;
+  cursor: pointer;
 }
 
 @keyframes sat-pulse {
@@ -740,9 +745,22 @@
     padding: 10px 14px;
     font-size: 10px;
   }
-  .sat-hud { font-size: 9px; padding: 6px 8px; }
+  .sat-hud { font-size: 10px; padding: 6px 8px; }
   .sat-hud-row { gap: 8px; flex-wrap: wrap; }
   .hero-city-label { display: none; }
+  .sat-btn { font-size: 11px; }
+  .sat-hud-tile { display: none; } /* hide CARTO tile-source debug line on mobile */
+  .sat-hud-provider { display: none; } /* hide CARTO source on mobile (debug info) */
+  .sat-source-note { display: none; } /* hide CARTO source in bottom-left on mobile */
+  .sat-controls { bottom: auto; top: 70px; right: 12px; flex-wrap: wrap; max-width: calc(100vw - 24px); }
+  .sat-control-label { display: none; } /* hide LABEL on mobile — saves space */
+  .leaflet-control-attribution { display: none !important; } /* hide leaflet attribution on mobile */
+}
+
+@media (max-width: 1023px) {
+  .leaflet-control-attribution { display: none !important; } /* hide on tablet too */
+  .sat-btn { font-size: 11px; } /* bigger touch target for tablet touch */
+  .sat-hud-tile { display: none; } /* hide debug tile line on tablet too */
 }
 
 @media (prefers-reduced-motion: reduce) {
