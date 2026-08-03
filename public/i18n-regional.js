@@ -427,6 +427,10 @@
         "lede": "호찌민시를 위한 대규모 지휘 화면. 실시간 교통, 홍수 모니터링, 대기질, 동적 경로를 고성능 지도 하나에 통합합니다.",
         "cta": "라이브 시스템 열기"
       },
+      "p33": {
+        "lede": "Muang Thong Thani 지휘 화면 — IMPACT Arena, Challenger 홀, 홍수 감시, 교통, AQI, 행사 부하를 하나의 3D 지구 지도에. 태국에서 가장 밀집한 복합단지 운영자를 위해 만들었습니다.",
+        "cta": "라이브 시스템 열기"
+      },
       "p22": {
         "lede": "세 지역(중동, 동남아시아, 태국) 모니터링: 오픈 데이터 기반 궁극의 모니터링 플랫폼, 레이어링으로 인사이트를 드러냅니다.",
         "cta": "라이브 시스템 열기"
@@ -745,9 +749,9 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "31개 시스템 · 5개국",
+      "sysMeta": "32개 시스템 · 5개국",
       "command": "도시 대시보드",
-      "commandMeta": "실시간 도시 운영실 및 환경 관측 · 12",
+      "commandMeta": "실시간 도시 운영실 및 환경 관측 · 13",
       "intelligence": "인텔리전스",
       "intelligenceMeta": "신호 및 분석 · 4",
       "civic": "시민",
@@ -1234,6 +1238,10 @@
         "lede": "ホーチミン市向け大規模指揮画面。リアルタイム交通、洪水モニタリング、大気質、動的ルーティングを高性能マップ1枚に統合します。",
         "cta": "稼働中のシステムを開く"
       },
+      "p33": {
+        "lede": "Muang Thong Thaniの指揮画面 — IMPACT Arena、Challengerホール、洪水監視、交通、AQI、イベント負荷を1枚の3D地区マップに。タイで最も密な複合施設の運用者向け。",
+        "cta": "稼働中のシステムを開く"
+      },
       "p22": {
         "lede": "3地域（中東、東南アジア、タイ）をモニタリング：オープンデータに基づく究極のモニタリングプラットフォーム。レイヤリングでインサイトを可視化します。",
         "cta": "稼働中のシステムを開く"
@@ -1550,9 +1558,9 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "31システム · 5か国",
+      "sysMeta": "32システム · 5か国",
       "command": "シティダッシュボード",
-      "commandMeta": "リアルタイム都市運用室と環境観測 · 12",
+      "commandMeta": "リアルタイム都市運用室と環境観測 · 13",
       "intelligence": "インテリジェンス",
       "intelligenceMeta": "シグナルと分析 · 4",
       "civic": "シビック",
@@ -2039,6 +2047,10 @@
         "lede": "Giao diện chỉ huy quy mô lớn cho Thành phố Hồ Chí Minh. Hợp nhất giao thông trực tiếp, giám sát lũ, chất lượng không khí và định tuyến động trên một bản đồ hiệu năng cao.",
         "cta": "Mở hệ thống đang chạy"
       },
+      "p33": {
+        "lede": "Giao diện chỉ huy Muang Thong Thani — IMPACT Arena, hội trường Challenger, theo dõi lũ, giao thông, AQI và tải sự kiện trên một bản đồ khu vực 3D. Xây cho người vận hành tổ hợp hỗn hợp dày đặc nhất Thái Lan.",
+        "cta": "Mở hệ thống đang chạy"
+      },
       "p22": {
         "lede": "Giám sát ba vùng (Trung Đông, Đông Nam Á, Thái Lan): nền tảng giám sát tối ưu dựa trên dữ liệu mở, phơi bày insight qua lớp chồng.",
         "cta": "Mở hệ thống đang chạy"
@@ -2355,9 +2367,9 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "31 hệ thống · 5 quốc gia",
+      "sysMeta": "32 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
-      "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 12",
+      "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 13",
       "intelligence": "Tình báo",
       "intelligenceMeta": "Tín hiệu và phân tích · 4",
       "civic": "Công dân",

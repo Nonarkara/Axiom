@@ -77,6 +77,14 @@ const ARCHITECTURES = {
     outputs: ['Dynamic routing', 'Incident board', '3D city view'],
     foot: 'Ho Chi Minh City · metropolitan command',
   },
+  'mtt': {
+    name: 'MTT SUPER',
+    idx: '33',
+    inputs: ['IMPACT events', 'Flood gauges', 'Traffic / CWR', 'AQI', 'Parking', 'CCTV / feeds'],
+    core: { name: 'MTT SUPER', meta: ['3D district twin', 'event load'] },
+    outputs: ['Arena ops board', 'Flood alert', 'Layer stack', 'Guest load'],
+    foot: 'Muang Thong Thani · IMPACT + Challenger',
+  },
   'kuching': {
     name: 'KUCHING IOC',
     idx: '05',
@@ -1241,6 +1249,10 @@ const i18nExt = {
         lede: 'A massive-scale command surface for Ho Chi Minh City. Integrates live traffic, flood monitoring, air quality, and dynamic routing into a single high-performance map for urban decision-makers.',
         cta:'Open live system',
       },
+      p33: {
+        lede: 'Command surface for Muang Thong Thani — IMPACT Arena, Challenger halls, flood watch, traffic, AQI, and event load on one 3D district map. Built for operators running Thailand\'s densest mixed-use complex.',
+        cta:'Open live system',
+      },
       p22: {
         lede: 'Monitoring three regions (Middle East, Southeast Asia, Thailand): an ultimate monitoring platform based on open data that reveals insights through layering.',
         cta:'Open live system',
@@ -1564,6 +1576,10 @@ const i18nExt = {
         lede: 'พื้นผิวสั่งการระดับมหานครสำหรับนครโฮจิมินห์ รวมการจราจรสด การเฝ้าระวังน้ำท่วม คุณภาพอากาศ และการกำหนดเส้นทางแบบไดนามิกบนแผนที่ประสิทธิภาพสูงสำหรับผู้ตัดสินใจด้านเมือง',
         cta:'เปิดระบบสด',
       },
+      p33: {
+        lede: 'พื้นผิวสั่งการสำหรับเมืองทองธานี — IMPACT Arena ฮอลล์ Challenger เฝ้าน้ำท่วม จราจร AQI และโหลดงานอีเวนต์บนแผนที่เขตแบบ 3D สำหรับผู้ปฏิบัติการในคอมเพล็กซ์ผสมที่หนาแน่นที่สุดของไทย',
+        cta:'เปิดระบบสด',
+      },
       p22: {
         lede: 'เฝ้าติดตามสามภูมิภาค (ตะวันออกกลาง เอเชียตะวันออกเฉียงใต้ ไทย): แพลตฟอร์มมอนิเตอร์ขั้นสูงจากข้อมูลเปิดที่เปิดเผยอินไซต์ผ่านการซ้อนเลเยอร์',
         cta:'เปิดระบบสด',
@@ -1884,6 +1900,10 @@ const i18nExt = {
         lede: '胡志明市大规模指挥界面：将实时交通、洪水监测、空气质量与动态路径规划整合到一张高性能地图中，供城市决策者使用。',
         cta:'打开在线系统',
       },
+      p33: {
+        lede: 'Muang Thong Thani 指挥界面——IMPACT Arena、Challenger 展厅、洪水监测、交通、空气质量与活动负荷，叠在一张 3D 片区地图上。为泰国最密的综合体运营者而建。',
+        cta:'打开在线系统',
+      },
       p22: {
         lede: '监测三个区域（中东、东南亚、泰国）：基于开放数据的终极监测平台，通过图层叠加揭示洞察。',
         cta:'打开在线系统',
@@ -2091,6 +2111,7 @@ const i18nExt = {
       p19: { lede: '// Yala.ControlTower\n// real-time civic intelligence for Yala City Municipality // 3D city model + satellite + flood monitoring + deep-south security events', cta: 'system.open()' },
       p20: { lede: '// Horizon45.aiJudgmentFieldInstrument()\n// deepfake detection → prompt engineering // users navigate real-world signals, leave with a capability portrait', cta: 'system.open()' },
       p21: { lede: '// HCMC.massiveScaleCommandSurface()\n// live traffic + flood monitoring + AQ + dynamic routing // one high-performance map for city decision-makers', cta: 'system.open()' },
+      p33: { lede: '// MTT.superDashboard.v2()\n// IMPACT Arena + Challenger halls + flood + traffic + AQI + event load // 3D district map for Thailand densest mixed-use complex', cta: 'system.open()' },
       p22: { lede: '// threeRegionsMonitor()\n// Middle East, Southeast Asia, Thailand on one surface // open-data + layer overlays = insight', cta: 'system.open()' },
       p23: { lede: '// SCITI.smartCityThailandIndex()\n// official Thai index: 174 city areas, 7 smart-city pillars // progress and impact evaluated', cta: 'system.open()' },
       p24: { lede: '// DaoDeJing.trilingualReadingRoom()\n// Tsai comics + Buddhist parallels + psychology notes + pinyin + reference bookshelf // continuously updated', cta: 'system.open()' },
@@ -2267,6 +2288,7 @@ const i18nExt2 = {
       p29:'Live · Writing Service',
       p30:'Live · Daily Digest',
       p31:'Live · Scraping',
+      p33:'Live · District Ops',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2339,9 +2361,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '31 systems · 5 countries',
+      sysMeta: '32 systems · 5 countries',
       command: 'City Dashboards',
-      commandMeta: 'Real-time city operations rooms & environmental watch · 12',
+      commandMeta: 'Real-time city operations rooms & environmental watch · 13',
       intelligence: 'Intelligence',
       intelligenceMeta: 'Signal & analysis · 4',
       civic: 'Civic',
@@ -2403,6 +2425,7 @@ const i18nExt2 = {
       p29:'สด · บริการเขียน',
       p30:'สด · บทความรายวัน',
       p31:'สด · ดูดข้อมูล',
+      p33:'สด · ปฏิบัติการเขต',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2475,9 +2498,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '31 ระบบ · 5 ประเทศ',
+      sysMeta: '32 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
-      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 12',
+      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 13',
       intelligence: 'ข่าวกรอง',
       intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 4',
       civic: 'พลเมือง',
@@ -2539,6 +2562,7 @@ const i18nExt2 = {
       p29:'在线 · 写作服务',
       p30:'在线 · 每日摘要',
       p31:'在线 · 抓取',
+      p33:'在线 · 片区运营',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2609,9 +2633,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '31 个系统 · 5 个国家',
+      sysMeta: '32 个系统 · 5 个国家',
       command: '城市仪表板',
-      commandMeta: '实时城市作战室与环境监测 · 12',
+      commandMeta: '实时城市作战室与环境监测 · 13',
       intelligence: '情报',
       intelligenceMeta: '信号与分析 · 4',
       civic: '民生',
@@ -2682,6 +2706,7 @@ const i18nExt2 = {
       p29:'live: writingService',
       p30:'live: dailyDigest',
       p31:'live: scraping',
+      p33:'live: districtOps',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -2752,9 +2777,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '31 systems · 5 countries',
+      sysMeta: '32 systems · 5 countries',
       command: 'CityDashboards',
-      commandMeta: 'cityOps.realtime & envWatch · count[12]',
+      commandMeta: 'cityOps.realtime & envWatch · count[13]',
       intelligence: 'Intelligence',
       intelligenceMeta: 'signal & analysis · count[4]',
       civic: 'Civic',
