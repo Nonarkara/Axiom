@@ -2351,6 +2351,10 @@ img {
    small screens. Bump the user-facing content labels to 10.5px
    on phones only. Desktop design stays sharp at 9px.
    ============================================================ */
+
+/* Thai-only fineprint. Show only when document is in Thai; hide on
+   every other locale so EN/ZH/KO/JA/VI users don't see Thai. */
+html:not([lang="th"]) .foot-th-only { display: none; }
 @media (max-width: 600px) {
   .brand__ver { font-size: 10px; }
   .stat__lbl { font-size: 10.5px; }
