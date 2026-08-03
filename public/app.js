@@ -3030,6 +3030,10 @@ function initFlooddashCarousel() {
     { key: 'southeast-asia', name: 'Southeast Asia', meta: 'Scale layer', lat: 10.5, lng: 105.0, zoom: 5 },
   ];
 
+  // Touch devices: the map is the full-bleed hero background, so a single-
+  // finger drag must scroll the page, not pan the map (the "Drag to explore"
+  // hint is already hidden on mobile via CSS — this completes that same
+  // decision in JS). Desktop mouse-drag panning is unaffected.
   const map = L.map(container, {
     center: [CITIES[0].lat, CITIES[0].lng],
     zoom: CITIES[0].zoom,
@@ -3037,10 +3041,10 @@ function initFlooddashCarousel() {
     worldCopyJump: false,
     zoomControl: false,
     attributionControl: false,
-    dragging: true,
+    dragging: !axiomMedia.isTouch,
     scrollWheelZoom: false,
     doubleClickZoom: true,
-    touchZoom: true,
+    touchZoom: false,
     keyboard: true,
     boxZoom: true,
     fadeAnimation: !useLiteMotion,
