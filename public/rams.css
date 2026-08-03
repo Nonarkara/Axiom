@@ -195,6 +195,10 @@ img {
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 0;
 }
 
 .t-micro {
@@ -2204,6 +2208,19 @@ img {
 .cred-list li {
   font-size: 13px;
   line-height: 1.45;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.cred-list a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line-2);
+  text-underline-offset: 3px;
+  padding: 6px 0;
+  display: inline-block;
+  min-height: 28px;
 }
 
 .cred-list a {
