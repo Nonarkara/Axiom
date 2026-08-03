@@ -741,7 +741,7 @@
   .hero-actions { gap: 8px; }
   .hero-actions .btn--primary,
   .hero-actions .btn--ghost {
-    min-height: 40px;
+    min-height: 44px;
     padding: 10px 14px;
     font-size: 10px;
   }

@@ -2440,7 +2440,7 @@ html:not([lang="th"]) .foot-th-only { display: none; }
 .fold-strip {
   border: 1px solid var(--line-2);
   background: var(--panel);
-  margin: calc(var(--gap) * 0.75) 0;
+  margin: calc(var(--gap) * 0.75) auto;
 }
 
 .fold-strip .section--fold .wrap {
