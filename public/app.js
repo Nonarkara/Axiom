@@ -3093,8 +3093,12 @@ function initFlooddashCarousel() {
       const isActive = button.dataset.city === city.key;
       button.classList.toggle('is-active', isActive);
       button.setAttribute('aria-pressed', String(isActive));
-      if (isActive && shouldScroll && typeof button.scrollIntoView === 'function') {
-        button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      if (isActive && shouldScroll) {
+        const rail = document.getElementById('heroNodeRail') || button.parentElement;
+        if (rail && typeof rail.scrollTo === 'function') {
+          const targetLeft = button.offsetLeft - (rail.clientWidth / 2) + (button.clientWidth / 2);
+          rail.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+        }
       }
     });
   }
