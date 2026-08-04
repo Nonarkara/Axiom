@@ -358,6 +358,16 @@ const ARCHITECTURES = {
     stack: ['Three.js', 'Cloudflare Pages', 'AI plan trace'],
     ai: 'Generative: AI floor-plan trace from upload, concept photo generation from style keywords. Deterministic: sunlit floor area, solar heat gain through glass/walls, and living/system/cost checks are computed from geometry and site latitude — the model traces and styles, it does not invent the physics.',
   },
+  'bkk-atlas': {
+    name: 'BKKX 3D ATLAS',
+    ver: '1.0.0',
+    idx: '36',
+    inputs: ['OSM buildings', 'Terrain DEM', 'AQI / rain radar', 'Treasury land prices', 'BTS/MRT'],
+    core: { name: 'BKKX ATLAS', meta: ['3D city walk', '432k buildings'] },
+    outputs: ['Extruded Bangkok', 'Layer toggles', '15 key-area jumps', 'Live traffic'],
+    foot: 'walk Bangkok block by block · my city, not theirs',
+    stack: ['MapLibre GL', 'PMTiles', 'Cloudflare Workers', 'R2'],
+  },
 };
 
 function injectSystemVersions() {
@@ -1300,6 +1310,10 @@ const i18nExt = {
         lede: 'Design a house by deciding — draw or AI-trace the plan, watch sunlit floor and solar heat live, then run living checks, systems, and cost before you generate a picture.',
         cta: 'Open live system',
       },
+      p36: {
+        lede: 'A 3D browser atlas of Bangkok — 432,077 real OSM buildings, terrain, air quality, rain radar, Treasury land prices, BTS/MRT lines, and canals. Walk the city block by block.',
+        cta: 'Open live system',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1636,6 +1650,10 @@ const i18nExt = {
         lede: 'ออกแบบบ้านด้วยการตัดสินใจ — วาดหรือให้ AI ตามรอยแปลน ดูพื้นที่รับแดดและความร้อนจากแสงอาทิตย์แบบสด แล้วรัน living checks ระบบ และต้นทุนก่อนสร้างภาพ',
         cta: 'เปิดระบบสด',
       },
+      p36: {
+        lede: 'แผนที่ 3D ของกรุงเทพฯ ในเบราว์เซอร์ — อาคาร OSM จริง 432,077 หลัง พื้นที่ คุณภาพอากาศ เรดาร์ฝน ราคาประเมินที่ดิน เส้น BTS/MRT และคลอง เดินเมืองทีละบล็อก',
+        cta: 'เปิดระบบสด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -1969,6 +1987,10 @@ const i18nExt = {
         lede: '用决策序列设计房子——手绘或 AI 描摹平面,实时看日照地面与太阳得热,再跑居住检查、系统与造价,最后才出图。',
         cta: '打开在线系统',
       },
+      p36: {
+        lede: '曼谷三维浏览器地图——432,077 栋真实 OSM 建筑、地形、空气质量、雨雷达、财政部地价、BTS/MRT 与运河。一街区一街区地走完这座城。',
+        cta: '打开在线系统',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2148,6 +2170,7 @@ const i18nExt = {
       p31: { lede: '// NonScrape.scrapingAsAService()\n// no code // give it a URL + a question, it reads the page in source language, returns the answer in yours // with citations + structured JSON', cta: 'system.open()' },
       p34: { lede: '// TimePop.evidenceFirstRegister()\n// 261 references · cited comps · sourced provenance · credited stills // honesty ladder: where data refuses to estimate', cta: 'system.open()' },
       p35: { lede: '// LumaHouse.decisionSequence()\n// draw|AI-trace → sunlitFloor + solarHeat → living|systems|cost → picture', cta: 'system.open()' },
+      p36: { lede: '// BKKxAtlas.walkCity()\n// 432077 OSM buildings · terrain · AQI · rain · landPrice · BTS/MRT · canals', cta: 'system.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2323,6 +2346,7 @@ const i18nExt2 = {
       p33:'Live · District Ops',
       p34:'Live · Watch Intelligence',
       p35:'Live · Architectural Design',
+      p36:'Live · 3D Urban Atlas',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2338,6 +2362,7 @@ const i18nExt2 = {
       c20:'Capability Lab', c23:'Digital Humanities', c25:'Finance Intelligence',
       c26:'Open Blueprint', c27:'Writing Intelligence',
       c28:'News Intelligence', c29:'Scraping Service', c30:'Watch Intelligence', c31:'Architectural Intelligence',
+      c32:'3D Urban Atlas',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2395,9 +2420,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '34 systems · 5 countries',
+      sysMeta: '35 systems · 5 countries',
       command: 'City Dashboards',
-      commandMeta: 'Real-time city operations rooms & environmental watch · 13',
+      commandMeta: 'Real-time city operations rooms & environmental watch · 14',
       intelligence: 'Intelligence',
       intelligenceMeta: 'Signal & analysis · 4',
       civic: 'Civic',
@@ -2462,6 +2487,7 @@ const i18nExt2 = {
       p33:'สด · ปฏิบัติการเขต',
       p34:'สด · ข่าวกรองนาฬิกา',
       p35:'สด · การออกแบบสถาปัตย์',
+      p36:'สด · แผนที่เมือง 3D',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2477,6 +2503,7 @@ const i18nExt2 = {
       c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล', c25:'ข่าวกรองการเงิน',
       c26:'Blueprint เปิด', c27:'ข่าวกรองการเขียน',
       c28:'ข่าวกรองข่าว', c29:'บริการดูดข้อมูล', c30:'ข่าวกรองนาฬิกา', c31:'ข่าวกรองสถาปัตย์',
+      c32:'แผนที่เมือง 3D',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2534,9 +2561,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '34 ระบบ · 5 ประเทศ',
+      sysMeta: '35 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
-      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 13',
+      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 14',
       intelligence: 'ข่าวกรอง',
       intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 4',
       civic: 'พลเมือง',
@@ -2601,6 +2628,7 @@ const i18nExt2 = {
       p33:'在线 · 片区运营',
       p34:'在线 · 腕表情报',
       p35:'在线 · 建筑设计',
+      p36:'在线 · 三维城市地图',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2614,6 +2642,7 @@ const i18nExt2 = {
       c20:'能力实验室', c23:'数字人文', c25:'金融情报',
       c26:'开放蓝图', c27:'写作智能',
       c28:'新闻情报', c29:'抓取服务', c30:'腕表情报', c31:'建筑智能',
+      c32:'三维城市地图',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2671,9 +2700,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '34 个系统 · 5 个国家',
+      sysMeta: '35 个系统 · 5 个国家',
       command: '城市仪表板',
-      commandMeta: '实时城市作战室与环境监测 · 13',
+      commandMeta: '实时城市作战室与环境监测 · 14',
       intelligence: '情报',
       intelligenceMeta: '信号与分析 · 4',
       civic: '民生',
@@ -2747,6 +2776,7 @@ const i18nExt2 = {
       p33:'live: districtOps',
       p34:'live: WatchIntel',
       p35:'live: ArchDesign',
+      p36:'live: UrbanAtlas3D',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -2760,6 +2790,7 @@ const i18nExt2 = {
       c20:'CapabilityLab', c23:'DigitalHumanities', c25:'FinanceIntel',
       c26:'OpenBlueprint', c27:'WritingIntel',
       c28:'NewsIntel', c29:'ScrapingService', c30:'WatchIntel', c31:'ArchIntel',
+      c32:'UrbanAtlas3D',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -2817,9 +2848,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '34 systems · 5 countries',
+      sysMeta: '35 systems · 5 countries',
       command: 'CityDashboards',
-      commandMeta: 'cityOps.realtime & envWatch · count[13]',
+      commandMeta: 'cityOps.realtime & envWatch · count[14]',
       intelligence: 'Intelligence',
       intelligenceMeta: 'signal & analysis · count[4]',
       civic: 'Civic',
