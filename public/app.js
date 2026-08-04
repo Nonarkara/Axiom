@@ -347,6 +347,17 @@ const ARCHITECTURES = {
     outputs: ['Cited price comparisons', 'Sourced provenance', 'Inventory summary'],
     foot: 'a living archive of watches · 261 references',
   },
+  'luma-house': {
+    name: 'LUMA/HOUSE',
+    ver: '1.0.0',
+    idx: '35',
+    inputs: ['Floor plan / underlay', 'Site latitude', 'Season + time', 'Living program'],
+    core: { name: 'LUMA/HOUSE', meta: ['decision sequence', 'live envelope'] },
+    outputs: ['Sunlit floor area', 'Solar heat gain', 'Living checks', 'Cost picture'],
+    foot: 'design by deciding · draw → sun → living → cost → picture',
+    stack: ['Three.js', 'Cloudflare Pages', 'AI plan trace'],
+    ai: 'Generative: AI floor-plan trace from upload, concept photo generation from style keywords. Deterministic: sunlit floor area, solar heat gain through glass/walls, and living/system/cost checks are computed from geometry and site latitude — the model traces and styles, it does not invent the physics.',
+  },
 };
 
 function injectSystemVersions() {
@@ -1285,6 +1296,10 @@ const i18nExt = {
         lede: 'A free, evidence-first register of 261 luxury and collectible watch references. Cited comps, sourced provenance, credited on-screen stills — and the honesty ladder that shows where the data refuses to estimate.',
         cta: 'Open live system',
       },
+      p35: {
+        lede: 'Design a house by deciding — draw or AI-trace the plan, watch sunlit floor and solar heat live, then run living checks, systems, and cost before you generate a picture.',
+        cta: 'Open live system',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1617,6 +1632,10 @@ const i18nExt = {
         lede: 'ทะเบียนอ้างอิงหลักฐานชัด 261 เรื่อง — นาฬิกาหรูและนาฬิกาสะสม เปรียบเทียบราคาที่อ้างอิงได้ บันทึกแหล่งที่มา ภาพนิ่งจากจอที่ให้เครดิต และสะพานแห่งความจริงใจที่แสดงว่าข้อมูลตรงไหนปฏิเสธจะประมาณ',
         cta: 'เปิดระบบสด',
       },
+      p35: {
+        lede: 'ออกแบบบ้านด้วยการตัดสินใจ — วาดหรือให้ AI ตามรอยแปลน ดูพื้นที่รับแดดและความร้อนจากแสงอาทิตย์แบบสด แล้วรัน living checks ระบบ และต้นทุนก่อนสร้างภาพ',
+        cta: 'เปิดระบบสด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -1946,6 +1965,10 @@ const i18nExt = {
         lede: '一份免费的、以证据为先的 261 款奢华与收藏级腕表参考册——引用比对、出处来源、署名屏幕剧照——以及诚实阶梯,显示数据在哪里拒绝估算。',
         cta: '打开在线系统',
       },
+      p35: {
+        lede: '用决策序列设计房子——手绘或 AI 描摹平面,实时看日照地面与太阳得热,再跑居住检查、系统与造价,最后才出图。',
+        cta: '打开在线系统',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2124,6 +2147,7 @@ const i18nExt = {
       p30: { lede: '// the desk.byTheNumbers()\n// daily AI-frontier brief // what is shipping, what is hot air, what to read tonight // sector watch + manual picks + compounding archive', cta: 'system.open()' },
       p31: { lede: '// NonScrape.scrapingAsAService()\n// no code // give it a URL + a question, it reads the page in source language, returns the answer in yours // with citations + structured JSON', cta: 'system.open()' },
       p34: { lede: '// TimePop.evidenceFirstRegister()\n// 261 references · cited comps · sourced provenance · credited stills // honesty ladder: where data refuses to estimate', cta: 'system.open()' },
+      p35: { lede: '// LumaHouse.decisionSequence()\n// draw|AI-trace → sunlitFloor + solarHeat → living|systems|cost → picture', cta: 'system.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2298,6 +2322,7 @@ const i18nExt2 = {
       p31:'Live · Scraping',
       p33:'Live · District Ops',
       p34:'Live · Watch Intelligence',
+      p35:'Live · Architectural Design',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2312,7 +2337,7 @@ const i18nExt2 = {
       c18:'Metropolitan Operations', c19:'Environmental Watch',
       c20:'Capability Lab', c23:'Digital Humanities', c25:'Finance Intelligence',
       c26:'Open Blueprint', c27:'Writing Intelligence',
-      c28:'News Intelligence', c29:'Scraping Service', c30:'Watch Intelligence',
+      c28:'News Intelligence', c29:'Scraping Service', c30:'Watch Intelligence', c31:'Architectural Intelligence',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2370,7 +2395,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '33 systems · 5 countries',
+      sysMeta: '34 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 13',
       intelligence: 'Intelligence',
@@ -2380,7 +2405,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 8',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 5',
+      labMeta: 'Side tools · in the open · 6',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -2436,6 +2461,7 @@ const i18nExt2 = {
       p31:'สด · ดูดข้อมูล',
       p33:'สด · ปฏิบัติการเขต',
       p34:'สด · ข่าวกรองนาฬิกา',
+      p35:'สด · การออกแบบสถาปัตย์',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2450,7 +2476,7 @@ const i18nExt2 = {
       c18:'ปฏิบัติการมหานคร', c19:'เฝ้าสิ่งแวดล้อม',
       c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล', c25:'ข่าวกรองการเงิน',
       c26:'Blueprint เปิด', c27:'ข่าวกรองการเขียน',
-      c28:'ข่าวกรองข่าว', c29:'บริการดูดข้อมูล', c30:'ข่าวกรองนาฬิกา',
+      c28:'ข่าวกรองข่าว', c29:'บริการดูดข้อมูล', c30:'ข่าวกรองนาฬิกา', c31:'ข่าวกรองสถาปัตย์',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2508,7 +2534,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '33 ระบบ · 5 ประเทศ',
+      sysMeta: '34 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 13',
       intelligence: 'ข่าวกรอง',
@@ -2518,7 +2544,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 8',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 5',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 6',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -2574,6 +2600,7 @@ const i18nExt2 = {
       p31:'在线 · 抓取',
       p33:'在线 · 片区运营',
       p34:'在线 · 腕表情报',
+      p35:'在线 · 建筑设计',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2586,7 +2613,7 @@ const i18nExt2 = {
       c18:'都会运营', c19:'环境监测',
       c20:'能力实验室', c23:'数字人文', c25:'金融情报',
       c26:'开放蓝图', c27:'写作智能',
-      c28:'新闻情报', c29:'抓取服务', c30:'腕表情报',
+      c28:'新闻情报', c29:'抓取服务', c30:'腕表情报', c31:'建筑智能',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2644,7 +2671,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '33 个系统 · 5 个国家',
+      sysMeta: '34 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 13',
       intelligence: '情报',
@@ -2654,7 +2681,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 8',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 5',
+      labMeta: '辅助工具 · 开放中 · 6',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -2719,6 +2746,7 @@ const i18nExt2 = {
       p31:'live: scraping',
       p33:'live: districtOps',
       p34:'live: WatchIntel',
+      p35:'live: ArchDesign',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -2731,7 +2759,7 @@ const i18nExt2 = {
       c18:'MetroOps', c19:'EnvWatch',
       c20:'CapabilityLab', c23:'DigitalHumanities', c25:'FinanceIntel',
       c26:'OpenBlueprint', c27:'WritingIntel',
-      c28:'NewsIntel', c29:'ScrapingService', c30:'WatchIntel',
+      c28:'NewsIntel', c29:'ScrapingService', c30:'WatchIntel', c31:'ArchIntel',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -2789,7 +2817,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '33 systems · 5 countries',
+      sysMeta: '34 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[13]',
       intelligence: 'Intelligence',
@@ -2799,7 +2827,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[8]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[5]',
+      labMeta: 'sideTools & openProcess · count[6]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
