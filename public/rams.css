@@ -210,6 +210,15 @@ img {
   color: var(--ink-3);
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 1px solid var(--accent) !important;
+  outline-offset: 2px !important;
+}
+
 /* ============================================================
    §3.4 COCKPIT — sticky masthead
    ============================================================ */
