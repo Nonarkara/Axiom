@@ -395,6 +395,16 @@ const ARCHITECTURES = {
     outputs: ['Skill drills', 'Leaderboards', 'Transfer caveat'],
     foot: 'kill time · keep the mind · games.nonarkara.org',
   },
+  'openclaw-setup': {
+    name: 'OPENCLAW SET-UP',
+    ver: '1.0.0',
+    idx: '40',
+    inputs: ['Machine survey', 'Local RAM budget', 'Channel targets', 'Security posture'],
+    core: { name: 'OPENCLAW', meta: ['agent-executable', 'security-first'] },
+    outputs: ['Hardened gateway', 'Local LLM picks', 'Risk-tiered tools', 'AGENTS.md runbook'],
+    foot: 'hand the URL to Claude · docs only · no private data',
+    stack: ['OpenClaw', 'local LLMs', 'Telegram / Discord', 'MCP'],
+  },
 };
 
 function injectSystemVersions() {
@@ -1341,6 +1351,10 @@ const i18nExt = {
         lede: 'A 3D browser atlas of Bangkok — 432,077 real OSM buildings, terrain, air quality, rain radar, Treasury land prices, BTS/MRT lines, and canals. Walk the city block by block.',
         cta: 'Open live system',
       },
+      p40: {
+        lede: 'Hand this URL to Claude and it sets up OpenClaw for you — safely. Agent-executable setup, deep security model, local-LLM picks that fit your RAM, and risk-tiered tool calls. Docs only, no private data.',
+        cta: 'View on GitHub',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1681,6 +1695,10 @@ const i18nExt = {
         lede: 'แผนที่ 3D ของกรุงเทพฯ ในเบราว์เซอร์ — อาคาร OSM จริง 432,077 หลัง พื้นที่ คุณภาพอากาศ เรดาร์ฝน ราคาประเมินที่ดิน เส้น BTS/MRT และคลอง เดินเมืองทีละบล็อก',
         cta: 'เปิดระบบสด',
       },
+      p40: {
+        lede: 'ส่ง URL นี้ให้ Claude แล้วมันจะติดตั้ง OpenClaw ให้คุณ — อย่างปลอดภัย คู่มือที่ agent รันได้เอง โมเดลความปลอดภัยลึก เลือก local-LLM ตาม RAM และ tool calls ตามระดับความเสี่ยง มีเฉพาะเอกสาร ไม่มีข้อมูลส่วนตัว',
+        cta: 'ดูบน GitHub',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2018,6 +2036,10 @@ const i18nExt = {
         lede: '曼谷三维浏览器地图——432,077 栋真实 OSM 建筑、地形、空气质量、雨雷达、财政部地价、BTS/MRT 与运河。一街区一街区地走完这座城。',
         cta: '打开在线系统',
       },
+      p40: {
+        lede: '把这个 URL 交给 Claude，它会帮你安全地装好 OpenClaw。可让 agent 执行的安装流程、深层安全模型、按内存选本地大模型、按风险分级的工具调用。只有文档，没有私人数据。',
+        cta: '在 GitHub 查看',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2198,6 +2220,7 @@ const i18nExt = {
       p34: { lede: '// TimePop.evidenceFirstRegister()\n// 261 references · cited comps · sourced provenance · credited stills // honesty ladder: where data refuses to estimate', cta: 'system.open()' },
       p35: { lede: '// LumaHouse.decisionSequence()\n// draw|AI-trace → sunlitFloor + solarHeat → living|systems|cost → picture', cta: 'system.open()' },
       p36: { lede: '// BKKxAtlas.walkCity()\n// 432077 OSM buildings · terrain · AQI · rain · landPrice · BTS/MRT · canals', cta: 'system.open()' },
+      p40: { lede: '// OpenClaw.setup.agentExecutable()\n// security-first · localLLM.byRAM · riskTiered.tools · docsOnly.noPrivateData', cta: 'github.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2374,6 +2397,7 @@ const i18nExt2 = {
       p34:'Live · Watch Intelligence',
       p35:'Live · Architectural Design',
       p36:'Live · 3D Urban Atlas',
+      p40:'Live · Agent Gateway',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2390,6 +2414,7 @@ const i18nExt2 = {
       c26:'Open Blueprint', c27:'Writing Intelligence',
       c28:'News Intelligence', c29:'Scraping Service', c30:'Watch Intelligence', c31:'Architectural Intelligence',
       c32:'3D Urban Atlas',
+      c33:'Agent Gateway',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2447,7 +2472,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '38 systems · 5 countries',
+      sysMeta: '39 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 15',
       intelligence: 'Intelligence',
@@ -2457,7 +2482,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 7',
+      labMeta: 'Side tools · in the open · 8',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -2515,6 +2540,7 @@ const i18nExt2 = {
       p34:'สด · ข่าวกรองนาฬิกา',
       p35:'สด · การออกแบบสถาปัตย์',
       p36:'สด · แผนที่เมือง 3D',
+      p40:'สด · เกตเวย์เอเจนต์',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2531,6 +2557,7 @@ const i18nExt2 = {
       c26:'Blueprint เปิด', c27:'ข่าวกรองการเขียน',
       c28:'ข่าวกรองข่าว', c29:'บริการดูดข้อมูล', c30:'ข่าวกรองนาฬิกา', c31:'ข่าวกรองสถาปัตย์',
       c32:'แผนที่เมือง 3D',
+      c33:'เกตเวย์เอเจนต์',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2588,7 +2615,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '38 ระบบ · 5 ประเทศ',
+      sysMeta: '39 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 15',
       intelligence: 'ข่าวกรอง',
@@ -2598,7 +2625,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 7',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 8',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -2656,6 +2683,7 @@ const i18nExt2 = {
       p34:'在线 · 腕表情报',
       p35:'在线 · 建筑设计',
       p36:'在线 · 三维城市地图',
+      p40:'在线 · 智能体网关',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2670,6 +2698,7 @@ const i18nExt2 = {
       c26:'开放蓝图', c27:'写作智能',
       c28:'新闻情报', c29:'抓取服务', c30:'腕表情报', c31:'建筑智能',
       c32:'三维城市地图',
+      c33:'智能体网关',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2727,7 +2756,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '38 个系统 · 5 个国家',
+      sysMeta: '39 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 15',
       intelligence: '情报',
@@ -2737,7 +2766,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 7',
+      labMeta: '辅助工具 · 开放中 · 8',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -2804,6 +2833,7 @@ const i18nExt2 = {
       p34:'live: WatchIntel',
       p35:'live: ArchDesign',
       p36:'live: UrbanAtlas3D',
+      p40:'live: AgentGateway',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -2818,6 +2848,7 @@ const i18nExt2 = {
       c26:'OpenBlueprint', c27:'WritingIntel',
       c28:'NewsIntel', c29:'ScrapingService', c30:'WatchIntel', c31:'ArchIntel',
       c32:'UrbanAtlas3D',
+      c33:'AgentGateway',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -2875,7 +2906,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '38 systems · 5 countries',
+      sysMeta: '39 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[15]',
       intelligence: 'Intelligence',
@@ -2885,7 +2916,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[7]',
+      labMeta: 'sideTools & openProcess · count[8]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {

@@ -457,6 +457,7 @@
       "p34": { "lede": "증거 우선의 261개 럭셔리 및 수집용 시계 참고 등록부 — 출처가 명시된 비교 자료, 출처가 기재된 provenance, 크레딧이 표시된 화면 스틸 — 그리고 데이터가 추정을 거부하는 지점을 보여주는 정직 사다리.", "cta": "라이브 시스템 열기" },
       "p35": { "lede": "결정으로 집을 설계한다 — 평면을 그리거나 AI로 추적하고, 일조 바닥과 태양열을 실시간으로 본 뒤, 리빙·시스템·비용을 점검하고 나서 이미지를 만든다.", "cta": "라이브 시스템 열기" },
       "p36": { "lede": "방콕 3D 브라우저 아틀라스 — 실제 OSM 건물 432,077채, 지형, 대기질, 비 레이더, 재무부 지가, BTS/MRT, 운하. 블록 단위로 도시를 걷는다.", "cta": "라이브 시스템 열기" },
+      "p40": { "lede": "이 URL을 Claude에게 넘기면 OpenClaw를 안전하게 설치해 줍니다. 에이전트가 실행 가능한 셋업, 깊은 보안 모델, RAM에 맞는 로컬 LLM 선택, 위험 등급 도구 호출. 문서만, 개인 데이터 없음.", "cta": "GitHub에서 보기" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>타이베이</b> · City Vision Stage · 2026년 3월",
@@ -644,7 +645,8 @@
       "p31": "Live · Scraping",
       "p34": "Live · 시계 인텔리전스",
       "p35": "Live · 건축 설계",
-      "p36": "Live · 3D 도시 아틀라스"
+      "p36": "Live · 3D 도시 아틀라스",
+      "p40": "Live · 에이전트 게이트웨이"
     },
     "cats": {
       "c01": "지역 운영",
@@ -672,7 +674,8 @@
       "c29": "스크래핑 서비스",
       "c30": "시계 인텔리전스",
       "c31": "건축 인텔리전스",
-      "c32": "3D 도시 아틀라스"
+      "c32": "3D 도시 아틀라스",
+      "c33": "에이전트 게이트웨이"
     ,
         "c19": "환경 모니터링",
         "c26": "오픈 청사진",
@@ -760,7 +763,7 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "35개 시스템 · 5개국",
+      "sysMeta": "39개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 14",
       "intelligence": "인텔리전스",
@@ -770,7 +773,7 @@
       "emerging": "신규",
       "emergingMeta": "연구급 및 새 운영 모델 · 8",
       "lab": "랩",
-      "labMeta": "보조 도구 · 공개 진행 · 6"
+      "labMeta": "보조 도구 · 공개 진행 · 8"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1279,6 +1282,7 @@
       "p34": { "lede": "証拠優先の 261 点のラグジュアリー & コレクタブル腕時計リファレンス。引用比較、出典、出所クレジット付き静止画、そしてデータが見積もりを拒否する箇所を示す誠実な梯子。", "cta": "ライブシステムを開く" },
       "p35": { "lede": "決断で家を設計する — 平面を描くかAIでトレースし、日照床面積と日射熱をライブで見てから、住環境・システム・コストを回し、最後に絵を出す。", "cta": "ライブシステムを開く" },
       "p36": { "lede": "バンコクの3Dブラウザ地図 — 実OSM建物432,077棟、地形、大気質、雨レーダー、財務省地価、BTS/MRT、運河。街区ごとに街を歩く。", "cta": "ライブシステムを開く" },
+      "p40": { "lede": "このURLをClaudeに渡すと、OpenClawを安全にセットアップしてくれます。エージェント実行可能な手順、深いセキュリティモデル、RAMに合うローカルLLM選定、リスク階層のツール呼び出し。ドキュメントのみ、個人データなし。", "cta": "GitHubで見る" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>台北</b> · City Vision Stage · 2026年3月",
@@ -1493,7 +1497,8 @@
         "c29": "スクレイピングサービス",
         "c30": "時計インテリジェンス",
         "c31": "建築インテリジェンス",
-        "c32": "3D都市アトラス",},
+        "c32": "3D都市アトラス",
+        "c33": "エージェントゲートウェイ",},
     "bioCommon": {
       "cvBtn": "履歴書を見る",
       "education": "学歴"
@@ -1577,7 +1582,7 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "35システム · 5か国",
+      "sysMeta": "39システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 14",
       "intelligence": "インテリジェンス",
@@ -1587,7 +1592,7 @@
       "emerging": "新興",
       "emergingMeta": "研究グレードと新運用モデル · 8",
       "lab": "ラボ",
-      "labMeta": "補助ツール · 公開中 · 6"
+      "labMeta": "補助ツール · 公開中 · 8"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2096,6 +2101,7 @@
       "p34": { "lede": "Một sổ đăng ký dựa trên bằng chứng, miễn phí, gồm 261 tham chiếu đồng hồ xa xỉ và sưu tầm — so sánh có trích dẫn, nguồn gốc có ghi công, ảnh tĩnh màn hình có ghi công — và thang đo trung thực cho biết dữ liệu từ chối ước lượng ở đâu.", "cta": "Mở hệ thống trực tiếp" },
       "p35": { "lede": "Thiết kế nhà bằng chuỗi quyết định — vẽ hoặc AI lần theo mặt bằng, xem sàn nắng và nhiệt mặt trời trực tiếp, rồi chạy kiểm living, hệ thống và chi phí trước khi tạo hình ảnh.", "cta": "Mở hệ thống trực tiếp" },
       "p36": { "lede": "Bản đồ 3D Bangkok trên trình duyệt — 432.077 tòa nhà OSM thật, địa hình, chất lượng không khí, radar mưa, giá đất Bộ Tài chính, BTS/MRT và kênh. Đi từng khối phố.", "cta": "Mở hệ thống trực tiếp" },
+      "p40": { "lede": "Đưa URL này cho Claude và nó sẽ cài OpenClaw an toàn cho bạn. Setup agent chạy được, mô hình bảo mật sâu, chọn LLM local theo RAM, và lệnh tool theo tầng rủi ro. Chỉ tài liệu, không dữ liệu riêng.", "cta": "Xem trên GitHub" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>Đài Bắc</b> · City Vision Stage · tháng 3/2026",
@@ -2310,7 +2316,8 @@
         "c29": "Dịch vụ scraping",
         "c30": "Tình báo đồng hồ",
         "c31": "Tình báo kiến trúc",
-        "c32": "Bản đồ đô thị 3D",},
+        "c32": "Bản đồ đô thị 3D",
+        "c33": "Cổng agent",},
     "bioCommon": {
       "cvBtn": "Xem CV",
       "education": "Học vấn"
@@ -2394,7 +2401,7 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "35 hệ thống · 5 quốc gia",
+      "sysMeta": "39 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 14",
       "intelligence": "Tình báo",
@@ -2404,7 +2411,7 @@
       "emerging": "Mới nổi",
       "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 8",
       "lab": "Lab",
-      "labMeta": "Công cụ phụ · mở công khai · 6"
+      "labMeta": "Công cụ phụ · mở công khai · 8"
     },
     "sysStatus": {
       "live": "Trực tiếp",
