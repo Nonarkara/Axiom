@@ -405,6 +405,16 @@ const ARCHITECTURES = {
     foot: 'hand the URL to Claude · docs only · no private data',
     stack: ['OpenClaw', 'local LLMs', 'Telegram / Discord', 'MCP'],
   },
+  'day2': {
+    name: 'DAY 2',
+    ver: '1.0.0',
+    idx: '41',
+    inputs: ['Market lake', 'Stock search', 'FX / rates', 'Capitol + odds'],
+    core: { name: 'DAY 2', meta: ['working instrument', 'research preview'] },
+    outputs: ['World brief', 'Lens verdict', 'Map', 'Plan for this week'],
+    foot: 'useful, not impressive · every number carries its age',
+    stack: ['Next.js', 'Cloudflare', 'market lake'],
+  },
 };
 
 function injectSystemVersions() {
@@ -1355,6 +1365,10 @@ const i18nExt = {
         lede: 'Hand this URL to Claude and it sets up OpenClaw for you — safely. Agent-executable setup, deep security model, local-LLM picks that fit your RAM, and risk-tiered tool calls. Docs only, no private data.',
         cta: 'View on GitHub',
       },
+      p41: {
+        lede: 'Market intelligence built to be useful, not impressive. World, lens, map, FX, capitol, odds, and plan — every screen must change one decision you can make this week. Research preview, not advice. Every number carries its age.',
+        cta: 'Open live system',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1699,6 +1713,10 @@ const i18nExt = {
         lede: 'ส่ง URL นี้ให้ Claude แล้วมันจะติดตั้ง OpenClaw ให้คุณ — อย่างปลอดภัย คู่มือที่ agent รันได้เอง โมเดลความปลอดภัยลึก เลือก local-LLM ตาม RAM และ tool calls ตามระดับความเสี่ยง มีเฉพาะเอกสาร ไม่มีข้อมูลส่วนตัว',
         cta: 'ดูบน GitHub',
       },
+      p41: {
+        lede: 'ข่าวกรองตลาดที่ออกแบบมาให้ใช้ได้จริง ไม่ใช่เพื่อดูดี โลก เลนส์ แผนที่ FX รัฐสภา อัตราต่อรอง และแผน — ทุกหน้าต้องเปลี่ยนการตัดสินใจอย่างน้อยหนึ่งอย่างในสัปดาห์นี้ ตัวอย่างวิจัย ไม่ใช่คำแนะนำ ทุกตัวเลขพกอายุของตัวเอง',
+        cta: 'เปิดระบบสด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2040,6 +2058,10 @@ const i18nExt = {
         lede: '把这个 URL 交给 Claude，它会帮你安全地装好 OpenClaw。可让 agent 执行的安装流程、深层安全模型、按内存选本地大模型、按风险分级的工具调用。只有文档，没有私人数据。',
         cta: '在 GitHub 查看',
       },
+      p41: {
+        lede: '为有用而建的市场情报，不是为好看。世界、透镜、地图、汇率、国会、赔率与计划——每一屏都必须改变你本周能做的一个决定。研究预览，不是建议。每个数字都带着自己的年龄。',
+        cta: '打开实时系统',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2221,6 +2243,7 @@ const i18nExt = {
       p35: { lede: '// LumaHouse.decisionSequence()\n// draw|AI-trace → sunlitFloor + solarHeat → living|systems|cost → picture', cta: 'system.open()' },
       p36: { lede: '// BKKxAtlas.walkCity()\n// 432077 OSM buildings · terrain · AQI · rain · landPrice · BTS/MRT · canals', cta: 'system.open()' },
       p40: { lede: '// OpenClaw.setup.agentExecutable()\n// security-first · localLLM.byRAM · riskTiered.tools · docsOnly.noPrivateData', cta: 'github.open()' },
+      p41: { lede: '// market.intel(useful: true, impressive: false)\n// world · lens · map · fx · capitol · odds · plan\n// researchPreview · notAdvice · everyNumber.carriesAge', cta: 'system.live.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2398,6 +2421,7 @@ const i18nExt2 = {
       p35:'Live · Architectural Design',
       p36:'Live · 3D Urban Atlas',
       p40:'Live · Agent Gateway',
+      p41:'Live · Working Instrument',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2415,6 +2439,7 @@ const i18nExt2 = {
       c28:'News Intelligence', c29:'Scraping Service', c30:'Watch Intelligence', c31:'Architectural Intelligence',
       c32:'3D Urban Atlas',
       c33:'Agent Gateway',
+      c34:'Working Instrument',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2472,11 +2497,11 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '39 systems · 5 countries',
+      sysMeta: '40 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 15',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'Signal & analysis · 4',
+      intelligenceMeta: 'Signal & analysis · 5',
       civic: 'Civic',
       civicMeta: 'National platforms & citizen infrastructure · 4',
       emerging: 'Emerging',
@@ -2541,6 +2566,7 @@ const i18nExt2 = {
       p35:'สด · การออกแบบสถาปัตย์',
       p36:'สด · แผนที่เมือง 3D',
       p40:'สด · เกตเวย์เอเจนต์',
+      p41:'สด · เครื่องมือใช้งานจริง',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2558,6 +2584,7 @@ const i18nExt2 = {
       c28:'ข่าวกรองข่าว', c29:'บริการดูดข้อมูล', c30:'ข่าวกรองนาฬิกา', c31:'ข่าวกรองสถาปัตย์',
       c32:'แผนที่เมือง 3D',
       c33:'เกตเวย์เอเจนต์',
+      c34:'เครื่องมือใช้งานจริง',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2615,11 +2642,11 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '39 ระบบ · 5 ประเทศ',
+      sysMeta: '40 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 15',
       intelligence: 'ข่าวกรอง',
-      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 4',
+      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 5',
       civic: 'พลเมือง',
       civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 4',
       emerging: 'ระบบใหม่',
@@ -2684,6 +2711,7 @@ const i18nExt2 = {
       p35:'在线 · 建筑设计',
       p36:'在线 · 三维城市地图',
       p40:'在线 · 智能体网关',
+      p41:'在线 · 可用工具',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2699,6 +2727,7 @@ const i18nExt2 = {
       c28:'新闻情报', c29:'抓取服务', c30:'腕表情报', c31:'建筑智能',
       c32:'三维城市地图',
       c33:'智能体网关',
+      c34:'可用工具',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2756,11 +2785,11 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '39 个系统 · 5 个国家',
+      sysMeta: '40 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 15',
       intelligence: '情报',
-      intelligenceMeta: '信号与分析 · 4',
+      intelligenceMeta: '信号与分析 · 5',
       civic: '民生',
       civicMeta: '国家级平台与公民基础设施 · 4',
       emerging: '新兴',
@@ -2834,6 +2863,7 @@ const i18nExt2 = {
       p35:'live: ArchDesign',
       p36:'live: UrbanAtlas3D',
       p40:'live: AgentGateway',
+      p41:'live: WorkingInstrument',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -2849,6 +2879,7 @@ const i18nExt2 = {
       c28:'NewsIntel', c29:'ScrapingService', c30:'WatchIntel', c31:'ArchIntel',
       c32:'UrbanAtlas3D',
       c33:'AgentGateway',
+      c34:'WorkingInstrument',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -2906,11 +2937,11 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '39 systems · 5 countries',
+      sysMeta: '40 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[15]',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'signal & analysis · count[4]',
+      intelligenceMeta: 'signal & analysis · count[5]',
       civic: 'Civic',
       civicMeta: 'nationalPlatforms & citizenInfra · count[4]',
       emerging: 'Emerging',
