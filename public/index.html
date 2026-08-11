@@ -44,11 +44,11 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="rams.css?v=20260805a">
-  <link rel="stylesheet" href="hero.css?v=20260805a">
+  <link rel="stylesheet" href="hero.css?v=20260811b">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="i18n-regional.js?v=20260811a"></script>
+  <script src="i18n-regional.js?v=20260811b"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script defer src="app.js?v=20260811a"></script>
+  <script defer src="app.js?v=20260811b"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -202,11 +202,10 @@
 
       <a class="hero-featured-badge" id="heroFeaturedBadge" href="https://flood-ami.pages.dev/" target="_blank"
         rel="noopener">
-        <span class="hero-featured-badge__kicker" data-i18n="hero.featured.kicker">FEATURED</span>
-        <span class="hero-featured-badge__event" data-i18n="hero.featured.event">EVENT_ID: FLOODDASH_LIVE</span>
-        <span class="hero-featured-badge__name" data-i18n="hero.featured.name">FloodDash</span>
-        <span class="hero-featured-badge__lede" data-i18n="hero.featured.lede">Thailand flood watch · 24/7 live · 9
-          sources</span>
+        <span class="hero-featured-badge__kicker" data-i18n="hero.featured.kicker">THEATRE BRIEF</span>
+        <span class="hero-featured-badge__event" id="heroFeaturedEvent">EVENT_ID: BANGKOK_WATCH</span>
+        <span class="hero-featured-badge__name" id="heroFeaturedName">FloodDash</span>
+        <span class="hero-featured-badge__lede" id="heroFeaturedLede">Flood, campus, urban atlas — Bangkok systems watching the same pressure map.</span>
         <span class="hero-featured-badge__cta"><span data-i18n="hero.featured.cta">Open live system</span> <span
             class="tri">▸</span></span>
       </a>
@@ -226,53 +225,20 @@
       <!-- Map Explore Hint -->
       <div class="map-explore-hint" id="mapExploreHint">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l4-4 4 4"/><path d="M9 5v14"/><path d="M15 19l4-4-4-4"/><path d="M19 15H5"/></svg>
-        <span>Drag to explore &middot; Scroll to zoom</span>
+        <span data-i18n="hero.exploreHint">Drag map &middot; Tap a theatre</span>
       </div>
 
-      <!-- Satellite Controls -->
-      <div class="sat-controls" id="satControls">
-        <div class="sat-control-group">
-          <span class="sat-control-label">Layer</span>
-          <button class="sat-btn" data-layer="satellite">SAT</button>
-          <button class="sat-btn" data-layer="terrain">TER</button>
-          <button class="sat-btn sat-btn-active" data-layer="dark">DRK</button>
-          <button class="sat-btn" data-layer="topo">TPO</button>
-        </div>
-        <div class="sat-control-divider"></div>
-        <div class="sat-control-group">
-          <button class="sat-btn" id="gridToggle" data-active="false">GRID 1KM</button>
-        </div>
-        <div class="sat-control-divider"></div>
-        <span class="sat-source-note" id="satSourceNote">CartoDB Dark Matter</span>
-      </div>
-
-      <!-- Urban Intelligence Overlays (Moneyball) -->
-      <div class="intel-overlay" id="intelOverlayDubai">
-        <div class="intel-overlay-header">PROJECTED ASSET YIELD</div>
-        <div class="intel-overlay-value">+14.2% YoY</div>
-        <div class="intel-overlay-meta">DUBAI AREA-04 &middot; LOGISTICAL HUB</div>
-      </div>
-
-      <div class="intel-overlay" id="intelOverlayBangkok">
-        <div class="intel-overlay-header">URBAN DENSITY PULSE</div>
-        <div class="intel-overlay-value">CRITICAL</div>
-        <div class="intel-overlay-meta">BKK CENTRAL &middot; INFRASTRUCTURE GAP</div>
-      </div>
-
-      <!-- Live Satellite Telemetry HUD -->
+      <!-- Theatre signal HUD -->
       <div class="sat-hud" id="satHud">
         <div class="sat-hud-row">
-          <span class="sat-hud-live"><span class="sat-hud-live-dot"></span>LIVE SATELLITE</span>
-          <span class="sat-hud-provider" id="satProvider">ESRI World Imagery</span>
+          <span class="sat-hud-live"><span class="sat-hud-live-dot"></span><span data-i18n="hero.hudLive">THEATRE</span></span>
+          <span class="sat-hud-theatre" id="satTheatre">BANGKOK</span>
         </div>
         <div class="sat-hud-row">
-          <span class="sat-hud-coord" id="satCoord">13.7563°N 100.5018°E</span>
-          <span class="sat-hud-zoom" id="satZoom">Z12</span>
-          <span class="sat-hud-res" id="satRes">~19m/px</span>
+          <span class="sat-hud-signals" id="satSignals">FLOOD · CAMPUS · URBAN · ATLAS</span>
         </div>
         <div class="sat-hud-row">
-          <span class="sat-hud-tile" id="satTile">Tile: arcgisonline.com/World_Imagery</span>
-          <span class="sat-hud-time" id="satTime">—</span>
+          <span class="sat-hud-watching" id="satWatching"><span data-i18n="hero.hudWatching">SYSTEMS WATCHING</span> · 4</span>
         </div>
       </div>
 
@@ -301,29 +267,29 @@
           <a href="#systems" class="btn btn--ghost" data-i18n="hero.ctaSecondary">See Live Systems</a>
         </div>
         <div class="hero-node-strip" aria-label="Operational footprint">
-          <div class="hero-node-strip-label" data-i18n="hero.nodeLabel">Tap a live system</div>
+          <div class="hero-node-strip-label" data-i18n="hero.nodeLabel">Tap a theatre</div>
           <div class="hero-node-strip-scroller" id="heroNodeRail">
             <button class="hero-node is-active" type="button" data-city="bangkok" aria-pressed="true">
               <span class="hero-node-name">Bangkok</span>
-              <span class="hero-node-meta">Urban command</span>
+              <span class="hero-node-meta">Flood · campus · urban</span>
             </button>
             <button class="hero-node" type="button" data-city="phuket" aria-pressed="false">
               <span class="hero-node-name">Phuket</span>
-              <span class="hero-node-meta">Regional ops</span>
+              <span class="hero-node-meta">Coastal · transit · air</span>
             </button>
             <button class="hero-node" type="button" data-city="middle-east" aria-pressed="false">
               <span class="hero-node-name">Middle East</span>
-              <span class="hero-node-meta">Strategic signal</span>
+              <span class="hero-node-meta">Conflict · open intel</span>
             </button>
             <button class="hero-node" type="button" data-city="southeast-asia" aria-pressed="false">
               <span class="hero-node-name">Southeast Asia</span>
-              <span class="hero-node-meta">Scale layer</span>
+              <span class="hero-node-meta">Border · index · scale</span>
             </button>
           </div>
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
-            <span class="hero-stat-value" data-count="36">36</span>
+            <span class="hero-stat-value">41</span>
             <span class="hero-stat-label" data-i18n="hero.statSystems">Live Systems</span>
           </div>
           <div class="hero-stat">
@@ -331,7 +297,7 @@
             <span class="hero-stat-label" data-i18n="hero.statMonitoring">Live Monitoring</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-value" data-count="5">5</span>
+            <span class="hero-stat-value">5</span>
             <span class="hero-stat-label" data-i18n="hero.statCountries">Countries</span>
           </div>
         </div>

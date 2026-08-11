@@ -66,10 +66,11 @@
      here as a fallback for when JS fails to mount the map. */
 }
 
-/* ----- Pulse markers (Leaflet divIcon) ----- */
-.sat-pulse-marker {
+/* ----- Signal constellation markers (Leaflet divIcon) ----- */
+.sat-pulse-marker,
+.sat-signal-marker {
   position: relative;
-  box-sizing: content-box;
+  box-sizing: border-box;
   width: 14px;
   height: 14px;
   margin: 9px;
@@ -78,6 +79,47 @@
   box-shadow: 0 0 0 0 var(--accent);
   animation: sat-pulse 2.4s infinite;
   cursor: pointer;
+}
+
+.sat-signal-marker {
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  animation: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sat-signal-dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border: 1px solid var(--paper);
+  box-shadow: 0 0 0 0 rgba(0, 36, 125, 0.6);
+  animation: sat-pulse 2.4s infinite;
+}
+
+.sat-signal-label {
+  display: block;
+  padding: 2px 6px;
+  background: rgba(8, 10, 14, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: var(--paper);
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 @keyframes sat-pulse {
@@ -410,7 +452,13 @@
   left: 60px;
 }
 
-/* ----- Live Satellite HUD (top-center telemetry) ----- */
+/* Layer / fake intel chrome demoted — theatre HUD is the product */
+.sat-controls,
+.intel-overlay {
+  display: none !important;
+}
+
+/* ----- Theatre signal HUD (top-center) ----- */
 .sat-hud {
   position: absolute;
   z-index: 4;
@@ -425,8 +473,9 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   font-family: ui-monospace, "JetBrains Mono", monospace;
   color: var(--paper);
-  min-width: 460px;
-  max-width: 90vw;
+  min-width: 320px;
+  max-width: min(560px, 90vw);
+  pointer-events: none;
 }
 
 .sat-hud-row {
@@ -462,14 +511,32 @@
   100% { box-shadow: 0 0 0 0 transparent; }
 }
 
-.sat-hud-provider {
+.sat-hud-theatre {
   margin-left: auto;
   font-size: 10px;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.sat-hud-signals {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.9;
+}
+
+.sat-hud-watching {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--paper);
   opacity: 0.7;
 }
 
+.sat-hud-provider,
 .sat-hud-coord,
 .sat-hud-zoom,
 .sat-hud-res,
@@ -943,35 +1010,31 @@
   opacity: 1;
 }
 
-@media (max-width: 900px) {
-  .hero-featured-badge {
-    top: auto;
-    bottom: 16px;
-    right: 16px;
-    left: 16px;
-    transform: none;
-    min-width: 0;
-    max-width: none;
-  }
-  .hero-featured-badge:hover { transform: translateX(-3px); }
-  .hero-featured-badge__name { font-size: 22px; }
-}
-
-/* Hide the FEATURED panel while the AUTO TOUR is running.
-   Two things showing at once (the touring map + a static featured card)
-   is the confusion the user flagged. When the user pauses — either
-   by hitting the pause button or by interacting with the map — the
-   panel reappears so they have a clear "this is what to look at" anchor. */
-#hero.is-touring .hero-featured-badge {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-50%) translateX(8px);
-  transition: opacity 240ms ease, transform 240ms ease;
-}
-
+/* Theatre brief stays visible during AUTO TOUR — it is the proof,
+   synced to each stop. Pause only freezes the map, not the narrative. */
+#hero.is-touring .hero-featured-badge,
 #hero:not(.is-touring) .hero-featured-badge {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(-50%) translateX(0);
   transition: opacity 240ms ease, transform 240ms ease;
+}
+
+@media (max-width: 900px) {
+  .sat-signal-label { font-size: 8px; padding: 2px 4px; }
+  .hero-featured-badge {
+    top: auto;
+    bottom: 96px;
+    right: 12px;
+    left: 12px;
+    transform: none;
+    max-width: none;
+    min-width: 0;
+  }
+  .hero-featured-badge:hover { transform: none; }
+  .hero-featured-badge__name { font-size: 20px; }
+  #hero.is-touring .hero-featured-badge,
+  #hero:not(.is-touring) .hero-featured-badge {
+    transform: none;
+  }
 }

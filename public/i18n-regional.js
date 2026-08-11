@@ -10,22 +10,53 @@
       "cta": "Work With Us"
     },
     "hero": {
-      "badge": "All Systems Online",
+      "badge": "모든 시스템 온라인",
       "titleLine1": "Innovation",
       "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
       "cta": "Start With the Pressure Map",
       "ctaSecondary": "See Live Systems",
-      "nodeLabel": "Tap a live system",
+      "nodeLabel": "전장을 탭하세요",
+      "exploreHint": "지도 드래그 · 전장 탭",
+      "hudLive": "전장",
+      "hudWatching": "감시 중인 시스템",
+      "modeTour": "AUTO TOUR",
+      "modeHold": "HOLD",
       "statSystems": "Live Systems",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
       "featured": {
-        "kicker": "FEATURED",
-        "event": "EVENT_ID: FLOODDASH_LIVE",
-        "name": "FloodDash",
-        "lede": "Thailand flood watch · 24/7 live · 9 sources",
-        "cta": "Open live system",
-        "counter": "slide {current} of {total}"
+        "kicker": "전장 브리프",
+        "cta": "라이브 시스템 열기"
+      },
+      "theatres": {
+        "bangkok": {
+          "name": "방콕",
+          "meta": "홍수 · 캠퍼스 · 도시",
+          "event": "EVENT_ID: BANGKOK_WATCH",
+          "featuredName": "FloodDash",
+          "sitrep": "홍수, 캠퍼스, 도시 지도 — 방콕 시스템들이 같은 압력 지도를 본다."
+        },
+        "phuket": {
+          "name": "푸켓",
+          "meta": "해안 · 교통 · 대기",
+          "event": "EVENT_ID: PHUKET_WATCH",
+          "featuredName": "Phuket Ops",
+          "sitrep": "섬 작전실, 승객 교통, 대기 감시 — 해안 압력을 한 전장에."
+        },
+        "middle-east": {
+          "name": "중동",
+          "meta": "분쟁 · 오픈 인텔",
+          "event": "EVENT_ID: ME_WATCH",
+          "featuredName": "Middle East Monitor",
+          "sitrep": "공개 분쟁 표면과 계층형 글로벌 모니터 — 뉴스 사이클 이전의 신호."
+        },
+        "southeast-asia": {
+          "name": "동남아시아",
+          "meta": "국경 · 지수 · 스케일",
+          "event": "EVENT_ID: SEA_WATCH",
+          "featuredName": "Geopolitical Watch",
+          "sitrep": "삼국경 감시, 도시 지수, 메트로 스케일 — 아세안 압력을 한 지도에."
+        }
       }
     },
     "engagement": {
@@ -841,22 +872,53 @@
       "cta": "Work With Us"
     },
     "hero": {
-      "badge": "All Systems Online",
+      "badge": "全システム稼働中",
       "titleLine1": "Innovation",
       "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
       "cta": "Start With the Pressure Map",
       "ctaSecondary": "See Live Systems",
-      "nodeLabel": "Tap a live system",
+      "nodeLabel": "戦域をタップ",
+      "exploreHint": "地図をドラッグ · 戦域をタップ",
+      "hudLive": "戦域",
+      "hudWatching": "監視中のシステム",
+      "modeTour": "AUTO TOUR",
+      "modeHold": "HOLD",
       "statSystems": "Live Systems",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
       "featured": {
-        "kicker": "FEATURED",
-        "event": "EVENT_ID: FLOODDASH_LIVE",
-        "name": "FloodDash",
-        "lede": "Thailand flood watch · 24/7 live · 9 sources",
-        "cta": "Open live system",
-        "counter": "slide {current} of {total}"
+        "kicker": "戦域ブリーフ",
+        "cta": "ライブシステムを開く"
+      },
+      "theatres": {
+        "bangkok": {
+          "name": "バンコク",
+          "meta": "洪水 · キャンパス · 都市",
+          "event": "EVENT_ID: BANGKOK_WATCH",
+          "featuredName": "FloodDash",
+          "sitrep": "洪水、キャンパス、都市地図 — バンコクのシステムが同じ圧力マップを見る。"
+        },
+        "phuket": {
+          "name": "プーケット",
+          "meta": "沿岸 · 交通 · 大気",
+          "event": "EVENT_ID: PHUKET_WATCH",
+          "featuredName": "Phuket Ops",
+          "sitrep": "島の作戦室、乗客交通、大気監視 — 沿岸の圧力を一つの戦域に。"
+        },
+        "middle-east": {
+          "name": "中東",
+          "meta": "紛争 · オープンインテル",
+          "event": "EVENT_ID: ME_WATCH",
+          "featuredName": "Middle East Monitor",
+          "sitrep": "オープンな紛争面と層状のグローバルモニター — ニュースサイクル前の信号。"
+        },
+        "southeast-asia": {
+          "name": "東南アジア",
+          "meta": "国境 · 指数 · スケール",
+          "event": "EVENT_ID: SEA_WATCH",
+          "featuredName": "Geopolitical Watch",
+          "sitrep": "三国境監視、都市指数、メトロスケール — ASEANの圧力を一枚の地図に。"
+        }
       }
     },
     "engagement": {
@@ -1664,22 +1726,53 @@
       "cta": "Work With Us"
     },
     "hero": {
-      "badge": "All Systems Online",
+      "badge": "Tất cả hệ thống trực tuyến",
       "titleLine1": "Innovation",
       "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
       "cta": "Start With the Pressure Map",
       "ctaSecondary": "See Live Systems",
-      "nodeLabel": "Tap a live system",
+      "nodeLabel": "Chạm chọn chiến trường",
+      "exploreHint": "Kéo bản đồ · Chạm chiến trường",
+      "hudLive": "CHIẾN TRƯỜNG",
+      "hudWatching": "HỆ THỐNG ĐANG THEO",
+      "modeTour": "AUTO TOUR",
+      "modeHold": "HOLD",
       "statSystems": "Live Systems",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
       "featured": {
-        "kicker": "FEATURED",
-        "event": "EVENT_ID: FLOODDASH_LIVE",
-        "name": "FloodDash",
-        "lede": "Thailand flood watch · 24/7 live · 9 sources",
-        "cta": "Open live system",
-        "counter": "slide {current} of {total}"
+        "kicker": "TÓM TẮT CHIẾN TRƯỜNG",
+        "cta": "Mở hệ thống trực tiếp"
+      },
+      "theatres": {
+        "bangkok": {
+          "name": "Bangkok",
+          "meta": "Lũ · campus · đô thị",
+          "event": "EVENT_ID: BANGKOK_WATCH",
+          "featuredName": "FloodDash",
+          "sitrep": "Lũ, campus, bản đồ đô thị — các hệ thống Bangkok cùng một bản đồ áp lực."
+        },
+        "phuket": {
+          "name": "Phuket",
+          "meta": "Ven biển · giao thông · không khí",
+          "event": "EVENT_ID: PHUKET_WATCH",
+          "featuredName": "Phuket Ops",
+          "sitrep": "Phòng tác chiến đảo, giao thông hành khách và giám sát không khí — áp lực ven biển trong một chiến trường."
+        },
+        "middle-east": {
+          "name": "Trung Đông",
+          "meta": "Xung đột · tình báo mở",
+          "event": "EVENT_ID: ME_WATCH",
+          "featuredName": "Middle East Monitor",
+          "sitrep": "Bề mặt xung đột mở và màn hình toàn cầu nhiều lớp — tín hiệu trước chu kỳ tin."
+        },
+        "southeast-asia": {
+          "name": "Đông Nam Á",
+          "meta": "Biên giới · chỉ số · quy mô",
+          "event": "EVENT_ID: SEA_WATCH",
+          "featuredName": "Geopolitical Watch",
+          "sitrep": "Giám sát ba biên giới, chỉ số thành phố và quy mô đô thị lớn — áp lực ASEAN trên một bản đồ."
+        }
       }
     },
     "engagement": {

@@ -474,17 +474,48 @@ const uiCopy = {
       subtitle: 'You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.',
       cta: 'Start With the Pressure Map',
       ctaSecondary: 'See Live Systems',
-      nodeLabel: 'Tap a live system',
+      nodeLabel: 'Tap a theatre',
+      exploreHint: 'Drag map · Tap a theatre',
+      hudLive: 'THEATRE',
+      hudWatching: 'SYSTEMS WATCHING',
+      modeTour: 'AUTO TOUR',
+      modeHold: 'HOLD',
       statSystems: 'Live Systems',
       statMonitoring: 'Live Monitoring',
       statCountries: 'Countries',
       featured: {
-        kicker: 'FEATURED',
-        event: 'EVENT_ID: FLOODDASH_LIVE',
-        name: 'FloodDash',
-        lede: 'Thailand flood watch · 24/7 live · 9 sources',
+        kicker: 'THEATRE BRIEF',
         cta: 'Open live system',
-        counter: 'slide {current} of {total}',
+      },
+      theatres: {
+        bangkok: {
+          name: 'Bangkok',
+          meta: 'Flood · campus · urban',
+          event: 'EVENT_ID: BANGKOK_WATCH',
+          featuredName: 'FloodDash',
+          sitrep: 'Flood, campus, urban atlas — Bangkok systems watching the same pressure map.',
+        },
+        phuket: {
+          name: 'Phuket',
+          meta: 'Coastal · transit · air',
+          event: 'EVENT_ID: PHUKET_WATCH',
+          featuredName: 'Phuket Ops',
+          sitrep: 'Island ops room, rider transit, and air watch — coastal pressure in one theatre.',
+        },
+        'middle-east': {
+          name: 'Middle East',
+          meta: 'Conflict · open intel',
+          event: 'EVENT_ID: ME_WATCH',
+          featuredName: 'Middle East Monitor',
+          sitrep: 'Open conflict surface and layered global monitor — signal before the cycle.',
+        },
+        'southeast-asia': {
+          name: 'Southeast Asia',
+          meta: 'Border · index · scale',
+          event: 'EVENT_ID: SEA_WATCH',
+          featuredName: 'Geopolitical Watch',
+          sitrep: 'Tri-border watch, city index, and metro scale — ASEAN pressure on one map.',
+        },
       },
     },
     engagement: {
@@ -650,17 +681,48 @@ const uiCopy = {
       subtitle: 'คุณสร้างการจัดอันดับ ผมสร้างความเป็นจริง Axiom ทำแผนที่แรงกดดัน ส่งพื้นผิวใช้งานได้เร็ว และวางระบบวัดผลตั้งแต่วันแรก',
       cta: 'เริ่มต้นด้วย Pressure Map',
       ctaSecondary: 'ดูระบบที่ใช้งานอยู่',
-      nodeLabel: 'แตะเพื่อเลือกพื้นที่',
+      nodeLabel: 'แตะเลือกแนวปฏิบัติการ',
+      exploreHint: 'ลากแผนที่ · แตะเลือกแนว',
+      hudLive: 'แนวปฏิบัติการ',
+      hudWatching: 'ระบบที่เฝ้าดู',
+      modeTour: 'ทัวร์อัตโนมัติ',
+      modeHold: 'หยุด',
       statSystems: 'ระบบที่ใช้งาน',
       statMonitoring: 'ติดตามตลอดเวลา',
       statCountries: 'ประเทศ',
       featured: {
-        kicker: 'ไฮไลต์',
-        event: 'EVENT_ID: FLOODDASH_LIVE',
-        name: 'FloodDash',
-        lede: 'เฝ้าน้ำท่วมไทย · สด 24/7 · 9 แหล่ง',
+        kicker: 'สรุปแนว',
         cta: 'เปิดระบบสด',
-        counter: 'ภาพ {current}/{total}',
+      },
+      theatres: {
+        bangkok: {
+          name: 'กรุงเทพฯ',
+          meta: 'น้ำท่วม · วิทยาเขต · เมือง',
+          event: 'EVENT_ID: BANGKOK_WATCH',
+          featuredName: 'FloodDash',
+          sitrep: 'น้ำท่วม วิทยาเขต และแผนที่เมือง — ระบบกรุงเทพฯ เฝ้าแผนที่แรงกดดันเดียวกัน',
+        },
+        phuket: {
+          name: 'ภูเก็ต',
+          meta: 'ชายฝั่ง · ขนส่ง · อากาศ',
+          event: 'EVENT_ID: PHUKET_WATCH',
+          featuredName: 'Phuket Ops',
+          sitrep: 'ห้องปฏิบัติการเกาะ ขนส่งผู้โดยสาร และเฝ้าอากาศ — แรงกดดันชายฝั่งในแนวเดียว',
+        },
+        'middle-east': {
+          name: 'ตะวันออกกลาง',
+          meta: 'ความขัดแย้ง · ข่าวกรองเปิด',
+          event: 'EVENT_ID: ME_WATCH',
+          featuredName: 'Middle East Monitor',
+          sitrep: 'พื้นผิวความขัดแย้งแบบเปิดและมอนิเตอร์โลกหลายชั้น — สัญญาณก่อนวงจรข่าว',
+        },
+        'southeast-asia': {
+          name: 'เอเชียตะวันออกเฉียงใต้',
+          meta: 'ชายแดน · ดัชนี · ขนาด',
+          event: 'EVENT_ID: SEA_WATCH',
+          featuredName: 'Geopolitical Watch',
+          sitrep: 'เฝ้าสามแนวชายแดน ดัชนีเมือง และระดับมหานคร — แรงกดดันอาเซียนบนแผนที่เดียว',
+        },
       },
     },
     engagement: {
@@ -826,20 +888,50 @@ const uiCopy = {
       subtitle: '你建排名，我们建现实。Axiom 绘制压力图谱，快速交付可用界面，从第一天起就布署可追溯的度量层。',
       cta: '从压力图开始',
       ctaSecondary: '查看在线系统',
-      nodeLabel: '点击选择区域',
+      nodeLabel: '点选战区',
+      exploreHint: '拖动地图 · 点选战区',
+      hudLive: '战区',
+      hudWatching: '监视中的系统',
+      modeTour: '自动巡游',
+      modeHold: '暂停',
       statSystems: '在线系统',
       statMonitoring: '全天候监控',
       statCountries: '国家',
-    
       featured: {
-        kicker: '精选',
-        event: 'EVENT_ID: FLOODDASH_LIVE',
-        name: 'FloodDash',
-        lede: '泰国洪水监测 · 24/7 实时 · 9 个数据源',
+        kicker: '战区简报',
         cta: '打开在线系统',
-        counter: '幻灯片 {current}/{total}',
       },
-},
+      theatres: {
+        bangkok: {
+          name: '曼谷',
+          meta: '洪水 · 校园 · 城市',
+          event: 'EVENT_ID: BANGKOK_WATCH',
+          featuredName: 'FloodDash',
+          sitrep: '洪水、校园与城市地图——曼谷系统盯着同一张压力图。',
+        },
+        phuket: {
+          name: '普吉',
+          meta: '海岸 · 交通 · 空气',
+          event: 'EVENT_ID: PHUKET_WATCH',
+          featuredName: 'Phuket Ops',
+          sitrep: '岛屿作战室、乘客公交与空气监视——海岸压力集中在一个战区。',
+        },
+        'middle-east': {
+          name: '中东',
+          meta: '冲突 · 开放情报',
+          event: 'EVENT_ID: ME_WATCH',
+          featuredName: 'Middle East Monitor',
+          sitrep: '开放冲突界面与分层全球监视——新闻周期之前的信号。',
+        },
+        'southeast-asia': {
+          name: '东南亚',
+          meta: '边境 · 指数 · 尺度',
+          event: 'EVENT_ID: SEA_WATCH',
+          featuredName: 'Geopolitical Watch',
+          sitrep: '三边境监视、城市指数与都会尺度——东盟压力在一张图上。',
+        },
+      },
+    },
     engagement: {
       tag: '运营模式',
       title: '从压力出发，而非表演',
@@ -1003,17 +1095,48 @@ const uiCopy = {
       subtitle: '// AI should feel like infrastructure, not performance\nconst axiom = new DecisionSystem({ pressure: true, performative: false })',
       cta: 'pressureMap.start()',
       ctaSecondary: 'systems.getLive()',
-      nodeLabel: '// select system',
+      nodeLabel: '// tap.theatre()',
+      exploreHint: '// drag.map · tap.theatre',
+      hudLive: 'THEATRE',
+      hudWatching: 'systems.watching',
+      modeTour: 'AUTO_TOUR',
+      modeHold: 'HOLD',
       statSystems: 'LiveSystem[]',
       statMonitoring: 'readonly 24/7',
       statCountries: 'Country<T>',
       featured: {
-        kicker: '// FEATURED',
-        event: 'EVENT_ID: FLOODDASH_LIVE',
-        name: 'FloodDash',
-        lede: '// thailand.floodWatch // live.24/7 // sources: 9',
+        kicker: '// THEATRE_BRIEF',
         cta: 'system.open()',
-        counter: '// slide: {current}/{total}',
+      },
+      theatres: {
+        bangkok: {
+          name: 'Bangkok',
+          meta: 'flood · campus · urban',
+          event: 'EVENT_ID: BANGKOK_WATCH',
+          featuredName: 'FloodDash',
+          sitrep: '// flood + campus + atlas → bangkok.pressureMap',
+        },
+        phuket: {
+          name: 'Phuket',
+          meta: 'coastal · transit · air',
+          event: 'EVENT_ID: PHUKET_WATCH',
+          featuredName: 'Phuket Ops',
+          sitrep: '// island.ops + bus + air → coastal.theatre',
+        },
+        'middle-east': {
+          name: 'Middle East',
+          meta: 'conflict · openIntel',
+          event: 'EVENT_ID: ME_WATCH',
+          featuredName: 'MEM',
+          sitrep: '// conflict.surface + global.monitor → signal.before(cycle)',
+        },
+        'southeast-asia': {
+          name: 'Southeast Asia',
+          meta: 'border · index · scale',
+          event: 'EVENT_ID: SEA_WATCH',
+          featuredName: 'Geo Watch',
+          sitrep: '// triBorder + slic + metro → asean.pressure',
+        },
       },
     },
     engagement: {
@@ -3257,18 +3380,85 @@ function initFlooddashCarousel() {
   if (!container || !window.L) return;
   const useLiteMotion = axiomMedia.isTouch || axiomMedia.isReduced || axiomMedia.isMobile;
 
-  // Cities Axiom operates in
-  const CITIES = [
-    { key: 'bangkok', name: 'Bangkok', meta: 'Urban command', lat: 13.7563, lng: 100.5018, zoom: 12 },
-    { key: 'phuket', name: 'Phuket', meta: 'Regional ops', lat: 7.8804, lng: 98.3923, zoom: 13 },
-    { key: 'middle-east', name: 'Middle East', meta: 'Strategic signal', lat: 25.2048, lng: 55.2708, zoom: 11 },
-    { key: 'southeast-asia', name: 'Southeast Asia', meta: 'Scale layer', lat: 10.5, lng: 105.0, zoom: 5 },
-  ];
+  // Theatre model — what each AUTO TOUR stop is watching (curated, not live APIs)
+  const THEATRES = {
+    bangkok: {
+      key: 'bangkok',
+      lat: 13.7563,
+      lng: 100.5018,
+      zoom: 12,
+      eventId: 'BANGKOK_WATCH',
+      featured: {
+        name: 'FloodDash',
+        href: 'https://flood-ami.pages.dev/',
+      },
+      signals: [
+        { type: 'FLOOD', system: 'FloodDash', href: 'https://flood-ami.pages.dev/', lat: 13.7563, lng: 100.5018 },
+        { type: 'CAMPUS', system: 'Chula', href: 'https://chula.nonarkara.org/', lat: 13.7380, lng: 100.5320 },
+        { type: 'URBAN', system: 'MTT', href: 'https://mtt-super-dashboard-v2.pages.dev/', lat: 13.9120, lng: 100.5480 },
+        { type: 'ATLAS', system: 'BKKx Atlas', href: 'https://atlas.nonarkara.org/', lat: 13.7300, lng: 100.5412 },
+      ],
+    },
+    phuket: {
+      key: 'phuket',
+      lat: 7.8804,
+      lng: 98.3923,
+      zoom: 12,
+      eventId: 'PHUKET_WATCH',
+      featured: {
+        name: 'Phuket Ops',
+        href: 'https://phuket.nonarkara.org/war-room',
+      },
+      signals: [
+        { type: 'COASTAL', system: 'Phuket Ops', href: 'https://phuket.nonarkara.org/war-room', lat: 7.8804, lng: 98.3923 },
+        { type: 'TRANSIT', system: 'Smart Bus', href: 'https://bus.nonarkara.org/', lat: 7.8900, lng: 98.3680 },
+        { type: 'AIR', system: 'AirDash', href: 'https://air.nonarkara.org/', lat: 7.9500, lng: 98.3400 },
+      ],
+    },
+    'middle-east': {
+      key: 'middle-east',
+      lat: 25.2048,
+      lng: 55.2708,
+      zoom: 11,
+      eventId: 'ME_WATCH',
+      featured: {
+        name: 'Middle East Monitor',
+        href: 'https://conflict.nonarkara.org/',
+      },
+      signals: [
+        { type: 'CONFLICT', system: 'MEM', href: 'https://conflict.nonarkara.org/', lat: 25.2048, lng: 55.2708 },
+        { type: 'GLOBAL', system: 'Global Monitor', href: 'https://global.nonarkara.org/', lat: 24.7136, lng: 46.6753 },
+      ],
+    },
+    'southeast-asia': {
+      key: 'southeast-asia',
+      lat: 10.5,
+      lng: 105.0,
+      zoom: 5,
+      eventId: 'SEA_WATCH',
+      featured: {
+        name: 'Geopolitical Watch',
+        href: 'https://geo.nonarkara.org/',
+      },
+      signals: [
+        { type: 'BORDER', system: 'Geo Watch', href: 'https://geo.nonarkara.org/', lat: 14.5, lng: 100.5 },
+        { type: 'INDEX', system: 'SLIC', href: 'https://slic.nonarkara.org/', lat: 1.3521, lng: 103.8198 },
+        { type: 'SCALE', system: 'HCMCx', href: 'https://hcmc.nonarkara.org', lat: 10.8231, lng: 106.6297 },
+      ],
+    },
+  };
 
-  // Touch devices: the map is the full-bleed hero background, so a single-
-  // finger drag must scroll the page, not pan the map (the "Drag to explore"
-  // hint is already hidden on mobile via CSS — this completes that same
-  // decision in JS). Desktop mouse-drag panning is unaffected.
+  const CITIES = Object.values(THEATRES);
+
+  function theatreCopy(key) {
+    const copy = (typeof uiCopy !== 'undefined' && uiCopy[activeLocale]) || {};
+    const en = (typeof uiCopy !== 'undefined' && uiCopy.en) || {};
+    const local = copy.hero?.theatres?.[key];
+    const fallback = en.hero?.theatres?.[key] || {};
+    return { ...fallback, ...(local || {}) };
+  }
+
+  // Touch: map is full-bleed — single-finger drag scrolls the page.
   const map = L.map(container, {
     center: [CITIES[0].lat, CITIES[0].lng],
     zoom: CITIES[0].zoom,
@@ -3286,52 +3476,82 @@ function initFlooddashCarousel() {
     zoomAnimation: !useLiteMotion,
   });
 
-  // Tile layers are added in the layer switching section below
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(map);
 
-  // Pulse markers for active cities.
-  // iconSize = 32x32 (real touch target). Visual pulse stays 14x14
-  // centered inside via CSS (margin 9px + box-sizing content-box).
-  const pulseIcon = L.divIcon({
-    className: 'sat-pulse-marker',
-    iconSize: [32, 32],
-    iconAnchor: [16, 16],
-  });
+  let signalLayer = L.layerGroup().addTo(map);
 
-  const markerLocations = [
-    [13.7563, 100.5018],  // Bangkok
-    [7.8804, 98.3923],    // Phuket
-    [25.2048, 55.2708],   // Dubai
-    [24.7136, 46.6753],   // Riyadh
-  ];
+  function signalIcon(type) {
+    return L.divIcon({
+      className: '',
+      html: `<div class="sat-signal-marker" title="${type}"><span class="sat-signal-dot"></span><span class="sat-signal-label">${type}</span></div>`,
+      iconSize: [72, 36],
+      iconAnchor: [36, 8],
+    });
+  }
 
-  markerLocations.forEach(coords => {
-    L.marker(coords, { icon: pulseIcon }).addTo(map);
-  });
-
-  // ── Intelligence Overlays Trigger (V6) ──
-  function updateIntelligenceOverlays(lat, lng) {
-    const dubaiDist = Math.sqrt(Math.pow(lat - 25.2048, 2) + Math.pow(lng - 55.2708, 2));
-    const bkkDist = Math.sqrt(Math.pow(lat - 13.7563, 2) + Math.pow(lng - 100.5018, 2));
-    
-    const dubaiOverlay = document.getElementById('intelOverlayDubai');
-    const bkkOverlay = document.getElementById('intelOverlayBangkok');
-    
-    if (dubaiOverlay) dubaiOverlay.classList.toggle('active', dubaiDist < 0.5);
-    if (bkkOverlay) bkkOverlay.classList.toggle('active', bkkDist < 0.5);
+  function paintSignalMarkers(theatre) {
+    signalLayer.clearLayers();
+    (theatre.signals || []).forEach((signal) => {
+      const marker = L.marker([signal.lat, signal.lng], {
+        icon: signalIcon(signal.type),
+        keyboard: true,
+        title: `${signal.type} · ${signal.system}`,
+      });
+      marker.on('click', () => {
+        window.open(signal.href, '_blank', 'noopener');
+      });
+      marker.addTo(signalLayer);
+    });
   }
 
   const heroCityLabel = document.getElementById('heroCityLabel');
   const heroNodeButtons = Array.from(document.querySelectorAll('.hero-node'));
-  const satSourceNote = document.getElementById('satSourceNote');
+  const satTheatre = document.getElementById('satTheatre');
+  const satSignals = document.getElementById('satSignals');
+  const satWatching = document.getElementById('satWatching');
+  const featuredBadge = document.getElementById('heroFeaturedBadge');
+  const featuredEvent = document.getElementById('heroFeaturedEvent');
+  const featuredName = document.getElementById('heroFeaturedName');
+  const featuredLede = document.getElementById('heroFeaturedLede');
 
-  function syncCityDisplay(city, options = {}) {
+  let activeTheatreKey = CITIES[0].key;
+
+  function syncTheatre(theatre, options = {}) {
     const { shouldScroll = false } = options;
-    if (!city) return;
-    if (heroCityLabel) heroCityLabel.textContent = city.name.toUpperCase();
+    if (!theatre) return;
+    activeTheatreKey = theatre.key;
+    const tCopy = theatreCopy(theatre.key);
+    const name = tCopy.name || theatre.key;
+    const meta = tCopy.meta || theatre.signals.map((s) => s.type.toLowerCase()).join(' · ');
+    const sitrep = tCopy.sitrep || '';
+    const featuredNameText = tCopy.featuredName || theatre.featured.name;
+    const eventId = tCopy.event || `EVENT_ID: ${theatre.eventId}`;
+    const signalTypes = theatre.signals.map((s) => s.type).join(' · ');
+    const watchingLabel = theatreCopy('_hud')?.watching
+      || (uiCopy[activeLocale]?.hero?.hudWatching)
+      || uiCopy.en?.hero?.hudWatching
+      || 'SYSTEMS WATCHING';
+
+    if (heroCityLabel) heroCityLabel.textContent = String(name).toUpperCase();
+    if (satTheatre) satTheatre.textContent = String(name).toUpperCase();
+    if (satSignals) satSignals.textContent = signalTypes;
+    if (satWatching) satWatching.textContent = `${watchingLabel} · ${theatre.signals.length}`;
+
+    if (featuredBadge) featuredBadge.href = theatre.featured.href;
+    if (featuredEvent) featuredEvent.textContent = eventId;
+    if (featuredName) featuredName.textContent = featuredNameText;
+    if (featuredLede) featuredLede.textContent = sitrep;
+
     heroNodeButtons.forEach((button) => {
-      const isActive = button.dataset.city === city.key;
+      const isActive = button.dataset.city === theatre.key;
       button.classList.toggle('is-active', isActive);
       button.setAttribute('aria-pressed', String(isActive));
+      const metaEl = button.querySelector('.hero-node-meta');
+      const nameEl = button.querySelector('.hero-node-name');
+      const btnCopy = theatreCopy(button.dataset.city);
+      if (nameEl && btnCopy.name) nameEl.textContent = btnCopy.name;
+      if (metaEl && btnCopy.meta) metaEl.textContent = btnCopy.meta;
+      else if (metaEl && button.dataset.city === theatre.key) metaEl.textContent = meta;
       if (isActive && shouldScroll) {
         const rail = document.getElementById('heroNodeRail') || button.parentElement;
         if (rail && typeof rail.scrollTo === 'function') {
@@ -3340,12 +3560,19 @@ function initFlooddashCarousel() {
         }
       }
     });
+
+    paintSignalMarkers(theatre);
+    window.dispatchEvent(new CustomEvent('axiom:theatrechange', {
+      detail: {
+        key: theatre.key,
+        signals: theatre.signals.map((s) => s.type),
+      },
+    }));
   }
 
-  function getClosestCity(lat, lng) {
+  function getClosestTheatre(lat, lng) {
     let closest = CITIES[0];
     let minDistance = Number.POSITIVE_INFINITY;
-
     CITIES.forEach((city) => {
       const distance = Math.hypot(lat - city.lat, lng - city.lng);
       if (distance < minDistance) {
@@ -3353,43 +3580,18 @@ function initFlooddashCarousel() {
         closest = city;
       }
     });
-
     return closest;
   }
 
   window.axiom = window.axiom || {};
   window.axiom.showroom = {
-    goLive: function(id) {
-      const container = document.querySelector(`.mockup-container[data-id="${id}"]`);
-      if (!container) return;
-      
-      const iframeContainer = container.querySelector('.live-iframe-container');
-      if (!iframeContainer) return;
-      const src = iframeContainer.dataset.src;
-      
-      if (!iframeContainer.querySelector('iframe')) {
-        const iframe = document.createElement('iframe');
-        iframe.src = src;
-        iframeContainer.appendChild(iframe);
-      }
-      
-      container.classList.add('is-live');
-    },
-    exitLive: function(id) {
-      const container = document.querySelector(`.mockup-container[data-id="${id}"]`);
-      if (container) container.classList.remove('is-live');
-    },
-    revealMore: function() {
-      document.querySelectorAll('.project-card').forEach(c => c.style.display = 'flex');
-      const btn = document.querySelector('.projects-see-all');
-      if (btn) btn.style.display = 'none';
-    },
-    initV6: function() {
-      // SITREP HUD Telemetry
+    goLive() {},
+    exitLive() {},
+    revealMore() {},
+    initV6() {
       const xLine = document.querySelector('.telemetry-axis-x');
       const yLine = document.querySelector('.telemetry-axis-y');
       const tracker = document.querySelector('.hero-tracker');
-      
       map.on('move', () => {
         const center = map.getCenter();
         const screenPos = map.latLngToContainerPoint(center);
@@ -3399,15 +3601,11 @@ function initFlooddashCarousel() {
           tracker.style.top = screenPos.y + 'px';
           tracker.style.left = screenPos.x + 'px';
         }
-        updateIntelligenceOverlays(center.lat, center.lng);
-        syncCityDisplay(getClosestCity(center.lat, center.lng));
       });
-    }
+    },
   };
-
   axiom.showroom.initV6();
 
-  // ── Auto Tour Mode ──
   const mapModeDot = document.getElementById('mapModeDot');
   const mapModeLabel = document.getElementById('mapModeLabel');
   const mapModeBtn = document.getElementById('mapModeBtn');
@@ -3422,10 +3620,19 @@ function initFlooddashCarousel() {
   const tourIntervalMs = useLiteMotion ? 16000 : 12000;
   const tourDuration = useLiteMotion ? 7 : 10;
 
+  function modeLabels() {
+    const h = uiCopy[activeLocale]?.hero || uiCopy.en?.hero || {};
+    return {
+      tour: h.modeTour || 'AUTO TOUR',
+      hold: h.modeHold || 'HOLD',
+    };
+  }
+
   function setModeUI(touring) {
+    const labels = modeLabels();
     if (mapModeDot) mapModeDot.className = 'map-mode-dot' + (touring ? '' : ' exploring');
     if (mapModeLabel) {
-      mapModeLabel.textContent = touring ? 'AUTO TOUR' : 'EXPLORING';
+      mapModeLabel.textContent = touring ? labels.tour : labels.hold;
       mapModeLabel.className = 'map-mode-label' + (touring ? '' : ' exploring');
     }
     if (mapModeBtn) {
@@ -3434,11 +3641,6 @@ function initFlooddashCarousel() {
     }
     if (mapModePause) mapModePause.style.display = touring ? 'block' : 'none';
     if (mapModePlay) mapModePlay.style.display = touring ? 'none' : 'block';
-    // While the AUTO TOUR is running, the static FEATURED panel
-    // (which always points to FloodDash) and the live map show
-    // two different things at once — that was the confusing bit.
-    // Hide the panel when touring; reveal it when the user has
-    // paused on a specific city.
     const heroEl = document.getElementById('hero');
     if (heroEl) heroEl.classList.toggle('is-touring', touring);
   }
@@ -3447,7 +3649,7 @@ function initFlooddashCarousel() {
     if (!autoTour) return;
     cityIndex = (cityIndex + 1) % CITIES.length;
     const city = CITIES[cityIndex];
-    syncCityDisplay(city, { shouldScroll: axiomMedia.isMobile });
+    syncTheatre(city, { shouldScroll: axiomMedia.isMobile });
     map.flyTo([city.lat, city.lng], city.zoom, {
       duration: tourDuration,
       easeLinearity: useLiteMotion ? 0.1 : 0.05,
@@ -3467,45 +3669,33 @@ function initFlooddashCarousel() {
     setModeUI(false);
     if (driftInterval) { clearInterval(driftInterval); driftInterval = null; }
     if (driftTimer) { clearTimeout(driftTimer); driftTimer = null; }
-    map.stop(); // stop any in-progress flyTo
+    map.stop();
+    syncTheatre(getClosestTheatre(map.getCenter().lat, map.getCenter().lng));
 
-    const center = map.getCenter();
-    updateIntelligenceOverlays(center.lat, center.lng);
-    syncCityDisplay(getClosestCity(center.lat, center.lng));
-
-
-    // If user paused by interacting, offer resume after 20s of inactivity
     if (fromUser && resumeTimeout) clearTimeout(resumeTimeout);
     if (fromUser) {
       resumeTimeout = setTimeout(() => {
-        // Gently blink the play button to suggest resuming
         if (mapModeBtn) mapModeBtn.classList.add('map-mode-btn-pulse');
         setTimeout(() => { if (mapModeBtn) mapModeBtn.classList.remove('map-mode-btn-pulse'); }, 3000);
       }, 20000);
     }
   }
 
-  // Toggle button
   if (mapModeBtn) {
     mapModeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (autoTour) {
-        pauseTour(true);
-      } else {
-        startTour();
-      }
+      if (autoTour) pauseTour(true);
+      else startTour();
     });
   }
 
-  // City node clicks → fly to that city, pause the tour
   heroNodeButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const city = CITIES.find((item) => item.key === button.dataset.city);
       if (!city) return;
-      const newIndex = CITIES.findIndex((item) => item.key === city.key);
-      if (newIndex >= 0) cityIndex = newIndex;
+      cityIndex = CITIES.findIndex((item) => item.key === city.key);
       pauseTour(true);
-      syncCityDisplay(city, { shouldScroll: true });
+      syncTheatre(city, { shouldScroll: true });
       map.flyTo([city.lat, city.lng], city.zoom, {
         duration: useLiteMotion ? 5 : 8,
         easeLinearity: useLiteMotion ? 0.15 : 0.08,
@@ -3513,14 +3703,11 @@ function initFlooddashCarousel() {
     });
   });
 
-  // Detect user interaction with the map → pause tour
   map.on('dragstart', () => { if (autoTour) pauseTour(true); });
   map.on('zoomstart', () => {
-    // Only pause if zoom was initiated by user (not flyTo)
     if (autoTour && !map._flyInProgress) pauseTour(true);
   });
 
-  // Intercept flyTo to track in-progress state
   const origFlyTo = map.flyTo.bind(map);
   map.flyTo = function(latlng, zoom, options) {
     map._flyInProgress = true;
@@ -3528,182 +3715,16 @@ function initFlooddashCarousel() {
   };
   map.on('moveend', () => {
     map._flyInProgress = false;
-    const center = map.getCenter();
-    const closest = getClosestCity(center.lat, center.lng);
+    const closest = getClosestTheatre(map.getCenter().lat, map.getCenter().lng);
     cityIndex = CITIES.findIndex((city) => city.key === closest.key);
-    syncCityDisplay(closest);
+    if (closest.key !== activeTheatreKey) syncTheatre(closest);
   });
 
-  // Start auto tour after initial pause
   driftTimer = setTimeout(() => {
     driftToNext();
     driftInterval = setInterval(driftToNext, tourIntervalMs);
   }, useLiteMotion ? 2500 : 5000);
 
-  // ── Layer switching ──
-
-  const tileLayers = {
-    satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 18 }),
-    terrain: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', { maxZoom: 18 }),
-    dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }),
-    topo: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { maxZoom: 17 }),
-  };
-
-  const layerProviders = {
-    satellite: { name: 'ESRI World Imagery', tile: 'arcgisonline.com/World_Imagery' },
-    terrain: { name: 'ESRI World Street Map', tile: 'arcgisonline.com/World_Street_Map' },
-    dark: { name: 'CartoDB Dark Matter', tile: 'basemaps.cartocdn.com/dark_all' },
-    topo: { name: 'OpenTopoMap', tile: 'tile.opentopomap.org' },
-  };
-
-  let currentLayerName = 'dark';
-  let activeLayer = tileLayers[currentLayerName];
-  activeLayer.addTo(map);
-
-  function updateLayerUI(layerName) {
-    currentLayerName = layerName;
-    document.querySelectorAll('.sat-btn[data-layer]').forEach((button) => {
-      button.classList.toggle('sat-btn-active', button.dataset.layer === layerName);
-    });
-    if (satSourceNote) {
-      satSourceNote.textContent = (layerProviders[layerName] || layerProviders.dark).name;
-    }
-  }
-
-  function switchMapLayer(layerName) {
-    if (tileLayers[layerName] && tileLayers[layerName] !== activeLayer) {
-      map.removeLayer(activeLayer);
-      activeLayer = tileLayers[layerName];
-      activeLayer.addTo(map);
-      updateLayerUI(layerName);
-      updateHud();
-    }
-  }
-
-  document.querySelectorAll('.sat-btn[data-layer]').forEach((button) => {
-    button.addEventListener('click', () => {
-      switchMapLayer(button.dataset.layer);
-    });
-  });
-
-  updateLayerUI(currentLayerName);
-
-  // ── 1km Grid Overlay ──
-
-  let gridLayer = null;
-
-  function createGrid() {
-    const bounds = map.getBounds();
-    const lines = [];
-
-    // Calculate 1km grid spacing in degrees (approx)
-    const latCenter = map.getCenter().lat;
-    const kmPerDegreeLat = 111.32;
-    const kmPerDegreeLng = 111.32 * Math.cos(latCenter * Math.PI / 180);
-    const dLat = 1 / kmPerDegreeLat;
-    const dLng = 1 / kmPerDegreeLng;
-
-    const south = Math.floor(bounds.getSouth() / dLat) * dLat;
-    const north = bounds.getNorth();
-    const west = Math.floor(bounds.getWest() / dLng) * dLng;
-    const east = bounds.getEast();
-
-    // Latitude lines
-    for (let lat = south; lat <= north; lat += dLat) {
-      lines.push(L.polyline([[lat, west], [lat, east]], {
-        color: 'rgba(37, 99, 255, 0.18)',
-        weight: 0.5,
-        interactive: false,
-      }));
-    }
-
-    // Longitude lines
-    for (let lng = west; lng <= east; lng += dLng) {
-      lines.push(L.polyline([[south, lng], [north, lng]], {
-        color: 'rgba(37, 99, 255, 0.18)',
-        weight: 0.5,
-        interactive: false,
-      }));
-    }
-
-    return L.layerGroup(lines);
-  }
-
-  function updateGrid() {
-    if (gridLayer) {
-      map.removeLayer(gridLayer);
-      gridLayer = createGrid();
-      gridLayer.addTo(map);
-    }
-  }
-
-  const gridToggle = document.getElementById('gridToggle');
-  if (gridToggle) {
-    gridToggle.addEventListener('click', () => {
-      const active = gridToggle.dataset.active === 'true';
-      if (active) {
-        if (gridLayer) { map.removeLayer(gridLayer); gridLayer = null; }
-        gridToggle.dataset.active = 'false';
-      } else {
-        gridLayer = createGrid();
-        gridLayer.addTo(map);
-        gridToggle.dataset.active = 'true';
-      }
-    });
-  }
-
-  // Rebuild grid on move/zoom
-  map.on('moveend', () => { if (gridLayer) updateGrid(); });
-  map.on('zoomend', () => { if (gridLayer) updateGrid(); });
-
-  // ── Live Satellite HUD Telemetry ──
-
-  const satCoord = document.getElementById('satCoord');
-  const satZoom = document.getElementById('satZoom');
-  const satRes = document.getElementById('satRes');
-  const satTile = document.getElementById('satTile');
-  const satTime = document.getElementById('satTime');
-  const satProvider = document.getElementById('satProvider');
-
-  function updateHud() {
-    const center = map.getCenter();
-    const zoom = map.getZoom();
-    const lat = center.lat.toFixed(4);
-    const lng = center.lng.toFixed(4);
-    const latDir = center.lat >= 0 ? 'N' : 'S';
-    const lngDir = center.lng >= 0 ? 'E' : 'W';
-
-    // Resolution: at equator, zoom 0 = ~156543 m/px, halves each zoom
-    const metersPerPx = (156543.03392 * Math.cos(center.lat * Math.PI / 180)) / Math.pow(2, zoom);
-    let resText;
-    if (metersPerPx >= 1000) resText = '~' + (metersPerPx / 1000).toFixed(1) + 'km/px';
-    else resText = '~' + Math.round(metersPerPx) + 'm/px';
-
-    if (satCoord) satCoord.textContent = Math.abs(lat) + '°' + latDir + ' ' + Math.abs(lng) + '°' + lngDir;
-    if (satZoom) satZoom.textContent = 'Z' + Math.round(zoom);
-    if (satRes) satRes.textContent = resText;
-
-    const prov = layerProviders[currentLayerName] || layerProviders.satellite;
-    if (satProvider) satProvider.textContent = prov.name;
-    if (satTile) satTile.textContent = 'Tile: ' + prov.tile;
-    if (satSourceNote) satSourceNote.textContent = prov.name;
-
-    if (satTime) {
-      const now = new Date();
-      const fmt = new Intl.DateTimeFormat('en-GB', {
-        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Bangkok'
-      });
-      satTime.textContent = 'Fetched: ' + fmt.format(now) + ' BKK';
-    }
-  }
-
-  map.on('moveend', updateHud);
-  map.on('zoomend', updateHud);
-  updateHud();
-  setInterval(updateHud, 1000); // keep time fresh
-
-
-  // Subtle parallax on mouse move — only during auto tour
   if (!useLiteMotion) {
     let rafId;
     document.addEventListener('mousemove', (e) => {
@@ -3719,13 +3740,20 @@ function initFlooddashCarousel() {
     });
   }
 
-  syncCityDisplay(CITIES[0]);
-  updateIntelligenceOverlays(CITIES[0].lat, CITIES[0].lng);
+  window.addEventListener('axiom:localechange', () => {
+    setModeUI(autoTour);
+    const theatre = THEATRES[activeTheatreKey] || CITIES[0];
+    syncTheatre(theatre);
+  });
+
+  syncTheatre(CITIES[0]);
+  setModeUI(true);
 })();
 (function initDataLines() {
   const canvas = document.getElementById('heroCanvas');
   if (!canvas || axiomMedia.isReduced) return;
   const useLiteCanvas = axiomMedia.isTouch || axiomMedia.isMobile;
+  const ACCENT = '0, 36, 125';
 
   const ctx = canvas.getContext('2d');
 
@@ -3738,9 +3766,8 @@ function initFlooddashCarousel() {
   resize();
   window.addEventListener('resize', resize);
 
-  // Scanning line effect
   const lines = [];
-  for (let i = 0; i < (useLiteCanvas ? 2 : 5); i++) {
+  for (let i = 0; i < (useLiteCanvas ? 2 : 4); i++) {
     lines.push({
       y: Math.random() * canvas.offsetHeight,
       speed: 0.3 + Math.random() * 0.5,
@@ -3748,26 +3775,41 @@ function initFlooddashCarousel() {
     });
   }
 
-  // Data nodes — scattered points of light
+  // Signal graph nodes — count tracks active theatre signals
+  let signalCount = 4;
   const nodes = [];
-  for (let i = 0; i < (useLiteCanvas ? 18 : 40); i++) {
-    nodes.push({
-      x: Math.random() * canvas.offsetWidth,
-      y: Math.random() * canvas.offsetHeight,
-      r: 1 + Math.random() * 2,
-      pulse: Math.random() * Math.PI * 2,
-      speed: 0.02 + Math.random() * 0.03,
-    });
-  }
 
-  // Grid overlay
+  function rebuildNodes() {
+    nodes.length = 0;
+    const count = Math.max(3, Math.min(useLiteCanvas ? 10 : 18, signalCount * (useLiteCanvas ? 2 : 4)));
+    const cw = canvas.offsetWidth || 1;
+    const ch = canvas.offsetHeight || 1;
+    for (let i = 0; i < count; i++) {
+      const ring = 0.22 + (i % signalCount) * 0.12;
+      const angle = (Math.PI * 2 * i) / count;
+      nodes.push({
+        x: cw * 0.55 + Math.cos(angle) * cw * ring * 0.35,
+        y: ch * 0.45 + Math.sin(angle) * ch * ring * 0.4,
+        r: 1.2 + (i % 3) * 0.6,
+        pulse: Math.random() * Math.PI * 2,
+        speed: 0.02 + Math.random() * 0.03,
+        hub: i < signalCount,
+      });
+    }
+  }
+  rebuildNodes();
+
+  window.addEventListener('axiom:theatrechange', (e) => {
+    signalCount = (e.detail && e.detail.signals && e.detail.signals.length) || 4;
+    rebuildNodes();
+  });
+
   function drawGrid() {
     const cw = canvas.offsetWidth;
     const ch = canvas.offsetHeight;
-    ctx.strokeStyle = 'rgba(37, 99, 255, 0.04)';
+    ctx.strokeStyle = `rgba(${ACCENT}, 0.04)`;
     ctx.lineWidth = 0.5;
     const gridSize = 80;
-
     for (let x = 0; x < cw; x += gridSize) {
       ctx.beginPath();
       ctx.moveTo(x, 0);
@@ -3792,16 +3834,12 @@ function initFlooddashCarousel() {
     const cw = canvas.offsetWidth;
     const ch = canvas.offsetHeight;
     ctx.clearRect(0, 0, cw, ch);
-
-    // Grid
     drawGrid();
 
-    // Scan lines
-    lines.forEach(line => {
+    lines.forEach((line) => {
       line.y += line.speed;
       if (line.y > ch) line.y = -2;
-
-      ctx.strokeStyle = `rgba(37, 99, 255, ${line.alpha})`;
+      ctx.strokeStyle = `rgba(${ACCENT}, ${line.alpha})`;
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(0, line.y);
@@ -3809,40 +3847,35 @@ function initFlooddashCarousel() {
       ctx.stroke();
     });
 
-    // Data nodes
-    nodes.forEach(node => {
+    nodes.forEach((node) => {
       node.pulse += node.speed;
-      const alpha = 0.2 + Math.sin(node.pulse) * 0.15;
+      const alpha = (node.hub ? 0.35 : 0.18) + Math.sin(node.pulse) * 0.12;
       const r = node.r + Math.sin(node.pulse) * 0.5;
-
       ctx.beginPath();
       ctx.arc(node.x, node.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(37, 99, 255, ${alpha})`;
+      ctx.fillStyle = `rgba(${ACCENT}, ${alpha})`;
       ctx.fill();
-
-      // Outer ring
       ctx.beginPath();
       ctx.arc(node.x, node.y, r + 4, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(37, 99, 255, ${alpha * 0.3})`;
+      ctx.strokeStyle = `rgba(${ACCENT}, ${alpha * 0.35})`;
       ctx.lineWidth = 0.5;
       ctx.stroke();
     });
 
-    // Connection lines between nearby nodes
-    ctx.lineWidth = 0.3;
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
+    // Prefer edges among hub nodes (active signal graph)
+    ctx.lineWidth = 0.4;
+    const hubs = nodes.filter((n) => n.hub);
+    for (let i = 0; i < hubs.length; i++) {
+      for (let j = i + 1; j < hubs.length; j++) {
+        const dx = hubs[i].x - hubs[j].x;
+        const dy = hubs[i].y - hubs[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 200) {
-          const alpha = (1 - dist / 200) * 0.06;
-          ctx.strokeStyle = `rgba(37, 99, 255, ${alpha})`;
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.stroke();
-        }
+        const alpha = Math.max(0.04, (1 - dist / 320) * 0.14);
+        ctx.strokeStyle = `rgba(${ACCENT}, ${alpha})`;
+        ctx.beginPath();
+        ctx.moveTo(hubs[i].x, hubs[i].y);
+        ctx.lineTo(hubs[j].x, hubs[j].y);
+        ctx.stroke();
       }
     }
   }
@@ -3853,7 +3886,6 @@ function initFlooddashCarousel() {
       if (rafId) cancelAnimationFrame(rafId);
       return;
     }
-
     if (!running) {
       running = true;
       animate();
