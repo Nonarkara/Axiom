@@ -459,6 +459,7 @@
       "p36": { "lede": "방콕 3D 브라우저 아틀라스 — 실제 OSM 건물 432,077채, 지형, 대기질, 비 레이더, 재무부 지가, BTS/MRT, 운하. 블록 단위로 도시를 걷는다.", "cta": "라이브 시스템 열기" },
       "p40": { "lede": "이 URL을 Claude에게 넘기면 OpenClaw를 안전하게 설치해 줍니다. 에이전트가 실행 가능한 셋업, 깊은 보안 모델, RAM에 맞는 로컬 LLM 선택, 위험 등급 도구 호출. 문서만, 개인 데이터 없음.", "cta": "GitHub에서 보기" },
       "p41": { "lede": "인상적이기보다 쓸모 있게 만든 시장 인텔리전스. 월드, 렌즈, 맵, FX, 국회, 배당, 플랜 — 모든 화면은 이번 주에 할 수 있는 결정을 하나라도 바꿔야 한다. 연구 프리뷰, 조언 아님. 모든 숫자는 자신의 나이를 달고 있다.", "cta": "라이브 시스템 열기" },
+      "p42": { "lede": "태국의 미얀마·캄보디아·남부 전선 삼중 국경 지휘 대시보드 — 실시간 작전, 역사 재생, 임원급 인텔리전스 디자인을 한 지도에.", "cta": "라이브 시스템 열기" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>타이베이</b> · City Vision Stage · 2026년 3월",
@@ -648,7 +649,8 @@
       "p35": "Live · 건축 설계",
       "p36": "Live · 3D 도시 아틀라스",
       "p40": "Live · 에이전트 게이트웨이",
-      "p41": "Live · 워킹 인스트루먼트"
+      "p41": "Live · 워킹 인스트루먼트",
+      "p42": "Live · 국경 인텔리전스"
     },
     "cats": {
       "c01": "지역 운영",
@@ -678,7 +680,8 @@
       "c31": "건축 인텔리전스",
       "c32": "3D 도시 아틀라스",
       "c33": "에이전트 게이트웨이",
-      "c34": "워킹 인스트루먼트"
+      "c34": "워킹 인스트루먼트",
+      "c35": "국경 인텔리전스"
     ,
         "c19": "환경 모니터링",
         "c26": "오픈 청사진",
@@ -766,11 +769,11 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "40개 시스템 · 5개국",
+      "sysMeta": "41개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 14",
       "intelligence": "인텔리전스",
-      "intelligenceMeta": "신호 및 분석 · 5",
+      "intelligenceMeta": "신호 및 분석 · 6",
       "civic": "시민",
       "civicMeta": "국가 플랫폼 및 시민 인프라 · 4",
       "emerging": "신규",
@@ -1287,6 +1290,7 @@
       "p36": { "lede": "バンコクの3Dブラウザ地図 — 実OSM建物432,077棟、地形、大気質、雨レーダー、財務省地価、BTS/MRT、運河。街区ごとに街を歩く。", "cta": "ライブシステムを開く" },
       "p40": { "lede": "このURLをClaudeに渡すと、OpenClawを安全にセットアップしてくれます。エージェント実行可能な手順、深いセキュリティモデル、RAMに合うローカルLLM選定、リスク階層のツール呼び出し。ドキュメントのみ、個人データなし。", "cta": "GitHubで見る" },
       "p41": { "lede": "印象ではなく役に立つために作った市場インテリジェンス。ワールド、レンズ、マップ、FX、国会、オッズ、プラン——各画面は今週できる判断を一つでも変えなければならない。研究プレビューであり、助言ではない。すべての数字は自分の年齢を持つ。", "cta": "ライブシステムを開く" },
+      "p42": { "lede": "タイのミャンマー・カンボジア・南部戦域の三国境指揮ダッシュボード — ライブ作戦、歴史再生、幹部級インテリジェンス設計を一枚の地図に。", "cta": "ライブシステムを開く" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>台北</b> · City Vision Stage · 2026年3月",
@@ -1503,7 +1507,8 @@
         "c31": "建築インテリジェンス",
         "c32": "3D都市アトラス",
         "c33": "エージェントゲートウェイ",
-        "c34": "ワーキングインストゥルメント",},
+        "c34": "ワーキングインストゥルメント",
+        "c35": "国境インテリジェンス",},
     "bioCommon": {
       "cvBtn": "履歴書を見る",
       "education": "学歴"
@@ -1587,11 +1592,11 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "40システム · 5か国",
+      "sysMeta": "41システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 14",
       "intelligence": "インテリジェンス",
-      "intelligenceMeta": "シグナルと分析 · 5",
+      "intelligenceMeta": "シグナルと分析 · 6",
       "civic": "シビック",
       "civicMeta": "国家プラットフォームと市民インフラ · 4",
       "emerging": "新興",
@@ -2108,6 +2113,7 @@
       "p36": { "lede": "Bản đồ 3D Bangkok trên trình duyệt — 432.077 tòa nhà OSM thật, địa hình, chất lượng không khí, radar mưa, giá đất Bộ Tài chính, BTS/MRT và kênh. Đi từng khối phố.", "cta": "Mở hệ thống trực tiếp" },
       "p40": { "lede": "Đưa URL này cho Claude và nó sẽ cài OpenClaw an toàn cho bạn. Setup agent chạy được, mô hình bảo mật sâu, chọn LLM local theo RAM, và lệnh tool theo tầng rủi ro. Chỉ tài liệu, không dữ liệu riêng.", "cta": "Xem trên GitHub" },
       "p41": { "lede": "Tình báo thị trường dựng để hữu ích, không để gây ấn tượng. Thế giới, ống kính, bản đồ, FX, quốc hội, tỷ lệ cược và kế hoạch — mọi màn hình phải đổi ít nhất một quyết định bạn có thể làm tuần này. Bản xem trước nghiên cứu, không phải lời khuyên. Mỗi con số mang tuổi của nó.", "cta": "Mở hệ thống trực tiếp" },
+      "p42": { "lede": "Bảng điều khiển chỉ huy ba biên giới của Thái Lan — Myanmar, Campuchia và chiến trường phía nam — hoạt động trực tiếp, phát lại lịch sử và thiết kế tình báo cấp điều hành trên một bản đồ.", "cta": "Mở hệ thống trực tiếp" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>Đài Bắc</b> · City Vision Stage · tháng 3/2026",
@@ -2324,7 +2330,8 @@
         "c31": "Tình báo kiến trúc",
         "c32": "Bản đồ đô thị 3D",
         "c33": "Cổng agent",
-        "c34": "Công cụ làm việc",},
+        "c34": "Công cụ làm việc",
+        "c35": "Tình báo biên giới",},
     "bioCommon": {
       "cvBtn": "Xem CV",
       "education": "Học vấn"
@@ -2408,11 +2415,11 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "40 hệ thống · 5 quốc gia",
+      "sysMeta": "41 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 14",
       "intelligence": "Tình báo",
-      "intelligenceMeta": "Tín hiệu và phân tích · 5",
+      "intelligenceMeta": "Tín hiệu và phân tích · 6",
       "civic": "Công dân",
       "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 4",
       "emerging": "Mới nổi",

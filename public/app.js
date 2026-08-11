@@ -415,6 +415,16 @@ const ARCHITECTURES = {
     foot: 'useful, not impressive · every number carries its age',
     stack: ['Next.js', 'Cloudflare', 'market lake'],
   },
+  'geo': {
+    name: 'GEOPOLITICAL WATCH',
+    ver: '6.0.0',
+    idx: '42',
+    inputs: ['Myanmar frontier', 'Cambodia frontier', 'Southern theatre', 'Open feeds'],
+    core: { name: 'GEO WATCH', meta: ['tri-border', 'live + playback'] },
+    outputs: ['Border posture', 'Operations map', 'News wire', 'Time machine'],
+    foot: 'Thailand · three frontiers · one command surface',
+    stack: ['Next.js', 'MapLibre', 'Cloudflare'],
+  },
 };
 
 function injectSystemVersions() {
@@ -1369,6 +1379,10 @@ const i18nExt = {
         lede: 'Market intelligence built to be useful, not impressive. World, lens, map, FX, capitol, odds, and plan — every screen must change one decision you can make this week. Research preview, not advice. Every number carries its age.',
         cta: 'Open live system',
       },
+      p42: {
+        lede: 'Tri-border command dashboard for Thailand\'s Myanmar, Cambodia, and southern frontier theatres — live operations, historical playback, and executive-grade intelligence design on one map.',
+        cta: 'Open live system',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1717,6 +1731,10 @@ const i18nExt = {
         lede: 'ข่าวกรองตลาดที่ออกแบบมาให้ใช้ได้จริง ไม่ใช่เพื่อดูดี โลก เลนส์ แผนที่ FX รัฐสภา อัตราต่อรอง และแผน — ทุกหน้าต้องเปลี่ยนการตัดสินใจอย่างน้อยหนึ่งอย่างในสัปดาห์นี้ ตัวอย่างวิจัย ไม่ใช่คำแนะนำ ทุกตัวเลขพกอายุของตัวเอง',
         cta: 'เปิดระบบสด',
       },
+      p42: {
+        lede: 'แดชบอร์ดบัญชาการสามแนวชายแดนของไทย — พม่า กัมพูชา และภาคใต้ — ปฏิบัติการสด การย้อนดูประวัติศาสตร์ และการออกแบบข่าวกรองระดับผู้บริหารบนแผนที่เดียว',
+        cta: 'เปิดระบบสด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2062,6 +2080,10 @@ const i18nExt = {
         lede: '为有用而建的市场情报，不是为好看。世界、透镜、地图、汇率、国会、赔率与计划——每一屏都必须改变你本周能做的一个决定。研究预览，不是建议。每个数字都带着自己的年龄。',
         cta: '打开实时系统',
       },
+      p42: {
+        lede: '泰国三边境指挥仪表板——缅甸、柬埔寨与南部战区——实时行动、历史回放与行政级情报设计，集于一张地图。',
+        cta: '打开实时系统',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2244,6 +2266,7 @@ const i18nExt = {
       p36: { lede: '// BKKxAtlas.walkCity()\n// 432077 OSM buildings · terrain · AQI · rain · landPrice · BTS/MRT · canals', cta: 'system.open()' },
       p40: { lede: '// OpenClaw.setup.agentExecutable()\n// security-first · localLLM.byRAM · riskTiered.tools · docsOnly.noPrivateData', cta: 'github.open()' },
       p41: { lede: '// market.intel(useful: true, impressive: false)\n// world · lens · map · fx · capitol · odds · plan\n// researchPreview · notAdvice · everyNumber.carriesAge', cta: 'system.live.open()' },
+      p42: { lede: '// triBorder.command(TH)\n// myanmar · cambodia · southernTheatre\n// liveOps + playback + executiveIntel.on(map)', cta: 'system.live.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2422,6 +2445,7 @@ const i18nExt2 = {
       p36:'Live · 3D Urban Atlas',
       p40:'Live · Agent Gateway',
       p41:'Live · Working Instrument',
+      p42:'Live · Border Intelligence',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2440,6 +2464,7 @@ const i18nExt2 = {
       c32:'3D Urban Atlas',
       c33:'Agent Gateway',
       c34:'Working Instrument',
+      c35:'Border Intelligence',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2497,11 +2522,11 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '40 systems · 5 countries',
+      sysMeta: '41 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 15',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'Signal & analysis · 5',
+      intelligenceMeta: 'Signal & analysis · 6',
       civic: 'Civic',
       civicMeta: 'National platforms & citizen infrastructure · 4',
       emerging: 'Emerging',
@@ -2567,6 +2592,7 @@ const i18nExt2 = {
       p36:'สด · แผนที่เมือง 3D',
       p40:'สด · เกตเวย์เอเจนต์',
       p41:'สด · เครื่องมือใช้งานจริง',
+      p42:'สด · ข่าวกรองชายแดน',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2585,6 +2611,7 @@ const i18nExt2 = {
       c32:'แผนที่เมือง 3D',
       c33:'เกตเวย์เอเจนต์',
       c34:'เครื่องมือใช้งานจริง',
+      c35:'ข่าวกรองชายแดน',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2642,11 +2669,11 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '40 ระบบ · 5 ประเทศ',
+      sysMeta: '41 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 15',
       intelligence: 'ข่าวกรอง',
-      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 5',
+      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 6',
       civic: 'พลเมือง',
       civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 4',
       emerging: 'ระบบใหม่',
@@ -2712,6 +2739,7 @@ const i18nExt2 = {
       p36:'在线 · 三维城市地图',
       p40:'在线 · 智能体网关',
       p41:'在线 · 可用工具',
+      p42:'在线 · 边境情报',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2728,6 +2756,7 @@ const i18nExt2 = {
       c32:'三维城市地图',
       c33:'智能体网关',
       c34:'可用工具',
+      c35:'边境情报',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2785,11 +2814,11 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '40 个系统 · 5 个国家',
+      sysMeta: '41 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 15',
       intelligence: '情报',
-      intelligenceMeta: '信号与分析 · 5',
+      intelligenceMeta: '信号与分析 · 6',
       civic: '民生',
       civicMeta: '国家级平台与公民基础设施 · 4',
       emerging: '新兴',
@@ -2864,6 +2893,7 @@ const i18nExt2 = {
       p36:'live: UrbanAtlas3D',
       p40:'live: AgentGateway',
       p41:'live: WorkingInstrument',
+      p42:'live: BorderIntel',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -2880,6 +2910,7 @@ const i18nExt2 = {
       c32:'UrbanAtlas3D',
       c33:'AgentGateway',
       c34:'WorkingInstrument',
+      c35:'BorderIntel',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -2937,11 +2968,11 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '40 systems · 5 countries',
+      sysMeta: '41 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[15]',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'signal & analysis · count[5]',
+      intelligenceMeta: 'signal & analysis · count[6]',
       civic: 'Civic',
       civicMeta: 'nationalPlatforms & citizenInfra · count[4]',
       emerging: 'Emerging',
