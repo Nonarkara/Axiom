@@ -368,6 +368,16 @@ const ARCHITECTURES = {
     foot: 'walk Bangkok block by block · my city, not theirs',
     stack: ['MapLibre GL', 'PMTiles', 'Cloudflare Workers', 'R2'],
   },
+  'bkk-culture': {
+    name: 'BKKX CULTURE',
+    ver: '1.0.0',
+    idx: '43',
+    inputs: ['Fine Arts register', '9 heritage quarters', '7 walks', 'OSM heritage'],
+    core: { name: 'BKKXC', meta: ['heritage atlas', 'sibling to ops twin'] },
+    outputs: ['3D heritage map', 'Quarter pages', 'Monument register', 'Documented walks'],
+    foot: 'Bangkok\'s heritage, block by block',
+    stack: ['3D atlas', 'OpenStreetMap', 'Fine Arts Department'],
+  },
   'nst': {
     name: 'NST-01',
     ver: '1.0.0',
@@ -1506,6 +1516,10 @@ const i18nExt = {
         lede: 'Tri-border command dashboard for Thailand\'s Myanmar, Cambodia, and southern frontier theatres — live operations, historical playback, and executive-grade intelligence design on one map.',
         cta: 'Open live system',
       },
+      p43: {
+        lede: 'Bangkok\'s heritage, block by block — nine quarters from the royal island to Bang Krachao, 571 registered monuments, seven documented walks. The culture half of the BKKx pair, beside the operational twin at atlas.nonarkara.org.',
+        cta: 'Open live system',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1858,6 +1872,10 @@ const i18nExt = {
         lede: 'แดชบอร์ดบัญชาการสามแนวชายแดนของไทย — พม่า กัมพูชา และภาคใต้ — ปฏิบัติการสด การย้อนดูประวัติศาสตร์ และการออกแบบข่าวกรองระดับผู้บริหารบนแผนที่เดียว',
         cta: 'เปิดระบบสด',
       },
+      p43: {
+        lede: 'มรดกกรุงเทพฯ ทีละบล็อก — เก้าย่านจากเกาะรัตนโกสินทร์ถึงบางกะเจ้า โบราณสถานขึ้นทะเบียน 571 แห่ง และเส้นทางเดินเจ็ดสาย คู่แฝดวัฒนธรรมของ BKKx คู่กับฝั่งปฏิบัติการที่ atlas.nonarkara.org',
+        cta: 'เปิดระบบสด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2207,6 +2225,10 @@ const i18nExt = {
         lede: '泰国三边境指挥仪表板——缅甸、柬埔寨与南部战区——实时行动、历史回放与行政级情报设计，集于一张地图。',
         cta: '打开实时系统',
       },
+      p43: {
+        lede: '曼谷遗产，一街区一街区——从王城岛到邦卡昭的九个街区、571处登记古迹、七条有记录的步行路线。BKKx 对中的文化半边，对应 atlas.nonarkara.org 的运营孪生。',
+        cta: '打开实时系统',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2390,6 +2412,7 @@ const i18nExt = {
       p40: { lede: '// OpenClaw.setup.agentExecutable()\n// security-first · localLLM.byRAM · riskTiered.tools · docsOnly.noPrivateData', cta: 'github.open()' },
       p41: { lede: '// market.intel(useful: true, impressive: false)\n// world · lens · map · fx · capitol · odds · plan\n// researchPreview · notAdvice · everyNumber.carriesAge', cta: 'system.live.open()' },
       p42: { lede: '// triBorder.command(TH)\n// myanmar · cambodia · southernTheatre\n// liveOps + playback + executiveIntel.on(map)', cta: 'system.live.open()' },
+      p43: { lede: '// bkk.heritage.blockByBlock()\n// quarters: 9 · monuments: 571 · walks: 7\n// siblingOf(atlas.nonarkara.org)', cta: 'system.live.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2569,6 +2592,7 @@ const i18nExt2 = {
       p40:'Live · Agent Gateway',
       p41:'Live · Working Instrument',
       p42:'Live · Border Intelligence',
+      p43:'Live · Heritage Atlas',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2588,6 +2612,7 @@ const i18nExt2 = {
       c33:'Agent Gateway',
       c34:'Working Instrument',
       c35:'Border Intelligence',
+      c36:'Heritage Atlas',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2645,9 +2670,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '41 systems · 5 countries',
+      sysMeta: '42 systems · 5 countries',
       command: 'City Dashboards',
-      commandMeta: 'Real-time city operations rooms & environmental watch · 15',
+      commandMeta: 'Real-time city operations rooms & environmental watch · 16',
       intelligence: 'Intelligence',
       intelligenceMeta: 'Signal & analysis · 6',
       civic: 'Civic',
@@ -2716,6 +2741,7 @@ const i18nExt2 = {
       p40:'สด · เกตเวย์เอเจนต์',
       p41:'สด · เครื่องมือใช้งานจริง',
       p42:'สด · ข่าวกรองชายแดน',
+      p43:'สด · แผนที่มรดก',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2735,6 +2761,7 @@ const i18nExt2 = {
       c33:'เกตเวย์เอเจนต์',
       c34:'เครื่องมือใช้งานจริง',
       c35:'ข่าวกรองชายแดน',
+      c36:'แผนที่มรดก',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2792,9 +2819,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '41 ระบบ · 5 ประเทศ',
+      sysMeta: '42 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
-      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 15',
+      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
       intelligence: 'ข่าวกรอง',
       intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 6',
       civic: 'พลเมือง',
@@ -2863,6 +2890,7 @@ const i18nExt2 = {
       p40:'在线 · 智能体网关',
       p41:'在线 · 可用工具',
       p42:'在线 · 边境情报',
+      p43:'在线 · 遗产地图',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2880,6 +2908,7 @@ const i18nExt2 = {
       c33:'智能体网关',
       c34:'可用工具',
       c35:'边境情报',
+      c36:'遗产地图',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2937,9 +2966,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '41 个系统 · 5 个国家',
+      sysMeta: '42 个系统 · 5 个国家',
       command: '城市仪表板',
-      commandMeta: '实时城市作战室与环境监测 · 15',
+      commandMeta: '实时城市作战室与环境监测 · 16',
       intelligence: '情报',
       intelligenceMeta: '信号与分析 · 6',
       civic: '民生',
@@ -3017,6 +3046,7 @@ const i18nExt2 = {
       p40:'live: AgentGateway',
       p41:'live: WorkingInstrument',
       p42:'live: BorderIntel',
+      p43:'live: HeritageAtlas',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -3034,6 +3064,7 @@ const i18nExt2 = {
       c33:'AgentGateway',
       c34:'WorkingInstrument',
       c35:'BorderIntel',
+      c36:'HeritageAtlas',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -3091,9 +3122,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '41 systems · 5 countries',
+      sysMeta: '42 systems · 5 countries',
       command: 'CityDashboards',
-      commandMeta: 'cityOps.realtime & envWatch · count[15]',
+      commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
       intelligenceMeta: 'signal & analysis · count[6]',
       civic: 'Civic',
