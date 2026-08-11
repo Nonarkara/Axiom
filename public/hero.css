@@ -831,11 +831,24 @@
   .hero-title { font-size: clamp(2.6rem, 13vw, 4.8rem); }
   .hero-stats { gap: 18px; }
   .hero-stat-value { font-size: 18px; }
-  .sat-hud { min-width: 0; left: 12px; right: 12px; transform: none; max-width: none; }
+  /* Stack the three top-of-hero controls vertically so they stop
+     sitting on top of each other. AUTO TOUR (map-mode) → sat-hud →
+     Theatre Brief badge, with 8px gaps. The .hero-featured-badge
+     override is placed in a later @media block (see "Mobile: top
+     stack — placed AFTER base rule to win the cascade") so it
+     overrides the base `top: 50%` + `transform: translateY(-50%)`. */
+  .map-mode { top: 12px; left: 12px; }
+  .sat-hud {
+    top: 56px;          /* below .map-mode (h=36 + 8 gap) */
+    min-width: 0;
+    left: 12px;
+    right: 12px;
+    transform: none;
+    max-width: none;
+  }
   /* Mobile fallback: keep the DOM city label visible since the canvas
      tick is hidden under the Leaflet map. Compact for narrow viewport. */
   .hero-city-label { top: 14px; right: 14px; font-size: 10px; }
-  .map-mode { top: 12px; left: 12px; }
   .sat-controls { bottom: 12px; right: 12px; flex-wrap: wrap; }
   .map-explore-hint { display: none; }
   #intelOverlayDubai,
@@ -1062,21 +1075,21 @@
   transition: opacity 240ms ease, transform 240ms ease;
 }
 
+/* Tablet signal-label compaction. The .hero-featured-badge mobile rules
+   are placed further below so they can win the cascade against the
+   base rule (see "Mobile: top stack" block). */
 @media (max-width: 900px) {
   .sat-signal-label { font-size: 8px; padding: 2px 4px; }
-  .hero-featured-badge {
-    top: auto;
-    bottom: 96px;
-    right: 12px;
-    left: 12px;
-    transform: none;
-    max-width: none;
-    min-width: 0;
-  }
-  .hero-featured-badge:hover { transform: none; }
-  .hero-featured-badge__name { font-size: 20px; }
-  #hero.is-touring .hero-featured-badge,
-  #hero:not(.is-touring) .hero-featured-badge {
-    transform: none;
-  }
+}
+
+/* Mobile: hide the Theatre Brief badge. The base rule positions it as
+   a vertical-center sidebar (right: 32px, top: 50%) intended for the
+   desktop layout's right-half whitespace. On a single-column mobile/tablet
+   hero there is no room — at 196px tall it either overlaps the title
+   and subtitle (when placed at the top of the hero) or the Tap-a-theatre
+   node strip and stats bar (when placed at the bottom). The same live
+   link is rendered one scroll down in the showcase section with proper
+   mobile layout, so hiding the hero badge costs nothing. */
+@media (max-width: 900px) {
+  .hero-featured-badge { display: none !important; }
 }
