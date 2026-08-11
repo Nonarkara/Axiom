@@ -3568,6 +3568,14 @@ function initFlooddashCarousel() {
     if (satSignals) satSignals.textContent = signalTypes;
     if (satWatching) satWatching.textContent = `${watchingLabel} · ${theatre.signals.length}`;
 
+    // Sync the canvas-rendered pretext text (city + signal types) so the
+    // overlay shares the data lines' coordinate system instead of sitting
+    // on a separate DOM chip.
+    if (window.__axiomCanvasText) {
+      window.__axiomCanvasText.city = String(name).toUpperCase();
+      window.__axiomCanvasText.signals = signalTypes;
+    }
+
     if (featuredBadge) featuredBadge.href = theatre.featured.href;
     if (featuredEvent) featuredEvent.textContent = eventId;
     if (featuredName) featuredName.textContent = featuredNameText;
@@ -3674,6 +3682,11 @@ function initFlooddashCarousel() {
     if (mapModePlay) mapModePlay.style.display = touring ? 'none' : 'block';
     const heroEl = document.getElementById('hero');
     if (heroEl) heroEl.classList.toggle('is-touring', touring);
+    // Sync the canvas-rendered mode label (pretext overlay) so the
+    // text is on the same coordinate system as the data lines.
+    if (window.__axiomCanvasText) {
+      window.__axiomCanvasText.mode = touring ? labels.tour : labels.hold;
+    }
   }
 
   function driftToNext() {
@@ -3835,6 +3848,78 @@ function initFlooddashCarousel() {
     rebuildNodes();
   });
 
+  // ── Pretext-style canvas text ───────────────────────────────
+  // Pure-canvas text overlay for the city name + signal types.
+  // Cached measureText (pretext's core trick) keeps it cheap at 60fps.
+  // Synced from syncTheatre() and setModeUI() above.
+  const canvasText = {
+    city: 'BANGKOK',
+    signals: 'FLOOD · CAMPUS · URBAN · ATLAS',
+    mode: 'AUTO TOUR', // 'AUTO TOUR' or 'HOLD'
+  };
+  const _measureCache = new Map();
+  function measure(str, font) {
+    const key = font + '\u0001' + str;
+    if (_measureCache.has(key)) return _measureCache.get(key);
+    ctx.font = font;
+    const w = ctx.measureText(str).width;
+    _measureCache.set(key, w);
+    return w;
+  }
+  // Position: top-right corner, mirrors the legacy .hero-city-label coordinates
+  // so the canvas text replaces the DOM chip without layout drift.
+  const FONT_CITY = '600 11px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace';
+  const FONT_META = '700 9.5px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace';
+  const FONT_MODE = '700 10px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace';
+
+  function drawCanvasText() {
+    const cw = canvas.offsetWidth;
+    const ch = canvas.offsetHeight;
+    if (!cw || !ch) return;
+    // On mobile, the Leaflet map covers the canvas — skip the canvas
+    // tick overlay (the DOM HUD pill is visible on top of the map).
+    if (useLiteCanvas) return;
+    // Same position as the .hero-city-label DOM (28px from top/right)
+    const top = 28;
+    const right = 28;
+    const isMobile = cw < 600;
+    const cityFont = isMobile ? '600 10px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace' : FONT_CITY;
+
+    // City name (right-aligned, paper color, sub-pixel)
+    ctx.font = cityFont;
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'top';
+    ctx.fillStyle = 'rgba(250, 249, 247, 0.95)';
+    ctx.fillText(canvasText.city, cw - right, top);
+
+    // Signal types (right-aligned, smaller, accent underline)
+    const sigW = measure(canvasText.signals, FONT_META);
+    const sigTop = top + (isMobile ? 16 : 18);
+    ctx.font = FONT_META;
+    ctx.fillStyle = 'rgba(0, 36, 125, 0.85)';
+    ctx.fillText(canvasText.signals, cw - right, sigTop);
+
+    // Hairline tick under signals to tie to grid — visual "data" mark
+    ctx.strokeStyle = 'rgba(0, 36, 125, 0.4)';
+    ctx.lineWidth = 0.5;
+    ctx.beginPath();
+    ctx.moveTo(cw - right - sigW, sigTop + 12);
+    ctx.lineTo(cw - right, sigTop + 12);
+    ctx.stroke();
+
+    // Mode indicator (right-aligned, below the tick, smaller)
+    const modeTop = sigTop + 18;
+    ctx.font = FONT_MODE;
+    const touring = canvasText.mode === 'AUTO TOUR';
+    ctx.fillStyle = touring ? 'rgba(0, 36, 125, 0.9)' : 'rgba(250, 249, 247, 0.95)';
+    ctx.fillText(canvasText.mode, cw - right, modeTop);
+  }
+  // Make canvasText mutable from outside this IIFE so the existing
+  // syncTheatre() / setModeUI() handlers can update the rendered text
+  // without redrawing the DOM chip.
+  window.__axiomCanvasText = canvasText;
+  window.__axiomClearMeasureCache = () => _measureCache.clear();
+
   function drawGrid() {
     const cw = canvas.offsetWidth;
     const ch = canvas.offsetHeight;
@@ -3909,6 +3994,11 @@ function initFlooddashCarousel() {
         ctx.stroke();
       }
     }
+
+    // Canvas-rendered pretext text (city + signals + mode).
+    // This shares the canvas coordinate system with the data lines and
+    // signal nodes above — so the text "is" the data, not chrome on top.
+    drawCanvasText();
   }
 
   document.addEventListener('visibilitychange', () => {
