@@ -492,6 +492,7 @@
       "p41": { "lede": "인상적이기보다 쓸모 있게 만든 시장 인텔리전스. 월드, 렌즈, 맵, FX, 국회, 배당, 플랜 — 모든 화면은 이번 주에 할 수 있는 결정을 하나라도 바꿔야 한다. 연구 프리뷰, 조언 아님. 모든 숫자는 자신의 나이를 달고 있다.", "cta": "라이브 시스템 열기" },
       "p42": { "lede": "태국의 미얀마·캄보디아·남부 전선 삼중 국경 지휘 대시보드 — 실시간 작전, 역사 재생, 임원급 인텔리전스 디자인을 한 지도에.", "cta": "라이브 시스템 열기" },
       "p43": { "lede": "방콕의 유산, 블록 단위로 — 왕실 섬에서 방크라차오까지 아홉 구역, 등록 유적 571곳, 문서화된 산책 일곱 코스. atlas.nonarkara.org 운영 트윈과 짝을 이루는 BKKx의 문화 반쪽.", "cta": "라이브 시스템 열기" },
+      "p44": { "lede": "방콕에는 약 40만 동의 셰하우스가 있지만 그에 대한 목록조차 없다. 재사용과 내재 탄소(embodied carbon)에 관한 장문의 에세이, 2,311동 현장 조사, 재무부 토지 가격 압력 지도, 그리고 네 가지 색의 답. 하버드 디자인대학원 《Shophouse Metropolis》에 게재.", "cta": "에세이 읽기" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>타이베이</b> · City Vision Stage · 2026년 3월",
@@ -683,7 +684,8 @@
       "p40": "Live · 에이전트 게이트웨이",
       "p41": "Live · 워킹 인스트루먼트",
       "p42": "Live · 국경 인텔리전스",
-      "p43": "Live · 유산 아틀라스"
+      "p43": "Live · 유산 아틀라스",
+      "p44": "Live · 도시 연구"
     },
     "cats": {
       "c01": "지역 운영",
@@ -715,7 +717,8 @@
       "c33": "에이전트 게이트웨이",
       "c34": "워킹 인스트루먼트",
       "c35": "국경 인텔리전스",
-      "c36": "유산 아틀라스"
+      "c36": "유산 아틀라스",
+      "c37": "도시 연구"
     ,
         "c19": "환경 모니터링",
         "c26": "오픈 청사진",
@@ -803,7 +806,7 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "42개 시스템 · 5개국",
+      "sysMeta": "43개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 15",
       "intelligence": "인텔리전스",
@@ -813,7 +816,7 @@
       "emerging": "신규",
       "emergingMeta": "연구급 및 새 운영 모델 · 8",
       "lab": "랩",
-      "labMeta": "보조 도구 · 공개 진행 · 8"
+      "labMeta": "보조 도구 · 공개 진행 · 9"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1357,6 +1360,7 @@
       "p41": { "lede": "印象ではなく役に立つために作った市場インテリジェンス。ワールド、レンズ、マップ、FX、国会、オッズ、プラン——各画面は今週できる判断を一つでも変えなければならない。研究プレビューであり、助言ではない。すべての数字は自分の年齢を持つ。", "cta": "ライブシステムを開く" },
       "p42": { "lede": "タイのミャンマー・カンボジア・南部戦域の三国境指揮ダッシュボード — ライブ作戦、歴史再生、幹部級インテリジェンス設計を一枚の地図に。", "cta": "ライブシステムを開く" },
       "p43": { "lede": "バンコクの遺産を街区ごとに — 王宮の島からバンカチャオまで九つの地区、登録史跡571、記録された七本の散歩。atlas.nonarkara.orgの運用ツインと対をなすBKKxの文化側。", "cta": "ライブシステムを開く" },
+      "p44": { "lede": "バンコクには約40万件のショップハウスがあるのに、その目録は存在しない。再利用とエンボディド・カーボンに関する長文エッセイ、2,311棟のサーベイ、タイ財務省の地価圧力マップ、そして四色の答え。ハーバードデザイン大学院『Shophouse Metropolis』所収。", "cta": "エッセイを読む" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>台北</b> · City Vision Stage · 2026年3月",
@@ -1575,7 +1579,8 @@
         "c33": "エージェントゲートウェイ",
         "c34": "ワーキングインストゥルメント",
         "c35": "国境インテリジェンス",
-        "c36": "遺産アトラス",},
+        "c36": "遺産アトラス",
+        "c37": "都市研究",},
     "bioCommon": {
       "cvBtn": "履歴書を見る",
       "education": "学歴"
@@ -1659,7 +1664,7 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "42システム · 5か国",
+      "sysMeta": "43システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 15",
       "intelligence": "インテリジェンス",
@@ -1669,7 +1674,7 @@
       "emerging": "新興",
       "emergingMeta": "研究グレードと新運用モデル · 8",
       "lab": "ラボ",
-      "labMeta": "補助ツール · 公開中 · 8"
+      "labMeta": "補助ツール · 公開中 · 9"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2213,6 +2218,7 @@
       "p41": { "lede": "Tình báo thị trường dựng để hữu ích, không để gây ấn tượng. Thế giới, ống kính, bản đồ, FX, quốc hội, tỷ lệ cược và kế hoạch — mọi màn hình phải đổi ít nhất một quyết định bạn có thể làm tuần này. Bản xem trước nghiên cứu, không phải lời khuyên. Mỗi con số mang tuổi của nó.", "cta": "Mở hệ thống trực tiếp" },
       "p42": { "lede": "Bảng điều khiển chỉ huy ba biên giới của Thái Lan — Myanmar, Campuchia và chiến trường phía nam — hoạt động trực tiếp, phát lại lịch sử và thiết kế tình báo cấp điều hành trên một bản đồ.", "cta": "Mở hệ thống trực tiếp" },
       "p43": { "lede": "Di sản Bangkok, từng khối phố — chín khu từ đảo hoàng gia đến Bang Krachao, 571 di tích đăng ký, bảy tuyến đi bộ có ghi chép. Nửa văn hóa của cặp BKKx, cạnh bản song sinh vận hành tại atlas.nonarkara.org.", "cta": "Mở hệ thống trực tiếp" },
+      "p44": { "lede": "Bangkok có khoảng 400.000 nhà cổ shophouse nhưng không hề có một bản kiểm kê nào. Một bài tiểu luận dài về tái sử dụng và carbon ẩn, kèm khảo sát 2.311 tòa nhà, bản đồ áp lực giá đất của Bộ Tài chính, và câu trả lời bốn màu. Đăng trong Shophouse Metropolis, Harvard GSD.", "cta": "Đọc tiểu luận" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>Đài Bắc</b> · City Vision Stage · tháng 3/2026",
@@ -2431,7 +2437,8 @@
         "c33": "Cổng agent",
         "c34": "Công cụ làm việc",
         "c35": "Tình báo biên giới",
-        "c36": "Bản đồ di sản",},
+        "c36": "Bản đồ di sản",
+        "c37": "Nghiên cứu đô thị",},
     "bioCommon": {
       "cvBtn": "Xem CV",
       "education": "Học vấn"
@@ -2515,7 +2522,7 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "42 hệ thống · 5 quốc gia",
+      "sysMeta": "43 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 15",
       "intelligence": "Tình báo",
@@ -2525,7 +2532,7 @@
       "emerging": "Mới nổi",
       "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 8",
       "lab": "Lab",
-      "labMeta": "Công cụ phụ · mở công khai · 8"
+      "labMeta": "Công cụ phụ · mở công khai · 9"
     },
     "sysStatus": {
       "live": "Trực tiếp",

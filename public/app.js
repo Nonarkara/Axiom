@@ -378,6 +378,16 @@ const ARCHITECTURES = {
     foot: 'Bangkok\'s heritage, block by block',
     stack: ['3D atlas', 'OpenStreetMap', 'Fine Arts Department'],
   },
+  'shophouse-metropolis': {
+    name: 'SHOPHOUSE METROPOLIS',
+    ver: '1.0.0',
+    idx: '41',
+    inputs: ['2,311-building survey', 'Treasury land value', 'Setback rules', 'OSM footprints'],
+    core: { name: 'BKK SHOUSE', meta: ['long-form essay', 'Harvard GSD 2026'] },
+    outputs: ['Pressure map', 'Four-colour answer', 'Reuse-first argument'],
+    foot: 'Bangkok\'s 400,000 shophouses, finally inventoried',
+    stack: ['MapLibre', 'Long-form prose', 'Open data'],
+  },
   'nst': {
     name: 'NST-01',
     ver: '1.0.0',
@@ -1520,6 +1530,10 @@ const i18nExt = {
         lede: 'Bangkok\'s heritage, block by block — nine quarters from the royal island to Bang Krachao, 571 registered monuments, seven documented walks. The culture half of the BKKx pair, beside the operational twin at atlas.nonarkara.org.',
         cta: 'Open live system',
       },
+      p44: {
+        lede: "Bangkok has roughly 400,000 shophouses and no inventory of them. A long-form essay on reuse and embodied carbon, with the 2,311-building survey, the Treasury land-value pressure map, and the four-colour answer. Published in Shophouse Metropolis, Harvard GSD.",
+        cta: 'Read the essay',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1876,6 +1890,10 @@ const i18nExt = {
         lede: 'มรดกกรุงเทพฯ ทีละบล็อก — เก้าย่านจากเกาะรัตนโกสินทร์ถึงบางกะเจ้า โบราณสถานขึ้นทะเบียน 571 แห่ง และเส้นทางเดินเจ็ดสาย คู่แฝดวัฒนธรรมของ BKKx คู่กับฝั่งปฏิบัติการที่ atlas.nonarkara.org',
         cta: 'เปิดระบบสด',
       },
+      p44: {
+        lede: 'กรุงเทพฯ มีตึกแถวราว 400,000 หลัง แต่ไม่มีบัญชีรายชื่อแม้แต่น้อย บทความเชิงลึกเรื่องการนำกลับมาใช้ใหม่และคาร์บอนฝังตัว พร้อมสำรวจ 2,311 อาคาร แผนที่แรงกดดันราคาที่ดินของกรมธนารักษ์ และคำตอบสี่สี ตีพิมพ์ใน Shophouse Metropolis, Harvard GSD',
+        cta: 'อ่านบทความ',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2229,6 +2247,10 @@ const i18nExt = {
         lede: '曼谷遗产，一街区一街区——从王城岛到邦卡昭的九个街区、571处登记古迹、七条有记录的步行路线。BKKx 对中的文化半边，对应 atlas.nonarkara.org 的运营孪生。',
         cta: '打开实时系统',
       },
+      p44: {
+        lede: '曼谷约有40万栋店屋，却没有任何一份清册。一篇关于再利用与隐含碳的长文，附2,311栋建筑调查、财政部地价压力地图与四色答案。发表于哈佛设计研究生院的《店屋大都会》。',
+        cta: '阅读长文',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2413,6 +2435,7 @@ const i18nExt = {
       p41: { lede: '// market.intel(useful: true, impressive: false)\n// world · lens · map · fx · capitol · odds · plan\n// researchPreview · notAdvice · everyNumber.carriesAge', cta: 'system.live.open()' },
       p42: { lede: '// triBorder.command(TH)\n// myanmar · cambodia · southernTheatre\n// liveOps + playback + executiveIntel.on(map)', cta: 'system.live.open()' },
       p43: { lede: '// bkk.heritage.blockByBlock()\n// quarters: 9 · monuments: 571 · walks: 7\n// siblingOf(atlas.nonarkara.org)', cta: 'system.live.open()' },
+      p44: { lede: '// bkk.shophouseInventory.existence: false\n// 400k buildings · no survey · 2311 sample · treasuryPressureMap · fourColour.answer\n// publishedIn(ShophouseMetropolis, harvardGSD)', cta: 'essay.read()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2593,6 +2616,7 @@ const i18nExt2 = {
       p41:'Live · Working Instrument',
       p42:'Live · Border Intelligence',
       p43:'Live · Heritage Atlas',
+      p44:'Live · Urban Research',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2613,6 +2637,7 @@ const i18nExt2 = {
       c34:'Working Instrument',
       c35:'Border Intelligence',
       c36:'Heritage Atlas',
+      c37:'Urban Research',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2670,7 +2695,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '42 systems · 5 countries',
+      sysMeta: '43 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 16',
       intelligence: 'Intelligence',
@@ -2680,7 +2705,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 8',
+      labMeta: 'Side tools · in the open · 9',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -2742,6 +2767,7 @@ const i18nExt2 = {
       p41:'สด · เครื่องมือใช้งานจริง',
       p42:'สด · ข่าวกรองชายแดน',
       p43:'สด · แผนที่มรดก',
+      p44:'สด · งานวิจัยเมือง',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2762,6 +2788,7 @@ const i18nExt2 = {
       c34:'เครื่องมือใช้งานจริง',
       c35:'ข่าวกรองชายแดน',
       c36:'แผนที่มรดก',
+      c37:'งานวิจัยเมือง',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2819,7 +2846,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '42 ระบบ · 5 ประเทศ',
+      sysMeta: '43 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
       intelligence: 'ข่าวกรอง',
@@ -2829,7 +2856,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 8',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 9',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -2891,6 +2918,7 @@ const i18nExt2 = {
       p41:'在线 · 可用工具',
       p42:'在线 · 边境情报',
       p43:'在线 · 遗产地图',
+      p44:'在线 · 城市研究',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2909,6 +2937,7 @@ const i18nExt2 = {
       c34:'可用工具',
       c35:'边境情报',
       c36:'遗产地图',
+      c37:'城市研究',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -2966,7 +2995,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '42 个系统 · 5 个国家',
+      sysMeta: '43 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 16',
       intelligence: '情报',
@@ -2976,7 +3005,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 8',
+      labMeta: '辅助工具 · 开放中 · 9',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3047,6 +3076,7 @@ const i18nExt2 = {
       p41:'live: WorkingInstrument',
       p42:'live: BorderIntel',
       p43:'live: HeritageAtlas',
+      p44:'live: UrbanResearch',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -3065,6 +3095,7 @@ const i18nExt2 = {
       c34:'WorkingInstrument',
       c35:'BorderIntel',
       c36:'HeritageAtlas',
+      c37:'UrbanResearch',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -3122,7 +3153,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '42 systems · 5 countries',
+      sysMeta: '43 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
@@ -3132,7 +3163,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[8]',
+      labMeta: 'sideTools & openProcess · count[9]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
@@ -3454,10 +3485,10 @@ function initFlooddashCarousel() {
       eventId: 'ME_WATCH',
       featured: {
         name: 'Middle East Monitor',
-        href: 'https://conflict.nonarkara.org/',
+        href: 'https://mem.nonarkara.org/',
       },
       signals: [
-        { type: 'CONFLICT', system: 'MEM', href: 'https://conflict.nonarkara.org/', lat: 25.2048, lng: 55.2708 },
+        { type: 'CONFLICT', system: 'MEM', href: 'https://mem.nonarkara.org/', lat: 25.2048, lng: 55.2708 },
         { type: 'GLOBAL', system: 'Global Monitor', href: 'https://global.nonarkara.org/', lat: 24.7136, lng: 46.6753 },
       ],
     },
