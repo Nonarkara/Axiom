@@ -3201,7 +3201,7 @@ const i18nExt2 = {
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'signal & analysis · count[6]',
+      intelligenceMeta: 'signal & analysis · count[8]',
       civic: 'Civic',
       civicMeta: 'nationalPlatforms & citizenInfra · count[4]',
       emerging: 'Emerging',
