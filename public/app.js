@@ -172,6 +172,24 @@ const ARCHITECTURES = {
     outputs: ['Live traffic map', 'Multi-front status', 'GPD Oracle forecast'],
     foot: 'four theaters, one open data lens',
   },
+  'asiawatch': {
+    name: 'ASIA POLITICAL DASHBOARD',
+    ver: '1.0.0',
+    idx: '44',
+    inputs: ['SE Asia', 'East Asia', 'South Asia', 'Thailand', 'Gulf lifeline', 'ADS-B', 'AIS', 'GDELT'],
+    core: { name: 'ASIAWATCH', meta: ['5 theaters', 'Gulf reframed as energy artery'] },
+    outputs: ['Regional live map', 'Frontier markers', 'Country news + TV'],
+    foot: 'Asia through its own lens, not as an annex of the West',
+  },
+  'worldconsole': {
+    name: 'WORLD CONSOLE',
+    ver: '1.0.0',
+    idx: '45',
+    inputs: ['Worldwide ADS-B', 'Worldwide AIS', 'ACLED', 'FIRMS', 'RSS', 'Markets'],
+    core: { name: 'GLOBAL CONSOLE', meta: ['planet scope', 'intel + markets docked'] },
+    outputs: ['World traffic map', 'Global macro column', 'Market strip'],
+    foot: 'the whole board, one screen',
+  },
   'mem': {
     name: 'MEM',
     ver: '2.1.0',
@@ -1534,6 +1552,14 @@ const i18nExt = {
         lede: "Bangkok has roughly 400,000 shophouses and no inventory of them. A long-form essay on reuse and embodied carbon, with the 2,311-building survey, the Treasury land-value pressure map, and the four-colour answer. Published in Shophouse Metropolis, Harvard GSD.",
         cta: 'Read the essay',
       },
+      p45: {
+        lede: 'Five Asian theaters — Southeast Asia, East Asia, South Asia, Thailand, and the Gulf as Asia\'s energy lifeline — on one live map: conflict events, fires, air and sea traffic, regional news and TV, from open data.',
+        cta:'Open live system',
+      },
+      p46: {
+        lede: 'The whole planet on one screen: live aircraft and ships worldwide, conflict and fire hotspots, the intel column and market strip docked open. Same open-data engine, world scope.',
+        cta:'Open live system',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1894,6 +1920,14 @@ const i18nExt = {
         lede: 'กรุงเทพฯ มีตึกแถวราว 400,000 หลัง แต่ไม่มีบัญชีรายชื่อแม้แต่น้อย บทความเชิงลึกเรื่องการนำกลับมาใช้ใหม่และคาร์บอนฝังตัว พร้อมสำรวจ 2,311 อาคาร แผนที่แรงกดดันราคาที่ดินของกรมธนารักษ์ และคำตอบสี่สี ตีพิมพ์ใน Shophouse Metropolis, Harvard GSD',
         cta: 'อ่านบทความ',
       },
+      p45: {
+        lede: 'ห้าสมรภูมิเอเชีย — เอเชียตะวันออกเฉียงใต้ เอเชียตะวันออก เอเชียใต้ ไทย และอ่าวเปอร์เซียในฐานะเส้นเลือดพลังงานของเอเชีย — บนแผนที่สดแผ่นเดียว: เหตุความขัดแย้ง จุดความร้อน การจราจรทางอากาศและทางทะเล ข่าวและทีวีระดับภูมิภาค จากข้อมูลเปิด',
+        cta:'เปิดระบบสด',
+      },
+      p46: {
+        lede: 'ทั้งโลกบนหน้าจอเดียว: เครื่องบินและเรือแบบเรียลไทม์ทั่วโลก จุดความขัดแย้งและจุดความร้อน คอลัมน์ข่าวกรองและแถบตลาดเปิดค้างไว้ เครื่องยนต์ข้อมูลเปิดตัวเดียวกัน ขอบเขตระดับโลก',
+        cta:'เปิดระบบสด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2251,6 +2285,14 @@ const i18nExt = {
         lede: '曼谷约有40万栋店屋，却没有任何一份清册。一篇关于再利用与隐含碳的长文，附2,311栋建筑调查、财政部地价压力地图与四色答案。发表于哈佛设计研究生院的《店屋大都会》。',
         cta: '阅读长文',
       },
+      p45: {
+        lede: '亚洲五大战区——东南亚、东亚、南亚、泰国，以及作为亚洲能源生命线的海湾——同在一张实时地图上：冲突事件、热点火情、空中与海上交通、区域新闻与电视，全部来自开放数据。',
+        cta:'打开在线系统',
+      },
+      p46: {
+        lede: '整个地球尽在一屏：全球实时航班与船舶、冲突与火情热点、常驻打开的情报栏与市场条。同一套开放数据引擎，世界尺度。',
+        cta:'打开在线系统',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2436,6 +2478,8 @@ const i18nExt = {
       p42: { lede: '// triBorder.command(TH)\n// myanmar · cambodia · southernTheatre\n// liveOps + playback + executiveIntel.on(map)', cta: 'system.live.open()' },
       p43: { lede: '// bkk.heritage.blockByBlock()\n// quarters: 9 · monuments: 571 · walks: 7\n// siblingOf(atlas.nonarkara.org)', cta: 'system.live.open()' },
       p44: { lede: '// bkk.shophouseInventory.existence: false\n// 400k buildings · no survey · 2311 sample · treasuryPressureMap · fourColour.answer\n// publishedIn(ShophouseMetropolis, harvardGSD)', cta: 'essay.read()' },
+      p45: { lede: '// asia.theaters(5)\n// SE Asia · East Asia · South Asia · Thailand · Gulf lifeline // conflict + fires + ADS-B + AIS + news + TV', cta: 'system.open()' },
+      p46: { lede: '// world.console()\n// planet-scale ADS-B + AIS · conflict + fires · intel + markets docked open', cta: 'system.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2695,11 +2739,11 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '43 systems · 5 countries',
+      sysMeta: '45 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 16',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'Signal & analysis · 6',
+      intelligenceMeta: 'Signal & analysis · 8',
       civic: 'Civic',
       civicMeta: 'National platforms & citizen infrastructure · 4',
       emerging: 'Emerging',
@@ -2846,11 +2890,11 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '43 ระบบ · 5 ประเทศ',
+      sysMeta: '45 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
       intelligence: 'ข่าวกรอง',
-      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 6',
+      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 8',
       civic: 'พลเมือง',
       civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 4',
       emerging: 'ระบบใหม่',
@@ -2995,11 +3039,11 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '43 个系统 · 5 个国家',
+      sysMeta: '45 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 16',
       intelligence: '情报',
-      intelligenceMeta: '信号与分析 · 6',
+      intelligenceMeta: '信号与分析 · 8',
       civic: '民生',
       civicMeta: '国家级平台与公民基础设施 · 4',
       emerging: '新兴',
@@ -3153,7 +3197,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '43 systems · 5 countries',
+      sysMeta: '45 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
