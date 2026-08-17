@@ -167,10 +167,10 @@ const ARCHITECTURES = {
     name: 'GLOBAL MONITOR',
     ver: '2.6.1',
     idx: '24',
-    inputs: ['Middle East', 'SE Asia', 'Thailand', 'Open data', 'Fires', 'Conflict', 'Ships'],
-    core: { name: 'GLOBAL MONITOR', meta: ['3 regions', 'heat + conflict + ports'] },
-    outputs: ['Layered world map', 'Event stream', 'Energy + port watch'],
-    foot: 'three regions, one open data lens',
+    inputs: ['Middle East', 'Indo-Pacific', 'Thailand', 'Global', 'ADS-B', 'AIS', 'Fires', 'Conflict'],
+    core: { name: 'GLOBAL MONITOR', meta: ['4 theaters', 'air + sea + conflict + markets'] },
+    outputs: ['Live traffic map', 'Multi-front status', 'GPD Oracle forecast'],
+    foot: 'four theaters, one open data lens',
   },
   'mem': {
     name: 'MEM',
@@ -1466,7 +1466,7 @@ const i18nExt = {
         cta:'Open live system',
       },
       p22: {
-        lede: 'Monitoring three regions (Middle East, Southeast Asia, Thailand): an ultimate monitoring platform based on open data that reveals insights through layering.',
+        lede: 'Four theaters — Middle East, Indo-Pacific, Thailand, Global — on one live surface: aircraft and ships in motion, conflict events, fires, markets and an 8-week escalation forecast, all from open data.',
         cta:'Open live system',
       },
       p23: {
@@ -1826,7 +1826,7 @@ const i18nExt = {
         cta:'เปิดระบบสด',
       },
       p22: {
-        lede: 'เฝ้าติดตามสามภูมิภาค (ตะวันออกกลาง เอเชียตะวันออกเฉียงใต้ ไทย): แพลตฟอร์มมอนิเตอร์ขั้นสูงจากข้อมูลเปิดที่เปิดเผยอินไซต์ผ่านการซ้อนเลเยอร์',
+        lede: 'สี่สมรภูมิ — ตะวันออกกลาง อินโด-แปซิฟิก ไทย และทั่วโลก — บนหน้าจอเดียวแบบเรียลไทม์: เครื่องบินและเรือที่กำลังเคลื่อนที่ เหตุความขัดแย้ง จุดความร้อน ตลาด และการพยากรณ์การยกระดับสถานการณ์ 8 สัปดาห์ ทั้งหมดจากข้อมูลเปิด',
         cta:'เปิดระบบสด',
       },
       p23: {
@@ -2183,7 +2183,7 @@ const i18nExt = {
         cta:'打开在线系统',
       },
       p22: {
-        lede: '监测三个区域（中东、东南亚、泰国）：基于开放数据的终极监测平台，通过图层叠加揭示洞察。',
+        lede: '四个战区——中东、印太、泰国与全球——同在一个实时界面：飞行中的航班与船舶、冲突事件、热点火情、市场行情，以及八周升级预测，全部来自开放数据。',
         cta:'打开在线系统',
       },
       p23: {
@@ -2423,7 +2423,7 @@ const i18nExt = {
       p20: { lede: '// Horizon45.aiJudgmentFieldInstrument()\n// deepfake detection → prompt engineering // users navigate real-world signals, leave with a capability portrait', cta: 'system.open()' },
       p21: { lede: '// HCMC.massiveScaleCommandSurface()\n// live traffic + flood monitoring + AQ + dynamic routing // one high-performance map for city decision-makers', cta: 'system.open()' },
       p33: { lede: '// MTT.superDashboard.v2()\n// IMPACT Arena + Challenger halls + flood + traffic + AQI + event load // 3D district map for Thailand densest mixed-use complex', cta: 'system.open()' },
-      p22: { lede: '// threeRegionsMonitor()\n// Middle East, Southeast Asia, Thailand on one surface // open-data + layer overlays = insight', cta: 'system.open()' },
+      p22: { lede: '// fourTheaters()\n// Middle East, Indo-Pacific, Thailand, Global on one surface // live air + sea traffic, conflicts, markets, 8-week forecast', cta: 'system.open()' },
       p23: { lede: '// SCITI.smartCityThailandIndex()\n// official Thai index: 174 city areas, 7 smart-city pillars // progress and impact evaluated', cta: 'system.open()' },
       p24: { lede: '// DaoDeJing.trilingualReadingRoom()\n// Tsai comics + Buddhist parallels + psychology notes + pinyin + reference bookshelf // continuously updated', cta: 'system.open()' },
       p30: { lede: '// the desk.byTheNumbers()\n// daily AI-frontier brief // what is shipping, what is hot air, what to read tonight // sector watch + manual picks + compounding archive', cta: 'system.open()' },
