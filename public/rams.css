@@ -2989,3 +2989,53 @@ details[open] > summary:focus-visible {
   margin-left: 6px;
   display: inline-block;
 }
+
+/* ------------------------------------------------------------
+   §12.10  Plates stack on phones
+   .plate is a horizontal flex: a navy label column beside a body of
+   label/value rows. On a 390px screen the navy column still claimed
+   ~60% of the width, squeezing every value into a 110px gutter — the
+   registered address ran to five lines. The tag becomes a header bar
+   below 600px and the rows get the full width back.
+   ------------------------------------------------------------ */
+@media (max-width: 600px) {
+  .plate {
+    display: block;
+  }
+
+  .plate__tag {
+    padding: 10px 14px;
+    justify-content: flex-start;
+  }
+
+  .cred-plate .row__v {
+    max-width: none;
+  }
+
+  /* Label above value rather than a two-up squeeze. */
+  .plate__body .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .plate__body .row__vwrap {
+    justify-content: flex-start;
+  }
+
+  .plate__body .row__v {
+    text-align: left;
+  }
+}
+
+/* ------------------------------------------------------------
+   §12.11  Code mode is not a language
+   The `</>` button carried a .locale-btn--ts modifier with no rule, so
+   it sat in the language rail looking like a seventh locale. Mono face
+   and no letter-spacing so it reads as what it is.
+   ------------------------------------------------------------ */
+.locale-switch button.locale-btn--ts {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0;
+}
