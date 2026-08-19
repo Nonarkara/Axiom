@@ -640,7 +640,7 @@
         "foldLine": "브랜드 키트 · 8장 · 다운로드 가능",
         "kicker": "브랜드 키트",
         "meta": "8장 · Axiom 아이덴티티 시스템",
-        "lede": "표지, 로고, 색상, 서체, 레이아웃 — 8장. 전체 패키지를 다운로드하거나 각 시트를 둘러보세요.",
+        "lede": "마크, 로고 시스템, 스테이셔너리, 명함, 프레젠테이션, 디지털, 굿즈, 환경 그래픽 — 8장. 전체 패키지를 다운로드하거나 각 시트를 둘러보세요.",
         "downloadCta": "브랜드 키트 다운로드",
         "expandAll": "모든 브랜드 시트 보기"
       },
@@ -1589,7 +1589,7 @@
         "foldLine": "ブランドキット · 8シート · ダウンロード可",
         "kicker": "ブランドキット",
         "meta": "8シート · Axiomアイデンティティシステム",
-        "lede": "表紙、ロゴ、カラー、タイポ、レイアウト——8シート。パッケージをダウンロードするか、各シートを閲覧。",
+        "lede": "マーク、ロゴシステム、ステーショナリー、名刺、プレゼン、デジタル、グッズ、環境グラフィック——8シート。パッケージをダウンロードするか、各シートを閲覧。",
         "downloadCta": "ブランドキットをダウンロード",
         "expandAll": "すべてのブランドシートを見る"
       },
@@ -2528,7 +2528,7 @@
         "foldLine": "Bộ nhận diện · 8 tờ · có thể tải xuống",
         "kicker": "Bộ nhận diện thương hiệu",
         "meta": "8 tờ · Hệ thống nhận diện Axiom",
-        "lede": "Bìa, logo, màu, typography, layout — 8 tờ. Tải gói đầy đủ hoặc duyệt từng tờ.",
+        "lede": "Dấu hiệu, hệ thống logo, văn phòng phẩm, danh thiếp, thuyết trình, kỹ thuật số, quà tặng, biển hiệu — 8 tờ. Tải gói đầy đủ hoặc duyệt từng tờ.",
         "downloadCta": "Tải Brand Kit",
         "expandAll": "Xem tất cả brand sheet"
       },

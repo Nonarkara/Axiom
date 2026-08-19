@@ -409,7 +409,7 @@ summary:focus-visible {
 .sandbox-note {
   display: flex;
   align-items: stretch;
-  max-width: 64ch;
+  max-width: var(--measure);
   margin: 0 0 20px;
   border: 1px solid var(--line-2);
   background: var(--panel);
@@ -2231,14 +2231,14 @@ summary:focus-visible {
 
 .cred-compact {
   margin: 10px 0 0;
-  max-width: 64ch;
+  max-width: var(--measure);
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
 }
 
 .cred-trade-note {
   margin: 8px 0 0;
-  max-width: 64ch;
+  max-width: var(--measure);
   color: var(--ink-3);
 }
 
@@ -2300,7 +2300,7 @@ summary:focus-visible {
 }
 
 .cred-standards-lede {
-  max-width: 64ch;
+  max-width: var(--measure);
   margin: 0 0 16px;
 }
 
@@ -2365,7 +2365,7 @@ summary:focus-visible {
 
 .cred-disclaimer {
   margin: 18px 0 0;
-  max-width: 64ch;
+  max-width: var(--measure);
   color: var(--ink-3);
   font-size: 12px;
   line-height: 1.5;
@@ -2382,7 +2382,7 @@ summary:focus-visible {
 
 .brand-lede {
   margin: 8px 0 0;
-  max-width: 60ch;
+  max-width: var(--measure);
   color: var(--ink-3);
 }
 
@@ -2460,7 +2460,7 @@ summary:focus-visible {
 
 .stack-note {
   margin: 12px 0 0;
-  max-width: 64ch;
+  max-width: var(--measure);
   color: var(--ink-3);
 }
 
@@ -2686,11 +2686,9 @@ html {
   html { scroll-behavior: auto; }
 }
 
-main > section,
-.fold-strip > section,
-#top {
-  scroll-margin-top: calc(var(--masthead-h) + 12px);
-}
+/* NOTE: scroll-padding-top on the scroll container is the only offset in
+   play. Adding scroll-margin-top to the targets as well stacks the two and
+   lands every anchor ~78px lower than intended. */
 
 /* ------------------------------------------------------------
    §12.2  Skip link — first tab stop, visible only when focused
@@ -2971,4 +2969,23 @@ details[open] > summary:focus-visible {
   .plate__body {
     padding: 11px 14px;
   }
+}
+
+/* ------------------------------------------------------------
+   §12.9  Hairline strip fillers
+   .tags paints the container in --line and each cell in --panel, so
+   the gap after the last cell on a row rendered as a stray grey block
+   at the end of the strip. A panel-coloured filler closes the run.
+   ------------------------------------------------------------ */
+.tags::after {
+  content: "";
+  flex: 1 1 auto;
+  min-width: 0;
+  background: var(--panel);
+}
+
+/* The disclosure caret sat flush against the label. */
+.t-ctrl .caret {
+  margin-left: 6px;
+  display: inline-block;
 }

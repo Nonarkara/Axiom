@@ -14,7 +14,7 @@ This is the landing page and live demo for **Axiom X Co., Ltd.**, a Bangkok-base
 | Content | Static HTML, single file (`public/index.html`, ~1,825 lines) | One file = one source of truth, no framework drift |
 | Behaviour | Vanilla JS (`public/app.js`, ~3,000 lines) | No build step. No `node_modules` shipped. |
 | Style | Custom CSS — `rams.css` (system) + `hero.css` (hero specifics) | Rams + Vignelli/NYCTA heritage, mono-accent, hairline grids |
-| Map | Leaflet 1.9.4 from `unpkg.com` | Live map with AUTO TOUR loop is the visual signature |
+| Map | Leaflet 1.9.4, self-hosted at `public/vendor/leaflet/` | Live map with AUTO TOUR loop is the visual signature. Vendored on 2026-08-19: when unpkg.com was unreachable the whole hero interaction layer died silently. |
 | Animation | Canvas 2D (`#heroCanvas`) | Data lines + grid behind the map |
 | i18n | In-file JS dictionaries | EN / TH / ZH / KO / JA / VI / TS (7 locales) |
 | Local dev | `server.mjs` (Node 22+, native `node:sqlite`) | One binary, no bundler. `npm run dev` → http://localhost:3000 |
@@ -52,6 +52,7 @@ public/
 ├── hero.css           — hero-specific styles (Leaflet map, satellite HUD, intel overlays)
 ├── theme-masterpiece.css  — kept on disk for reference; NOT currently linked
 ├── admin/             — internal admin UI (auth required)
+├── vendor/leaflet/    — Leaflet 1.9.4 (byte-identical to the npm dist). DO NOT re-point at a CDN.
 ├── assets/            — logos, brand kit, OG image
 ├── images/            — press, event, team photography
 ├── photos/            — pro bono + supplementary photography
