@@ -506,6 +506,7 @@ const uiCopy = {
       team: 'Team',
       cta: 'Work With Us',
     },
+    a11y: { skip: 'Skip to content' },
     hero: {
       badge: 'All Systems Online',
       titleLine1: 'Innovation',
@@ -521,6 +522,7 @@ const uiCopy = {
       statSystems: 'Live Systems',
       statMonitoring: 'Live Monitoring',
       statCountries: 'Countries',
+      rotating: ['as a Service', 'that disappears', 'that works', 'for cities', 'for decisions', 'as water'],
       featured: {
         kicker: 'THEATRE BRIEF',
         cta: 'Open live system',
@@ -713,6 +715,7 @@ const uiCopy = {
       team: 'ทีม',
       cta: 'เริ่มงานร่วมกัน',
     },
+    a11y: { skip: 'ข้ามไปยังเนื้อหา' },
     hero: {
       badge: 'ระบบทั้งหมดออนไลน์',
       titleLine1: 'นวัตกรรม',
@@ -728,6 +731,7 @@ const uiCopy = {
       statSystems: 'ระบบที่ใช้งาน',
       statMonitoring: 'ติดตามตลอดเวลา',
       statCountries: 'ประเทศ',
+      rotating: ['ในรูปแบบบริการ', 'ที่มองไม่เห็น', 'ที่ใช้ได้จริง', 'เพื่อเมือง', 'เพื่อการตัดสินใจ', 'ดั่งสายน้ำ'],
       featured: {
         kicker: 'สรุปแนว',
         cta: 'เปิดระบบสด',
@@ -920,6 +924,7 @@ const uiCopy = {
       team: '团队',
       cta: '成为合作伙伴',
     },
+    a11y: { skip: '跳到主要内容' },
     hero: {
       badge: '所有系统在线',
       titleLine1: '创新',
@@ -935,6 +940,7 @@ const uiCopy = {
       statSystems: '在线系统',
       statMonitoring: '全天候监控',
       statCountries: '国家',
+      rotating: ['即服务', '隐于无形', '真正可用', '为城市而生', '为决策而生', '如水一般'],
       featured: {
         kicker: '战区简报',
         cta: '打开在线系统',
@@ -1127,6 +1133,7 @@ const uiCopy = {
       team: 'class Team',
       cta: 'await workTogether()',
     },
+    a11y: { skip: '// skip.toContent()' },
     hero: {
       badge: '// status: ONLINE',
       titleLine1: 'Innovation',
@@ -1142,6 +1149,7 @@ const uiCopy = {
       statSystems: 'LiveSystem[]',
       statMonitoring: 'readonly 24/7',
       statCountries: 'Country<T>',
+      rotating: ['as.a.Service()', 'that.disappears()', 'that.works()', 'for<City>', 'for<Decision>', 'as.water()'],
       featured: {
         kicker: '// THEATRE_BRIEF',
         cta: 'system.open()',
@@ -1627,7 +1635,7 @@ const i18nExt = {
       l9name:'Local Runtime', l9role:'the desk',
       legend:'<span data-runtime="cloud">cloud</span><span data-runtime="local">// local</span>',
     
-      expandHint:'9 layers · 117 tools · built and run from one desk in Bangkok. Click below for the full list.',},
+      expandHint:'9 layers · 114 tools · built and run from one desk in Bangkok. Click below for the full list.',},
     brandSect: {
       foldLine:'Brand Kit · 8 sheets · download available',
       kicker:'Brand Kit',
@@ -1995,7 +2003,7 @@ const i18nExt = {
       l9name:'รันไทม์ในเครื่อง', l9role:'โต๊ะทำงาน',
       legend:'<span data-runtime="cloud">คลาวด์</span><span data-runtime="local">// local</span>',
     
-      expandHint:'9 ชั้น · 117 เครื่องมือ · สร้างและรันจากโต๊ะทำงานเดียวในกรุงเทพฯ คลิกด้านล่างเพื่อดูรายการทั้งหมด',},
+      expandHint:'9 ชั้น · 114 เครื่องมือ · สร้างและรันจากโต๊ะทำงานเดียวในกรุงเทพฯ คลิกด้านล่างเพื่อดูรายการทั้งหมด',},
     brandSect: {
       foldLine:'Brand Kit · 8 แผ่น · ดาวน์โหลดได้',
       kicker:'Brand Kit',
@@ -2360,7 +2368,7 @@ const i18nExt = {
       l9name:'本地运行时', l9role:'工作台',
       legend:'<span data-runtime="cloud">云端</span><span data-runtime="local">// local</span>',
     
-      expandHint:'9 层 · 117 项工具 · 从曼谷的一张桌子上构建和运行。点击下方查看完整列表',},
+      expandHint:'9 层 · 114 项工具 · 从曼谷的一张桌子上构建和运行。点击下方查看完整列表',},
     brandSect: {
       foldLine:'品牌工具包 · 8张 · 可下载',
       kicker:'品牌工具包',
@@ -2547,7 +2555,7 @@ const i18nExt = {
       l9name:'runtime.local()', l9role:'// the desk',
       legend:'<span data-runtime="cloud">// cloud</span><span data-runtime="local">// local</span>',
     
-      expandHint:'// 9 layers, 117 tools, one desk.bangkok() // click below for the full list',},
+      expandHint:'// 9 layers, 114 tools, one desk.bangkok() // click below for the full list',},
     brandSect: {
       foldLine:'// brandKit[8] · download.available()',
       kicker:'brandKit[]',
@@ -2739,7 +2747,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '45 systems · 5 countries',
+      sysMeta: '37 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 16',
       intelligence: 'Intelligence',
@@ -2890,7 +2898,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '45 ระบบ · 5 ประเทศ',
+      sysMeta: '37 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
       intelligence: 'ข่าวกรอง',
@@ -3039,7 +3047,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '45 个系统 · 5 个国家',
+      sysMeta: '37 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 16',
       intelligence: '情报',
@@ -3197,7 +3205,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '45 systems · 5 countries',
+      sysMeta: '37 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
@@ -3708,6 +3716,11 @@ function initFlooddashCarousel() {
       const tracker = document.querySelector('.hero-tracker');
       map.on('move', () => {
         const center = map.getCenter();
+        if (window.__axiomCanvasText) {
+          window.__axiomCanvasText.lat = center.lat;
+          window.__axiomCanvasText.lng = center.lng;
+          window.__axiomCanvasText.zoom = map.getZoom();
+        }
         const screenPos = map.latLngToContainerPoint(center);
         if (xLine) xLine.style.top = screenPos.y + 'px';
         if (yLine) yLine.style.left = screenPos.x + 'px';
@@ -3867,6 +3880,10 @@ function initFlooddashCarousel() {
 
   syncTheatre(CITIES[0]);
   setModeUI(true);
+  // The canvas overlay is initialised further down this file, so it cannot be
+  // written to directly here. Leave it the map's opening position instead.
+  const c0 = map.getCenter();
+  window.__axiomMapSeed = { lat: c0.lat, lng: c0.lng, zoom: map.getZoom() };
 })();
 (function initDataLines() {
   const canvas = document.getElementById('heroCanvas');
@@ -3931,6 +3948,12 @@ function initFlooddashCarousel() {
     city: 'BANGKOK',
     signals: 'FLOOD · CAMPUS · URBAN · ATLAS',
     mode: 'AUTO TOUR', // 'AUTO TOUR' or 'HOLD'
+    // Live map telemetry, seeded from the map's opening position and
+    // rewritten by the Leaflet IIFE on every move/zoom.
+    lat: 13.7563,
+    lng: 100.5018,
+    zoom: 12,
+    ...(window.__axiomMapSeed || {}),
   };
   const _measureCache = new Map();
   function measure(str, font) {
@@ -3947,6 +3970,17 @@ function initFlooddashCarousel() {
   const FONT_META = '700 9.5px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace';
   const FONT_MODE = '700 10px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace';
 
+  function fmtCoord(value, posHemi, negHemi) {
+    const hemi = value >= 0 ? posHemi : negHemi;
+    return Math.abs(value).toFixed(4) + '\u00b0' + hemi;
+  }
+
+  function utcClock() {
+    const d = new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    return `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())}Z`;
+  }
+
   function drawCanvasText() {
     const cw = canvas.offsetWidth;
     const ch = canvas.offsetHeight;
@@ -3954,40 +3988,43 @@ function initFlooddashCarousel() {
     // On mobile, the Leaflet map covers the canvas — skip the canvas
     // tick overlay (the DOM HUD pill is visible on top of the map).
     if (useLiteCanvas) return;
-    // Same position as the .hero-city-label DOM (28px from top/right)
+    // Same position the .hero-city-label used (28px from top/right).
     const top = 28;
     const right = 28;
     const isMobile = cw < 600;
-    const cityFont = isMobile ? '600 10px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace' : FONT_CITY;
+    const coordFont = isMobile ? '600 10px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace' : FONT_CITY;
 
-    // City name (right-aligned, paper color, sub-pixel)
-    ctx.font = cityFont;
+    // Line 1 — the map's live centre, to four decimal places.
+    const coords = fmtCoord(canvasText.lat, 'N', 'S') + '  ' + fmtCoord(canvasText.lng, 'E', 'W');
+    ctx.font = coordFont;
     ctx.textAlign = 'right';
     ctx.textBaseline = 'top';
     ctx.fillStyle = 'rgba(250, 249, 247, 0.95)';
-    ctx.fillText(canvasText.city, cw - right, top);
+    ctx.fillText(coords, cw - right, top);
 
-    // Signal types (right-aligned, smaller, accent underline)
-    const sigW = measure(canvasText.signals, FONT_META);
-    const sigTop = top + (isMobile ? 16 : 18);
+    // Line 2 — zoom level. Navy-on-near-black was illegible here; the
+    // readout is now paper at low opacity and the accent is kept for the rule.
+    const zoomStr = 'ZOOM ' + Number(canvasText.zoom).toFixed(1);
+    const zoomW = measure(zoomStr, FONT_META);
+    const zoomTop = top + (isMobile ? 16 : 18);
     ctx.font = FONT_META;
-    ctx.fillStyle = 'rgba(0, 36, 125, 0.85)';
-    ctx.fillText(canvasText.signals, cw - right, sigTop);
+    ctx.fillStyle = 'rgba(250, 249, 247, 0.62)';
+    ctx.fillText(zoomStr, cw - right, zoomTop);
 
-    // Hairline tick under signals to tie to grid — visual "data" mark
-    ctx.strokeStyle = 'rgba(0, 36, 125, 0.4)';
+    // Hairline tick under the readout to tie it to the grid.
+    ctx.strokeStyle = 'rgba(0, 36, 125, 0.55)';
     ctx.lineWidth = 0.5;
     ctx.beginPath();
-    ctx.moveTo(cw - right - sigW, sigTop + 12);
-    ctx.lineTo(cw - right, sigTop + 12);
+    ctx.moveTo(cw - right - Math.max(zoomW, 64), zoomTop + 12);
+    ctx.lineTo(cw - right, zoomTop + 12);
     ctx.stroke();
 
-    // Mode indicator (right-aligned, below the tick, smaller)
-    const modeTop = sigTop + 18;
+    // Line 3 — UTC clock. The site sells the illusion of real time; this is
+    // the one element on the page that genuinely is.
+    const clockTop = zoomTop + 18;
     ctx.font = FONT_MODE;
-    const touring = canvasText.mode === 'AUTO TOUR';
-    ctx.fillStyle = touring ? 'rgba(0, 36, 125, 0.9)' : 'rgba(250, 249, 247, 0.95)';
-    ctx.fillText(canvasText.mode, cw - right, modeTop);
+    ctx.fillStyle = 'rgba(250, 249, 247, 0.78)';
+    ctx.fillText(utcClock(), cw - right, clockTop);
   }
   // Make canvasText mutable from outside this IIFE so the existing
   // syncTheatre() / setModeUI() handlers can update the rendered text
@@ -4093,21 +4130,46 @@ function initFlooddashCarousel() {
 
 // ── Rotating Hero Text (restored from ee756b7) ────────────────
 // Cycles the second line of the hero title every 3.5s.
+// The phrase list used to be a hardcoded English array, so the second
+// line of the headline stayed English under TH/ZH/KO/JA/VI while the
+// first line translated. It now reads hero.rotating from the active
+// locale and re-renders on locale change.
 (function initRotatingText() {
   const el = document.getElementById('heroRotatingText');
   if (!el) return;
 
-  const phrases = [
-    'as a Service',
-    'that disappears',
-    'that works',
-    'for cities',
-    'for decisions',
-    'as water',
-  ];
+  const EN_FALLBACK = ['as a Service', 'that disappears', 'that works', 'for cities', 'for decisions', 'as water'];
+
+  function phrasesFor() {
+    const local = uiCopy[activeLocale]?.hero?.rotating;
+    if (Array.isArray(local) && local.length) return local;
+    const en = uiCopy.en?.hero?.rotating;
+    return Array.isArray(en) && en.length ? en : EN_FALLBACK;
+  }
+
+  // Poster-scale type + six phrases of very different lengths + seven
+  // locales = the line can outrun the grid. Shrink only the overflowing
+  // phrase rather than capping the type size for all of them.
+  const title = el.closest('.hero-title');
+  function fit() {
+    el.style.fontSize = '';
+    if (!title) return;
+    const available = title.clientWidth;
+    if (!available || el.scrollWidth <= available) return;
+    const base = parseFloat(getComputedStyle(title).fontSize) || 0;
+    if (!base) return;
+    el.style.fontSize = Math.floor(base * (available / el.scrollWidth)) + 'px';
+  }
 
   let index = 0;
+  function render(i) {
+    const phrases = phrasesFor();
+    index = ((i % phrases.length) + phrases.length) % phrases.length;
+    el.textContent = phrases[index];
+    fit();
+  }
 
+  render(0);
   el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
 
   setInterval(() => {
@@ -4115,11 +4177,85 @@ function initFlooddashCarousel() {
     el.style.transform = 'translateY(8px)';
 
     setTimeout(() => {
-      index = (index + 1) % phrases.length;
-      el.textContent = phrases[index];
+      render(index + 1);
       el.style.opacity = 1;
       el.style.transform = 'translateY(0)';
     }, 400);
   }, 3500);
+
+  window.addEventListener('axiom:localechange', () => render(index));
+  window.addEventListener('resize', fit);
+})();
+
+// ── Chrome metrics ────────────────────────────────────────────
+// Publish the real masthead height as --masthead-h. The hero sizes
+// itself against it and every anchor jump offsets by it; both used to
+// assume a hardcoded 66px, which is wrong the moment the masthead
+// wraps to two rows (every viewport under 1024px).
+(function initChromeMetrics() {
+  const masthead = document.querySelector('.masthead');
+  if (!masthead) return;
+  const publish = () => {
+    const h = Math.round(masthead.getBoundingClientRect().height);
+    if (h > 0) document.documentElement.style.setProperty('--masthead-h', h + 'px');
+  };
+  publish();
+  window.addEventListener('resize', publish);
+  window.addEventListener('axiom:localechange', publish);
+  if (typeof ResizeObserver === 'function') new ResizeObserver(publish).observe(masthead);
+})();
+
+// ── Fold sections open on anchor navigation ───────────────────
+// Team / Press / Brand Kit / Credentials live inside <details> folds
+// that are closed by default. Four of the six primary nav links
+// therefore scrolled the visitor to a 45px-tall collapsed strip and
+// nothing else. Any hash that resolves to (or inside) a fold now opens
+// it before scrolling.
+(function initFoldTargets() {
+  function revealFor(hash) {
+    if (!hash || hash === '#' || hash === '#top') return null;
+    let target;
+    try { target = document.querySelector(hash); } catch { return null; }
+    if (!target) return null;
+
+    // A fold nested inside the target, or a fold the target sits inside.
+    const folds = [
+      ...target.querySelectorAll('details.fold-row'),
+      ...(target.closest('details.fold-row') ? [target.closest('details.fold-row')] : []),
+    ];
+    const opened = folds.filter((d) => !d.open);
+    opened.forEach((d) => { d.open = true; });
+    return { target, opened: opened.length > 0 };
+  }
+
+  function handle(hash, opts = {}) {
+    const found = revealFor(hash);
+    if (!found) return;
+    const { target } = found;
+    // The fold has just been opened, so re-run the scroll once layout settles.
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: opts.instant ? 'auto' : 'smooth', block: 'start' });
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    const link = e.target instanceof Element ? e.target.closest('a[href^="#"]') : null;
+    if (!link) return;
+    const hash = link.getAttribute('href');
+    if (!hash || hash === '#') return;
+    if (!document.querySelector(hash)) return;
+    const found = revealFor(hash);
+    // Only take over when we actually had to open a fold; otherwise let the
+    // browser's own anchor handling (and scroll-padding-top) do the work.
+    if (!found || !found.opened) return;
+    e.preventDefault();
+    history.pushState(null, '', hash);
+    requestAnimationFrame(() => {
+      found.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  window.addEventListener('hashchange', () => handle(location.hash));
+  if (location.hash) handle(location.hash, { instant: true });
 })();
 

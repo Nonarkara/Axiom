@@ -60,6 +60,17 @@
   --maxw: 1200px;
   /* wide-tool container */
 
+  /* §1.6 type — the mono face used by every readout and log */
+  --mono: ui-monospace, 'JetBrains Mono', 'IBM Plex Mono', SFMono-Regular, Menlo, monospace;
+
+  /* §1.7 chrome — published by app.js, measured from the real masthead.
+     Everything that has to sit under the sticky header (hero height,
+     anchor scroll offsets) reads this instead of hard-coding 66px. */
+  --masthead-h: 66px;
+
+  /* §1.8 focus — the ring colour, re-declared on dark surfaces */
+  --focus: var(--accent);
+
   /* §1.5 motion — confirm, not entertain */
   --t-fast: 100ms;
   /* visible feedback */
@@ -215,7 +226,9 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
-  outline: 1px solid var(--accent) !important;
+  /* --focus is the accent on paper and re-declared to --paper inside the
+     hero, where a navy hairline on a near-black map was invisible. */
+  outline: 2px solid var(--focus) !important;
   outline-offset: 2px !important;
 }
 
@@ -1056,7 +1069,9 @@ summary:focus-visible {
   line-height: 1.55;
   color: var(--ink-2);
   margin: 12px 0 0;
-  max-width: 60ch;
+  /* 60ch of this face is ~420px — a three-line ragged column sitting
+     under a 1200px headline and above a 1200px stat row. */
+  max-width: var(--measure);
 }
 
 .stage__pull {
@@ -1094,7 +1109,9 @@ summary:focus-visible {
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
-  margin-top: 1px;
+  /* 1px let the triptych butt straight against the field-transmission
+     block above it, with no seam between two very different objects. */
+  margin-top: 22px;
 }
 
 .stage__gallery img {
@@ -2647,4 +2664,311 @@ html:not([lang="th"]) .foot-th-only { display: none; }
 .sys-cell--soon:hover .sys-cell__shot {
   filter: grayscale(0.55) contrast(0.92);
   opacity: 0.88;
+}
+
+/* ============================================================
+   §12  UX/UI AUDIT PASS — 2026-08-19
+   Additions only. Nothing above this line was removed.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   §12.1  Anchor scrolling under the sticky masthead
+   Every in-page jump used to land the target at y=0, i.e. with its
+   first ~66px hidden behind the sticky header. Section heads were
+   being eaten on every nav click.
+   ------------------------------------------------------------ */
+html {
+  scroll-padding-top: calc(var(--masthead-h) + 12px);
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+main > section,
+.fold-strip > section,
+#top {
+  scroll-margin-top: calc(var(--masthead-h) + 12px);
+}
+
+/* ------------------------------------------------------------
+   §12.2  Skip link — first tab stop, visible only when focused
+   ------------------------------------------------------------ */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  padding: 12px 18px;
+  background: var(--accent);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateY(-120%);
+  transition: transform var(--t-state) var(--ease);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------
+   §12.3  Focus ring contrast
+   The site already had a :focus-visible rule, but it was hardwired to
+   the navy accent — effectively invisible against the dark hero map.
+   The ring colour now follows the surface. (The rule itself lives in
+   §3.3; this just re-declares the token where the ground goes dark.)
+   ------------------------------------------------------------ */
+#hero {
+  --focus: var(--paper);
+}
+
+/* Anything focusable that is not a link/button/input still gets a ring. */
+[tabindex]:focus-visible,
+details[open] > summary:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------
+   §12.4  Masthead navigation below 1024px
+   The anchor nav was `display:none` under 1024px and the primary
+   CTA was dropped under 760px — which left phones with a masthead
+   containing a wordmark and a language switcher and no way to reach
+   any section of the site. The nav now becomes a scrollable hairline
+   strip on its own row, in the same cockpit language as the rest of
+   the chrome.
+   ------------------------------------------------------------ */
+/* Specificity has to beat `.nav a { display: inline-flex }`. */
+.masthead .nav a.nav__cta {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .masthead__inner {
+    flex-wrap: wrap;
+    row-gap: 0;
+    padding-bottom: 0;
+  }
+
+  .brand { order: 1; }
+
+  .locale-switch {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .masthead__inner > .btn--primary { order: 3; }
+
+  /* Was display:none. */
+  .masthead .nav {
+    order: 4;
+    display: flex;
+    flex: 0 0 100%;
+    width: 100%;
+    margin-top: 2px;
+    padding: 0 2px;
+    justify-content: flex-start;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .masthead .nav::-webkit-scrollbar { display: none; }
+
+  .masthead .nav a {
+    flex: 0 0 auto;
+    min-height: 40px;
+    padding: 0 11px;
+    white-space: nowrap;
+  }
+
+  /* A visible end-of-rail cue so the strip reads as scrollable. */
+  .masthead .nav::after {
+    content: "";
+    flex: 0 0 12px;
+  }
+}
+
+/* Phone: the standalone CTA button is hidden, so the conversion path
+   rides along at the end of the nav rail instead of disappearing. */
+@media (max-width: 759px) {
+  .masthead .nav a.nav__cta {
+    display: inline-flex;
+    margin-left: 4px;
+    color: var(--paper);
+    background: var(--accent);
+    font-weight: 700;
+  }
+
+  .masthead .nav a.nav__cta:hover {
+    color: var(--paper);
+    background: var(--ink);
+  }
+}
+
+/* ------------------------------------------------------------
+   §12.5  Intelligence log  —  the [EVENT_ID] protocol readouts
+   `intelligence-log`, `log-entry`, `log-timestamp`,
+   `field-transmission` and `transmission-header` are used 26 times
+   in index.html and had ZERO matching CSS anywhere, so all three
+   protocol sections rendered as loose unstyled paragraphs. These
+   class names carry the aesthetic (CLAUDE.md) — this is the CSS
+   that hangs off them.
+   ------------------------------------------------------------ */
+.intelligence-log {
+  border-top: 1px solid var(--line-2);
+  padding-top: 14px;
+}
+
+.log-entry {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 0 18px;
+  align-items: baseline;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.log-entry:last-of-type {
+  border-bottom: 0;
+}
+
+.log-timestamp {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.log-entry p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+/* The field transmission is the one quoted line per protocol section:
+   a bordered block with a mono header, not another paragraph. */
+.field-transmission {
+  margin-top: 14px;
+  padding: 13px 16px;
+  border: 1px solid var(--line-2);
+  border-left: 3px solid var(--accent);
+  background: var(--panel);
+}
+
+.transmission-header {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 7px;
+}
+
+.field-transmission p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--ink);
+}
+
+@media (max-width: 600px) {
+  .log-entry {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+/* ------------------------------------------------------------
+   §12.6  Reading measure
+   Body copy on this page ranged from a 430px column to a full
+   1200px line. The numbered field notes were the worst case at
+   ~150 characters per line — roughly double the readable limit —
+   while the lede directly above them sat in a 430px column.
+   One measure token, applied where prose actually runs long.
+   ------------------------------------------------------------ */
+:root {
+  --measure: 78ch;
+}
+
+.numbered__body {
+  max-width: var(--measure);
+}
+
+/* ------------------------------------------------------------
+   §12.7  Footer fine print
+   Nine legal paragraphs stacked in a 520px column left the right
+   half of the footer empty and ran the block to ~1,100px tall.
+   Two columns on wide viewports; unchanged below 900px.
+   ------------------------------------------------------------ */
+@media (min-width: 900px) {
+  .foot__fineprint {
+    max-width: none;
+    column-count: 2;
+    column-gap: 56px;
+    column-rule: 1px solid var(--line);
+  }
+
+  .foot__fineprint-p,
+  .foot__fineprint-list,
+  .foot__fineprint-copy {
+    break-inside: avoid;
+  }
+
+  /* Keep a section label attached to the block it introduces. */
+  .foot__fineprint-label {
+    break-after: avoid;
+    break-inside: avoid;
+  }
+
+  /* The copyright line closes the whole block, not one column. */
+  .foot__fineprint-copy {
+    column-span: all;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+}
+
+/* ------------------------------------------------------------
+   §12.8  Credential rows on narrow phones
+   `.row` is a two-up flex (label / value) with no wrapping and no
+   shrink, so on a 320–360px screen the registration numbers and
+   bilingual dates pushed the whole document ~67px wider than the
+   viewport — the page scrolled sideways.
+   ------------------------------------------------------------ */
+.row {
+  flex-wrap: wrap;
+}
+
+.row__k,
+.row__v {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.row__vwrap {
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .plate__body {
+    padding: 11px 14px;
+  }
 }

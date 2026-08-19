@@ -21,9 +21,13 @@
 #hero {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* was 88vh — the larger .hero-title needs the room so
-    .hero-stats doesn't collide with the absolutely-positioned
-    .map-explore-hint pinned to the section's bottom edge */
+  /* Fill exactly the viewport MINUS the sticky masthead. With a plain 100vh
+     the section overshoots by the masthead's height and the bottom-pinned
+     .map-explore-hint lands below the fold — invisible on every laptop.
+     --masthead-h is measured and published by app.js; 66px is the desktop
+     fallback for a no-JS first paint. */
+  min-height: calc(100vh - var(--masthead-h, 66px));
+  min-height: calc(100svh - var(--masthead-h, 66px));
   background: var(--paper);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
@@ -214,17 +218,17 @@
   pointer-events: none;
 }
 
-@media (min-width: 768px) {
-  /* Desktop / tablet: canvas pretext tick takes over. Hide the DOM
-     chip (still announced by screen readers via aria-hidden toggling
-     in app.js, but visually replaced). */
-  .hero-city-label {
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
+/* The .sat-hud panel already prints the active theatre name at every
+   breakpoint, so this chip was a second copy of it. Above 768px it was
+   clipped; below 768px it was not, which put "PHUKET" twice in the top
+   band of every phone. Clipped everywhere now — still in the DOM and the
+   accessibility tree, still written by app.js. */
+.hero-city-label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* Visually-hidden helper used for the canvas-rendered theatre labels */
@@ -243,7 +247,7 @@
 /* ----- Map Mode Indicator (top-left, AUTO TOUR pill) ----- */
 .map-mode {
   position: absolute;
-  z-index: 4;
+  z-index: 7;
   top: 22px;
   left: 22px;
   display: inline-flex;
@@ -610,6 +614,19 @@
   align-items: flex-start;
   gap: 14px;
   text-align: left;
+  /* The map is the product. This wrapper is a layout box, not a surface —
+     it must not intercept drags aimed at the Leaflet canvas underneath.
+     Interactive descendants opt back in individually below. */
+  pointer-events: none;
+}
+
+/* Only the things a visitor actually clicks take pointer events back.
+   .hero-title / .hero-subtitle / .hero-stats deliberately stay transparent
+   so the map can be dragged straight through the headline. */
+.hero-badge,
+.hero-actions,
+.hero-node-strip {
+  pointer-events: auto;
 }
 
 .hero-badge {
@@ -836,7 +853,7 @@
      Theatre Brief badge, with 8px gaps. The .hero-featured-badge
      override is placed in a later @media block (see "Mobile: top
      stack — placed AFTER base rule to win the cascade") so it
-     overrides the base `top: 50%` + `transform: translateY(-50%)`. */
+     overrides the base bottom-right pin. */
   .map-mode { top: 12px; left: 12px; }
   .sat-hud {
     top: 56px;          /* below .map-mode (h=36 + 8 gap) */
@@ -846,9 +863,6 @@
     transform: none;
     max-width: none;
   }
-  /* Mobile fallback: keep the DOM city label visible since the canvas
-     tick is hidden under the Leaflet map. Compact for narrow viewport. */
-  .hero-city-label { top: 14px; right: 14px; font-size: 10px; }
   .sat-controls { bottom: 12px; right: 12px; flex-wrap: wrap; }
   .map-explore-hint { display: none; }
   #intelOverlayDubai,
@@ -939,14 +953,17 @@
   z-index: 1;
 }
 
-/* FEATURED panel — middle-right, vertically centered. Fits the empty
-   right half of the hero so it doesn't fight the headline, the city
-   nodes, or the sat-controls. */
+/* FEATURED panel — pinned to the LOWER-right quadrant.
+   It used to sit at top:50% (vertically centred), which put it straight
+   through the poster-scale headline: the longest rotating phrase
+   ("that disappears" — 934px at 8.5rem) ran under this panel at every
+   width from 1024px to 1440px. Bottom-anchored, it clears the headline
+   band entirely and still owns the empty right half. The city-node strip
+   and hero stats are bottom-LEFT, so nothing collides. */
 .hero-featured-badge {
   position: absolute;
-  top: 50%;
+  bottom: 76px;
   right: 32px;
-  transform: translateY(-50%);
   z-index: 6;
   display: flex;
   flex-direction: column;
@@ -967,7 +984,7 @@
 
 .hero-featured-badge:hover {
   background: rgba(8, 10, 14, 0.98);
-  transform: translateY(-50%) translateX(-3px);
+  transform: translateX(-3px);
   box-shadow: 0 0 0 1px var(--accent), 0 8px 32px rgba(0, 0, 0, 0.6);
 }
 
@@ -1071,7 +1088,7 @@
 #hero:not(.is-touring) .hero-featured-badge {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(-50%) translateX(0);
+  transform: translateX(0);
   transition: opacity 240ms ease, transform 240ms ease;
 }
 
@@ -1092,4 +1109,40 @@
    mobile layout, so hiding the hero badge costs nothing. */
 @media (max-width: 900px) {
   .hero-featured-badge { display: none !important; }
+}
+
+/* ============================================================
+   UX/UI AUDIT PASS — 2026-08-19 · hero refinements
+   ============================================================ */
+
+@media (max-width: 600px) {
+  /* The badge was landing 3px under the sat-hud panel's bottom border. */
+  .hero-badge {
+    margin-top: 10px;
+  }
+
+  /* Two buttons of different intrinsic widths stacked left-aligned read
+     as a mistake. On one column they share an edge. */
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Three stats on a wrapping flex row broke 2 + 1, leaving a stranded
+     third cell and a dangling divider. Three equal columns instead. */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .hero-stat {
+    padding-right: 8px;
+  }
 }
