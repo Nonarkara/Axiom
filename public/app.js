@@ -531,6 +531,12 @@ const uiCopy = {
       statSystems: 'Live Systems',
       statMonitoring: 'Live Monitoring',
       statCountries: 'Countries',
+      signalLabels: {
+        FLOOD: 'Flood', CAMPUS: 'Campus', URBAN: 'Urban', ATLAS: 'Atlas',
+        COASTAL: 'Coastal', TRANSIT: 'Transit', AIR: 'Air',
+        CONFLICT: 'Conflict', GLOBAL: 'Global',
+        BORDER: 'Border', INDEX: 'Index', SCALE: 'Scale',
+      },
       featured: {
         kicker: 'THEATRE BRIEF',
         cta: 'Open live system',
@@ -700,12 +706,14 @@ const uiCopy = {
     },
     teamSect: {
       kicker: 'Who builds it',
+      meta: 'Bangkok',
       foldLine: 'Team · Dr Non & Dr Poon · two founders, collective on call',
       title: 'Two founders. <em>No handlers.</em>',
       lede: 'You talk to the people who write the code and decide the architecture. When the work needs UAV operators or traffic engineers or policy translators, we pull them in for that mission only — never as a standing bench.',
     },
     ctaSect: {
       kicker: 'Work With Us',
+      meta: 'Bangkok · SE Asia',
       title: 'Send the brief. <em>We\'ll map the pressure.</em>',
       body: 'If the problem is real and the decision matters, we\'ll show what can be proven inside two weeks. No procurement-cycle warm-ups. No moodboards.',
       promise1: 'Pressure mapped in week one. The decision, the users, the data on the table.',
@@ -738,6 +746,12 @@ const uiCopy = {
       statSystems: 'ระบบที่ใช้งาน',
       statMonitoring: 'ติดตามตลอดเวลา',
       statCountries: 'ประเทศ',
+      signalLabels: {
+        FLOOD: 'น้ำท่วม', CAMPUS: 'วิทยาเขต', URBAN: 'เมือง', ATLAS: 'แผนที่',
+        COASTAL: 'ชายฝั่ง', TRANSIT: 'ขนส่ง', AIR: 'อากาศ',
+        CONFLICT: 'ความขัดแย้ง', GLOBAL: 'ทั่วโลก',
+        BORDER: 'ชายแดน', INDEX: 'ดัชนี', SCALE: 'ขนาด',
+      },
       featured: {
         kicker: 'สรุปแนว',
         cta: 'เปิดระบบสด',
@@ -907,12 +921,14 @@ const uiCopy = {
     },
     teamSect: {
       kicker: 'คนที่สร้าง',
+      meta: 'กรุงเทพฯ',
       foldLine: 'ทีม · ดร.นน และ ดร.พูน · สองผู้ก่อตั้ง ทีมเสริมตามภารกิจ',
       title: 'สองผู้ก่อตั้ง <em>ไม่มีคนกลาง</em>',
       lede: 'คุณคุยกับคนที่เขียนโค้ดและตัดสินใจสถาปัตยกรรมโดยตรง เมื่องานต้องการคนคุมโดรน วิศวกรจราจร หรือผู้แปลนโยบาย ผมดึงเข้ามาเฉพาะภารกิจนั้น ไม่เคยมีเป็นทีมประจำ',
     },
     ctaSect: {
       kicker: 'ทำงานกับเรา',
+      meta: 'กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้',
       title: 'ส่งโจทย์มา <em>ผมจะทำแผนที่แรงกดดันให้</em>',
       body: 'ถ้าปัญหาจริงและการตัดสินใจมีน้ำหนัก ผมจะแสดงสิ่งที่พิสูจน์ได้ภายในสองสัปดาห์ ไม่ต้องวอร์มอัพรอบจัดซื้อ ไม่ใช้ moodboard',
       promise1: 'ทำแผนที่แรงกดดันในสัปดาห์แรก พร้อมการตัดสินใจ ผู้ใช้ และข้อมูลครบบนโต๊ะ',
@@ -945,6 +961,12 @@ const uiCopy = {
       statSystems: '在线系统',
       statMonitoring: '全天候监控',
       statCountries: '国家',
+      signalLabels: {
+        FLOOD: '洪水', CAMPUS: '校园', URBAN: '城市', ATLAS: '地图',
+        COASTAL: '沿海', TRANSIT: '公交', AIR: '空气',
+        CONFLICT: '冲突', GLOBAL: '全球',
+        BORDER: '边境', INDEX: '指数', SCALE: '规模',
+      },
       featured: {
         kicker: '战区简报',
         cta: '打开在线系统',
@@ -1114,12 +1136,14 @@ const uiCopy = {
     },
     teamSect: {
       kicker: '谁在搭',
+      meta: '曼谷',
       foldLine: '团队 · 诺博士与蓬博士 · 两位创始人 按需集结',
       title: '两位创始人 <em>没有中间人</em>',
       lede: '你直接跟写代码、定架构的人对话 工作需要无人机操作员 交通工程师 或者政策翻译时 我们只为那个任务把人请进来 从不养成常设团队',
     },
     ctaSect: {
       kicker: '一起来做',
+      meta: '曼谷 · 东南亚',
       title: '把题目发过来 <em>我们来画压力图</em>',
       body: '如果问题是真的 决策也重要 两周内我们让你看到能证明的东西 不走采购周期热身 不做情绪板',
       promise1: '第一周就把压力图画完 决策、用户、数据全部摆上桌',
@@ -1152,6 +1176,12 @@ const uiCopy = {
       statSystems: 'LiveSystem[]',
       statMonitoring: 'readonly 24/7',
       statCountries: 'Country<T>',
+      signalLabels: {
+        FLOOD: 'flood', CAMPUS: 'campus', URBAN: 'urban', ATLAS: 'atlas',
+        COASTAL: 'coastal', TRANSIT: 'transit', AIR: 'air',
+        CONFLICT: 'conflict', GLOBAL: 'global',
+        BORDER: 'border', INDEX: 'index', SCALE: 'scale',
+      },
       featured: {
         kicker: '// THEATRE_BRIEF',
         cta: 'system.open()',
@@ -1328,12 +1358,14 @@ const uiCopy = {
     },
     teamSect: {
       kicker: '// WHO_BUILDS_IT',
+      meta: '// bkk.base',
       foldLine: '// team: [DrNon, DrPoon] · founders: 2 · handlers: never[]',
       title: 'const team: [Founder, Founder] // handlers: never[]',
       lede: '// you.talkTo(builders) // not handlers\n// specialists.join({ when: mission.needs(them), as: "standing bench" }) // throws',
     },
     ctaSect: {
       kicker: '// WORK_WITH_US',
+      meta: '// bkk · SEA',
       title: 'brief.send() // we.will.map(pressure)',
       body: 'if (problem.isReal && decision.matters) {\n  return show(provable, { within: "2w" })\n  // no procurementWarmups()\n  // no moodboards()\n}',
       promise1: 'pressureMap(): Week<1> // { decision, users, data } on table',
@@ -1644,6 +1676,7 @@ const i18nExt = {
     notesContent: {
       foldLine:'Field notes · 6 patterns · how we ship',
       kicker:'How it gets built',
+      meta:'Field notes',
       title:'Things learned by actually shipping.',
       lede:'Ten systems. Two people. Twelve months. These are the patterns that held — and the ones that didn\'t. Published here because the gap between what governments need and what the market supplies only closes if people share what they\'ve figured out.',
       n1title:'The vendor said no. We shipped in fourteen days.',
@@ -2049,6 +2082,7 @@ const i18nExt = {
     notesContent: {
       foldLine:'บันทึกภาคสนาม · 6 บทเรียน · วิธีส่งมอบ',
       kicker:'วิธีสร้างจริง',
+      meta:'บันทึกภาคสนาม',
       title:'บทเรียนจากการส่งมอบของจริง',
       lede:'สิบเอ็ดระบบ สองคน สิบสองเดือน นี่คือรูปแบบที่ใช้ได้ และที่ใช้ไม่ได้ เผยแพร่ตรงนี้เพราะช่องว่างระหว่างสิ่งที่รัฐบาลต้องการกับสิ่งที่ตลาดจัดหาให้ จะปิดได้ก็ต่อเมื่อคนแบ่งปันสิ่งที่ค้นพบ',
       n1title:'ผู้ขายปฏิเสธ เราส่งมอบใน 14 วัน',
@@ -2451,6 +2485,7 @@ const i18nExt = {
     notesContent: {
       foldLine:'现场笔记 · 6条经验 · 交付方式',
       kicker:'怎么搭出来的',
+      meta:'现场笔记',
       title:'真做出来才学到的事',
       lede:'十一个系统 两个人 十二个月 这些是坚持下来的模式 以及那些没坚持住的 把它们放在这里 因为政府的需求和市场的供给之间那道缝 只有大家把弄明白的东西分享出来 才能慢慢闭合',
       n1title:'供应商说不行 我们十四天就交付了',
@@ -2646,6 +2681,7 @@ const i18nExt = {
     notesContent: {
       foldLine:'// fieldNotes: 6 patterns · howWeShip()',
       kicker:'// HOW_IT_GETS_BUILT',
+      meta:'// field.notes',
       title:'type Lessons = LearnedByActuallyShipping',
       lede:'// 10 systems; 2 people; 12 months\n// patterns.that.held + patterns.that.didnt\n// published: because gap.closes(whenPeopleShare)',
       n1title:'vendor.said("no") // shipped: day14',
@@ -3778,10 +3814,18 @@ function initFlooddashCarousel() {
 
   let signalLayer = L.layerGroup().addTo(map);
 
+  function signalLabel(type) {
+    const cur = uiCopy[activeLocale] || {};
+    const en = uiCopy.en || {};
+    const result = cur.hero?.signalLabels?.[type] || en.hero?.signalLabels?.[type] || type;
+    return result;
+  }
+
   function signalIcon(type) {
+    const label = signalLabel(type);
     return L.divIcon({
       className: '',
-      html: `<div class="sat-signal-marker" title="${type}"><span class="sat-signal-dot"></span><span class="sat-signal-label">${type}</span></div>`,
+      html: `<div class="sat-signal-marker" title="${label}"><span class="sat-signal-dot"></span><span class="sat-signal-label">${label}</span></div>`,
       iconSize: [72, 36],
       iconAnchor: [36, 8],
     });
@@ -3814,6 +3858,15 @@ function initFlooddashCarousel() {
 
   let activeTheatreKey = CITIES[0].key;
 
+  // Re-paint the signal markers + sat-hud-signals strip when locale changes
+  // (they freeze at first render otherwise because we read activeLocale
+  // and THEATRES in closures).
+  window.addEventListener('axiom:localechange', () => {
+    if (activeTheatreKey && THEATRES[activeTheatreKey]) {
+      paintSignalMarkers(THEATRES[activeTheatreKey]);
+    }
+  });
+
   function syncTheatre(theatre, options = {}) {
     const { shouldScroll = false } = options;
     if (!theatre) return;
@@ -3824,7 +3877,7 @@ function initFlooddashCarousel() {
     const sitrep = tCopy.sitrep || '';
     const featuredNameText = tCopy.featuredName || theatre.featured.name;
     const eventId = tCopy.event || `EVENT_ID: ${theatre.eventId}`;
-    const signalTypes = theatre.signals.map((s) => s.type).join(' · ');
+    const signalTypes = theatre.signals.map((s) => signalLabel(s.type)).join(' · ');
     const watchingLabel = theatreCopy('_hud')?.watching
       || (uiCopy[activeLocale]?.hero?.hudWatching)
       || uiCopy.en?.hero?.hudWatching

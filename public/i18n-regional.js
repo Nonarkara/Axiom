@@ -24,6 +24,12 @@
       "statSystems": "Live Systems",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
+      "signalLabels": {
+        "FLOOD": "홍수", "CAMPUS": "캠퍼스", "URBAN": "도시", "ATLAS": "지도",
+        "COASTAL": "해안", "TRANSIT": "대중교통", "AIR": "대기",
+        "CONFLICT": "분쟁", "GLOBAL": "글로벌",
+        "BORDER": "국경", "INDEX": "지수", "SCALE": "규모"
+      },
       "featured": {
         "kicker": "전장 브리프",
         "cta": "라이브 시스템 열기"
@@ -237,11 +243,13 @@
     "teamSect": {
       "foldLine": "팀 · Dr Non & Dr Poon · 창업자 2명 · 임무별 네트워크",
       "kicker": "누가 만드는가",
+      "meta": "방콕",
       "title": "두 명의 창업자. <em>중간 관리자 없음.</em>",
       "lede": "코드를 쓰고 아키텍처를 결정하는 사람과 직접 이야기합니다. UAV 운영자, 교통 엔지니어, 정책 번역가가 필요할 때만 그 임무를 위해 불러옵니다 — 상설 인력으로 두지 않습니다."
     },
     "ctaSect": {
       "kicker": "함께하기",
+      "meta": "방콕 · 동남아시아",
       "title": "브리프를 보내주세요. <em>압력을 매핑하겠습니다.</em>",
       "body": "문제가 실제이고 결정이 중요하다면, 2주 안에 증명 가능한 것을 보여드립니다. 조달 사이클 워밍업 없음. 무드보드 없음.",
       "promise1": "첫 주에 압력 매핑. 결정, 사용자, 테이블 위의 데이터.",
@@ -557,6 +565,7 @@
     "notesContent": {
       "foldLine": "현장 노트 · 6가지 패턴 · 출시 방식",
       "kicker": "구축 방식",
+      "meta": "현장 노트",
       "title": "실제로 출시하며 배운 것",
       "lede": "열한 개 시스템. 두 사람. 열두 달. 유지된 패턴과 그렇지 않은 패턴. 정부가 필요로 하는 것과 시장이 공급하는 것 사이의 간극은 사람들이 깨달은 것을 나눌 때만 좁아집니다.",
       "n1title": "벤더가 거절했다. 14일 만에 출시했다.",
@@ -916,6 +925,12 @@
       "statSystems": "Live Systems",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
+      "signalLabels": {
+        "FLOOD": "洪水", "CAMPUS": "キャンパス", "URBAN": "都市", "ATLAS": "地図",
+        "COASTAL": "沿岸", "TRANSIT": "交通", "AIR": "大気",
+        "CONFLICT": "紛争", "GLOBAL": "世界",
+        "BORDER": "国境", "INDEX": "指数", "SCALE": "規模"
+      },
       "featured": {
         "kicker": "戦域ブリーフ",
         "cta": "ライブシステムを開く"
@@ -1129,11 +1144,13 @@
     "teamSect": {
       "foldLine": "チーム · Dr Non & Dr Poon · 創業者2名 · ミッション別ネットワーク",
       "kicker": "誰が構築するか",
+      "meta": "バンコク",
       "title": "創業者2名。<em>中間管理なし。</em>",
       "lede": "コードを書き、アーキテクチャを決める人と直接お話しいただけます。UAVオペレーター、交通エンジニア、政策通訳が必要なときだけ、そのミッションのために招集します — 常設チームにはしません。"
     },
     "ctaSect": {
       "kicker": "ご相談",
+      "meta": "バンコク · 東南アジア",
       "title": "ブリーフをお送りください。<em>プレッシャーを可視化します。</em>",
       "body": "課題が現実的で、判断が重要であれば、2週間以内に証明可能なものをお見せします。調達サイクルのウォームアップはありません。ムードボードもありません。",
       "promise1": "初週にプレッシャーを可視化。判断、ユーザー、テーブル上のデータ。",
@@ -1449,6 +1466,7 @@
     "notesContent": {
       "foldLine": "フィールドノート · 6パターン · 出荷の仕方",
       "kicker": "構築の方法",
+      "meta": "フィールドノート",
       "title": "実際にリリースして学んだこと",
       "lede": "11システム。2名。12か月。維持されたパターンとそうでないパターン。政府が必要とするものと市場が供給するもののギャップは、人々が学びを共有したときだけ狭まります。",
       "n1title": "ベンダーは断った。14日でリリースした。",
@@ -1790,6 +1808,12 @@
       "statSystems": "Live Systems",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
+      "signalLabels": {
+        "FLOOD": "Lũ", "CAMPUS": "Khuôn viên", "URBAN": "Đô thị", "ATLAS": "Bản đồ",
+        "COASTAL": "Ven biển", "TRANSIT": "Giao thông", "AIR": "Không khí",
+        "CONFLICT": "Xung đột", "GLOBAL": "Toàn cầu",
+        "BORDER": "Biên giới", "INDEX": "Chỉ số", "SCALE": "Quy mô"
+      },
       "featured": {
         "kicker": "TÓM TẮT CHIẾN TRƯỜNG",
         "cta": "Mở hệ thống trực tiếp"
@@ -2003,11 +2027,13 @@
     "teamSect": {
       "foldLine": "Đội ngũ · Dr Non & Dr Poon · hai nhà sáng lập · mạng lưới theo nhiệm vụ",
       "kicker": "Ai xây dựng",
+      "meta": "Bangkok",
       "title": "Hai nhà sáng lập. <em>Không có lớp trung gian.</em>",
       "lede": "Quý vị trao đổi trực tiếp với người viết mã và quyết định kiến trúc. Khi cần điều hành viên UAV, kỹ sư giao thông hoặc chuyên gia chuyển ngữ chính sách, chúng tôi triệu tập họ cho nhiệm vụ đó — không duy trì đội ngũ cố định."
     },
     "ctaSect": {
       "kicker": "Hợp tác",
+      "meta": "Bangkok · Đông Nam Á",
       "title": "Gửi brief. <em>Chúng tôi sẽ lập bản đồ áp lực.</em>",
       "body": "Nếu vấn đề là thực tế và quyết định quan trọng, chúng tôi sẽ cho thấy điều có thể chứng minh trong hai tuần. Không khởi động chu kỳ đấu thầu. Không moodboard.",
       "promise1": "Lập bản đồ áp lực trong tuần đầu. Quyết định, người dùng, dữ liệu trên bàn.",
@@ -2323,6 +2349,7 @@
     "notesContent": {
       "foldLine": "Ghi chú hiện trường · 6 mẫu · cách chúng tôi giao hàng",
       "kicker": "Cách chúng tôi xây",
+      "meta": "Ghi chú hiện trường",
       "title": "Những gì học được khi thực sự ra mắt",
       "lede": "Mười một hệ thống. Hai người. Mười hai tháng. Mẫu được giữ và mẫu không. Khoảng cách giữa điều chính phủ cần và thị trường cung chỉ thu hẹp khi mọi người chia sẻ bài học.",
       "n1title": "Nhà cung cấp từ chối. Chúng tôi ra mắt trong 14 ngày.",
