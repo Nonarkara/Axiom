@@ -406,6 +406,16 @@ const ARCHITECTURES = {
     foot: 'Bangkok\'s 400,000 shophouses, finally inventoried',
     stack: ['MapLibre', 'Long-form prose', 'Open data'],
   },
+  'locating-shanghai': {
+    name: 'LOCATING SHANGHAI',
+    ver: '3.0.0',
+    idx: '42',
+    inputs: ['20 years fieldwork', '134 photographs', '5h audio', '475 citations'],
+    core: { name: 'SHANGHAI BOOK', meta: ['reading edition', '2026'] },
+    outputs: ['15 chapters', 'Read · Listen · Look', 'Static HTML'],
+    foot: 'the city read slowly, across two decades',
+    stack: ['Markdown', 'Inter + Spectral', 'Static'],
+  },
   'nst': {
     name: 'NST-01',
     ver: '1.0.0',
@@ -1560,6 +1570,10 @@ const i18nExt = {
         lede: 'The whole planet on one screen: live aircraft and ships worldwide, conflict and fire hotspots, the intel column and market strip docked open. Same open-data engine, world scope.',
         cta:'Open live system',
       },
+      p47: {
+        lede: "Twenty years of fieldwork on globalization, heritage industry, and the economy of urban space. 15 chapters, 76,312 words, 134 images, 5 hours of audio, 475 citations — read, listened to, and looked at on the site. v3 reading edition, 2026.",
+        cta: 'Open the book',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -1928,6 +1942,10 @@ const i18nExt = {
         lede: 'ทั้งโลกบนหน้าจอเดียว: เครื่องบินและเรือแบบเรียลไทม์ทั่วโลก จุดความขัดแย้งและจุดความร้อน คอลัมน์ข่าวกรองและแถบตลาดเปิดค้างไว้ เครื่องยนต์ข้อมูลเปิดตัวเดียวกัน ขอบเขตระดับโลก',
         cta:'เปิดระบบสด',
       },
+      p47: {
+        lede: 'งานภาคสนามยี่สิบปีว่าด้วยโลกาภิวัตน์ อุตสาหกรรมมรดก และเศรษฐศาสตร์ของพื้นที่เมือง 15 บท 76,312 คำ 134 ภาพ 5 ชั่วโมงเสียง 475 การอ้างอิง — อ่าน ฟัง และดูได้บนเว็บไซต์ ฉบับอ่าน v3 ค.ศ. 2026',
+        cta: 'เปิดหนังสือ',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2293,6 +2311,10 @@ const i18nExt = {
         lede: '整个地球尽在一屏：全球实时航班与船舶、冲突与火情热点、常驻打开的情报栏与市场条。同一套开放数据引擎，世界尺度。',
         cta:'打开在线系统',
       },
+      p47: {
+        lede: '二十年田野工作，关于全球化、遗产产业与城市空间经济。15章、76,312字、134张图、5小时音频、475次引用——在网站上读、听、看。v3阅读版，2026年。',
+        cta: '打开书',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2480,6 +2502,7 @@ const i18nExt = {
       p44: { lede: '// bkk.shophouseInventory.existence: false\n// 400k buildings · no survey · 2311 sample · treasuryPressureMap · fourColour.answer\n// publishedIn(ShophouseMetropolis, harvardGSD)', cta: 'essay.read()' },
       p45: { lede: '// asia.theaters(5)\n// SE Asia · East Asia · South Asia · Thailand · Gulf lifeline // conflict + fires + ADS-B + AIS + news + TV', cta: 'system.open()' },
       p46: { lede: '// world.console()\n// planet-scale ADS-B + AIS · conflict + fires · intel + markets docked open', cta: 'system.open()' },
+      p47: { lede: '// shanghai.fieldwork.20years\n// 15 chapters · 76312 words · 134 images · 5h audio · 475 citations // v3 readingEdition, 2026', cta: 'book.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2661,6 +2684,9 @@ const i18nExt2 = {
       p42:'Live · Border Intelligence',
       p43:'Live · Heritage Atlas',
       p44:'Live · Urban Research',
+      p45:'Live · Asian Theatres',
+      p46:'Live · World Console',
+      p47:'Live · Fieldwork Book',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2682,6 +2708,7 @@ const i18nExt2 = {
       c35:'Border Intelligence',
       c36:'Heritage Atlas',
       c37:'Urban Research',
+      c38:'Fieldwork Book',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2739,7 +2766,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '45 systems · 5 countries',
+      sysMeta: '46 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 16',
       intelligence: 'Intelligence',
@@ -2749,7 +2776,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 9',
+      labMeta: 'Side tools · in the open · 10',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -2812,6 +2839,9 @@ const i18nExt2 = {
       p42:'สด · ข่าวกรองชายแดน',
       p43:'สด · แผนที่มรดก',
       p44:'สด · งานวิจัยเมือง',
+      p45:'สด · เวทีเอเชีย',
+      p46:'สด · คอนโซลโลก',
+      p47:'สด · หนังสือภาคสนาม',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -2833,6 +2863,7 @@ const i18nExt2 = {
       c35:'ข่าวกรองชายแดน',
       c36:'แผนที่มรดก',
       c37:'งานวิจัยเมือง',
+      c38:'หนังสือภาคสนาม',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -2890,7 +2921,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '45 ระบบ · 5 ประเทศ',
+      sysMeta: '46 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
       intelligence: 'ข่าวกรอง',
@@ -2900,7 +2931,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 9',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 10',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -2963,6 +2994,9 @@ const i18nExt2 = {
       p42:'在线 · 边境情报',
       p43:'在线 · 遗产地图',
       p44:'在线 · 城市研究',
+      p45:'在线 · 亚洲剧场',
+      p46:'在线 · 世界控制台',
+      p47:'在线 · 田野志',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -2982,6 +3016,7 @@ const i18nExt2 = {
       c35:'边境情报',
       c36:'遗产地图',
       c37:'城市研究',
+      c38:'田野志',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -3039,7 +3074,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '45 个系统 · 5 个国家',
+      sysMeta: '46 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 16',
       intelligence: '情报',
@@ -3049,7 +3084,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 9',
+      labMeta: '辅助工具 · 开放中 · 10',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3121,6 +3156,9 @@ const i18nExt2 = {
       p42:'live: BorderIntel',
       p43:'live: HeritageAtlas',
       p44:'live: UrbanResearch',
+      p45:'live: AsianTheatres',
+      p46:'live: WorldConsole',
+      p47:'live: FieldworkBook',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -3140,6 +3178,7 @@ const i18nExt2 = {
       c35:'BorderIntel',
       c36:'HeritageAtlas',
       c37:'UrbanResearch',
+      c38:'FieldworkBook',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -3197,7 +3236,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '45 systems · 5 countries',
+      sysMeta: '46 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
@@ -3207,7 +3246,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[9]',
+      labMeta: 'sideTools & openProcess · count[10]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
@@ -3582,7 +3621,12 @@ function initFlooddashCarousel() {
     zoomAnimation: !useLiteMotion,
   });
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(map);
+  // ESRI World Dark Gray Canvas — free, no API key required.
+  // Replaces the old Carto dark_all which now requires an account.
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 16,
+    attribution: 'Tiles &copy; Esri',
+  }).addTo(map);
 
   let signalLayer = L.layerGroup().addTo(map);
 
