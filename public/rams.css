@@ -949,7 +949,11 @@ summary:focus-visible {
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid var(--line);
-  max-width: 72ch;
+  max-width: 100%;
+  column-count: 2;
+  column-gap: 48px;
+  column-rule: 1px solid var(--line-2);
+  column-fill: balance;
 }
 
 .foot__fineprint-p,
@@ -996,6 +1000,14 @@ summary:focus-visible {
   color: var(--ink-3);
   letter-spacing: 0.03em;
   line-height: 1.6;
+}
+
+@media (max-width: 759px) {
+  .foot__fineprint {
+    column-count: 1;
+    column-rule: none;
+    column-gap: 0;
+  }
 }
 
 @media (max-width: 480px) {
