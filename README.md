@@ -331,3 +331,9 @@ Last known-good rich version: commit `ee756b7`. Recovery: `git show ee756b7:publ
 [axiom.nonarkara.org](https://axiom.nonarkara.org) · [LinkedIn](https://www.linkedin.com/company/axiomthailand/)
 
 *Axiom X Co., Ltd. · Bangkok, Thailand*
+
+---
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
