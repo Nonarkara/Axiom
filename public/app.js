@@ -537,6 +537,14 @@ const uiCopy = {
         CONFLICT: 'Conflict', GLOBAL: 'Global',
         BORDER: 'Border', INDEX: 'Index', SCALE: 'Scale',
       },
+      rotatingPhrases: [
+        'as a Service',
+        'that vanishes',
+        'that works',
+        'for cities',
+        'for decisions',
+        'as water',
+      ],
       featured: {
         kicker: 'THEATRE BRIEF',
         cta: 'Open live system',
@@ -752,6 +760,14 @@ const uiCopy = {
         CONFLICT: 'ความขัดแย้ง', GLOBAL: 'ทั่วโลก',
         BORDER: 'ชายแดน', INDEX: 'ดัชนี', SCALE: 'ขนาด',
       },
+      rotatingPhrases: [
+        'แบบบริการ',
+        'ที่ซ่อนตัว',
+        'ที่ใช้งานได้',
+        'เพื่อเมือง',
+        'เพื่อการตัดสินใจ',
+        'อย่างน้ำ',
+      ],
       featured: {
         kicker: 'สรุปแนว',
         cta: 'เปิดระบบสด',
@@ -967,6 +983,14 @@ const uiCopy = {
         CONFLICT: '冲突', GLOBAL: '全球',
         BORDER: '边境', INDEX: '指数', SCALE: '规模',
       },
+      rotatingPhrases: [
+        '即服务',
+        '无形无踪',
+        '真的能用',
+        '为城市',
+        '为决策',
+        '如水一般',
+      ],
       featured: {
         kicker: '战区简报',
         cta: '打开在线系统',
@@ -1182,6 +1206,14 @@ const uiCopy = {
         CONFLICT: 'conflict', GLOBAL: 'global',
         BORDER: 'border', INDEX: 'index', SCALE: 'scale',
       },
+      rotatingPhrases: [
+        'as_a_Service',
+        'void',
+        'true',
+        'for_cities',
+        'for_decisions',
+        'as_water',
+      ],
       featured: {
         kicker: '// THEATRE_BRIEF',
         cta: 'system.open()',
@@ -4337,22 +4369,24 @@ function initFlooddashCarousel() {
 })();
 
 // ── Rotating Hero Text (restored from ee756b7) ────────────────
-// Cycles the second line of the hero title every 3.5s.
+// Cycles the second line of the hero title every 3.5s. Uses the
+// active locale's `hero.rotatingPhrases` (added to uiCopy for all
+// 7 locales) so non-EN visitors see the tagline in their script.
 (function initRotatingText() {
   const el = document.getElementById('heroRotatingText');
   if (!el) return;
 
-  const phrases = [
-    'as a Service',
-    'that disappears',
-    'that works',
-    'for cities',
-    'for decisions',
-    'as water',
-  ];
+  function phrasesFor(locale) {
+    const copy = uiCopy[locale] || uiCopy.en;
+    const fromLocale = copy?.hero?.rotatingPhrases;
+    if (Array.isArray(fromLocale) && fromLocale.length) return fromLocale;
+    return uiCopy.en.hero.rotatingPhrases;
+  }
 
+  let phrases = phrasesFor(activeLocale);
   let index = 0;
 
+  el.textContent = phrases[0];
   el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
 
   setInterval(() => {
@@ -4366,5 +4400,12 @@ function initFlooddashCarousel() {
       el.style.transform = 'translateY(0)';
     }, 400);
   }, 3500);
+
+  // Locale switch — swap the phrase list and reset to the first item.
+  window.addEventListener('axiom:localechange', () => {
+    phrases = phrasesFor(activeLocale);
+    index = 0;
+    el.textContent = phrases[0];
+  });
 })();
 

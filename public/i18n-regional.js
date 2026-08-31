@@ -11,7 +11,7 @@
     },
     "hero": {
       "badge": "모든 시스템 온라인",
-      "titleLine1": "Innovation",
+      "titleLine1": "혁신",
       "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
       "cta": "Start With the Pressure Map",
       "ctaSecondary": "See Live Systems",
@@ -30,6 +30,14 @@
         "CONFLICT": "분쟁", "GLOBAL": "글로벌",
         "BORDER": "국경", "INDEX": "지수", "SCALE": "규모"
       },
+      "rotatingPhrases": [
+        "서비스로",
+        "사라지는",
+        "동작하는",
+        "도시를 위한",
+        "결정을 위한",
+        "물처럼"
+      ],
       "featured": {
         "kicker": "전장 브리프",
         "cta": "라이브 시스템 열기"
@@ -912,7 +920,7 @@
     },
     "hero": {
       "badge": "全システム稼働中",
-      "titleLine1": "Innovation",
+      "titleLine1": "革新",
       "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
       "cta": "Start With the Pressure Map",
       "ctaSecondary": "See Live Systems",
@@ -931,6 +939,14 @@
         "CONFLICT": "紛争", "GLOBAL": "世界",
         "BORDER": "国境", "INDEX": "指数", "SCALE": "規模"
       },
+      "rotatingPhrases": [
+        "サービスとして",
+        "消える",
+        "動く",
+        "都市のために",
+        "意思決定のために",
+        "水のように"
+      ],
       "featured": {
         "kicker": "戦域ブリーフ",
         "cta": "ライブシステムを開く"
@@ -1795,7 +1811,7 @@
     },
     "hero": {
       "badge": "Tất cả hệ thống trực tuyến",
-      "titleLine1": "Innovation",
+      "titleLine1": "Đổi mới",
       "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
       "cta": "Start With the Pressure Map",
       "ctaSecondary": "See Live Systems",
@@ -1814,6 +1830,14 @@
         "CONFLICT": "Xung đột", "GLOBAL": "Toàn cầu",
         "BORDER": "Biên giới", "INDEX": "Chỉ số", "SCALE": "Quy mô"
       },
+      "rotatingPhrases": [
+        "dưới dạng dịch vụ",
+        "biến mất",
+        "vận hành",
+        "cho thành phố",
+        "cho quyết định",
+        "như nước"
+      ],
       "featured": {
         "kicker": "TÓM TẮT CHIẾN TRƯỜNG",
         "cta": "Mở hệ thống trực tiếp"

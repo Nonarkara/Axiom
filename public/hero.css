@@ -654,6 +654,11 @@
 .hero-line-accent {
   display: block;
   color: var(--accent);
+  /* Reserve one line of height so rotating phrases of different widths
+     don't shift the hero h1 layout. If a phrase ever exceeds one line
+     on a narrow viewport, the @media (max-width: 600px) override
+     below drops the font-size. */
+  min-height: 1.05em;
   /* Plain flag-blue accent — no gradient (anti-regression §11.1.3) */
 }
 
@@ -859,6 +864,11 @@
   .hero-node-strip-scroller {
     grid-template-columns: repeat(2, 1fr);
   }
+  /* Cap the rotating second line so longer non-EN phrases never wrap
+     to 2 lines on a phone — keeps the hero h1 height stable across
+     the 6-phrase rotation. `that vanishes` (en) is the longest
+     remaining phrase; this guard covers every locale. */
+  .hero-line-accent { font-size: 0.95em; }
   .hero-actions { gap: 8px; }
   .hero-actions .btn--primary,
   .hero-actions .btn--ghost {
