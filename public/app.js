@@ -416,6 +416,16 @@ const ARCHITECTURES = {
     foot: 'the city read slowly, across two decades',
     stack: ['Markdown', 'Inter + Spectral', 'Static'],
   },
+  'rag': {
+    name: 'RAG.NONARKARA',
+    ver: '0.9.0',
+    idx: '43',
+    inputs: ['PDFs', 'links', 'Telegram', 'LINE'],
+    core: { name: 'RAG ENGINE', meta: ['retrieval', '2026'] },
+    outputs: ['Cited answers', 'Telegram + LINE', '100 MB free'],
+    foot: "the bot stays silent when the documents are silent",
+    stack: ['Local embeddings', 'Local LLM', 'Mac-hosted'],
+  },
   'nst': {
     name: 'NST-01',
     ver: '1.0.0',
@@ -1671,6 +1681,10 @@ const i18nExt = {
         lede: 'A 16-bit browser arcade with a Brain Briefing on every cartridge — what skill it trains, how long a round takes, and the limit of the claim. No ads. Scores stay on this device.',
         cta: 'Open live system',
       },
+      p55: {
+        lede: 'Upload PDFs and links. The system cites the document every time — and when the documents are silent, the bot says "I don\'t know". 100 MB free per workspace, served through Telegram and LINE. Local embeddings, local model, on one Mac in Bangkok — your documents never leave.',
+        cta: 'Open the workspace',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -2077,6 +2091,10 @@ const i18nExt = {
         lede: 'อาร์เคดบนเบราว์เซอร์ 16-bit พร้อม Brain Briefing ในทุกตลับ — ฝึกทักษะอะไร ใช้เวลาเกมรอบละเท่าไร และข้อจำกัดของข้อกล่าวอ้าง ไม่มีโฆษณา คะแนนอยู่ในเครื่องนี้เท่านั้น',
         cta: 'เปิดระบบสด',
       },
+      p55: {
+        lede: 'อัปโหลด PDF และลิงก์ ระบบอ้างอิงเอกสารทุกครั้ง — และเมื่อเอกสารเงียบ บอทจะตอบว่า "ฉันไม่รู้" ใช้งานฟรี 100 MB ต่อเวิร์กสเปซ เชื่อมต่อผ่าน Telegram และ LINE การฝังและโมเดลทำงานในเครื่อง — เอกสารของคุณไม่ถูกส่งออกไปที่ใด',
+        cta: 'เปิดเวิร์กสเปซ',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2480,6 +2498,10 @@ const i18nExt = {
         lede: '一个16位浏览器街机，每张卡带都带一份脑力简报——训练什么技能、一局要多久、说法的边界在哪里。无广告。分数只保留在本机。',
         cta: '打开在线系统',
       },
+      p55: {
+        lede: '上传 PDF 与链接。系统每次都引用文档出处——文档沉默时，机器人说"我不知道"。100 MB 免费工作区，通过 Telegram 与 LINE 投递。本地嵌入、本地模型，一台在曼谷的 Mac——你的文档不会离开。',
+        cta: '打开工作区',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2676,6 +2698,7 @@ const i18nExt = {
       p52: { lede: '// podcast.20min.drNon()\n// ideas + agents + geopolitics // spotify.live // episodes.shipping', cta: 'spotify.open()' },
       p53: { lede: '// ASCN.ASEAN.directorCut()\n// 134 projects · 38 cities · 4 M&E cycles // portfolio.momentum + focus.shifts', cta: 'system.open()' },
       p54: { lede: '// omniArcade.brainPractice()\n// 16-bit browser.arcade + BrainBriefing(on: every.cartridge) // no.ads · scores.localOnly', cta: 'system.open()' },
+      p55: { lede: '// rag.nonarkara.org / retrieval_as_a_service\n// upload(PDF, links) → cite(source) → silence.when(corpus.silent)\n// 100MB/workspace · Telegram + LINE · localMac(Bangkok) · no.outbound', cta: 'workspace.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2861,6 +2884,7 @@ const i18nExt2 = {
       p45:'Live · Asian Theatres',
       p46:'Live · World Console',
       p47:'Live · Fieldwork Book',
+      p55:'Coming soon · Document Intelligence',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2940,7 +2964,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '46 systems · 5 countries',
+      sysMeta: '47 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 16',
       intelligence: 'Intelligence',
@@ -2950,7 +2974,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 10',
+      labMeta: 'Side tools · in the open · 11',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -3023,6 +3047,7 @@ const i18nExt2 = {
       p52:'สด · พอดแคสต์',
       p53:'สด · ประเมินเครือข่าย',
       p54:'สด · ฝึกสมอง',
+      p55:'เร็ว ๆ นี้ · เอกสารอัจฉริยะ',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -3109,7 +3134,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '46 ระบบ · 5 ประเทศ',
+      sysMeta: '47 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
       intelligence: 'ข่าวกรอง',
@@ -3119,7 +3144,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 10',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 11',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -3192,6 +3217,7 @@ const i18nExt2 = {
       p52:'在线 · 播客',
       p53:'在线 · 网络评估',
       p54:'在线 · 脑力练习',
+      p55:'即将推出 · 文档智能',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -3276,7 +3302,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '46 个系统 · 5 个国家',
+      sysMeta: '47 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 16',
       intelligence: '情报',
@@ -3286,7 +3312,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 10',
+      labMeta: '辅助工具 · 开放中 · 11',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3452,7 +3478,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '46 systems · 5 countries',
+      sysMeta: '47 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
@@ -3462,7 +3488,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[10]',
+      labMeta: 'sideTools & openProcess · count[11]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {

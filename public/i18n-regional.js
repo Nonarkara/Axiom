@@ -517,6 +517,7 @@
       "p52": { "name": "20분 with 닥터 논", "lede": "새로운 팟캐스트 — 아이디어, 에이전트, 지정학, 그리고 다음 20분. Spotify에서 라이브, 더 많은 에피소드 출항 중.", "cta": "Spotify에서 열기" },
       "p53": { "name": "ASCN 성과 검토 (감독관 컷)", "lede": "134개 프로젝트와 38개 도시에 걸친 ASEAN 스마트 시티 네트워크의 성과를 종합적으로 분석한 대시보드 — 4개 M&E 주기 동안의 포트폴리오 모멘텀과 초점 영역 변화 검토.", "cta": "라이브 시스템 열기" },
       "p54": { "lede": "모든 카트리지에 두뇌 브리핑이 딸린 16비트 브라우저 아케이드 — 어떤 기술을 훈련시키는지, 한 라운드당 시간이 얼마나 걸리는지, 주장 한계는 어디인지. 광고 없음. 점수는 이 기기에만 보관.", "cta": "라이브 시스템 열기" },
+      "p55": { "lede": "PDF와 링크를 업로드하세요. 시스템은 매번 문서를 인용하고, 문서가 침묵하면 \"모르겠습니다\"라고 답합니다. 워크스페이스당 100MB 무료, Telegram과 LINE으로 제공. 로컬 임베딩과 로컬 모델, 방콕의 한 대 Mac에서 — 문서는 절대 외부로 나가지 않습니다.", "cta": "워크스페이스 열기" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>타이베이</b> · City Vision Stage · 2026년 3월",
@@ -718,7 +719,8 @@
       "p51": "Live · 항만 교통",
       "p52": "Live · 팟캐스트",
       "p53": "Live · 네트워크 평가",
-      "p54": "Live · 두뇌 훈련"
+      "p54": "Live · 두뇌 훈련",
+      "p55": "출시 예정 · 문서 인텔리전스"
     },
     "cats": {
       "c01": "지역 운영",
@@ -847,7 +849,7 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "46개 시스템 · 5개국",
+      "sysMeta": "47개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 15",
       "intelligence": "인텔리전스",
@@ -857,7 +859,7 @@
       "emerging": "신규",
       "emergingMeta": "연구급 및 새 운영 모델 · 8",
       "lab": "랩",
-      "labMeta": "보조 도구 · 공개 진행 · 10"
+      "labMeta": "보조 도구 · 공개 진행 · 11"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1426,6 +1428,7 @@
       "p52": { "name": "Dr Nonとの20分", "lede": "新しいポッドキャスト — アイデア、エージェント、地政学、そして次の20分。Spotifyでライブ配信中、エピソード順次公開中。", "cta": "Spotifyで開く" },
       "p53": { "name": "ASCNパフォーマンスレビュー（ディレクターズカット）", "lede": "134プロジェクトと38都市にわたるASEANスマートシティネットワークの業績を包括的に洞察するダッシュボード — 4つのM&Eサイクルにわたるポートフォリオの勢いと重点領域のシフトを検討。", "cta": "ライブシステムを開く" },
       "p54": { "lede": "全カートリッジにブレイン・ブリーフィング付きの16ビット・ブラウザアーケード — 何を訓練するか、1ラウンド何分か、主張の限界はどこか。広告なし。スコアはこの端末にのみ保存。", "cta": "ライブシステムを開く" },
+      "p55": { "lede": "PDFとリンクをアップロード。文書出典を毎回明示し、文書が黙っていれば「わかりません」と答えます。ワークスペースごとに100MB無料、TelegramとLINEで配信。ローカルの埋め込みとローカルのモデル、バンコクの一台のMacで——あなたの文書はどこにも送りません。", "cta": "ワークスペースを開く" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>台北</b> · City Vision Stage · 2026年3月",
@@ -1738,7 +1741,7 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "46システム · 5か国",
+      "sysMeta": "47システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 15",
       "intelligence": "インテリジェンス",
@@ -1748,7 +1751,7 @@
       "emerging": "新興",
       "emergingMeta": "研究グレードと新運用モデル · 8",
       "lab": "ラボ",
-      "labMeta": "補助ツール · 公開中 · 10"
+      "labMeta": "補助ツール · 公開中 · 11"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2317,6 +2320,7 @@
       "p52": { "name": "20 phút với Dr Non", "lede": "Podcast mới — ý tưởng, tác nhân, địa chính trị, và hai mươi phút tiếp theo. Đang phát trực tiếp trên Spotify, thêm tập đang ra.", "cta": "Mở trên Spotify" },
       "p53": { "name": "Đánh giá hiệu quả ASCN (Bản giám đốc)", "lede": "Một bảng điều khiển thông tin toàn diện về hiệu quả của Mạng lưới thành phố thông minh ASEAN qua 134 dự án và 38 thành phố — xem xét đà phát triển danh mục và sự thay đổi trọng tâm qua bốn chu kỳ M&E.", "cta": "Mở hệ thống trực tiếp" },
       "p54": { "lede": "Một trò chơi điện tử 16-bit trên trình duyệt, mỗi hộp cartridge đều có Bản tóm tắt Bộ não — kỹ năng nào được rèn luyện, mỗi vòng chơi mất bao lâu, và giới hạn của khẳng định. Không quảng cáo. Điểm chỉ lưu trên thiết bị này.", "cta": "Mở hệ thống trực tiếp" },
+      "p55": { "lede": "Tải lên PDF và liên kết. Hệ thống trích dẫn tài liệu mỗi lần — và khi các tài liệu im lặng, bot nói \"tôi không biết\". 100 MB miễn phí mỗi không gian làm việc, phân phối qua Telegram và LINE. Mô hình nhúng cục bộ, mô hình ngôn ngữ cục bộ, trên một chiếc Mac ở Bangkok — tài liệu của bạn không bao giờ rời khỏi máy.", "cta": "Mở không gian làm việc" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>Đài Bắc</b> · City Vision Stage · tháng 3/2026",
@@ -2629,7 +2633,7 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "46 hệ thống · 5 quốc gia",
+      "sysMeta": "47 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 15",
       "intelligence": "Tình báo",
@@ -2639,7 +2643,7 @@
       "emerging": "Mới nổi",
       "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 8",
       "lab": "Lab",
-      "labMeta": "Công cụ phụ · mở công khai · 10"
+      "labMeta": "Công cụ phụ · mở công khai · 11"
     },
     "sysStatus": {
       "live": "Trực tiếp",
