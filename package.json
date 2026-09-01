@@ -1,0 +1,21 @@
+{
+  "name": "axiom-site",
+  "version": "2.8.0",
+  "private": true,
+  "description": "Axiom X Co., Ltd. — smart-city dashboards and GovTech decision systems. Static site plus a Node 22 dev server; no bundler, no build step.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check public/app.js && node --check public/i18n-regional.js",
+    "qa:links": "node .qa/release-audit.mjs",
+    "qa:visual": "node .qa/visual-qa.mjs",
+    "export:evidence": "node scripts/export-evidence-snapshot.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  }
+}

@@ -53,7 +53,11 @@ public/
 ├── theme-masterpiece.css  — kept on disk for reference; NOT currently linked
 ├── admin/             — internal admin UI (auth required)
 ├── vendor/leaflet/    — Leaflet 1.9.4 (byte-identical to the npm dist). DO NOT re-point at a CDN.
-├── assets/            — logos, brand kit, OG image
+├── assets/            — logos, OG image, PDF collateral
+├── corporate-identity/ — 8 brand sheets. NOT linked from the site: they are a
+│                        generic template carrying a US placeholder entity and a
+│                        placeholder officer. Restore the #brand section only
+│                        once they carry Axiom X Co., Ltd.
 ├── images/            — press, event, team photography
 ├── photos/            — pro bono + supplementary photography
 ├── screenshots/       — system showcase panels

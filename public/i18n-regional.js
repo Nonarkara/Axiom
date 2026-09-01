@@ -596,7 +596,7 @@
         "foldLine": "현장 노트 · 6가지 패턴 · 출시 방식",
         "kicker": "구축 방식",
         "title": "실제로 출시하며 배운 것",
-        "lede": "열한 개 시스템. 두 사람. 열두 달. 유지된 패턴과 그렇지 않은 패턴. 정부가 필요로 하는 것과 시장이 공급하는 것 사이의 간극은 사람들이 깨달은 것을 나눌 때만 좁아집니다.",
+        "lede": "두 사람. 열두 달. 유지된 패턴과 그렇지 않은 패턴. 정부가 필요로 하는 것과 시장이 공급하는 것 사이의 간극은 사람들이 깨달은 것을 나눌 때만 좁아집니다.",
         "n1title": "벤더가 거절했다. 14일 만에 출시했다.",
         "n1body": "이 페이지의 모든 시스템은 조달 사이클, 벤더 견적, 또는 위원회가 '너무 복잡하거나 비싸다'고 말해서 시작되었습니다. 답은 논쟁이 아니라 거친 작동 버전을 만들어 회의실에 놓는 것이었습니다.",
         "n2title": "AI-native는 AI-assisted와 다릅니다.",
@@ -645,7 +645,7 @@
         "expandAll": "모든 브랜드 시트 보기"
       },
       "pressSection": {
-        "foldLine": "언론 · 7건 · GovInsider, ASEAN Magazine, YouTube",
+        "foldLine": "언론 · 6건 · GovInsider, ASEAN Magazine, YouTube",
         "kicker": "언론 보도",
         "title": "읽고. 보고. 결정하라.",
         "lede": "작업, 논지, 시스템에 대한 외부 보도."
@@ -1545,7 +1545,7 @@
         "foldLine": "フィールドノート · 6パターン · 出荷の仕方",
         "kicker": "構築の方法",
         "title": "実際にリリースして学んだこと",
-        "lede": "11システム。2名。12か月。維持されたパターンとそうでないパターン。政府が必要とするものと市場が供給するもののギャップは、人々が学びを共有したときだけ狭まります。",
+        "lede": "2名。12か月。維持されたパターンとそうでないパターン。政府が必要とするものと市場が供給するもののギャップは、人々が学びを共有したときだけ狭まります。",
         "n1title": "ベンダーは断った。14日でリリースした。",
         "n1body": "このページのすべてのシステムは、調達サイクル、ベンダー見積、または委員会が「複雑すぎる、高すぎる」と言ったことから始まりました。答えは議論ではなく、粗削りの稼働版を作って会議室に置くことでした。",
         "n2title": "AI-nativeはAI-assistedとは異なります。",
@@ -1594,7 +1594,7 @@
         "expandAll": "すべてのブランドシートを見る"
       },
       "pressSection": {
-        "foldLine": "報道 · 7件 · GovInsider、ASEAN Magazine、YouTube",
+        "foldLine": "報道 · 6件 · GovInsider、ASEAN Magazine、YouTube",
         "kicker": "メディア報道",
         "title": "読む。見る。判断する。",
         "lede": "業務、論点、システムに関する外部報道。"
@@ -2484,7 +2484,7 @@
         "foldLine": "Ghi chú hiện trường · 6 mẫu · cách chúng tôi giao hàng",
         "kicker": "Cách chúng tôi xây",
         "title": "Những gì học được khi thực sự ra mắt",
-        "lede": "Mười một hệ thống. Hai người. Mười hai tháng. Mẫu được giữ và mẫu không. Khoảng cách giữa điều chính phủ cần và thị trường cung chỉ thu hẹp khi mọi người chia sẻ bài học.",
+        "lede": "Hai người. Mười hai tháng. Mẫu được giữ và mẫu không. Khoảng cách giữa điều chính phủ cần và thị trường cung chỉ thu hẹp khi mọi người chia sẻ bài học.",
         "n1title": "Nhà cung cấp từ chối. Chúng tôi ra mắt trong 14 ngày.",
         "n1body": "Mọi hệ thống trên trang này bắt đầu từ chu kỳ đấu thầu, báo giá nhà cung cấp, hoặc ủy ban nói \"quá phức tạp hoặc quá đắt\". Câu trả lời không phải tranh luận mà là làm bản chạy thô và đặt lên bàn họp.",
         "n2title": "AI-native khác AI-assisted.",
@@ -2533,7 +2533,7 @@
         "expandAll": "Xem tất cả brand sheet"
       },
       "pressSection": {
-        "foldLine": "Báo chí · 7 bài · GovInsider, ASEAN Magazine, YouTube",
+        "foldLine": "Báo chí · 6 bài · GovInsider, ASEAN Magazine, YouTube",
         "kicker": "Báo chí",
         "title": "Đọc. Xem. Quyết định.",
         "lede": "Đưa tin bên ngoài về công việc, luận điểm và hệ thống."

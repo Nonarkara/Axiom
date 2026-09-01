@@ -1,5 +1,5 @@
 {
-  "version": "2.7.0",
-  "released": "2026-05-27",
-  "note": "Source of truth for the deployed site version. Mirrors package.json. Bumped manually with each shipped change. Surfaced in the topbar via app.js."
+  "version": "2.8.0",
+  "released": "2026-08-19",
+  "note": "Source of truth for the deployed site version. Mirrors package.json. Bumped manually with each shipped change. Not read at runtime — nothing in app.js fetches it."
 }
