@@ -518,6 +518,8 @@
       "p53": { "name": "ASCN 성과 검토 (감독관 컷)", "lede": "134개 프로젝트와 38개 도시에 걸친 ASEAN 스마트 시티 네트워크의 성과를 종합적으로 분석한 대시보드 — 4개 M&E 주기 동안의 포트폴리오 모멘텀과 초점 영역 변화 검토.", "cta": "라이브 시스템 열기" },
       "p54": { "lede": "모든 카트리지에 두뇌 브리핑이 딸린 16비트 브라우저 아케이드 — 어떤 기술을 훈련시키는지, 한 라운드당 시간이 얼마나 걸리는지, 주장 한계는 어디인지. 광고 없음. 점수는 이 기기에만 보관.", "cta": "라이브 시스템 열기" },
       "p55": { "lede": "PDF와 링크를 업로드하세요. 시스템은 매번 문서를 인용하고, 문서가 침묵하면 \"모르겠습니다\"라고 답합니다. 워크스페이스당 100MB 무료, Telegram과 LINE으로 제공. 로컬 임베딩과 로컬 모델, 방콕의 한 대 Mac에서 — 문서는 절대 외부로 나가지 않습니다.", "cta": "워크스페이스 열기" },
+      "p56": { "lede": "Axiom 뒤의 운영 표준 — tokens, components, 5줄 DNA, 그리고 모든 AI 에이전트를 위한 AGENTS.md. 기능 우선, 그 다음 빼기. Claude Code, Cursor, Cline, Aider 또는 다른 에이전트에 넣으면 에이전트가 첫 시도부터 올바른 Axiom 스타일 작업물을 만듭니다. MIT 라이선스 — 복제, 포크, 배포.", "cta": "저장소 열기" },
+      "p57": { "lede": "Dr Non의 복제 등급 인터페이스 표준. 두 계층: 단일 뷰용 Rams 침묵(따뜻한 회색 필드, 가는 그리드, 단일 강조색); 다중 보드 시스템용 NYCTA 안내 계층(닫힌 트렁크 팔레트, 디스크, 역명판, 솔리드 화살표). 모든 AI 에이전트를 위한 AGENTS.md. 원작물에 한해 MIT 라이선스; 재라이선스되지 않는 항목은 NOTICE.md 참조.", "cta": "저장소 열기" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>타이베이</b> · City Vision Stage · 2026년 3월",
@@ -720,7 +722,9 @@
       "p52": "Live · 팟캐스트",
       "p53": "Live · 네트워크 평가",
       "p54": "Live · 두뇌 훈련",
-      "p55": "출시 예정 · 문서 인텔리전스"
+      "p55": "출시 예정 · 문서 인텔리전스",
+      "p56": "Live · 오픈 소스 키트",
+      "p57": "Live · 오픈 소스 키트"
     },
     "cats": {
       "c01": "지역 운영",
@@ -761,7 +765,8 @@
       "c42": "구 운영",
       "c43": "팟캐스트",
       "c44": "네트워크 평가",
-      "c45": "두뇌 훈련"
+      "c45": "두뇌 훈련",
+      "c46": "오픈 소스 키트"
     ,
         "c19": "환경 모니터링",
         "c26": "오픈 청사진",
@@ -849,7 +854,7 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "47개 시스템 · 5개국",
+      "sysMeta": "48개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 15",
       "intelligence": "인텔리전스",
@@ -859,7 +864,7 @@
       "emerging": "신규",
       "emergingMeta": "연구급 및 새 운영 모델 · 8",
       "lab": "랩",
-      "labMeta": "보조 도구 · 공개 진행 · 11"
+      "labMeta": "보조 도구 · 공개 진행 · 12"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1429,6 +1434,8 @@
       "p53": { "name": "ASCNパフォーマンスレビュー（ディレクターズカット）", "lede": "134プロジェクトと38都市にわたるASEANスマートシティネットワークの業績を包括的に洞察するダッシュボード — 4つのM&Eサイクルにわたるポートフォリオの勢いと重点領域のシフトを検討。", "cta": "ライブシステムを開く" },
       "p54": { "lede": "全カートリッジにブレイン・ブリーフィング付きの16ビット・ブラウザアーケード — 何を訓練するか、1ラウンド何分か、主張の限界はどこか。広告なし。スコアはこの端末にのみ保存。", "cta": "ライブシステムを開く" },
       "p55": { "lede": "PDFとリンクをアップロード。文書出典を毎回明示し、文書が黙っていれば「わかりません」と答えます。ワークスペースごとに100MB無料、TelegramとLINEで配信。ローカルの埋め込みとローカルのモデル、バンコクの一台のMacで——あなたの文書はどこにも送りません。", "cta": "ワークスペースを開く" },
+      "p56": { "lede": "Axiom を支える運用基準 — トークン、コンポーネント、5行DNA、あらゆるAIエージェント向けAGENTS.md。機能を先に、その後に削る。Claude Code、Cursor、Cline、Aider、または他のエージェントに投入すれば、エージェントは初手で正しいAxiomスタイルの成果物を作ります。MITライセンス — クローン、フォーク、出荷。", "cta": "リポジトリを開く" },
+      "p57": { "lede": "Dr Non の再現グレードインターフェース基準。2層構成：単一ビュー用 Rams の静寂（暖灰フィールド、ヘアライングリッド、単一アクセント色）、マルチボードシステム用 NYCTA ウェイファインディング層（閉じた路線パレット、ディスク、駅名板、ソリッド矢印）。あらゆるAIエージェント用AGENTS.md。オリジナルワークのみMITライセンス。再ライセンス対象外は NOTICE.md 参照。", "cta": "リポジトリを開く" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>台北</b> · City Vision Stage · 2026年3月",
@@ -1657,7 +1664,8 @@
         "c42": "地区運営",
         "c43": "ポッドキャスト",
         "c44": "ネットワーク評価",
-        "c45": "脳力練習",},
+        "c45": "脳力練習",
+        "c46": "オープンソースキット",},
     "bioCommon": {
       "cvBtn": "履歴書を見る",
       "education": "学歴"
@@ -1741,7 +1749,7 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "47システム · 5か国",
+      "sysMeta": "48システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 15",
       "intelligence": "インテリジェンス",
@@ -1751,7 +1759,7 @@
       "emerging": "新興",
       "emergingMeta": "研究グレードと新運用モデル · 8",
       "lab": "ラボ",
-      "labMeta": "補助ツール · 公開中 · 11"
+      "labMeta": "補助ツール · 公開中 · 12"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2321,6 +2329,8 @@
       "p53": { "name": "Đánh giá hiệu quả ASCN (Bản giám đốc)", "lede": "Một bảng điều khiển thông tin toàn diện về hiệu quả của Mạng lưới thành phố thông minh ASEAN qua 134 dự án và 38 thành phố — xem xét đà phát triển danh mục và sự thay đổi trọng tâm qua bốn chu kỳ M&E.", "cta": "Mở hệ thống trực tiếp" },
       "p54": { "lede": "Một trò chơi điện tử 16-bit trên trình duyệt, mỗi hộp cartridge đều có Bản tóm tắt Bộ não — kỹ năng nào được rèn luyện, mỗi vòng chơi mất bao lâu, và giới hạn của khẳng định. Không quảng cáo. Điểm chỉ lưu trên thiết bị này.", "cta": "Mở hệ thống trực tiếp" },
       "p55": { "lede": "Tải lên PDF và liên kết. Hệ thống trích dẫn tài liệu mỗi lần — và khi các tài liệu im lặng, bot nói \"tôi không biết\". 100 MB miễn phí mỗi không gian làm việc, phân phối qua Telegram và LINE. Mô hình nhúng cục bộ, mô hình ngôn ngữ cục bộ, trên một chiếc Mac ở Bangkok — tài liệu của bạn không bao giờ rời khỏi máy.", "cta": "Mở không gian làm việc" },
+      "p56": { "lede": "Tiêu chuẩn vận hành đằng sau Axiom — tokens, components, DNA 5 dòng, và AGENTS.md cho mọi AI agent. Chức năng trước, rồi mới trừ. Thả vào Claude Code, Cursor, Cline, Aider, hoặc bất kỳ agent nào và agent sẽ tạo ra tác phẩm đúng phong cách Axiom ngay từ lần đầu. Cấp phép MIT — clone, fork, phát hành.", "cta": "Mở kho" },
+      "p57": { "lede": "Tiêu chuẩn giao diện cấp tái sản xuất của Dr Non. Hai lớp: sự im lặng Rams (trường xám ấm, lưới tóc, một điểm nhấn) cho chế độ xem đơn; lớp NYCTA wayfinding (bảng màu thân khép kín, đĩa, biển ga, mũi tên đặc) cho hệ thống nhiều bảng. AGENTS.md cho mọi AI agent. Cấp phép MIT cho tác phẩm gốc; xem NOTICE.md cho những gì không được cấp lại.", "cta": "Mở kho" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>Đài Bắc</b> · City Vision Stage · tháng 3/2026",
@@ -2549,7 +2559,8 @@
         "c42": "Vận hành quận",
         "c43": "Podcast",
         "c44": "Đánh giá mạng lưới",
-        "c45": "Luyện trí não",},
+        "c45": "Luyện trí não",
+        "c46": "Bộ công cụ mã nguồn mở",},
     "bioCommon": {
       "cvBtn": "Xem CV",
       "education": "Học vấn"
@@ -2633,7 +2644,7 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "47 hệ thống · 5 quốc gia",
+      "sysMeta": "48 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 15",
       "intelligence": "Tình báo",
@@ -2643,7 +2654,7 @@
       "emerging": "Mới nổi",
       "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 8",
       "lab": "Lab",
-      "labMeta": "Công cụ phụ · mở công khai · 11"
+      "labMeta": "Công cụ phụ · mở công khai · 12"
     },
     "sysStatus": {
       "live": "Trực tiếp",

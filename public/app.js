@@ -426,6 +426,26 @@ const ARCHITECTURES = {
     foot: "the bot stays silent when the documents are silent",
     stack: ['Local embeddings', 'Local LLM', 'Mac-hosted'],
   },
+  'axiom-dc': {
+    name: 'AXIOM DESIGN CORE',
+    ver: '2.1.0',
+    idx: '44',
+    inputs: ['5-line DNA', 'AGENTS.md', 'tokens.css', 'components.html'],
+    core: { name: 'OPEN SOURCE KIT', meta: ['MIT', '2026'] },
+    outputs: ['Agent-readable', '7 install paths', '22-section DNA'],
+    foot: "function first, then subtract — clone, fork, ship",
+    stack: ['AGENTS.md', 'tokens.css', 'Inter + Spectral'],
+  },
+  'rams-dc': {
+    name: 'RAMS × NYCTA DESIGN CORE',
+    ver: '1.0.0',
+    idx: '45',
+    inputs: ['Two layers', 'AGENTS.md', 'Decision tree', 'NOTICE.md'],
+    core: { name: 'OPEN SOURCE KIT', meta: ['MIT', '2026'] },
+    outputs: ['Agent-readable', '8 install paths', 'Cockpit + wayfinding'],
+    foot: "less, but better — closed colour, hairline grid",
+    stack: ['AGENTS.md', 'tokens.css', 'Inter'],
+  },
   'nst': {
     name: 'NST-01',
     ver: '1.0.0',
@@ -1685,6 +1705,14 @@ const i18nExt = {
         lede: 'Upload PDFs and links. The system cites the document every time — and when the documents are silent, the bot says "I don\'t know". 100 MB free per workspace, served through Telegram and LINE. Local embeddings, local model, on one Mac in Bangkok — your documents never leave.',
         cta: 'Open the workspace',
       },
+      p56: {
+        lede: "The operating standard behind Axiom — tokens, components, the 5-line DNA, and AGENTS.md for any AI agent. Function first, then subtract. Drop into Claude Code, Cursor, Cline, Aider, or any other agent and the agent produces correct Axiom-style work on the first pass. MIT licensed — clone, fork, ship.",
+        cta: 'Open the repo',
+      },
+      p57: {
+        lede: "Dr Non's reproduction-grade interface standard. Two layers: Rams silence (warm-grey field, hairline grid, one accent) for single views; the NYCTA wayfinding layer (closed trunk palette, disc, station plate, solid arrow) for multi-board systems. AGENTS.md for any AI agent. MIT licensed for original work; see NOTICE.md for what is not relicensed.",
+        cta: 'Open the repo',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -2095,6 +2123,14 @@ const i18nExt = {
         lede: 'อัปโหลด PDF และลิงก์ ระบบอ้างอิงเอกสารทุกครั้ง — และเมื่อเอกสารเงียบ บอทจะตอบว่า "ฉันไม่รู้" ใช้งานฟรี 100 MB ต่อเวิร์กสเปซ เชื่อมต่อผ่าน Telegram และ LINE การฝังและโมเดลทำงานในเครื่อง — เอกสารของคุณไม่ถูกส่งออกไปที่ใด',
         cta: 'เปิดเวิร์กสเปซ',
       },
+      p56: {
+        lede: "มาตรฐานการออกแบบเบื้องหลัง Axiom — tokens, components, DNA 5 บรรทัด และ AGENTS.md สำหรับ AI agent ใดๆ ฟังก์ชันมาก่อน แล้วลบออก ใส่เข้า Claude Code, Cursor, Cline, Aider หรือ agent อื่นๆ แล้ว agent จะผลิตงานสไตล์ Axiom ที่ถูกต้องตั้งแต่ครั้งแรก ได้รับอนุญาตภายใต้ MIT — โคลน แยก ใช้งาน",
+        cta: 'เปิด repo',
+      },
+      p57: {
+        lede: "มาตรฐานอินเทอร์เฟซระดับ reproduction ของ Dr Non สองเลเยอร์: Rams silence (พื้นอุ่นเทา กริดเส้นบาง สีเน้นหนึ่งเดียว) สำหรับมุมมองเดียว และเลเยอร์ NYCTA wayfinding (พาเลตต์เส้นทางแบบปิด, แผ่นดิสก์, ป้ายสถานี, ลูกศรทึบ) สำหรับระบบหลายบอร์ด AGENTS.md สำหรับ AI agent ใดๆ ได้รับอนุญาตภายใต้ MIT สำหรับงานต้นฉบับ ดู NOTICE.md สำหรับสิ่งที่ไม่ได้ relicensed",
+        cta: 'เปิด repo',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2502,6 +2538,14 @@ const i18nExt = {
         lede: '上传 PDF 与链接。系统每次都引用文档出处——文档沉默时，机器人说"我不知道"。100 MB 免费工作区，通过 Telegram 与 LINE 投递。本地嵌入、本地模型，一台在曼谷的 Mac——你的文档不会离开。',
         cta: '打开工作区',
       },
+      p56: {
+        lede: "Axiom 背后的操作标准 — tokens、components、五行 DNA，以及为任何 AI agent 准备的 AGENTS.md。先功能，后删减。丢入 Claude Code、Cursor、Cline、Aider 或任何 agent，agent 一次就能产出正确的 Axiom 风格作品。MIT 授权 — 克隆、分叉、发布。",
+        cta: '打开仓库',
+      },
+      p57: {
+        lede: "Dr Non 的可复刻级界面标准。两个层：Rams 静默层（暖灰底、发丝网格、单一强调色）用于单视图；NYCTA 寻路层（封闭的线路色板、圆盘、站牌、实心箭头）用于多板系统。为任何 AI agent 准备的 AGENTS.md。原创工作以 MIT 授权；不属于再授权范围的内容见 NOTICE.md。",
+        cta: '打开仓库',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2699,6 +2743,8 @@ const i18nExt = {
       p53: { lede: '// ASCN.ASEAN.directorCut()\n// 134 projects · 38 cities · 4 M&E cycles // portfolio.momentum + focus.shifts', cta: 'system.open()' },
       p54: { lede: '// omniArcade.brainPractice()\n// 16-bit browser.arcade + BrainBriefing(on: every.cartridge) // no.ads · scores.localOnly', cta: 'system.open()' },
       p55: { lede: '// rag.nonarkara.org / retrieval_as_a_service\n// upload(PDF, links) → cite(source) → silence.when(corpus.silent)\n// 100MB/workspace · Telegram + LINE · localMac(Bangkok) · no.outbound', cta: 'workspace.open()' },
+      p56: { lede: '// axiom.designCore / operatingStandard.behindAllAxiom\n// tokens.css + components.html + 5line.DNA + AGENTS.md // functionFirst, thenSubtract\n// dropInto(agent) → firstPass.correct.always // MIT.license = clone, fork, ship', cta: 'repo.open()' },
+      p57: { lede: '// rams.nycta.designCore / reproduction.grade.interface\n// layer1(Rams.silence) + layer2(NYCTA.wayfinding) // closed.trunk.palette + disc + stationPlate + solidArrow\n// AGENTS.md for(any.agent) // MIT.license(originalWork.only) → NOTICE.md', cta: 'repo.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2885,6 +2931,8 @@ const i18nExt2 = {
       p46:'Live · World Console',
       p47:'Live · Fieldwork Book',
       p55:'Coming soon · Document Intelligence',
+      p56:'Live · Open Source Kit',
+      p57:'Live · Open Source Kit',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -2907,6 +2955,8 @@ const i18nExt2 = {
       c36:'Heritage Atlas',
       c37:'Urban Research',
       c38:'Fieldwork Book',
+      c39:'National Programme',
+      c46:'Open Source Kit',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -2964,7 +3014,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '47 systems · 5 countries',
+      sysMeta: '48 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 16',
       intelligence: 'Intelligence',
@@ -2974,7 +3024,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 11',
+      labMeta: 'Side tools · in the open · 12',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -3048,6 +3098,8 @@ const i18nExt2 = {
       p53:'สด · ประเมินเครือข่าย',
       p54:'สด · ฝึกสมอง',
       p55:'เร็ว ๆ นี้ · เอกสารอัจฉริยะ',
+      p56:'สด · ชุดโอเพนซอร์ส',
+      p57:'สด · ชุดโอเพนซอร์ส',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -3070,6 +3122,8 @@ const i18nExt2 = {
       c36:'แผนที่มรดก',
       c37:'งานวิจัยเมือง',
       c38:'หนังสือภาคสนาม',
+      c39:'โครงการระดับชาติ',
+      c46:'ชุดโอเพนซอร์ส',
       c39:'โครงการระดับชาติ',
       c40:'ชีพจรเมือง',
       c41:'ควบคุมจราจร',
@@ -3134,7 +3188,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '47 ระบบ · 5 ประเทศ',
+      sysMeta: '48 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
       intelligence: 'ข่าวกรอง',
@@ -3144,7 +3198,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 11',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 12',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -3218,6 +3272,8 @@ const i18nExt2 = {
       p53:'在线 · 网络评估',
       p54:'在线 · 脑力练习',
       p55:'即将推出 · 文档智能',
+      p56:'在线 · 开源工具包',
+      p57:'在线 · 开源工具包',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -3238,6 +3294,8 @@ const i18nExt2 = {
       c36:'遗产地图',
       c37:'城市研究',
       c38:'田野志',
+      c39:'国家项目',
+      c46:'开源工具包',
       c39:'国家级项目',
       c40:'城市脉搏',
       c41:'交通管制',
@@ -3302,7 +3360,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '47 个系统 · 5 个国家',
+      sysMeta: '48 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 16',
       intelligence: '情报',
@@ -3312,7 +3370,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 11',
+      labMeta: '辅助工具 · 开放中 · 12',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3421,6 +3479,7 @@ const i18nExt2 = {
       c43:'Podcast',
       c44:'NetworkEvaluation',
       c45:'BrainPractice',
+      c46:'OpenSourceKit',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -3478,7 +3537,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '47 systems · 5 countries',
+      sysMeta: '48 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
@@ -3488,7 +3547,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[11]',
+      labMeta: 'sideTools & openProcess · count[12]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
