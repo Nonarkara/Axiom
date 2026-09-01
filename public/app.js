@@ -303,7 +303,7 @@ const ARCHITECTURES = {
   'ascn': {
     name: 'ASCN DIRECTOR\'S CUT',
     ver: '1.2.0',
-    idx: '24',
+    idx: '46',
     inputs: ['134 ASCN projects', '38 cities', '4 M&E cycles'],
     core: { name: 'ASCN DIRECTOR', meta: ['portfolio momentum', 'focus shift'] },
     outputs: ['Network insights', 'Momentum panels', 'Cross-cycle compare'],
@@ -399,7 +399,7 @@ const ARCHITECTURES = {
   'shophouse-metropolis': {
     name: 'SHOPHOUSE METROPOLIS',
     ver: '1.0.0',
-    idx: '41',
+    idx: '47',
     inputs: ['2,311-building survey', 'Treasury land value', 'Setback rules', 'OSM footprints'],
     core: { name: 'BKK SHOUSE', meta: ['long-form essay', 'Harvard GSD 2026'] },
     outputs: ['Pressure map', 'Four-colour answer', 'Reuse-first argument'],
@@ -409,7 +409,7 @@ const ARCHITECTURES = {
   'locating-shanghai': {
     name: 'LOCATING SHANGHAI',
     ver: '3.0.0',
-    idx: '42',
+    idx: '48',
     inputs: ['20 years fieldwork', '134 photographs', '5h audio', '475 citations'],
     core: { name: 'SHANGHAI BOOK', meta: ['reading edition', '2026'] },
     outputs: ['15 chapters', 'Read · Listen · Look', 'Static HTML'],
@@ -419,7 +419,7 @@ const ARCHITECTURES = {
   'rag': {
     name: 'RAG.NONARKARA',
     ver: '0.9.0',
-    idx: '43',
+    idx: '49',
     inputs: ['PDFs', 'links', 'Telegram', 'LINE'],
     core: { name: 'RAG ENGINE', meta: ['retrieval', '2026'] },
     outputs: ['Cited answers', 'Telegram + LINE', '100 MB free'],
@@ -429,7 +429,7 @@ const ARCHITECTURES = {
   'axiom-dc': {
     name: 'AXIOM DESIGN CORE',
     ver: '2.1.0',
-    idx: '44',
+    idx: '50',
     inputs: ['5-line DNA', 'AGENTS.md', 'tokens.css', 'components.html'],
     core: { name: 'OPEN SOURCE KIT', meta: ['MIT', '2026'] },
     outputs: ['Agent-readable', '7 install paths', '22-section DNA'],
@@ -439,7 +439,7 @@ const ARCHITECTURES = {
   'rams-dc': {
     name: 'RAMS × NYCTA DESIGN CORE',
     ver: '1.0.0',
-    idx: '45',
+    idx: '02',
     inputs: ['Two layers', 'AGENTS.md', 'Decision tree', 'NOTICE.md'],
     core: { name: 'OPEN SOURCE KIT', meta: ['MIT', '2026'] },
     outputs: ['Agent-readable', '8 install paths', 'Cockpit + wayfinding'],
@@ -1791,7 +1791,7 @@ const i18nExt = {
       expandAll:'View all brand sheets',
     },
     pressSection: {
-      foldLine:'Press · 7 articles · GovInsider, ASEAN Magazine, YouTube',
+      foldLine:'Press · 6 articles · GovInsider, ASEAN Magazine, YouTube',
       kicker:'In the press', title:'Read. Watch. Decide.', lede:'Outside coverage of the work, the thesis, and the systems.',
     },
     pressContent: {
@@ -2208,7 +2208,7 @@ const i18nExt = {
       downloadCta:'ดาวน์โหลด Brand Kit',
       expandAll:'ดูแผ่นแบรนด์ทั้งหมด',
     },
-    pressSection: { foldLine:'สื่อ · 7 บทความ · GovInsider, ASEAN Magazine, YouTube', kicker:'ในสื่อ', title:'อ่าน ดู ตัดสินใจ', lede:'รายงานจากภายนอกเกี่ยวกับงาน แนวคิด และระบบทั้งหมด' },
+    pressSection: { foldLine:'สื่อ · 6 บทความ · GovInsider, ASEAN Magazine, YouTube', kicker:'ในสื่อ', title:'อ่าน ดู ตัดสินใจ', lede:'รายงานจากภายนอกเกี่ยวกับงาน แนวคิด และระบบทั้งหมด' },
     pressContent: {
       p1title:'ผู้ขายปฏิเสธ เจ้าหน้าที่ไทยสร้างเครื่องมือเอง',
       p2title:'Innovation-as-a-Service ปิดช่องว่างระหว่างนโยบายกับการทำจริงได้หรือไม่',
@@ -2623,7 +2623,7 @@ const i18nExt = {
       downloadCta:'下载品牌工具包',
       expandAll:'查看全部品牌规范',
     },
-    pressSection: { foldLine:'媒体报道 · 7篇 · GovInsider、东盟杂志、YouTube', kicker:'媒体报道', title:'读 看 决定', lede:'外界对这些工作、论点和系统的报道' },
+    pressSection: { foldLine:'媒体报道 · 6篇 · GovInsider、东盟杂志、YouTube', kicker:'媒体报道', title:'读 看 决定', lede:'外界对这些工作、论点和系统的报道' },
     credentialsSect: {
       foldLine:'Axiom X Co., Ltd. · 注册号 0105569099335 · 泰国 · 商务部登记',
       kicker:'资质',
@@ -2822,7 +2822,7 @@ const i18nExt = {
       downloadCta:'brandKit.download()',
       expandAll:'brandSheets.viewAll()',
     },
-    pressSection: { foldLine:'// press: 7 articles · GovInsider | ASEAN | YouTube', kicker:'// IN_THE_PRESS', title:'read() // watch() // decide()', lede:'// outside coverage: { work, thesis, systems }' },
+    pressSection: { foldLine:'// press: 6 articles · GovInsider | ASEAN | YouTube', kicker:'// IN_THE_PRESS', title:'read() // watch() // decide()', lede:'// outside coverage: { work, thesis, systems }' },
     pressContent: {
       p1title:'// vendor.refuse() → civilServant.build()',
       p2title:'// InnovationService.close(gap: PolicyToImplementation)',
@@ -3014,7 +3014,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '48 systems · 5 countries',
+      sysMeta: '50 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 16',
       intelligence: 'Intelligence',
@@ -3024,7 +3024,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 12',
+      labMeta: 'Side tools · in the open · 13',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -3188,7 +3188,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '48 ระบบ · 5 ประเทศ',
+      sysMeta: '50 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
       intelligence: 'ข่าวกรอง',
@@ -3198,7 +3198,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 12',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 13',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -3360,7 +3360,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '48 个系统 · 5 个国家',
+      sysMeta: '50 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 16',
       intelligence: '情报',
@@ -3370,7 +3370,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 12',
+      labMeta: '辅助工具 · 开放中 · 13',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3537,7 +3537,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '48 systems · 5 countries',
+      sysMeta: '50 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
@@ -3547,7 +3547,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[12]',
+      labMeta: 'sideTools & openProcess · count[13]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {

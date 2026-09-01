@@ -619,7 +619,7 @@
       "expandAll": "모든 브랜드 시트 보기"
     },
     "pressSection": {
-      "foldLine": "언론 · 7건 · GovInsider, ASEAN Magazine, YouTube",
+      "foldLine": "언론 · 6건 · GovInsider, ASEAN Magazine, YouTube",
       "kicker": "언론 보도",
       "title": "읽고. 보고. 결정하라.",
       "lede": "작업, 논지, 시스템에 대한 외부 보도."
@@ -854,17 +854,17 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "48개 시스템 · 5개국",
+      "sysMeta": "50개 시스템 · 5개국",
       "command": "도시 대시보드",
-      "commandMeta": "실시간 도시 운영실 및 환경 관측 · 15",
+      "commandMeta": "실시간 도시 운영실 및 환경 관측 · 16",
       "intelligence": "인텔리전스",
-      "intelligenceMeta": "신호 및 분석 · 6",
+      "intelligenceMeta": "신호 및 분석 · 8",
       "civic": "시민",
       "civicMeta": "국가 플랫폼 및 시민 인프라 · 4",
       "emerging": "신규",
-      "emergingMeta": "연구급 및 새 운영 모델 · 8",
+      "emergingMeta": "연구급 및 새 운영 모델 · 9",
       "lab": "랩",
-      "labMeta": "보조 도구 · 공개 진행 · 12"
+      "labMeta": "보조 도구 · 공개 진행 · 13"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1535,7 +1535,7 @@
       "expandAll": "すべてのブランドシートを見る"
     },
     "pressSection": {
-      "foldLine": "報道 · 7件 · GovInsider、ASEAN Magazine、YouTube",
+      "foldLine": "報道 · 6件 · GovInsider、ASEAN Magazine、YouTube",
       "kicker": "メディア報道",
       "title": "読む。見る。判断する。",
       "lede": "業務、論点、システムに関する外部報道。"
@@ -1749,17 +1749,17 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "48システム · 5か国",
+      "sysMeta": "50システム · 5か国",
       "command": "シティダッシュボード",
-      "commandMeta": "リアルタイム都市運用室と環境観測 · 15",
+      "commandMeta": "リアルタイム都市運用室と環境観測 · 16",
       "intelligence": "インテリジェンス",
-      "intelligenceMeta": "シグナルと分析 · 6",
+      "intelligenceMeta": "シグナルと分析 · 8",
       "civic": "シビック",
       "civicMeta": "国家プラットフォームと市民インフラ · 4",
       "emerging": "新興",
-      "emergingMeta": "研究グレードと新運用モデル · 8",
+      "emergingMeta": "研究グレードと新運用モデル · 9",
       "lab": "ラボ",
-      "labMeta": "補助ツール · 公開中 · 12"
+      "labMeta": "補助ツール · 公開中 · 13"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2430,7 +2430,7 @@
       "expandAll": "Xem tất cả brand sheet"
     },
     "pressSection": {
-      "foldLine": "Báo chí · 7 bài · GovInsider, ASEAN Magazine, YouTube",
+      "foldLine": "Báo chí · 6 bài · GovInsider, ASEAN Magazine, YouTube",
       "kicker": "Báo chí",
       "title": "Đọc. Xem. Quyết định.",
       "lede": "Đưa tin bên ngoài về công việc, luận điểm và hệ thống."
@@ -2644,17 +2644,17 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "48 hệ thống · 5 quốc gia",
+      "sysMeta": "50 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
-      "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 15",
+      "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 16",
       "intelligence": "Tình báo",
-      "intelligenceMeta": "Tín hiệu và phân tích · 6",
+      "intelligenceMeta": "Tín hiệu và phân tích · 8",
       "civic": "Công dân",
       "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 4",
       "emerging": "Mới nổi",
-      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 8",
+      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 9",
       "lab": "Lab",
-      "labMeta": "Công cụ phụ · mở công khai · 12"
+      "labMeta": "Công cụ phụ · mở công khai · 13"
     },
     "sysStatus": {
       "live": "Trực tiếp",
