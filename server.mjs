@@ -469,9 +469,6 @@ const seededContentHistory = [
   },
 ];
 
-seedDatabase();
-syncSeedEvidenceRecords();
-
 const insertPageviewStatement = db.prepare(`
   INSERT INTO pageviews (path, referrer, country, language, user_agent)
   VALUES (?, ?, ?, ?, ?)
@@ -592,6 +589,9 @@ const insertPipelineNoteStatement = db.prepare(`
 const deletePipelineNoteStatement = db.prepare(`
   DELETE FROM pipeline_notes WHERE id = ? AND pipeline_id = ?
 `);
+
+seedDatabase();
+syncSeedEvidenceRecords();
 
 function ensureColumn(tableName, columnName, definition) {
   const columns = db.prepare(`PRAGMA table_info(${tableName})`).all();
