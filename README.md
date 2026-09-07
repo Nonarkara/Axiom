@@ -1,284 +1,196 @@
 # Axiom
 
+<p align="center">
+  <img src="docs/hero-banner.png" alt="Axiom X design workshop: a designer at the drafting table, civic transit studies, and product-language chrome. The HUD in this image is illustration only." width="1200">
+</p>
+
+<p align="center"><em>Design workshop — Axiom X civic product language.<br>
+The floating HUD, palettes, and component chrome in this banner are <strong>illustration only</strong>. They are not a live product screenshot and not an operations interface.</em></p>
+
 **Decision systems for cities, governments, and operators.**
 
-[axiom.nonarkara.org](https://axiom.nonarkara.org) · Bangkok · Legal entity: Axiom X Co., Ltd. · Reg. 0105569099335
+[axiom.nonarkara.org](https://axiom.nonarkara.org) · Bangkok · Legal entity: **Axiom X Co., Ltd.** · Reg. 0105569099335
 
-> Most "smart city" work ends as a deck. Ours runs in production.  
+> Most “smart city” work ends as a deck. Ours runs in production.  
 > Problem mapped in week one. Something working before any presentation.  
 > Every decision tracked from the start.
 
-![Axiom — AI as a Service, in Thailand, for the World](public/axiom-github-repo.png)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
-## The Thesis
+## What this is
 
-Governments don't have a technology problem. They have a speed problem.
+This repository is the public studio surface for **Axiom X Co., Ltd.** — the landing page and live demonstration at [axiom.nonarkara.org](https://axiom.nonarkara.org). It is a *product demonstration*, not a generic marketing template: a rich dashboard used as civic product language.
 
-The standard public-sector cycle — requirements gathering, committee review, vendor RFP, six-month implementation, delayed deployment — takes 18 to 36 months before anything works. Cities fall behind. Problems compound. The slide deck that took three months to approve is obsolete before it ships.
+Axiom is a Bangkok consultancy that builds decision systems for cities, governments, and operators. The site itself is an Axiom artifact. It proves capacity at a glance: satellite-theatre map, rotating headline, city-node strip, and the systems catalogue underneath. The visual signature *is* the pitch.
 
-Axiom doesn't pitch systems. We build them, on real data, before any presentation. By the time the meeting happens, the working prototype is already in the room.
+**Axiom X design / civic product language** means:
 
-Every system on this page started because someone said "too complex" or "too expensive" or "the vendor needs six months." The answer was never to argue. It was to build.
+- **Instrument first.** Operators stare at these surfaces. Every mark has to serve a decision, not a moodboard.
+- **Hairline geometry.** Thailand-flag blue (`#00247d`) on warm paper (`#faf9f7`). Square corners. No gradients, drop shadows, or pastels on the live site.
+- **Earned content only.** Real systems, real stages, real photographs. No stock filler, no “Feature 1 / Feature 2 / Feature 3.”
+- **The illusion of real-time is intentional.** The page is static HTML. The map, canvas, and HUD *behave* like an operations room. That behaviour is the methodology made visible.
 
----
+This repo is **not** the client production stack, **not** a secret intelligence platform, and **not** an `npm` dashboard framework. Production deployments under client NDAs are larger; what you can open from the showcase behaves like them, with advanced modules withheld.
 
-## The Site
+Sibling public work (throw these at an agent when you are actually designing a surface):
 
-This repository is the source for `axiom.nonarkara.org` — a live dashboard built in static HTML, vanilla JS, and custom CSS. No framework, no build step. It deploys via GitHub Actions → Cloudflare Pages on every push to `main`.
-
-The site is itself an Axiom product: it demonstrates, by existing, what the methodology produces.
-
-**Stack:** Static HTML · Vanilla JS · Custom CSS (Rams-grade light theme) · Leaflet (live map with auto-tour) · Canvas 2D animation · EN/TH/ZH/KO/JA/VI locale switch  
-**Deploy:** GitHub Actions → Cloudflare Pages (axiom.nonarkara.org)  
-**Design systems:** [Axiom-Design-Core](https://github.com/Nonarkara/Axiom-Design-Core) · [Rams-NYCTA-Design-Core](https://github.com/Nonarkara/Rams-NYCTA-Design-Core)
-
----
-
-## Systems Showcase — 22 Systems · 5 Countries
-
-*These aren't demos. They're working systems in a sandbox. Production deployments under client NDAs are larger; what runs here behaves like them, with advanced modules withheld.*
-
-### COMMAND — Operations rooms for governors & operators
-
-| System | Country | Description |
-|---|---|---|
-| **Phuket Ops** | Thailand | Regional operations room — transit, environment, incidents, real-time feeds |
-| **HCMCx Super Dashboard** | Vietnam | Metropolitan operations for Ho Chi Minh City |
-| **Kuching IOC** | Malaysia | Intelligent Operations Centre for Greater Kuching — built for the state |
-| **Chula Control Tower** | Thailand | Campus intelligence for Chulalongkorn University |
-| **Chonburi Control Tower** | Thailand | Coastal city intelligence — Chonburi province |
-| **KMITL Control Tower** | Thailand | Campus intelligence for King Mongkut's Institute of Technology Ladkrabang |
-| **Yala Control Tower** | Thailand | Civic intelligence for Yala — deep south operations |
-
-### INTELLIGENCE — Signal & analysis for strategists
-
-| System | Description |
+| Repo | What it is |
 |---|---|
-| **DNGWS Monitor** | Strategic intelligence dashboard — geopolitical signal monitoring |
-| **SLIC Index** | City benchmarking — 157 cities, 5 pillars, AMPI scoring |
-| **Global Monitor** | Strategic intelligence — conflict, politics, markets in one view |
-| **Middle East Monitor** | Live conflict signal across the region — open intelligence |
-| **DayTraders** | Market intelligence — financial signals for active traders |
-| **City Hub** | Urban intelligence aggregator — city data in one surface |
+| [Axiom-Design-Core](https://github.com/Nonarkara/Axiom-Design-Core) | The design system. MoMA Law × Golden Section × The Divine Move. Instrument / Editorial / Play. |
+| [Rams-NYCTA-Design-Core](https://github.com/Nonarkara/Rams-NYCTA-Design-Core) | Rams’s principles with Vignelli/NYCTA wayfinding. One law: nothing appears that does not serve a decision. |
+| [`axiom DNA/`](axiom%20DNA/) | Nested open-source city-dashboard builder (Docker / PostGIS / Grafana patterns). Separate from this landing page. |
 
-### CIVIC — National platforms & citizen infrastructure
+---
 
-| System | Description |
+## Philosophy
+
+Governments don’t have a technology problem. They have a **speed** problem.
+
+The standard public-sector cycle — requirements, committee, vendor RFP, six-month implementation — takes 18 to 36 months before anything works. Cities fall behind. The slide deck that took three months to approve is obsolete before it ships. Axiom does not pitch systems. We build them, on real data, before any presentation. By the time the meeting happens, the working prototype is already in the room.
+
+From [Axiom-Design-Core](https://github.com/Nonarkara/Axiom-Design-Core):
+
+> Beauty is what remains after everything that does not work is gone. Function first. Then subtract. The subtraction is the beauty. One bold move, purely cut, until it looks like it was always there.
+
+**MoMA Law × Golden Section × The Divine Move = Axiom.**
+
+- **MoMA Law** — every edge resolves to another edge. Nothing floats.
+- **Golden Section** — find φ in the split. Never a lazy 50/50.
+- **The Divine Move** — exactly one bold gesture per surface, the one the function already demanded. Never two. Two is noise.
+
+Four habits underneath every Axiom surface: **balanced, compact, no non-sense, communicative.**
+
+### What we learned by shipping
+
+These are patterns from the field, not slogans. Published because the gap between what governments need and what the market supplies only closes if people share what they figured out.
+
+1. **The vendor said no. We shipped anyway.** A live surface changes the conversation faster than any proposal.
+2. **Find the decision first.** Clients ask for dashboards. What they need is one decision that must get faster or better. Skip that and you build a beautiful screen nobody checks after launch week.
+3. **Instrument from day one.** Retrofitting measurement onto a live system is nearly impossible. Leave a record.
+4. **A single model answers. A council deliberates.** For decisions that matter, disagreement with a transcript is more defensible than one framing.
+
+The site is intentionally static but creates the *illusion* of real-time. That illusion is the value proposition: civic product language you can feel before procurement starts.
+
+---
+
+## Ethical use
+
+Axiom’s public ethics line is the same as the credentials plate on the live site: **operational alignment, not a claim of formal certification.**
+
+We design and deliver against these frameworks. That does **not** imply ISO certification, accreditation, or third-party audit unless independently evidenced and stated.
+
+| Tier | What we align to (practice-based) |
 |---|---|
-| **Smart City Thailand Index (SCITI)** | National programme — 174 Thai cities ranked on smart city dimensions |
-| **Phuket Smart Bus** | Transit intelligence — real-time rider-facing bus system |
-| **SCTH City Data Platform** | Civic intelligence for Thailand's smart city ecosystem |
-| **NSP** | National broadcast — digital content platform |
-| **Ekkasarn AI** | Document intelligence — AI-powered Thai government document processing |
+| Governance | [ISO/IEC 42001](https://www.iso.org/standard/81230.html) (AI management), [ISO/IEC 23894](https://www.iso.org/standard/77304.html) (AI risk), [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) |
+| Legal | Thailand [PDPA](https://www.pdpc.or.th/); GDPR as advisory alignment for EU-facing work |
+| Ethics | [OECD AI Principles](https://www.oecd.org/en/topics/ai-principles.html), [UNESCO AI Ethics Recommendation](https://www.unesco.org/en/artificial-intelligence/recommendation-ethics) — transparency, fairness, human oversight, safety, robustness, accountable deployment |
 
-### EMERGING — Research-grade / preview access
+**Use this work for civic decision-making.** City operations, transit, flood watch, campus intelligence, open indices, public briefings. The point is a faster, more honest decision — with a human still in the loop.
 
-| System | Description |
+**Do not use this work as:**
+
+- Surveillance theatre, covert collection, or “we have a feed” claims you cannot source
+- A fake live HUD. The **banner** HUD is illustration. The **site** HUD (`#satHud`, Leaflet AUTO TOUR, canvas) is an interface demonstration on public map tiles — not a classified sensor net
+- Invented API keys, invented credentials, or invented production secrets. None are required to run this public site, and none belong in a fork’s README
+- A claim that uptime, response times, or outcome metrics here are guarantees. The footer states they are case-specific observations
+- Impersonation of **Axiom X Co., Ltd.** A fork is a fork. Keep provenance honest. Keep the MIT notice.
+
+If you are a municipality: this landing page shows the language. Production hardening, PDPA process, and access control are a delivery engagement — not a `git clone`.
+
+---
+
+## How it works
+
+No framework. No bundler. No build step. Edit `public/`, commit, push.
+
+| Layer | What actually runs |
 |---|---|
-| **Dr Non's AI Council** | Agentic intelligence — 11 AI justices with different priors, deliberating on hard questions |
-| **TKCX** | Talent intelligence — game archetypes, readiness scores, Moneyball salary cap for teams |
-| **Second Brain OS** | Knowledge intelligence — personal AI operating system, MCP-connected |
-| **Horizon 45** | Capability lab — experimental AI and systems research |
-| **Dao De Jing** | Digital humanities — classical philosophy made navigable |
-| **Ikigai Finance Engine** | Finance intelligence — purpose-to-portfolio alignment system |
+| Page | `public/index.html` — one file, the source of truth |
+| Behaviour | `public/app.js` + `public/i18n-regional.js` — vanilla JS, seven locales (EN / TH / ZH / KO / JA / VI / TS) |
+| Style | `public/rams.css` + `public/hero.css` — Rams-grade system + hero (map, HUD, overlays) |
+| Map | Leaflet 1.9.4 from `unpkg.com` — live map with **AUTO TOUR** (Bangkok → Phuket → Middle East → SE Asia) |
+| Motion | Canvas 2D (`#heroCanvas`) behind the map |
+| Local server | `server.mjs` — Node 22+ (`node:sqlite`), static files from `public/`, `/api/*` for local pageviews and contact |
+| Deploy | GitHub Actions → Cloudflare Pages (`axiom`) → [axiom.nonarkara.org](https://axiom.nonarkara.org) (alias: axiom.pages.dev) |
+| Local data | `data/axiom.sqlite` — gitignored. Not a production warehouse |
 
----
+The Cloudflare workflow deploys the `public/` folder as-is. There is no compile step between your editor and the live site. Cache-bust query strings (`?v=YYYYMMDDxx`) on CSS/JS exist because Cloudflare caches; bump them when those files change.
 
-## Key Moments
+**What is live vs illustrated**
 
-### Smart City Summit & Expo — Taipei, 2026
-
-City Vision Stage. SLIC Index launched live from the stage — the first time a ranking system for 157 cities went live in front of the people building those cities. The reaction in the room told us the thesis was correct: mayors don't want a presentation about what smart cities could look like. They want to see where their city ranks, right now, against their peers.
-
-![On the City Vision Stage at Smart City Summit & Expo, Taipei](public/images/taipei-stage.jpg)
-
-![SLIC Index live from the stage in Taipei](public/images/taipei-slic-live.png)
-
-### GITEX AI Asia — Marina Bay Sands, Singapore, April 2026
-
-Main-stage keynote. Then a workshop on Government Innovation as a Service that hit capacity within minutes — standing room taken, hallway full, every face locked on the live demo.
-
-> "The room was standing-room only. That is not applause — that is a demand signal. Governments want working systems. They are tired of waiting for the deck."  
-> — Dr. Non, post-keynote
-
-| | |
+| Surface | Honest status |
 |---|---|
-| Main stage audience | 1,000+ |
-| Total event attendees | 23,000+ |
-| Nations represented | 110+ |
-| Workshop status | Full · standing room only |
+| Manga banner (`docs/hero-banner.png`) | Illustration. HUD / UI chrome are drawn, not captured from production. |
+| Site hero map + AUTO TOUR + `#satHud` | Real interactive demonstration (public tiles + scripted tour). |
+| Systems showcase | Links to working sandbox / public systems. Not the NDA interiors. |
+| Admin UI (`public/admin/`) | Internal. Auth required. No passwords are published here. |
 
-![Main stage at Marina Bay Sands, GITEX AI Asia](public/images/singapore-mainstage.jpg)
-
-![Workshop audience locked on the live demo](public/images/singapore-workshop-attentive.jpg)
+Thai first-person on the site is strictly **ผม**. Thai type is non-looped IBM Plex Sans Thai.
 
 ---
 
-## Field Notes — Things Learned by Actually Shipping
+## How to use or fork
 
-Twenty systems. Two people. Twelve months. These are the patterns that held — and the ones that didn't. Published because the gap between what governments need and what the market supplies only closes if people share what they've figured out.
+### Run the site locally
 
-**01 — The vendor said no. We shipped in fourteen days.**
+You need **Node 22+**. You do not need Docker, Postgres, Redis, or an API key.
 
-Every system on this page started because a procurement cycle, a vendor quote, or a committee said the problem was too complex or too expensive. The answer was never to argue — it was to build a rough working version and put it in the room. A live surface changes the conversation faster than any proposal.
+```bash
+git clone https://github.com/Nonarkara/Axiom.git
+cd Axiom
+node server.mjs
+```
 
-**02 — AI-native is not AI-assisted.**
+Open [http://127.0.0.1:3000](http://127.0.0.1:3000). You should see the Leaflet map in AUTO TOUR, the canvas behind it, the rotating headline, the satellite HUD, the city-node strip, and the systems grid. If those are gone, something has regressed — stop and read [`AGENTS.md`](AGENTS.md) §4.
 
-Every line of code across these systems was written by Claude Code, directed by Dr Non. The AI is the engineer. The human is the architect. This isn't a shortcut — it's a different model of who does what. Knowing how to direct AI precisely is the skill that compounds. The code is not the hard part.
+`Ctrl+C` stops the server. Operator notes: [`QUICKSTART.md`](QUICKSTART.md). Agent notes: [`AGENTS.md`](AGENTS.md).
 
-**03 — The problem is never the data. It's always the decision behind the data.**
+There is currently no `package.json` in the tree, so `npm run dev` has nothing to bind to. The process that actually serves the page is `node server.mjs` (listens on `127.0.0.1`, port `PORT` or `3000`).
 
-Clients ask for dashboards. What they need is clarity on one decision that must get faster or better. Find that decision first. Everything else — the feeds, the stack, the interface — flows from it. Skip this step and you build a beautiful dashboard nobody checks after the launch week.
+### Fork without destroying the language
 
-**04 — An org chart tells you who reports to whom. It tells you nothing about who should build what with whom.**
+MIT lets you use, copy, modify, and ship. Civic-studio forks still have to be honest:
 
-TKCX was built on this gap. Game archetypes, readiness scores, and a Moneyball salary cap exposed what the org chart hid: the right people for a given project, the chemistry between them, and the skill gaps that will surface midway through. Treat talent like a portfolio, not a headcount.
+1. Keep the [LICENSE](LICENSE) file and copyright line (**Axiom X Co., Ltd.**, 2026).
+2. Do not collapse `public/index.html` by more than about 30% in one edit. Density is personality.
+3. Do not delete the live interactive elements: Leaflet map, AUTO TOUR, canvas, satellite HUD, rotating headline, city-node strip, `[EVENT_ID]` protocol sections.
+4. Do not restyle into Tailwind / shadcn / rounded-card templates. That regression has happened here once already (2026-04-22). Last known-good rich HTML: commit `ee756b7`.
+5. When you change a string, change it in all seven locales (`public/app.js` + `public/i18n-regional.js`).
+6. When you change CSS/JS, bump `?v=` on the matching `<link>` / `<script>` in `public/index.html`.
+7. Do not add CI pre-checks that name a specific file. The deploy workflow has **no** pre-checks on purpose.
+8. Do not invent secrets, live classified feeds, or certification marks the original does not claim.
 
-**05 — A single AI answers. A council deliberates.**
+This site has a documented history of being overwritten by assistants defaulting to generic templates. If a file is long and “looks chaotic,” that *is* the product. Do not flatten it.
 
-For decisions that matter, a single model gives you one framing — the one baked into its training. The AI Council runs eleven justices with different priors, explicit moves, and a shared transcript everyone reads before speaking. The disagreement is the product. You leave with a more defensible position than you started with.
+### What to edit
 
-**06 — Instrument from day one. Not after.**
-
-Every Axiom system ships with a data trail: pageviews, usage signals, decision logs. Not because we need the analytics on day one — but because retrofitting measurement onto a live system is nearly impossible, and the next version is always built from what the first version taught you. Leave a record.
-
----
-
-## The Founders
-
-![Dr. Non Arkaraprasertkul and Dr. Poon Thiengburanathum](public/images/founders.jpg)
-
-Two founders. No handlers. You talk to the people who write the code and decide the architecture. When the work needs UAV operators or traffic engineers or policy translators, we pull them in for that mission only — never as a standing bench.
-
-### Dr. Non Arkaraprasertkul — Co-Founder · Systems & Story
-
-Anthropologist, architect, builder. He watches how cities actually behave, then turns that mess into interfaces people use without a training manual.
-
-Harvard PhD in Anthropology. MIT and Oxford alumnus. Former Visiting Lecturer at MIT, postdoctoral fellow at NYU, Expert-In-Residence at IDEO Shanghai. He designs from fieldwork first — because people aren't spreadsheets and cities aren't slides.
-
-**Education**
-- PhD in Anthropology — Harvard University, 2016
-- MA in Anthropology — Harvard University, 2015
-- MPhil in Modern Chinese Studies — University of Oxford, 2010
-- MSc in Architecture Studies + Urban Design Certificate — MIT, 2007
-- BArch, First Class Honors / Summa Cum Laude — KMITL, 2004
-
-**Current Role**  
-Senior Expert in Smart City Promotion, Digital Economy Promotion Agency (depa), Bangkok — May 2019–present. Advisor to Thailand Media Fund, SLIC, NXPO, and the National Strategic Taskforce on Northern Economic Corridor (NeEC).
-
-**Selected Roles**
-- Visiting Lecturer — MIT, Architecture and Urban Design
-- Global Postdoctoral Fellow — New York University Shanghai
-- Expert-In-Residence (Urban Anthropology) — IDEO Shanghai
-- Honorary Senior Lecturer — University of Sydney
-- Rectorial Visiting Professor — Jagiellonian University, Kraków
-
-**Scale**
-- 120+ technology and public-private projects across 77 Thai provinces
-- 5,000+ government officials trained in digital literacy and smart city
-- 300+ keynote appearances at global and domestic forums
-- 50+ publications in Urban Studies, Journal of Urban Design, and others
-
-**Awards**
-- Tomorrow City China Leaders' Award, 2025
-- ASOCIO Best Project (DX) Award, 2024
-- Smart City Expo World Congress — Global Leadership Award, 2024
-- Taiwan Presidential Hackathon — Excellent Team, International Track, 2023
-- Expo 2020 Dubai Future Water Hack — First Prize, 2022
-
-[ResearchGate →](https://www.researchgate.net/profile/Non-Arkaraprasertkul)
-
----
-
-### Dr. Poon Thiengburanathum — Co-Founder · Infrastructure & Delivery
-
-Engineer, strategist, operational anchor. He keeps ambition tied to working systems and makes sure the product survives contact with reality.
-
-Associate Professor at Chiang Mai University. Co-author of Chiang Mai's Smart City Master Plan. Works on cities as complex adaptive systems — real-time bus prediction, transit decision support, sustainable infrastructure.
-
-**Education**
-- B.Eng. in Civil Engineering — Chiang Mai University, 1995
-- M.S. in Construction Management — University of Colorado at Boulder, 1997
-- Ph.D. in Construction Management — University of Colorado at Boulder, 2003
-- M.S. in Transportation Engineering — University of Colorado at Denver, 2003
-
-**Current Roles**  
-Deputy Director, Program Management Unit for Area-Based Development (PMU-A), Ministry of Higher Education, Science, Research and Innovation, Thailand. Director, Excellence Center for Urban Study and Public Policy (ECUP), Chiang Mai University.
-
-**Selected Work**
-- Head of Sustainable Infrastructure Development and Climate Change Research Unit, CMU, 2010–present
-- Lead Coordinator, Research University Network (RUN) for Climate Change and Disaster Management, 2015–present
-- Bus rapid transit and mass transportation studies in Chiang Mai
-- Integrated land-use, logistics, and transport management with World Bank
-- Disaster management for critical infrastructure and supply chains
-
-[ResearchGate →](https://www.researchgate.net/profile/Poon-Thiengburanathum)
-
----
-
-## The Collective
-
-Researchers, traffic engineers, anthropologists, financiers, policy translators, and media operators. They join by problem, not by org chart. We pay for the brains we need, when we need them.
-
-Traffic engineers · UAV operators · Economists · Financiers · Policy translators · Urban researchers · Media operators
-
----
-
-## Pro Bono — Institutional Work
-
-These are live, working platforms — not decks or reports.
-
-| Work | For | Description |
-|---|---|---|
-| [ASEAN Smart Cities Network](https://ascn.depa.or.th) | ASEAN Secretariat | 38 cities, 10 nations, one platform |
-| [ASEAN CSCO Handbook](https://asean.nonarkara.org/#manifesto) | ASEAN · UNDP · UN-Habitat | 112,000 users. Born from real flooding in Southeast Asia |
-| [Solomon Islands Digital Roadmap](https://solomon.nonarkara.org/#institutions) | UN DESA · Solomon Islands Government | Whole-of-government digital roadmap. Honiara, two-day workshop |
-| [Smart City Leadership](https://scl.nonarkara.org/) | depa Thailand | Thailand's digital promotion agency, online. Bilingual |
-
----
-
-## The Design System
-
-Two public repositories document how Axiom builds things.
-
-### [Axiom-Design-Core](https://github.com/Nonarkara/Axiom-Design-Core)
-
-The complete Axiom design system. MoMA Law × Golden Section × The Divine Move = Axiom. Three modes: Instrument (dashboards, live tools), Editorial (documents, decks), Play (games, workbooks). Full token set, live component gallery, quick-start template.
-
-### [Rams-NYCTA-Design-Core](https://github.com/Nonarkara/Rams-NYCTA-Design-Core)
-
-Dieter Rams's principles combined with the Vignelli/NYCTA wayfinding system. Two masters, one law: nothing appears that does not serve a decision. Token set, disc system, cockpit pattern, decision tree, philosophy in full.
-
----
-
-## Tech Stack — 109 Tools · 9 Layers
-
-| Layer | Tools |
+| You want to change… | File |
 |---|---|
-| **Cloud Infrastructure** | GitHub Pages · Vercel · Cloudflare Pages · Cloudflare Workers · Cloudflare DNS · R2 · Supabase · Render · Railway · Fly.io · Hetzner VPS |
-| **Framework & Connectors** | React · Next.js · Node.js · Tailwind CSS · Vite · Express · GitHub Actions · Fastify |
-| **Platform & Build Tools** | Claude Code ★ · VS Code · GitHub · Cursor · Obsidian · Warp · Wispr Flow |
-| **AI Models & Engines** | Claude Opus 4.8 ★ · GPT · Gemini · Grok · DeepSeek · Kimi · GLM · Qwen3-Coder (local) · Gemma 4 · Fable 5 · OpenRouter |
-| **Libraries** | Deck.gl ★ · Leaflet · Mapbox GL · MapLibre · D3 · Chart.js · PostGIS · grammY · LINE SDK · pgvector |
-| **Languages** | JavaScript · Python ★ · TypeScript · HTML · CSS · SQL · Bash · Go · PHP |
-| **Live Data Sources** | NASA FIRMS · NASA GIBS · ACLED · Copernicus Sentinel · GISTDA ★ · World Bank · FRED · Open-Meteo · Bank of Thailand · AISStream · CelesTrak |
-| **Channels** | Telegram ★ · LINE · WhatsApp · Slack · Discord · Feishu |
-| **Local Runtime** | M5 Max 128GB ★ · M3 MacBook Air · PostgreSQL · Docker Desktop |
+| Hero copy, sections, systems grid | `public/index.html` |
+| Hero / map styling | `public/hero.css` |
+| Page system (type, spacing, components) | `public/rams.css` |
+| EN / TH / ZH / TS strings | `public/app.js` |
+| KO / JA / VI strings | `public/i18n-regional.js` |
+| Local HTTP + `/api/*` | `server.mjs` |
+| Deploy | `.github/workflows/cloudflare-pages.yml` |
 
-★ Primary / favorite. Local-first. No build team. No vendor lock-in. The M5 Max runs inference, builds, and deploys from one desk in Bangkok.
+Push to `main` deploys. Forks will not publish to axiom.nonarkara.org unless they wire their own Pages project and secrets — those secrets are **not** in this repository.
 
 ---
 
-## Press
+## Studio record
 
-- [With the vendor saying no, Thai civil servant built his own tools](https://govinsider.asia/intl-en/article/with-the-vendor-saying-no-thai-civil-servant-built-his-own-tools) — GovInsider
-- [Can Innovation-as-a-Service close the gap between policy and implementation?](https://govinsider.asia/intl-en/article/can-innovation-as-a-service-close-the-gap-between-policy-and-implementation) — GovInsider
-- [They built the index, but you build the ranking](https://mayorsofeurope.eu/news/they-built-the-index-but-you-build-the-ranking/) — Mayors of Europe
-- [On digital connectivity, open innovation, and why smart cities only work when inclusion scales](https://theaseanmagazine.asean.org/article/non-arkaraprasertkul-phd/) — The ASEAN Magazine
-- [How AI is mining city data cheaply and making them smarter](https://www.youtube.com/watch?v=NC11q3zM6x4) — YouTube
-- [Why smart cities need citizens, not just technology](https://technode.global/2023/01/18/a-smart-city-cannot-exist-without-its-citizens-and-technological-advances-will-foster-stronger-trust-between-citizens-and-institutions-and-encourage-civic-participation-says-dr-non-arkaraprasertkul/) — TechNode Global
+The live catalogue is on the site. The page itself is the source of truth for what is currently shown.
+
+**Clusters you will see:** COMMAND (operations rooms), INTELLIGENCE (signal and analysis), CIVIC (national platforms and citizen infrastructure), EMERGING (research-grade / preview). Examples already in public: Phuket Ops, HCMCx, Kuching IOC, campus and city control towers, SLIC Index, SCITI, Phuket Smart Bus, FloodDash, ASEAN Smart Cities Network work.
+
+**Stages.** Smart City Summit & Expo, Taipei, 2026 — SLIC Index launched live from the City Vision Stage. GITEX AI Asia, Marina Bay Sands, Singapore, April 2026 — main-stage keynote and a workshop that filled to standing room.
+
+**Founders.** [Dr. Non Arkaraprasertkul](https://www.researchgate.net/profile/Non-Arkaraprasertkul) (systems and story) and [Dr. Poon Thiengburanathum](https://www.researchgate.net/profile/Poon-Thiengburanathum) (infrastructure and delivery). Two people at the table; specialists join by problem, not by standing bench.
+
+**Press (earned):** [GovInsider — vendor said no](https://govinsider.asia/intl-en/article/with-the-vendor-saying-no-thai-civil-servant-built-his-own-tools) · [GovInsider — Innovation-as-a-Service](https://govinsider.asia/intl-en/article/can-innovation-as-a-service-close-the-gap-between-policy-and-implementation) · [Mayors of Europe — SLIC](https://mayorsofeurope.eu/news/they-built-the-index-but-you-build-the-ranking/) · [The ASEAN Magazine](https://theaseanmagazine.asean.org/article/non-arkaraprasertkul-phd/) · [TechNode Global](https://technode.global/2023/01/18/a-smart-city-cannot-exist-without-its-citizens-and-technological-advances-will-foster-stronger-trust-between-citizens-and-institutions-and-encourage-civic-participation-says-dr-non-arkaraprasertkul/)
 
 ---
 
@@ -289,45 +201,20 @@ Dieter Rams's principles combined with the Vignelli/NYCTA wayfinding system. Two
 **Registration:** 0105569099335 · Department of Business Development (DBD) · Thailand  
 **Certificate:** [public/axiom-company-registration-certificate.pdf](public/axiom-company-registration-certificate.pdf)
 
----
-
-## Repository Structure
-
-```
-public/
-├── index.html              # Main site — all content in one file
-├── app.js                  # i18n strings (EN/TH/ZH/KO/JA/VI) + all section content
-├── rams.css                # Primary stylesheet — Rams-grade design system
-├── theme-masterpiece.css   # Master theme (border-radius:0, amber palette)
-├── i18n-regional.js        # Regional locale extensions
-├── assets/                 # Logos, OG image
-├── corporate identity/     # 8 Axiom brand guideline sheets
-├── images/                 # Press, event, and team photography
-├── photos/                 # Pro bono and additional photography
-├── screenshots/            # System screenshots for showcase panels
-└── showcase/               # System panel detail content
-```
+This site and our services are presented under the trade name Axiom. The registered legal entity is Axiom X Co., Ltd. (Thailand).
 
 ---
 
-## Anti-Regression Note
+## License
 
-This site has a documented history (`CLAUDE.md`) of being silently overwritten by AI coding assistants defaulting to generic templates. Several elements are permanent and must never be removed or "simplified":
+This project is licensed under the **MIT License**. Copyright © 2026 **Axiom X Co., Ltd.** See [LICENSE](LICENSE).
 
-- The Leaflet map with AUTO TOUR loop
-- The satellite HUD with coordinate overlays
-- The Canvas 2D background animation
-- The rotating headline carousel
-- The `[EVENT_ID]` protocol sections (SCSE_2026_TPE / GITEX_ASIA_2026_SGP)
-- The mono-amber palette — `border-radius: 0 !important`, zero gradients, zero pastels
-- The `data-theme="masterpiece"` attribute on `<html>`
-
-Last known-good rich version: commit `ee756b7`. Recovery: `git show ee756b7:public/index.html`
+Nested `axiom DNA/LICENSE` (also MIT) is left as that tree’s own copy.
 
 ---
 
 ## Contact
 
-[axiom.nonarkara.org](https://axiom.nonarkara.org) · [LinkedIn](https://www.linkedin.com/company/axiomthailand/)
+[axiom.nonarkara.org](https://axiom.nonarkara.org) · [LinkedIn](https://www.linkedin.com/company/axiomthailand/) · non@nonarkara.org
 
 *Axiom X Co., Ltd. · Bangkok, Thailand*
