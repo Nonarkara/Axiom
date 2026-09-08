@@ -39,6 +39,9 @@
   /* flag blue — live, positive, primary action */
   --neg: #a51931;
   /* flag red — negative data only */
+  /* Same hue as --accent, lifted to clear AA on near-black. Use as foreground on
+     dark surfaces (hero badge, rotating phrase). Backgrounds stay --accent. */
+  --accent-ink: #6fa0e6;
 
   /* §1.4 Identity — corporate logo colors */
   --id-navy: #00247d;
@@ -1416,6 +1419,7 @@ summary:focus-visible {
   font-size: 11px;
   font-weight: 500;
   color: var(--ink-2);
+  overflow-wrap: anywhere;
 }
 
 .probono-card:hover .probono-card__title {
@@ -1752,6 +1756,7 @@ summary:focus-visible {
   line-height: 1.55;
   color: var(--ink-2);
   margin-top: 4px;
+  overflow-wrap: anywhere;
 }
 
 /* ============================================================

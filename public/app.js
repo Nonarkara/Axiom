@@ -792,7 +792,7 @@ const uiCopy = {
       },
       rotatingPhrases: [
         'แบบบริการ',
-        'ที่ซ่อนตัว',
+        'ว่างเปล่า',
         'ที่ใช้งานได้',
         'เพื่อเมือง',
         'เพื่อการตัดสินใจ',
@@ -896,7 +896,7 @@ const uiCopy = {
       prt2: { title: 'ระบบมองเห็นอัจฉริยะ', desc: 'Computer vision บนโครงสร้างพื้นฐานที่มีอยู่สำหรับตรวจจับเหตุการณ์และติดตามการเคลื่อนไหว' },
       prt3: { title: 'NLP ภูมิรัฐศาสตร์', desc: 'AI briefs ที่บีบความรู้สึก ความเสี่ยง และการเปลี่ยนแปลงเรื่องราวให้ผู้ตัดสินใจอ่านได้เร็ว' },
       prt4: { title: 'การออกแบบเชิงคุณภาพ', desc: 'การออกแบบระบบที่เน้นพฤติกรรมตามสิ่งที่ผู้อยู่อาศัยยอมรับ เชื่อถือ และใช้จริง' },
-      prt5: { title: 'การ deploy รวดเร็ว', desc: 'สถาปัตยกรรมที่นำมาใช้ซ้ำได้ปรับให้เข้ากับบริบทท้องถิ่น ระบบที่ใช้งานได้ใน weeks ไม่ใช่ years' },
+      prt5: { title: 'การ deploy รวดเร็ว', desc: 'สถาปัตยกรรมที่นำมาใช้ซ้ำได้ปรับให้เข้ากับบริบทท้องถิ่น ระบบที่ใช้งานได้ในไม่กี่สัปดาห์ ไม่ใช่หลายปี' },
       prt6: { title: 'Blue Bird Engine', desc: 'ชั้น replication เบื้องหลัง Axiom: modular ไม่ขึ้นกับ hardware และปลอดภัยพอสำหรับการเคลื่อนที่เร็ว' },
     },
     team: {
@@ -995,7 +995,7 @@ const uiCopy = {
     hero: {
       badge: '所有系统在线',
       titleLine1: '创新',
-      subtitle: '你建排名，我们建现实。Axiom 绘制压力图谱，快速交付可用界面，从第一天起就布署可追溯的度量层。',
+      subtitle: '你建排名，我们建现实。Axiom 绘制压力图谱，快速交付可用界面，从第一天起就部署可追溯的度量层。',
       cta: '从压力图开始',
       ctaSecondary: '查看在线系统',
       nodeLabel: '点选战区',
@@ -2155,7 +2155,7 @@ const i18nExt = {
     teamContent: {
       founderLabel:'ผู้ก่อตั้งร่วม · กรุงเทพฯ',
       collectiveTitle:'เครือข่าย พร้อมเรียกได้ทุกเวลา',
-      collectiveLede:'นักวิจัย วิศวกรจราจร นักมานุษยวิทยา นักการเงิน ผู้แปลนโยบาย และผู้ปฏิบัติงานสื่อ พวกเขาเข้ามาตามปัญหา ไม่ใช่ตามผังองค์กร ผมจ่ายให้สมองที่ต้องการเมื่อต้องการเท่านั้น',
+      collectiveLede:'นักวิจัย วิศวกรจราจร นักมานุษยวิทยา นักการเงิน ผู้แปลนโยบาย และผู้ปฏิบัติงานสื่อ พวกเขาเข้ามาตามปัญหา ไม่ใช่ตามผังองค์กร ผมดึงสมองที่ต้องการมาเฉพาะภารกิจ',
       probonoTitle:'งาน Pro Bono · งานเชิงสถาบัน',
       probonoMeta:'5 โครงการ · พันธมิตรเชิงสถาบัน',
       probonoNote:'ทั้งหมดนี้คือแพลตฟอร์มที่รันอยู่จริง ไม่ใช่สไลด์หรือรายงาน แต่ละชิ้นสร้างกับพันธมิตรเชิงสถาบันจริง เปิดสาธารณะ และยังใช้งานอยู่ คลิกเข้าไปดูว่างานจริงเป็นยังไงเมื่อมันถูกส่งมอบ',
@@ -2595,7 +2595,7 @@ const i18nExt = {
       n4title:'组织图告诉你谁向谁汇报 它一句也不告诉你谁该跟谁一起搭什么',
       n4body:'TKCX就是建在这道缝上 游戏原型、就绪分数、Moneyball式的薪资上限 把组织图遮住的东西显出来：合适的人选、他们之间的化学反应、会在半路上冒出来的技能缺口 把人才当成投资组合看 不是当成人头数',
       n5title:'单个AI回答 委员会审议',
-      n5body:'重要决策上 单个模型只给你一种框架 那种烘进训练里的框架 AI Council跑十一位有不同先验的法官 明确的动作（EXPAND、QUALIFY、CONCEDE、STAND、PASS）和一份每个人发言前都得读的共享transcript 分歧就是产品 你离开的时候 立场比进来时更站得住脚',
+      n5body:'重要决策上 单个模型只给你一种框架 那种烘进训练里的框架 AI Council跑十一位有不同先验的法官 明确的动作（EXPAND、QUALIFY、CONCEDE、STAND、PASS）和一份每个人发言前都得读的共享发言记录 分歧就是产品 你离开的时候 立场比进来时更站得住脚',
       n6title:'从第一天就装好仪表 不是后面再补',
       n6body:'每一个Axiom系统交付时都自带数据轨迹：页面浏览、使用信号、决策日志 不是因为第一天就要看分析 而是因为之后再往一个跑着的系统上加测量 几乎做不到 下一版总是从上一版教给你的东西里建起来 留下记录 未来的你会需要它',
       stackNote:'本地优先 没有构建团队 不被供应商锁定 一台M5 Max在曼谷一张桌子上跑推理、构建和部署',
@@ -3124,7 +3124,6 @@ const i18nExt2 = {
       c38:'หนังสือภาคสนาม',
       c39:'โครงการระดับชาติ',
       c46:'ชุดโอเพนซอร์ส',
-      c39:'โครงการระดับชาติ',
       c40:'ชีพจรเมือง',
       c41:'ควบคุมจราจร',
       c42:'ปฏิบัติการเขต',
@@ -3294,7 +3293,6 @@ const i18nExt2 = {
       c36:'遗产地图',
       c37:'城市研究',
       c38:'田野志',
-      c39:'国家项目',
       c46:'开源工具包',
       c39:'国家级项目',
       c40:'城市脉搏',
@@ -3327,7 +3325,7 @@ const i18nExt2 = {
       cvCurrentRoles:'现任职务',
       cvCurrentRolesBody:'泰国高等教育、科学、研究与创新部 PMU-A 副主任；清迈大学 ECUP 主任。',
       cvExpertise:'核心专长',
-      cvExpertiseBody:'土木工程、建筑管理、可持续基础设施开发、气候变化、灾害管理、物流、城市规划、城市移动性和交通系统。',
+      cvExpertiseBody:'土木工程、建筑管理、可持续基础设施开发、气候变化、灾害管理、物流、城市规划、城市交通与出行、交通系统。',
       cvSelectedWork:'部分工作',
       cvWork1:'清迈大学可持续基础设施开发与气候变化研究中心负责人，2010 至今',
       cvWork2:'气候变化与灾害管理研究型大学网络（RUN）首席协调员，2015 至今',
@@ -3352,7 +3350,7 @@ const i18nExt2 = {
       legalLabel:'条款 · 隐私 · 责任 · 法律',
       terms:'使用本网站即表示您同意合法使用，且未经书面许可不得转载截图、仪表板、模型输出或系统内部。Axiom、Axiom 名称以及此处显示的系统名称均为 Axiom X Co., Ltd. 的商号。',
       privacy:'本网站除用于限流和聚合流量统计的 12 字符哈希访客标签外，不收集任何个人数据。从此处链接的系统各自有独立的隐私惯例——粘贴其数据前请先阅读其条款。我们不设置广告 Cookie，不出售、不与第三方共享访客数据。',
-      dataAttribution:'沙箱系统中显示的实时数据来自公共来源，包括 TMD、GISTDA、JICA、NBTC、污染控制厅、OpenStreetMap 贡献者、TomTom 以及其他在系统内注明出处的公共或开放许可数据源。如混入商业数据源（如 Air4Thai o61、33V、34T、Naver CFT），来源会在系统视图中标明。',
+      dataAttribution:'沙箱系统中显示的实时数据来自公共来源，包括 TMD、GISTDA、JICA、NBTC、污染控制厅、OpenStreetMap 贡献者、TomTom 以及其他在系统内注明出处的公共或开放许可数据源。如涉及商业数据源（如 Air4Thai o61、33V、34T、Naver CFT），来源会在系统视图中标明。',
       liability:'本网站上的沙箱与演示系统可工作，但不构成保证。所有指标仅为提示，不是定论。真实决策需与原始主管单位核实。Axiom 不对基于沙箱数据做出的决策承担责任。',
       governingLaw:'本条款受泰王国法律管辖。争议由曼谷法院专属管辖。如英文文本与任何翻译有冲突，以英文文本为准。',
       hosting:'托管于 Cloudflare Pages · 在曼谷建造并运营 · 本站源码：github.com/Nonarkara/Axiom（仅限公开站点；客户系统为私有）。',
@@ -3592,15 +3590,15 @@ const REGIONAL_LOCALES = new Set(['ko', 'ja', 'vi']);
 
 function renderStaticCopy() {
   const copy = uiCopy[activeLocale] || uiCopy.en;
-  const fallback = REGIONAL_LOCALES.has(activeLocale) ? copy : uiCopy.en;
   const LOCALE_HTML_LANG = { en: 'en', th: 'th', zh: 'zh-Hans', ko: 'ko', ja: 'ja', vi: 'vi', ts: 'en' };
   document.documentElement.lang = LOCALE_HTML_LANG[activeLocale] || activeLocale;
+  // Every locale (including regional ko/ja/vi) falls back to English on a missing key,
+  // so switching zh → ko never leaves Chinese text on a node whose Korean value is absent.
   const lookup = (key) => {
     const parts = key.split('.');
     const val = parts.reduce((obj, k) => obj?.[k], copy);
     if (typeof val === 'string') return val;
-    if (REGIONAL_LOCALES.has(activeLocale)) return undefined;
-    return parts.reduce((obj, k) => obj?.[k], fallback);
+    return parts.reduce((obj, k) => obj?.[k], uiCopy.en);
   };
   const renderInlineMarkup = (value) => value
     .replace(/&/g, '&amp;')

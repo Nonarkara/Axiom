@@ -972,13 +972,13 @@
   font-family: var(--mono, 'IBM Plex Mono', monospace);
   text-decoration: none;
   transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4), 0 6px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
 }
 
 .hero-featured-badge:hover {
   background: rgba(8, 10, 14, 0.98);
   transform: translateY(-50%) translateX(-3px);
-  box-shadow: 0 0 0 1px var(--accent), 0 8px 32px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 1px var(--accent);
 }
 
 .hero-featured-badge__kicker {
@@ -988,7 +988,7 @@
   font-size: 10px;
   letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-ink);
   font-weight: 700;
 }
 
@@ -996,9 +996,9 @@
   content: "";
   width: 7px;
   height: 7px;
-  background: var(--accent);
+  background: var(--accent-ink);
   display: inline-block;
-  box-shadow: 0 0 8px var(--accent);
+  box-shadow: 0 0 8px var(--accent-ink);
 }
 
 .hero-featured-badge__event {
@@ -1039,7 +1039,7 @@
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-ink);
   font-weight: 700;
 }
 
