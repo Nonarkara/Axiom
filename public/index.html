@@ -43,12 +43,12 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20260819a">
-  <link rel="stylesheet" href="hero.css?v=20260819a">
+  <link rel="stylesheet" href="rams.css?v=20260908a">
+  <link rel="stylesheet" href="hero.css?v=20260908a">
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=1.9.4" />
-  <script src="i18n-regional.js?v=20260819a"></script>
+  <script src="i18n-regional.js?v=20260908a"></script>
   <script src="vendor/leaflet/leaflet.js?v=1.9.4"></script>
-  <script defer src="app.js?v=20260819a"></script>
+  <script defer src="app.js?v=20260908a"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -798,8 +798,9 @@
               <div class="sys-cell__lede" data-i18n="panels.p10.lede">A game-based talent operating system that treats
                 employees as party members, projects as quests, and team assembly as strategy — replacing org-chart
                 politics with capability intelligence.</div>
-              <span class="sys-cell__link"><span data-i18n="panels.p10.cta">GitHub repo — coming soon</span> <span
-                  class="tri">▸</span></span>
+              <!-- No ▸ here: this card is a <div>, not a link. The arrow is the
+                   affordance for "this opens something", and nothing opens yet. -->
+              <span class="sys-cell__link sys-cell__link--inert" data-i18n="panels.p10.cta">GitHub repo — coming soon</span>
             </div>
           </div>
           <a class="sys-cell" data-arch="second-brain" href="https://github.com/agentic-ai-research/second-brain-os" target="_blank"
@@ -898,7 +899,7 @@
 
     <!-- ============== LAB ============== -->
     <section class="section" id="lab">
-      <div class="container">
+      <div class="wrap">
         <!-- LAB -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.lab">Lab</div>

@@ -214,7 +214,6 @@
   font-weight: 600;
   letter-spacing: 0.22em;
   color: var(--paper);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   pointer-events: none;
 }
 
@@ -468,7 +467,7 @@
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--accent);
+  color: var(--accent-fg-dark);
   font-variant-numeric: tabular-nums;
   margin-bottom: 4px;
 }
@@ -529,7 +528,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--accent);
+  color: var(--accent-fg-dark);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -599,7 +598,7 @@
 .sat-hud-time {
   margin-left: auto;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--accent-fg-dark);
 }
 
 /* ----- Hero Content (centered) ----- */
@@ -660,8 +659,11 @@
   line-height: 0.87;
   letter-spacing: -0.035em;
   color: var(--paper);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
   text-wrap: balance;
+  /* Code mode writes the headline as one identifier — `that.disappears()` —
+     which has no break opportunity and ran 12px past a 320px viewport, where
+     #hero's overflow:hidden simply cut it off. */
+  overflow-wrap: anywhere;
 }
 
 .hero-line {
@@ -670,7 +672,7 @@
 
 .hero-line-accent {
   display: block;
-  color: var(--accent);
+  color: var(--accent-fg-dark);
   /* Plain flag-blue accent — no gradient (anti-regression §11.1.3) */
 }
 
@@ -682,7 +684,6 @@
   font-weight: 500;
   color: var(--paper);
   opacity: 0.88;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
 }
 
 .hero-actions {
@@ -801,7 +802,6 @@
   letter-spacing: -0.01em;
   color: var(--paper);
   font-variant-numeric: tabular-nums;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-stat-label {
@@ -979,13 +979,15 @@
   font-family: var(--mono, 'IBM Plex Mono', monospace);
   text-decoration: none;
   transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4), 0 6px 24px rgba(0, 0, 0, 0.4);
+  /* Hairline ring only. The 0 6px 24px blur that used to sit here was a drop
+     shadow, which the house rules forbid outright. */
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
 }
 
 .hero-featured-badge:hover {
   background: rgba(8, 10, 14, 0.98);
   transform: translateX(-3px);
-  box-shadow: 0 0 0 1px var(--accent), 0 8px 32px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 1px var(--accent);
 }
 
 .hero-featured-badge__kicker {
@@ -995,7 +997,7 @@
   font-size: 10px;
   letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-fg-dark);
   font-weight: 700;
 }
 
@@ -1046,7 +1048,7 @@
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-fg-dark);
   font-weight: 700;
 }
 

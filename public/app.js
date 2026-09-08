@@ -1365,7 +1365,7 @@ const i18nExt = {
         lede: 'The SLIC Index doesn\'t tell cities what they\'re worth. It shows them five pillars and lets them test their own priorities. Mayors decide what livability means — and the math follows.',
         w1lbl:'Why it\'s special', w1:'Every other livability index hands cities a finished verdict. SLIC hands them the math. Move the pillar weights, watch your ranking change — and your peers\' — in real time. The argument becomes the product.',
         w2lbl:'What it replaced', w2:'Static prestige leaderboards. The annual ranking PDF. The conversation that ended with "we don\'t agree with the methodology."',
-        w3lbl:'Audience signal', w3:'Picked up by Mayors of Europe. Live-demo\'d at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.', cta:'Open SLIC v3',
+        w3lbl:'Audience signal', w3:'Picked up by Mayors of Europe. Live-demo\'d at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.', cta:'Open live system',
       },
       p05: {
         title: 'Greater Kuching, <em>one command surface.</em>',
@@ -1401,7 +1401,7 @@ const i18nExt = {
         lede: 'Dr Non\'s AI Council is a personal multi-agent deliberation system: 11 AI justices with palindromic names (Tenet, Radar, Otto, Hannah, Ada…) running continuously on a local Mac, arguing through a shared transcript log, for around $3 a month. Trained on personal journals, decisions, and voice — proprietary by design, not by accident.',
         w1lbl:'Why it exists', w1:'Single models give one answer. Problems worth solving deserve argument. The council runs four operating modes — VERIFY, DECIDE, EXPLORE, DEBATE — and justices use explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS) so every position change is visible and traceable.',
         w2lbl:'What it costs', w2:'Manus-class autonomous-agent capability at $3/month. The council chair runs on Mistral Large 3. The Thai-native skeptic (Ada) runs on ThaiLLM — a government-backed model, free. The executor (Otto) handles OCR, video downloads, email drafts, PDF generation, and Google Drive sync without touching cloud infrastructure.',
-        w3lbl:'Why no demo', w3:'The council is trained on Dr Non\'s personal journals, decisions, meeting notes, and voice. Proprietary by necessity. The protocol stack — ~600 lines of Python — is open. The IP is the coordination methodology, not the weights.', cta:'v1 · DIY Protocol', cta2:'v2 · Agentic + Executor',
+        w3lbl:'Why no demo', w3:'The council is trained on Dr Non\'s personal journals, decisions, meeting notes, and voice. Proprietary by necessity. The protocol stack — ~600 lines of Python — is open. The IP is the coordination methodology, not the weights.', cta:'View on GitHub', cta2:'v2 · Agentic + Executor',
       },
       p10: {
         title: 'HR has been a <em>record system</em> long enough.',
@@ -1415,7 +1415,7 @@ const i18nExt = {
         lede: 'Second Brain OS connects your Obsidian vault to every AI coding platform simultaneously via MCP. Brain-anatomy folder structure. 19 server configs. AI agents that access your persona blueprint, write in your voice, and remember every decision you\'ve ever logged. The knowledge you\'ve been building for years — finally working for you.',
         w1lbl:'The gap it closes', w1:'Every AI session starts cold. It doesn\'t know your voice, your values, your past decisions, or the years of journal entries that shaped your thinking. Second Brain OS feeds all of that into every coding platform simultaneously via a single MCP connection — so the AI you work with already knows who it\'s working with.',
         w2lbl:'How it\'s built', w2:'Your Obsidian vault is structured like a brain: PrefrontalCortex for strategy, Hippocampus for atomic memories, TemporalLobe for patterns, Cerebellum for skills and procedures. 19 MCP server configurations connect this living knowledge graph to Cursor, Codex, Claude Code, and every other platform in your stack — at once.',
-        w3lbl:'Why it\'s open', w3:'The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model\'s.', cta:'Explore the architecture',
+        w3lbl:'Why it\'s open', w3:'The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model\'s.', cta:'View on GitHub',
       },
       p12: {
         title: '21 channels. <em>Free. Everywhere.</em>',
@@ -1424,7 +1424,7 @@ const i18nExt = {
         w2lbl:'What it replaced', w2:'Fragmented broadcaster apps, illegal streams, and the assumption that free-to-air TV can\'t be made as legible as a subscription platform.',
         w3lbl:'Decision power', w3:'Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.',
         w4lbl:'Live access', w4:'National deployment under NBTC licensing authority. Open to all devices, no account required.',
-        cta:'Open live platform',
+        cta:'Open live system',
       },
       p13: {
         title: '47 feeds. <em>7 lenses. One campus.</em>',
@@ -1442,7 +1442,7 @@ const i18nExt = {
         w2lbl:'What it replaced', w2:'Broker portals with no analytical framework, LINE group tips, and the assumption that rigorous value investing is only for institutions with Bloomberg terminals.',
         w3lbl:'Decision power', w3:'Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.',
         w4lbl:'Live access', w4:'Live Thai market data. Open platform — no paywall, no broker lock-in.',
-        cta:'Open live platform',
+        cta:'Open live system',
       },
       p15: {
         title: 'Name the city. <em>We\'ll build its brain.</em>',
@@ -1451,7 +1451,7 @@ const i18nExt = {
         w2lbl:'What it replaced', w2:'Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.',
         w3lbl:'Decision power', w3:'The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don\'t), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city\'s last day of data.',
         w4lbl:'Live access', w4:'Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.',
-        cta:'Open live platform',
+        cta:'Open live system',
       },
       p16: {
         title: 'A coastal province, <em>rendered as a control tower.</em>',
@@ -1460,7 +1460,7 @@ const i18nExt = {
         w2lbl:'What it replaced', w2:'Separate weather sites, marine dashboards, market tickers, tourism spreadsheets, news tabs, and static GIS layers that never told the same story at the same time.',
         w3lbl:'Decision power', w3:'Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.',
         w4lbl:'Live access', w4:'Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.',
-        cta:'Open control tower',
+        cta:'Open live system',
       },
       p17: {
         title: 'Thai paperwork, <em>read by the machine.</em>',
@@ -1506,7 +1506,7 @@ const i18nExt = {
       ikigai: {
         name: 'Ikigai Finance Engine',
         lede: 'SME finance intelligence — balance sheet as signal, cash runway, bank scorecard, and composite finance indices (Ikigai, Lean, Zero, Default, Solvency). Development-stage research prototype; screenshots only — ABC Company Limited is fictitious mock data. No live deployment yet.',
-        cta: 'View research repo',
+        cta: 'View on GitHub',
       },
       p27: {
         lede: 'AirDash is a 24/7 Thailand air quality and dust watch — province watch ranking, 3-day CAMS-minus-rain forecast, top-5 AT-risk and PM2.5 provinces, washout logic, and a national pattern donut on one surface. Built so every Thai province can read the same air picture from the same public data.',
@@ -1733,7 +1733,7 @@ const i18nExt = {
         lede: 'SLIC Index ไม่บอกเมืองว่ามีค่าเท่าไร แต่แสดง 5 เสาหลักให้เมืองทดสอบลำดับความสำคัญของตัวเอง นายกเทศมนตรีตัดสินว่าคำว่า "เมืองน่าอยู่" หมายถึงอะไร แล้วคณิตศาสตร์ค่อยตามมา',
         w1lbl:'จุดที่พิเศษ', w1:'ดัชนีเมืองน่าอยู่อื่น ๆ ส่งคำตัดสินสำเร็จรูปให้เมือง SLIC ส่งคณิตศาสตร์ให้ ปรับน้ำหนักเสาหลักได้เอง อันดับของคุณและของคู่แข่งขยับให้เห็นแบบสด การถกเถียงกลายเป็นตัวผลิตภัณฑ์',
         w2lbl:'สิ่งที่ถูกแทนที่', w2:'ลีดเดอร์บอร์ดศักดิ์ศรีแบบหยุดนิ่ง PDF จัดอันดับประจำปี และบทสนทนาที่จบลงด้วย "เราไม่เห็นด้วยกับวิธีคิด"',
-        w3lbl:'สัญญาณจากผู้ชม', w3:'Mayors of Europe นำไปใช้ Demo สดที่ SCSE Taipei ใน 45 นาที ถูกมองเป็นการถกเถียงเชิงพลเมือง ไม่ใช่ moodboard', cta:'เปิด SLIC v3',
+        w3lbl:'สัญญาณจากผู้ชม', w3:'Mayors of Europe นำไปใช้ Demo สดที่ SCSE Taipei ใน 45 นาที ถูกมองเป็นการถกเถียงเชิงพลเมือง ไม่ใช่ moodboard', cta:'เปิดระบบสด',
       },
       p05: {
         title: 'มหานครกูชิง <em>หนึ่งจอบัญชาการ</em>',
@@ -1769,7 +1769,7 @@ const i18nExt = {
         lede: 'AI Council คือระบบไตร่ตรองหลายเอเจนต์ส่วนตัวของผม ตุลาการ AI 11 คนที่ตั้งชื่อแบบ palindrome (Tenet, Radar, Otto, Hannah, Ada…) ทำงานต่อเนื่องบน Mac ส่วนตัว ถกเถียงกันผ่าน transcript log ที่ใช้ร่วมกัน ในราคาประมาณ 3 ดอลลาร์ต่อเดือน ฝึกบนบันทึกส่วนตัว การตัดสินใจ และเสียงของผม กรรมสิทธิ์โดยการออกแบบ ไม่ใช่บังเอิญ',
         w1lbl:'เหตุผลที่มีอยู่', w1:'โมเดลเดี่ยวให้คำตอบเดียว ปัญหาที่ควรค่าแก่การแก้สมควรได้รับการถกเถียง Council รันสี่โหมด — VERIFY, DECIDE, EXPLORE, DEBATE — และตุลาการใช้คำสั่งที่ชัดเจน (EXPAND, QUALIFY, CONCEDE, STAND, PASS) การเปลี่ยนจุดยืนทุกครั้งจึงมองเห็นและตามรอยได้',
         w2lbl:'ต้นทุน', w2:'ความสามารถระดับ Manus autonomous-agent ในราคา 3 ดอลลาร์ต่อเดือน ประธาน Council รันบน Mistral Large 3 ผู้คลางแคลงสายไทย (Ada) รันบน ThaiLLM โมเดลของรัฐ ฟรี ผู้ปฏิบัติการ (Otto) ทำ OCR ดาวน์โหลดวิดีโอ ร่างอีเมล สร้าง PDF และซิงก์ Google Drive โดยไม่แตะคลาวด์',
-        w3lbl:'ทำไมไม่มีเดโม', w3:'Council ฝึกบนบันทึกส่วนตัว การตัดสินใจ บันทึกประชุม และเสียงของผม กรรมสิทธิ์เพราะจำเป็น โปรโตคอลสแต็ก Python ราว 600 บรรทัด เปิดสาธารณะ ทรัพย์สินทางปัญญาคือวิธีการประสานงาน ไม่ใช่น้ำหนักของโมเดล', cta:'v1 · DIY Protocol', cta2:'v2 · Agentic + Executor',
+        w3lbl:'ทำไมไม่มีเดโม', w3:'Council ฝึกบนบันทึกส่วนตัว การตัดสินใจ บันทึกประชุม และเสียงของผม กรรมสิทธิ์เพราะจำเป็น โปรโตคอลสแต็ก Python ราว 600 บรรทัด เปิดสาธารณะ ทรัพย์สินทางปัญญาคือวิธีการประสานงาน ไม่ใช่น้ำหนักของโมเดล', cta:'ดูบน GitHub', cta2:'v2 · Agentic + Executor',
       },
       p10: {
         title: 'HR เป็น<em>ระบบบันทึก</em>มานานพอแล้ว',
@@ -1783,7 +1783,7 @@ const i18nExt = {
         lede: 'Second Brain OS เชื่อม Obsidian vault ของคุณเข้ากับทุกแพลตฟอร์ม AI coding พร้อมกันผ่าน MCP โครงสร้างโฟลเดอร์ตามกายวิภาคของสมอง 19 server config เอเจนต์ AI ที่อ่าน persona blueprint ของคุณ เขียนด้วยน้ำเสียงของคุณ และจำทุกการตัดสินใจที่เคยบันทึก ความรู้ที่สั่งสมมาหลายปี ในที่สุดก็ทำงานให้คุณได้',
         w1lbl:'ช่องว่างที่ปิด', w1:'ทุก session ของ AI เริ่มจากศูนย์ ไม่รู้น้ำเสียงของคุณ ค่านิยม การตัดสินใจในอดีต หรือบันทึกหลายปีที่หล่อหลอมความคิด Second Brain OS ส่งทั้งหมดนั้นเข้าทุกแพลตฟอร์ม coding พร้อมกันผ่าน MCP เส้นเดียว AI ที่คุณทำงานด้วยจึงรู้แล้วว่ากำลังทำงานกับใคร',
         w2lbl:'วิธีสร้าง', w2:'Obsidian vault ของคุณถูกจัดเหมือนสมอง: PrefrontalCortex สำหรับกลยุทธ์ Hippocampus สำหรับความจำเชิงอะตอม TemporalLobe สำหรับรูปแบบ Cerebellum สำหรับทักษะและขั้นตอน 19 MCP server config เชื่อมแผนภาพความรู้ที่มีชีวิตนี้กับ Cursor, Codex, Claude Code และทุกแพลตฟอร์มในสแต็กของคุณพร้อมกัน',
-        w3lbl:'ทำไมเปิดให้คนนำไปใช้', w3:'สถาปัตยกรรมเป็น MIT-licensed สมองเป็นของคุณ ใครก็ตาม fork โครงสร้าง ปรับ MCP config และต่อ vault ของตัวเองได้ มีเครื่องมือวินิจฉัย 12 ระดับสำหรับขจัด AI-speak ออกจากการเขียน เพื่อให้ความรู้ที่สั่งสมยังคงเป็นน้ำเสียงของคุณ ไม่ใช่ของโมเดล', cta:'สำรวจสถาปัตยกรรม',
+        w3lbl:'ทำไมเปิดให้คนนำไปใช้', w3:'สถาปัตยกรรมเป็น MIT-licensed สมองเป็นของคุณ ใครก็ตาม fork โครงสร้าง ปรับ MCP config และต่อ vault ของตัวเองได้ มีเครื่องมือวินิจฉัย 12 ระดับสำหรับขจัด AI-speak ออกจากการเขียน เพื่อให้ความรู้ที่สั่งสมยังคงเป็นน้ำเสียงของคุณ ไม่ใช่ของโมเดล', cta:'ดูบน GitHub',
       },
       p12: {
         title: '21 ช่อง. <em>ฟรี. ทุกที่.</em>',
@@ -1792,7 +1792,7 @@ const i18nExt = {
         w2lbl:'แทนที่อะไร', w2:'แอปของแต่ละสถานีที่กระจัดกระจาย สตรีมผิดกฎหมาย และความเชื่อว่าทีวีฟรีทีวีทำให้ชัดเจนเท่า streaming subscription ไม่ได้',
         w3lbl:'อำนาจการตัดสินใจ', w3:'ผู้ดูแลระบบเห็น concurrency สด ส่วนแบ่งผู้ชมรายช่อง และสุขภาพสตรีมแบบเรียลไทม์ การผนวก CAP v1.2 หมายความว่าการแจ้งเตือนฉุกเฉินระดับชาติปรากฏผ่านช่องทางเดียวกับความบันเทิง ไม่ต้องมีระบบแยกต่างหาก',
         w4lbl:'เข้าถึงสด', w4:'ใช้งานจริงระดับประเทศภายใต้อำนาจการออกใบอนุญาตของ กสทช. เปิดให้ทุกอุปกรณ์ ไม่ต้องสมัครสมาชิก',
-        cta:'เปิดแพลตฟอร์มสด',
+        cta:'เปิดระบบสด',
       },
       p13: {
         title: '47 ฟีด. <em>7 มุมมอง. หนึ่งมหาวิทยาลัย.</em>',
@@ -1810,7 +1810,7 @@ const i18nExt = {
         w2lbl:'แทนที่อะไร', w2:'พอร์ทัลโบรกเกอร์ที่ไม่มีกรอบวิเคราะห์ ทิปส์ในกลุ่ม LINE และความเชื่อว่า value investing ที่เข้มงวดมีแต่สถาบันที่มี Bloomberg terminal เท่านั้น',
         w3lbl:'อำนาจการตัดสินใจ', w3:'แดชบอร์ด KPI ส่วนตัวให้นักลงทุนติดตามตัวชี้วัดที่ตัวเองใช้จริง ไม่ใช่ screener ทั่วไป ครอบคลุม SET, หุ้น MAI, กองทุน RMF และ Thai ESG ในพื้นผิวเดียว',
         w4lbl:'เข้าถึงสด', w4:'ข้อมูลตลาดไทยสด แพลตฟอร์มเปิด ไม่มีค่าสมัคร ไม่ผูกกับโบรกเกอร์',
-        cta:'เปิดแพลตฟอร์มสด',
+        cta:'เปิดระบบสด',
       },
       p15: {
         title: 'บอกชื่อเมือง <em>ผมสร้างสมองให้</em>',
@@ -1819,7 +1819,7 @@ const i18nExt = {
         w2lbl:'แทนที่อะไร', w2:'แดชบอร์ดที่สร้างขึ้นครั้งเดียวโดยไม่มีการเรียนรู้ข้ามเมือง ไม่มีการสังเคราะห์ด้วย AI และไม่สามารถตรวจจับช่องว่างที่ข้อมูลพลเมืองนำหน้าโครงสร้างพื้นฐานทางการ Bangkok SIT ROOM ติดตามคุณภาพอากาศ น้ำท่วม ความร้อน ปัญหาเมือง และโรคระบาด — สังเคราะห์ทุกวันโดย AI',
         w3lbl:'อำนาจการตัดสินใจ', w3:'บรีฟ AI สังเคราะห์ฟีดเมืองทั้งหมดเป็นรายงานเช้า: การตรวจจับช่องว่าง (ที่รายงานพลเมืองมีแต่ polygon ทางการไม่มี) รายการที่ต้องดำเนินการ การจัดอันดับ PM2.5 จังหวัด และพยากรณ์อากาศ 5 วัน เครื่องมือ +24H timeline ให้ผู้ปฏิบัติงานดูข้อมูลย้อนหลัง',
         w4lbl:'เข้าถึงสด', w4:'แพลตฟอร์ม v.5 ห้าเมืองออนไลน์แล้ว: กรุงเทพฯ เชียงใหม่ ภูเก็ต สิงคโปร์ กูชิง เมืองไหนก็เข้าร่วมได้ — นำข้อมูลที่มีอยู่มาเลย',
-        cta:'เปิดแพลตฟอร์มสด',
+        cta:'เปิดระบบสด',
       },
       p16: {
         title: 'จังหวัดชายฝั่ง <em>ในรูปแบบหอควบคุม</em>',
@@ -1828,7 +1828,7 @@ const i18nExt = {
         w2lbl:'แทนที่อะไร', w2:'เว็บอากาศ แดชบอร์ดทะเล ticker ตลาด spreadsheet ท่องเที่ยว แท็บข่าว และ GIS แบบนิ่งที่ไม่เคยเล่าเรื่องเดียวกันในเวลาเดียวกัน',
         w3lbl:'อำนาจการตัดสินใจ', w3:'ผู้ปฏิบัติงานเห็นสถานะ live/degraded เทรนด์ Chonburi EEC เลเยอร์พลเมือง จำนวนแหล่งข้อมูล และเหตุการณ์ของนายกเมือง โดยไม่หลุดออกจากแผนที่ 3D ที่ยังรักษาบริบทพื้นที่ไว้',
         w4lbl:'เข้าถึงสด', w4:'หอควบคุมสาธารณะสำหรับ Chonburi Town Center และ Eastern Seaboard สร้างเพื่ออ่านสถานการณ์เร็ว ไม่ใช่รายงานวางแผนแบบนิ่ง',
-        cta:'เปิดหอควบคุม',
+        cta:'เปิดระบบสด',
       },
       p17: {
         title: 'เอกสารไทย <em>ให้เครื่องอ่านได้</em>',
@@ -1874,7 +1874,7 @@ const i18nExt = {
       ikigai: {
         name: 'Ikigai Finance Engine',
         lede: 'ข่าวกรองการเงินสำหรับ SME — งบดุลเป็นสัญญาณ เงินสดคงเหลือ runway สกอร์การ์ดธนาคาร และดัชนีการเงินรวม (Ikigai, Lean, Zero, Default, Solvency) ต้นแบบวิจัยระหว่างพัฒนา มีเฉพาะภาพหน้าจอ — ABC Company Limited เป็นข้อมูลจำลอง ยังไม่มีการ deploy สาธารณะ',
-        cta: 'ดู research repo',
+        cta: 'ดูบน GitHub',
       },
       p27: {
         lede: 'AirDash คือระบบเฝ้าคุณภาพอากาศและฝุ่นของไทย 24/7 — อันดับจังหวัดเสี่ยง 3 วัน พยากรณ์ CAMS ลบ rain washout, 5 จังหวัดเสี่ยง AT-risk และ PM2.5, donut รูปแบบทั้งประเทศ บนหน้าจอเดียว เพื่อให้ทุกจังหวัดอ่านภาพอากาศเดียวกันจากข้อมูลสาธารณะชุดเดียวกัน',
@@ -1975,7 +1975,7 @@ const i18nExt = {
       kicker:'วิธีสร้างจริง',
       title:'บทเรียนจากการส่งมอบของจริง',
       lede:'สองคน สิบสองเดือน นี่คือรูปแบบที่ใช้ได้ และที่ใช้ไม่ได้ เผยแพร่ตรงนี้เพราะช่องว่างระหว่างสิ่งที่รัฐบาลต้องการกับสิ่งที่ตลาดจัดหาให้ จะปิดได้ก็ต่อเมื่อคนแบ่งปันสิ่งที่ค้นพบ',
-      n1title:'ผู้ขายปฏิเสธ เราส่งมอบใน 14 วัน',
+      n1title:'ผู้ขายปฏิเสธ ผมส่งมอบใน 14 วัน',
       n1body:'ทุกระบบในหน้านี้เริ่มต้นเพราะรอบการจัดซื้อ ใบเสนอราคา หรือคณะกรรมการบอกว่าปัญหาซับซ้อนเกินไปหรือแพงเกินไป คำตอบไม่เคยเป็นการโต้เถียง แต่เป็นการสร้างเวอร์ชันทำงานได้แบบหยาบ ๆ แล้วเอาเข้าห้องประชุม เครื่องมือที่รันสด ๆ เปลี่ยนบทสนทนาได้เร็วกว่าข้อเสนอใด ๆ',
       n2title:'AI-native ไม่เหมือน AI-assisted',
       n2body:'ทุกบรรทัดของโค้ดในระบบเหล่านี้เขียนโดย Claude Code ผมเป็นคนกำกับ AI คือวิศวกร มนุษย์คือสถาปนิก นี่ไม่ใช่ทางลัด แต่เป็นโมเดลใหม่ของการแบ่งงาน การรู้วิธีกำกับ AI อย่างแม่นยำคือทักษะที่ทบต้น โค้ดไม่ใช่ส่วนที่ยาก',
@@ -1994,7 +1994,7 @@ const i18nExt = {
       expandFull:'ดูเทคโนโลยีสแต็กทั้งหมด',
       l1name:'โครงสร้างพื้นฐานคลาวด์', l1role:'ที่ระบบทำงาน',
       l2name:'เฟรมเวิร์กและตัวเชื่อม', l2role:'สิ่งที่เชื่อมระบบ',
-      l3name:'แพลตฟอร์มและเครื่องมือสร้าง', l3role:'ที่เราสร้างงาน',
+      l3name:'แพลตฟอร์มและเครื่องมือสร้าง', l3role:'ที่ผมสร้างงาน',
       l4name:'โมเดล AI และเอนจิน', l4role:'ส่วนปัญญา',
       l5name:'ซอฟต์แวร์และไลบรารี', l5role:'ส่วนที่ทำงานจริง',
       l6name:'ภาษาโปรแกรม', l6role:'โค้ดต้นทาง',
@@ -2098,7 +2098,7 @@ const i18nExt = {
         lede: 'SLIC Index不告诉城市自己值多少。它把五根支柱摆出来，让城市自己测试优先级。市长定义"宜居"是什么意思，数学跟着走。',
         w1lbl:'特别之处', w1:'别的宜居指数都甩给城市一个写好的判决。SLIC甩给城市的是数学。把支柱权重一拉，自己的排名和对手的排名实时一起动，争论本身就成了产品。',
         w2lbl:'替代了什么', w2:'静态的面子排行榜。年度排名PDF。以"我们不认同这个方法论"收尾的那种对话。',
-        w3lbl:'受众反应', w3:'被欧洲市长组织拿去用了。台北SCSE上45分钟现场演示。被当成公民议题在讨论，不是当概念板。', cta:'打开 SLIC v3',
+        w3lbl:'受众反应', w3:'被欧洲市长组织拿去用了。台北SCSE上45分钟现场演示。被当成公民议题在讨论，不是当概念板。', cta:'打开在线系统',
       },
       p05: {
         title: '大古晋，<em>一个指挥界面</em>',
@@ -2134,7 +2134,7 @@ const i18nExt = {
         lede: '我的AI Council是个个人多智能体的审议系统：11位名字是回文的AI法官（Tenet、Radar、Otto、Hannah、Ada……）在本地Mac上持续运行，通过一个共享的transcript日志互相辩论，每月大概3美元。基于个人日记、决策和声音训练——专有是设计选择，不是意外。',
         w1lbl:'为什么存在', w1:'单个模型只给一个答案。值得解的问题，值得被辩论。Council跑四种工作模式——VERIFY、DECIDE、EXPLORE、DEBATE——法官用明确的动作（EXPAND、QUALIFY、CONCEDE、STAND、PASS），每一次立场变化都看得见、追得到。',
         w2lbl:'成本', w2:'Manus级自主智能体的能力，每月3美元。Council主席跑在Mistral Large 3上，泰语本地的怀疑论者（Ada）跑在ThaiLLM上——政府支持的模型，免费。执行者（Otto）做OCR、下载视频、起草邮件、生成PDF、同步Google Drive，全程不碰云。',
-        w3lbl:'为什么没有演示', w3:'Council基于我个人的日记、决定、会议笔记和声音训练。专有是因为必须。协议栈——大约600行Python——是开放的。知识产权是协调方法论，不是模型权重。', cta:'v1 · DIY 协议', cta2:'v2 · 智能体 + 执行者',
+        w3lbl:'为什么没有演示', w3:'Council基于我个人的日记、决定、会议笔记和声音训练。专有是因为必须。协议栈——大约600行Python——是开放的。知识产权是协调方法论，不是模型权重。', cta:'在 GitHub 查看', cta2:'v2 · 智能体 + 执行者',
       },
       p10: {
         title: 'HR当<em>记录系统</em>当得够久了',
@@ -2148,7 +2148,7 @@ const i18nExt = {
         lede: 'Second Brain OS通过MCP把你的Obsidian知识库同时接到所有AI编程平台。按脑解剖命名的文件夹结构、19个服务器配置、能读取你人格蓝图、用你的声音写作、记得你每一个曾经记下的决定的AI智能体。你这些年积累的知识，终于开始替你工作了。',
         w1lbl:'填补的空白', w1:'每一次AI对话都从零开始。不知道你的声音、你的价值观、你过去的决定，或者那些塑造你思考方式的多年日记。Second Brain OS通过单一MCP连接，把这一切同时送进所有编程平台——和你协作的AI，已经知道它在跟谁协作。',
         w2lbl:'怎么搭起来的', w2:'你的Obsidian知识库按大脑结构组织：PrefrontalCortex放战略，Hippocampus放原子记忆，TemporalLobe放模式，Cerebellum放技能和流程。19个MCP服务器配置把这个活的知识图谱同时接到Cursor、Codex、Claude Code和你技术栈里所有的平台。',
-        w3lbl:'为什么开源', w3:'架构是MIT许可的。大脑是你的。任何人都可以fork结构、调整MCP配置、接上自己的知识库。还包含一个12级诊断工具，把AI腔从你的写作里剥出来——保证你积累的知识保留你的声音，不是模型的。', cta:'探索架构',
+        w3lbl:'为什么开源', w3:'架构是MIT许可的。大脑是你的。任何人都可以fork结构、调整MCP配置、接上自己的知识库。还包含一个12级诊断工具，把AI腔从你的写作里剥出来——保证你积累的知识保留你的声音，不是模型的。', cta:'在 GitHub 查看',
       },
       p12: {
         title: '21个频道。<em>免费。随处可看。</em>',
@@ -2157,7 +2157,7 @@ const i18nExt = {
         w2lbl:'替代了什么', w2:'各家电视台散装的App、非法流媒体，以及那种认为免费电视不可能做得跟订阅平台一样清晰的假设。',
         w3lbl:'决策能力', w3:'运营方实时看到在线并发人数、频道收视份额和流媒体健康状况。CAP v1.2紧急预警集成意味着全国性紧急警报通过娱乐内容的同一界面推送——不需要另建一套系统。',
         w4lbl:'实时访问', w4:'在NBTC许可权限下全国部署。向所有设备开放，无需注册。',
-        cta:'打开在线平台',
+        cta:'打开在线系统',
       },
       p13: {
         title: '47条数据流。<em>7个视角。一所大学。</em>',
@@ -2175,7 +2175,7 @@ const i18nExt = {
         w2lbl:'替代了什么', w2:'没有分析框架的券商门户、LINE群里的小道消息，以及"严格的价值投资只有拿着彭博终端的机构才能做"这个假设。',
         w3lbl:'决策能力', w3:'个性化KPI仪表板让投资者只追踪自己真正在用的那些指标，而不是泛泛的筛选器。一个界面覆盖SET股票、MAI成长股、RMF税优基金和泰国ESG产品。',
         w4lbl:'实时访问', w4:'实时泰国市场数据。开放平台，没有付费墙，不锁定任何券商。',
-        cta:'打开在线平台',
+        cta:'打开在线系统',
       },
       p15: {
         title: '说出城市名字。<em>我来搭它的大脑。</em>',
@@ -2184,7 +2184,7 @@ const i18nExt = {
         w2lbl:'替代了什么', w2:'一次性定制仪表板——城市之间不共享学习，没有AI合成，也检测不到市民数据跑在官方基础设施前面的地方。曼谷SIT ROOM现在追踪空气质量、洪水风险、热量、民事问题和疾病预警——每天由AI合成一次简报。',
         w3lbl:'决策能力', w3:'AI简报把所有实时城市信号合成成一份早间汇报：缺口检测（市民报告有数据但官方多边形没有的地方）、可操作事项、PM2.5省级排名，以及五天天气预报。+24H时间轴拉杆让运营者回放城市昨天的数据。',
         w4lbl:'实时访问', w4:'平台v.5。五座城市在线：曼谷、清迈、普吉、新加坡、古晋。任何城市都能接入——带上已有的数据就行。',
-        cta:'打开在线平台',
+        cta:'打开在线系统',
       },
       p16: {
         title: '一座海岸省份，<em>变成控制塔。</em>',
@@ -2193,7 +2193,7 @@ const i18nExt = {
         w2lbl:'替代了什么', w2:'分散的天气网站、海事仪表板、市场ticker、旅游表格、新闻标签页，以及永远无法同时讲同一个故事的静态GIS图层。',
         w3lbl:'决策能力', w3:'运营者可以在3D地图内看到实时和降级状态、Chonburi EEC趋势、公民图层、来源数量和市长事件，同时保留地理语境。',
         w4lbl:'实时访问', w4:'面向Chonburi Town Center和Eastern Seaboard的公开控制塔。为快速运营阅读而建，不是静态规划报告。',
-        cta:'打开控制塔',
+        cta:'打开在线系统',
       },
       p17: {
         title: '泰国纸质文件，<em>让机器读懂。</em>',
@@ -2239,7 +2239,7 @@ const i18nExt = {
       ikigai: {
         name: 'Ikigai Finance Engine',
         lede: '中小企业金融情报——资产负债表即信号、现金跑道、银行评分卡与综合金融指数（Ikigai、Lean、Zero、Default、Solvency）。开发阶段研究原型，仅提供截图——ABC Company Limited 为虚构演示数据，尚无公开部署。',
-        cta: '查看研究仓库',
+        cta: '在 GitHub 查看',
       },
       p27: {
         lede: 'AirDash 是 24/7 泰国空气质量与粉尘监测——省份关注度排名、3 天 CAMS 减雨预报、AT-risk 与 PM2.5 前 5 省份、雨洗逻辑、全国模式环图，全部在一张界面上。让每个泰国省份从同一份公开数据看到同一张空气质量图。',
@@ -2437,7 +2437,7 @@ const i18nExt = {
     panels: {
       p01: { title:'Governor<em>.situationRoom</em>: BrowserTab', lede:'// phuket.transit + safety + env → 30s read\n// built: weeks; not: procurementCycle', w1lbl:'// WHY_SPECIAL', w1:'// govDashboards: ReadonlyPDF[]\n// phuket: WorkingOpsRoom — transit & safety & env\n// refresh: 42ms; analysts: never[]', w2lbl:'// REPLACED', w2:'threeAgencyReports + smsChain + tuesdayBriefing', w3lbl:'// DAY_ONE', w3:'existingIoT.build() // no new hardware', cta:'system.open()' },
             p03: { title:'bureaucracy<em>.makeLegible()</em>', lede:'// thailand.smartCity.programme → public surface\n// proposals.in; progress.visible; pdfs.never()', w1lbl:'// WHY_SPECIAL', w1:'nationalProgramme.online(bilingual)\n// outcomes not ceremony; status.update(onMilestone)', w2lbl:'// FUNDED_BY', w2:'depa // digital economy promotion agency\n// direct gov engagement, not sub-vendor', w3lbl:'// MATTERS', w3:'template.for(nationalSmartCity.programmes)', cta:'system.open()' },
-      p04: { title:'ranking<em>.arguesBack()</em>', lede:'SLIC.show(5pillars)\n// mayors.define(livability)\n// math.follows()', w1lbl:'// WHY_SPECIAL', w1:'others.hand(finishedVerdict)\nSLIC.hand(math) // weights.move() → ranking.change()', w2lbl:'// REPLACED', w2:'staticLeaderboards + annualPDF + methodology.dispute', w3lbl:'// SIGNAL', w3:'MayorsOfEurope.adopted()\n// live-demo: SCSE 45min', cta:'SLIC.v3.open()' },
+      p04: { title:'ranking<em>.arguesBack()</em>', lede:'SLIC.show(5pillars)\n// mayors.define(livability)\n// math.follows()', w1lbl:'// WHY_SPECIAL', w1:'others.hand(finishedVerdict)\nSLIC.hand(math) // weights.move() → ranking.change()', w2lbl:'// REPLACED', w2:'staticLeaderboards + annualPDF + methodology.dispute', w3lbl:'// SIGNAL', w3:'MayorsOfEurope.adopted()\n// live-demo: SCSE 45min', cta:'system.open()' },
       p05: { title:'Kuching<em>.oneCommandSurface()</em>', lede:'// IOC: fullSpectrum\n// fx + flights + satellite + env → unified', w1lbl:'// WHY_SPECIAL', w1:'most: IOC<SingleDomain>\nkuching: crossDomain.fuse() // never switchTabs()', w2lbl:'// USERS', w2:'cityOperators + planners\n// realTime situational awareness, daily use', w3lbl:'// MATTERS', w3:'bloomberg.density / city // fraction.of.cost', cta:'system.open()' },
       p06: { title:'news<em>.before(algorithm.decidesWar)</em>', lede:'MEM: fastest opensource news surface\n// multiSource; noEditorialDelay; noFilterBubble', w1lbl:'// WHY_SPECIAL', w1:'platforms.have(editorial.layer)\nMEM.remove(that) // same signals, machineSpeed', w2lbl:'// REPLACED', w2:'3tabs + 2telegramChannels + twitterList', w3lbl:'// USERS', w3:'journalists + analysts + ngoFieldTeams', cta:'system.open()' },
       p07: { title:'bus.tracked<em>.rider.informed</em>', lede:'// GPS: realTime; telemetry: passenger\n// designed: phone.first // not controlRoom', w1lbl:'// WHY_SPECIAL', w1:'smartBus.for(operator.dashboard) // old\nthis.for(person.waiting(stop)) // new', w2lbl:'// REPLACED', w2:'noInfo + 2019schedule + "transit.cannotBeReadable"', w3lbl:'// BUILT_ON', w3:'phuket.IoT.existing\n// same sensor as governor ops room', cta:'system.open()' },
@@ -2462,11 +2462,11 @@ const i18nExt = {
         lede: '// paste.draft()\n// Non-Writer: chainOfProxies.run()\n// outputs: cleaner.text | drNon.voice | any.language()',
         cta: 'system.open()',
       },
-      p12: { lede: '// NSP.thailand.streamingPlatform()\n// 21 NBTC-licensed digital TV channels // free, full HD, any device // live EPG + viewership telemetry + AI guide + CAP v1.2 emergency alerts', cta: 'platform.open()' },
+      p12: { lede: '// NSP.thailand.streamingPlatform()\n// 21 NBTC-licensed digital TV channels // free, full HD, any device // live EPG + viewership telemetry + AI guide + CAP v1.2 emergency alerts', cta: 'system.open()' },
       p13: { lede: '// Chula.ControlTower\n// 47 live data streams: traffic, events, AQ, satellite, campus, security, transport // one surface for the operations team', cta: 'system.open()' },
-      p14: { lede: '// DayTraders.thaiMarketIntelligence()\n// Bloomberg-class signals for SET, MAI, mutual funds, RMF // personalized watchlists and AI summaries', cta: 'platform.open()' },
-      p15: { lede: '// CityHub.replicableCityIntelligence()\n// give it a city name, it draws the map, absorbs your data, wires APIs and dashboards // one city at a time', cta: 'platform.open()' },
-      p16: { lede: '// Chonburi.ControlTower\n// 3D command surface for the Eastern Seaboard: 42 live sources // coast weather, sea state, market and tourism, all in one', cta: 'tower.open()' },
+      p14: { lede: '// DayTraders.thaiMarketIntelligence()\n// Bloomberg-class signals for SET, MAI, mutual funds, RMF // personalized watchlists and AI summaries', cta: 'system.open()' },
+      p15: { lede: '// CityHub.replicableCityIntelligence()\n// give it a city name, it draws the map, absorbs your data, wires APIs and dashboards // one city at a time', cta: 'system.open()' },
+      p16: { lede: '// Chonburi.ControlTower\n// 3D command surface for the Eastern Seaboard: 42 live sources // coast weather, sea state, market and tourism, all in one', cta: 'system.open()' },
       p17: { lede: '// Ekkasarn.AI.thaiDocumentIntelligence()\n// tax invoices, receipts, withholding certificates // OCR + validation + structured output', cta: 'system.open()' },
       p18: { lede: '// KMITL.ControlTower\n// 56 live data streams for King Mongkut\'s Institute of Technology Ladkrabang // traffic, events, AQ, satellite, campus, security', cta: 'system.open()' },
       p19: { lede: '// Yala.ControlTower\n// real-time civic intelligence for Yala City Municipality // 3D city model + satellite + flood monitoring + deep-south security events', cta: 'system.open()' },
@@ -3256,18 +3256,21 @@ Object.keys(i18nExt2).forEach(locale => {
   if (uiCopy[locale]) Object.assign(uiCopy[locale], i18nExt2[locale]);
 });
 
-const REGIONAL_LOCALES = new Set(['ko', 'ja', 'vi']);
-
 function renderStaticCopy() {
   const copy = uiCopy[activeLocale] || uiCopy.en;
-  const fallback = REGIONAL_LOCALES.has(activeLocale) ? copy : uiCopy.en;
+  // English is the fallback for EVERY locale, ko/ja/vi included. They were
+  // excluded, so lookup() returned undefined for a key those locales lack and
+  // the caller then skipped the node — leaving whatever text the PREVIOUS
+  // locale had written into it. Switching Chinese -> Korean left Chinese
+  // sitting on every key Korean was missing. A missing string must degrade to
+  // English, never to another visitor's language.
+  const fallback = uiCopy.en;
   const LOCALE_HTML_LANG = { en: 'en', th: 'th', zh: 'zh-Hans', ko: 'ko', ja: 'ja', vi: 'vi', ts: 'en' };
   document.documentElement.lang = LOCALE_HTML_LANG[activeLocale] || activeLocale;
   const lookup = (key) => {
     const parts = key.split('.');
     const val = parts.reduce((obj, k) => obj?.[k], copy);
     if (typeof val === 'string') return val;
-    if (REGIONAL_LOCALES.has(activeLocale)) return undefined;
     return parts.reduce((obj, k) => obj?.[k], fallback);
   };
   const renderInlineMarkup = (value) => value

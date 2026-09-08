@@ -71,6 +71,18 @@
   /* §1.8 focus — the ring colour, re-declared on dark surfaces */
   --focus: var(--accent);
 
+  /* §1.9 accent, lifted for dark grounds.
+     Flag blue is a foreground colour on paper (about 12:1) and an almost
+     invisible one on the hero's near-black map: measured 1.26:1 against the
+     basemap and 1.46:1 against the theatre-brief panel, where WCAG asks 3:1
+     for large text and 4.5:1 for small. A saturated blue physically cannot
+     reach 4.5:1 on near-black — blue carries only 7% of the luminance
+     formula — so this is the brightest same-hue blue that still reads as the
+     signal rather than as grey: 4.02:1 on the worst basemap pixel, 6.9:1 on
+     the tile body. It is the same signal adapted to its ground, not a second
+     accent; backgrounds stay full-strength --accent. */
+  --accent-fg-dark: #6fa0e6;
+
   /* §1.5 motion — confirm, not entertain */
   --t-fast: 100ms;
   /* visible feedback */
@@ -673,7 +685,9 @@ summary:focus-visible {
 .dot {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  /* Square, like .map-mode-dot and .sat-hud-live-dot. This was the only
+     border-radius on the page and the house rule is radius: 0. */
+  border-radius: 0;
   background: var(--accent);
   display: inline-block;
   animation: blink 2.4s ease-in-out infinite;
@@ -3038,4 +3052,59 @@ details[open] > summary:focus-visible {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0;
+}
+
+/* ------------------------------------------------------------
+   §12.12  Inert card link
+   The one "Coming soon" card is a <div>, not an <a>. It kept the ▸
+   arrow, which is the affordance for "this opens something".
+   ------------------------------------------------------------ */
+.sys-cell__link--inert {
+  color: var(--ink-3);
+  cursor: default;
+}
+
+/* ------------------------------------------------------------
+   §12.13  Long tokens must break, not push the page wide
+   Code mode (the </> locale) writes identifiers, not sentences:
+   `US_ASEAN_SmartCitiesPartnership`, `writtenBy(ClaudeCode).directedBy(DrNon)`,
+   `// 2026.taipei.singapore.bangkok`. With the default overflow-wrap
+   these have no break opportunity, so they set a min-content width
+   wider than their grid track and the whole document scrolls sideways —
+   measured 935px inside a 768px viewport and 444px inside 320px.
+
+   `anywhere` rather than `break-word` on purpose: only `anywhere`
+   reduces the intrinsic min-content size, which is what lets the grid
+   track shrink back. It never breaks a word that already fits, so
+   ordinary prose in the other six locales is unaffected.
+   ------------------------------------------------------------ */
+.sys-cell__name,
+.sys-cell__cat,
+.sys-cell__lede,
+.sys-cell__link,
+.probono-card__title,
+.probono-card__org,
+.probono-card__for,
+.probono-stack__chip,
+.sandbox-note__body,
+.s-head__meta,
+.s-head__title,
+.numbered__title,
+.numbered__body,
+.stage__lead,
+.stage__title,
+.cluster-head .t-label,
+.t-big,
+.t-body-2,
+.foot__fineprint-p,
+.press-row__title {
+  overflow-wrap: anywhere;
+}
+
+/* Grid and flex children default to min-width:auto, which refuses to
+   shrink below min-content. Pair with the rule above so tracks can. */
+.grid > *,
+.probono-card,
+.sys-cell {
+  min-width: 0;
 }

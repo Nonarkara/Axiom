@@ -290,7 +290,7 @@
           "w2": "Static prestige leaderboards. The annual ranking PDF. The conversation that ended with \"we don't agree with the methodology.\"",
           "w3lbl": "Audience signal",
           "w3": "Picked up by Mayors of Europe. Live-demo'd at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.",
-          "cta": "SLIC v3 열기"
+          "cta": "라이브 시스템 열기"
         },
         "p05": {
           "title": "Greater Kuching, <em>one command surface.</em>",
@@ -383,7 +383,7 @@
           "w3": "Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.",
           "w4lbl": "Live access",
           "w4": "National deployment under NBTC licensing authority. Open to all devices, no account required.",
-          "cta": "라이브 플랫폼 열기"
+          "cta": "라이브 시스템 열기"
         },
         "p13": {
           "title": "47 feeds. <em>7 lenses. One campus.</em>",
@@ -409,7 +409,7 @@
           "w3": "Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.",
           "w4lbl": "Live access",
           "w4": "Live Thai market data. Open platform — no paywall, no broker lock-in.",
-          "cta": "라이브 플랫폼 열기"
+          "cta": "라이브 시스템 열기"
         },
         "p15": {
           "title": "Name the city. <em>We'll build its brain.</em>",
@@ -422,7 +422,7 @@
           "w3": "The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don't), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city's last day of data.",
           "w4lbl": "Live access",
           "w4": "Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.",
-          "cta": "라이브 플랫폼 열기"
+          "cta": "라이브 시스템 열기"
         },
         "p16": {
           "title": "A coastal province, <em>rendered as a control tower.</em>",
@@ -435,7 +435,7 @@
           "w3": "Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.",
           "w4lbl": "Live access",
           "w4": "Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.",
-          "cta": "관제탑 열기"
+          "cta": "라이브 시스템 열기"
         },
         "p17": {
           "title": "Thai paperwork, <em>read by the machine.</em>",
@@ -485,7 +485,7 @@
         "ikigai": {
           "name": "Ikigai Finance Engine",
           "lede": "중소기업 금융 인텔리전스 — 재무상태표를 신호로, 현금 런웨이, 은행 스코어카드, 복합 금융 지수(Ikigai, Lean, Zero, Default, Solvency). 개발 단계 연구 프로토타입, 스크린샷만 공개 — ABC Company Limited는 가상 시연 데이터이며 아직 공개 배포 없음.",
-          "cta": "연구 저장소 보기"
+          "cta": "GitHub에서 보기"
         },
         "p27": {
           "lede": "AirDash는 24/7 태국 대기질·미세먼지 모니터링입니다 — 도별 순위, 3일 CAMS-강우 예보, AT 위험·PM2.5 상위 5개 도, 강우 정화 로직, 전국 패턴 도넛을 한 화면에.",
@@ -538,6 +538,14 @@
         "p44": {
           "lede": "방콕에는 약 40만 동의 셰하우스가 있지만 그에 대한 목록조차 없다. 재사용과 내재 탄소(embodied carbon)에 관한 장문의 에세이, 2,311동 현장 조사, 재무부 토지 가격 압력 지도, 그리고 네 가지 색의 답. 하버드 디자인대학원 《Shophouse Metropolis》에 게재.",
           "cta": "에세이 읽기"
+        },
+        "p45": {
+          "lede": "아시아의 다섯 전장 — 동남아시아, 동아시아, 남아시아, 태국, 그리고 아시아의 에너지 생명선인 걸프 — 을 하나의 실시간 지도에: 분쟁 사건, 화재, 항공·해상 교통, 지역 뉴스와 방송까지 모두 공개 데이터로.",
+          "cta": "라이브 시스템 열기"
+        },
+        "p46": {
+          "lede": "지구 전체를 한 화면에: 전 세계 항공기와 선박의 실시간 위치, 분쟁과 화재 핫스팟, 상시 열려 있는 인텔 칼럼과 시장 스트립. 같은 공개 데이터 엔진, 세계 규모로.",
+          "cta": "라이브 시스템 열기"
         }
       },
       "stagesContent": {
@@ -1239,7 +1247,7 @@
           "w2": "Static prestige leaderboards. The annual ranking PDF. The conversation that ended with \"we don't agree with the methodology.\"",
           "w3lbl": "Audience signal",
           "w3": "Picked up by Mayors of Europe. Live-demo'd at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.",
-          "cta": "SLIC v3 を開く"
+          "cta": "稼働中のシステムを開く"
         },
         "p05": {
           "title": "Greater Kuching, <em>one command surface.</em>",
@@ -1332,7 +1340,7 @@
           "w3": "Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.",
           "w4lbl": "Live access",
           "w4": "National deployment under NBTC licensing authority. Open to all devices, no account required.",
-          "cta": "稼働中のプラットフォームを開く"
+          "cta": "稼働中のシステムを開く"
         },
         "p13": {
           "title": "47 feeds. <em>7 lenses. One campus.</em>",
@@ -1358,7 +1366,7 @@
           "w3": "Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.",
           "w4lbl": "Live access",
           "w4": "Live Thai market data. Open platform — no paywall, no broker lock-in.",
-          "cta": "稼働中のプラットフォームを開く"
+          "cta": "稼働中のシステムを開く"
         },
         "p15": {
           "title": "Name the city. <em>We'll build its brain.</em>",
@@ -1371,7 +1379,7 @@
           "w3": "The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don't), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city's last day of data.",
           "w4lbl": "Live access",
           "w4": "Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.",
-          "cta": "稼働中のプラットフォームを開く"
+          "cta": "稼働中のシステムを開く"
         },
         "p16": {
           "title": "A coastal province, <em>rendered as a control tower.</em>",
@@ -1384,7 +1392,7 @@
           "w3": "Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.",
           "w4lbl": "Live access",
           "w4": "Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.",
-          "cta": "コントロールタワーを開く"
+          "cta": "稼働中のシステムを開く"
         },
         "p17": {
           "title": "Thai paperwork, <em>read by the machine.</em>",
@@ -1434,7 +1442,7 @@
         "ikigai": {
           "name": "Ikigai Finance Engine",
           "lede": "中小企業向け金融インテリジェンス — 貸借対照表をシグナルとして、キャッシュランウェイ、銀行スコアカード、複合金融指数（Ikigai、Lean、Zero、Default、Solvency）。開発段階の研究プロトタイプ、スクリーンショットのみ — ABC Company Limited は架空のデモデータ、公開デプロイは未実施。",
-          "cta": "研究リポジトリを見る"
+          "cta": "GitHubで見る"
         },
         "p27": {
           "lede": "AirDashは24/7タイ大気質・ダスト監視です — 州別ランキング、3日CAMS-降雨予測、ATリスク・PM2.5上位5州、ウォッシュアウトロジック、全国パターンドーナツを1画面に。",
@@ -1487,6 +1495,14 @@
         "p44": {
           "lede": "バンコクには約40万件のショップハウスがあるのに、その目録は存在しない。再利用とエンボディド・カーボンに関する長文エッセイ、2,311棟のサーベイ、タイ財務省の地価圧力マップ、そして四色の答え。ハーバードデザイン大学院『Shophouse Metropolis』所収。",
           "cta": "エッセイを読む"
+        },
+        "p45": {
+          "lede": "アジアの五つの戦域 — 東南アジア、東アジア、南アジア、タイ、そしてアジアのエネルギー動脈である湾岸 — を一枚のライブ地図に。紛争イベント、火災、空と海の交通、地域のニュースと放送を、すべてオープンデータから。",
+          "cta": "稼働中のシステムを開く"
+        },
+        "p46": {
+          "lede": "地球全体を一画面に。世界中の航空機と船舶をリアルタイムで、紛争と火災のホットスポット、常時展開したインテル欄とマーケットストリップ。同じオープンデータ基盤で、スケールは世界。",
+          "cta": "稼働中のシステムを開く"
         }
       },
       "stagesContent": {
@@ -2178,7 +2194,7 @@
           "w2": "Static prestige leaderboards. The annual ranking PDF. The conversation that ended with \"we don't agree with the methodology.\"",
           "w3lbl": "Audience signal",
           "w3": "Picked up by Mayors of Europe. Live-demo'd at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.",
-          "cta": "Mở SLIC v3"
+          "cta": "Mở hệ thống đang chạy"
         },
         "p05": {
           "title": "Greater Kuching, <em>one command surface.</em>",
@@ -2271,7 +2287,7 @@
           "w3": "Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.",
           "w4lbl": "Live access",
           "w4": "National deployment under NBTC licensing authority. Open to all devices, no account required.",
-          "cta": "Mở nền tảng đang chạy"
+          "cta": "Mở hệ thống đang chạy"
         },
         "p13": {
           "title": "47 feeds. <em>7 lenses. One campus.</em>",
@@ -2297,7 +2313,7 @@
           "w3": "Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.",
           "w4lbl": "Live access",
           "w4": "Live Thai market data. Open platform — no paywall, no broker lock-in.",
-          "cta": "Mở nền tảng đang chạy"
+          "cta": "Mở hệ thống đang chạy"
         },
         "p15": {
           "title": "Name the city. <em>We'll build its brain.</em>",
@@ -2310,7 +2326,7 @@
           "w3": "The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don't), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city's last day of data.",
           "w4lbl": "Live access",
           "w4": "Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.",
-          "cta": "Mở nền tảng đang chạy"
+          "cta": "Mở hệ thống đang chạy"
         },
         "p16": {
           "title": "A coastal province, <em>rendered as a control tower.</em>",
@@ -2323,7 +2339,7 @@
           "w3": "Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.",
           "w4lbl": "Live access",
           "w4": "Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.",
-          "cta": "Mở tháp điều hành"
+          "cta": "Mở hệ thống đang chạy"
         },
         "p17": {
           "title": "Thai paperwork, <em>read by the machine.</em>",
@@ -2373,7 +2389,7 @@
         "ikigai": {
           "name": "Ikigai Finance Engine",
           "lede": "Tình báo tài chính cho SME — bảng cân đối kế toán như tín hiệu, đường băng tiền mặt, thẻ điểm ngân hàng và các chỉ số tài chính tổng hợp (Ikigai, Lean, Zero, Default, Solvency). Nguyên mẫu nghiên cứu đang phát triển, chỉ có ảnh chụp màn hình — ABC Company Limited là dữ liệu demo giả định, chưa triển khai công khai.",
-          "cta": "Xem kho nghiên cứu"
+          "cta": "Xem trên GitHub"
         },
         "p27": {
           "lede": "AirDash là hệ thống giám sát chất lượng không khí và bụi 24/7 của Thái Lan — xếp hạng tỉnh, dự báo CAMS trừ mưa 3 ngày, top 5 tỉnh AT-risk và PM2.5, logic washout, donut mẫu quốc gia trên một mặt.",
@@ -2426,6 +2442,14 @@
         "p44": {
           "lede": "Bangkok có khoảng 400.000 nhà cổ shophouse nhưng không hề có một bản kiểm kê nào. Một bài tiểu luận dài về tái sử dụng và carbon ẩn, kèm khảo sát 2.311 tòa nhà, bản đồ áp lực giá đất của Bộ Tài chính, và câu trả lời bốn màu. Đăng trong Shophouse Metropolis, Harvard GSD.",
           "cta": "Đọc tiểu luận"
+        },
+        "p45": {
+          "lede": "Năm chiến trường châu Á — Đông Nam Á, Đông Á, Nam Á, Thái Lan, và vùng Vịnh với vai trò mạch năng lượng của châu Á — trên cùng một bản đồ trực tiếp: sự kiện xung đột, cháy, giao thông hàng không và hàng hải, tin tức và truyền hình khu vực, tất cả từ dữ liệu mở.",
+          "cta": "Mở hệ thống đang chạy"
+        },
+        "p46": {
+          "lede": "Toàn bộ hành tinh trên một màn hình: máy bay và tàu biển trực tiếp trên toàn cầu, điểm nóng xung đột và cháy, cột tin tình báo và dải thị trường luôn mở. Cùng một nền dữ liệu mở, ở quy mô thế giới.",
+          "cta": "Mở hệ thống đang chạy"
         }
       },
       "stagesContent": {
