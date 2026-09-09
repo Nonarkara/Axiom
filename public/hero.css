@@ -203,8 +203,8 @@
 .hero-city-label {
   position: absolute;
   z-index: 3;
-  top: 28px;
-  right: 28px;
+  top: 22px;
+  right: 22px;
   font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", monospace;
   font-size: 11px;
   font-weight: 600;
@@ -602,9 +602,12 @@
 .hero-content {
   position: relative;
   z-index: 4;
-  max-width: var(--maxw, 1200px);
+  /* Same box model as .wrap (rams.css) so the headline's left edge lands
+     on the page's shared grid line instead of one --pad inboard of it
+     (was max-width + its own padding, double-counting the inset). */
+  width: min(var(--maxw, 1200px), calc(100% - (var(--pad) * 2)));
   margin: 0 auto;
-  padding: 18vh var(--pad) 0;
+  padding: 18vh 0 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -653,7 +656,7 @@
 
 .hero-line-accent {
   display: block;
-  color: var(--accent);
+  color: var(--accent-ink); /* --accent is 1.46:1 on the near-black map, fails WCAG; --accent-ink (rams.css) is the same fix already used on .hero-featured-badge */
   /* Reserve one line of height so rotating phrases of different widths
      don't shift the hero h1 layout. If a phrase ever exceeds one line
      on a narrow viewport, the @media (max-width: 600px) override
@@ -955,7 +958,7 @@
 .hero-featured-badge {
   position: absolute;
   top: 50%;
-  right: 32px;
+  right: 22px;
   transform: translateY(-50%);
   z-index: 6;
   display: flex;
