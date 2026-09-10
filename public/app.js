@@ -1713,6 +1713,14 @@ const i18nExt = {
         lede: "Dr Non's reproduction-grade interface standard. Two layers: Rams silence (warm-grey field, hairline grid, one accent) for single views; the NYCTA wayfinding layer (closed trunk palette, disc, station plate, solid arrow) for multi-board systems. AGENTS.md for any AI agent. MIT licensed for original work; see NOTICE.md for what is not relicensed.",
         cta: 'Open the repo',
       },
+      p58: {
+        lede: "Functional-minimalist white baggage-tag principles for websites, systems, docs, and AI agents. Design tokens (ground, ink, four ranks, spacing, mono, optional domain colours), a printed-stock B, an ephemera skin, six components, before/after examples, an agent-invocable skill, and a runnable tag-audit PO gate. MIT licensed.",
+        cta: 'Open the repo',
+      },
+      p59: {
+        lede: "Ten enforceable layout laws, with the static lint and the runtime audit that fail the build. The package: a single source of numeric truth (scale.mjs), a ratchet (moma-lint.mjs), a self-check that proves the published arithmetic (self-check.mjs), and a browser console for catching what only exists after layout (near-miss, ragged-row, orphan-grid). Demonstration page obeys its own laws.",
+        cta: 'Open the repo',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -2131,6 +2139,14 @@ const i18nExt = {
         lede: "มาตรฐานอินเทอร์เฟซระดับ reproduction ของ Dr Non สองเลเยอร์: Rams silence (พื้นอุ่นเทา กริดเส้นบาง สีเน้นหนึ่งเดียว) สำหรับมุมมองเดียว และเลเยอร์ NYCTA wayfinding (พาเลตต์เส้นทางแบบปิด, แผ่นดิสก์, ป้ายสถานี, ลูกศรทึบ) สำหรับระบบหลายบอร์ด AGENTS.md สำหรับ AI agent ใดๆ ได้รับอนุญาตภายใต้ MIT สำหรับงานต้นฉบับ ดู NOTICE.md สำหรับสิ่งที่ไม่ได้ relicensed",
         cta: 'เปิด repo',
       },
+      p58: {
+        lede: "หลักการทำงาน-น้อย-แต่-ดีของกระดาษผูกสัมภาระสีขาว สำหรับเว็บไซต์ ระบบ เอกสาร และ AI agent design tokens (พื้น, หมึก, สี่ระดับ, ระยะ, monospace, สีเสริม), Stock B สำหรับพิมพ์, ผิวหน้า ephemera, คอมโพเนนต์หกชิ้น, ตัวอย่าง before/after, skill ที่ agent เรียกใช้ได้ และ tag-audit PO gate ที่รันได้ ได้รับอนุญาตภายใต้ MIT",
+        cta: 'เปิด repo',
+      },
+      p59: {
+        lede: "กฎเลย์เอาต์บังคับใช้ได้สิบข้อ พร้อม lint แบบ static และ audit แบบ runtime ที่ทำให้ build ล้มเหลว ชุดนี้ประกอบด้วย: แหล่งตัวเลขเดียว (scale.mjs), ratchet (moma-lint.mjs), self-check ที่พิสูจน์เลขคณิตที่ตีพิมพ์ (self-check.mjs) และคอนโซลเบราว์เซอร์สำหรับจับสิ่งที่มีอยู่หลังจาก layout เท่านั้น (near-miss, ragged-row, orphan-grid) หน้าตัวอย่างทำตามกฎของตัวเอง",
+        cta: 'เปิด repo',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2546,6 +2562,14 @@ const i18nExt = {
         lede: "Dr Non 的可复刻级界面标准。两个层：Rams 静默层（暖灰底、发丝网格、单一强调色）用于单视图；NYCTA 寻路层（封闭的线路色板、圆盘、站牌、实心箭头）用于多板系统。为任何 AI agent 准备的 AGENTS.md。原创工作以 MIT 授权；不属于再授权范围的内容见 NOTICE.md。",
         cta: '打开仓库',
       },
+      p58: {
+        lede: "功能极简的白色行李牌设计原则，适用于网站、系统、文档与 AI agent。Design tokens（底色、墨色、四级字号、间距、等宽字体、可选领域色）、印刷 Stock B、Ephemera 皮肤、六个组件、before/after 示例、可被 agent 调用的 skill，以及可运行的 tag-audit PO gate。MIT 授权。",
+        cta: '打开仓库',
+      },
+      p59: {
+        lede: "十条可强制执行的布局法则，配有让构建失败的静态 lint 与运行时审计。包内含：单一数字真源（scale.mjs）、棘轮（moma-lint.mjs）、证明已发布算术的 self-check（self-check.mjs），以及一个浏览器控制台，用于捕捉只有 layout 之后才存在的缺陷（near-miss、ragged-row、orphan-grid）。示例页服从自己的法则。",
+        cta: '打开仓库',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2745,6 +2769,8 @@ const i18nExt = {
       p55: { lede: '// rag.nonarkara.org / retrieval_as_a_service\n// upload(PDF, links) → cite(source) → silence.when(corpus.silent)\n// 100MB/workspace · Telegram + LINE · localMac(Bangkok) · no.outbound', cta: 'workspace.open()' },
       p56: { lede: '// axiom.designCore / operatingStandard.behindAllAxiom\n// tokens.css + components.html + 5line.DNA + AGENTS.md // functionFirst, thenSubtract\n// dropInto(agent) → firstPass.correct.always // MIT.license = clone, fork, ship', cta: 'repo.open()' },
       p57: { lede: '// rams.nycta.designCore / reproduction.grade.interface\n// layer1(Rams.silence) + layer2(NYCTA.wayfinding) // closed.trunk.palette + disc + stationPlate + solidArrow\n// AGENTS.md for(any.agent) // MIT.license(originalWork.only) → NOTICE.md', cta: 'repo.open()' },
+      p58: { lede: '// luggage.tagAesthetic / functional.minimalist.whiteBaggage\n// designTokens = ground + ink + fourRanks + spacing + mono // stockB(printed) + ephemera(skin)\n// six.components + beforeAfter.examples // skill.agentInvocable + tagAudit.PO.gate\n// MIT.license → fork.apply()', cta: 'repo.open()' },
+      p59: { lede: '// moma.rules / ten.enforceable.layoutLaws\n// lint.static(moma-lint.mjs) + audit.runtime(near-miss.browser.js) → failBuild // scale.mjs = single.source.of.numeric.truth\n// self.check.mjs proves(arithmetic.published) // demo.page.obeys(itsOwn.laws)', cta: 'repo.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2933,6 +2959,8 @@ const i18nExt2 = {
       p55:'Coming soon · Document Intelligence',
       p56:'Live · Open Source Kit',
       p57:'Live · Open Source Kit',
+      p58:'Open Source Kit · GitHub',
+      p59:'Open Source Kit · GitHub',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -3014,7 +3042,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '50 systems · 5 countries',
+      sysMeta: '52 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 16',
       intelligence: 'Intelligence',
@@ -3024,7 +3052,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 13',
+      labMeta: 'Side tools · in the open · 15',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -3100,6 +3128,8 @@ const i18nExt2 = {
       p55:'เร็ว ๆ นี้ · เอกสารอัจฉริยะ',
       p56:'สด · ชุดโอเพนซอร์ส',
       p57:'สด · ชุดโอเพนซอร์ส',
+      p58:'ชุดโอเพนซอร์ส · GitHub',
+      p59:'ชุดโอเพนซอร์ส · GitHub',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -3187,7 +3217,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '50 ระบบ · 5 ประเทศ',
+      sysMeta: '52 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
       intelligence: 'ข่าวกรอง',
@@ -3197,7 +3227,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 13',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 15',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -3273,6 +3303,8 @@ const i18nExt2 = {
       p55:'即将推出 · 文档智能',
       p56:'在线 · 开源工具包',
       p57:'在线 · 开源工具包',
+      p58:'开源工具包 · GitHub',
+      p59:'开源工具包 · GitHub',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -3358,7 +3390,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '50 个系统 · 5 个国家',
+      sysMeta: '52 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 16',
       intelligence: '情报',
@@ -3368,7 +3400,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 13',
+      labMeta: '辅助工具 · 开放中 · 15',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3450,6 +3482,8 @@ const i18nExt2 = {
       p52:'live: Podcast',
       p53:'live: NetworkEval',
       p54:'live: BrainPractice',
+      p58:'openSourceKit: github',
+      p59:'openSourceKit: github',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -3535,7 +3569,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '50 systems · 5 countries',
+      sysMeta: '52 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
@@ -3545,7 +3579,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[13]',
+      labMeta: 'sideTools & openProcess · count[15]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
