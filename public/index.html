@@ -43,12 +43,12 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20260910c">
+  <link rel="stylesheet" href="rams.css?v=20260910d">
   <link rel="stylesheet" href="hero.css?v=20260909a">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="i18n-regional.js?v=20260910c"></script>
+  <script src="i18n-regional.js?v=20260910d"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script defer src="app.js?v=20260910c"></script>
+  <script defer src="app.js?v=20260910d"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -318,7 +318,7 @@
       <div class="wrap">
         <div class="s-head">
           <div class="s-head__title" data-i18n="sysSect.kicker">Live in production</div>
-          <div class="s-head__meta" data-i18n="sysClusters.sysMeta">54 systems · 5 countries</div>
+          <div class="s-head__meta" data-i18n="sysClusters.sysMeta">55 systems · 5 countries</div>
         </div>
         <p class="t-body-2" data-i18n="sysSect.lede" style="max-width:64ch;margin:0 0 8px;">Each one started as a sharp
           question, shipped as a working surface, and stays useful long after the launch press cycle ends. Click through
@@ -332,7 +332,7 @@
         <!-- CITY DASHBOARDS -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.command">City Dashboards</div>
-          <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time city operations rooms &amp; environmental watch · 16</div>
+          <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time city operations rooms &amp; environmental watch · 17</div>
         </div>
         <div class="grid grid--3">
           <a class="sys-cell" data-arch="flood-ami" href="https://flood-ami.pages.dev/" target="_blank" rel="noopener">
@@ -415,6 +415,19 @@
                 flood monitoring, air quality, and dynamic routing into a single high-performance map for urban
                 decision-makers.</div>
               <span class="sys-cell__link"><span data-i18n="panels.p21.cta">Open live system</span> <span
+                  class="tri">▸</span></span>
+            </div>
+          </a>
+          <a class="sys-cell" data-arch="lopburi" href="https://lopburi.nonarkara.org/lopburi" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">55</span><span class="sys-cell__status"><span
+                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+            <img class="sys-cell__shot" src="showcase/lopburi.jpg" loading="lazy"
+              alt="Lopburi Operations War Room — real-time FloodDash basin telemetry (ThaiWater/HII), Pa Sak Jolasid reservoir status, social listening, CCTV slot grid, and satellite layers for Lopburi province.">
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">Lopburi Operations</div>
+              <div class="sys-cell__cat" data-i18n="cats.c05">Intelligent Operations</div>
+              <div class="sys-cell__lede" data-i18n="panels.p62.lede">Lopburi Operations War Room — real-time FloodDash basin telemetry (ThaiWater/HII), Pa Sak Jolasid reservoir status, social listening, CCTV slot grid, and satellite layers for Lopburi province. One screen, four data streams, the dispatchable read.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.p62.cta">Open the war room</span> <span
                   class="tri">▸</span></span>
             </div>
           </a>
@@ -1085,7 +1098,7 @@
           <a class="sys-cell" data-arch="luggage-tag" href="https://github.com/Nonarkara/dr-non-luggage-tag-aesthetic" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">51</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <img class="sys-cell__shot" src="https://opengraph.githubassets.com/8770b6d89c06edd46b0045b467f2e6f2c8dfaf0ee8f2960d92603ff70873b58a/Nonarkara/dr-non-luggage-tag-aesthetic" loading="lazy" alt="Dr Non's Luggage Tag Aesthetic — design tokens, components, examples, an agent-invocable skill, and AGENTS.md. Fork and apply.">
+            <img class="sys-cell__shot" src="showcase/luggage-tag.jpg" loading="lazy" alt="Dr Non's Luggage Tag Aesthetic — every zone has a job: loop, perforation, context line, fallback name, destination code, barcode + stable ID, claim stubs. Anatomy of the tag.">
             <div class="sys-cell__body">
               <div class="sys-cell__name">Luggage Tag Aesthetic</div>
               <div class="sys-cell__cat" data-i18n="cats.c46">Open Source Kit</div>
@@ -1097,7 +1110,7 @@
           <a class="sys-cell" data-arch="moma-rules" href="https://github.com/Nonarkara/moma-rules" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">52</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <img class="sys-cell__shot" src="https://opengraph.githubassets.com/64656b078fb687ebe4825e52c3355f280527da126ab9cc1fc89afe64fa3605e6/Nonarkara/moma-rules" loading="lazy" alt="Dr Non's MoMA rules — ten enforceable layout laws, with the static lint and runtime checks that fail the build. Demonstration page obeys its own laws.">
+            <img class="sys-cell__shot" src="showcase/moma-rules.png" loading="lazy" alt="Dr Non's MoMA rules — 'Curate to fit the grid.' If N ÷ C ≠ 0, the grid is not finished. Four legal responsive densities (192/296/400/608px at 1280).">
             <div class="sys-cell__body">
               <div class="sys-cell__name">MoMA Rules</div>
               <div class="sys-cell__cat" data-i18n="cats.c46">Open Source Kit</div>
@@ -1106,14 +1119,14 @@
                   class="tri">▸</span></span>
             </div>
           </a>
-          <a class="sys-cell" data-arch="otop" href="https://otop.pages.dev/" target="_blank" rel="noopener">
+          <a class="sys-cell" data-arch="o3" href="https://otop.pages.dev/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">53</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <img class="sys-cell__shot" src="showcase/otop.svg" loading="lazy" alt="one³ — OTOP registry intelligence. One Tambon, One Product read as data. Every record carries its source, its completeness, and its age.">
+            <img class="sys-cell__shot" src="showcase/otop.jpg" loading="lazy" alt="O3 — Power of the Third. Thailand's OTOP registry read as data — 154,078 records across 77 provinces, every one carrying source, completeness, and age.">
             <div class="sys-cell__body">
-              <div class="sys-cell__name">one³ — OTOP</div>
+              <div class="sys-cell__name">O3</div>
               <div class="sys-cell__cat" data-i18n="cats.c02">Strategic Intelligence</div>
-              <div class="sys-cell__lede" data-i18n="panels.p60.lede">Thailand's OTOP registry read as data. One Tambon, One Product, One Platform — every record carries its source, its completeness, and its age. No scraping, no AI hallucination: the registry is the registry, with provenance on every cell.</div>
+              <div class="sys-cell__lede" data-i18n="panels.p60.lede">O3 — Power of the Third. Thailand's OTOP registry read as data: 154,078 records across 77 provinces, every one carrying its source, its completeness, and its age. No scraping, no AI hallucination: the registry is the registry, with provenance on every cell.</div>
               <span class="sys-cell__link"><span data-i18n="panels.p60.cta">Open the registry</span> <span
                   class="tri">▸</span></span>
             </div>

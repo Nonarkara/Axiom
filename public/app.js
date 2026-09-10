@@ -1722,12 +1722,16 @@ const i18nExt = {
         cta: 'Open the repo',
       },
       p60: {
-        lede: "Thailand's OTOP registry read as data. One Tambon, One Product, One Platform — every record carries its source, its completeness, and its age. No scraping, no AI hallucination: the registry is the registry, with provenance on every cell.",
+        lede: "O3 — Power of the Third. Thailand's OTOP registry read as data: 154,078 records across 77 provinces, every one carrying its source, its completeness, and its age. No scraping, no AI hallucination: the registry is the registry, with provenance on every cell.",
         cta: 'Open the registry',
       },
       p61: {
         lede: "The Super League that never launched. Twenty-six clubs, real squads, straight-line passing — one decision at a time. Turn-based tactical soccer for one player or two sharing a pad. Press start, believe the next match matters, and read the pitch before you pass into it.",
         cta: 'Press start',
+      },
+      p62: {
+        lede: "Lopburi Operations War Room — real-time FloodDash basin telemetry (ThaiWater/HII), Pa Sak Jolasid reservoir status, social listening, CCTV slot grid, and satellite layers for Lopburi province. One screen, four data streams, the dispatchable read.",
+        cta: 'Open the war room',
       },
     },
     stagesContent: {
@@ -2156,12 +2160,16 @@ const i18nExt = {
         cta: 'เปิด repo',
       },
       p60: {
-        lede: "ทะเบียน OTOP ของไทย อ่านเป็นข้อมูล หนึ่งตำบล หนึ่งผลิตภัณฑ์ หนึ่งแพลตฟอร์ม — ทุกระเบียนมีแหล่งที่มา ความครบถ้วน และอายุข้อมูล ไม่มีการ scraping ไม่มี AI หลอน: ทะเบียนคือทะเบียน พร้อมแหล่งอ้างอิงในทุกเซลล์",
+        lede: "O3 — พลังแห่งที่สาม ทะเบียน OTOP ของไทย อ่านเป็นข้อมูล: 154,078 ระเบียนใน 77 จังหวัด ทุกระเบียนมีแหล่งที่มา ความครบถ้วน และอายุข้อมูล ไม่มีการ scraping ไม่มี AI หลอน: ทะเบียนคือทะเบียน พร้อมแหล่งอ้างอิงในทุกเซลล์",
         cta: 'เปิดทะเบียน',
       },
       p61: {
         lede: "ซูเปอร์ลีกที่ไม่เคยเปิดตัว ยี่สิบหกสโมสร ทีมจริง การส่งบอลเป็นเส้นตรง — ตัดสินใจทีละจังหวะ ฟุตบอลเชิงยุทธศาสตร์ผลัดกันเดิน สำหรับผู้เล่นหนึ่งคนหรือสองคนแบ่งจอย กดสตาร์ท เชื่อว่าแมตช์หน้าสำคัญ แล้วอ่านสนามก่อนส่งบอล",
         cta: 'กดสตาร์ท',
+      },
+      p62: {
+        lede: "ห้องปฏิบัติการลพบุรี — ข้อมูลโทรมาตรลุ่มน้ำแบบเรียลไทม์ (ThaiWater/HII) สถานะเขื่อนป่าสักชลสิทธิ์ การฟังโซเชียล ตารางกล้อง CCTV และเลเยอร์ดาวเทียมสำหรับจังหวัดลพบุรี จอเดียว สี่สายข้อมูล อ่านได้แบบส่งต่อได้",
+        cta: 'เปิดห้องปฏิบัติการ',
       },
     },
     stagesContent: {
@@ -2587,12 +2595,16 @@ const i18nExt = {
         cta: '打开仓库',
       },
       p60: {
-        lede: "泰国 OTOP 登记册，作为数据来读。一区一产品，一平台 — 每条记录都带有来源、完整度与时间戳。没有爬取，没有 AI 幻觉：登记册就是登记册，每个单元格都附出处。",
+        lede: "O3 — 第三种力量。泰国 OTOP 登记册，作为数据来读：77 省 154,078 条记录，每一条都带有来源、完整度与时间戳。没有爬取，没有 AI 幻觉：登记册就是登记册，每个单元格都附出处。",
         cta: '打开登记册',
       },
       p61: {
         lede: "从未真正开赛的超级联赛。二十六家俱乐部、真实阵容、直线传球 — 一次一个决定。回合制战术足球，支持单人游戏或双人同屏。按下开始，相信下一场比赛仍然重要，传球前先读懂球场。",
         cta: '按下开始',
+      },
+      p62: {
+        lede: "华富里作战室 — 实时 FloodDash 流域遥测（ThaiWater/HII）、巴塞水库状态、社媒监听、CCTV 槽位网格与卫星图层。一屏四流，可派单阅读。",
+        cta: '打开作战室',
       },
     },
     stagesContent: {
@@ -2795,8 +2807,9 @@ const i18nExt = {
       p57: { lede: '// rams.nycta.designCore / reproduction.grade.interface\n// layer1(Rams.silence) + layer2(NYCTA.wayfinding) // closed.trunk.palette + disc + stationPlate + solidArrow\n// AGENTS.md for(any.agent) // MIT.license(originalWork.only) → NOTICE.md', cta: 'repo.open()' },
       p58: { lede: '// luggage.tagAesthetic / functional.minimalist.whiteBaggage\n// designTokens = ground + ink + fourRanks + spacing + mono // stockB(printed) + ephemera(skin)\n// six.components + beforeAfter.examples // skill.agentInvocable + tagAudit.PO.gate\n// MIT.license → fork.apply()', cta: 'repo.open()' },
       p59: { lede: '// moma.rules / ten.enforceable.layoutLaws\n// lint.static(moma-lint.mjs) + audit.runtime(near-miss.browser.js) → failBuild // scale.mjs = single.source.of.numeric.truth\n// self.check.mjs proves(arithmetic.published) // demo.page.obeys(itsOwn.laws)', cta: 'repo.open()' },
-      p60: { lede: '// otop.registry / oneTambon.oneProduct.dataAsSurface\n// every.record = source + completeness + age // no.scraping · no.AI.hallucination\n// registry.is(registry) · provenance.on(each.cell)', cta: 'registry.open()' },
+      p60: { lede: '// o3.powerOfThird / otop.registry.as.data\n// 154078.records × 77.provinces // each = source + completeness + age\n// no.scraping · no.AI.hallucination // registry.is(registry) · provenance.on(each.cell)', cta: 'registry.open()' },
       p61: { lede: '// superLeague.neverLaunched / twentySixClubs.realSquads\n// straightLine.passing // turnBased.tacticalSoccer // onePlayer.or(twoSharing:pad)\n// press.start → believe(nextMatch.matters) // read.pitch.before(pass)', cta: 'press.start()' },
+      p62: { lede: '// lopburi.warRoom / oneScreen.fourStreams\n// floodDash.basinTelemetry(thaiWater,HII) + paSakJolasid.reservoir\n// social.listening + cctv.slotGrid + satellite.layers // dispatchable.read()', cta: 'warRoom.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2987,8 +3000,9 @@ const i18nExt2 = {
       p57:'Live · Open Source Kit',
       p58:'Open Source Kit · GitHub',
       p59:'Open Source Kit · GitHub',
-      p60:'Live · Open Data',
+      p60:'Live · Strategic Intelligence',
       p61:'Live · Brain Practice',
+      p62:'Live · City Ops',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -3070,9 +3084,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '54 systems · 5 countries',
+      sysMeta: '55 systems · 5 countries',
       command: 'City Dashboards',
-      commandMeta: 'Real-time city operations rooms & environmental watch · 16',
+      commandMeta: 'Real-time city operations rooms & environmental watch · 17',
       intelligence: 'Intelligence',
       intelligenceMeta: 'Signal & analysis · 8',
       civic: 'Civic',
@@ -3158,8 +3172,9 @@ const i18nExt2 = {
       p57:'สด · ชุดโอเพนซอร์ส',
       p58:'ชุดโอเพนซอร์ส · GitHub',
       p59:'ชุดโอเพนซอร์ส · GitHub',
-      p60:'สด · ข้อมูลเปิด',
+      p60:'สด · ข่าวกรองเชิงกลยุทธ์',
       p61:'สด · ฝึกสมอง',
+      p62:'สด · ปฏิบัติการเมือง',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -3247,9 +3262,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '54 ระบบ · 5 ประเทศ',
+      sysMeta: '55 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
-      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
+      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 17',
       intelligence: 'ข่าวกรอง',
       intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 8',
       civic: 'พลเมือง',
@@ -3335,8 +3350,9 @@ const i18nExt2 = {
       p57:'在线 · 开源工具包',
       p58:'开源工具包 · GitHub',
       p59:'开源工具包 · GitHub',
-      p60:'在线 · 开放数据',
+      p60:'在线 · 战略情报',
       p61:'在线 · 脑力训练',
+      p62:'在线 · 城市作战',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -3422,9 +3438,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '54 个系统 · 5 个国家',
+      sysMeta: '55 个系统 · 5 个国家',
       command: '城市仪表板',
-      commandMeta: '实时城市作战室与环境监测 · 16',
+      commandMeta: '实时城市作战室与环境监测 · 17',
       intelligence: '情报',
       intelligenceMeta: '信号与分析 · 8',
       civic: '民生',
@@ -3516,8 +3532,9 @@ const i18nExt2 = {
       p54:'live: BrainPractice',
       p58:'openSourceKit: github',
       p59:'openSourceKit: github',
-      p60:'live: openData',
+      p60:'live: strategicIntel',
       p61:'live: brainPractice',
+      p62:'live: cityOps',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -3603,9 +3620,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '54 systems · 5 countries',
+      sysMeta: '55 systems · 5 countries',
       command: 'CityDashboards',
-      commandMeta: 'cityOps.realtime & envWatch · count[16]',
+      commandMeta: 'cityOps.realtime & envWatch · count[17]',
       intelligence: 'Intelligence',
       intelligenceMeta: 'signal & analysis · count[8]',
       civic: 'Civic',
