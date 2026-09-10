@@ -522,6 +522,7 @@
       "p57": { "lede": "Dr Non의 복제 등급 인터페이스 표준. 두 계층: 단일 뷰용 Rams 침묵(따뜻한 회색 필드, 가는 그리드, 단일 강조색); 다중 보드 시스템용 NYCTA 안내 계층(닫힌 트렁크 팔레트, 디스크, 역명판, 솔리드 화살표). 모든 AI 에이전트를 위한 AGENTS.md. 원작물에 한해 MIT 라이선스; 재라이선스되지 않는 항목은 NOTICE.md 참조.", "cta": "저장소 열기" },
       "p58": { "lede": "웹사이트, 시스템, 문서, AI 에이전트를 위한 기능-미니멀리스트 흰색 수하물 태그 원칙. 디자인 토큰(바닥, 잉크, 네 단계, 간격, 모노, 선택적 도메인 색상), 인쇄용 Stock B, ephemera 스킨, 6개 컴포넌트, before/after 예제, 에이전트가 호출 가능한 skill, 그리고 실행 가능한 tag-audit PO gate. MIT 라이선스.", "cta": "저장소 열기" },
       "p59": { "lede": "열 가지 강제 가능한 레이아웃 법칙, 빌드를 실패시키는 정적 lint와 런타임 audit. 패키지: 숫자 진실의 단일 소스(scale.mjs), ratchet(moma-lint.mjs), 게시된 산술을 증명하는 self-check(self-check.mjs), 그리고 레이아웃 이후에만 존재하는 것을 잡는 브라우저 콘솔(near-miss, ragged-row, orphan-grid). 데모 페이지는 자신의 법칙을 지킵니다.", "cta": "저장소 열기" },
+      "p60": { "lede": "태국의 OTOP 등록부를 데이터로 읽기. 하나의 탐본, 하나의 제품, 하나의 플랫폼 — 모든 레코드는 출처, 완성도, 시점을 함께 제공합니다. 스크래핑도, AI 환각도 없음: 등록부는 등록부이며, 모든 셀에 출처가 표시됩니다.", "cta": "등록부 열기" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>타이베이</b> · City Vision Stage · 2026년 3월",
@@ -728,7 +729,8 @@
       "p56": "Live · 오픈 소스 키트",
       "p57": "Live · 오픈 소스 키트",
       "p58": "오픈 소스 키트 · GitHub",
-      "p59": "오픈 소스 키트 · GitHub"
+      "p59": "오픈 소스 키트 · GitHub",
+      "p60": "라이브 · 공개 데이터"
     },
     "cats": {
       "c01": "지역 운영",
@@ -858,7 +860,7 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "52개 시스템 · 5개국",
+      "sysMeta": "53개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 16",
       "intelligence": "인텔리전스",
@@ -868,7 +870,7 @@
       "emerging": "신규",
       "emergingMeta": "연구급 및 새 운영 모델 · 9",
       "lab": "랩",
-      "labMeta": "보조 도구 · 공개 진행 · 15"
+      "labMeta": "보조 도구 · 공개 진행 · 16"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1442,6 +1444,7 @@
       "p57": { "lede": "Dr Non の再現グレードインターフェース基準。2層構成：単一ビュー用 Rams の静寂（暖灰フィールド、ヘアライングリッド、単一アクセント色）、マルチボードシステム用 NYCTA ウェイファインディング層（閉じた路線パレット、ディスク、駅名板、ソリッド矢印）。あらゆるAIエージェント用AGENTS.md。オリジナルワークのみMITライセンス。再ライセンス対象外は NOTICE.md 参照。", "cta": "リポジトリを開く" },
       "p58": { "lede": "ウェブサイト、システム、ドキュメント、AIエージェントのための機能的ミニマリストの白い荷札タグ原則。デザイントークン（グラウンド、インク、4段階、スペーシング、モノ、任意のドメインカラー）、印刷用 Stock B、Ephemera スキン、6 つのコンポーネント、before/after 例、エージェント呼び出し可能な skill、実行可能な tag-audit PO gate。MIT ライセンス。", "cta": "リポジトリを開く" },
       "p59": { "lede": "強制可能な 10 のレイアウト法則と、ビルドを失敗させる静的 lint とランタイム audit。パッケージ内容：数値の単一ソース（scale.mjs）、ratchet（moma-lint.mjs）、公開済みの算術を証明する self-check（self-check.mjs）、そしてレイアウト後にのみ存在する欠陥を捕捉するブラウザコンソール（near-miss、ragged-row、orphan-grid）。デモページは自身の法則に従います。", "cta": "リポジトリを開く" },
+      "p60": { "lede": "タイの OTOP レジストリをデータとして読む。一つのタンボン、一つの製品、一つのプラットフォーム — すべてのレコードに出所、完全性、年代が伴います。スクレイピングも AI の幻覚もなし：レジストリはレジストリであり、すべてのセルに出所が付きます。", "cta": "レジストリを開く" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>台北</b> · City Vision Stage · 2026年3月",
@@ -1627,7 +1630,8 @@
       "p16": "Live · Chonburi EEC",
       "p17": "Live · Thai docs",
       "p58": "オープンソースキット · GitHub",
-      "p59": "オープンソースキット · GitHub"
+      "p59": "オープンソースキット · GitHub",
+      "p60": "ライブ · オープンデータ"
     },
     "cats": {
       "c01": "地域オペレーション",
@@ -1757,7 +1761,7 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "52システム · 5か国",
+      "sysMeta": "53システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 16",
       "intelligence": "インテリジェンス",
@@ -1767,7 +1771,7 @@
       "emerging": "新興",
       "emergingMeta": "研究グレードと新運用モデル · 9",
       "lab": "ラボ",
-      "labMeta": "補助ツール · 公開中 · 15"
+      "labMeta": "補助ツール · 公開中 · 16"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2341,6 +2345,7 @@
       "p57": { "lede": "Tiêu chuẩn giao diện cấp tái sản xuất của Dr Non. Hai lớp: sự im lặng Rams (trường xám ấm, lưới tóc, một điểm nhấn) cho chế độ xem đơn; lớp NYCTA wayfinding (bảng màu thân khép kín, đĩa, biển ga, mũi tên đặc) cho hệ thống nhiều bảng. AGENTS.md cho mọi AI agent. Cấp phép MIT cho tác phẩm gốc; xem NOTICE.md cho những gì không được cấp lại.", "cta": "Mở kho" },
       "p58": { "lede": "Nguyên tắc thẻ hành lý trắng tối giản-chức năng cho website, hệ thống, tài liệu và AI agent. Design tokens (nền, mực, bốn cấp, khoảng cách, monospace, màu miền tùy chọn), Stock B cho in, lớp ephemera, sáu component, ví dụ before/after, skill có thể được agent gọi, và tag-audit PO gate có thể chạy. Cấp phép MIT.", "cta": "Mở kho" },
       "p59": { "lede": "Mười quy tắc bố cục có thể thi hành, với lint tĩnh và audit thời gian chạy khiến build thất bại. Gói gồm: một nguồn số duy nhất (scale.mjs), ratchet (moma-lint.mjs), self-check chứng minh số học đã công bố (self-check.mjs), và bảng điều khiển trình duyệt bắt những gì chỉ tồn tại sau khi layout (near-miss, ragged-row, orphan-grid). Trang minh họa tuân theo luật của chính nó.", "cta": "Mở kho" },
+      "p60": { "lede": "Sổ đăng ký OTOP của Thái Lan, đọc như dữ liệu. Một Tambon, một sản phẩm, một nền tảng — mỗi bản ghi đều mang nguồn, mức độ đầy đủ và thời điểm. Không scraping, không AI bịa: sổ đăng ký là sổ đăng ký, có nguồn gốc trên từng ô.", "cta": "Mở sổ đăng ký" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>Đài Bắc</b> · City Vision Stage · tháng 3/2026",
@@ -2526,7 +2531,8 @@
       "p16": "Live · Chonburi EEC",
       "p17": "Live · Thai docs",
       "p58": "Bộ công cụ mã nguồn mở · GitHub",
-      "p59": "Bộ công cụ mã nguồn mở · GitHub"
+      "p59": "Bộ công cụ mã nguồn mở · GitHub",
+      "p60": "Trực tiếp · Dữ liệu mở"
     },
     "cats": {
       "c01": "Vận hành khu vực",
@@ -2656,7 +2662,7 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "52 hệ thống · 5 quốc gia",
+      "sysMeta": "53 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 16",
       "intelligence": "Tình báo",
@@ -2666,7 +2672,7 @@
       "emerging": "Mới nổi",
       "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 9",
       "lab": "Lab",
-      "labMeta": "Công cụ phụ · mở công khai · 15"
+      "labMeta": "Công cụ phụ · mở công khai · 16"
     },
     "sysStatus": {
       "live": "Trực tiếp",

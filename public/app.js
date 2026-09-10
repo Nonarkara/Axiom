@@ -1721,6 +1721,10 @@ const i18nExt = {
         lede: "Ten enforceable layout laws, with the static lint and the runtime audit that fail the build. The package: a single source of numeric truth (scale.mjs), a ratchet (moma-lint.mjs), a self-check that proves the published arithmetic (self-check.mjs), and a browser console for catching what only exists after layout (near-miss, ragged-row, orphan-grid). Demonstration page obeys its own laws.",
         cta: 'Open the repo',
       },
+      p60: {
+        lede: "Thailand's OTOP registry read as data. One Tambon, One Product, One Platform — every record carries its source, its completeness, and its age. No scraping, no AI hallucination: the registry is the registry, with provenance on every cell.",
+        cta: 'Open the registry',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -2147,6 +2151,10 @@ const i18nExt = {
         lede: "กฎเลย์เอาต์บังคับใช้ได้สิบข้อ พร้อม lint แบบ static และ audit แบบ runtime ที่ทำให้ build ล้มเหลว ชุดนี้ประกอบด้วย: แหล่งตัวเลขเดียว (scale.mjs), ratchet (moma-lint.mjs), self-check ที่พิสูจน์เลขคณิตที่ตีพิมพ์ (self-check.mjs) และคอนโซลเบราว์เซอร์สำหรับจับสิ่งที่มีอยู่หลังจาก layout เท่านั้น (near-miss, ragged-row, orphan-grid) หน้าตัวอย่างทำตามกฎของตัวเอง",
         cta: 'เปิด repo',
       },
+      p60: {
+        lede: "ทะเบียน OTOP ของไทย อ่านเป็นข้อมูล หนึ่งตำบล หนึ่งผลิตภัณฑ์ หนึ่งแพลตฟอร์ม — ทุกระเบียนมีแหล่งที่มา ความครบถ้วน และอายุข้อมูล ไม่มีการ scraping ไม่มี AI หลอน: ทะเบียนคือทะเบียน พร้อมแหล่งอ้างอิงในทุกเซลล์",
+        cta: 'เปิดทะเบียน',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2570,6 +2578,10 @@ const i18nExt = {
         lede: "十条可强制执行的布局法则，配有让构建失败的静态 lint 与运行时审计。包内含：单一数字真源（scale.mjs）、棘轮（moma-lint.mjs）、证明已发布算术的 self-check（self-check.mjs），以及一个浏览器控制台，用于捕捉只有 layout 之后才存在的缺陷（near-miss、ragged-row、orphan-grid）。示例页服从自己的法则。",
         cta: '打开仓库',
       },
+      p60: {
+        lede: "泰国 OTOP 登记册，作为数据来读。一区一产品，一平台 — 每条记录都带有来源、完整度与时间戳。没有爬取，没有 AI 幻觉：登记册就是登记册，每个单元格都附出处。",
+        cta: '打开登记册',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2771,6 +2783,7 @@ const i18nExt = {
       p57: { lede: '// rams.nycta.designCore / reproduction.grade.interface\n// layer1(Rams.silence) + layer2(NYCTA.wayfinding) // closed.trunk.palette + disc + stationPlate + solidArrow\n// AGENTS.md for(any.agent) // MIT.license(originalWork.only) → NOTICE.md', cta: 'repo.open()' },
       p58: { lede: '// luggage.tagAesthetic / functional.minimalist.whiteBaggage\n// designTokens = ground + ink + fourRanks + spacing + mono // stockB(printed) + ephemera(skin)\n// six.components + beforeAfter.examples // skill.agentInvocable + tagAudit.PO.gate\n// MIT.license → fork.apply()', cta: 'repo.open()' },
       p59: { lede: '// moma.rules / ten.enforceable.layoutLaws\n// lint.static(moma-lint.mjs) + audit.runtime(near-miss.browser.js) → failBuild // scale.mjs = single.source.of.numeric.truth\n// self.check.mjs proves(arithmetic.published) // demo.page.obeys(itsOwn.laws)', cta: 'repo.open()' },
+      p60: { lede: '// otop.registry / oneTambon.oneProduct.dataAsSurface\n// every.record = source + completeness + age // no.scraping · no.AI.hallucination\n// registry.is(registry) · provenance.on(each.cell)', cta: 'registry.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2961,6 +2974,7 @@ const i18nExt2 = {
       p57:'Live · Open Source Kit',
       p58:'Open Source Kit · GitHub',
       p59:'Open Source Kit · GitHub',
+      p60:'Live · Open Data',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -3042,7 +3056,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '52 systems · 5 countries',
+      sysMeta: '53 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 16',
       intelligence: 'Intelligence',
@@ -3052,7 +3066,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 15',
+      labMeta: 'Side tools · in the open · 16',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -3130,6 +3144,7 @@ const i18nExt2 = {
       p57:'สด · ชุดโอเพนซอร์ส',
       p58:'ชุดโอเพนซอร์ส · GitHub',
       p59:'ชุดโอเพนซอร์ส · GitHub',
+      p60:'สด · ข้อมูลเปิด',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -3217,7 +3232,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '52 ระบบ · 5 ประเทศ',
+      sysMeta: '53 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
       intelligence: 'ข่าวกรอง',
@@ -3227,7 +3242,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 15',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 16',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -3305,6 +3320,7 @@ const i18nExt2 = {
       p57:'在线 · 开源工具包',
       p58:'开源工具包 · GitHub',
       p59:'开源工具包 · GitHub',
+      p60:'在线 · 开放数据',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -3390,7 +3406,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '52 个系统 · 5 个国家',
+      sysMeta: '53 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 16',
       intelligence: '情报',
@@ -3400,7 +3416,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 15',
+      labMeta: '辅助工具 · 开放中 · 16',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3484,6 +3500,7 @@ const i18nExt2 = {
       p54:'live: BrainPractice',
       p58:'openSourceKit: github',
       p59:'openSourceKit: github',
+      p60:'live: openData',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -3569,7 +3586,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '52 systems · 5 countries',
+      sysMeta: '53 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
@@ -3579,7 +3596,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[15]',
+      labMeta: 'sideTools & openProcess · count[16]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
