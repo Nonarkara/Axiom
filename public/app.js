@@ -1725,6 +1725,10 @@ const i18nExt = {
         lede: "Thailand's OTOP registry read as data. One Tambon, One Product, One Platform — every record carries its source, its completeness, and its age. No scraping, no AI hallucination: the registry is the registry, with provenance on every cell.",
         cta: 'Open the registry',
       },
+      p61: {
+        lede: "The Super League that never launched. Twenty-six clubs, real squads, straight-line passing — one decision at a time. Turn-based tactical soccer for one player or two sharing a pad. Press start, believe the next match matters, and read the pitch before you pass into it.",
+        cta: 'Press start',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -2155,6 +2159,10 @@ const i18nExt = {
         lede: "ทะเบียน OTOP ของไทย อ่านเป็นข้อมูล หนึ่งตำบล หนึ่งผลิตภัณฑ์ หนึ่งแพลตฟอร์ม — ทุกระเบียนมีแหล่งที่มา ความครบถ้วน และอายุข้อมูล ไม่มีการ scraping ไม่มี AI หลอน: ทะเบียนคือทะเบียน พร้อมแหล่งอ้างอิงในทุกเซลล์",
         cta: 'เปิดทะเบียน',
       },
+      p61: {
+        lede: "ซูเปอร์ลีกที่ไม่เคยเปิดตัว ยี่สิบหกสโมสร ทีมจริง การส่งบอลเป็นเส้นตรง — ตัดสินใจทีละจังหวะ ฟุตบอลเชิงยุทธศาสตร์ผลัดกันเดิน สำหรับผู้เล่นหนึ่งคนหรือสองคนแบ่งจอย กดสตาร์ท เชื่อว่าแมตช์หน้าสำคัญ แล้วอ่านสนามก่อนส่งบอล",
+        cta: 'กดสตาร์ท',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2582,6 +2590,10 @@ const i18nExt = {
         lede: "泰国 OTOP 登记册，作为数据来读。一区一产品，一平台 — 每条记录都带有来源、完整度与时间戳。没有爬取，没有 AI 幻觉：登记册就是登记册，每个单元格都附出处。",
         cta: '打开登记册',
       },
+      p61: {
+        lede: "从未真正开赛的超级联赛。二十六家俱乐部、真实阵容、直线传球 — 一次一个决定。回合制战术足球，支持单人游戏或双人同屏。按下开始，相信下一场比赛仍然重要，传球前先读懂球场。",
+        cta: '按下开始',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2784,6 +2796,7 @@ const i18nExt = {
       p58: { lede: '// luggage.tagAesthetic / functional.minimalist.whiteBaggage\n// designTokens = ground + ink + fourRanks + spacing + mono // stockB(printed) + ephemera(skin)\n// six.components + beforeAfter.examples // skill.agentInvocable + tagAudit.PO.gate\n// MIT.license → fork.apply()', cta: 'repo.open()' },
       p59: { lede: '// moma.rules / ten.enforceable.layoutLaws\n// lint.static(moma-lint.mjs) + audit.runtime(near-miss.browser.js) → failBuild // scale.mjs = single.source.of.numeric.truth\n// self.check.mjs proves(arithmetic.published) // demo.page.obeys(itsOwn.laws)', cta: 'repo.open()' },
       p60: { lede: '// otop.registry / oneTambon.oneProduct.dataAsSurface\n// every.record = source + completeness + age // no.scraping · no.AI.hallucination\n// registry.is(registry) · provenance.on(each.cell)', cta: 'registry.open()' },
+      p61: { lede: '// superLeague.neverLaunched / twentySixClubs.realSquads\n// straightLine.passing // turnBased.tacticalSoccer // onePlayer.or(twoSharing:pad)\n// press.start → believe(nextMatch.matters) // read.pitch.before(pass)', cta: 'press.start()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -2975,6 +2988,7 @@ const i18nExt2 = {
       p58:'Open Source Kit · GitHub',
       p59:'Open Source Kit · GitHub',
       p60:'Live · Open Data',
+      p61:'Live · Brain Practice',
     },
     cats: {
       c01:'Regional Operations', c02:'Strategic Intelligence',
@@ -3056,7 +3070,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '53 systems · 5 countries',
+      sysMeta: '54 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 16',
       intelligence: 'Intelligence',
@@ -3066,7 +3080,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 16',
+      labMeta: 'Side tools · in the open · 17',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -3145,6 +3159,7 @@ const i18nExt2 = {
       p58:'ชุดโอเพนซอร์ส · GitHub',
       p59:'ชุดโอเพนซอร์ส · GitHub',
       p60:'สด · ข้อมูลเปิด',
+      p61:'สด · ฝึกสมอง',
     },
     cats: {
       c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
@@ -3232,7 +3247,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '53 ระบบ · 5 ประเทศ',
+      sysMeta: '54 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 16',
       intelligence: 'ข่าวกรอง',
@@ -3242,7 +3257,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 16',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 17',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -3321,6 +3336,7 @@ const i18nExt2 = {
       p58:'开源工具包 · GitHub',
       p59:'开源工具包 · GitHub',
       p60:'在线 · 开放数据',
+      p61:'在线 · 脑力训练',
     },
     cats: {
       c01:'区域运营', c02:'战略情报', c03:'国家级项目',
@@ -3406,7 +3422,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '53 个系统 · 5 个国家',
+      sysMeta: '54 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 16',
       intelligence: '情报',
@@ -3416,7 +3432,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 16',
+      labMeta: '辅助工具 · 开放中 · 17',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3501,6 +3517,7 @@ const i18nExt2 = {
       p58:'openSourceKit: github',
       p59:'openSourceKit: github',
       p60:'live: openData',
+      p61:'live: brainPractice',
     },
     cats: {
       c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
@@ -3586,7 +3603,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '53 systems · 5 countries',
+      sysMeta: '54 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[16]',
       intelligence: 'Intelligence',
@@ -3596,7 +3613,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[16]',
+      labMeta: 'sideTools & openProcess · count[17]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
