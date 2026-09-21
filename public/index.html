@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Axiom — Shanghai font PR (index restore in progress)</title>
+  <title>Axiom — Shanghai font PR (Actions restoring full index)</title>
   <link rel="stylesheet" href="fonts.css?v=20260921b">
   <link rel="stylesheet" href="rams.css?v=20260921b">
   <style>
@@ -13,9 +13,9 @@
   </style>
 </head>
 <body>
-  <p><strong>DO NOT MERGE</strong> until full <code>public/index.html</code> is restored (~2190 lines).</p>
-  <p>This stub keeps <code>fonts.css?v=20260921b</code> wired (no Google Fonts). Full file is on the agent box at commit <code>ce2fc5b</code> / <code>/workspace/Axiom/public/index.html</code>.</p>
-  <p>Thai: สวัสดีครับ · KR: 안녕하세요 · JP: こんにちは</p>
-  <p><a href="https://github.com/Nonarkara/Axiom/pull/2">PR #2</a></p>
+  <p><strong>DO NOT MERGE</strong> until GitHub Actions workflow <code>restore-shanghai-index.yml</code> restores full <code>public/index.html</code> (~2190 lines / 163KB).</p>
+  <p>Sidecar parts <code>public/index.html.gz.b64.p0</code>..<code>p10</code> are on this branch. MCP cannot push the 163KB file in one Contents API call; Actions joins+gunzips them via <code>scripts/fetch-fonts.mjs</code>.</p>
+  <p>This stub keeps <code>fonts.css?v=20260921b</code> wired (no Google Fonts). Thai: สวัสดีครับ · KR: 안녕하세요 · JP: こんにちは</p>
+  <p><a href="https://github.com/Nonarkara/Axiom/pull/2">PR #2</a> · <a href="https://github.com/Nonarkara/Axiom/actions">Actions</a></p>
 </body>
 </html>
