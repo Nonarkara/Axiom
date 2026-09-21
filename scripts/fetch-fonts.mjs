@@ -1,15 +1,48 @@
 #!/usr/bin/env node
 /**
- * Download OFL IBM Plex Sans Thai + Noto Sans KR Hangul woff2 into public/fonts/.
- * Idempotent. Wire into Cloudflare Pages deploy so /fonts/*.woff2 exist even when
- * binaries were not committed via MCP text push.
+ * 1) Restore public/index.html from gzip+base64 sidecar if present (MCP-sized push).
+ * 2) Idempotent download of OFL IBM Plex Sans Thai (non-looped) + Noto Sans KR woff2.
+ * Thai MUST stay IBM Plex Sans Thai — never Sarabun / Looped.
  */
-import { mkdir, writeFile, access } from 'node:fs/promises';
+import { mkdir, writeFile, access, readFile } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { gunzipSync } from 'node:zlib';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const outDir = join(root, 'public', 'fonts');
+const pub = join(root, 'public');
+const outDir = join(pub, 'fonts');
+
+async function restoreIndex() {
+  let b64;
+  try {
+    b64 = await readFile(join(pub, 'index.html.gz.b64'), 'utf8');
+  } catch {
+    try {
+      const parts = [];
+      for (let i = 0; i < 8; i++) {
+        try {
+          parts.push(await readFile(join(pub, `index.html.gz.b64.p${i}`), 'utf8'));
+        } catch {
+          break;
+        }
+      }
+      if (!parts.length) {
+        console.log('no index.html.gz.b64 — skip index restore');
+        return;
+      }
+      b64 = parts.join('');
+    } catch {
+      console.log('no index.html.gz.b64 — skip index restore');
+      return;
+    }
+  }
+  const html = gunzipSync(Buffer.from(String(b64).replace(/\s+/g, ''), 'base64'));
+  await writeFile(join(pub, 'index.html'), html);
+  console.log('restored index.html', html.length, 'bytes');
+}
+
+await restoreIndex();
 
 const files = [
   ['IBMPlexSansThai-Regular.woff2', 'https://cdn.jsdelivr.net/npm/@ibm/plex-sans-thai@1.1.0/fonts/complete/woff2/IBMPlexSansThai-Regular.woff2'],
@@ -31,9 +64,8 @@ for (const [name, url] of files) {
     continue;
   } catch { /* missing */ }
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`fetch ${name}: ${res.status} ${url}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  await writeFile(dest, buf);
-  console.log('wrote', name, buf.length);
+  if (!res.ok) throw new Error(`fetch ${name}: ${res.status}`);
+  await writeFile(dest, Buffer.from(await res.arrayBuffer()));
+  console.log('wrote', name);
 }
-console.log('fonts ready in', outDir);
+console.log('fonts ready');
