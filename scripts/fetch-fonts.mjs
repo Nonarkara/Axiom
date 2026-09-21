@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * Download OFL IBM Plex Sans Thai + Noto Sans KR Hangul woff2 into public/fonts/.
- * Used by Cloudflare Pages deploy so /fonts/*.woff2 resolve even if binaries
- * were not committed (MCP text pushes cannot ship woff2). Idempotent.
+ * Idempotent. Wire into Cloudflare Pages deploy so /fonts/*.woff2 exist even when
+ * binaries were not committed via MCP text push.
  */
 import { mkdir, writeFile, access } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
