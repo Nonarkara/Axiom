@@ -1,11 +1,12 @@
 # Self-hosted fonts (Shanghai / mainland CN)
 
-Google Fonts (`fonts.googleapis.com` / `fonts.gstatic.com`) is often blocked in
-mainland China. Axiom loads Thai type from this origin instead of Google.
+Google Fonts is often blocked in mainland China. Axiom loads Thai (and Korean)
+type from this origin instead.
 
-| Face | How loaded |
-|---|---|
-| **IBM Plex Sans Thai** (non-looped, OFL) | `fonts.css` → `fonts-thai-{400,500,600,700}.css` data-URI WOFF2 |
-| **Korean / Japanese** | System faces via `rams.css` stack |
+| Face | Files | Loaded via |
+|---|---|---|
+| **IBM Plex Sans Thai** (non-looped) | `IBMPlexSansThai-*.woff2` | `fonts.css` `@font-face` → `/fonts/*.woff2` |
+| **Noto Sans KR** | `NotoSansKR-*.woff2` | same |
+| **Japanese** | — | system stack in `rams.css` |
 
-Source WOFF2 under `fonts/` for regeneration. Licenses: `OFL-*.txt`.
+Weights: 400 / 500 / 600 / 700. Licenses: `OFL-*.txt` (SIL OFL 1.1).
