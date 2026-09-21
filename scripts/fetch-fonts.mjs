@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 1) Restore public/index.html from gzip+base64 sidecar if present (MCP-sized push).
+ * 1) Restore public/index.html from gzip+base64 sidecar parts if present.
  * 2) Idempotent download of OFL IBM Plex Sans Thai (non-looped) + Noto Sans KR woff2.
  * Thai MUST stay IBM Plex Sans Thai — never Sarabun / Looped.
  */
@@ -20,12 +20,20 @@ async function restoreIndex() {
   } catch {
     try {
       const parts = [];
-      for (let i = 0; i < 8; i++) {
-        try {
-          parts.push(await readFile(join(pub, `index.html.gz.b64.p${i}`), 'utf8'));
-        } catch {
-          break;
+      for (let i = 0; i < 64; i++) {
+        const names = [
+          `index.html.gz.b64.p${String(i).padStart(2, '0')}`,
+          `index.html.gz.b64.p${i}`,
+        ];
+        let got = null;
+        for (const name of names) {
+          try {
+            got = await readFile(join(pub, name), 'utf8');
+            break;
+          } catch { /* try next name */ }
         }
+        if (got == null) break;
+        parts.push(got);
       }
       if (!parts.length) {
         console.log('no index.html.gz.b64 — skip index restore');
