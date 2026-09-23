@@ -12,7 +12,7 @@
     "hero": {
       "badge": "모든 시스템 온라인",
       "titleLine1": "혁신",
-      "subtitle": "도시는 이미 데이터를 갖고 있습니다. 다만 기관마다 흩어져 있어, 정작 중요한 순간에 아무도 전체 그림을 보지 못합니다. Axiom은 그 데이터를 절대 틀려서는 안 되는 하나의 결정을 위한 실시간 화면 하나로 만듭니다. 다음 예산 주기가 아니라, 2주 안에 작동합니다.",
+      "subtitle": "도시는 데이터를 갖고 있지만, 중요한 순간에 아무도 보지 못합니다. 가장 어려운 결정을 위해 그것을 하나의 실시간 화면에 올립니다 — 2주 안에 작동합니다.",
       "cta": "2주 검증 시작하기",
       "ctaSecondary": "라이브 시스템 써보기",
       "nodeLabel": "전장을 탭하세요",
@@ -939,7 +939,7 @@
     "hero": {
       "badge": "全システム稼働中",
       "titleLine1": "革新",
-      "subtitle": "あなたの都市はすでにデータを持っています。ただ部署ごとに散らばっているため、肝心なときに誰も全体像を見られません。Axiomはそれを、間違えられないひとつの意思決定のためのライブ画面ひとつに変えます。次の予算サイクルではなく、2週間で動きます。",
+      "subtitle": "データはあるのに、肝心なときに誰にも見えない。最も難しい意思決定のために、それをひとつのライブ画面にまとめます——2週間で稼働します。",
       "cta": "2週間の実証を始める",
       "ctaSecondary": "ライブシステムを試す",
       "nodeLabel": "戦域をタップ",
@@ -1845,7 +1845,7 @@
     "hero": {
       "badge": "Tất cả hệ thống trực tuyến",
       "titleLine1": "Đổi mới",
-      "subtitle": "Thành phố của bạn đã có dữ liệu — nhưng nằm rải rác ở nhiều cơ quan, nên lúc quan trọng không ai thấy được toàn cảnh. Chúng tôi biến nó thành một màn hình trực tiếp cho quyết định mà bạn không thể sai. Chạy được trong hai tuần, không phải sau chu kỳ ngân sách tới.",
+      "subtitle": "Thành phố của bạn có dữ liệu, nhưng lúc quan trọng không ai nhìn thấy. Chúng tôi đưa nó lên một màn hình trực tiếp cho quyết định khó nhất của bạn — chạy được trong hai tuần.",
       "cta": "Bắt đầu thử nghiệm hai tuần",
       "ctaSecondary": "Dùng thử hệ thống thật",
       "nodeLabel": "Chạm chọn chiến trường",
