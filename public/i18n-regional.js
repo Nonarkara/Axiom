@@ -12,16 +12,16 @@
     "hero": {
       "badge": "모든 시스템 온라인",
       "titleLine1": "혁신",
-      "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
-      "cta": "Start With the Pressure Map",
-      "ctaSecondary": "See Live Systems",
+      "subtitle": "도시는 이미 데이터를 갖고 있습니다. 다만 기관마다 흩어져 있어, 정작 중요한 순간에 아무도 전체 그림을 보지 못합니다. Axiom은 그 데이터를 절대 틀려서는 안 되는 하나의 결정을 위한 실시간 화면 하나로 만듭니다. 다음 예산 주기가 아니라, 2주 안에 작동합니다.",
+      "cta": "2주 검증 시작하기",
+      "ctaSecondary": "라이브 시스템 써보기",
       "nodeLabel": "전장을 탭하세요",
       "exploreHint": "지도 드래그 · 전장 탭",
       "hudLive": "전장",
       "hudWatching": "감시 중인 시스템",
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
-      "statSystems": "Live Systems",
+      "statSystems": "운영 중인 시스템",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
       "signalLabels": {
@@ -32,11 +32,11 @@
       },
       "rotatingPhrases": [
         "서비스로",
-        "사라지는",
+        "2주 만에",
         "동작하는",
         "도시를 위한",
         "결정을 위한",
-        "물처럼"
+        "눈에 보이는"
       ],
       "featured": {
         "kicker": "전장 브리프",
@@ -195,6 +195,7 @@
       "successDesc": "We'll get back to you soon."
     },
     "navCurrent": {
+      "why": "작동 방식",
       "systems": "시스템",
       "stages": "무대",
       "team": "팀",
@@ -223,7 +224,7 @@
     "sysSect": {
       "kicker": "운영 중",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
-      "lede": "각각은 날카로운 질문에서 시작해 작동하는 화면으로 출시되었고, 런칭 뉴스 사이클이 끝난 뒤에도 유용합니다. 클릭해서 사용하세요 — 모두 라이브입니다.",
+      "lede": "약속이 아니라 증거입니다. 아래의 모든 시스템은 누군가 충분히 빨리 내리지 못한 하나의 결정에서 시작했습니다. 모두 오늘 작동 중입니다 — 열어 보고, 써 보고, 직접 판단하십시오.",
       "sandboxKicker": "샌드박스 // 라이브",
       "sandboxNote": "데모가 아닙니다 — 샌드박스에서 작동하는 시스템입니다. 인상이 아니라 확장을 위해 구축했습니다. 고객 NDA 하의 프로덕션 배포는 더 크지만, 여기서 실행되는 것은 동일하게 동작하며 고급 모듈만 제외됩니다."
     },
@@ -258,11 +259,11 @@
     "ctaSect": {
       "kicker": "함께하기",
       "meta": "방콕 · 동남아시아",
-      "title": "브리프를 보내주세요. <em>압력을 매핑하겠습니다.</em>",
-      "body": "문제가 실제이고 결정이 중요하다면, 2주 안에 증명 가능한 것을 보여드립니다. 조달 사이클 워밍업 없음. 무드보드 없음.",
-      "promise1": "첫 주에 압력 매핑. 결정, 사용자, 테이블 위의 데이터.",
-      "promise2": "슬라이드 다듬기 전에 작동하는 파일럿. 무료·기존 데이터 우선; 새 인프라는 정당화될 때만.",
-      "promise3": "첫날부터 데이터 트레일. 페이지뷰, 콘텐츠, 결정 로그 — 다음 빌드가 읽을 수 있게.",
+      "title": "결정을 알려 주세요. <em>2주 안에 작동하는 모습을 보여드립니다.</em>",
+      "body": "한 문단이면 됩니다: 더 빨리 내려야 할 결정, 누가 결정하는지, 지금 데이터가 어디 있는지. 명확한 예, 명확한 아니오, 또는 더 날카로운 질문 하나로 답하겠습니다. 영업 자료도, 조달 워밍업도 없습니다.",
+      "promise1": "1주 차 — 결정, 사람, 데이터를 한 페이지로 합의합니다.",
+      "promise2": "2주 차 — 기존 데이터와 무료 공공 데이터로 작동하는 파일럿. 시작에 새 하드웨어는 필요 없습니다.",
+      "promise3": "첫날부터 — 모든 사용과 결정을 기록해, 검증된 것만 확장합니다.",
       "alt": "Or find us on"
     },
     "panels": {
@@ -938,16 +939,16 @@
     "hero": {
       "badge": "全システム稼働中",
       "titleLine1": "革新",
-      "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
-      "cta": "Start With the Pressure Map",
-      "ctaSecondary": "See Live Systems",
+      "subtitle": "あなたの都市はすでにデータを持っています。ただ部署ごとに散らばっているため、肝心なときに誰も全体像を見られません。Axiomはそれを、間違えられないひとつの意思決定のためのライブ画面ひとつに変えます。次の予算サイクルではなく、2週間で動きます。",
+      "cta": "2週間の実証を始める",
+      "ctaSecondary": "ライブシステムを試す",
       "nodeLabel": "戦域をタップ",
       "exploreHint": "地図をドラッグ · 戦域をタップ",
       "hudLive": "戦域",
       "hudWatching": "監視中のシステム",
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
-      "statSystems": "Live Systems",
+      "statSystems": "本番稼働中のシステム",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
       "signalLabels": {
@@ -958,11 +959,11 @@
       },
       "rotatingPhrases": [
         "サービスとして",
-        "消える",
+        "2週間で",
         "動く",
         "都市のために",
         "意思決定のために",
-        "水のように"
+        "見える"
       ],
       "featured": {
         "kicker": "戦域ブリーフ",
@@ -1121,6 +1122,7 @@
       "successDesc": "We'll get back to you soon."
     },
     "navCurrent": {
+      "why": "進め方",
       "systems": "システム",
       "stages": "ステージ",
       "team": "チーム",
@@ -1149,7 +1151,7 @@
     "sysSect": {
       "kicker": "本番稼働中",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
-      "lede": "それぞれが鋭い問いから始まり、稼働する画面としてリリースされ、ローンチ後の報道サイクルが終わっても有用であり続けます。クリックしてご利用ください — すべてライブです。",
+      "lede": "約束ではなく証拠を。下のシステムはどれも、誰かが十分な速さで下せなかったひとつの決定から始まりました。どれも今日稼働中です——開いて、使って、ご自身で判断してください。",
       "sandboxKicker": "サンドボックス // ライブ",
       "sandboxNote": "デモではありません — サンドボックスで稼働する実システムです。見せるためではなく、スケールするために構築しています。クライアント NDA 下の本番展開はより大規模ですが、ここで動くものは同じ挙動をし、高度なモジュールのみ非公開です。"
     },
@@ -1184,11 +1186,11 @@
     "ctaSect": {
       "kicker": "ご相談",
       "meta": "バンコク · 東南アジア",
-      "title": "ブリーフをお送りください。<em>プレッシャーを可視化します。</em>",
-      "body": "課題が現実的で、判断が重要であれば、2週間以内に証明可能なものをお見せします。調達サイクルのウォームアップはありません。ムードボードもありません。",
-      "promise1": "初週にプレッシャーを可視化。判断、ユーザー、テーブル上のデータ。",
-      "promise2": "スライドの磨き込みより先に稼働するパイロット。無償・既存データを優先し、新インフラは正当化されたときのみ。",
-      "promise3": "初日からデータトレイル。ページビュー、コンテンツ、判断ログ — 次のビルドが読み取れるように。",
+      "title": "その意思決定を教えてください。<em>2週間で動く姿をお見せします。</em>",
+      "body": "一段落で十分です：より速く下したい決定、誰が決めるのか、データが今どこにあるのか。明確なイエス、明確なノー、あるいはより鋭い質問をひとつ返します。営業資料も、調達のための前置きもありません。",
+      "promise1": "第1週——決定、関係者、データを1ページで合意。",
+      "promise2": "第2週——既存データと無料の公共データで動くパイロット。開始時に新しいハードウェアは不要。",
+      "promise3": "初日から——すべての利用と決定を記録し、実証されたものだけを拡張。",
       "alt": "Or find us on"
     },
     "panels": {
@@ -1843,16 +1845,16 @@
     "hero": {
       "badge": "Tất cả hệ thống trực tuyến",
       "titleLine1": "Đổi mới",
-      "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
-      "cta": "Start With the Pressure Map",
-      "ctaSecondary": "See Live Systems",
+      "subtitle": "Thành phố của bạn đã có dữ liệu — nhưng nằm rải rác ở nhiều cơ quan, nên lúc quan trọng không ai thấy được toàn cảnh. Chúng tôi biến nó thành một màn hình trực tiếp cho quyết định mà bạn không thể sai. Chạy được trong hai tuần, không phải sau chu kỳ ngân sách tới.",
+      "cta": "Bắt đầu thử nghiệm hai tuần",
+      "ctaSecondary": "Dùng thử hệ thống thật",
       "nodeLabel": "Chạm chọn chiến trường",
       "exploreHint": "Kéo bản đồ · Chạm chiến trường",
       "hudLive": "CHIẾN TRƯỜNG",
       "hudWatching": "HỆ THỐNG ĐANG THEO",
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
-      "statSystems": "Live Systems",
+      "statSystems": "Hệ thống đang vận hành",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
       "signalLabels": {
@@ -1863,11 +1865,11 @@
       },
       "rotatingPhrases": [
         "dưới dạng dịch vụ",
-        "biến mất",
+        "trong hai tuần",
         "vận hành",
         "cho thành phố",
         "cho quyết định",
-        "như nước"
+        "nhìn thấy được"
       ],
       "featured": {
         "kicker": "TÓM TẮT CHIẾN TRƯỜNG",
@@ -2026,6 +2028,7 @@
       "successDesc": "We'll get back to you soon."
     },
     "navCurrent": {
+      "why": "Cách làm việc",
       "systems": "Hệ thống",
       "stages": "Sân khấu",
       "team": "Đội ngũ",
@@ -2054,7 +2057,7 @@
     "sysSect": {
       "kicker": "Đang chạy thực tế",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
-      "lede": "Mỗi hệ thống bắt đầu từ một câu hỏi sắc bén, được triển khai thành giao diện hoạt động và vẫn hữu ích lâu sau khi chu kỳ báo chí ra mắt kết thúc. Nhấp vào và sử dụng — tất cả đều đang live.",
+      "lede": "Bằng chứng, không phải lời hứa. Mỗi hệ thống dưới đây bắt đầu từ một quyết định mà ai đó chưa đưa ra đủ nhanh. Tất cả đều đang chạy hôm nay — hãy mở, dùng thử và tự đánh giá.",
       "sandboxKicker": "Sandbox // Trực tiếp",
       "sandboxNote": "Đây không phải bản demo — là hệ thống đang chạy trong sandbox. Xây để mở rộng, không phải để gây ấn tượng. Triển khai production dưới NDA của khách hàng lớn hơn; những gì chạy ở đây hoạt động tương tự, chỉ giữ lại các module nâng cao."
     },
@@ -2089,11 +2092,11 @@
     "ctaSect": {
       "kicker": "Hợp tác",
       "meta": "Bangkok · Đông Nam Á",
-      "title": "Gửi brief. <em>Chúng tôi sẽ lập bản đồ áp lực.</em>",
-      "body": "Nếu vấn đề là thực tế và quyết định quan trọng, chúng tôi sẽ cho thấy điều có thể chứng minh trong hai tuần. Không khởi động chu kỳ đấu thầu. Không moodboard.",
-      "promise1": "Lập bản đồ áp lực trong tuần đầu. Quyết định, người dùng, dữ liệu trên bàn.",
-      "promise2": "Pilot hoạt động trước khi chỉnh slide. Dữ liệu miễn phí và sẵn có trước; hạ tầng mới chỉ khi được biện minh.",
-      "promise3": "Dấu vết dữ liệu từ ngày đầu. Lượt xem, nội dung, nhật ký quyết định — để lần xây dựng tiếp theo đọc được.",
+      "title": "Hãy cho chúng tôi biết quyết định đó. <em>Chúng tôi sẽ cho bạn thấy nó chạy trong hai tuần.</em>",
+      "body": "Viết một đoạn: quyết định bạn cần đưa ra nhanh hơn, ai là người quyết định, và dữ liệu hiện nằm ở đâu. Bạn sẽ nhận lại một câu “có” rõ ràng, một câu “không” rõ ràng, hoặc một câu hỏi sắc hơn. Không có slide bán hàng. Không có màn khởi động mua sắm.",
+      "promise1": "Tuần 1 — thống nhất quyết định, con người và dữ liệu trên một trang.",
+      "promise2": "Tuần 2 — một bản thử nghiệm chạy được trên dữ liệu sẵn có và dữ liệu công khai miễn phí. Không cần phần cứng mới để bắt đầu.",
+      "promise3": "Từ ngày đầu — ghi lại mọi lượt dùng và mọi quyết định, để chỉ mở rộng những gì đã được chứng minh.",
       "alt": "Or find us on"
     },
     "panels": {
