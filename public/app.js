@@ -722,11 +722,11 @@ const uiCopy = {
       sandboxNote: "These aren't demos — they're working systems in a sandbox. Built to scale, not to impress. Production deployments under client NDAs are larger; what runs here behaves like them, with advanced modules withheld.",
     },
     stageSect: {
-      kicker: 'Three stages, one arc',
+      kicker: 'Four stages, one arc',
       title: 'Governments are tired of <em>waiting for the deck.</em>',
-      lede: "Q1 opened in Taipei. Q2 hit Singapore's main stage at GITEX. The trilogy closes at LEAP East — Asia's largest stage — with FloodDash live in the room. Same thesis every time: build it now, not after the next budget cycle.",
-    
-      meta: '2026 · Taipei · Singapore · Bangkok',},
+      lede: "Q1 opened in Taipei. Q2 hit Singapore's main stage at GITEX. The arc continued at Tomorrow.City Shanghai — God Mode on the cube screen, FloodDash cooked live in the room. Q3 closed at LEAP East — Asia's largest stage. Same thesis every time: build it now, not after the next budget cycle.",
+
+      meta: '2026 · Taipei · Singapore · Shanghai · Bangkok',},
     flooddashSect: {
       kicker: 'Q1–Q2 · Act III',
       meta: 'GITEX → LEAP East → FloodDash',
@@ -945,11 +945,11 @@ const uiCopy = {
       sandboxNote: 'ไม่ใช่ demo — ทุกระบบรันใน sandbox จริง สร้างให้ scale ได้ ไม่ใช่สร้างมาโชว์ การ deploy จริงของลูกค้าอยู่ภายใต้ NDA ใหญ่กว่าและซับซ้อนกว่า สิ่งที่รันที่นี่ทำงานแบบเดียวกัน โมดูลขั้นสูงถูกถอดออกเพราะ NDA ไม่ใช่เพราะของปลอม',
     },
     stageSect: {
-      kicker: 'สามเวที หนึ่งเส้นเรื่อง',
+      kicker: 'สี่เวที หนึ่งเส้นเรื่อง',
       title: 'รัฐบาลเหนื่อย<em>กับการรองานนำเสนอ</em>แล้ว',
-      lede: 'Q1 เปิดที่ไทเป Q2 ขึ้นเวทีหลัก GITEX ที่สิงคโปร์ ไตรภาคีจบที่ LEAP East — เวทีใหญ่ที่สุดของเอเชีย — พร้อม FloodDash สดในห้อง วิทยานิพนธ์เดิมทุกครั้ง: สร้างเลย ไม่ต้องรอรอบงบประมาณถัดไป',
-    
-      meta: '2569 · ไทเป · สิงคโปร์ · กรุงเทพฯ',},
+      lede: 'Q1 เปิดที่ไทเป Q2 ขึ้นเวทีหลัก GITEX ที่สิงคโปร์ เรื่องต่อที่ Tomorrow.City Shanghai — God Mode บนจอคิวบ์ FloodDash ปรุงสดในห้อง Q3 ปิดที่ LEAP East — เวทีใหญ่ที่สุดของเอเชีย วิทยานิพนธ์เดิมทุกครั้ง: สร้างเลย ไม่ต้องรอรอบงบประมาณถัดไป',
+
+      meta: '2569 · ไทเป · สิงคโปร์ · เซี่ยงไฮ้ · กรุงเทพฯ',},
     flooddashSect: {
       kicker: 'Q1–Q2 · บทที่ 3',
       meta: 'GITEX → LEAP East → FloodDash',
@@ -1168,11 +1168,11 @@ const uiCopy = {
       sandboxNote: '不是演示稿——是运行在沙盒里的可用系统。按可扩展的方式搭建，不是为了好看。客户生产部署在保密协议下规模更大；这里运行的逻辑与之一致，敏感模块不对外展示，不是因为它们是假的。',
     },
     stageSect: {
-      kicker: '三个舞台 一条弧线',
+      kicker: '四个舞台 一条弧线',
       title: '政府已经<em>厌倦等一份幻灯片</em>了',
-      lede: 'Q1 在台北开场。Q2 登上新加坡 GITEX 主舞台。三部曲在 LEAP East——亚洲最大舞台——收束，FloodDash 在现场上线。同一条论点每次都一样：现在就建，别等下一个预算周期。',
-    
-      meta: '2026 · 台北 · 新加坡 · 曼谷',},
+      lede: 'Q1 在台北开场。Q2 登上新加坡 GITEX 主舞台。弧线在 Tomorrow.City Shanghai 延续 — 立方体屏幕上跑 God Mode，FloodDash 在现场实时烹制数据。Q3 在 LEAP East — 亚洲最大舞台 — 收束。同一条论点每次都一样：现在就建，别等下一个预算周期。',
+
+      meta: '2026 · 台北 · 新加坡 · 上海 · 曼谷',},
     flooddashSect: {
       kicker: 'Q1–Q2 · 第三幕',
       meta: 'GITEX → LEAP East → FloodDash',
@@ -1399,11 +1399,11 @@ const uiCopy = {
       sandboxNote: '// not demos — systems.runIn(sandbox)\n// built.toScale(), not.toImpress()\n// prod under NDA: larger; behavior.same(); advancedModules.withheld(not.faked)',
     },
     stageSect: {
-      kicker: '// THREE_STAGES_ONE_ARC',
+      kicker: '// FOUR_STAGES_ONE_ARC',
       title: 'governments.tireof(waitingForTheDeck)',
-      lede: '// Q1: Taipei → Q2: GITEX.mainStage → LEAP.East closes trilogy\n// FloodDash.liveInRoom(); thesis: { build: "now" }',
+      lede: '// Q1: Taipei → Q2: GITEX.mainStage → Q2.5: tomorrowCity.shanghai(godMode.on.cubeScreen + floodDash.cookedLive) → Q3: LEAP.East\n// thesis: { build: "now" }',
     
-      meta: '// 2026.taipei.singapore.bangkok',},
+      meta: '// 2026.taipei.singapore.shanghai.bangkok',},
     flooddashSect: {
       kicker: '// Q1_Q2.ACT_III',
       meta: 'GITEX → LEAP.East → FloodDash',
@@ -1748,6 +1748,12 @@ const i18nExt = {
       sgQuote:'"The room was standing-room only. That is not applause — that is a demand signal. Governments want working systems. They are tired of waiting for the deck."',
       sgCite:'— Dr. Non, post-keynote',
       sgS1:'Main stage audience', sgS2:'Total attendees', sgS3:'Nations represented', sgS4:'Workshop capacity',
+      shLoc:'Tomorrow.City Shanghai 2026 · Main Stage · 2026',
+      shTitle:'Stop calling it a digital twin. Call it God Mode.',
+      shLede:'A digital twin is the polite name. God Mode is the honest one — the holistic view of what a god would see of your city, so you can manage it better, not worship the dashboard. Dr Non\'s fourth time on this stage; the venue is the side story. The idea is the product: FloodDash on the cube screen, cooked live in the room.',
+      shQuote:'"Filter every concept through the 4Ps — Purpose, Practicality, Proof, People. Then design for humans. A sensor that says water is moving at some speed does not tell a mayor much. Convert that into cubic meters. Compare it to how much freeboard the reservoir still has. Then you know whether the water fits — or whether it floods. That basic mathematics is the product."',
+      shCite:'— Dr. Non, Tomorrow.City Shanghai keynote',
+      shS1:'Time on this stage', shS2:'FloodDash on cube screen', shS3:'Public data sources', shS4:'Takeaways (4Ps)',
       leapLoc:'LEAP East 2026 · Orbital Stage · Jul 10',
       leapTitle:"Asia's largest stage. FloodDash launches here.",
       leapLede:'Panel on the Orbital Stage — "From Congestion to Connection: The Tech Powered Future of Transport in Asia." Dr. Non Arkara, Senior Expert Smart City Promotion at DEPA, joined Mitchell Price, Richard Chung, and Will Peters to close the Q1–Q2 arc with a live FloodDash launch.',
@@ -2186,6 +2192,12 @@ const i18nExt = {
       sgQuote:'"ห้องเต็มจนต้องยืน นั่นไม่ใช่เสียงปรบมือ นั่นคือสัญญาณดีมานด์ รัฐบาลต้องการระบบที่ทำงานได้จริง เหนื่อยกับการรองานนำเสนอแล้ว"',
       sgCite:'— ดร.นน, หลัง keynote',
       sgS1:'ผู้ชมเวทีหลัก', sgS2:'ผู้เข้าร่วมทั้งหมด', sgS3:'ชาติที่เข้าร่วม', sgS4:'ความจุ workshop',
+      shLoc:'Tomorrow.City Shanghai 2026 · Main Stage · 2569',
+      shTitle:'เลิกเรียกมันว่าดิจิทัลทวิน เรียกว่าโหมดพระเจ้า',
+      shLede:'ดิจิทัลทวินคือชื่อสุภาพ โหมดพระเจ้าคือชื่อจริง — ภาพรวมแบบที่พระเจ้ามองเมืองของคุณ เพื่อให้คุณบริหารได้ดีขึ้น ไม่ใช่ไปกราบแดชบอร์ด เป็นครั้งที่ 4 ของ ดร.นน บนเวทีนี้ สถานที่คือเรื่องรอง ไอเดียคือตัวเอก: FloodDash บนจอคิวบ์ ปรุงสดในงาน',
+      shQuote:'"กรองทุกแนวคิดผ่าน 4Ps — Purpose, Practicality, Proof, People แล้วออกแบบเพื่อคน เซ็นเซอร์ที่บอกว่าน้ำเคลื่อนที่ด้วยความเร็วเท่านี้ ไม่ได้บอกนายกเทศมนตรีมากนัก แปลงเป็นลูกบาศก์เมตร เทียบกับ freeboard ที่เหลือของอ่างเก็บน้ำ คุณจะรู้ว่าน้ำลงหรือท่วม คณิตศาสตร์พื้นฐานนี้คือผลิตภัณฑ์"',
+      shCite:'— ดร.นน, Tomorrow.City Shanghai keynote',
+      shS1:'ครั้งบนเวทีนี้', shS2:'FloodDash บนจอคิวบ์', shS3:'แหล่งข้อมูลสาธารณะ', shS4:'3 ข้อเรียนรู้ (กรอบ 4Ps)',
       leapLoc:'LEAP East 2026 · Orbital Stage · 10 ก.ค.',
       leapTitle:'เวทีใหญ่ที่สุดของเอเชีย FloodDash เปิดตัวที่นี่',
       leapLede:'Panel บน Orbital Stage — "From Congestion to Connection: The Tech Powered Future of Transport in Asia" ดร.นน อัครา Senior Expert Smart City Promotion ที่ DEPA ร่วมกับ Mitchell Price, Richard Chung และ Will Peters เพื่อปิดเส้นเรื่อง Q1–Q2 ด้วยการเปิดตัว FloodDash สด',
@@ -2621,6 +2633,12 @@ const i18nExt = {
       sgQuote:'"会议室只剩站位 那不是掌声 那是需求信号 政府要的是能跑的系统 已经厌倦等一份幻灯片了"',
       sgCite:'— 阿南博士 演讲后',
       sgS1:'主舞台观众', sgS2:'总参会人数', sgS3:'参会国家', sgS4:'工作坊容量',
+      shLoc:'Tomorrow.City Shanghai 2026 · Main Stage · 2026',
+      shTitle:'别再叫它数字孪生。叫它上帝模式。',
+      shLede:'数字孪生是客气的叫法。上帝模式才是诚实的：上帝视角看你的城市整体是什么样 — 然后你管得更好，不是对着仪表盘膜拜。Dr Non 第四次站上这个舞台；场地是次要的故事，理念才是产品：FloodDash 实时在立方体大屏上烹制数据。',
+      shQuote:'"每个概念都过 4Ps — Purpose、Practicality、Proof、People。然后为人设计。传感器告诉你水流速度，告诉你不了什么。换成立方米，再跟水库剩余 freeboard 比一比，你就知道水装得下还是装不下 — 会不会淹。这点基础数学就是产品。"',
+      shCite:'— Dr. Non，Tomorrow.City Shanghai 主旨演讲',
+      shS1:'第四次登上此舞台', shS2:'FloodDash 在立方体大屏上', shS3:'公共数据源', shS4:'三点收获（4Ps 框架）',
       leapLoc:'LEAP East 2026 · Orbital Stage · 7月10日',
       leapTitle:'亚洲最大舞台。FloodDash 在这里发布。',
       leapLede:'Orbital Stage 圆桌——「From Congestion to Connection: The Tech Powered Future of Transport in Asia」。Dr. Non Arkara（DEPA 智慧城市推广高级专家）与 Mitchell Price、Richard Chung、Will Peters 一起，用 FloodDash 现场发布收束 Q1–Q2 弧线。',
@@ -2825,6 +2843,12 @@ const i18nExt = {
       sgQuote:'"standingRoom: not applause\nstandingRoom: demandSignal\ngovernments.want(workingSystems)\ntired.of(waitingForTheDeck)"',
       sgCite:'// Dr.Non, postKeynote',
       sgS1:'mainStage.audience', sgS2:'total.attendees', sgS3:'nations.represented', sgS4:'workshop.capacity',
+      shLoc:'Tomorrow.City.Shanghai2026<MainStage> 2026',
+      shTitle:'stop.calling(it: digitalTwin) → call.it(godMode)',
+      shLede:'// digitalTwin = politeName // godMode = honestName → holisticView(of: what.aGod.wouldSee(of: yourCity)) // manage(it: better) ≠ worship(the:dashboard) // drNon.fourthTime(on: thisStage) // venue = sideStory → idea = product // floodDash.on(cubeScreen).cooked(live.in: room)',
+      shQuote:'"filter(every.concept).through(4Ps) → purpose.practicality.proof.people → then.design(for: humans) // sensor(says: water.moving(speed: x)) → useless(for: mayor) // convert(→ cubicMeters) → compare(↔ reservoir.freeboard) → you.know(whether: it.fits) → OR(it: floods) // that.basicMath = product"',
+      shCite:'// Dr.Non, Tomorrow.City.Shanghai.keynote',
+      shS1:'times.on.stage', shS2:'floodDash.on(cubeScreen)', shS3:'public.dataSources', shS4:'takeaways (4Ps.framework)',
       leapLoc:'LEAP.East2026<OrbitalStage> Jul10',
       leapTitle:'asia.largestStage // FloodDash.launches()',
       leapLede:'// OrbitalStage.panel: FromCongestionToConnection\n// speakers: MitchellPrice, RichardChung, WillPeters, DrNon(DEPA)\n// closes: Q1_Q2.arc with FloodDash.liveLaunch',

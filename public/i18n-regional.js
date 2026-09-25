@@ -229,11 +229,11 @@
       "sandboxNote": "데모가 아닙니다 — 샌드박스에서 작동하는 시스템입니다. 인상이 아니라 확장을 위해 구축했습니다. 고객 NDA 하의 프로덕션 배포는 더 크지만, 여기서 실행되는 것은 동일하게 동작하며 고급 모듈만 제외됩니다."
     },
     "stageSect": {
-      "kicker": "세 무대, 하나의 호",
+      "kicker": "네 무대, 하나의 호",
       "title": "정부는 <em>슬라이드를 기다리는 데 지쳤습니다.</em>",
-      "lede": "Q1은 타이베이에서 열렸습니다. Q2는 싱가포르 GITEX 메인 스테이지. 3부작은 LEAP East — 아시아 최대 무대 — 에서 FloodDash가 현장에 살아 있는 채로 닫힙니다. 매번 같은 논지: 다음 예산 사이클이 아니라 지금 만들라."
+      "lede": "Q1은 타이베이에서 열렸습니다. Q2는 싱가포르 GITEX 메인 스테이지. 호는 Tomorrow.City Shanghai 에서 이어졌습니다 — 큐브 스크린 위의 God Mode, 현장에서 실시간으로 요리되는 FloodDash. Q3은 LEAP East — 아시아 최대 무대 — 에서 닫힙니다. 매번 같은 논지: 다음 예산 사이클이 아니라 지금 만들라."
     ,
-        "meta": "2026 · 타이베이 · 싱가포르 · 방콕",},
+        "meta": "2026 · 타이베이 · 싱가포르 · 상하이 · 방콕",},
     "flooddashSect": {
       "kicker": "Q1–Q2 · Act III",
       "meta": "GITEX → LEAP East → FloodDash",
@@ -546,6 +546,12 @@
       "sgS2": "총 참석자",
       "sgS3": "참가 국가",
       "sgS4": "워크숍 수용",
+      "shLoc": "<b>Tomorrow.City Shanghai 2026</b> · Main Stage · 2026",
+      "shTitle": "디지털 트윈이라고 부르지 마세요. 신 모드라고 부르세요.",
+      "shLede": "디지털 트윈은 예의 바른 이름입니다. 신 모드 — 도시를 신의 눈으로 바라본 전체 시야 — 가 정직한 이름입니다. 더 잘 관리하기 위한 것이지, 대시보드를 숭배하려는 것이 아닙니다. Dr Non 의 네 번째 이 무대. 장소는 부수적 이야기이고, 아이디어가 제품입니다. 큐브 스크린 위의 FloodDash, 현장에서 실시간 조리.",
+      "shQuote": "\"모든 개념을 4Ps 로 거르세요 — Purpose, Practicality, Proof, People. 그리고 사람을 위해 설계하세요. 물이 어떤 속도로 움직인다고 알려주는 센서는 시장에게 별 도움이 안 됩니다. 세제곱미터로 바꾸세요. 남은 여유고와 비교하세요. 물이 들어가는지 — 넘치는지 알게 됩니다. 그 기본 산수가 제품입니다.\"",
+      "shCite": "— Dr. Non, Tomorrow.City Shanghai 기조 연설",
+      "shS1": "이 무대 횟수", "shS2": "FloodDash · 큐브 스크린", "shS3": "공공 데이터 소스", "shS4": "핵심 takeaways (4Ps)",
       "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 7월 10일",
       "leapTitle": "아시아 최대 무대. FloodDash가 여기서 출시됩니다.",
       "leapLede": "Orbital Stage 패널 — \"From Congestion to Connection: The Tech Powered Future of Transport in Asia.\" DEPA 스마트시티 진흥 수석전문가 Dr. Non Arkara가 Mitchell Price, Richard Chung, Will Peters와 함께 Q1–Q2 호를 FloodDash 라이브 출시로 닫았습니다.",
@@ -1156,11 +1162,11 @@
       "sandboxNote": "デモではありません — サンドボックスで稼働する実システムです。見せるためではなく、スケールするために構築しています。クライアント NDA 下の本番展開はより大規模ですが、ここで動くものは同じ挙動をし、高度なモジュールのみ非公開です。"
     },
     "stageSect": {
-      "kicker": "3つのステージ、1本の弧",
+      "kicker": "4つのステージ、1本の弧",
       "title": "政府は<em>スライドを待つのに疲れました。</em>",
-      "lede": "Q1は台北で開幕。Q2はシンガポール GITEX メインステージ。三部作は LEAP East — アジア最大のステージ — で FloodDash が現場に生きたまま閉じます。毎回同じ論点：次の予算サイクルではなく、今すぐ構築せよ。"
+      "lede": "Q1は台北で開幕。Q2はシンガポール GITEX メインステージ。弧は Tomorrow.City Shanghai へ — キューブスクリーン上の God Mode、現場でリアルタイム調理される FloodDash。Q3は LEAP East — アジア最大のステージ — で閉じます。毎回同じ論点：次の予算サイクルではなく、今すぐ構築せよ。"
     ,
-        "meta": "2026 · 台北 · シンガポール · バンコク",},
+        "meta": "2026 · 台北 · シンガポール · 上海 · バンコク",},
     "flooddashSect": {
       "kicker": "Q1–Q2 · Act III",
       "meta": "GITEX → LEAP East → FloodDash",
@@ -1473,6 +1479,12 @@
       "sgS2": "総参加者",
       "sgS3": "参加国",
       "sgS4": "ワークショップ定員",
+      "shLoc": "<b>Tomorrow.City Shanghai 2026</b> · Main Stage · 2026",
+      "shTitle": "デジタルツインと呼ぶな。ゴッドモードと呼べ。",
+      "shLede": "デジタルツインは丁寧すぎる呼び名。ゴッドモードこそが正直な呼び方 — 神の視点であなたの街をまるごと見る、管理しやすくするためであって、ダッシュボードを崇拝するためではない。Dr Non はこのステージ 4 回目。会場は脇役、アイデアが主役 — キューブスクリーン上の FloodDash、現場でリアルタイム調理。",
+      "shQuote": "\"すべての概念を 4Ps（Purpose、Practicality、Proof、People）で濾す。そして人向けに設計する。水が速度 x で動いていると示すセンサーは市長に何も伝えない。立方メートルへ変換し、ダムの残り freeboard と比べる。そうして水が収まるか溢れるかが分かる。その基礎算数が製品だ。\"",
+      "shCite": "— Dr. Non、Tomorrow.City Shanghai キーノート",
+      "shS1": "登壇回数", "shS2": "FloodDash on キューブ", "shS3": "公開データソース", "shS4": "takeaways（4Ps 枠組み）",
       "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 7月10日",
       "leapTitle": "アジア最大のステージ。FloodDash はここでローンチ。",
       "leapLede": "Orbital Stage パネル — 「From Congestion to Connection: The Tech Powered Future of Transport in Asia」。DEPA スマートシティ推進シニアエキスパート Dr. Non Arkara が Mitchell Price、Richard Chung、Will Peters と共に、FloodDash ライブローンチで Q1–Q2 の弧を閉じました。",
@@ -2062,11 +2074,11 @@
       "sandboxNote": "Đây không phải bản demo — là hệ thống đang chạy trong sandbox. Xây để mở rộng, không phải để gây ấn tượng. Triển khai production dưới NDA của khách hàng lớn hơn; những gì chạy ở đây hoạt động tương tự, chỉ giữ lại các module nâng cao."
     },
     "stageSect": {
-      "kicker": "Ba sân khấu, một vòng cung",
+      "kicker": "Bốn sân khấu, một vòng cung",
       "title": "Chính phủ đã mệt mỏi <em>chờ đợi slide.</em>",
-      "lede": "Q1 mở tại Đài Bắc. Q2 lên sân khấu chính GITEX Singapore. Bộ ba khép lại tại LEAP East — sân khấu lớn nhất châu Á — với FloodDash sống ngay trong phòng. Cùng một luận điểm mỗi lần: xây ngay, đừng chờ chu kỳ ngân sách tiếp theo."
+      "lede": "Q1 mở tại Đài Bắc. Q2 lên sân khấu chính GITEX Singapore. Vòng cung tiếp tục tại Tomorrow.City Shanghai — God Mode trên màn hình khối, FloodDash được nấu trực tiếp tại sảnh. Q3 khép lại tại LEAP East — sân khấu lớn nhất châu Á. Cùng một luận điểm mỗi lần: xây ngay, đừng chờ chu kỳ ngân sách tiếp theo."
     ,
-        "meta": "2026 · Đài Bắc · Singapore · Bangkok",},
+        "meta": "2026 · Đài Bắc · Singapore · Thượng Hải · Bangkok",},
     "flooddashSect": {
       "kicker": "Q1–Q2 · Act III",
       "meta": "GITEX → LEAP East → FloodDash",
@@ -2379,6 +2391,12 @@
       "sgS2": "Tổng số người tham dự",
       "sgS3": "Quốc gia tham dự",
       "sgS4": "Sức chứa workshop",
+      "shLoc": "<b>Tomorrow.City Shanghai 2026</b> · Main Stage · 2026",
+      "shTitle": "Đừng gọi nó là digital twin. Hãy gọi là God Mode.",
+      "shLede": "Digital twin là cái tên lịch sự. God Mode mới là tên thật — cái nhìn toàn cảnh như thần nhìn vào thành phố bạn, để bạn quản lý tốt hơn, chứ không phải để thờ phượng dashboard. Dr Non lần thứ tư trên sân khấu này; địa điểm là câu chuyện phụ, ý tưởng mới là sản phẩm — FloodDash trên màn hình khối, nấu trực tiếp tại sảnh.",
+      "shQuote": "\"Lọc mọi khái niệm qua 4Ps — Purpose, Practicality, Proof, People. Rồi thiết kế cho con người. Cảm biến nói nước chảy với vận tốc x thì chẳng giúp ích gì cho thị trưởng. Đổi ra mét khối. So với freeboard còn lại của hồ chứa. Rồi bạn sẽ biết nước vừa hay tràn. Toán cơ bản đó chính là sản phẩm.\"",
+      "shCite": "— Dr. Non, Tomorrow.City Shanghai keynote",
+      "shS1": "Số lần trên sân khấu", "shS2": "FloodDash trên khối", "shS3": "Nguồn dữ liệu công", "shS4": "takeaways (khung 4Ps)",
       "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 10 thg 7",
       "leapTitle": "Sân khấu lớn nhất châu Á. FloodDash ra mắt tại đây.",
       "leapLede": "Panel trên Orbital Stage — \"From Congestion to Connection: The Tech Powered Future of Transport in Asia.\" Dr. Non Arkara, Senior Expert Smart City Promotion tại DEPA, cùng Mitchell Price, Richard Chung và Will Peters khép vòng cung Q1–Q2 bằng buổi ra mắt FloodDash live.",
