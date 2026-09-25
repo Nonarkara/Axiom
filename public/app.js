@@ -1734,6 +1734,10 @@ const i18nExt = {
         lede: "Lopburi Operations War Room — real-time FloodDash basin telemetry (ThaiWater/HII), Pa Sak Jolasid reservoir status, social listening, CCTV slot grid, and satellite layers for Lopburi province. One screen, four data streams, the dispatchable read.",
         cta: 'Open the war room',
       },
+      p63: {
+        lede: "JPS river gauges on every basin, MET Malaysia warnings, buses and trains, ships and aircraft, air and fire, plus a citizen index that shows who lives far from help. One map, EN · BM · 中文.",
+        cta: 'Open the live map',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -2178,6 +2182,10 @@ const i18nExt = {
         lede: "ห้องปฏิบัติการลพบุรี — ข้อมูลโทรมาตรลุ่มน้ำแบบเรียลไทม์ (ThaiWater/HII) สถานะเขื่อนป่าสักชลสิทธิ์ การฟังโซเชียล ตารางกล้อง CCTV และเลเยอร์ดาวเทียมสำหรับจังหวัดลพบุรี จอเดียว สี่สายข้อมูล อ่านได้แบบส่งต่อได้",
         cta: 'เปิดห้องปฏิบัติการ',
       },
+      p63: {
+        lede: "มาเลเซีย · โหมดพระเจ้า ระดับน้ำ JPS ทุกลุ่มน้ำ คำเตือน MET Malaysia รถเมล์ รถไฟ เรือ เครื่องบิน อากาศ ไฟ บวกดัชนีพลเมืองที่บอกว่าใครอยู่ไกลความช่วยเหลือ แผนที่เดียว EN · BM · 中文",
+        cta: 'เปิดแผนที่สด',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2619,6 +2627,10 @@ const i18nExt = {
         lede: "华富里作战室 — 实时 FloodDash 流域遥测（ThaiWater/HII）、巴塞水库状态、社媒监听、CCTV 槽位网格与卫星图层。一屏四流，可派单阅读。",
         cta: '打开作战室',
       },
+      p63: {
+        lede: "马来西亚 · 上帝模式。每条流域的 JPS 水位、气象局预警、巴士与铁路、船舶与航班、空气与火灾，以及公民指数显示谁住得离救援最远。一张地图，英文 · 马来文 · 中文。",
+        cta: '打开实时地图',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2829,6 +2841,7 @@ const i18nExt = {
       p60: { lede: '// o3.powerOfThird / otop.registry.as.data\n// 154078.records × 77.provinces // each = source + completeness + age\n// no.scraping · no.AI.hallucination // registry.is(registry) · provenance.on(each.cell)', cta: 'registry.open()' },
       p61: { lede: '// superLeague.neverLaunched / twentySixClubs.realSquads\n// straightLine.passing // turnBased.tacticalSoccer // onePlayer.or(twoSharing:pad)\n// press.start → believe(nextMatch.matters) // read.pitch.before(pass)', cta: 'press.start()' },
       p62: { lede: '// lopburi.warRoom / oneScreen.fourStreams\n// floodDash.basinTelemetry(thaiWater,HII) + paSakJolasid.reservoir\n// social.listening + cctv.slotGrid + satellite.layers // dispatchable.read()', cta: 'warRoom.open()' },
+      p63: { lede: '// malaysia.godMode\n// jps.riverGauges(everyBasin) + met.warnings(malaysia)\n// transit(buses,trains) + aviation(ships,aircraft)\n// air + fire + citizen.index(who.lives.far.from.help)\n// map.oneScreen(locale[en,bm,zh])', cta: 'liveMap.open()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -3109,9 +3122,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '55 systems · 5 countries',
+      sysMeta: '56 systems · 5 countries',
       command: 'City Dashboards',
-      commandMeta: 'Real-time city operations rooms & environmental watch · 17',
+      commandMeta: 'Real-time city operations rooms & environmental watch · 18',
       intelligence: 'Intelligence',
       intelligenceMeta: 'Signal & analysis · 8',
       civic: 'Civic',
@@ -3287,9 +3300,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '55 ระบบ · 5 ประเทศ',
+      sysMeta: '56 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
-      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 17',
+      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 18',
       intelligence: 'ข่าวกรอง',
       intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 8',
       civic: 'พลเมือง',
@@ -3463,9 +3476,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '55 个系统 · 5 个国家',
+      sysMeta: '56 个系统 · 5 个国家',
       command: '城市仪表板',
-      commandMeta: '实时城市作战室与环境监测 · 17',
+      commandMeta: '实时城市作战室与环境监测 · 18',
       intelligence: '情报',
       intelligenceMeta: '信号与分析 · 8',
       civic: '民生',
@@ -3645,9 +3658,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '55 systems · 5 countries',
+      sysMeta: '56 systems · 5 countries',
       command: 'CityDashboards',
-      commandMeta: 'cityOps.realtime & envWatch · count[17]',
+      commandMeta: 'cityOps.realtime & envWatch · count[18]',
       intelligence: 'Intelligence',
       intelligenceMeta: 'signal & analysis · count[8]',
       civic: 'Civic',

@@ -526,6 +526,7 @@
       "p60": { "lede": "O3 — 세 번째 힘. 태국의 OTOP 등록부를 데이터로 읽기: 77개 주 154,078개 레코드, 모두 출처, 완성도, 시점을 함께 제공합니다. 스크래핑도, AI 환각도 없음: 등록부는 등록부이며, 모든 셀에 출처가 표시됩니다.", "cta": "등록부 열기" },
       "p61": { "lede": "결코 출시되지 않은 슈퍼리그. 스물여섯 클럽, 실전 스쿼드, 직선 패스 — 한 번에 한 결정. 턴제 전술 축구, 한 명 또는 패드를 나누는 두 명이 함께 플레이. 시작 버튼을 누르고, 다음 경기가 중요하다고 믿으며, 패스하기 전에 필드를 읽으세요.", "cta": "시작 누르기" },
       "p62": { "lede": "롭부리 작전실 — 실시간 FloodDash 유역 텔레메트리(ThaiWater/HII), 빠삭 촐라싯 저수지 상태, 소셜 리스닝, CCTV 슬롯 그리드, 위성 레이어를 롭부리 주의 한 화면에. 한 화면, 네 가지 데이터 흐름, 파견 가능한 읽기.", "cta": "작전실 열기" },
+      "p63": { "lede": "말레이시아 · 신 모드. 모든 유역의 JPS 수위, MET 말레이시아 경보, 버스와 기차, 선박과 항공기, 공기와 화재, 그리고 도움에서 멀리 사는 시민을 보여주는 시민 지수. 한 지도, EN · BM · 中文.", "cta": "실시간 지도 열기" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>타이베이</b> · City Vision Stage · 2026년 3월",
@@ -871,9 +872,9 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "55개 시스템 · 5개국",
+      "sysMeta": "56개 시스템 · 5개국",
       "command": "도시 대시보드",
-      "commandMeta": "실시간 도시 운영실 및 환경 관측 · 17",
+      "commandMeta": "실시간 도시 운영실 및 환경 관측 · 18",
       "intelligence": "인텔리전스",
       "intelligenceMeta": "신호 및 분석 · 8",
       "civic": "시민",
@@ -1459,6 +1460,7 @@
       "p60": { "lede": "O3 — 三乗の力。タイの OTOP レジストリをデータとして読む：77 県 154,078 件、すべてのレコードに出所、完全性、年代が伴います。スクレイピングも AI の幻覚もなし：レジストリはレジストリであり、すべてのセルに出所が付きます。", "cta": "レジストリを開く" },
       "p61": { "lede": "ついに始まらなかったスーパーリーグ。二十六のクラブ、実在の選手、直線のパス — 一手ずつ決める。ターン制タクティカルサッカー、一人でもパッドを分けて二人でも。スタートを押して、次の試合が大切なものだと信じ、パスする前にピッチを読め。", "cta": "スタートを押す" },
       "p62": { "lede": "ロッブリ作戦室 — リアルタイム FloodDash 流域テレメトリ(ThaiWater/HII)、パーサックチョーラシット貯水池のステータス、ソーシャルリスニング、CCTV スロットグリッド、衛星レイヤーをロッブリ県の一画面に。一画面、四つのデータの流れ、出動可能な読み取り。", "cta": "作戦室を開く" },
+      "p63": { "lede": "マレーシア · ゴッドモード。全流域の JPS 水位、MET マレーシア警報、バスと鉄道、船舶と航空機、空気と火災、そして支援から遠い住民を示す市民指数。一つの地図、EN · BM · 中文。", "cta": "ライブマップを開く" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>台北</b> · City Vision Stage · 2026年3月",
@@ -1783,9 +1785,9 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "55システム · 5か国",
+      "sysMeta": "56システム · 5か国",
       "command": "シティダッシュボード",
-      "commandMeta": "リアルタイム都市運用室と環境観測 · 17",
+      "commandMeta": "リアルタイム都市運用室と環境観測 · 18",
       "intelligence": "インテリジェンス",
       "intelligenceMeta": "シグナルと分析 · 8",
       "civic": "シビック",
@@ -2371,6 +2373,7 @@
       "p60": { "lede": "O3 — sức mạnh thứ ba. Sổ đăng ký OTOP của Thái Lan, đọc như dữ liệu: 154.078 bản ghi trên 77 tỉnh, mỗi bản ghi mang nguồn, mức độ đầy đủ và thời điểm. Không scraping, không AI bịa: sổ đăng ký là sổ đăng ký, có nguồn gốc trên từng ô.", "cta": "Mở sổ đăng ký" },
       "p61": { "lede": "Giải Super League chưa bao giờ ra mắt. Hai mươi sáu câu lạc bộ, đội hình thật, chuyền thẳng — mỗi lần một quyết định. Bóng đá chiến thuật theo lượt, cho một người hoặc hai người chung tay cầm. Nhấn start, tin rằng trận sau quan trọng, và đọc sân trước khi chuyền.", "cta": "Nhấn start" },
       "p62": { "lede": "Phòng tác chiến Lop Buri — viễn trắc lưu vực FloodDash thời gian thực (ThaiWater/HII), trạng thái hồ chứa Pa Sak Jolasid, nghe xã hội, lưới ô CCTV và các lớp vệ tinh cho tỉnh Lop Buri, trên một màn hình. Một màn hình, bốn dòng dữ liệu, cách đọc có thể điều phối.", "cta": "Mở phòng tác chiến" },
+      "p63": { "lede": "Malaysia · Chế độ Thần. Mực nước sông JPS trên mọi lưu vực, cảnh báo MET Malaysia, xe buýt và tàu hỏa, tàu biển và máy bay, không khí và cháy, cùng chỉ số công dân cho biết ai sống xa sự trợ giúp. Một bản đồ, EN · BM · 中文.", "cta": "Mở bản đồ trực tiếp" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>Đài Bắc</b> · City Vision Stage · tháng 3/2026",
@@ -2695,9 +2698,9 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "55 hệ thống · 5 quốc gia",
+      "sysMeta": "56 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
-      "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 17",
+      "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 18",
       "intelligence": "Tình báo",
       "intelligenceMeta": "Tín hiệu và phân tích · 8",
       "civic": "Công dân",
