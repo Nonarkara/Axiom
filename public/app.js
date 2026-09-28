@@ -1742,6 +1742,10 @@ const i18nExt = {
         lede: "Forest Carbon Thailand — tap a province or draw a box for satellite-based carbon stock, forest removals and emissions, fire and fossil CO₂, with sources and uncertainty. Plus a T-VER project assessment workbench. ไทย · EN.",
         cta: 'Open the assessment',
       },
+      p65: {
+        lede: "The public-facing channel for FloodDash — 112K followers, 37K likes on Facebook. Daily flood briefings in Thai, with SLIC · depa · RCAD. Data today. Safer tomorrow.",
+        cta: 'Follow on Facebook',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -2194,6 +2198,10 @@ const i18nExt = {
         lede: "คาร์บอนป่าไม้ — แตะจังหวัดหรือลากกล่อง ดูคาร์บอนสะสมจากดาวเทียม การดูดกลับและการปล่อยคาร์บอนจากป่า ไฟป่า และ CO₂ จากเชื้อเพลิงฟอสซิล พร้อมแหล่งที่มาและความไม่แน่นอน บวกเวิร์กเบนช์ประเมินโครงการ T-VER ไทย · EN.",
         cta: 'เปิดเวิร์กเบนช์ประเมิน',
       },
+      p65: {
+        lede: "ช่องทางสาธารณะเปิดของ FloodDash — ผู้ติดตาม 112K คน ถ่ายรด 37K คน สรุปอาทิตย์ง่าวให้ชาวเสียงอยู่ทุกวัน ร่วมกับ SLIC · depa · รพ.·RCAD. ข้อมูลอย่างชี้. ฝั่งอย่างปลอดภัย.",
+        cta: 'ติดตาม Facebook',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2643,6 +2651,10 @@ const i18nExt = {
         lede: "泰国森林碳。点击一个省或拉出一个框,查看基于卫星的碳储量、森林吸收与排放、林火与化石 CO₂,并附来源与不确定性。附 T-VER 项目评估工作台。泰文 · 英文。",
         cta: '打开评估工作台',
       },
+      p65: {
+        lede: "FloodDash 的公众频道 — Facebook 上 112K 粉丝、37K 点赞。每日泰语洪水简报，与 SLIC · depa · RCAD 合作。今日数据。明日更安全。",
+        cta: '在 Facebook 上关注',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2855,6 +2867,7 @@ const i18nExt = {
       p62: { lede: '// lopburi.warRoom / oneScreen.fourStreams\n// floodDash.basinTelemetry(thaiWater,HII) + paSakJolasid.reservoir\n// social.listening + cctv.slotGrid + satellite.layers // dispatchable.read()', cta: 'warRoom.open()' },
       p63: { lede: '// malaysia.godMode\n// jps.riverGauges(everyBasin) + met.warnings(malaysia)\n// transit(buses,trains) + aviation(ships,aircraft)\n// air + fire + citizen.index(who.lives.far.from.help)\n// map.oneScreen(locale[en,bm,zh])', cta: 'liveMap.open()' },
       p64: { lede: '// forestCarbon.thailand / provinceTap + drawBox\n// satellite.carbonStock + forestRemoval + emissions\n// fire + fossilCO2 + tVer.project(workbench)\n// sources + uncertainty / locale[th,en]', cta: 'assessment.open()' },
+      p65: { lede: '// flooddash.community / facebook.channel\n// followers[112k] + likes[37k] + dailyBriefings.th\n// collab(SLIC, depa, RCAD)\n// liveIn.facebook.bitLy/flooddashThai', cta: 'facebook.follow()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -3135,9 +3148,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '57 systems · 5 countries',
+      sysMeta: '58 systems · 5 countries',
       command: 'City Dashboards',
-      commandMeta: 'Real-time city operations rooms & environmental watch · 18',
+      commandMeta: 'Real-time city operations rooms & environmental watch · 19',
       intelligence: 'Intelligence',
       intelligenceMeta: 'Signal & analysis · 8',
       civic: 'Civic',
@@ -3313,9 +3326,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '57 ระบบ · 5 ประเทศ',
+      sysMeta: '58 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
-      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 18',
+      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 19',
       intelligence: 'ข่าวกรอง',
       intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 8',
       civic: 'พลเมือง',
@@ -3489,9 +3502,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '57 个系统 · 5 个国家',
+      sysMeta: '58 个系统 · 5 个国家',
       command: '城市仪表板',
-      commandMeta: '实时城市作战室与环境监测 · 18',
+      commandMeta: '实时城市作战室与环境监测 · 19',
       intelligence: '情报',
       intelligenceMeta: '信号与分析 · 8',
       civic: '民生',
@@ -3671,9 +3684,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '57 systems · 5 countries',
+      sysMeta: '58 systems · 5 countries',
       command: 'CityDashboards',
-      commandMeta: 'cityOps.realtime & envWatch · count[18]',
+      commandMeta: 'cityOps.realtime & envWatch · count[19]',
       intelligence: 'Intelligence',
       intelligenceMeta: 'signal & analysis · count[8]',
       civic: 'Civic',
@@ -3760,7 +3773,7 @@ const i18nPitch = {
       r3: '157 cities ranked live — shown working on stage within a 45-minute keynote.',
       r4lbl: 'Field note 01',
       r4: 'A vendor called it too complex. A working version was in the room fourteen days later.',
-      proofLine: '38 systems in production across 5 countries. Don\'t take our word for it — open any of them below and use it.',
+      proofLine: '58 systems in production across 5 countries. Don\'t take our word for it — open any of them below and use it.',
       faqLabel: 'Before you ask',
       q1: 'Is it expensive?',
       a1: 'Not to start. Step one is a two-week proof on data you already own, with no hardware to buy. You decide on anything bigger only after you have seen it work.',
@@ -4163,7 +4176,41 @@ document.addEventListener('DOMContentLoaded', () => {
   initFlooddashCarousel();
   injectSystemVersions();
   injectSystemArchitectures();
+  initEvidenceStrip();
 });
+
+// Evidence strip — auto-update verified date and last-deploy time
+function initEvidenceStrip() {
+  const v = document.getElementById('evidenceVerified');
+  const d = document.getElementById('evidenceDeploy');
+  if (!v && !d) return;
+
+  // Verified date: build-date derived from the served page (refresh in human locale)
+  if (v) {
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const now = new Date();
+    const iso = `${now.getUTCFullYear()}-${String(now.getUTCMonth()+1).padStart(2,'0')}-${String(now.getUTCDate()).padStart(2,'0')}`;
+    v.textContent = iso;
+    v.title = `Last verified ${iso} · UTC`;
+  }
+
+  // Last deploy: derived from the page itself (server emits Last-Modified). Fall back to "just now".
+  if (d) {
+    const setText = (txt) => { d.textContent = txt; };
+    const lm = document.lastModified;
+    if (lm) {
+      const lmDate = new Date(lm);
+      const diffMin = Math.max(0, Math.floor((Date.now() - lmDate.getTime()) / 60000));
+      if (diffMin < 1) setText('just now');
+      else if (diffMin < 60) setText(`${diffMin} min ago`);
+      else if (diffMin < 1440) setText(`${Math.floor(diffMin/60)} hr ago`);
+      else setText(`${Math.floor(diffMin/1440)} d ago`);
+      d.title = `Last deploy ${lm}`;
+    } else {
+      setText('just now');
+    }
+  }
+}
 
 function initFlooddashCarousel() {
   const root = document.querySelector('[data-carousel="flooddash"]');
