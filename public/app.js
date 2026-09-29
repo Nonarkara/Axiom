@@ -1509,7 +1509,7 @@ const i18nExt = {
       },
       p11: {
         title: 'The AI <em>that knows you.</em>',
-        lede: 'Second Brain OS connects your Obsidian vault to every AI coding platform simultaneously via MCP. Brain-anatomy folder structure. 19 server configs. AI agents that access your persona blueprint, write in your voice, and remember every decision you\'ve ever logged. The knowledge you\'ve been building for years — finally working for you.',
+        lede: 'Second Brain OS: your Obsidian vault wired to every AI coding platform via MCP. Brain-anatomy folders. 19 server configs. Agents in your voice, with your decision history. Years of knowledge, finally working.',
         w1lbl:'The gap it closes', w1:'Every AI session starts cold. It doesn\'t know your voice, your values, your past decisions, or the years of journal entries that shaped your thinking. Second Brain OS feeds all of that into every coding platform simultaneously via a single MCP connection — so the AI you work with already knows who it\'s working with.',
         w2lbl:'How it\'s built', w2:'Your Obsidian vault is structured like a brain: PrefrontalCortex for strategy, Hippocampus for atomic memories, TemporalLobe for patterns, Cerebellum for skills and procedures. 19 MCP server configurations connect this living knowledge graph to Cursor, Codex, Claude Code, and every other platform in your stack — at once.',
         w3lbl:'Why it\'s open', w3:'The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model\'s.', cta:'Explore the architecture',
@@ -1577,7 +1577,7 @@ const i18nExt = {
         cta:'Open live system',
       },
       p20: {
-        lede: 'Horizon 45 is a field instrument designed to test actual AI judgment. From deepfake detection to prompt engineering, users navigate real-world signals and leave with a capability portrait and learning roadmap.',
+        lede: 'Horizon 45: a field instrument for AI judgment. Deepfake detection to prompt engineering. Real-world signals, capability portrait, learning roadmap.',
         cta:'Open live system',
       },
       p21: {
@@ -1642,7 +1642,7 @@ const i18nExt = {
         cta: 'View on GitHub',
       },
       p41: {
-        lede: 'Market intelligence built to be useful, not impressive. World, lens, map, FX, capitol, odds, and plan — every screen must change one decision you can make this week. Research preview, not advice. Every number carries its age.',
+        lede: 'Useful, not impressive. World, lens, map, FX, capitol, odds, plan. Every screen changes one decision you can make this week. Research preview, not advice. Every number carries its age.',
         cta: 'Open live system',
       },
       p42: {
@@ -1685,7 +1685,7 @@ const i18nExt = {
       },
       p51: {
         name: 'Laem Chabang Operations',
-        lede: 'A live command surface monitoring truck traffic and regulatory compliance across Laem Chabang City. Designed to coordinate port traffic, minimize congestion, and ensure urban safety.',
+        lede: 'Port truck traffic and regulatory compliance on one Laem Chabang screen. Coordinates traffic, cuts congestion, urban safety.',
         cta: 'Open live system',
       },
       p52: {
@@ -1723,7 +1723,7 @@ const i18nExt = {
         cta: 'Open the repo',
       },
       p60: {
-        lede: "O3 — Power of the Third. Thailand's OTOP registry read as data: 154,078 records across 77 provinces, every one carrying its source, its completeness, and its age. No scraping, no AI hallucination: the registry is the registry, with provenance on every cell.",
+        lede: "O3 — Power of the Third. Thailand's OTOP registry, read as data. 154,078 records, 77 provinces. Every cell carries source, completeness, age. The registry is the registry — no scraping, no hallucination, provenance on every cell.",
         cta: 'Open the registry',
       },
       p61: {
@@ -1756,7 +1756,7 @@ const i18nExt = {
       taipeiS1:'Cities indexed', taipeiS2:'Nations represented', taipeiS3:'Intel partners', taipeiS4:'First live demo',
       sgLoc:'Singapore · Marina Bay Sands · Main Stage · April 2026',
       sgTitle:'Standing room only.',
-      sgLede:'Main-stage keynote at GITEX AI Asia. Then a workshop on Government Innovation as a Service that hit capacity within minutes — standing room taken, hallway full, every face locked on the live demo.',
+      sgLede:'GITEX AI Asia main-stage keynote. Then a Government Innovation-as-a-Service workshop filled in minutes — standing room, hallway full, every face on the demo.',
       sgQuote:'"The room was standing-room only. That is not applause — that is a demand signal. Governments want working systems. They are tired of waiting for the deck."',
       sgCite:'— Dr. Non, post-keynote',
       sgS1:'Main stage audience', sgS2:'Total attendees', sgS3:'Nations represented', sgS4:'Workshop capacity',
@@ -1779,7 +1779,7 @@ const i18nExt = {
       collectiveLede:'Researchers, traffic engineers, anthropologists, financiers, policy translators, and media operators. They join by problem, not by org chart. We pay for the brains we need, when we need them.',
       probonoTitle:'Pro bono · Institutional work',
       probonoMeta:'5 projects · institutional partners',
-      probonoNote:'These are live, working platforms — not decks or reports. Each one was built with real institutional partners, deployed publicly, and is still in use. Click through and see what the work actually looks like when it ships.',
+      probonoNote:'Live working platforms. Not decks, not reports. Built with real partners, deployed publicly, still in use. Click any to see shipped work.',
       pb1org:'For ASEAN Secretariat', pb1title:'38 cities. 10 nations. One platform.', pb1for:'ASEAN Smart Cities Network',
       pb2org:'ASEAN · UNDP · UN-Habitat', pb2title:'112,000 users. Born from real flooding.', pb2for:'ASEAN CSCO Handbook',
       pb3org:'UN DESA · Solomon Islands Gov.', pb3title:'Whole-of-government digital roadmap.', pb3for:'Honiara · Two-day workshop',
@@ -1820,12 +1820,12 @@ const i18nExt = {
       l9name:'Local Runtime', l9role:'the desk',
       legend:'<span data-runtime="cloud">cloud</span><span data-runtime="local">// local</span>',
     
-      expandHint:'9 layers · 117 tools · built and run from one desk in Bangkok. Click below for the full list.',},
+      expandHint:'9 layers. 117 tools. One desk in Bangkok. Click below for the full list.',},
     brandSect: {
       foldLine:'Brand Kit · 8 sheets · download available',
       kicker:'Brand Kit',
       meta:'8 sheets · Axiom Identity System',
-      lede:'Cover, logo, colors, type, layout — eight sheets. Download the package or browse every sheet.',
+      lede:'Eight sheets. Cover, logo, colors, type, layout. Download or browse.',
       downloadCta:'Download Brand Kit',
       expandAll:'View all brand sheets',
     },
@@ -1835,9 +1835,9 @@ const i18nExt = {
     },
     pressContent: {
       p1title:'With the vendor saying no, Thai civil servant built his own tools',
-      p2title:'Can Innovation-as-a-Service close the gap between policy and implementation?',
+      p2title:'Can Innovation-as-a-Service close the policy-to-implementation gap?',
       p3title:'They built the index, but you build the ranking',
-      p4title:'On digital connectivity, open innovation, and why smart cities only work when inclusion scales',
+      p4title:'Open innovation, digital connectivity, and inclusion as the test of a smart city',
       p5title:'How AI is mining city data cheaply and making them smarter',
       p6title:'Why smart cities need citizens, not just technology',
       p7title:'Middle East War Monitor — live conflict signal across the region',
@@ -1848,7 +1848,7 @@ const i18nExt = {
       eyebrow:'Entity',
       title:'Legally registered in Thailand',
       compactLine:'Axiom X Co., Ltd. · Reg. 0105569099335 · Thailand · DBD registered',
-      tradeNameNote:'This site and our services are presented under the trade name Axiom. The registered legal entity is Axiom X Co., Ltd. (Thailand).',
+      tradeNameNote:'Operates as Axiom. Registered entity: Axiom X Co., Ltd. (Thailand).',
       summaryToggle:'Registration & standards details',
       companyTitle:'Registered entity',
       nameLbl:'Company name',
@@ -3099,7 +3099,7 @@ const i18nExt2 = {
       bio:'Harvard PhD in Anthropology. MIT and Oxford alumnus. Designs from fieldwork first — people aren\'t spreadsheets, cities aren\'t slides.',
       cvHeader:'Non Arkara, PhD — Quick Profile',
       cvCurrentRole:'Current Role',
-      cvCurrentRoleBody:'Senior Expert in Smart City Promotion, Digital Economy Promotion Agency (depa), Bangkok — May 2019–present. Advisor to Thailand Media Fund, SLIC, NXPO, and the National Strategic Taskforce on Northern Economic Corridor (NeEC).',
+      cvCurrentRoleBody:'Senior Expert, Smart City Promotion, depa (Digital Economy Promotion Agency), Bangkok — May 2019 to present. Advisor: Thailand Media Fund, SLIC, NXPO, NeEC.',
       cvSelectedRoles:'Selected Roles',
       cvScale:'Scale of Work',
       cvScale1:'120+ technology and public-private projects across 77 Thai provinces',
@@ -3115,7 +3115,7 @@ const i18nExt2 = {
       cvCurrentRoles:'Current Roles',
       cvCurrentRolesBody:'Deputy Director, Program Management Unit for Area-Based Development (PMU-A), Ministry of Higher Education, Science, Research and Innovation, Thailand; Director, Excellence Center for Urban Study and Public Policy (ECUP), Chiang Mai University.',
       cvExpertise:'Core Expertise',
-      cvExpertiseBody:'Civil engineering, construction management, sustainable infrastructure development, climate change, disaster management, logistics, urban planning, urban mobility, and transportation systems.',
+      cvExpertiseBody:'Civil engineering, urban mobility, climate, logistics, sustainable infrastructure, disaster management.',
       cvSelectedWork:'Selected Work',
       cvWork1:'Head of Sustainable Infrastructure Development and Climate Change Research Unit, Chiang Mai University, 2010–present',
       cvWork2:'Lead Coordinator, Research University Network (RUN) for Climate Change and Disaster Management, 2015–present',
