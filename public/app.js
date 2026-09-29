@@ -549,7 +549,7 @@ const uiCopy = {
     hero: {
       badge: 'All Systems Online',
       titleLine1: 'Innovation',
-      subtitle: 'Your city has the data. No one can see it when it matters. We put it on one live screen for your hardest decision — working in two weeks.',
+      subtitle: 'City data exists. Nobody sees it in crisis. One screen. One decision. Two weeks.',
       cta: 'Start a Two-Week Proof',
       ctaSecondary: 'Try a Live System',
       nodeLabel: 'Tap a theatre',
@@ -717,14 +717,14 @@ const uiCopy = {
     sysSect: {
       kicker: 'Live in production',
       title: 'Real systems. <em>Real cities.</em> Operating today.',
-      lede: 'Proof, not promises. Each system below began as one decision someone couldn\'t make fast enough. Each is live today — open it, use it, and judge the work yourself.',
+      lede: 'Each system below started as one decision someone couldn\'t make fast enough. Live today. Open. Use. Judge.',
       sandboxKicker: 'Sandbox // Live',
-      sandboxNote: "These aren't demos — they're working systems in a sandbox. Built to scale, not to impress. Production deployments under client NDAs are larger; what runs here behaves like them, with advanced modules withheld.",
+      sandboxNote: "These aren't demos. They're working systems in a sandbox — built to scale, not to impress. NDA-protected deployments run larger; what you see here behaves like them, with advanced modules withheld.",
     },
     stageSect: {
       kicker: 'Four stages, one arc',
       title: 'Governments are tired of <em>waiting for the deck.</em>',
-      lede: "Q1 opened in Taipei. Q2 hit Singapore's main stage at GITEX. The arc continued at Tomorrow.City Shanghai — God Mode on the cube screen, FloodDash cooked live in the room. Q3 closed at LEAP East — Asia's largest stage. Same thesis every time: build it now, not after the next budget cycle.",
+      lede: "Q1: Taipei. Q2: GITEX Singapore. Q2.5: Tomorrow.City Shanghai — God Mode on the cube screen, FloodDash cooked live. Q3: LEAP East. Same thesis: build now, not after the budget cycle.",
 
       meta: '2026 · Taipei · Singapore · Shanghai · Bangkok',},
     flooddashSect: {
@@ -1445,7 +1445,7 @@ const i18nExt = {
     panels: {
       p01: {
         title: 'A governor\'s <em>situation room</em>, in a browser tab.',
-        lede: 'Phuket\'s transit, public safety, and environmental signals, unified into one surface that an actual governor can read in 30 seconds. Built in weeks, not procurement cycles.',
+        lede: 'Phuket\'s transit, safety, and environment on one screen a governor reads in 30 seconds. Built in weeks, not procurement cycles.',
         w1lbl:'Why it\'s special', w1:'Most government dashboards are read-only PDFs disguised as software. Phuket is a working operations room: transit, safety, and environment fused on one screen, refreshed every 42ms. The governor reads it directly — no analyst translation layer.',
         w2lbl:'What it replaced', w2:'Three siloed agency reports, an SMS escalation chain, and a Tuesday-morning briefing slot.',
         w3lbl:'Earned on day one', w3:'Built on existing IoT infrastructure — no new hardware procurement.', cta:'Open live system',
@@ -1459,7 +1459,7 @@ const i18nExt = {
       },
       p04: {
         title: 'A ranking <em>that argues back.</em>',
-        lede: 'The SLIC Index doesn\'t tell cities what they\'re worth. It shows them five pillars and lets them test their own priorities. Mayors decide what livability means — and the math follows.',
+        lede: 'SLIC doesn\'t rank cities for you. Five pillars. Mayors decide what livability means. The math follows.',
         w1lbl:'Why it\'s special', w1:'Every other livability index hands cities a finished verdict. SLIC hands them the math. Move the pillar weights, watch your ranking change — and your peers\' — in real time. The argument becomes the product.',
         w2lbl:'What it replaced', w2:'Static prestige leaderboards. The annual ranking PDF. The conversation that ended with "we don\'t agree with the methodology."',
         w3lbl:'Audience signal', w3:'Picked up by Mayors of Europe. Live-demo\'d at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.', cta:'Open SLIC v3',
@@ -1543,7 +1543,7 @@ const i18nExt = {
       },
       p15: {
         title: 'Name the city. <em>We\'ll build its brain.</em>',
-        lede: 'City Hub is a replicable city intelligence platform — give it a city name, and it maps it with satellite and base layers, absorbs whatever data you have, connects APIs and sensors, and starts synthesizing the picture. v.5 with five cities live: Bangkok, Chiang Mai, Phuket, Singapore, Kuching.',
+        lede: 'Give it a city. It maps it with satellite and base layers, absorbs whatever data you have, starts synthesizing. v.5 — five cities live.',
         w1lbl:'Why it\'s special', w1:'Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what\'s already there.',
         w2lbl:'What it replaced', w2:'Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.',
         w3lbl:'Decision power', w3:'The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don\'t), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city\'s last day of data.',
@@ -1589,7 +1589,7 @@ const i18nExt = {
         cta:'Open live system',
       },
       p22: {
-        lede: 'Four theaters — Middle East, Indo-Pacific, Thailand, Global — on one live surface: aircraft and ships in motion, conflict events, fires, markets and an 8-week escalation forecast, all from open data.',
+        lede: 'Four theaters: Middle East, Indo-Pacific, Thailand, Global. Aircraft, ships, conflict, fires, markets, 8-week escalation forecast. Open data.',
         cta:'Open live system',
       },
       p23: {
@@ -1606,7 +1606,7 @@ const i18nExt = {
         cta: 'View research repo',
       },
       p27: {
-        lede: 'AirDash is a 24/7 Thailand air quality and dust watch — province watch ranking, 3-day CAMS-minus-rain forecast, top-5 AT-risk and PM2.5 provinces, washout logic, and a national pattern donut on one surface. Built so every Thai province can read the same air picture from the same public data.',
+        lede: '24/7 Thailand air quality and dust watch. Province ranking, 3-day CAMS-minus-rain forecast, top-5 at-risk and PM2.5 provinces, washout logic, national pattern donut — one surface. Every province reads the same air picture from the same public data.',
         cta: 'Open live system',
       },
       p28: {
@@ -3095,8 +3095,8 @@ const i18nExt2 = {
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
       role:'Co-Founder · Systems & Story',
-      lede:'Anthropologist, architect, builder. He watches how cities actually behave, then turns that mess into interfaces people use without a training manual.',
-      bio:'Harvard PhD in Anthropology. MIT and Oxford alumnus. Former Visiting Lecturer at MIT, postdoctoral fellow at NYU. He designs from fieldwork first — because people aren\'t spreadsheets and cities aren\'t slides.',
+      lede:'Anthropologist, architect, builder. Watches how cities behave — turns that mess into interfaces people use without a manual.',
+      bio:'Harvard PhD in Anthropology. MIT and Oxford alumnus. Designs from fieldwork first — people aren\'t spreadsheets, cities aren\'t slides.',
       cvHeader:'Non Arkara, PhD — Quick Profile',
       cvCurrentRole:'Current Role',
       cvCurrentRoleBody:'Senior Expert in Smart City Promotion, Digital Economy Promotion Agency (depa), Bangkok — May 2019–present. Advisor to Thailand Media Fund, SLIC, NXPO, and the National Strategic Taskforce on Northern Economic Corridor (NeEC).',
@@ -3746,17 +3746,17 @@ const i18nPitch = {
       kicker: 'The problem we solve',
       meta: 'For governors · mayors · agency heads · operators',
       title: 'The flood arrives at 2 a.m. <em>The dashboard arrives next fiscal year.</em>',
-      lede: 'The data exists — rain, traffic, air, complaints, satellites. It is spread across a dozen agencies. So when the crisis hits, you are the one without the picture. We fix that: one live screen, one decision, two weeks.',
+      lede: 'Rain, traffic, air, complaints, satellites — scattered across a dozen agencies. Crisis hits, you have no picture. We build the picture. One screen. One decision. Two weeks.',
       painLabel: 'Sound familiar?',
       pain1: 'The data exists, but it is split across agencies, PDFs and spreadsheets. Nobody sees the whole city on one screen.',
       pain2: 'The vendor quote takes a year and a budget cycle — and delivers a slide deck, not a working system.',
       pain3: 'When something goes wrong, the first hour goes to phone calls about what is happening, not decisions about what to do.',
-      vsLabel: 'Why a boutique studio, not a big firm',
+      vsLabel: 'Boutique vs big firm.',
       vsThemTitle: 'The big firm',
       vsThem: 'A senior partner sells you the project. A junior team you never met builds it. You get slides, delays, and a vendor to manage.',
       vsUsTitle: 'Axiom',
       vsUs: 'The people you meet are the people who build. No salespeople. No hand-offs. You judge a working system, not a promise.',
-      serviceLine: 'That is Innovation as a Service: you bring the problem; we design, build and run the answer for you.',
+      serviceLine: 'Bring the problem. We design, build, run it.',
       howLabel: 'How it works · three steps',
       step1title: 'Week 1 — Name the decision.',
       step1body: 'We sit with the person who decides — a governor, a flood desk, a port authority — and agree on one decision to speed up, who owns it, and what data exists.',
@@ -3773,16 +3773,16 @@ const i18nPitch = {
       r3: '157 cities ranked live — shown working on stage within a 45-minute keynote.',
       r4lbl: 'Field note 01',
       r4: 'A vendor called it too complex. A working version was in the room fourteen days later.',
-      proofLine: '58 systems in production across 5 countries. Don\'t take our word for it — open any of them below and use it.',
+      proofLine: '58 systems live across 5 countries. Open one. Use it. Judge.',
       faqLabel: 'Before you ask',
       q1: 'Is it expensive?',
-      a1: 'Not to start. Step one is a two-week proof on data you already own, with no hardware to buy. You decide on anything bigger only after you have seen it work.',
+      a1: 'No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.',
       q2: 'Will it work with our data?',
       a2: 'Yes. Every system on this page already runs on Thai public data — TMD, GISTDA, the Pollution Control Department, OpenStreetMap. Messy data is normal; it is where we start.',
       q3: 'Is our data safe?',
       a3: 'Yes. The first step uses only public data, so sensitive records never leave your hands. Delivery follows PDPA, GDPR-informed principles and ISO/IEC frameworks — by practice, not certification (see Credentials).',
       q4: 'You\'re a small team. Can you deliver?',
-      a4: 'Yes — and you deal with the builders directly: Dr Non Arkaraprasertkul (Harvard PhD; Senior Expert, Smart City Promotion, depa) and Dr Poon Thiengburanathum. Specialists join per mission: UAV operators, traffic engineers, policy translators.',
+      a4: 'Yes. You deal directly with the builders — Dr Non Arkaraprasertkul and Dr Poon Thiengburanathum. Specialists join per mission.',
       q5: 'Will it still run after launch?',
       a5: 'Yes. Most systems on this page have run long past their launch. Each is documented and instrumented so your team can keep it going.',
       cta: 'Start a two-week proof',
