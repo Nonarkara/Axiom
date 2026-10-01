@@ -3160,7 +3160,7 @@ const i18nExt2 = {
       lab: 'Lab',
       labMeta: 'Side tools · in the open · 17',
     },
-    sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
+    sysStatus: { degraded: 'Degraded', live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
       AI:'AI', Access:'Access', Audience:'Audience', Authority:'Authority',
       Backup:'Backup', 'Brain layers':'Brain layers', Cadence:'Cadence',
@@ -3338,7 +3338,7 @@ const i18nExt2 = {
       lab: 'แล็บ',
       labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 17',
     },
-    sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
+    sysStatus: { degraded: 'ประสิทธิภาพลดลง', live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
       AI:'AI', Access:'การเข้าถึง', Audience:'ผู้ชม', Authority:'หน่วยงาน',
       Backup:'สำรองข้อมูล', 'Brain layers':'ชั้นสมอง', Cadence:'จังหวะ',
@@ -3514,7 +3514,7 @@ const i18nExt2 = {
       lab: '实验室',
       labMeta: '辅助工具 · 开放中 · 17',
     },
-    sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
+    sysStatus: { degraded: '服务降级', live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
       p1title:'供应商说不 泰国公务员自己建工具',
       p2title:'创新即服务能否弥合政策与执行之间的鸿沟',
@@ -3696,7 +3696,7 @@ const i18nExt2 = {
       lab: 'Lab',
       labMeta: 'sideTools & openProcess · count[17]',
     },
-    sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
+    sysStatus: { degraded: 'degraded', live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
       AI:'AI', Access:'access', Audience:'audience', Authority:'authority',
       Backup:'backup', 'Brain layers':'brainLayers', Cadence:'cadence',
@@ -3776,7 +3776,7 @@ const i18nPitch = {
       proofLine: '58 systems live across 5 countries. Open one. Use it. Judge.',
       faqLabel: 'Before you ask',
       q1: 'Is it expensive?',
-      a1: 'No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.',
+      a1: 'No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you\'ve seen it work.',
       q2: 'Will it work with our data?',
       a2: 'Yes. Every system on this page already runs on Thai public data — TMD, GISTDA, the Pollution Control Department, OpenStreetMap. Messy data is normal; it is where we start.',
       q3: 'Is our data safe?',
@@ -4386,10 +4386,10 @@ function initFlooddashCarousel() {
       eventId: 'BANGKOK_WATCH',
       featured: {
         name: 'FloodDash',
-        href: 'https://flood-ami.pages.dev/',
+        href: 'https://flood.nonarkara.org/',
       },
       signals: [
-        { type: 'FLOOD', system: 'FloodDash', href: 'https://flood-ami.pages.dev/', lat: 13.7563, lng: 100.5018 },
+        { type: 'FLOOD', system: 'FloodDash', href: 'https://flood.nonarkara.org/', lat: 13.7563, lng: 100.5018 },
         { type: 'CAMPUS', system: 'Chula', href: 'https://chula.nonarkara.org/', lat: 13.7380, lng: 100.5320 },
         { type: 'URBAN', system: 'MTT', href: 'https://mtt-super-dashboard-v2.pages.dev/', lat: 13.9120, lng: 100.5480 },
         { type: 'ATLAS', system: 'BKKx Atlas', href: 'https://atlas.nonarkara.org/', lat: 13.7300, lng: 100.5412 },

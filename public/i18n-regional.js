@@ -887,6 +887,7 @@
       "labMeta": "보조 도구 · 공개 진행 · 17"
     },
     "sysStatus": {
+      "degraded": "성능 저하",
       "live": "라이브",
       "preview": "미리보기",
       "dev": "개발 중",
@@ -1802,6 +1803,7 @@
       "labMeta": "補助ツール · 公開中 · 17"
     },
     "sysStatus": {
+      "degraded": "性能低下",
       "live": "稼働中",
       "preview": "プレビュー",
       "dev": "開発中",
@@ -2717,6 +2719,7 @@
       "labMeta": "Công cụ phụ · mở công khai · 17"
     },
     "sysStatus": {
+      "degraded": "Hiệu suất suy giảm",
       "live": "Trực tiếp",
       "preview": "Xem trước",
       "dev": "Đang phát triển",

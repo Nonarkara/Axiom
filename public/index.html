@@ -38,17 +38,15 @@
     content="Working smart-city dashboards and GovTech decision systems for governments across ASEAN — 58 live systems in 5 countries. By Dr Non Arkaraprasertkul (depa).">
   <meta name="twitter:image" content="https://axiom.nonarkara.org/assets/og-image.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <!-- Self-hosted Thai/Korean fonts; system CJK fallbacks avoid Google Fonts. -->
+  <link rel="stylesheet" href="fonts.css?v=20261001a">
   <link rel="stylesheet" href="rams.css?v=20260925h">
+  <link rel="stylesheet" href="font-stack.css?v=20261001a">
   <link rel="stylesheet" href="hero.css?v=20260909a">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="i18n-regional.js?v=20260925h"></script>
+  <script src="i18n-regional.js?v=20261001a"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script defer src="app.js?v=20260925h"></script>
+  <script defer src="app.js?v=20261001a"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -201,7 +199,7 @@
       <div class="hero-gradient"></div>
       <div class="hero-city-label" id="heroCityLabel">BANGKOK</div>
 
-      <a class="hero-featured-badge" id="heroFeaturedBadge" href="https://flood-ami.pages.dev/" target="_blank"
+      <a class="hero-featured-badge" id="heroFeaturedBadge" href="https://flood.nonarkara.org/" target="_blank"
         rel="noopener">
         <span class="hero-featured-badge__kicker" data-i18n="hero.featured.kicker">THEATRE BRIEF</span>
         <span class="hero-featured-badge__event" id="heroFeaturedEvent">EVENT_ID: BANGKOK_WATCH</span>
@@ -476,7 +474,7 @@
           <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time city operations rooms &amp; environmental watch · 19</div>
         </div>
         <div class="grid grid--3">
-          <a class="sys-cell" data-arch="flood-ami" href="https://flood-ami.pages.dev/" target="_blank" rel="noopener">
+          <a class="sys-cell" data-arch="flood-ami" href="https://flood.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">23</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
             <img class="sys-cell__shot" src="screenshots/flood-ami.png" loading="lazy"
@@ -750,7 +748,7 @@
           <div class="s-head__meta" data-i18n="sysClusters.intelligenceMeta">Signal &amp; analysis · 8</div>
         </div>
         <div class="grid grid--3">
-          
+
           <a class="sys-cell" data-arch="slic" href="https://slic.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">04</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
@@ -900,7 +898,7 @@
           </a>
           <a class="sys-cell" data-arch="scth" href="https://cdp.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">08</span><span class="sys-cell__status"><span
-                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+                  class="dot"></span><span data-i18n="sysStatus.degraded">Degraded</span></span></div>
             <img class="sys-cell__shot" src="showcase/scth-v2.png" loading="lazy" alt="SCTH City Data Platform">
             <div class="sys-cell__body">
               <div class="sys-cell__name">SCTH City Data Platform</div>

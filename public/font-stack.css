@@ -1,0 +1,4 @@
+/* CN CJK preference — prefer system faces before Noto for ZH clarity */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'IBM Plex Sans Thai', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'YuGothic', 'Meiryo', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Noto Sans JP', sans-serif;
+}
