@@ -529,6 +529,7 @@
       "p63": { "lede": "말레이시아 · 신 모드. 모든 유역의 JPS 수위, MET 말레이시아 경보, 버스와 기차, 선박과 항공기, 공기와 화재, 그리고 도움에서 멀리 사는 시민을 보여주는 시민 지수. 한 지도, EN · BM · 中文.", "cta": "실시간 지도 열기" },
       "p64": { "lede": "태국 산림 탄소 — 성을 탭하거나 박스를 그려 위성 기반 탄소 저장량, 산림 흡수와 배출, 산불과 화석 CO₂, 출처와 불확실성을 확인하세요. T-VER 프로젝트 평가 워크벤치 포함. 태국어 · 영어.", "cta": "평가 워크벤치 열기" },
       "p65": { "lede": "FloodDash의 공개 채널 — Facebook 팔로워 112K, 좋아요 37K. SLIC · depa · RCAD와 함께 매일 태국어로 홍수 브리핑. 데이터 투데이. 세이프 투모로우.", "cta": "Facebook에서 팔로우" },
+      "p66": { "cat": "색채 전시", "lede": "348가지 색 조합. 색의 관계를 검색하고, 흑백으로 살펴보고, 색상 값을 복사하세요. 산조 와다에서 영감을 받은 Dr Non의 색채 전시.", "cta": "팔레트 둘러보기" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>타이베이</b> · City Vision Stage · 2026년 3월",
@@ -874,7 +875,7 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "58개 시스템 · 5개국",
+      "sysMeta": "59개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 19",
       "intelligence": "인텔리전스",
@@ -884,7 +885,7 @@
       "emerging": "신규",
       "emergingMeta": "연구급 및 새 운영 모델 · 9",
       "lab": "랩",
-      "labMeta": "보조 도구 · 공개 진행 · 17"
+      "labMeta": "보조 도구 · 공개 진행 · 18"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1465,6 +1466,7 @@
       "p63": { "lede": "マレーシア · ゴッドモード。全流域の JPS 水位、MET マレーシア警報、バスと鉄道、船舶と航空機、空気と火災、そして支援から遠い住民を示す市民指数。一つの地図、EN · BM · 中文。", "cta": "ライブマップを開く" },
       "p64": { "lede": "タイ森林炭素 — 州をタップまたはボックスを描き、衛星ベースの炭素ストック、森林吸収と排出、山火事と化石 CO₂、源泉と不確実性を確認。T-VER プロジェクト評価ワークベンチ付き。タイ語 · 英語。", "cta": "評価ワークベンチを開く" },
       "p65": { "lede": "FloodDash の公開チャンネル — Facebook フォロワー 112K、いいね 37K。SLIC · depa · RCAD と共に毎日タイ語で洪水ブリーフィング。データ・トゥデイ。セーファー・トゥモロー。", "cta": "Facebook でフォロー" },
+      "p66": { "cat": "色彩展示", "lede": "348の配色。色の関係を検索し、グレースケールで確かめ、色の値をコピー。和田三造に着想を得た Dr Non の色彩展示。", "cta": "配色を見る" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>台北</b> · City Vision Stage · 2026年3月",
@@ -1789,7 +1791,7 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "58システム · 5か国",
+      "sysMeta": "59システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 19",
       "intelligence": "インテリジェンス",
@@ -1799,7 +1801,7 @@
       "emerging": "新興",
       "emergingMeta": "研究グレードと新運用モデル · 9",
       "lab": "ラボ",
-      "labMeta": "補助ツール · 公開中 · 17"
+      "labMeta": "補助ツール · 公開中 · 18"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2380,6 +2382,7 @@
       "p63": { "lede": "Malaysia · Chế độ Thần. Mực nước sông JPS trên mọi lưu vực, cảnh báo MET Malaysia, xe buýt và tàu hỏa, tàu biển và máy bay, không khí và cháy, cùng chỉ số công dân cho biết ai sống xa sự trợ giúp. Một bản đồ, EN · BM · 中文.", "cta": "Mở bản đồ trực tiếp" },
       "p64": { "lede": "Carbon rừng Thái Lan — chạm một tỉnh hoặc kéo một ô để xem trữ lượng carbon dựa trên vệ tinh, hấp thụ và phát thải rừng, cháy rừng và CO₂ hóa thạch, kèm nguồn và độ bất định. Có bàn đánh giá dự án T-VER. Tiếng Thái · Tiếng Anh.", "cta": "Mở bàn đánh giá" },
       "p65": { "lede": "Kênh công khai của FloodDash — 112K người theo dõi, 37K lượt thích trên Facebook. Bản tin lũ hàng ngày bằng tiếng Thái, với SLIC · depa · RCAD. Dữ liệu hôm nay. An toàn hơn ngày mai.", "cta": "Theo dõi trên Facebook" },
+      "p66": { "cat": "Triển lãm màu sắc", "lede": "348 tổ hợp màu. Tìm mối quan hệ giữa các màu, xem ở thang xám, sao chép mã màu. Triển lãm màu của Dr Non, lấy cảm hứng từ Sanzo Wada.", "cta": "Khám phá bảng màu" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>Đài Bắc</b> · City Vision Stage · tháng 3/2026",
@@ -2704,7 +2707,7 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "58 hệ thống · 5 quốc gia",
+      "sysMeta": "59 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 19",
       "intelligence": "Tình báo",
@@ -2714,7 +2717,7 @@
       "emerging": "Mới nổi",
       "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 9",
       "lab": "Lab",
-      "labMeta": "Công cụ phụ · mở công khai · 17"
+      "labMeta": "Công cụ phụ · mở công khai · 18"
     },
     "sysStatus": {
       "live": "Trực tiếp",

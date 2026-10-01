@@ -426,6 +426,14 @@ const ARCHITECTURES = {
     foot: "the bot stays silent when the documents are silent",
     stack: ['Local embeddings', 'Local LLM', 'Mac-hosted'],
   },
+  'colors': {
+    name: 'PALETTE',
+    idx: '59',
+    inputs: ['348 combinations', 'Colour relationships', 'Sanzo Wada'],
+    core: { name: 'PALETTE', meta: ['colour exhibition', 'Dr Non'] },
+    outputs: ['Searchable index', 'Grayscale study', 'CSS values'],
+    foot: 'colours in relation · colors.nonarkara.org',
+  },
   'axiom-dc': {
     name: 'AXIOM DESIGN CORE',
     ver: '2.1.0',
@@ -1746,6 +1754,11 @@ const i18nExt = {
         lede: "The public-facing channel for FloodDash — 112K followers, 37K likes on Facebook. Daily flood briefings in Thai, with SLIC · depa · RCAD. Data today. Safer tomorrow.",
         cta: 'Follow on Facebook',
       },
+      p66: {
+        cat: 'Colour Exhibition',
+        lede: "348 colour combinations. Search a relationship, study it in grayscale, copy its values. Dr Non's colour exhibition, inspired by Sanzo Wada.",
+        cta: 'Explore the palettes',
+      },
     },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
@@ -2202,6 +2215,11 @@ const i18nExt = {
         lede: "ช่องทางสาธารณะเปิดของ FloodDash — ผู้ติดตาม 112K คน ถ่ายรด 37K คน สรุปอาทิตย์ง่าวให้ชาวเสียงอยู่ทุกวัน ร่วมกับ SLIC · depa · รพ.·RCAD. ข้อมูลอย่างชี้. ฝั่งอย่างปลอดภัย.",
         cta: 'ติดตาม Facebook',
       },
+      p66: {
+        cat: 'นิทรรศการสี',
+        lede: 'ชุดสี 348 ชุด ค้นหาความสัมพันธ์ของสี ดูแบบขาวดำ และคัดลอกค่าสี นิทรรศการสีของ Dr Non ที่ได้แรงบันดาลใจจาก Sanzo Wada',
+        cta: 'สำรวจชุดสี',
+      },
     },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
@@ -2655,6 +2673,11 @@ const i18nExt = {
         lede: "FloodDash 的公众频道 — Facebook 上 112K 粉丝、37K 点赞。每日泰语洪水简报，与 SLIC · depa · RCAD 合作。今日数据。明日更安全。",
         cta: '在 Facebook 上关注',
       },
+      p66: {
+        cat: '色彩展览',
+        lede: '348 组配色。搜索色彩关系，以灰度研究，复制色值。Dr Non 的色彩展览，灵感来自和田三造。',
+        cta: '探索配色',
+      },
     },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
@@ -2868,6 +2891,7 @@ const i18nExt = {
       p63: { lede: '// malaysia.godMode\n// jps.riverGauges(everyBasin) + met.warnings(malaysia)\n// transit(buses,trains) + aviation(ships,aircraft)\n// air + fire + citizen.index(who.lives.far.from.help)\n// map.oneScreen(locale[en,bm,zh])', cta: 'liveMap.open()' },
       p64: { lede: '// forestCarbon.thailand / provinceTap + drawBox\n// satellite.carbonStock + forestRemoval + emissions\n// fire + fossilCO2 + tVer.project(workbench)\n// sources + uncertainty / locale[th,en]', cta: 'assessment.open()' },
       p65: { lede: '// flooddash.community / facebook.channel\n// followers[112k] + likes[37k] + dailyBriefings.th\n// collab(SLIC, depa, RCAD)\n// liveIn.facebook.bitLy/flooddashThai', cta: 'facebook.follow()' },
+      p66: { cat: 'ColourExhibition', lede: 'palettes[348].search(relationship).study(grayscale).copy(css) // Dr Non × Sanzo Wada', cta: 'palettes.explore()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -3148,7 +3172,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '58 systems · 5 countries',
+      sysMeta: '59 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 19',
       intelligence: 'Intelligence',
@@ -3158,7 +3182,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 17',
+      labMeta: 'Side tools · in the open · 18',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -3326,7 +3350,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '58 ระบบ · 5 ประเทศ',
+      sysMeta: '59 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 19',
       intelligence: 'ข่าวกรอง',
@@ -3336,7 +3360,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 17',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 18',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -3502,7 +3526,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '58 个系统 · 5 个国家',
+      sysMeta: '59 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 19',
       intelligence: '情报',
@@ -3512,7 +3536,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 17',
+      labMeta: '辅助工具 · 开放中 · 18',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3684,7 +3708,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '58 systems · 5 countries',
+      sysMeta: '59 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[19]',
       intelligence: 'Intelligence',
@@ -3694,7 +3718,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[17]',
+      labMeta: 'sideTools & openProcess · count[18]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
@@ -3773,10 +3797,10 @@ const i18nPitch = {
       r3: '157 cities ranked live — shown working on stage within a 45-minute keynote.',
       r4lbl: 'Field note 01',
       r4: 'A vendor called it too complex. A working version was in the room fourteen days later.',
-      proofLine: '58 systems live across 5 countries. Open one. Use it. Judge.',
+      proofLine: '59 systems across 5 countries. Open one. Use it. Judge.',
       faqLabel: 'Before you ask',
       q1: 'Is it expensive?',
-      a1: 'No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.',
+      a1: "No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.",
       q2: 'Will it work with our data?',
       a2: 'Yes. Every system on this page already runs on Thai public data — TMD, GISTDA, the Pollution Control Department, OpenStreetMap. Messy data is normal; it is where we start.',
       q3: 'Is our data safe?',
@@ -4784,7 +4808,9 @@ function initFlooddashCarousel() {
   const canvas = document.getElementById('heroCanvas');
   if (!canvas || axiomMedia.isReduced) return;
   const useLiteCanvas = axiomMedia.isTouch || axiomMedia.isMobile;
-  const ACCENT = '0, 36, 125';
+  const palette = getComputedStyle(document.documentElement);
+  const ACCENT = palette.getPropertyValue('--accent-rgb').trim();
+  const OCHER = palette.getPropertyValue('--ocher-rgb').trim();
 
   const ctx = canvas.getContext('2d');
 
@@ -4883,11 +4909,11 @@ function initFlooddashCarousel() {
     const sigW = measure(canvasText.signals, FONT_META);
     const sigTop = top + (isMobile ? 16 : 18);
     ctx.font = FONT_META;
-    ctx.fillStyle = 'rgba(0, 36, 125, 0.85)';
+    ctx.fillStyle = `rgba(${OCHER}, 0.85)`;
     ctx.fillText(canvasText.signals, cw - right, sigTop);
 
     // Hairline tick under signals to tie to grid — visual "data" mark
-    ctx.strokeStyle = 'rgba(0, 36, 125, 0.4)';
+    ctx.strokeStyle = `rgba(${OCHER}, 0.4)`;
     ctx.lineWidth = 0.5;
     ctx.beginPath();
     ctx.moveTo(cw - right - sigW, sigTop + 12);
@@ -4898,7 +4924,7 @@ function initFlooddashCarousel() {
     const modeTop = sigTop + 18;
     ctx.font = FONT_MODE;
     const touring = canvasText.mode === 'AUTO TOUR';
-    ctx.fillStyle = touring ? 'rgba(0, 36, 125, 0.9)' : 'rgba(250, 249, 247, 0.95)';
+    ctx.fillStyle = touring ? `rgba(${OCHER}, 0.9)` : 'rgba(250, 249, 247, 0.95)';
     ctx.fillText(canvasText.mode, cw - right, modeTop);
   }
   // Make canvasText mutable from outside this IIFE so the existing
@@ -5043,4 +5069,3 @@ function initFlooddashCarousel() {
     el.textContent = phrases[0];
   });
 })();
-

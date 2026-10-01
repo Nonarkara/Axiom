@@ -4,8 +4,8 @@
    Calm, precise, dense, legible. Built for operators under pressure.
 
    Rules:
-   • One signal accent (Thai flag blue) for live / positive / primary action.
-   • Thailand flag palette: red · white · blue.
+   • One signal accent (Deep Lyons Blue) for live / positive / primary action.
+   • Plate 126: blue · ocher · ivory, carried by paper and ink.
    • Red is negative data only — never buttons or headings.
    • Hairline grids. Left-aligned labels. Right-aligned numbers.
    • No gradients, shadows, glows, glass, icons, pure black/white.
@@ -34,9 +34,15 @@
   --th-white: #f8f7f5;
   --th-blue: #00247d;
 
-  /* §1.3 Signal — the single UI accent */
-  --accent: #00247d;
-  /* flag blue — live, positive, primary action */
+  /* Plate 126 — https://colors.nonarkara.org/#plate-126.
+     Keep flag / identity tokens literal; the interface uses the exhibition chord. */
+  --accent: #1c4286;
+  --accent-hover: #153365;
+  --accent-rgb: 28, 66, 134;
+  --ocher: #e2b540;
+  --ocher-rgb: 226, 181, 64;
+  --ivory: #ebd3a2;
+  /* blue — live, positive, primary action */
   --neg: #a51931;
   /* flag red — negative data only */
   /* Same hue as --accent, lifted to clear AA on near-black. Use as foreground on
@@ -386,7 +392,7 @@ summary:focus-visible {
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  border-bottom: 1px solid var(--line-2);
+  border-bottom: 1px solid var(--ocher);
   padding-bottom: 6px;
   margin: 28px 0 1px;
 }
@@ -436,6 +442,7 @@ summary:focus-visible {
   gap: 0;
   margin: 0 0 28px;
   border: 1px solid var(--line-2);
+  border-top: 2px solid var(--ocher);
   background: var(--panel);
   font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
   font-size: 11px;
@@ -681,7 +688,7 @@ summary:focus-visible {
 }
 
 .btn--primary:hover {
-  background: #001a5c;
+  background: var(--accent-hover);
 }
 
 .btn--ghost {
@@ -1507,7 +1514,7 @@ summary:focus-visible {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #d4af37;
+  color: var(--ocher);
 }
 
 .probono-arch__idx {
@@ -1531,9 +1538,9 @@ summary:focus-visible {
 }
 
 .probono-arch__row--outputs .probono-arch__chip {
-  background: rgba(212, 175, 55, 0.10);
-  border: 1px solid rgba(212, 175, 55, 0.55);
-  color: #f5e0a3;
+  background: rgba(var(--ocher-rgb), 0.10);
+  border: 1px solid rgba(var(--ocher-rgb), 0.55);
+  color: var(--ivory);
 }
 
 .probono-arch__chip {
@@ -1565,7 +1572,7 @@ summary:focus-visible {
   background: var(--accent);
   color: #faf9f7;
   text-align: center;
-  border: 1px solid #0033a8;
+  border: 1px solid var(--accent-ink);
   line-height: 1.15;
   display: flex;
   align-items: center;
@@ -2004,16 +2011,16 @@ summary:focus-visible {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #d4af37;
+  color: var(--ocher);
 }
 
 .sys-arch__spec {
   font-size: 7.5px;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: var(--accent);
-  background: rgba(0, 51, 168, 0.20);
-  border: 1px solid rgba(0, 51, 168, 0.5);
+  color: var(--accent-ink);
+  background: rgba(var(--accent-rgb), 0.20);
+  border: 1px solid var(--accent-ink);
   padding: 0px 4px;
 }
 
@@ -2068,9 +2075,9 @@ summary:focus-visible {
 }
 
 .sys-arch__chip.is-emph {
-  background: rgba(212, 175, 55, 0.10);
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  color: #f5e0a3;
+  background: rgba(var(--ocher-rgb), 0.10);
+  border: 1px solid rgba(var(--ocher-rgb), 0.45);
+  color: var(--ivory);
   font-weight: 600;
 }
 
@@ -2084,7 +2091,7 @@ summary:focus-visible {
 .sys-arch__core-box {
   padding: 2px 5px;
   background: var(--accent);
-  border: 1px solid #0033a8;
+  border: 1px solid var(--accent-ink);
   color: #ffffff;
   text-align: center;
 }

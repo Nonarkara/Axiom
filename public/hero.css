@@ -104,7 +104,7 @@
   height: 12px;
   background: var(--accent);
   border: 1px solid var(--paper);
-  box-shadow: 0 0 0 0 rgba(0, 36, 125, 0.6);
+  box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.6);
   animation: sat-pulse 2.4s infinite;
 }
 
@@ -125,9 +125,9 @@
 }
 
 @keyframes sat-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(0, 36, 125, 0.6); }
-  70%  { box-shadow: 0 0 0 12px rgba(0, 36, 125, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 36, 125, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.6); }
+  70%  { box-shadow: 0 0 0 12px rgba(var(--accent-rgb), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
 }
 
 /* ----- Telemetry axes (decorative crosshair) ----- */
@@ -277,7 +277,7 @@
 
 .map-mode-dot.exploring {
   background: var(--accent);
-  box-shadow: 0 0 0 0 rgba(0, 36, 125, 0.5);
+  box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.5);
 }
 
 @keyframes map-mode-pulse {
@@ -306,7 +306,7 @@
 }
 
 .map-mode-btn:hover {
-  background: rgba(0, 36, 125, 0.85);
+  background: rgba(var(--accent-rgb), 0.85);
   border-color: var(--accent);
 }
 
@@ -395,7 +395,7 @@
 }
 
 .sat-btn:hover {
-  background: rgba(0, 36, 125, 0.4);
+  background: rgba(var(--accent-rgb), 0.4);
   color: var(--paper);
 }
 
@@ -541,7 +541,7 @@
 }
 
 @keyframes sat-hud-live-dot {
-  0%   { box-shadow: 0 0 0 0 rgba(0, 36, 125, 0.6); }
+  0%   { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.6); }
   70%  { box-shadow: 0 0 0 8px transparent; }
   100% { box-shadow: 0 0 0 0 transparent; }
 }
@@ -656,13 +656,13 @@
 
 .hero-line-accent {
   display: block;
-  color: var(--accent-ink); /* --accent is 1.46:1 on the near-black map, fails WCAG; --accent-ink (rams.css) is the same fix already used on .hero-featured-badge */
+  color: var(--ocher);
   /* Reserve one line of height so rotating phrases of different widths
      don't shift the hero h1 layout. If a phrase ever exceeds one line
      on a narrow viewport, the @media (max-width: 600px) override
      below drops the font-size. */
   min-height: 1.05em;
-  /* Plain flag-blue accent — no gradient (anti-regression §11.1.3) */
+  /* Ocher is editorial emphasis; blue still marks actions and live state. */
 }
 
 .hero-subtitle {
@@ -692,8 +692,8 @@
 }
 
 .hero-actions .btn--primary:hover {
-  background: #001a5c;
-  border-color: #001a5c;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
 }
 
 .hero-actions .btn--ghost {
@@ -747,7 +747,7 @@
 }
 
 .hero-node:hover {
-  background: rgba(0, 36, 125, 0.5);
+  background: rgba(var(--accent-rgb), 0.5);
   border-color: var(--accent);
 }
 
