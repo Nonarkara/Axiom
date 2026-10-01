@@ -12,16 +12,16 @@
     "hero": {
       "badge": "모든 시스템 온라인",
       "titleLine1": "혁신",
-      "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
-      "cta": "Start With the Pressure Map",
-      "ctaSecondary": "See Live Systems",
+      "subtitle": "도시는 데이터를 갖고 있지만, 중요한 순간에 아무도 보지 못합니다. 가장 어려운 결정을 위해 그것을 하나의 실시간 화면에 올립니다 — 2주 안에 작동합니다.",
+      "cta": "2주 검증 시작하기",
+      "ctaSecondary": "라이브 시스템 써보기",
       "nodeLabel": "전장을 탭하세요",
       "exploreHint": "지도 드래그 · 전장 탭",
       "hudLive": "전장",
       "hudWatching": "감시 중인 시스템",
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
-      "statSystems": "Live Systems",
+      "statSystems": "운영 중인 시스템",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
       "signalLabels": {
@@ -32,11 +32,11 @@
       },
       "rotatingPhrases": [
         "서비스로",
-        "사라지는",
+        "2주 만에",
         "동작하는",
         "도시를 위한",
         "결정을 위한",
-        "물처럼"
+        "눈에 보이는"
       ],
       "featured": {
         "kicker": "전장 브리프",
@@ -195,6 +195,7 @@
       "successDesc": "We'll get back to you soon."
     },
     "navCurrent": {
+      "why": "작동 방식",
       "systems": "시스템",
       "stages": "무대",
       "team": "팀",
@@ -223,16 +224,16 @@
     "sysSect": {
       "kicker": "운영 중",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
-      "lede": "각각은 날카로운 질문에서 시작해 작동하는 화면으로 출시되었고, 런칭 뉴스 사이클이 끝난 뒤에도 유용합니다. 클릭해서 사용하세요 — 모두 라이브입니다.",
+      "lede": "약속이 아니라 증거입니다. 아래의 모든 시스템은 누군가 충분히 빨리 내리지 못한 하나의 결정에서 시작했습니다. 모두 오늘 작동 중입니다 — 열어 보고, 써 보고, 직접 판단하십시오.",
       "sandboxKicker": "샌드박스 // 라이브",
       "sandboxNote": "데모가 아닙니다 — 샌드박스에서 작동하는 시스템입니다. 인상이 아니라 확장을 위해 구축했습니다. 고객 NDA 하의 프로덕션 배포는 더 크지만, 여기서 실행되는 것은 동일하게 동작하며 고급 모듈만 제외됩니다."
     },
     "stageSect": {
-      "kicker": "세 무대, 하나의 호",
+      "kicker": "네 무대, 하나의 호",
       "title": "정부는 <em>슬라이드를 기다리는 데 지쳤습니다.</em>",
-      "lede": "Q1은 타이베이에서 열렸습니다. Q2는 싱가포르 GITEX 메인 스테이지. 3부작은 LEAP East — 아시아 최대 무대 — 에서 FloodDash가 현장에 살아 있는 채로 닫힙니다. 매번 같은 논지: 다음 예산 사이클이 아니라 지금 만들라."
+      "lede": "Q1은 타이베이에서 열렸습니다. Q2는 싱가포르 GITEX 메인 스테이지. 호는 Tomorrow.City Shanghai 에서 이어졌습니다 — 큐브 스크린 위의 God Mode, 현장에서 실시간으로 요리되는 FloodDash. Q3은 LEAP East — 아시아 최대 무대 — 에서 닫힙니다. 매번 같은 논지: 다음 예산 사이클이 아니라 지금 만들라."
     ,
-        "meta": "2026 · 타이베이 · 싱가포르 · 방콕",},
+        "meta": "2026 · 타이베이 · 싱가포르 · 상하이 · 방콕",},
     "flooddashSect": {
       "kicker": "Q1–Q2 · Act III",
       "meta": "GITEX → LEAP East → FloodDash",
@@ -258,11 +259,11 @@
     "ctaSect": {
       "kicker": "함께하기",
       "meta": "방콕 · 동남아시아",
-      "title": "브리프를 보내주세요. <em>압력을 매핑하겠습니다.</em>",
-      "body": "문제가 실제이고 결정이 중요하다면, 2주 안에 증명 가능한 것을 보여드립니다. 조달 사이클 워밍업 없음. 무드보드 없음.",
-      "promise1": "첫 주에 압력 매핑. 결정, 사용자, 테이블 위의 데이터.",
-      "promise2": "슬라이드 다듬기 전에 작동하는 파일럿. 무료·기존 데이터 우선; 새 인프라는 정당화될 때만.",
-      "promise3": "첫날부터 데이터 트레일. 페이지뷰, 콘텐츠, 결정 로그 — 다음 빌드가 읽을 수 있게.",
+      "title": "결정을 알려 주세요. <em>2주 안에 작동하는 모습을 보여드립니다.</em>",
+      "body": "한 문단이면 됩니다: 더 빨리 내려야 할 결정, 누가 결정하는지, 지금 데이터가 어디 있는지. 명확한 예, 명확한 아니오, 또는 더 날카로운 질문 하나로 답하겠습니다. 영업 자료도, 조달 워밍업도 없습니다.",
+      "promise1": "1주 차 — 결정, 사람, 데이터를 한 페이지로 합의합니다.",
+      "promise2": "2주 차 — 기존 데이터와 무료 공공 데이터로 작동하는 파일럿. 시작에 새 하드웨어는 필요 없습니다.",
+      "promise3": "첫날부터 — 모든 사용과 결정을 기록해, 검증된 것만 확장합니다.",
       "alt": "Or find us on"
     },
     "panels": {
@@ -525,6 +526,9 @@
       "p60": { "lede": "O3 — 세 번째 힘. 태국의 OTOP 등록부를 데이터로 읽기: 77개 주 154,078개 레코드, 모두 출처, 완성도, 시점을 함께 제공합니다. 스크래핑도, AI 환각도 없음: 등록부는 등록부이며, 모든 셀에 출처가 표시됩니다.", "cta": "등록부 열기" },
       "p61": { "lede": "결코 출시되지 않은 슈퍼리그. 스물여섯 클럽, 실전 스쿼드, 직선 패스 — 한 번에 한 결정. 턴제 전술 축구, 한 명 또는 패드를 나누는 두 명이 함께 플레이. 시작 버튼을 누르고, 다음 경기가 중요하다고 믿으며, 패스하기 전에 필드를 읽으세요.", "cta": "시작 누르기" },
       "p62": { "lede": "롭부리 작전실 — 실시간 FloodDash 유역 텔레메트리(ThaiWater/HII), 빠삭 촐라싯 저수지 상태, 소셜 리스닝, CCTV 슬롯 그리드, 위성 레이어를 롭부리 주의 한 화면에. 한 화면, 네 가지 데이터 흐름, 파견 가능한 읽기.", "cta": "작전실 열기" },
+      "p63": { "lede": "말레이시아 · 신 모드. 모든 유역의 JPS 수위, MET 말레이시아 경보, 버스와 기차, 선박과 항공기, 공기와 화재, 그리고 도움에서 멀리 사는 시민을 보여주는 시민 지수. 한 지도, EN · BM · 中文.", "cta": "실시간 지도 열기" },
+      "p64": { "lede": "태국 산림 탄소 — 성을 탭하거나 박스를 그려 위성 기반 탄소 저장량, 산림 흡수와 배출, 산불과 화석 CO₂, 출처와 불확실성을 확인하세요. T-VER 프로젝트 평가 워크벤치 포함. 태국어 · 영어.", "cta": "평가 워크벤치 열기" },
+      "p65": { "lede": "FloodDash의 공개 채널 — Facebook 팔로워 112K, 좋아요 37K. SLIC · depa · RCAD와 함께 매일 태국어로 홍수 브리핑. 데이터 투데이. 세이프 투모로우.", "cta": "Facebook에서 팔로우" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>타이베이</b> · City Vision Stage · 2026년 3월",
@@ -545,6 +549,12 @@
       "sgS2": "총 참석자",
       "sgS3": "참가 국가",
       "sgS4": "워크숍 수용",
+      "shLoc": "<b>Tomorrow.City Shanghai 2026</b> · Main Stage · 2026",
+      "shTitle": "디지털 트윈이라고 부르지 마세요. 신 모드라고 부르세요.",
+      "shLede": "디지털 트윈은 예의 바른 이름입니다. 신 모드 — 도시를 신의 눈으로 바라본 전체 시야 — 가 정직한 이름입니다. 더 잘 관리하기 위한 것이지, 대시보드를 숭배하려는 것이 아닙니다. Dr Non 의 네 번째 이 무대. 장소는 부수적 이야기이고, 아이디어가 제품입니다. 큐브 스크린 위의 FloodDash, 현장에서 실시간 조리.",
+      "shQuote": "\"모든 개념을 4Ps 로 거르세요 — Purpose, Practicality, Proof, People. 그리고 사람을 위해 설계하세요. 물이 어떤 속도로 움직인다고 알려주는 센서는 시장에게 별 도움이 안 됩니다. 세제곱미터로 바꾸세요. 남은 여유고와 비교하세요. 물이 들어가는지 — 넘치는지 알게 됩니다. 그 기본 산수가 제품입니다.\"",
+      "shCite": "— Dr. Non, Tomorrow.City Shanghai 기조 연설",
+      "shS1": "이 무대 횟수", "shS2": "FloodDash · 큐브 스크린", "shS3": "공공 데이터 소스", "shS4": "핵심 takeaways (4Ps)",
       "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 7월 10일",
       "leapTitle": "아시아 최대 무대. FloodDash가 여기서 출시됩니다.",
       "leapLede": "Orbital Stage 패널 — \"From Congestion to Connection: The Tech Powered Future of Transport in Asia.\" DEPA 스마트시티 진흥 수석전문가 Dr. Non Arkara가 Mitchell Price, Richard Chung, Will Peters와 함께 Q1–Q2 호를 FloodDash 라이브 출시로 닫았습니다.",
@@ -864,19 +874,20 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "55개 시스템 · 5개국",
+      "sysMeta": "58개 시스템 · 5개국",
       "command": "도시 대시보드",
-      "commandMeta": "실시간 도시 운영실 및 환경 관측 · 17",
+      "commandMeta": "실시간 도시 운영실 및 환경 관측 · 19",
       "intelligence": "인텔리전스",
       "intelligenceMeta": "신호 및 분석 · 8",
       "civic": "시민",
-      "civicMeta": "국가 플랫폼 및 시민 인프라 · 4",
+      "civicMeta": "국가 플랫폼 및 시민 인프라 · 5",
       "emerging": "신규",
       "emergingMeta": "연구급 및 새 운영 모델 · 9",
       "lab": "랩",
       "labMeta": "보조 도구 · 공개 진행 · 17"
     },
     "sysStatus": {
+      "degraded": "성능 저하",
       "live": "라이브",
       "preview": "미리보기",
       "dev": "개발 중",
@@ -938,16 +949,16 @@
     "hero": {
       "badge": "全システム稼働中",
       "titleLine1": "革新",
-      "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
-      "cta": "Start With the Pressure Map",
-      "ctaSecondary": "See Live Systems",
+      "subtitle": "データはあるのに、肝心なときに誰にも見えない。最も難しい意思決定のために、それをひとつのライブ画面にまとめます——2週間で稼働します。",
+      "cta": "2週間の実証を始める",
+      "ctaSecondary": "ライブシステムを試す",
       "nodeLabel": "戦域をタップ",
       "exploreHint": "地図をドラッグ · 戦域をタップ",
       "hudLive": "戦域",
       "hudWatching": "監視中のシステム",
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
-      "statSystems": "Live Systems",
+      "statSystems": "本番稼働中のシステム",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
       "signalLabels": {
@@ -958,11 +969,11 @@
       },
       "rotatingPhrases": [
         "サービスとして",
-        "消える",
+        "2週間で",
         "動く",
         "都市のために",
         "意思決定のために",
-        "水のように"
+        "見える"
       ],
       "featured": {
         "kicker": "戦域ブリーフ",
@@ -1121,6 +1132,7 @@
       "successDesc": "We'll get back to you soon."
     },
     "navCurrent": {
+      "why": "進め方",
       "systems": "システム",
       "stages": "ステージ",
       "team": "チーム",
@@ -1149,16 +1161,16 @@
     "sysSect": {
       "kicker": "本番稼働中",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
-      "lede": "それぞれが鋭い問いから始まり、稼働する画面としてリリースされ、ローンチ後の報道サイクルが終わっても有用であり続けます。クリックしてご利用ください — すべてライブです。",
+      "lede": "約束ではなく証拠を。下のシステムはどれも、誰かが十分な速さで下せなかったひとつの決定から始まりました。どれも今日稼働中です——開いて、使って、ご自身で判断してください。",
       "sandboxKicker": "サンドボックス // ライブ",
       "sandboxNote": "デモではありません — サンドボックスで稼働する実システムです。見せるためではなく、スケールするために構築しています。クライアント NDA 下の本番展開はより大規模ですが、ここで動くものは同じ挙動をし、高度なモジュールのみ非公開です。"
     },
     "stageSect": {
-      "kicker": "3つのステージ、1本の弧",
+      "kicker": "4つのステージ、1本の弧",
       "title": "政府は<em>スライドを待つのに疲れました。</em>",
-      "lede": "Q1は台北で開幕。Q2はシンガポール GITEX メインステージ。三部作は LEAP East — アジア最大のステージ — で FloodDash が現場に生きたまま閉じます。毎回同じ論点：次の予算サイクルではなく、今すぐ構築せよ。"
+      "lede": "Q1は台北で開幕。Q2はシンガポール GITEX メインステージ。弧は Tomorrow.City Shanghai へ — キューブスクリーン上の God Mode、現場でリアルタイム調理される FloodDash。Q3は LEAP East — アジア最大のステージ — で閉じます。毎回同じ論点：次の予算サイクルではなく、今すぐ構築せよ。"
     ,
-        "meta": "2026 · 台北 · シンガポール · バンコク",},
+        "meta": "2026 · 台北 · シンガポール · 上海 · バンコク",},
     "flooddashSect": {
       "kicker": "Q1–Q2 · Act III",
       "meta": "GITEX → LEAP East → FloodDash",
@@ -1184,11 +1196,11 @@
     "ctaSect": {
       "kicker": "ご相談",
       "meta": "バンコク · 東南アジア",
-      "title": "ブリーフをお送りください。<em>プレッシャーを可視化します。</em>",
-      "body": "課題が現実的で、判断が重要であれば、2週間以内に証明可能なものをお見せします。調達サイクルのウォームアップはありません。ムードボードもありません。",
-      "promise1": "初週にプレッシャーを可視化。判断、ユーザー、テーブル上のデータ。",
-      "promise2": "スライドの磨き込みより先に稼働するパイロット。無償・既存データを優先し、新インフラは正当化されたときのみ。",
-      "promise3": "初日からデータトレイル。ページビュー、コンテンツ、判断ログ — 次のビルドが読み取れるように。",
+      "title": "その意思決定を教えてください。<em>2週間で動く姿をお見せします。</em>",
+      "body": "一段落で十分です：より速く下したい決定、誰が決めるのか、データが今どこにあるのか。明確なイエス、明確なノー、あるいはより鋭い質問をひとつ返します。営業資料も、調達のための前置きもありません。",
+      "promise1": "第1週——決定、関係者、データを1ページで合意。",
+      "promise2": "第2週——既存データと無料の公共データで動くパイロット。開始時に新しいハードウェアは不要。",
+      "promise3": "初日から——すべての利用と決定を記録し、実証されたものだけを拡張。",
       "alt": "Or find us on"
     },
     "panels": {
@@ -1451,6 +1463,9 @@
       "p60": { "lede": "O3 — 三乗の力。タイの OTOP レジストリをデータとして読む：77 県 154,078 件、すべてのレコードに出所、完全性、年代が伴います。スクレイピングも AI の幻覚もなし：レジストリはレジストリであり、すべてのセルに出所が付きます。", "cta": "レジストリを開く" },
       "p61": { "lede": "ついに始まらなかったスーパーリーグ。二十六のクラブ、実在の選手、直線のパス — 一手ずつ決める。ターン制タクティカルサッカー、一人でもパッドを分けて二人でも。スタートを押して、次の試合が大切なものだと信じ、パスする前にピッチを読め。", "cta": "スタートを押す" },
       "p62": { "lede": "ロッブリ作戦室 — リアルタイム FloodDash 流域テレメトリ(ThaiWater/HII)、パーサックチョーラシット貯水池のステータス、ソーシャルリスニング、CCTV スロットグリッド、衛星レイヤーをロッブリ県の一画面に。一画面、四つのデータの流れ、出動可能な読み取り。", "cta": "作戦室を開く" },
+      "p63": { "lede": "マレーシア · ゴッドモード。全流域の JPS 水位、MET マレーシア警報、バスと鉄道、船舶と航空機、空気と火災、そして支援から遠い住民を示す市民指数。一つの地図、EN · BM · 中文。", "cta": "ライブマップを開く" },
+      "p64": { "lede": "タイ森林炭素 — 州をタップまたはボックスを描き、衛星ベースの炭素ストック、森林吸収と排出、山火事と化石 CO₂、源泉と不確実性を確認。T-VER プロジェクト評価ワークベンチ付き。タイ語 · 英語。", "cta": "評価ワークベンチを開く" },
+      "p65": { "lede": "FloodDash の公開チャンネル — Facebook フォロワー 112K、いいね 37K。SLIC · depa · RCAD と共に毎日タイ語で洪水ブリーフィング。データ・トゥデイ。セーファー・トゥモロー。", "cta": "Facebook でフォロー" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>台北</b> · City Vision Stage · 2026年3月",
@@ -1471,6 +1486,12 @@
       "sgS2": "総参加者",
       "sgS3": "参加国",
       "sgS4": "ワークショップ定員",
+      "shLoc": "<b>Tomorrow.City Shanghai 2026</b> · Main Stage · 2026",
+      "shTitle": "デジタルツインと呼ぶな。ゴッドモードと呼べ。",
+      "shLede": "デジタルツインは丁寧すぎる呼び名。ゴッドモードこそが正直な呼び方 — 神の視点であなたの街をまるごと見る、管理しやすくするためであって、ダッシュボードを崇拝するためではない。Dr Non はこのステージ 4 回目。会場は脇役、アイデアが主役 — キューブスクリーン上の FloodDash、現場でリアルタイム調理。",
+      "shQuote": "\"すべての概念を 4Ps（Purpose、Practicality、Proof、People）で濾す。そして人向けに設計する。水が速度 x で動いていると示すセンサーは市長に何も伝えない。立方メートルへ変換し、ダムの残り freeboard と比べる。そうして水が収まるか溢れるかが分かる。その基礎算数が製品だ。\"",
+      "shCite": "— Dr. Non、Tomorrow.City Shanghai キーノート",
+      "shS1": "登壇回数", "shS2": "FloodDash on キューブ", "shS3": "公開データソース", "shS4": "takeaways（4Ps 枠組み）",
       "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 7月10日",
       "leapTitle": "アジア最大のステージ。FloodDash はここでローンチ。",
       "leapLede": "Orbital Stage パネル — 「From Congestion to Connection: The Tech Powered Future of Transport in Asia」。DEPA スマートシティ推進シニアエキスパート Dr. Non Arkara が Mitchell Price、Richard Chung、Will Peters と共に、FloodDash ライブローンチで Q1–Q2 の弧を閉じました。",
@@ -1769,19 +1790,20 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "55システム · 5か国",
+      "sysMeta": "58システム · 5か国",
       "command": "シティダッシュボード",
-      "commandMeta": "リアルタイム都市運用室と環境観測 · 17",
+      "commandMeta": "リアルタイム都市運用室と環境観測 · 19",
       "intelligence": "インテリジェンス",
       "intelligenceMeta": "シグナルと分析 · 8",
       "civic": "シビック",
-      "civicMeta": "国家プラットフォームと市民インフラ · 4",
+      "civicMeta": "国家プラットフォームと市民インフラ · 5",
       "emerging": "新興",
       "emergingMeta": "研究グレードと新運用モデル · 9",
       "lab": "ラボ",
       "labMeta": "補助ツール · 公開中 · 17"
     },
     "sysStatus": {
+      "degraded": "性能低下",
       "live": "稼働中",
       "preview": "プレビュー",
       "dev": "開発中",
@@ -1843,16 +1865,16 @@
     "hero": {
       "badge": "Tất cả hệ thống trực tuyến",
       "titleLine1": "Đổi mới",
-      "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
-      "cta": "Start With the Pressure Map",
-      "ctaSecondary": "See Live Systems",
+      "subtitle": "Thành phố của bạn có dữ liệu, nhưng lúc quan trọng không ai nhìn thấy. Chúng tôi đưa nó lên một màn hình trực tiếp cho quyết định khó nhất của bạn — chạy được trong hai tuần.",
+      "cta": "Bắt đầu thử nghiệm hai tuần",
+      "ctaSecondary": "Dùng thử hệ thống thật",
       "nodeLabel": "Chạm chọn chiến trường",
       "exploreHint": "Kéo bản đồ · Chạm chiến trường",
       "hudLive": "CHIẾN TRƯỜNG",
       "hudWatching": "HỆ THỐNG ĐANG THEO",
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
-      "statSystems": "Live Systems",
+      "statSystems": "Hệ thống đang vận hành",
       "statMonitoring": "Live Monitoring",
       "statCountries": "Countries",
       "signalLabels": {
@@ -1863,11 +1885,11 @@
       },
       "rotatingPhrases": [
         "dưới dạng dịch vụ",
-        "biến mất",
+        "trong hai tuần",
         "vận hành",
         "cho thành phố",
         "cho quyết định",
-        "như nước"
+        "nhìn thấy được"
       ],
       "featured": {
         "kicker": "TÓM TẮT CHIẾN TRƯỜNG",
@@ -2026,6 +2048,7 @@
       "successDesc": "We'll get back to you soon."
     },
     "navCurrent": {
+      "why": "Cách làm việc",
       "systems": "Hệ thống",
       "stages": "Sân khấu",
       "team": "Đội ngũ",
@@ -2054,16 +2077,16 @@
     "sysSect": {
       "kicker": "Đang chạy thực tế",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
-      "lede": "Mỗi hệ thống bắt đầu từ một câu hỏi sắc bén, được triển khai thành giao diện hoạt động và vẫn hữu ích lâu sau khi chu kỳ báo chí ra mắt kết thúc. Nhấp vào và sử dụng — tất cả đều đang live.",
+      "lede": "Bằng chứng, không phải lời hứa. Mỗi hệ thống dưới đây bắt đầu từ một quyết định mà ai đó chưa đưa ra đủ nhanh. Tất cả đều đang chạy hôm nay — hãy mở, dùng thử và tự đánh giá.",
       "sandboxKicker": "Sandbox // Trực tiếp",
       "sandboxNote": "Đây không phải bản demo — là hệ thống đang chạy trong sandbox. Xây để mở rộng, không phải để gây ấn tượng. Triển khai production dưới NDA của khách hàng lớn hơn; những gì chạy ở đây hoạt động tương tự, chỉ giữ lại các module nâng cao."
     },
     "stageSect": {
-      "kicker": "Ba sân khấu, một vòng cung",
+      "kicker": "Bốn sân khấu, một vòng cung",
       "title": "Chính phủ đã mệt mỏi <em>chờ đợi slide.</em>",
-      "lede": "Q1 mở tại Đài Bắc. Q2 lên sân khấu chính GITEX Singapore. Bộ ba khép lại tại LEAP East — sân khấu lớn nhất châu Á — với FloodDash sống ngay trong phòng. Cùng một luận điểm mỗi lần: xây ngay, đừng chờ chu kỳ ngân sách tiếp theo."
+      "lede": "Q1 mở tại Đài Bắc. Q2 lên sân khấu chính GITEX Singapore. Vòng cung tiếp tục tại Tomorrow.City Shanghai — God Mode trên màn hình khối, FloodDash được nấu trực tiếp tại sảnh. Q3 khép lại tại LEAP East — sân khấu lớn nhất châu Á. Cùng một luận điểm mỗi lần: xây ngay, đừng chờ chu kỳ ngân sách tiếp theo."
     ,
-        "meta": "2026 · Đài Bắc · Singapore · Bangkok",},
+        "meta": "2026 · Đài Bắc · Singapore · Thượng Hải · Bangkok",},
     "flooddashSect": {
       "kicker": "Q1–Q2 · Act III",
       "meta": "GITEX → LEAP East → FloodDash",
@@ -2089,11 +2112,11 @@
     "ctaSect": {
       "kicker": "Hợp tác",
       "meta": "Bangkok · Đông Nam Á",
-      "title": "Gửi brief. <em>Chúng tôi sẽ lập bản đồ áp lực.</em>",
-      "body": "Nếu vấn đề là thực tế và quyết định quan trọng, chúng tôi sẽ cho thấy điều có thể chứng minh trong hai tuần. Không khởi động chu kỳ đấu thầu. Không moodboard.",
-      "promise1": "Lập bản đồ áp lực trong tuần đầu. Quyết định, người dùng, dữ liệu trên bàn.",
-      "promise2": "Pilot hoạt động trước khi chỉnh slide. Dữ liệu miễn phí và sẵn có trước; hạ tầng mới chỉ khi được biện minh.",
-      "promise3": "Dấu vết dữ liệu từ ngày đầu. Lượt xem, nội dung, nhật ký quyết định — để lần xây dựng tiếp theo đọc được.",
+      "title": "Hãy cho chúng tôi biết quyết định đó. <em>Chúng tôi sẽ cho bạn thấy nó chạy trong hai tuần.</em>",
+      "body": "Viết một đoạn: quyết định bạn cần đưa ra nhanh hơn, ai là người quyết định, và dữ liệu hiện nằm ở đâu. Bạn sẽ nhận lại một câu “có” rõ ràng, một câu “không” rõ ràng, hoặc một câu hỏi sắc hơn. Không có slide bán hàng. Không có màn khởi động mua sắm.",
+      "promise1": "Tuần 1 — thống nhất quyết định, con người và dữ liệu trên một trang.",
+      "promise2": "Tuần 2 — một bản thử nghiệm chạy được trên dữ liệu sẵn có và dữ liệu công khai miễn phí. Không cần phần cứng mới để bắt đầu.",
+      "promise3": "Từ ngày đầu — ghi lại mọi lượt dùng và mọi quyết định, để chỉ mở rộng những gì đã được chứng minh.",
       "alt": "Or find us on"
     },
     "panels": {
@@ -2356,6 +2379,9 @@
       "p60": { "lede": "O3 — sức mạnh thứ ba. Sổ đăng ký OTOP của Thái Lan, đọc như dữ liệu: 154.078 bản ghi trên 77 tỉnh, mỗi bản ghi mang nguồn, mức độ đầy đủ và thời điểm. Không scraping, không AI bịa: sổ đăng ký là sổ đăng ký, có nguồn gốc trên từng ô.", "cta": "Mở sổ đăng ký" },
       "p61": { "lede": "Giải Super League chưa bao giờ ra mắt. Hai mươi sáu câu lạc bộ, đội hình thật, chuyền thẳng — mỗi lần một quyết định. Bóng đá chiến thuật theo lượt, cho một người hoặc hai người chung tay cầm. Nhấn start, tin rằng trận sau quan trọng, và đọc sân trước khi chuyền.", "cta": "Nhấn start" },
       "p62": { "lede": "Phòng tác chiến Lop Buri — viễn trắc lưu vực FloodDash thời gian thực (ThaiWater/HII), trạng thái hồ chứa Pa Sak Jolasid, nghe xã hội, lưới ô CCTV và các lớp vệ tinh cho tỉnh Lop Buri, trên một màn hình. Một màn hình, bốn dòng dữ liệu, cách đọc có thể điều phối.", "cta": "Mở phòng tác chiến" },
+      "p63": { "lede": "Malaysia · Chế độ Thần. Mực nước sông JPS trên mọi lưu vực, cảnh báo MET Malaysia, xe buýt và tàu hỏa, tàu biển và máy bay, không khí và cháy, cùng chỉ số công dân cho biết ai sống xa sự trợ giúp. Một bản đồ, EN · BM · 中文.", "cta": "Mở bản đồ trực tiếp" },
+      "p64": { "lede": "Carbon rừng Thái Lan — chạm một tỉnh hoặc kéo một ô để xem trữ lượng carbon dựa trên vệ tinh, hấp thụ và phát thải rừng, cháy rừng và CO₂ hóa thạch, kèm nguồn và độ bất định. Có bàn đánh giá dự án T-VER. Tiếng Thái · Tiếng Anh.", "cta": "Mở bàn đánh giá" },
+      "p65": { "lede": "Kênh công khai của FloodDash — 112K người theo dõi, 37K lượt thích trên Facebook. Bản tin lũ hàng ngày bằng tiếng Thái, với SLIC · depa · RCAD. Dữ liệu hôm nay. An toàn hơn ngày mai.", "cta": "Theo dõi trên Facebook" },
     },
     "stagesContent": {
       "taipeiLoc": "<b>Đài Bắc</b> · City Vision Stage · tháng 3/2026",
@@ -2376,6 +2402,12 @@
       "sgS2": "Tổng số người tham dự",
       "sgS3": "Quốc gia tham dự",
       "sgS4": "Sức chứa workshop",
+      "shLoc": "<b>Tomorrow.City Shanghai 2026</b> · Main Stage · 2026",
+      "shTitle": "Đừng gọi nó là digital twin. Hãy gọi là God Mode.",
+      "shLede": "Digital twin là cái tên lịch sự. God Mode mới là tên thật — cái nhìn toàn cảnh như thần nhìn vào thành phố bạn, để bạn quản lý tốt hơn, chứ không phải để thờ phượng dashboard. Dr Non lần thứ tư trên sân khấu này; địa điểm là câu chuyện phụ, ý tưởng mới là sản phẩm — FloodDash trên màn hình khối, nấu trực tiếp tại sảnh.",
+      "shQuote": "\"Lọc mọi khái niệm qua 4Ps — Purpose, Practicality, Proof, People. Rồi thiết kế cho con người. Cảm biến nói nước chảy với vận tốc x thì chẳng giúp ích gì cho thị trưởng. Đổi ra mét khối. So với freeboard còn lại của hồ chứa. Rồi bạn sẽ biết nước vừa hay tràn. Toán cơ bản đó chính là sản phẩm.\"",
+      "shCite": "— Dr. Non, Tomorrow.City Shanghai keynote",
+      "shS1": "Số lần trên sân khấu", "shS2": "FloodDash trên khối", "shS3": "Nguồn dữ liệu công", "shS4": "takeaways (khung 4Ps)",
       "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 10 thg 7",
       "leapTitle": "Sân khấu lớn nhất châu Á. FloodDash ra mắt tại đây.",
       "leapLede": "Panel trên Orbital Stage — \"From Congestion to Connection: The Tech Powered Future of Transport in Asia.\" Dr. Non Arkara, Senior Expert Smart City Promotion tại DEPA, cùng Mitchell Price, Richard Chung và Will Peters khép vòng cung Q1–Q2 bằng buổi ra mắt FloodDash live.",
@@ -2674,19 +2706,20 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "55 hệ thống · 5 quốc gia",
+      "sysMeta": "58 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
-      "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 17",
+      "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 19",
       "intelligence": "Tình báo",
       "intelligenceMeta": "Tín hiệu và phân tích · 8",
       "civic": "Công dân",
-      "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 4",
+      "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 5",
       "emerging": "Mới nổi",
       "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 9",
       "lab": "Lab",
       "labMeta": "Công cụ phụ · mở công khai · 17"
     },
     "sysStatus": {
+      "degraded": "Hiệu suất suy giảm",
       "live": "Trực tiếp",
       "preview": "Xem trước",
       "dev": "Đang phát triển",

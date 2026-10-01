@@ -428,6 +428,58 @@ summary:focus-visible {
   color: var(--ink-3);
 }
 
+/* EVIDENCE STRIP — fine-print provenance for the systems section */
+.evidence-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  margin: 0 0 28px;
+  border: 1px solid var(--line-2);
+  background: var(--panel);
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+  overflow: hidden;
+}
+
+.evidence-strip__cell {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 14px;
+  border-right: 1px solid var(--line-2);
+  white-space: nowrap;
+}
+
+.evidence-strip__cell:last-child {
+  border-right: 0;
+}
+
+.evidence-strip__key {
+  color: var(--ink-4);
+  text-transform: uppercase;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+}
+
+.evidence-strip__val {
+  color: var(--ink-1);
+  font-weight: 600;
+}
+
+.evidence-strip__val--accent {
+  color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .evidence-strip { font-size: 10px; }
+  .evidence-strip__cell { padding: 6px 10px; }
+}
+
+
 /* ============================================================
    §3.2 HAIRLINE CELL GRID — the workhorse
    1px hairlines. Structural whitespace. No arbitrary offsets.

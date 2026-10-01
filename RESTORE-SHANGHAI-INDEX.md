@@ -1,31 +1,31 @@
-# Shanghai index restore (PR #2)
+# Shanghai font recovery (PR #2)
 
-## Status (2026-09-21 ICT)
+## Restored on 2026-10-01
 
-- Sidecar parts `public/index.html.gz.b64.p0` … `p10` are on branch `fix/shanghai-self-host-fonts` (exact bytes from agent box).
-- Local roundtrip: join → gunzip → **163380 bytes / ~2190 lines**, matches `/workspace/Axiom/public/index.html`.
-- `scripts/fetch-fonts.mjs` prefers unpadded `p{i}` over legacy `p{00}`.
-- MCP `create_or_update_file` cannot push the full 163KB `index.html` in one Contents API call from this agent (payload framing), and pushing `.github/workflows/*.yml` returns **404** (token lacks `workflow` scope).
+`public/index.html` is the full page again. The intact September 21 recovery
+copy was compared against the branch base, then its font/FloodDash/CDP changes
+were applied to main at `1c68e9a`, preserving all newer sections and copy.
 
-## What Non must do before merge
+Recovery source: https://drive.google.com/file/d/1PzOK_20xD6QVsjp4E6WT69CFoVvB-bas/view
 
-### Option A — local restore + push (fastest)
+The old `public/index.html.gz.b64.p0` … `p10` files fail gzip integrity checks.
+They are retained only as historical recovery artifacts. Do not reconstruct the
+page from them or activate the obsolete workflow template in `scripts/`.
 
-```bash
-git checkout fix/shanghai-self-host-fonts && git pull
-node scripts/fetch-fonts.mjs
-wc -l public/index.html   # expect >= 2000
-grep -q 'fonts.css?v=20260921b' public/index.html
-grep -q 'flood.nonarkara.org' public/index.html
-grep -q 'sysStatus.degraded' public/index.html
-! grep -q 'fonts.googleapis.com/css' public/index.html
-git add public/index.html
-git commit -m 'fix(type): restore full Shanghai index (self-host fonts, FloodDash, CDP degraded)'
-git push
+`node scripts/fetch-fonts.mjs` now only fills missing font binaries. It never
+rewrites the HTML. All eight binaries and their OFL licenses are committed, so
+Cloudflare can serve this static tree without a font download/build step.
+
+## Local checks
+
+```
+node --test scripts/test-shanghai-recovery.mjs
+node --check server.mjs
+node --check public/app.js
+node --check public/i18n-regional.js
+node --check scripts/fetch-fonts.mjs
 ```
 
-### Option B — Actions workflow
-
-Copy `scripts/restore-shanghai-index.workflow.yml` → `.github/workflows/restore-shanghai-index.yml`, push, then run **workflow_dispatch** (or push to the branch). Merge PR **only after** Actions commits the restored index.
-
-## Do not merge while `public/index.html` is still the stub.
+The PR remains draft. Browser rendering, map interactions, locale switching,
+mobile layout, and complete visual QA still require a browser-capable executor.
+No deployment or merge is part of this recovery.
