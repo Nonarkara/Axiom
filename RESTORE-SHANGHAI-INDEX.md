@@ -6,7 +6,7 @@
 copy was compared against the branch base, then its font/FloodDash/CDP changes
 were applied to main at `1c68e9a`, preserving all newer sections and copy.
 
-Recovery source: https://drive.google.com/file/d/1PzOK_20xD6QVsjp4E6WT69CFoVvB-bas/view
+Recovery source: the intact September 21 recovery copy, cross-checked against the branch base.
 
 The old `public/index.html.gz.b64.p0` … `p10` files fail gzip integrity checks.
 They are retained only as historical recovery artifacts. Do not reconstruct the
