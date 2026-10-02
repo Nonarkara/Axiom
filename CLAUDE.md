@@ -57,5 +57,9 @@ and restore surgically.
 
 ## Design Notes
 
+For authored composition and task-level proof, read `DESIGN-TENETS.md`. This
+additional quality gate preserves the current project contract and live features;
+it does not re-impose a historical theme or substitute a palette for signal colour.
+
 - Site is intentionally static but creates the *illusion* of real-time — that illusion is the value proposition.
 - If a file is >500 lines and "looks chaotic," that IS the personality. Do not flatten.

@@ -207,6 +207,10 @@ This site and our services are presented under the trade name Axiom. The registe
 
 ## License
 
+The reusable design method and its credited reading lineage are documented in
+[DESIGN-TENETS.md](DESIGN-TENETS.md). It governs composition and communication
+without replacing Axiom's current visual or operational identity.
+
 This project is licensed under the **MIT License**. Copyright © 2026 **Axiom X Co., Ltd.** See [LICENSE](LICENSE).
 
 Nested `axiom DNA/LICENSE` (also MIT) is left as that tree’s own copy.

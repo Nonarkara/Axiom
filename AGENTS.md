@@ -119,6 +119,10 @@ If a future agent has re-broken it, the recovery is `git show 8bdf126:public/ind
 
 ## 7. When in doubt
 
+- Before a design revision, read `DESIGN-TENETS.md` and use the linked canonical
+  `bauhaus-human-design` method. Quality evidence supplements the mechanical gate;
+  it never authorizes theme replacement or removal of earned interactions.
+
 - The project is on `main` branch. Push to `main` triggers deploy.
 - The remote is `git@github.com:nonarkara/Axiom.git` (note lowercase `n`) — GitHub redirects to the new canonical `Nonarkara/Axiom.git` on push.
 - The deploy hook is flaky. If you push and don't see a Cloudflare deploy in 10 min, ask Dr Non — don't wait.
