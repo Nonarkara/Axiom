@@ -28,7 +28,7 @@ Axiom is a Bangkok consultancy that builds decision systems for cities, governme
 **Axiom X design / civic product language** means:
 
 - **Instrument first.** Operators stare at these surfaces. Every mark has to serve a decision, not a moodboard.
-- **Hairline geometry.** Thailand-flag blue (`#00247d`) on warm paper (`#faf9f7`). Square corners. No gradients, drop shadows, or pastels on the live site.
+- **Hairline geometry.** Palette plate 126: Deep Lyons Blue (`#1c4286`) with ocher (`#e2b540`) on warm paper (`#faf9f7`). Literal Thailand-flag and corporate identity tokens remain unchanged. Square corners. No decorative gradients, drop shadows, or pastels.
 - **Earned content only.** Real systems, real stages, real photographs. No stock filler, no “Feature 1 / Feature 2 / Feature 3.”
 - **The illusion of real-time is intentional.** The page is static HTML. The map, canvas, and HUD *behave* like an operations room. That behaviour is the methodology made visible.
 
@@ -147,7 +147,11 @@ Open [http://127.0.0.1:3000](http://127.0.0.1:3000). You should see the Leaflet 
 
 `Ctrl+C` stops the server. Operator notes: [`QUICKSTART.md`](QUICKSTART.md). Agent notes: [`AGENTS.md`](AGENTS.md).
 
-There is currently no `package.json` in the tree, so `npm run dev` has nothing to bind to. The process that actually serves the page is `node server.mjs` (listens on `127.0.0.1`, port `PORT` or `3000`).
+`npm run dev` also starts the server; no dependencies are required. It binds only to `127.0.0.1`, using port `PORT` or `3000`. `npm run check` checks JavaScript syntax, and `npm test` runs isolated security regression tests. The optional visual QA scripts require a separately installed Playwright.
+
+The local `/admin/` workspace and `/api/admin/*` require HTTP Basic authentication. Set `AXIOM_ADMIN_PASSWORD` to a unique password of at least 16 characters in the process environment before starting the server; the username defaults to `admin` (`AXIOM_ADMIN_USER` overrides it). With no password, admin access is disabled. Never put credentials in source, shell history, or a public URL. The server does not automatically load `.env` files. Do not expose this HTTP listener through a tunnel or reverse proxy; remotely hosted admin access needs HTTPS and a separate access-control deployment.
+
+Cloudflare publishes static files only, not the Node API or SQLite database. Its admin page is a read-only viewer of public evidence, never private pipeline records. The exporter deliberately omits pipeline data. Browser security headers come from `lib/security.mjs`; after changing inline scripts, run `npm run security:headers` to refresh the hash-based CSP in `public/_headers`. See [the security audit](docs/security/cso-audit-2026-10-05.md) for scope and remaining risks.
 
 ### Fork without destroying the language
 

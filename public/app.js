@@ -310,13 +310,12 @@ const ARCHITECTURES = {
     foot: 'the 134-project ASCN portfolio · read by a director',
   },
   'dao': {
-    name: 'DAO DE JING',
-    ver: '1.3.0',
+    name: 'DAO × PALETTE',
     idx: '25',
-    inputs: ['Dao De Jing text', 'Tsai comics', 'Buddhist parallels', 'Psychology notes'],
-    core: { name: 'READING ROOM', meta: ['trilingual', 'living reference'] },
-    outputs: ['TH / EN / ZH reading', 'Pinyin', 'Cross-tradition map'],
-    foot: 'a trilingual reading room · still growing',
+    inputs: ['81 chapters', 'EN / TH / ZH text', 'Character study', 'Palette combinations'],
+    core: { name: 'READING ROOM', meta: ['81 chapters', 'Palette colours'] },
+    outputs: ['TH / EN / ZH reading', 'Character study', 'Illustrated notes'],
+    foot: 'updated edition · original reading room linked below',
   },
   'ikigai': {
     name: 'IKIGAI ENGINE',
@@ -3163,7 +3162,7 @@ const i18nExt2 = {
       fwPrivacy:'Privacy & trust — PDPA, GDPR-informed principles; jurisdictional compliance is engagement-specific',
       legalLabel:'Terms · Privacy · Liability · Law',
       terms:'Use lawfully. No republishing screenshots, dashboards, model outputs, or system internals without written permission. Axiom and the system names shown here are trade names of Axiom X Co., Ltd.',
-      privacy:'A 12-character hashed visitor tag — used only for rate limiting and aggregate traffic measurement. No personal data collected. No advertising cookies. No sale or sharing of visitor data. Linked systems have their own policies — read theirs first.',
+      privacy:'Cloudflare provides aggregate traffic analytics. This site does not set advertising cookies or sell visitor data. Hosting and analytics providers may process request metadata. Linked systems have their own privacy policies — read theirs first.',
       dataAttribution:'Sandbox data: TMD, GISTDA, JICA, NBTC, Pollution Control Dept, OpenStreetMap, TomTom, and other public or open-licensed feeds — credited in-system. Commercial feeds (Air4Thai o61, 33V, 34T, Naver CFT) named in-system.',
       liability:'Sandbox and demonstration systems on this site are working, not guaranteed. Treat every metric as a hint, not a verdict. Real decisions need real verification with the originating authority. Axiom is not liable for decisions made on sandbox data.',
       governingLaw:'These terms are governed by the laws of the Kingdom of Thailand. Disputes are subject to the exclusive jurisdiction of the courts of Bangkok. Where this English text conflicts with any translation, the English text prevails.',
@@ -3172,7 +3171,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '59 systems · 5 countries',
+      sysMeta: '62 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 19',
       intelligence: 'Intelligence',
@@ -3182,7 +3181,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 18',
+      labMeta: 'Side tools · in the open · 21',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -3341,7 +3340,7 @@ const i18nExt2 = {
       fwPrivacy:'ความเป็นส่วนตัวและความน่าเชื่อถือ — PDPA หลักการตาม GDPR การปฏิบัติตามกฎหมายขึ้นกับขอบเขตงานแต่ละรายการ',
       legalLabel:'ข้อกำหนด · ความเป็นส่วนตัว · ความรับผิด · กฎหมาย',
       terms:'การใช้เว็บไซต์นี้ถือว่าคุณยอมรับที่จะใช้อย่างถูกกฎหมาย และจะไม่เผยแพร่ซ้ำภาพหน้าจอ แดชบอร์ด ผลลัพธ์จากโมเดล หรือระบบภายในโดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร Axiom ชื่อ Axiom และชื่อระบบที่ปรากฏ เป็นชื่อทางการค้าของบริษัท แอคเซี่ยม เอ็กซ์ จำกัด',
-      privacy:'เว็บไซต์นี้ไม่เก็บข้อมูลส่วนบุคคลใด ๆ นอกเหนือจากแฮชผู้เข้าชม 12 ตัวอักษร เพื่อจำกัดอัตราการร้องขอและวัดปริมาณการใช้งานรวม ระบบที่เชื่อมโยงจากที่นี่มีนโยบายความเป็นส่วนตัวของตนเอง โปรดอ่านก่อนนำข้อมูลไปใช้ เราไม่ตั้งคุกกี้โฆษณา ไม่ขาย และไม่แบ่งปันข้อมูลผู้เข้าชมกับบุคคลที่สาม',
+      privacy:'Cloudflare ให้บริการสถิติการเข้าชมแบบรวม เว็บไซต์นี้ไม่ตั้งคุกกี้โฆษณาหรือขายข้อมูลผู้เข้าชม ผู้ให้บริการโฮสติ้งและสถิติอาจประมวลผลข้อมูลประกอบคำขอ ระบบที่เชื่อมโยงมีนโยบายความเป็นส่วนตัวของตนเอง โปรดอ่านก่อนใช้งาน',
       dataAttribution:'ข้อมูลสดในระบบ sandbox มาจากแหล่งสาธารณะ รวมถึง TMD, GISTDA, JICA, NBTC, กรมควบคุมมลพิษ, ผู้มีส่วนร่วม OpenStreetMap, TomTom และแหล่งข้อมูลสาธารณะหรือที่มีสัญญาอนุญาตแบบเปิดอื่น ๆ ที่ระบุในระบบ หากมีการผสมแหล่งข้อมูลเชิงพาณิชย์ (เช่น Air4Thai o61, 33V, 34T, Naver CFT) จะระบุแหล่งที่มาในมุมมองของระบบ',
       liability:'ระบบ sandbox และสาธิตบนเว็บไซต์นี้ทำงานได้จริง แต่ไม่รับประกัน ตัวเลขทุกตัวเป็นเพียงสัญญาณ ไม่ใช่คำตัดสิน การตัดสินใจจริงต้องตรวจสอบกับหน่วยงานต้นทาง Axiom ไม่รับผิดชอบต่อการตัดสินใจที่อิงข้อมูล sandbox',
       governingLaw:'ข้อกำหนดเหล่านี้อยู่ภายใต้กฎหมายแห่งราชอาณาจักรไทย ข้อพิพาทอยู่ในเขตอำนาจศาลแห่งกรุงเทพมหานครโดยเฉพาะ หากข้อความภาษาอังกฤษขัดแย้งกับคำแปล ให้ใช้ภาษาอังกฤษเป็นหลัก',
@@ -3350,7 +3349,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '59 ระบบ · 5 ประเทศ',
+      sysMeta: '62 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 19',
       intelligence: 'ข่าวกรอง',
@@ -3360,7 +3359,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 18',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 21',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -3517,7 +3516,7 @@ const i18nExt2 = {
       fwPrivacy:'隐私与信任 — PDPA、GDPR 原则；司法管辖合规因项目而异',
       legalLabel:'条款 · 隐私 · 责任 · 法律',
       terms:'使用本网站即表示您同意合法使用，且未经书面许可不得转载截图、仪表板、模型输出或系统内部。Axiom、Axiom 名称以及此处显示的系统名称均为 Axiom X Co., Ltd. 的商号。',
-      privacy:'本网站除用于限流和聚合流量统计的 12 字符哈希访客标签外，不收集任何个人数据。从此处链接的系统各自有独立的隐私惯例——粘贴其数据前请先阅读其条款。我们不设置广告 Cookie，不出售、不与第三方共享访客数据。',
+      privacy:'Cloudflare 提供汇总流量分析。本网站不设置广告 Cookie，也不出售访客数据。托管和分析服务商可能处理请求元数据。链接系统各有隐私政策，请先阅读。',
       dataAttribution:'沙箱系统中显示的实时数据来自公共来源，包括 TMD、GISTDA、JICA、NBTC、污染控制厅、OpenStreetMap 贡献者、TomTom 以及其他在系统内注明出处的公共或开放许可数据源。如涉及商业数据源（如 Air4Thai o61、33V、34T、Naver CFT），来源会在系统视图中标明。',
       liability:'本网站上的沙箱与演示系统可工作，但不构成保证。所有指标仅为提示，不是定论。真实决策需与原始主管单位核实。Axiom 不对基于沙箱数据做出的决策承担责任。',
       governingLaw:'本条款受泰王国法律管辖。争议由曼谷法院专属管辖。如英文文本与任何翻译有冲突，以英文文本为准。',
@@ -3526,7 +3525,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '59 个系统 · 5 个国家',
+      sysMeta: '62 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 19',
       intelligence: '情报',
@@ -3536,7 +3535,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 18',
+      labMeta: '辅助工具 · 开放中 · 21',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3699,7 +3698,7 @@ const i18nExt2 = {
       fwPrivacy:'// privacy + trust: PDPA, GDPR.informed; compliance.engagementSpecific',
       legalLabel:'// terms · privacy · liability · law',
       terms:'// usingThisSite = agree(lawfulUse); noRepublish{screenshots, dashboards, modelOutput, internals} withoutWritten(permission); Axiom + systemNames = tradeNames(Axiom X Co., Ltd.)',
-      privacy:'// collectedData: NONE.personal; visitorTag: 12char.hash forRateLimit; no.adCookies; no.sell(); no.share(visitorData, thirdParties)',
+      privacy:'// analytics: Cloudflare.aggregate; advertisingCookies: false; visitorData.sale: false; providers.mayProcess(request.metadata); linkedSystems.privacyPolicies',
       dataAttribution:'// liveData: TMD | GISTDA | JICA | NBTC | PCD | OSM.contributors | TomTom | openLicense.feeds; commercial: Air4Thai{o61,33V,34T} | Naver.CFT // source.named(inSystem)',
       liability:'// sandbox.working.withoutGuarantee; metrics: hints, NOT.verdicts; realDecisions: verify(originAuthority); !Axiom.liable(decision.onSandboxData)',
       governingLaw:'// governedBy: laws(KingdomOfThailand); jurisdiction: courts(Bangkok).exclusive; conflict<enText vs i18n>: enText.prevails',
@@ -3708,7 +3707,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '59 systems · 5 countries',
+      sysMeta: '62 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[19]',
       intelligence: 'Intelligence',
@@ -3718,7 +3717,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[18]',
+      labMeta: 'sideTools & openProcess · count[21]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
@@ -4128,6 +4127,64 @@ Object.keys(i18nPitch).forEach(locale => {
   if (uiCopy[locale]) Object.assign(uiCopy[locale], i18nPitch[locale]);
 });
 
+const catalogReleaseCopy = {
+  en: {
+    champion: { cat: 'Tactical Simulation', lede: 'Set the formation, pressing, and plan. Watch the match respond. A football coaching board, career, and tactical classroom on the same simulation.', cta: 'Open the touchline' },
+    soccer: { cat: 'Football Research', lede: 'A football tactics desk inside the NSP research prototype. Thai public-TV sources and official viewing destinations, with a rights notice before entry.', cta: 'Open the research desk' },
+    vision: { cat: 'Computer-Vision Classroom', lede: 'How a picture becomes numbers, edges, motion, and a guess. Learn on public cameras, train a model, and test it in your browser without uploading your own images.', cta: 'Open the classroom' },
+    dao: { lede: "The updated Dao De Jing reading room: 81 chapters in English, Thai, and Chinese, with character study, illustrated notes, and Palette's colour relationships.", original: 'Read the original version' },
+    proofLine: '62 systems across 5 countries. Open one. Use it. Judge.',
+  },
+  th: {
+    champion: { cat: 'จำลองแท็กติกฟุตบอล', lede: 'เลือกแผนการเล่น การเพรส และรูปแบบทีม แล้วดูเกมตอบสนอง กระดานโค้ช โหมดอาชีพ และห้องเรียนแท็กติกใช้ระบบจำลองเดียวกัน', cta: 'เปิดข้างสนาม' },
+    soccer: { cat: 'งานวิจัยฟุตบอล', lede: 'โต๊ะวิเคราะห์แท็กติกฟุตบอลในต้นแบบวิจัย NSP รวมแหล่งทีวีสาธารณะไทยและช่องทางรับชมอย่างเป็นทางการ พร้อมประกาศสิทธิ์ก่อนเข้าใช้งาน', cta: 'เปิดโต๊ะวิจัย' },
+    vision: { cat: 'ห้องเรียนคอมพิวเตอร์วิทัศน์', lede: 'ภาพกลายเป็นตัวเลข ขอบภาพ การเคลื่อนไหว และการคาดเดาอย่างไร เรียนกับกล้องสาธารณะ ฝึกโมเดล และทดสอบในเบราว์เซอร์โดยไม่อัปโหลดภาพของคุณ', cta: 'เปิดห้องเรียน' },
+    dao: { lede: 'ห้องอ่านเต้าเต๋อจิงฉบับปรับปรุง 81 บทในภาษาอังกฤษ ไทย และจีน พร้อมเรียนตัวอักษร บันทึกภาพประกอบ และความสัมพันธ์ของสีจาก Palette', original: 'อ่านฉบับเดิม' },
+    proofLine: '62 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
+  },
+  zh: {
+    champion: { cat: '足球战术模拟', lede: '调整阵型、压迫和战术，观察比赛如何回应。教练战术板、生涯模式和战术课堂共用一套模拟系统。', cta: '打开场边控制台' },
+    soccer: { cat: '足球研究', lede: 'NSP 研究原型中的足球战术桌。收录泰国公共电视来源和官方观看渠道，进入前展示版权须知。', cta: '打开研究桌' },
+    vision: { cat: '计算机视觉课堂', lede: '图像如何变成数字、边缘、运动和推测。用公共摄像头学习、训练模型，并在浏览器中测试，无需上传自己的图像。', cta: '打开课堂' },
+    dao: { lede: '更新后的《道德经》阅读室：81 章，英语、泰语、中文，配有汉字学习、插图笔记和 Palette 的色彩关系。', original: '阅读原版' },
+    proofLine: '62 个系统，5 个国家。打开一个，亲自使用，再作判断。',
+  },
+  ko: {
+    champion: { cat: '축구 전술 시뮬레이션', lede: '포메이션, 압박, 전술을 바꾸고 경기의 반응을 보세요. 코칭 보드, 커리어, 전술 교실이 같은 시뮬레이션을 사용합니다.', cta: '터치라인 열기' },
+    soccer: { cat: '축구 연구', lede: 'NSP 연구 프로토타입의 축구 전술 데스크. 태국 공영 TV 소스와 공식 시청 경로를 모으며, 입장 전에 권리 안내를 제공합니다.', cta: '연구 데스크 열기' },
+    vision: { cat: '컴퓨터 비전 교실', lede: '사진이 숫자, 윤곽, 움직임, 추측이 되는 과정. 공공 카메라로 배우고 모델을 훈련하며, 개인 이미지를 업로드하지 않고 브라우저에서 시험합니다.', cta: '교실 열기' },
+    dao: { lede: '새로 단장한 도덕경 읽기 공간. 영어·태국어·중국어 81장, 한자 학습, 그림 노트, Palette의 색채 관계를 담았습니다.', original: '이전 버전 읽기' },
+    proofLine: '5개국의 62개 시스템. 하나를 열고, 사용하고, 판단하세요.',
+  },
+  ja: {
+    champion: { cat: 'サッカー戦術シミュレーション', lede: '陣形、プレス、戦術を変え、試合の反応を見る。コーチングボード、キャリア、戦術教室が同じシミュレーションを使います。', cta: 'タッチラインを開く' },
+    soccer: { cat: 'サッカー研究', lede: 'NSP研究プロトタイプ内のサッカー戦術デスク。タイの公共テレビと公式視聴先を集め、入場前に権利の注意事項を表示します。', cta: '研究デスクを開く' },
+    vision: { cat: 'コンピュータービジョン教室', lede: '画像が数字、輪郭、動き、推測に変わる過程。公共カメラで学び、モデルを訓練し、自分の画像をアップロードせずブラウザーで試します。', cta: '教室を開く' },
+    dao: { lede: '刷新した道徳経の読書室。英語・タイ語・中国語の81章、漢字学習、挿絵ノート、Paletteの色彩関係を収録。', original: '旧版を読む' },
+    proofLine: '5か国、62のシステム。ひとつ開いて、使って、判断してください。',
+  },
+  vi: {
+    champion: { cat: 'Mô phỏng chiến thuật', lede: 'Đổi đội hình, pressing và lối chơi rồi xem trận đấu phản ứng. Bảng huấn luyện, sự nghiệp và lớp chiến thuật dùng cùng một mô phỏng.', cta: 'Mở đường biên' },
+    soccer: { cat: 'Nghiên cứu bóng đá', lede: 'Bàn chiến thuật bóng đá trong nguyên mẫu nghiên cứu NSP. Nguồn truyền hình công cộng Thái Lan và nơi xem chính thức, có thông báo quyền trước khi vào.', cta: 'Mở bàn nghiên cứu' },
+    vision: { cat: 'Lớp thị giác máy tính', lede: 'Ảnh trở thành số, đường biên, chuyển động và phỏng đoán thế nào. Học với camera công cộng, huấn luyện mô hình và thử trong trình duyệt mà không tải ảnh riêng lên.', cta: 'Mở lớp học' },
+    dao: { lede: 'Phòng đọc Đạo Đức Kinh được cập nhật: 81 chương bằng tiếng Anh, Thái và Trung, học chữ, ghi chú minh họa và quan hệ màu của Palette.', original: 'Đọc phiên bản gốc' },
+    proofLine: '62 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
+  },
+  ts: {
+    champion: { cat: 'TacticalSimulation', lede: 'match.simulate({ formation, press, plan }) // coaching.board + career + classroom', cta: 'touchline.open()' },
+    soccer: { cat: 'FootballResearch', lede: 'nsp.tacticsDesk // research.preview; publicTV.thailand + official.viewingLinks; rights.notice.beforeEntry', cta: 'researchDesk.open()' },
+    vision: { cat: 'ComputerVisionClassroom', lede: 'image → numbers → edges → motion → prediction // public.cameras; model.train(); private.images.stayInBrowser', cta: 'classroom.open()' },
+    dao: { lede: 'dao.read({ chapters: 81, locales: [en, th, zh], characters: true, illustratedNotes: true, colours: Palette })', original: 'dao.original.open()' },
+    proofLine: 'catalog.length === 62 // countries: 5; open → use → judge',
+  },
+};
+
+Object.entries(catalogReleaseCopy).forEach(([locale, release]) => {
+  Object.assign(uiCopy[locale].panels, { champion: release.champion, soccer: release.soccer, vision: release.vision });
+  Object.assign(uiCopy[locale].panels.p24, release.dao);
+  uiCopy[locale].pitch.proofLine = release.proofLine;
+});
+
 const REGIONAL_LOCALES = new Set(['ko', 'ja', 'vi']);
 
 function renderStaticCopy() {
@@ -4485,7 +4542,7 @@ function initFlooddashCarousel() {
     minZoom: 3,
     worldCopyJump: false,
     zoomControl: false,
-    attributionControl: false,
+    attributionControl: true,
     dragging: !axiomMedia.isTouch,
     scrollWheelZoom: false,
     doubleClickZoom: true,
@@ -4495,6 +4552,7 @@ function initFlooddashCarousel() {
     fadeAnimation: !useLiteMotion,
     zoomAnimation: !useLiteMotion,
   });
+  new ResizeObserver(() => map.invalidateSize({ pan: false })).observe(container.parentElement);
 
   // ESRI World Dark Gray Canvas — free, no API key required.
   // Replaces the old Carto dark_all which now requires an account.
@@ -4822,6 +4880,7 @@ function initFlooddashCarousel() {
   }
   resize();
   window.addEventListener('resize', resize);
+  new ResizeObserver(resize).observe(canvas.parentElement);
 
   const lines = [];
   for (let i = 0; i < (useLiteCanvas ? 2 : 4); i++) {
@@ -4884,6 +4943,18 @@ function initFlooddashCarousel() {
   const FONT_CITY = '600 11px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace';
   const FONT_META = '700 9.5px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace';
   const FONT_MODE = '700 10px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace';
+  const hud = document.getElementById('satHud');
+  let labelTop = 114;
+  let labelRight = 40;
+  function positionCanvasLabels() {
+    if (!hud) return;
+    const bounds = canvas.parentElement.getBoundingClientRect();
+    const hudBounds = hud.getBoundingClientRect();
+    labelTop = hudBounds.bottom - bounds.top + 16;
+    labelRight = bounds.right - hudBounds.right;
+  }
+  new ResizeObserver(positionCanvasLabels).observe(canvas.parentElement);
+  positionCanvasLabels();
 
   function drawCanvasText() {
     const cw = canvas.offsetWidth;
@@ -4892,9 +4963,9 @@ function initFlooddashCarousel() {
     // On mobile, the Leaflet map covers the canvas — skip the canvas
     // tick overlay (the DOM HUD pill is visible on top of the map).
     if (useLiteCanvas) return;
-    // Same position as the .hero-city-label DOM (28px from top/right)
-    const top = 28;
-    const right = 28;
+    // Keep the canvas label below the live HUD's current bounds.
+    const top = labelTop;
+    const right = labelRight;
     const isMobile = cw < 600;
     const cityFont = isMobile ? '600 10px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace' : FONT_CITY;
 
@@ -5047,8 +5118,24 @@ function initFlooddashCarousel() {
   let phrases = phrasesFor(activeLocale);
   let index = 0;
 
+  // Fit the longest phrase once per locale/width, not on every carousel tick.
+  const title = el.closest('.hero-title');
+  const measure = document.createElement('canvas').getContext('2d');
+  function fitPhrases() {
+    if (!title || !measure || !title.clientWidth) return;
+    const style = getComputedStyle(title);
+    const size = Number.parseFloat(style.fontSize);
+    measure.font = `${style.fontWeight} ${size}px ${style.fontFamily}`;
+    const widest = Math.max(...phrases.map((phrase) => measure.measureText(phrase).width));
+    const fitted = Math.min(size, size * title.clientWidth / Math.max(widest, 1) * 0.98);
+    el.style.setProperty('--hero-phrase-size', `${fitted}px`);
+  }
+
   el.textContent = phrases[0];
   el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+  fitPhrases();
+  new ResizeObserver(fitPhrases).observe(title);
+  document.fonts?.ready.then(fitPhrases);
 
   setInterval(() => {
     el.style.opacity = 0;
@@ -5067,5 +5154,6 @@ function initFlooddashCarousel() {
     phrases = phrasesFor(activeLocale);
     index = 0;
     el.textContent = phrases[0];
+    fitPhrases();
   });
 })();

@@ -717,8 +717,7 @@ function siteAssetUrl(assetPath) {
 }
 
 function isStaticDeployment() {
-  const firstPathSegment = window.location.pathname.split('/').filter(Boolean)[0]?.toLowerCase();
-  return window.location.hostname.endsWith('github.io') || firstPathSegment === 'axiom';
+  return !['localhost', '127.0.0.1', '::1', '[::1]'].includes(window.location.hostname);
 }
 
 function apiUrl(apiPath) {

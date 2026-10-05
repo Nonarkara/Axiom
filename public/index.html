@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Axiom — Smart-City Dashboards & GovTech Systems for Governments</title>
   <meta name="description"
-    content="Your city has the data, but no one sees it in time. Axiom turns it into one live decision screen in two weeks — 59 systems across 5 countries. By Dr Non Arkaraprasertkul (depa).">
+    content="Your city has the data, but no one sees it in time. Axiom turns it into one live decision screen in two weeks — 62 systems across 5 countries. By Dr Non Arkaraprasertkul (depa).">
   <meta name="keywords"
     content="smart city dashboard, government dashboard, govtech, urban intelligence, city operations centre, decision systems, geospatial dashboard, smart city consultant, smart city keynote speaker, Dr Non Arkaraprasertkul, depa, ASEAN smart cities, เมืองอัจฉริยะ, แดชบอร์ดเมืองอัจฉริยะ, ที่ปรึกษาสมาร์ทซิตี้, วิทยากรสมาร์ทซิตี้, ระบบข้อมูลรัฐบาล">
   <meta name="author" content="Dr Non Arkaraprasertkul · Axiom">
@@ -19,7 +19,7 @@
 
   <meta property="og:title" content="Axiom — Smart-City Dashboards & GovTech Systems for Governments">
   <meta property="og:description"
-    content="Working smart-city dashboards and GovTech decision systems for governments across ASEAN — 59 systems in 5 countries. Keynote speaker on smart cities and urban data. By Dr Non Arkaraprasertkul, Senior Expert, Smart City Promotion, depa.">
+    content="Working smart-city dashboards and GovTech decision systems for governments across ASEAN — 62 systems in 5 countries. Keynote speaker on smart cities and urban data. By Dr Non Arkaraprasertkul, Senior Expert, Smart City Promotion, depa.">
   <meta property="og:image" content="https://axiom.nonarkara.org/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -35,7 +35,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Axiom — Smart-City Dashboards & GovTech Systems for Governments">
   <meta name="twitter:description"
-    content="Working smart-city dashboards and GovTech decision systems for governments across ASEAN — 59 systems in 5 countries. By Dr Non Arkaraprasertkul (depa).">
+    content="Working smart-city dashboards and GovTech decision systems for governments across ASEAN — 62 systems in 5 countries. By Dr Non Arkaraprasertkul (depa).">
   <meta name="twitter:image" content="https://axiom.nonarkara.org/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,12 +43,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20261002a">
-  <link rel="stylesheet" href="hero.css?v=20261002a">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="i18n-regional.js?v=20261002a"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script defer src="app.js?v=20261002a"></script>
+  <link rel="stylesheet" href="rams.css?v=20261005i">
+  <link rel="stylesheet" href="hero.css?v=20261005j">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
+  <script src="i18n-regional.js?v=20261005g"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+  <script defer src="app.js?v=20261005h"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -158,7 +160,7 @@
   ]
 }
 </script>
-  <link rel="stylesheet" href="editorial.css?v=20261002design1">
+  <link rel="stylesheet" href="editorial.css?v=20261005h">
 </head>
 
 <body>
@@ -202,16 +204,6 @@
       <div class="hero-gradient"></div>
       <div class="hero-city-label" id="heroCityLabel">BANGKOK</div>
 
-      <a class="hero-featured-badge" id="heroFeaturedBadge" href="https://flood-ami.pages.dev/" target="_blank"
-        rel="noopener">
-        <span class="hero-featured-badge__kicker" data-i18n="hero.featured.kicker">THEATRE BRIEF</span>
-        <span class="hero-featured-badge__event" id="heroFeaturedEvent">EVENT_ID: BANGKOK_WATCH</span>
-        <span class="hero-featured-badge__name" id="heroFeaturedName">FloodDash</span>
-        <span class="hero-featured-badge__lede" id="heroFeaturedLede">Flood, campus, urban atlas — Bangkok systems watching the same pressure map.</span>
-        <span class="hero-featured-badge__cta"><span data-i18n="hero.featured.cta">Open live system</span> <span
-            class="tri">▸</span></span>
-      </a>
-
       <!-- Map Mode Indicator -->
       <div class="map-mode" id="mapMode">
         <div class="map-mode-indicator">
@@ -222,12 +214,6 @@
           <svg class="map-mode-icon-pause" id="mapModePause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
           <svg class="map-mode-icon-play" id="mapModePlay" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="5,3 19,12 5,21"/></svg>
         </button>
-      </div>
-
-      <!-- Map Explore Hint -->
-      <div class="map-explore-hint" id="mapExploreHint">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l4-4 4 4"/><path d="M9 5v14"/><path d="M15 19l4-4-4-4"/><path d="M19 15H5"/></svg>
-        <span data-i18n="hero.exploreHint">Drag map &middot; Tap a theatre</span>
       </div>
 
       <!-- Theatre signal HUD -->
@@ -250,6 +236,7 @@
       <div class="telemetry-axis-y"></div>
 
       <div class="hero-content">
+        <div class="hero-copy">
         <div class="hero-badge">
           <span class="hero-badge-dot"></span>
           <span data-i18n="hero.badge">All Systems Online</span>
@@ -267,6 +254,7 @@
             <span class="tri">▸</span>
           </a>
           <a href="#systems" class="btn btn--ghost" data-i18n="hero.ctaSecondary">Try a Live System</a>
+        </div>
         </div>
         <div class="hero-node-strip" aria-label="Operational footprint">
           <div class="hero-node-strip-label" data-i18n="hero.nodeLabel">Tap a theatre</div>
@@ -303,6 +291,21 @@
             <span class="hero-stat-label" data-i18n="hero.statCountries">Countries</span>
           </div>
         </div>
+      </div>
+      <div class="hero-proof">
+        <div class="map-explore-hint" id="mapExploreHint">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l4-4 4 4"/><path d="M9 5v14"/><path d="M15 19l4-4-4-4"/><path d="M19 15H5"/></svg>
+          <span data-i18n="hero.exploreHint">Drag map &middot; Tap a theatre</span>
+        </div>
+      <a class="hero-featured-badge" id="heroFeaturedBadge" href="https://flood-ami.pages.dev/" target="_blank"
+        rel="noopener">
+        <span class="hero-featured-badge__kicker" data-i18n="hero.featured.kicker">THEATRE BRIEF</span>
+        <span class="hero-featured-badge__event" id="heroFeaturedEvent">EVENT_ID: BANGKOK_WATCH</span>
+        <span class="hero-featured-badge__name" id="heroFeaturedName">FloodDash</span>
+        <span class="hero-featured-badge__lede" id="heroFeaturedLede">Flood, campus, urban atlas — Bangkok systems watching the same pressure map.</span>
+        <span class="hero-featured-badge__cta"><span data-i18n="hero.featured.cta">Open live system</span> <span
+            class="tri">▸</span></span>
+      </a>
       </div>
       <div class="hero-scroll-indicator">
         <div class="hero-scroll-line"></div>
@@ -402,7 +405,7 @@
             <p class="t-body-2" data-i18n="pitch.r4" style="margin:6px 0 0;">A vendor called it too complex. A working version was in the room fourteen days later.</p>
           </div>
         </div>
-        <p class="t-body-2" data-i18n="pitch.proofLine" style="max-width:64ch;margin:0 0 28px;">59 systems across 5 countries. Open one. Use it. Judge.</p>
+        <p class="t-body-2" data-i18n="pitch.proofLine" style="max-width:64ch;margin:0 0 28px;">62 systems across 5 countries. Open one. Use it. Judge.</p>
 
         <div class="t-label" data-i18n="pitch.faqLabel">Before you ask</div>
         <div style="margin:6px 0 24px;">
@@ -450,7 +453,7 @@
       <div class="wrap">
         <div class="s-head">
           <div class="s-head__title" data-i18n="sysSect.kicker">Live in production</div>
-          <div class="s-head__meta" data-i18n="sysClusters.sysMeta">59 systems · 5 countries</div>
+          <div class="s-head__meta" data-i18n="sysClusters.sysMeta">62 systems · 5 countries</div>
         </div>
         <p class="t-body-2" data-i18n="sysSect.lede" style="max-width:64ch;margin:0 0 8px;">Each system below started as one decision someone couldn't make fast enough. Live today. Open. Use. Judge.</p>
 
@@ -462,7 +465,7 @@
         <!-- EVIDENCE STRIP — fine-print provenance -->
         <div class="evidence-strip" id="evidenceStrip" aria-label="Evidence and provenance">
           <div class="evidence-strip__cell"><span class="evidence-strip__key">Verified</span><span class="evidence-strip__val" id="evidenceVerified">2026-09-28</span></div>
-          <div class="evidence-strip__cell"><span class="evidence-strip__key">Systems</span><span class="evidence-strip__val--accent">59</span></div>
+          <div class="evidence-strip__cell"><span class="evidence-strip__key">Systems</span><span class="evidence-strip__val--accent">62</span></div>
           <div class="evidence-strip__cell"><span class="evidence-strip__key">In production</span><span class="evidence-strip__val">38</span></div>
           <div class="evidence-strip__cell"><span class="evidence-strip__key">Countries</span><span class="evidence-strip__val">5</span></div>
           <div class="evidence-strip__cell"><span class="evidence-strip__key">Public sources</span><span class="evidence-strip__val">247+</span></div>
@@ -1033,21 +1036,23 @@
                   class="tri">▸</span></span>
             </div>
           </a>
-          <a class="sys-cell" data-arch="dao" href="https://dao.nonarkara.org/" target="_blank" rel="noopener">
+          <div class="sys-cell sys-cell--editions" data-arch="dao">
+            <a class="sys-cell__primary" href="https://dao.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">25</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <img class="sys-cell__shot" src="showcase/dao.webp" loading="lazy"
-              alt="Reading Dao De Jing with Dr. Non">
+            <img class="sys-cell__shot" src="screenshots/dao-palette.png" loading="lazy"
+              alt="Dr Non's Dao × Palette — updated trilingual reading room">
             <div class="sys-cell__body">
-              <div class="sys-cell__name">Dao De Jing</div>
+              <div class="sys-cell__name">Dao × Palette</div>
               <div class="sys-cell__cat" data-i18n="cats.c23">Digital Humanities</div>
-              <div class="sys-cell__lede" data-i18n="panels.p24.lede">A trilingual Dao De Jing reading room with Tsai
-                comics, Buddhist parallels,
-                psychology notes, pinyin, and a living reference shelf.</div>
+              <div class="sys-cell__lede" data-i18n="panels.p24.lede">The updated Dao De Jing reading room: 81 chapters in English, Thai, and Chinese, with character study, illustrated notes, and Palette's colour relationships.</div>
               <span class="sys-cell__link"><span data-i18n="panels.p24.cta">Open live system</span> <span
                   class="tri">▸</span></span>
             </div>
-          </a>
+            </a>
+            <a class="sys-cell__edition" href="https://daoriginal.nonarkara.org/" target="_blank" rel="noopener"
+              data-i18n="panels.p24.original">Read the original version</a>
+          </div>
           <a class="sys-cell" data-arch="ikigai" href="https://github.com/nonarkara/ikigai-finance-engine" target="_blank"
             rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">26</span><span
@@ -1091,7 +1096,7 @@
         <!-- LAB -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.lab">Lab</div>
-          <div class="s-head__meta" data-i18n="sysClusters.labMeta">Side tools · in the open · 18</div>
+          <div class="s-head__meta" data-i18n="sysClusters.labMeta">Side tools · in the open · 21</div>
         </div>
         <div class="grid grid--3">
           <a class="sys-cell" data-arch="omniarcade" href="https://games.nonarkara.org/" target="_blank" rel="noopener">
@@ -1245,6 +1250,36 @@
               <div class="sys-cell__lede" data-i18n="panels.p55.lede">Upload PDFs and links. The system cites the document every time — and when the documents are silent, the bot says "I don't know". 100 MB free per workspace, served through Telegram and LINE. Local embeddings, local model, on one Mac in Bangkok — your documents never leave.</div>
               <span class="sys-cell__link"><span data-i18n="panels.p55.cta">Open the workspace</span> <span
                   class="tri">▸</span></span>
+            </div>
+          </a>
+          <a class="sys-cell" data-arch="champion" href="https://champion.nonarkara.org/" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">60</span><span class="sys-cell__status"><span class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+            <img class="sys-cell__shot" src="screenshots/champion.png" loading="lazy" alt="CHAOS XI — Thailand versus Asia, formations, pressing and match telemetry">
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">CHAOS XI · Champion</div>
+              <div class="sys-cell__cat" data-i18n="panels.champion.cat">Tactical Simulation</div>
+              <div class="sys-cell__lede" data-i18n="panels.champion.lede">Set the formation, pressing, and plan. Watch the match respond. A football coaching board, career, and tactical classroom on the same simulation.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.champion.cta">Open the touchline</span> <span class="tri">▸</span></span>
+            </div>
+          </a>
+          <a class="sys-cell" data-arch="soccer" href="https://soccer.nonarkara.org/" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">61</span><span class="sys-cell__status"><span data-i18n="sysStatus.preview">Preview</span></span></div>
+            <img class="sys-cell__shot" src="screenshots/soccer.png" loading="lazy" alt="Soccer tactics desk — NSP research prototype and broadcast-rights notice">
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">Soccer · NSP</div>
+              <div class="sys-cell__cat" data-i18n="panels.soccer.cat">Football Research</div>
+              <div class="sys-cell__lede" data-i18n="panels.soccer.lede">A football tactics desk inside the NSP research prototype. Thai public-TV sources and official viewing destinations, with a rights notice before entry.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.soccer.cta">Open the research desk</span> <span class="tri">▸</span></span>
+            </div>
+          </a>
+          <a class="sys-cell" data-arch="vision" href="https://vision.nonarkara.org/" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">62</span><span class="sys-cell__status"><span class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+            <img class="sys-cell__shot" src="screenshots/vision.png" loading="lazy" alt="Vision — computer-vision classroom with picture, numbers, edges, motion and objects lenses">
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">Vision</div>
+              <div class="sys-cell__cat" data-i18n="panels.vision.cat">Computer-Vision Classroom</div>
+              <div class="sys-cell__lede" data-i18n="panels.vision.lede">How a picture becomes numbers, edges, motion, and a guess. Learn on public cameras, train a model, and test it in your browser without uploading your own images.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.vision.cta">Open the classroom</span> <span class="tri">▸</span></span>
             </div>
           </a>
           <a class="sys-cell" data-arch="colors" href="https://colors.nonarkara.org/" target="_blank" rel="noopener">
@@ -2400,7 +2435,7 @@
         </ul>
         <p class="foot__fineprint-label" data-i18n="footer.legalLabel">Terms · Privacy · Liability · Law</p>
         <p class="foot__fineprint-p" data-i18n="footer.terms">Use lawfully. No republishing screenshots, dashboards, model outputs, or system internals without written permission. Axiom and the system names shown here are trade names of Axiom X Co., Ltd.</p>
-        <p class="foot__fineprint-p" data-i18n="footer.privacy">A 12-character hashed visitor tag — used only for rate limiting and aggregate traffic measurement. No personal data collected. No advertising cookies. No sale or sharing of visitor data. Linked systems have their own policies — read theirs first.</p>
+        <p class="foot__fineprint-p" data-i18n="footer.privacy">Cloudflare provides aggregate traffic analytics. This site does not set advertising cookies or sell visitor data. Hosting and analytics providers may process request metadata. Linked systems have their own privacy policies — read theirs first.</p>
         <p class="foot__fineprint-p" data-i18n="footer.dataAttribution">Sandbox data: TMD, GISTDA, JICA, NBTC, Pollution Control Dept, OpenStreetMap, TomTom, and other public or open-licensed feeds — credited in-system. Commercial feeds (Air4Thai o61, 33V, 34T, Naver CFT) named in-system.</p>
         <p class="foot__fineprint-p" data-i18n="footer.liability">Sandbox and demonstration systems on this site are working, not guaranteed. Treat every metric as a hint, not a verdict. Real decisions need real verification with the originating authority. Axiom is not liable for decisions made on sandbox data.</p>
         <p class="foot__fineprint-p" data-i18n="footer.governingLaw">These terms are governed by the laws of the Kingdom of Thailand. Disputes are subject to the exclusive jurisdiction of the courts of Bangkok. Where this English text conflicts with any translation, the English text prevails.</p>
@@ -2410,26 +2445,6 @@
     </div>
   </footer>
 
-  <!-- NON visitor tracker -->
-  <script>
-    (function () {
-      var localHosts = ['localhost', '127.0.0.1', '::1'];
-      if (localHosts.indexOf(location.hostname) !== -1) return;
-      if (sessionStorage.getItem('non_v')) return;
-      sessionStorage.setItem('non_v', '1');
-      var SH = 'https://script.google.com/macros/s/AKfycbwzTwBNOseKkvkkjD-LH6B3GWrsFcwS6MTDbn7W5eb3zHxA-swtlHYuwJ3w5PAVXDhU7Q/exec';
-      var b = {
-        dashboard: 'AXIOM', hostname: location.hostname, page: location.href,
-        referrer: document.referrer || 'Direct', userAgent: navigator.userAgent,
-        language: navigator.language, screen: screen.width + 'x' + screen.height,
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
-      };
-      function send(p) { fetch(SH, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(p) }).catch(function () { }); }
-      fetch('https://ipapi.co/json/').then(function (r) { return r.json(); }).then(function (d) {
-        b.ip = d.ip; b.country = d.country_name; b.region = d.region; b.city = d.city; send(b);
-      }).catch(function () { send(b); });
-    })();
-  </script>
 </body>
 
 </html>

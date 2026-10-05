@@ -13,6 +13,7 @@
    ============================================================ */
 
 :root {
+  scroll-padding-top: 66px;
   /* §1.1 Foundation — warm paper, warm ink, hairline grey */
   --paper: #faf9f7;
   /* page bg — warm off-white, never #fff */
@@ -379,6 +380,8 @@ summary:focus-visible {
 }
 
 .s-head__meta {
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.10em;
@@ -426,6 +429,8 @@ summary:focus-visible {
 }
 
 .sandbox-note__body {
+  min-width: 0;
+  overflow-wrap: anywhere;
   margin: 0;
   padding: 10px 14px;
   font-size: 13px;
@@ -563,11 +568,15 @@ summary:focus-visible {
 }
 
 .row__k {
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-size: 13px;
   font-weight: 500;
 }
 
 .row__vwrap {
+  min-width: 0;
+  overflow-wrap: anywhere;
   display: flex;
   align-items: baseline;
   gap: 12px;
@@ -654,6 +663,8 @@ summary:focus-visible {
 }
 
 .plate__body {
+  min-width: 0;
+  overflow-wrap: anywhere;
   padding: 11px 20px;
   flex: 1;
   display: flex;
@@ -1065,6 +1076,8 @@ summary:focus-visible {
 }
 
 @media (max-width: 759px) {
+  .plate { flex-direction: column; }
+  .masthead__inner { gap: 4px; }
   .foot__fineprint {
     column-count: 1;
     column-rule: none;
@@ -1934,6 +1947,27 @@ summary:focus-visible {
   color: var(--accent);
 }
 
+.sys-cell__primary {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.sys-cell__edition {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--line);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.sys-cell__edition:hover { text-decoration: underline; }
+
 /* ============================================================
    SYSTEM ARCHITECTURE PREVIEW
    Hover any .sys-cell and a small architecture diagram appears
@@ -2202,7 +2236,7 @@ summary:focus-visible {
    ============================================================ */
 
 /* tablet: hide anchor nav so the masthead stays one clean row */
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   .masthead .nav {
     display: none;
   }
@@ -2215,6 +2249,7 @@ summary:focus-visible {
 
 /* phone: also drop the CTA — brand + locale only */
 @media (max-width: 759px) {
+  :root { scroll-padding-top: 120px; }
   .masthead__inner>.btn--primary {
     display: none;
   }

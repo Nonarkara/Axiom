@@ -2,14 +2,21 @@ import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createReadStream, existsSync, mkdirSync } from 'node:fs';
-import { stat } from 'node:fs/promises';
+import { stat, realpath } from 'node:fs/promises';
 import { DatabaseSync } from 'node:sqlite';
+import { HttpError, securityHeaders, createRequestGuard, isAdminPath, readJsonBody, cleanPublicUrl } from './lib/security.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const publicDir = path.join(__dirname, 'public');
-const dataDir = path.join(__dirname, 'data');
+const dataDir = path.resolve(process.env.AXIOM_DATA_DIR || path.join(__dirname, 'data'));
 const port = Number.parseInt(process.env.PORT || '3000', 10);
+const headers = securityHeaders();
+const guardRequest = createRequestGuard({
+  username: process.env.AXIOM_ADMIN_USER || 'admin',
+  password: process.env.AXIOM_ADMIN_PASSWORD || '',
+});
+const publicRoot = await realpath(publicDir);
 
 mkdirSync(dataDir, { recursive: true });
 
@@ -867,6 +874,9 @@ function parseStoredJson(value, fallback = {}) {
 }
 
 function cleanText(value, fallback = '') {
+  if (typeof value === 'string' && value.length > 10000) {
+    throw new HttpError(400, 'Text field exceeds 10000 characters');
+  }
   return typeof value === 'string' ? value.trim() : fallback;
 }
 
@@ -1019,13 +1029,13 @@ function normalizeCaseStudyPayload(input) {
     outcome: cleanNullableText(input?.outcome),
     recordType: cleanText(input?.recordType, 'reference') || 'reference',
     evidenceSourceLabel: cleanNullableText(input?.evidenceSourceLabel),
-    evidenceSourceUrl: cleanNullableText(input?.evidenceSourceUrl),
+    evidenceSourceUrl: cleanPublicUrl(input?.evidenceSourceUrl),
     confidenceScore: Math.max(0, Math.min(1, cleanFloat(input?.confidenceScore, 0.75))),
     languageCoverage: mergeLanguageCoverage(input?.languageCoverage, translations),
     artifactCount: Math.max(1, cleanInteger(input?.artifactCount, 1)),
     lastVerifiedAt: cleanNullableText(input?.lastVerifiedAt),
     linkLabel: cleanNullableText(input?.linkLabel),
-    linkUrl: cleanNullableText(input?.linkUrl),
+    linkUrl: cleanPublicUrl(input?.linkUrl),
     proofOrder: cleanInteger(input?.proofOrder, 0),
     translations,
     metrics: normalizeCaseStudyMetrics(input?.metrics),
@@ -1046,7 +1056,7 @@ function normalizeHistoryPayload(input) {
     category: cleanRequiredText(input?.category, 'Category'),
     eventPeriod: cleanRequiredText(input?.eventPeriod, 'Event period'),
     location: cleanNullableText(input?.location),
-    url: cleanNullableText(input?.url),
+    url: cleanPublicUrl(input?.url),
     historyOrder: cleanInteger(input?.historyOrder, 0),
     metadata,
     status: cleanText(input?.status, 'published') || 'published',
@@ -1092,7 +1102,7 @@ function normalizePipelinePayload(input) {
     projectName: cleanRequiredText(input?.projectName, 'Project name'),
     clientName: cleanRequiredText(input?.clientName, 'Client name'),
     stage: VALID_STAGES.includes(stage) ? stage : 'lead',
-    hasContract: input?.hasContract ? 1 : 0,
+    hasContract: input?.hasContract === true || input?.hasContract === 1 ? 1 : 0,
     sector: cleanNullableText(input?.sector),
     notes: cleanNullableText(input?.notes),
     pipelineOrder: cleanInteger(input?.pipelineOrder, 0),
@@ -1562,7 +1572,6 @@ function getStatusPayload() {
     status: 'ok',
     timestamp: new Date().toISOString(),
     database: {
-      path: dbPath,
       tables: {
         pageviews: analytics.totalPageviews,
         caseStudyProof: analytics.caseStudyCount,
@@ -1611,32 +1620,6 @@ function sendMethodNotAllowed(res, allowedMethods) {
   res.end(JSON.stringify({ error: 'Method not allowed' }));
 }
 
-async function readJsonBody(req) {
-  const chunks = [];
-  let totalBytes = 0;
-
-  for await (const chunk of req) {
-    totalBytes += chunk.length;
-    if (totalBytes > 1024 * 1024) {
-      throw new Error('Request body too large');
-    }
-    chunks.push(chunk);
-  }
-
-  const rawBody = Buffer.concat(chunks).toString('utf8').trim();
-  if (!rawBody) return {};
-
-  try {
-    return JSON.parse(rawBody);
-  } catch {
-    return {};
-  }
-}
-
-function getCountryFromHeaders(headers) {
-  return headers['cf-ipcountry'] || headers['x-vercel-ip-country'] || headers['x-country-code'] || 'unknown';
-}
-
 async function handleApi(req, res, pathname) {
   const caseStudyMatch = pathname.match(/^\/api\/admin\/case-studies(?:\/(\d+))?$/);
   if (caseStudyMatch) {
@@ -1677,11 +1660,11 @@ async function handleApi(req, res, pathname) {
 
       return sendMethodNotAllowed(res, ['GET', 'PUT', 'DELETE']);
     } catch (error) {
-      const statusCode = isConstraintError(error)
+      const statusCode = error.statusCode || (isConstraintError(error)
         ? 409
         : String(error?.message || '').includes('not found')
           ? 404
-          : 400;
+          : 400);
       return sendJson(res, statusCode, { error: error.message || 'Unable to save case study' });
     }
   }
@@ -1725,11 +1708,11 @@ async function handleApi(req, res, pathname) {
 
       return sendMethodNotAllowed(res, ['GET', 'PUT', 'DELETE']);
     } catch (error) {
-      const statusCode = isConstraintError(error)
+      const statusCode = error.statusCode || (isConstraintError(error)
         ? 409
         : String(error?.message || '').includes('not found')
           ? 404
-          : 400;
+          : 400);
       return sendJson(res, statusCode, { error: error.message || 'Unable to save timeline entry' });
     }
   }
@@ -1754,7 +1737,7 @@ async function handleApi(req, res, pathname) {
       }
       return sendMethodNotAllowed(res, ['DELETE']);
     } catch (err) {
-      return sendJson(res, 400, { error: err.message || 'Unable to save note' });
+      return sendJson(res, err.statusCode || 400, { error: err.message || 'Unable to save note' });
     }
   }
 
@@ -1786,7 +1769,7 @@ async function handleApi(req, res, pathname) {
       }
       return sendMethodNotAllowed(res, ['GET', 'PUT', 'DELETE']);
     } catch (error) {
-      return sendJson(res, 400, { error: error.message || 'Unable to save pipeline entry' });
+      return sendJson(res, error.statusCode || 400, { error: error.message || 'Unable to save pipeline entry' });
     }
   }
 
@@ -1813,19 +1796,24 @@ async function handleApi(req, res, pathname) {
     if (req.method !== 'POST') return sendMethodNotAllowed(res, ['POST']);
 
     const body = await readJsonBody(req);
-    const pathValue = typeof body.path === 'string' && body.path.trim() ? body.path.trim() : '/';
-    const referrerValue = typeof body.referrer === 'string' ? body.referrer.trim() : '';
+    const rawPath = cleanText(body.path, '/');
+    if (!rawPath.startsWith('/') || rawPath.startsWith('//') || rawPath.length > 2048) {
+      throw new HttpError(400, 'Invalid page path');
+    }
+    const pathValue = new URL(rawPath, 'http://localhost').pathname;
+    const referrerUrl = cleanPublicUrl(body.referrer);
+    const referrerValue = referrerUrl ? new URL(referrerUrl).origin : '';
     const languageValue = typeof body.language === 'string' && body.language.trim()
       ? body.language.trim()
       : (req.headers['accept-language'] || '').split(',')[0] || 'unknown';
-    const userAgentValue = req.headers['user-agent'] || 'unknown';
-    const countryValue = getCountryFromHeaders(req.headers);
+    const userAgentValue = 'not-collected';
+    const countryValue = 'unknown';
 
     insertPageviewStatement.run(
       pathValue,
       referrerValue || null,
       countryValue,
-      languageValue,
+      languageValue.slice(0, 64),
       userAgentValue
     );
 
@@ -1861,18 +1849,10 @@ async function handleApi(req, res, pathname) {
 
 async function serveStatic(req, res, pathname) {
   const requestedPath = pathname === '/' ? '/index.html' : pathname;
-  const decodedPath = decodeURIComponent(requestedPath);
-  const normalizedPath = path
-    .normalize(decodedPath)
-    .replace(/^(\.\.(\/|\\|$))+/, '')
-    .replace(/^[/\\]+/, '');
-  let filePath = path.join(publicDir, normalizedPath);
-
-  if (!filePath.startsWith(publicDir)) {
-    res.writeHead(403);
-    res.end('Forbidden');
-    return;
+  if (requestedPath.split('/').some((part) => part.startsWith('.') || ['_headers', '_redirects'].includes(part))) {
+    throw new HttpError(403, 'Forbidden');
   }
+  let filePath = path.join(publicDir, requestedPath);
 
   let fileStat;
   try {
@@ -1897,9 +1877,16 @@ async function serveStatic(req, res, pathname) {
     return;
   }
 
+  filePath = await realpath(filePath);
+  const relativePath = path.relative(publicRoot, filePath);
+  if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) throw new HttpError(403, 'Forbidden');
+  if (isAdminPath(`/${relativePath.split(path.sep).join('/')}`) && !isAdminPath(pathname)) {
+    throw new HttpError(403, 'Forbidden');
+  }
+
   const extension = path.extname(filePath).toLowerCase();
   const contentType = MIME_TYPES[extension] || 'application/octet-stream';
-  const cacheControl = extension === '.html'
+  const cacheControl = isAdminPath(pathname) || pathname === '/data/evidence-snapshot.json' ? 'no-store' : extension === '.html'
     ? 'no-cache'
     : 'public, max-age=3600';
 
@@ -1915,14 +1902,25 @@ async function serveStatic(req, res, pathname) {
     return;
   }
 
-  createReadStream(filePath).pipe(res);
+  const stream = createReadStream(filePath);
+  stream.on('error', () => res.destroy());
+  stream.pipe(res);
 }
 
 const server = http.createServer(async (req, res) => {
-  const requestUrl = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
-  const pathname = requestUrl.pathname;
-
+  for (const [name, value] of Object.entries(headers)) res.setHeader(name, value);
   try {
+    if (!req.url?.startsWith('/') || req.url.startsWith('//')) throw new HttpError(400, 'Invalid request target');
+    let pathname;
+    try {
+      pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+    } catch {
+      throw new HttpError(400, 'Invalid request path');
+    }
+    if (pathname.includes('\\') || pathname.includes('\0') || pathname.split('/').includes('..')) {
+      throw new HttpError(400, 'Invalid request path');
+    }
+    guardRequest(req, res, pathname, server.address().port);
     if (pathname.startsWith('/api/')) {
       await handleApi(req, res, pathname);
       return;
@@ -1935,12 +1933,17 @@ const server = http.createServer(async (req, res) => {
 
     await serveStatic(req, res, pathname);
   } catch (error) {
-    console.error(error);
-    sendJson(res, 500, { error: 'Internal server error' });
+    if (!error.statusCode) console.error('Request failed:', error.name);
+    if (error.statusCode === 429) res.setHeader('Retry-After', '60');
+    if (!res.headersSent) sendJson(res, error.statusCode || 500, {
+      error: error.statusCode ? error.message : 'Internal server error',
+    });
   }
 });
 
+server.requestTimeout = 30_000;
+server.headersTimeout = 10_000;
 server.listen(port, '127.0.0.1', () => {
-  console.log(`Axiom server running on http://127.0.0.1:${port}`);
+  console.log(`Axiom server running on http://127.0.0.1:${server.address().port}`);
   console.log(`SQLite evidence layer ready at ${dbPath}`);
 });

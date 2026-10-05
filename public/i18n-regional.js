@@ -846,7 +846,7 @@
       "fwPrivacy": "프라이버시 및 신뢰 — PDPA, GDPR 원칙; 관할 준수는 프로젝트별",
       "legalLabel": "약관 · 프라이버시 · 책임 · 법률",
       "terms": "본 사이트를 사용하면 합법적으로 사용하며 스크린샷, 대시보드, 모델 출력, 시스템 내부를 서면 허가 없이 재배포하지 않는 데 동의합니다. Axiom, Axiom 명칭, 표시된 시스템 명칭은 Axiom X Co., Ltd.의 상호입니다.",
-      "privacy": "본 사이트는 속도 제한과 집계 트래픽 측정을 위한 12자 해시 방문자 태그 외에는 어떠한 개인 데이터도 수집하지 않습니다. 여기서 연결된 시스템은 각자의 프라이버시 정책을 가지며, 해당 데이터를 붙여넣기 전에 해당 정책을 읽으십시오. 광고 쿠키를 설정하지 않으며, 방문자 데이터를 제3자에게 판매하거나 공유하지 않습니다.",
+      "privacy": "Cloudflare가 집계 트래픽 분석을 제공합니다. 이 사이트는 광고 쿠키를 설정하거나 방문자 데이터를 판매하지 않습니다. 호스팅 및 분석 제공업체는 요청 메타데이터를 처리할 수 있습니다. 연결된 시스템에는 별도의 개인정보 정책이 있으니 먼저 읽어 주세요.",
       "dataAttribution": "샌드박스 시스템에 표시되는 실시간 데이터는 TMD, GISTDA, JICA, NBTC, 미세먼지정책과, OpenStreetMap 기여자, TomTom 및 시스템 내에 출처가 명시된 기타 공개·개방형 라이선스 출처에서 가져옵니다. 상업적 출처(예: Air4Thai o61, 33V, 34T, Naver CFT)가 혼합된 경우 시스템 화면에 출처가 표시됩니다.",
       "liability": "본 사이트의 샌드박스 및 데모 시스템은 작동하지만 보장하지 않습니다. 모든 지표는 힌트이며 판정이 아닙니다. 실제 결정은 원본 관할 기관을 통해 검증해야 합니다. Axiom은 샌드박스 데이터에 근거한 결정에 대해 책임을 지지 않습니다.",
       "governingLaw": "본 약관은 태국 왕국의 법률에 따릅니다. 분쟁은 방콕 법원의 전속 관할에 따릅니다. 영문 텍스트와 번역본이 충돌할 경우 영문 텍스트가 우선합니다.",
@@ -875,7 +875,7 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "59개 시스템 · 5개국",
+      "sysMeta": "62개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 19",
       "intelligence": "인텔리전스",
@@ -885,7 +885,7 @@
       "emerging": "신규",
       "emergingMeta": "연구급 및 새 운영 모델 · 9",
       "lab": "랩",
-      "labMeta": "보조 도구 · 공개 진행 · 18"
+      "labMeta": "보조 도구 · 공개 진행 · 21"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1762,7 +1762,7 @@
       "fwPrivacy": "プライバシーと信頼 — PDPA、GDPR原則；管轄遵守は案件ごと",
       "legalLabel": "規約 · プライバシー · 責任 · 法律",
       "terms": "本サイトを利用することで、合法的に利用し、書面による許可なくスクリーンショット、ダッシュボード、モデル出力、システム内部を再公開しないことに同意したものと見なします。Axiom、Axiomの名称、および表示されるシステム名は Axiom X Co., Ltd. の商号です。",
-      "privacy": "本サイトは、流量制限と集計トラフィック計測に使用される12文字のハッシュ化された訪問者タグ以外の個人データを収集しません。ここからリンクされているシステムはそれぞれ独自のプライバシー方針を持っており、データを貼り付ける前にそれらをお読みください。広告クッキーは設定せず、訪問者データを第三者に販売・共有しません。",
+      "privacy": "Cloudflareが集計アクセス解析を提供します。本サイトは広告Cookieを設定せず、訪問者データを販売しません。ホスティング・解析事業者はリクエストのメタデータを処理する場合があります。リンク先には独自のプライバシーポリシーがあります。先にお読みください。",
       "dataAttribution": "サンドボックスシステムに表示されるライブデータは、TMD、GISTDA、JICA、NBTC、汚染管理局、OpenStreetMap コントリビューター、TomTom、およびシステム内にクレジット表示されるその他の公開・オープンライセンスのフィードから取得しています。商用フィード（例: Air4Thai o61、33V、34T、Naver CFT）が混在している場合、ソースはシステム画面に表示されます。",
       "liability": "本サイトのサンドボックスおよびデモシステムは動作しますが、保証するものではありません。すべての指標はヒントであり、判定ではありません。実際の意思決定は、元の所管当局との検証が必要です。Axiom はサンドボックスデータに基づく決定について責任を負いません。",
       "governingLaw": "本規約はタイ王国の法律に準拠します。紛争はバンコクの裁判所の専属管轄に服します。英文テキストと翻訳が矛盾する場合、英文テキストが優先します。",
@@ -1791,7 +1791,7 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "59システム · 5か国",
+      "sysMeta": "62システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 19",
       "intelligence": "インテリジェンス",
@@ -1801,7 +1801,7 @@
       "emerging": "新興",
       "emergingMeta": "研究グレードと新運用モデル · 9",
       "lab": "ラボ",
-      "labMeta": "補助ツール · 公開中 · 18"
+      "labMeta": "補助ツール · 公開中 · 21"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2678,7 +2678,7 @@
       "fwPrivacy": "Quyền riêng tư và tin cậy — PDPA, nguyên tắc theo GDPR; tuân thủ pháp lý theo từng dự án",
       "legalLabel": "Điều khoản · Quyền riêng tư · Trách nhiệm · Luật",
       "terms": "Bằng việc sử dụng trang này, bạn đồng ý sử dụng hợp pháp và không tái xuất bản ảnh chụp màn hình, bảng điều khiển, đầu ra mô hình hoặc hệ thống nội bộ khi chưa có văn bản cho phép. Axiom, tên gọi Axiom và tên các hệ thống hiển thị là tên thương mại của Axiom X Co., Ltd.",
-      "privacy": "Trang này không thu thập dữ liệu cá nhân ngoài thẻ khách truy cập dạng băm 12 ký tự dùng cho giới hạn tốc độ và đo lường lưu lượng tổng hợp. Các hệ thống liên kết từ đây có chính sách riêng tư của riêng chúng — hãy đọc trước khi dán dữ liệu của họ vào bất kỳ đâu. Chúng tôi không đặt cookie quảng cáo, không bán và không chia sẻ dữ liệu khách truy cập với bên thứ ba.",
+      "privacy": "Cloudflare cung cấp phân tích lưu lượng tổng hợp. Trang này không đặt cookie quảng cáo hoặc bán dữ liệu khách truy cập. Nhà cung cấp lưu trữ và phân tích có thể xử lý siêu dữ liệu yêu cầu. Các hệ thống liên kết có chính sách riêng tư riêng — hãy đọc trước khi sử dụng.",
       "dataAttribution": "Dữ liệu trực tiếp hiển thị trong hệ thống sandbox đến từ các nguồn công khai bao gồm TMD, GISTDA, JICA, NBTC, Cục Kiểm soát Ô nhiễm, cộng tác viên OpenStreetMap, TomTom và các nguồn cấp dữ liệu công khai hoặc cấp phép mở khác được ghi công trong hệ thống. Khi nguồn thương mại được trộn vào (ví dụ: Air4Thai o61, 33V, 34T, Naver CFT), nguồn sẽ được nêu trong giao diện hệ thống.",
       "liability": "Các hệ thống sandbox và trình diễn trên trang này hoạt động nhưng không được bảo đảm. Hãy coi mọi chỉ số là gợi ý, không phải phán quyết. Quyết định thực sự cần xác minh với cơ quan có thẩm quyền gốc. Axiom không chịu trách nhiệm cho các quyết định dựa trên dữ liệu sandbox.",
       "governingLaw": "Các điều khoản này tuân theo pháp luật Vương quốc Thái Lan. Tranh chấp thuộc thẩm quyền riêng của các tòa án Bangkok. Khi văn bản tiếng Anh xung đột với bất kỳ bản dịch nào, văn bản tiếng Anh sẽ được ưu tiên.",
@@ -2707,7 +2707,7 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "59 hệ thống · 5 quốc gia",
+      "sysMeta": "62 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 19",
       "intelligence": "Tình báo",
@@ -2717,7 +2717,7 @@
       "emerging": "Mới nổi",
       "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 9",
       "lab": "Lab",
-      "labMeta": "Công cụ phụ · mở công khai · 18"
+      "labMeta": "Công cụ phụ · mở công khai · 21"
     },
     "sysStatus": {
       "live": "Trực tiếp",
