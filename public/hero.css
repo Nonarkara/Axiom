@@ -42,7 +42,7 @@
   height: 100%;
   z-index: 1;
   background: #0a0a0a;
-  filter: brightness(0.72) contrast(1.05) saturate(0.7);
+  filter: none;
 }
 
 /* Retain the editorial edition's source credit; keep keyboard map navigation. */
@@ -56,6 +56,7 @@
 #heroMap .leaflet-control-zoom {
   display: none !important;
 }
+.hero-map-space { display: none; }
 
 /* ----- Canvas (data lines / grid overlay) ----- */
 #heroCanvas {
@@ -113,11 +114,20 @@
   display: block;
   width: 12px;
   height: 12px;
-  background: var(--accent);
+  background: var(--ocher);
   border: 1px solid var(--paper);
-  box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.6);
-  animation: sat-pulse 2.4s infinite;
+  box-shadow: none;
+  animation: none;
 }
+
+.sat-project-pin { display: flex; justify-content: center; align-items: flex-start; }
+.sat-project-pin .sat-signal-label { display: none; }
+.sat-project-pin.has-label .sat-signal-label,
+.sat-project-pin.is-context .sat-signal-label,
+.sat-project-pin:hover .sat-signal-label,
+.sat-project-pin:focus-visible .sat-signal-label { display: block; }
+.sat-project-pin.is-active .sat-signal-dot { background: var(--paper); border: 2px solid var(--ocher); }
+.sat-project-pin:focus-visible { outline: 2px solid var(--ocher); }
 
 .sat-signal-label {
   display: block;
@@ -528,6 +538,24 @@
   pointer-events: none;
 }
 
+.hero-node-strip-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.hero-node-strip-head .hero-node-strip-label { margin: 0; opacity: 1; }
+.hero-project-select {
+  width: min(320px, 65%);
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0;
+  color: var(--paper);
+  background: #171a1e;
+  font-family: inherit;
+  font-size: 13px;
+  pointer-events: auto;
+  color-scheme: dark;
+}
+.hero-footprint-note { margin: 0; color: var(--paper); font-size: 11px; line-height: 1.5; }
+
 .sat-hud-row {
   display: flex;
   align-items: center;
@@ -905,11 +933,12 @@
   #hero {
     --hero-display: 36px;
     grid-template-columns: 132px minmax(0, 1fr);
-    grid-template-areas: 'mode status' 'copy copy' 'nodes nodes' 'brief brief' 'stats stats';
+    grid-template-areas: 'mode status' 'map map' 'copy copy' 'nodes nodes' 'brief brief' 'stats stats';
     gap: 8px 12px;
     padding-block: 12px 24px;
   }
   .hero-copy { gap: 8px; }
+  .hero-map-space { display: block; grid-area: map; min-height: 180px; pointer-events: none; }
   .hero-subtitle { font-size: 15px; line-height: 1.45; }
   .hero-node-strip-scroller {
     grid-template-columns: repeat(4, minmax(148px, 1fr));

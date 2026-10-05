@@ -4192,6 +4192,27 @@ Object.entries(catalogReleaseCopy).forEach(([locale, release]) => {
   uiCopy[locale].pitch.proofLine = release.proofLine;
 });
 
+Object.entries(window.AXIOM_FOOTPRINT.copy).forEach(([locale, copy]) => {
+  const hero = uiCopy[locale].hero;
+  hero.signalLabels.CARBON = { en: 'Carbon', th: 'คาร์บอน', zh: '碳', ko: '탄소', ja: '炭素', vi: 'Carbon', ts: 'carbon' }[locale];
+  hero.projectLabel = copy.label;
+  hero.footprintNote = copy.note;
+  hero.hudLive = copy.hud;
+  hero.hudWatching = copy.watching;
+  hero.featured.kicker = copy.kicker;
+  window.AXIOM_FOOTPRINT.stops.forEach((stop, index) => {
+    const currency = stop.currency === 'multi' ? copy.multi : stop.currency;
+    const systems = stop.projects.map(key => window.AXIOM_FOOTPRINT.projects.find(project => project.key === key).system);
+    hero.theatres[stop.key] = {
+      name: copy.locations[index],
+      meta: `${copy.scopes[stop.scope]} · ${currency}`,
+      featuredName: stop.system,
+      event: `EVENT_ID: ${stop.eventId}`,
+      sitrep: `${copy.locations[index]} · ${copy.scopes[stop.scope]} · ${currency}. ${systems.join(' · ')}.`,
+    };
+  });
+});
+
 const REGIONAL_LOCALES = new Set(['ko', 'ja', 'vi']);
 
 function renderStaticCopy() {
@@ -4464,75 +4485,17 @@ function initFlooddashCarousel() {
   if (!container || !window.L) return;
   const useLiteMotion = axiomMedia.isTouch || axiomMedia.isReduced || axiomMedia.isMobile;
 
-  // Theatre model — what each AUTO TOUR stop is watching (curated, not live APIs)
-  const THEATRES = {
-    bangkok: {
-      key: 'bangkok',
-      lat: 13.7563,
-      lng: 100.5018,
-      zoom: 12,
-      eventId: 'BANGKOK_WATCH',
-      featured: {
-        name: 'FloodDash',
-        href: 'https://flood-ami.pages.dev/',
-      },
-      signals: [
-        { type: 'FLOOD', system: 'FloodDash', href: 'https://flood-ami.pages.dev/', lat: 13.7563, lng: 100.5018 },
-        { type: 'CAMPUS', system: 'Chula', href: 'https://chula.nonarkara.org/', lat: 13.7380, lng: 100.5320 },
-        { type: 'URBAN', system: 'MTT', href: 'https://mtt-super-dashboard-v2.pages.dev/', lat: 13.9120, lng: 100.5480 },
-        { type: 'ATLAS', system: 'BKKx Atlas', href: 'https://atlas.nonarkara.org/', lat: 13.7300, lng: 100.5412 },
-      ],
-    },
-    phuket: {
-      key: 'phuket',
-      lat: 7.8804,
-      lng: 98.3923,
-      zoom: 12,
-      eventId: 'PHUKET_WATCH',
-      featured: {
-        name: 'Phuket Ops',
-        href: 'https://phuket.nonarkara.org/war-room',
-      },
-      signals: [
-        { type: 'COASTAL', system: 'Phuket Ops', href: 'https://phuket.nonarkara.org/war-room', lat: 7.8804, lng: 98.3923 },
-        { type: 'TRANSIT', system: 'Smart Bus', href: 'https://bus.nonarkara.org/', lat: 7.8900, lng: 98.3680 },
-        { type: 'AIR', system: 'AirDash', href: 'https://air.nonarkara.org/', lat: 7.9500, lng: 98.3400 },
-      ],
-    },
-    'middle-east': {
-      key: 'middle-east',
-      lat: 25.2048,
-      lng: 55.2708,
-      zoom: 11,
-      eventId: 'ME_WATCH',
-      featured: {
-        name: 'Middle East Monitor',
-        href: 'https://mem.nonarkara.org/',
-      },
-      signals: [
-        { type: 'CONFLICT', system: 'MEM', href: 'https://mem.nonarkara.org/', lat: 25.2048, lng: 55.2708 },
-        { type: 'GLOBAL', system: 'Global Monitor', href: 'https://global.nonarkara.org/', lat: 24.7136, lng: 46.6753 },
-      ],
-    },
-    'southeast-asia': {
-      key: 'southeast-asia',
-      lat: 10.5,
-      lng: 105.0,
-      zoom: 5,
-      eventId: 'SEA_WATCH',
-      featured: {
-        name: 'Geopolitical Watch',
-        href: 'https://geo.nonarkara.org/',
-      },
-      signals: [
-        { type: 'BORDER', system: 'Geo Watch', href: 'https://geo.nonarkara.org/', lat: 14.5, lng: 100.5 },
-        { type: 'INDEX', system: 'SLIC', href: 'https://slic.nonarkara.org/', lat: 1.3521, lng: 103.8198 },
-        { type: 'SCALE', system: 'HCMCx', href: 'https://hcmc.nonarkara.org', lat: 10.8231, lng: 106.6297 },
-      ],
-    },
-  };
-
-  const CITIES = Object.values(THEATRES);
+  const footprint = window.AXIOM_FOOTPRINT;
+  const PROJECTS = footprint.projects.map(project => {
+    const stop = footprint.stops.find(item => item.key === project.stop);
+    return { ...project, lat: project.lat ?? stop.lat, lng: project.lng ?? stop.lng, href: project.href || stop.href, scope: stop.scope };
+  });
+  const CITIES = footprint.stops.map(stop => ({
+    ...stop,
+    featured: { name: stop.system, href: stop.href },
+    signals: stop.projects.map(key => PROJECTS.find(project => project.key === key)),
+  }));
+  const THEATRES = Object.fromEntries(CITIES.map(stop => [stop.key, stop]));
 
   function theatreCopy(key) {
     const copy = (typeof uiCopy !== 'undefined' && uiCopy[activeLocale]) || {};
@@ -4565,10 +4528,13 @@ function initFlooddashCarousel() {
   // Replaces the old Carto dark_all which now requires an account.
   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 16,
+    noWrap: true,
     attribution: 'Tiles &copy; Esri',
   }).addTo(map);
 
-  let signalLayer = L.layerGroup().addTo(map);
+  const signalLayer = L.layerGroup().addTo(map);
+  const coverageLayer = L.layerGroup().addTo(map);
+  const projectMarkers = new Map();
 
   function signalLabel(type) {
     const cur = uiCopy[activeLocale] || {};
@@ -4577,28 +4543,53 @@ function initFlooddashCarousel() {
     return result;
   }
 
-  function signalIcon(type) {
-    const label = signalLabel(type);
+  function signalIcon(project, active) {
+    const stop = THEATRES[project.stop];
+    const copy = theatreCopy(project.stop);
+    const overview = ['thailand', 'malaysia', 'middle-east', 'southeast-asia'].includes(activeTheatreKey);
+    const contextual = overview && ['chiang-mai', 'bangkok', 'ho-chi-minh-city', 'kuching', 'nakhon-si-thammarat'].includes(project.stop) && project.key !== 'culture';
+    const showLabel = active && (selectedProject || (project.stop === activeTheatreKey && project.key !== 'culture'));
+    const label = !active || ['national', 'regional', 'overview'].includes(stop.scope) ? copy.name : project.system;
     return L.divIcon({
-      className: '',
-      html: `<div class="sat-signal-marker" title="${label}"><span class="sat-signal-dot"></span><span class="sat-signal-label">${label}</span></div>`,
-      iconSize: [72, 36],
-      iconAnchor: [36, 8],
+      className: `sat-project-pin${active ? ' is-active' : ''}${contextual ? ' is-context' : ''}${showLabel ? ' has-label' : ''}`,
+      html: `<div class="sat-signal-marker"><span class="sat-signal-dot"></span><span class="sat-signal-label">${escapeHtml(label)}</span></div>`,
+      iconSize: [44, 44],
+      iconAnchor: [22, 6],
     });
   }
 
   function paintSignalMarkers(theatre) {
-    signalLayer.clearLayers();
-    (theatre.signals || []).forEach((signal) => {
-      const marker = L.marker([signal.lat, signal.lng], {
-        icon: signalIcon(signal.type),
-        keyboard: true,
-        title: `${signal.type} · ${signal.system}`,
-      });
-      marker.on('click', () => {
-        window.open(signal.href, '_blank', 'noopener');
-      });
-      marker.addTo(signalLayer);
+    PROJECTS.forEach(project => {
+      // Co-located national/regional systems share a single coverage anchor.
+      const owner = THEATRES[project.stop];
+      if (['national', 'regional', 'overview'].includes(owner.scope) && owner.projects[0] !== project.key) return;
+      const active = selectedProject ? selectedProject.key === project.key : theatre.projects.includes(project.key);
+      const copy = theatreCopy(project.stop);
+      let marker = projectMarkers.get(project.key);
+      if (!marker) {
+        marker = L.marker([project.lat, project.lng], { keyboard: true, icon: signalIcon(project, active) }).addTo(signalLayer);
+        marker.on('click', () => selectStop(owner, project));
+        projectMarkers.set(project.key, marker);
+      }
+      marker.setIcon(signalIcon(project, active));
+      marker.setZIndexOffset(active ? 1000 : 0);
+      const element = marker.getElement();
+      if (element) {
+        element.dataset.project = project.key;
+        element.title = `${copy.name} · ${project.system} · ${copy.meta}`;
+        element.setAttribute('aria-label', element.title);
+        element.setAttribute('aria-pressed', String(active));
+        element.onkeydown = (event) => {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          event.preventDefault();
+          event.stopPropagation();
+          selectStop(owner, project);
+        };
+      }
+    });
+    coverageLayer.clearLayers();
+    (footprint.coverage[theatre.key] || []).forEach(bounds => {
+      L.rectangle(bounds, { color: '#d4b96e', weight: 1, dashArray: '5 5', fill: false, interactive: false }).addTo(coverageLayer);
     });
   }
 
@@ -4611,17 +4602,20 @@ function initFlooddashCarousel() {
   const featuredEvent = document.getElementById('heroFeaturedEvent');
   const featuredName = document.getElementById('heroFeaturedName');
   const featuredLede = document.getElementById('heroFeaturedLede');
+  const projectSelect = document.getElementById('heroProjectSelect');
+  if (projectSelect) {
+    CITIES.forEach(city => {
+      const option = document.createElement('option');
+      option.value = city.key;
+      option.textContent = theatreCopy(city.key).name;
+      projectSelect.append(option);
+    });
+    projectSelect.firstElementChild?.remove();
+    projectSelect.addEventListener('change', () => selectStop(THEATRES[projectSelect.value]));
+  }
 
   let activeTheatreKey = CITIES[0].key;
-
-  // Re-paint the signal markers + sat-hud-signals strip when locale changes
-  // (they freeze at first render otherwise because we read activeLocale
-  // and THEATRES in closures).
-  window.addEventListener('axiom:localechange', () => {
-    if (activeTheatreKey && THEATRES[activeTheatreKey]) {
-      paintSignalMarkers(THEATRES[activeTheatreKey]);
-    }
-  });
+  let selectedProject = null;
 
   function syncTheatre(theatre, options = {}) {
     const { shouldScroll = false } = options;
@@ -4630,10 +4624,11 @@ function initFlooddashCarousel() {
     const tCopy = theatreCopy(theatre.key);
     const name = tCopy.name || theatre.key;
     const meta = tCopy.meta || theatre.signals.map((s) => s.type.toLowerCase()).join(' · ');
-    const sitrep = tCopy.sitrep || '';
-    const featuredNameText = tCopy.featuredName || theatre.featured.name;
+    const sitrep = selectedProject ? `${name} · ${meta}. ${selectedProject.system}.` : tCopy.sitrep || '';
+    const featuredNameText = selectedProject?.system || tCopy.featuredName || theatre.featured.name;
     const eventId = tCopy.event || `EVENT_ID: ${theatre.eventId}`;
-    const signalTypes = theatre.signals.map((s) => signalLabel(s.type)).join(' · ');
+    const signals = selectedProject ? [selectedProject] : theatre.signals;
+    const signalTypes = signals.map((s) => signalLabel(s.type)).join(' · ');
     const watchingLabel = theatreCopy('_hud')?.watching
       || (uiCopy[activeLocale]?.hero?.hudWatching)
       || uiCopy.en?.hero?.hudWatching
@@ -4641,8 +4636,8 @@ function initFlooddashCarousel() {
 
     if (heroCityLabel) heroCityLabel.textContent = String(name).toUpperCase();
     if (satTheatre) satTheatre.textContent = String(name).toUpperCase();
-    if (satSignals) satSignals.textContent = signalTypes;
-    if (satWatching) satWatching.textContent = `${watchingLabel} · ${theatre.signals.length}`;
+    if (satSignals) satSignals.textContent = meta;
+    if (satWatching) satWatching.textContent = `${watchingLabel} · ${signals.length}`;
 
     // Sync the canvas-rendered pretext text (city + signal types) so the
     // overlay shares the data lines' coordinate system instead of sitting
@@ -4652,10 +4647,14 @@ function initFlooddashCarousel() {
       window.__axiomCanvasText.signals = signalTypes;
     }
 
-    if (featuredBadge) featuredBadge.href = theatre.featured.href;
+    if (featuredBadge) featuredBadge.href = selectedProject?.href || theatre.featured.href;
     if (featuredEvent) featuredEvent.textContent = eventId;
     if (featuredName) featuredName.textContent = featuredNameText;
     if (featuredLede) featuredLede.textContent = sitrep;
+    if (projectSelect) {
+      projectSelect.value = theatre.key;
+      Array.from(projectSelect.options).forEach(option => { option.textContent = theatreCopy(option.value).name; });
+    }
 
     heroNodeButtons.forEach((button) => {
       const isActive = button.dataset.city === theatre.key;
@@ -4680,22 +4679,9 @@ function initFlooddashCarousel() {
     window.dispatchEvent(new CustomEvent('axiom:theatrechange', {
       detail: {
         key: theatre.key,
-        signals: theatre.signals.map((s) => s.type),
+        signals: signals.map((s) => s.type),
       },
     }));
-  }
-
-  function getClosestTheatre(lat, lng) {
-    let closest = CITIES[0];
-    let minDistance = Number.POSITIVE_INFINITY;
-    CITIES.forEach((city) => {
-      const distance = Math.hypot(lat - city.lat, lng - city.lng);
-      if (distance < minDistance) {
-        minDistance = distance;
-        closest = city;
-      }
-    });
-    return closest;
   }
 
   window.axiom = window.axiom || {};
@@ -4727,13 +4713,13 @@ function initFlooddashCarousel() {
   const mapModePause = document.getElementById('mapModePause');
   const mapModePlay = document.getElementById('mapModePlay');
 
-  let autoTour = true;
+  let autoTour = !axiomMedia.isReduced;
   let cityIndex = 0;
   let driftTimer = null;
   let driftInterval = null;
   let resumeTimeout = null;
-  const tourIntervalMs = useLiteMotion ? 16000 : 12000;
-  const tourDuration = useLiteMotion ? 7 : 10;
+  const tourIntervalMs = 9000;
+  const tourDuration = 2.5;
 
   function modeLabels() {
     const h = uiCopy[activeLocale]?.hero || uiCopy.en?.hero || {};
@@ -4751,7 +4737,8 @@ function initFlooddashCarousel() {
       mapModeLabel.className = 'map-mode-label' + (touring ? '' : ' exploring');
     }
     if (mapModeBtn) {
-      mapModeBtn.setAttribute('aria-label', touring ? 'Pause auto tour' : 'Resume auto tour');
+      const copy = footprint.copy[activeLocale] || footprint.copy.en;
+      mapModeBtn.setAttribute('aria-label', touring ? copy.pause : copy.resume);
       mapModeBtn.setAttribute('aria-pressed', String(touring));
     }
     if (mapModePause) mapModePause.style.display = touring ? 'block' : 'none';
@@ -4766,17 +4753,40 @@ function initFlooddashCarousel() {
   }
 
   function driftToNext() {
-    if (!autoTour) return;
+    if (!autoTour || document.hidden) return;
     cityIndex = (cityIndex + 1) % CITIES.length;
     const city = CITIES[cityIndex];
+    selectedProject = null;
     syncTheatre(city, { shouldScroll: axiomMedia.isMobile });
-    map.flyTo([city.lat, city.lng], city.zoom, {
-      duration: tourDuration,
-      easeLinearity: useLiteMotion ? 0.1 : 0.05,
-    });
+    moveToStop(city);
+  }
+
+  function moveToStop(city) {
+    // Keep the geographic anchor in the uncovered map column, away from the headline.
+    const size = map.getSize();
+    const viewport = document.querySelector('.hero-map-space');
+    const bounds = viewport?.getBoundingClientRect();
+    const mapBounds = container.getBoundingClientRect();
+    const phone = window.matchMedia('(max-width: 600px)').matches;
+    const targetY = phone && bounds ? bounds.top - mapBounds.top + bounds.height / 2 : size.y / 2;
+    const offset = L.point(phone ? 0 : -size.x * 0.1, size.y / 2 - targetY);
+    const zoom = phone && city.zoom <= 5 ? Math.max(3, city.zoom - 1) : city.zoom;
+    const center = map.unproject(map.project([city.lat, city.lng], zoom).add(offset), zoom);
+    map.flyTo(center, zoom, { duration: tourDuration, animate: !axiomMedia.isReduced });
+  }
+
+  function selectStop(city, project = null) {
+    if (!city) return;
+    pauseTour(true);
+    selectedProject = project;
+    cityIndex = CITIES.findIndex(item => item.key === city.key);
+    syncTheatre(city, { shouldScroll: true });
+    moveToStop(city);
   }
 
   function startTour() {
+    if (driftInterval) clearInterval(driftInterval);
+    if (driftTimer) { clearTimeout(driftTimer); driftTimer = null; }
     autoTour = true;
     setModeUI(true);
     if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
@@ -4790,7 +4800,6 @@ function initFlooddashCarousel() {
     if (driftInterval) { clearInterval(driftInterval); driftInterval = null; }
     if (driftTimer) { clearTimeout(driftTimer); driftTimer = null; }
     map.stop();
-    syncTheatre(getClosestTheatre(map.getCenter().lat, map.getCenter().lng));
 
     if (fromUser && resumeTimeout) clearTimeout(resumeTimeout);
     if (fromUser) {
@@ -4812,14 +4821,7 @@ function initFlooddashCarousel() {
   heroNodeButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const city = CITIES.find((item) => item.key === button.dataset.city);
-      if (!city) return;
-      cityIndex = CITIES.findIndex((item) => item.key === city.key);
-      pauseTour(true);
-      syncTheatre(city, { shouldScroll: true });
-      map.flyTo([city.lat, city.lng], city.zoom, {
-        duration: useLiteMotion ? 5 : 8,
-        easeLinearity: useLiteMotion ? 0.15 : 0.08,
-      });
+      selectStop(city);
     });
   });
 
@@ -4835,15 +4837,14 @@ function initFlooddashCarousel() {
   };
   map.on('moveend', () => {
     map._flyInProgress = false;
-    const closest = getClosestTheatre(map.getCenter().lat, map.getCenter().lng);
-    cityIndex = CITIES.findIndex((city) => city.key === closest.key);
-    if (closest.key !== activeTheatreKey) syncTheatre(closest);
   });
 
-  driftTimer = setTimeout(() => {
-    driftToNext();
-    driftInterval = setInterval(driftToNext, tourIntervalMs);
-  }, useLiteMotion ? 2500 : 5000);
+  if (autoTour) {
+    driftTimer = setTimeout(() => {
+      driftToNext();
+      driftInterval = setInterval(driftToNext, tourIntervalMs);
+    }, tourIntervalMs);
+  }
 
   if (!useLiteMotion) {
     let rafId;
@@ -4851,7 +4852,7 @@ function initFlooddashCarousel() {
       if (!autoTour) return;
       if (rafId) cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
-        if (!autoTour) return;
+        if (!autoTour || map._flyInProgress) return;
         const dx = (e.clientX / window.innerWidth - 0.5) * 0.003;
         const dy = (e.clientY / window.innerHeight - 0.5) * 0.003;
         const center = map.getCenter();
@@ -4867,7 +4868,8 @@ function initFlooddashCarousel() {
   });
 
   syncTheatre(CITIES[0]);
-  setModeUI(true);
+  setModeUI(autoTour);
+  moveToStop(CITIES[0]);
 })();
 (function initDataLines() {
   const canvas = document.getElementById('heroCanvas');
@@ -4932,9 +4934,9 @@ function initFlooddashCarousel() {
   // Cached measureText (pretext's core trick) keeps it cheap at 60fps.
   // Synced from syncTheatre() and setModeUI() above.
   const canvasText = {
-    city: 'BANGKOK',
-    signals: 'FLOOD · CAMPUS · URBAN · ATLAS',
-    mode: 'AUTO TOUR', // 'AUTO TOUR' or 'HOLD'
+    city: document.getElementById('satTheatre')?.textContent || 'THAILAND',
+    signals: document.getElementById('satSignals')?.textContent || '',
+    mode: document.getElementById('mapModeLabel')?.textContent || 'AUTO TOUR',
   };
   const _measureCache = new Map();
   function measure(str, font) {
