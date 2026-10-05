@@ -3171,7 +3171,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '62 systems · 5 countries',
+      sysMeta: '63 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 19',
       intelligence: 'Intelligence',
@@ -3181,7 +3181,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 9',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 21',
+      labMeta: 'Side tools · in the open · 22',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -3349,7 +3349,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '62 ระบบ · 5 ประเทศ',
+      sysMeta: '63 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 19',
       intelligence: 'ข่าวกรอง',
@@ -3359,7 +3359,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 9',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 21',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 22',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -3525,7 +3525,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '62 个系统 · 5 个国家',
+      sysMeta: '63 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 19',
       intelligence: '情报',
@@ -3535,7 +3535,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 9',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 21',
+      labMeta: '辅助工具 · 开放中 · 22',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3707,7 +3707,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '62 systems · 5 countries',
+      sysMeta: '63 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[19]',
       intelligence: 'Intelligence',
@@ -3717,7 +3717,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[9]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[21]',
+      labMeta: 'sideTools & openProcess · count[22]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
@@ -4129,58 +4129,65 @@ Object.keys(i18nPitch).forEach(locale => {
 
 const catalogReleaseCopy = {
   en: {
+    each: { cat: 'Business Operations', lede: 'ERP, ACT, CRM, and HR in one Thai/English workspace. Cash runway, expenses, and loan installments on the finance screen. The thumbnail shows ABC Company example data.', access: 'Sign-in required', cta: 'Open EACH' },
     champion: { cat: 'Tactical Simulation', lede: 'Set the formation, pressing, and plan. Watch the match respond. A football coaching board, career, and tactical classroom on the same simulation.', cta: 'Open the touchline' },
     soccer: { cat: 'Football Research', lede: 'A football tactics desk inside the NSP research prototype. Thai public-TV sources and official viewing destinations, with a rights notice before entry.', cta: 'Open the research desk' },
     vision: { cat: 'Computer-Vision Classroom', lede: 'How a picture becomes numbers, edges, motion, and a guess. Learn on public cameras, train a model, and test it in your browser without uploading your own images.', cta: 'Open the classroom' },
     dao: { lede: "The updated Dao De Jing reading room: 81 chapters in English, Thai, and Chinese, with character study, illustrated notes, and Palette's colour relationships.", original: 'Read the original version' },
-    proofLine: '62 systems across 5 countries. Open one. Use it. Judge.',
+    proofLine: '63 systems across 5 countries. Open one. Use it. Judge.',
   },
   th: {
+    each: { cat: 'ระบบบริหารธุรกิจ', lede: 'ERP, ACT, CRM และ HR ในพื้นที่ทำงานภาษาไทยและอังกฤษ หน้าการเงินแสดงระยะเวลาที่เงินสดพอใช้ ค่าใช้จ่าย และเงินผ่อน ภาพตัวอย่างใช้ข้อมูลบริษัท ABC', access: 'ต้องเข้าสู่ระบบ', cta: 'เปิด EACH' },
     champion: { cat: 'จำลองแท็กติกฟุตบอล', lede: 'เลือกแผนการเล่น การเพรส และรูปแบบทีม แล้วดูเกมตอบสนอง กระดานโค้ช โหมดอาชีพ และห้องเรียนแท็กติกใช้ระบบจำลองเดียวกัน', cta: 'เปิดข้างสนาม' },
     soccer: { cat: 'งานวิจัยฟุตบอล', lede: 'โต๊ะวิเคราะห์แท็กติกฟุตบอลในต้นแบบวิจัย NSP รวมแหล่งทีวีสาธารณะไทยและช่องทางรับชมอย่างเป็นทางการ พร้อมประกาศสิทธิ์ก่อนเข้าใช้งาน', cta: 'เปิดโต๊ะวิจัย' },
     vision: { cat: 'ห้องเรียนคอมพิวเตอร์วิทัศน์', lede: 'ภาพกลายเป็นตัวเลข ขอบภาพ การเคลื่อนไหว และการคาดเดาอย่างไร เรียนกับกล้องสาธารณะ ฝึกโมเดล และทดสอบในเบราว์เซอร์โดยไม่อัปโหลดภาพของคุณ', cta: 'เปิดห้องเรียน' },
     dao: { lede: 'ห้องอ่านเต้าเต๋อจิงฉบับปรับปรุง 81 บทในภาษาอังกฤษ ไทย และจีน พร้อมเรียนตัวอักษร บันทึกภาพประกอบ และความสัมพันธ์ของสีจาก Palette', original: 'อ่านฉบับเดิม' },
-    proofLine: '62 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
+    proofLine: '63 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
   },
   zh: {
+    each: { cat: '企业运营', lede: '集 ERP、ACT、CRM 和 HR 于一体的泰英双语工作空间。财务页呈现现金可支撑时长、费用和贷款分期。缩略图使用 ABC 公司的示例数据。', access: '需要登录', cta: '打开 EACH' },
     champion: { cat: '足球战术模拟', lede: '调整阵型、压迫和战术，观察比赛如何回应。教练战术板、生涯模式和战术课堂共用一套模拟系统。', cta: '打开场边控制台' },
     soccer: { cat: '足球研究', lede: 'NSP 研究原型中的足球战术桌。收录泰国公共电视来源和官方观看渠道，进入前展示版权须知。', cta: '打开研究桌' },
     vision: { cat: '计算机视觉课堂', lede: '图像如何变成数字、边缘、运动和推测。用公共摄像头学习、训练模型，并在浏览器中测试，无需上传自己的图像。', cta: '打开课堂' },
     dao: { lede: '更新后的《道德经》阅读室：81 章，英语、泰语、中文，配有汉字学习、插图笔记和 Palette 的色彩关系。', original: '阅读原版' },
-    proofLine: '62 个系统，5 个国家。打开一个，亲自使用，再作判断。',
+    proofLine: '63 个系统，5 个国家。打开一个，亲自使用，再作判断。',
   },
   ko: {
+    each: { cat: '비즈니스 운영', lede: 'ERP, ACT, CRM, HR을 한곳에 모은 태국어·영어 작업 공간. 재무 화면에서 현금 지속 기간, 비용, 대출 상환을 봅니다. 썸네일은 ABC 회사의 예시 데이터입니다.', access: '로그인 필요', cta: 'EACH 열기' },
     champion: { cat: '축구 전술 시뮬레이션', lede: '포메이션, 압박, 전술을 바꾸고 경기의 반응을 보세요. 코칭 보드, 커리어, 전술 교실이 같은 시뮬레이션을 사용합니다.', cta: '터치라인 열기' },
     soccer: { cat: '축구 연구', lede: 'NSP 연구 프로토타입의 축구 전술 데스크. 태국 공영 TV 소스와 공식 시청 경로를 모으며, 입장 전에 권리 안내를 제공합니다.', cta: '연구 데스크 열기' },
     vision: { cat: '컴퓨터 비전 교실', lede: '사진이 숫자, 윤곽, 움직임, 추측이 되는 과정. 공공 카메라로 배우고 모델을 훈련하며, 개인 이미지를 업로드하지 않고 브라우저에서 시험합니다.', cta: '교실 열기' },
     dao: { lede: '새로 단장한 도덕경 읽기 공간. 영어·태국어·중국어 81장, 한자 학습, 그림 노트, Palette의 색채 관계를 담았습니다.', original: '이전 버전 읽기' },
-    proofLine: '5개국의 62개 시스템. 하나를 열고, 사용하고, 판단하세요.',
+    proofLine: '5개국의 63개 시스템. 하나를 열고, 사용하고, 판단하세요.',
   },
   ja: {
+    each: { cat: '業務管理', lede: 'ERP・ACT・CRM・HRをまとめたタイ語・英語のワークスペース。財務画面で資金の継続期間、費用、ローン返済を確認。サムネイルはABC社のサンプルデータです。', access: 'ログインが必要', cta: 'EACHを開く' },
     champion: { cat: 'サッカー戦術シミュレーション', lede: '陣形、プレス、戦術を変え、試合の反応を見る。コーチングボード、キャリア、戦術教室が同じシミュレーションを使います。', cta: 'タッチラインを開く' },
     soccer: { cat: 'サッカー研究', lede: 'NSP研究プロトタイプ内のサッカー戦術デスク。タイの公共テレビと公式視聴先を集め、入場前に権利の注意事項を表示します。', cta: '研究デスクを開く' },
     vision: { cat: 'コンピュータービジョン教室', lede: '画像が数字、輪郭、動き、推測に変わる過程。公共カメラで学び、モデルを訓練し、自分の画像をアップロードせずブラウザーで試します。', cta: '教室を開く' },
     dao: { lede: '刷新した道徳経の読書室。英語・タイ語・中国語の81章、漢字学習、挿絵ノート、Paletteの色彩関係を収録。', original: '旧版を読む' },
-    proofLine: '5か国、62のシステム。ひとつ開いて、使って、判断してください。',
+    proofLine: '5か国、63のシステム。ひとつ開いて、使って、判断してください。',
   },
   vi: {
+    each: { cat: 'Vận hành doanh nghiệp', lede: 'ERP, ACT, CRM và HR trong một không gian làm việc tiếng Thái/Anh. Màn hình tài chính hiển thị thời gian tiền mặt đủ dùng, chi phí và trả góp. Hình thu nhỏ dùng dữ liệu mẫu của công ty ABC.', access: 'Cần đăng nhập', cta: 'Mở EACH' },
     champion: { cat: 'Mô phỏng chiến thuật', lede: 'Đổi đội hình, pressing và lối chơi rồi xem trận đấu phản ứng. Bảng huấn luyện, sự nghiệp và lớp chiến thuật dùng cùng một mô phỏng.', cta: 'Mở đường biên' },
     soccer: { cat: 'Nghiên cứu bóng đá', lede: 'Bàn chiến thuật bóng đá trong nguyên mẫu nghiên cứu NSP. Nguồn truyền hình công cộng Thái Lan và nơi xem chính thức, có thông báo quyền trước khi vào.', cta: 'Mở bàn nghiên cứu' },
     vision: { cat: 'Lớp thị giác máy tính', lede: 'Ảnh trở thành số, đường biên, chuyển động và phỏng đoán thế nào. Học với camera công cộng, huấn luyện mô hình và thử trong trình duyệt mà không tải ảnh riêng lên.', cta: 'Mở lớp học' },
     dao: { lede: 'Phòng đọc Đạo Đức Kinh được cập nhật: 81 chương bằng tiếng Anh, Thái và Trung, học chữ, ghi chú minh họa và quan hệ màu của Palette.', original: 'Đọc phiên bản gốc' },
-    proofLine: '62 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
+    proofLine: '63 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
   },
   ts: {
+    each: { cat: 'BusinessOperations', lede: 'each.workspace({ modules: [ERP, ACT, CRM, HR], locales: [th, en] }) // finance: runway + expenses + installments; thumbnail: ABC.exampleData', access: 'auth.required', cta: 'each.open()' },
     champion: { cat: 'TacticalSimulation', lede: 'match.simulate({ formation, press, plan }) // coaching.board + career + classroom', cta: 'touchline.open()' },
     soccer: { cat: 'FootballResearch', lede: 'nsp.tacticsDesk // research.preview; publicTV.thailand + official.viewingLinks; rights.notice.beforeEntry', cta: 'researchDesk.open()' },
     vision: { cat: 'ComputerVisionClassroom', lede: 'image → numbers → edges → motion → prediction // public.cameras; model.train(); private.images.stayInBrowser', cta: 'classroom.open()' },
     dao: { lede: 'dao.read({ chapters: 81, locales: [en, th, zh], characters: true, illustratedNotes: true, colours: Palette })', original: 'dao.original.open()' },
-    proofLine: 'catalog.length === 62 // countries: 5; open → use → judge',
+    proofLine: 'catalog.length === 63 // countries: 5; open → use → judge',
   },
 };
 
 Object.entries(catalogReleaseCopy).forEach(([locale, release]) => {
-  Object.assign(uiCopy[locale].panels, { champion: release.champion, soccer: release.soccer, vision: release.vision });
+  Object.assign(uiCopy[locale].panels, { champion: release.champion, soccer: release.soccer, vision: release.vision, each: release.each });
   Object.assign(uiCopy[locale].panels.p24, release.dao);
   uiCopy[locale].pitch.proofLine = release.proofLine;
 });

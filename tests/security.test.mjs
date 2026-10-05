@@ -77,13 +77,16 @@ test('security headers match the generated deployment artifact', async () => {
 
 test('catalog editions and earned hero interactions remain present', async () => {
   const html = await readFile(new URL('../public/index.html', import.meta.url), 'utf8');
-  for (const host of ['champion', 'soccer', 'vision', 'dao', 'daoriginal']) {
+  for (const host of ['champion', 'soccer', 'vision', 'dao', 'daoriginal', 'each']) {
     assert.match(html, new RegExp(`href="https://${host}\\.nonarkara\\.org/"`));
   }
   for (const id of ['heroCanvas', 'heroMap', 'satHud', 'heroRotatingText', 'mapModeBtn', 'heroFeaturedBadge']) {
     assert.match(html, new RegExp(`id="${id}"`));
   }
   assert.match(html, /sys-cell__edition/);
+  assert.match(html, /src="screenshots\/each\.jpg"/);
+  assert.match(html, /data-i18n="panels\.each\.access">Sign-in required/);
+  assert.ok((await readFile(new URL('../public/screenshots/each.jpg', import.meta.url))).length > 0);
   const editorial = await readFile(new URL('../public/editorial.css', import.meta.url), 'utf8');
   assert.match(editorial, /@layer editorial/);
 });

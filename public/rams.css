@@ -1901,6 +1901,12 @@ summary:focus-visible {
   flex: 1;
 }
 
+.sys-cell__shot--contain {
+  height: auto;
+  object-fit: contain;
+  background: var(--paper);
+}
+
 .sys-cell__name {
   font-size: 16px;
   font-weight: 600;

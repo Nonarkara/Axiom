@@ -875,7 +875,7 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "62개 시스템 · 5개국",
+      "sysMeta": "63개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 19",
       "intelligence": "인텔리전스",
@@ -885,7 +885,7 @@
       "emerging": "신규",
       "emergingMeta": "연구급 및 새 운영 모델 · 9",
       "lab": "랩",
-      "labMeta": "보조 도구 · 공개 진행 · 21"
+      "labMeta": "보조 도구 · 공개 진행 · 22"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1791,7 +1791,7 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "62システム · 5か国",
+      "sysMeta": "63システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 19",
       "intelligence": "インテリジェンス",
@@ -1801,7 +1801,7 @@
       "emerging": "新興",
       "emergingMeta": "研究グレードと新運用モデル · 9",
       "lab": "ラボ",
-      "labMeta": "補助ツール · 公開中 · 21"
+      "labMeta": "補助ツール · 公開中 · 22"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2707,7 +2707,7 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "62 hệ thống · 5 quốc gia",
+      "sysMeta": "63 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 19",
       "intelligence": "Tình báo",
@@ -2717,7 +2717,7 @@
       "emerging": "Mới nổi",
       "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 9",
       "lab": "Lab",
-      "labMeta": "Công cụ phụ · mở công khai · 21"
+      "labMeta": "Công cụ phụ · mở công khai · 22"
     },
     "sysStatus": {
       "live": "Trực tiếp",
