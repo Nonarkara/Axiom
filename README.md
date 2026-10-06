@@ -110,7 +110,7 @@ No framework. No bundler. No build step. Edit `public/`, commit, push.
 | Page | `public/index.html` — one file, the source of truth |
 | Behaviour | `public/app.js` + `public/i18n-regional.js` — vanilla JS, seven locales (EN / TH / ZH / KO / JA / VI / TS) |
 | Style | `public/rams.css` + `public/hero.css` — Rams-grade system + hero (map, HUD, overlays) |
-| Map | Leaflet 1.9.4 from `unpkg.com` — live map with **AUTO TOUR** (Bangkok → Phuket → Middle East → SE Asia) |
+| Map | Leaflet 1.9.4 from `unpkg.com` — live map with **AUTO TOUR** across the project footprint (national and regional stops, not installation sites) |
 | Motion | Canvas 2D (`#heroCanvas`) behind the map |
 | Local server | `server.mjs` — Node 22+ (`node:sqlite`), static files from `public/`, `/api/*` for local pageviews and contact |
 | Deploy | GitHub Actions → Cloudflare Pages (`axiom`) → [axiom.nonarkara.org](https://axiom.nonarkara.org) (alias: axiom.pages.dev) |
@@ -188,7 +188,7 @@ Push to `main` deploys. Forks will not publish to axiom.nonarkara.org unless the
 
 The live catalogue is on the site. The page itself is the source of truth for what is currently shown.
 
-**Clusters you will see:** COMMAND (operations rooms), INTELLIGENCE (signal and analysis), CIVIC (national platforms and citizen infrastructure), EMERGING (research-grade / preview). Examples already in public: Phuket Ops, HCMCx, Kuching IOC, campus and city control towers, SLIC Index, SCITI, Phuket Smart Bus, FloodDash, ASEAN Smart Cities Network work.
+**Counts on the live site (do not collapse these):** 63 systems in the catalogue · 38 in production · 5 countries. Clusters: City Dashboards, Intelligence, Civic, Emerging, Lab. Examples already in public: Phuket Ops, HCMCx, Kuching IOC, campus and city control towers, SLIC Index, SCITI, Phuket Smart Bus, FloodDash, ASEAN Smart Cities Network work.
 
 **Stages.** Smart City Summit & Expo, Taipei, 2026 — SLIC Index launched live from the City Vision Stage. GITEX AI Asia, Marina Bay Sands, Singapore, April 2026 — main-stage keynote and a workshop that filled to standing room.
 
