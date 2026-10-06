@@ -21,7 +21,7 @@ window.AXIOM_FOOTPRINT = {
     { key: 'southeast-asia', lat: 10, lng: 106, zoom: 4, scope: 'overview', currency: 'THB · MYR · VND', system: 'Geopolitical Watch', href: 'https://geo.nonarkara.org/', projects: ['geo', 'slic', 'hcmc', 'malaysia', 'kuching'], eventId: 'SEA_WATCH' },
   ],
   projects: [
-    { key: 'flood', stop: 'thailand', system: 'FloodDash', type: 'FLOOD' },
+    { key: 'flood', stop: 'thailand', lat: 16, lng: 101, system: 'FloodDash', type: 'FLOOD' },
     { key: 'air', stop: 'thailand', system: 'AirDash', type: 'AIR', href: 'https://air.nonarkara.org/' },
     { key: 'sciti', stop: 'thailand', system: 'SCITI', type: 'INDEX', href: 'https://sciti.nonarkara.org/' },
     { key: 'carbon', stop: 'thailand', system: 'Forest Carbon Thailand', type: 'CARBON', href: 'https://carbon.nonarkara.org/' },

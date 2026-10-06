@@ -30,6 +30,7 @@ or a claim that every watched region commissioned an installation.
   Padawan. [MEM](https://mem.nonarkara.org/) identifies Middle Eastern monitoring.
 - Dashed frames are coarse geographic extents, not authoritative boundaries or
   service guarantees. Malaysia has separate Peninsula and Borneo extents.
+  Thailand's coverage anchor is separated from the Bangkok city/campus cluster.
 - THB, MYR, and VND identify local currency contexts; no exchange values, revenue,
   transaction support, or new country-delivery counts are invented.
 - The ambiguous name "Juman City" requires an exact destination from the owner.

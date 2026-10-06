@@ -568,7 +568,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--accent);
+  color: var(--paper);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
