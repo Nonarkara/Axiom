@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      npm:
+        patterns:
+          - "*"
+
+  - package-ecosystem: pip
+    directory: "/axiom DNA/examples/thailand-dashboard/api_queries"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      pip:
+        patterns:
+          - "*"
+
+  - package-ecosystem: docker-compose
+    directory: "/axiom DNA"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      docker-compose:
+        patterns:
+          - "*"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      github-actions:
+        patterns:
+          - "*"
