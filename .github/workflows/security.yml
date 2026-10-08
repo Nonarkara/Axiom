@@ -1,0 +1,103 @@
+# Report-only security scan. Findings do not fail the job.
+# No deploy steps, no repository secrets, and no requests to the live site.
+
+name: Security scan
+
+on:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    name: Semgrep and Trivy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Semgrep OSS
+        run: |
+          set +e
+          # Semgrep OSS 1.180.0. The image has no entrypoint; invoke semgrep.
+          docker run --rm \
+            -v "${GITHUB_WORKSPACE}:/src" \
+            -w /src \
+            -e SEMGREP_SEND_METRICS=off \
+            semgrep/semgrep@sha256:529ee8a277ec8adc5b534d7c74eea0a47e9de21d62852b6ba7ac6ba9566845c3 \
+            semgrep scan \
+              --metrics=off \
+              --disable-version-check \
+              --oss-only \
+              --quiet \
+              --config p/javascript \
+              --config p/nodejs \
+              --config p/python \
+              --config p/secrets \
+              --config p/github-actions \
+              --sarif \
+              --output /src/semgrep.sarif \
+            >"${RUNNER_TEMP}/semgrep.stdout" \
+            2>"${RUNNER_TEMP}/semgrep.stderr"
+          status=$?
+          echo "Semgrep finished with exit ${status}. Report-only; the job continues."
+          if [ "${status}" -ne 0 ]; then
+            python3 - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          secret = re.compile(
+              r"(ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|"
+              r"AKIA[0-9A-Z]{16}|ASIA[0-9A-Z]{16}|"
+              r"sk_live_[A-Za-z0-9]{10,}|xox[baprs]-[A-Za-z0-9-]{10,}|"
+              r"-----BEGIN [A-Z0-9 ]*PRIVATE KEY-----)"
+          )
+          path = Path(os.environ["RUNNER_TEMP"]) / "semgrep.stderr"
+          text = path.read_text(errors="replace") if path.is_file() else ""
+          print("Semgrep stderr (redacted, last lines):")
+          for line in text.splitlines()[-30:]:
+              print(secret.sub("[redacted]", line)[:300])
+          PY
+          fi
+          exit 0
+
+      - name: Trivy filesystem
+        continue-on-error: true
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln,secret,misconfig
+          format: sarif
+          output: trivy.sarif
+          exit-code: "0"
+          hide-progress: "true"
+          cache: "false"
+
+      - name: Job summary
+        if: always()
+        run: python3 .github/security-summary.py
+
+      - name: Upload Semgrep SARIF
+        if: always() && hashFiles('semgrep.sarif') != ''
+        uses: github/codeql-action/upload-sarif@24c54180a607b1449ed407dd24f251e4e9147c8d # v4.38.3
+        with:
+          sarif_file: semgrep.sarif
+          category: semgrep-oss
+
+      - name: Upload Trivy SARIF
+        if: always() && hashFiles('trivy.sarif') != ''
+        uses: github/codeql-action/upload-sarif@24c54180a607b1449ed407dd24f251e4e9147c8d # v4.38.3
+        with:
+          sarif_file: trivy.sarif
+          category: trivy-fs
