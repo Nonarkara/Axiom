@@ -162,6 +162,8 @@
 }
 </script>
   <link rel="stylesheet" href="editorial.css?v=20261005h">
+  <link rel="stylesheet" href="circuit.css?v=20261014a">
+  <script defer src="circuit.js?v=20261014a"></script>
 </head>
 
 <body>
@@ -1534,243 +1536,246 @@
       </div>
     </section>
 
-    <!-- ============== STAGES ============== -->
+<!-- ============== SPEAKING CIRCUIT ============== -->
     <section class="section" id="stages">
       <div class="wrap">
-        <div class="s-head">
-          <div class="s-head__title" data-i18n="stageSect.kicker">Four stages, one arc</div>
-          <div class="s-head__meta" data-i18n="stageSect.meta">2026 · Taipei · Singapore · Shanghai · Bangkok</div>
+        <div class="cx-head">
+          <div class="cx-head__kicker" data-i18n="stageSect.kicker">Five stops, one arc</div>
+          <div class="cx-head__stats">
+            <div class="cx-head__stat"><span class="cx-head__num">6</span><span class="cx-head__lbl"
+                data-i18n="cx.stops">Stops</span></div>
+            <div class="cx-head__stat"><span class="cx-head__num">6</span><span class="cx-head__lbl"
+                data-i18n="cx.cities">Cities</span></div>
+            <div class="cx-head__stat"><span class="cx-head__num">14</span><span class="cx-head__lbl"
+                data-i18n="cx.shots">Stage shots</span></div>
+            <div class="cx-head__stat"><span class="cx-head__num">1</span><span class="cx-head__lbl"
+                data-i18n="cx.thesis">Thesis</span></div>
+          </div>
         </div>
         <h2 class="t-big" data-i18n-html="stageSect.title">Governments are tired of <em>waiting for the deck.</em></h2>
-        <p class="t-body-2" data-i18n="stageSect.lede" style="max-width:62ch;margin:12px 0 20px;">Q1: Taipei. Q2: GITEX Singapore. Q2.5: Tomorrow.City Shanghai — God Mode on the cube screen, FloodDash cooked live. Q3: LEAP East. Same thesis: build now, not after the budget cycle.</p>
+        <p class="t-body-2" data-i18n="stageSect.lede"
+          style="max-width:88ch;margin:6px 0 14px;">One argument, delivered five times in eleven months, on five stages across Asia — always with a working surface running live in the room. Taipei indexed the cities. GITEX filled the hall. Shanghai put FloodDash on the cube screen. LEAP East launched it. Osaka asked what happens after the pilot works. Same thesis every time: build now, not after the budget cycle.</p>
 
-        <article class="stage">
-          <div class="stage__loc" data-i18n-html="stagesContent.taipeiLoc"><b>Taipei</b> · City Vision Stage · March
-            2026</div>
-          <span class="section-tag">[EVENT_ID: SCSE_2026_TPE]</span>
-          <h3 class="stage__title" data-i18n="stagesContent.taipeiTitle">Live dashboard, demo'd in 45 minutes.</h3>
-          <p class="stage__lead" data-i18n="stagesContent.taipeiLede">Keynote at the Smart City Summit &amp; Expo.
-            Working surface in the room, not concept art. SLIC went live during the talk: 157 cities, five pillars,
-            adjustable ranking logic.</p>
-          <blockquote class="stage__pull"><span data-i18n="stagesContent.taipeiQuote">"We didn't build an index for the
-              shelf. We built a command system for the street. You build the ranking; we build the reality."</span><cite
-              class="stage__cite" data-i18n="stagesContent.taipeiCite">— Dr. Non, Taipei keynote</cite></blockquote>
-          <div class="grid grid--4" style="margin-top:16px;">
-            <div class="cell">
-              <div class="stat__val">174</div>
-              <div class="stat__lbl" data-i18n="stagesContent.taipeiS1">Cities indexed</div>
+        <div class="cx-rail" id="cx-rail" tabindex="0" role="group"
+          aria-label="Speaking circuit — five stops, scroll horizontally">
+          <article class="cx-card">
+            <div class="cx-card__head">
+              <div class="cx-card__city"><span class="cx-card__flag" aria-hidden="true">🇯🇵</span><span
+                  class="cx-card__name">Osaka</span></div>
+              <span class="cx-card__date">2026.10.08</span>
             </div>
-            <div class="cell">
-              <div class="stat__val">53</div>
-              <div class="stat__lbl" data-i18n="stagesContent.taipeiS2">Nations represented</div>
+            <div class="cx-card__venue" data-i18n="cx.osaka.venue">Osaka Metropolitan University · Morinomiya</div>
+            <div class="cx-card__shot">
+              <picture>
+                <source srcset="images/osaka-keynote.webp" type="image/webp">
+                <img src="images/osaka-keynote.jpg" loading="lazy" width="1400" height="933"
+                  alt="Dr. Non speaking at the Osaka Asia Roundtable 2026">
+              </picture>
             </div>
-            <div class="cell">
-              <div class="stat__val">3,000<small>+</small></div>
-              <div class="stat__lbl" data-i18n="stagesContent.taipeiS3">Intel partners</div>
+            <div class="cx-card__body">
+              <span class="cx-card__format" data-i18n="cx.osaka.format">Keynote · Country case · Panel</span>
+              <p class="cx-card__note" data-i18n="cx.osaka.note">What happens after the pilot works. DEPA flood monitoring, urban operations dashboards and open assessment tools — proof that institutions, not technology, are the binding constraint.</p>
+              <blockquote class="cx-card__quote"><span
+                  data-i18n="cx.osaka.quote">"A system built in 45 minutes on one machine still has to become something a city can legally adopt, budget for, and keep running."</span><cite class="cx-card__cite"
+                  data-i18n="cx.osaka.cite">Osaka Asia Roundtable 2026</cite></blockquote>
             </div>
-            <div class="cell">
-              <div class="stat__val">45m</div>
-              <div class="stat__lbl" data-i18n="stagesContent.taipeiS4">First live demo</div>
+            <div class="cx-card__stats">
+              <div class="cx-card__stat"><div class="cx-card__val">3</div><div class="cx-card__lbl"
+                  data-i18n="cx.osaka.s1">Sessions</div></div>
+              <div class="cx-card__stat"><div class="cx-card__val">7<small>min</small></div><div
+                  class="cx-card__lbl" data-i18n="cx.osaka.s2">On record</div></div>
+              <div class="cx-card__stat"><div class="cx-card__val">4</div><div class="cx-card__lbl"
+                  data-i18n="cx.osaka.s3">Delegations</div></div>
             </div>
-          </div>
-          <div class="launch-text intelligence-log" style="margin-top: 2rem;">
-            <div class="log-entry">
-              <span class="log-timestamp">[T+00:00:00]</span>
-              <p>Keynote delivered at SCSE 2026 Taipei. Focus: rapid urban response, public dashboards, and cross-border data governance.</p>
-            </div>
-            <div class="log-entry">
-              <span class="log-timestamp">[T+00:45:00]</span>
-              <p>Live dashboard demonstration completed inside 45 minutes. Working surface, not concept art.</p>
-            </div>
-            <div class="log-entry">
-              <span class="log-timestamp">[T+01:15:00]</span>
-              <p>SLIC live: 157 cities, five pillars, adjustable ranking logic. Interest confirmed across mayoral and city-network audiences.</p>
-            </div>
-            <div class="field-transmission">
-              <div class="transmission-header">ENCRYPTED_TRANSMISSION // FIELD_01</div>
-              <p>&ldquo;We didn't build an index for the shelf. We built a command system for the street. You build the ranking; we build the reality.&rdquo;</p>
-            </div>
-          </div>
+          </article>
 
-          <div class="stage__gallery">
-            <img src="images/taipei-stage.jpg" loading="lazy" alt="On the City Vision stage in Taipei">
-            <img src="images/taipei-slic-live.png" loading="lazy" alt="SLIC Index Live Demo in Taipei">
-            <img src="images/taipei-networking.jpg" loading="lazy" alt="Networking after the SLIC Index launch">
-          </div>
-        </article>
+          <article class="cx-card">
+            <div class="cx-card__head">
+              <div class="cx-card__city"><span class="cx-card__flag" aria-hidden="true">🇹🇭</span><span
+                  class="cx-card__name">Bangkok</span></div>
+              <span class="cx-card__date">2026.07.10</span>
+            </div>
+            <div class="cx-card__venue" data-i18n="cx.leap.venue">LEAP East 2026 · Orbital Stage</div>
+            <div class="cx-card__shot">
+              <picture>
+                <source srcset="images/leap-east-panel-speakers.webp" type="image/webp">
+                <img src="images/leap-east-panel-speakers.png" loading="lazy" width="1400" height="933"
+                  alt="LEAP East panel — Mitchell Price, Richard Chung, Will Peters and Dr. Non with the DEPA backdrop">
+              </picture>
+            </div>
+            <div class="cx-card__body">
+              <span class="cx-card__format" data-i18n="cx.leap.format">Panel · Product launch</span>
+              <p class="cx-card__note" data-i18n="cx.leap.note">From Congestion to Connection. Closed the Q1–Q2 arc with a live FloodDash launch — Thailand flood watch, 24/7, nine public sources.</p>
+              <blockquote class="cx-card__quote"><span
+                  data-i18n="cx.leap.quote">"Everyone monitoring floods in Thailand should be on FloodDash today. Not next quarter. Today."</span><cite class="cx-card__cite"
+                  data-i18n="cx.leap.cite">LEAP East panel</cite></blockquote>
+            </div>
+            <div class="cx-card__stats">
+              <div class="cx-card__stat"><div class="cx-card__val">Orbital</div><div class="cx-card__lbl"
+                  data-i18n="cx.leap.s1">Stage tier</div></div>
+              <div class="cx-card__stat"><div class="cx-card__val">4</div><div class="cx-card__lbl"
+                  data-i18n="cx.leap.s2">Speakers</div></div>
+              <div class="cx-card__stat"><div class="cx-card__val">9</div><div class="cx-card__lbl"
+                  data-i18n="cx.leap.s3">Live sources</div></div>
+            </div>
+          </article>
 
-        <article class="stage">
-          <div class="stage__loc" data-i18n-html="stagesContent.sgLoc"><b>Singapore</b> · Marina Bay Sands · Main Stage
-            · April 2026</div>
-          <h3 class="stage__title" data-i18n="stagesContent.sgTitle">Standing room only.</h3>
-          <p class="stage__lead" data-i18n="stagesContent.sgLede">Main-stage keynote at GITEX AI Asia. Then a workshop
-            on Government Innovation as a Service that hit capacity within minutes — standing room taken, hallway full,
-            every face locked on the live demo.</p>
-          <blockquote class="stage__pull"><span data-i18n="stagesContent.sgQuote">"The room was standing-room only. That
-              is not applause — that is a demand signal. Governments want working systems. They are tired of waiting for
-              the deck."</span><cite class="stage__cite" data-i18n="stagesContent.sgCite">— Dr. Non, post-keynote</cite>
-          </blockquote>
-          <div class="grid grid--4" style="margin-top:16px;">
-            <div class="cell">
-              <div class="stat__val">1,000<small>+</small></div>
-              <div class="stat__lbl" data-i18n="stagesContent.sgS1">Main stage audience</div>
+          <article class="cx-card">
+            <div class="cx-card__head">
+              <div class="cx-card__city"><span class="cx-card__flag" aria-hidden="true">🇸🇬</span><span
+                  class="cx-card__name">Singapore</span></div>
+              <span class="cx-card__date">2026.04</span>
             </div>
-            <div class="cell">
-              <div class="stat__val">23K<small>+</small></div>
-              <div class="stat__lbl" data-i18n="stagesContent.sgS2">Total attendees</div>
+            <div class="cx-card__venue" data-i18n="cx.sg.venue">GITEX AI Asia · Marina Bay Sands · Main Stage</div>
+            <div class="cx-card__shot">
+              <picture>
+                <source srcset="images/singapore-mainstage.webp" type="image/webp">
+                <img src="images/singapore-mainstage.jpg" loading="lazy" width="1400" height="933"
+                  alt="Dr. Non on the main stage at Marina Bay Sands">
+              </picture>
             </div>
-            <div class="cell">
-              <div class="stat__val">110<small>+</small></div>
-              <div class="stat__lbl" data-i18n="stagesContent.sgS3">Nations represented</div>
+            <div class="cx-card__body">
+              <span class="cx-card__format" data-i18n="cx.sg.format">Keynote · Sold-out workshop</span>
+              <p class="cx-card__note" data-i18n="cx.sg.note">Main-stage keynote, then Government Innovation as a Service — capacity gone in minutes, hallway full, every face on the live demo.</p>
+              <blockquote class="cx-card__quote"><span
+                  data-i18n="cx.sg.quote">"That is not applause. That is a demand signal. Governments want working systems."</span><cite
+                  class="cx-card__cite" data-i18n="cx.sg.cite">Post-keynote, GITEX</cite></blockquote>
             </div>
-            <div class="cell">
-              <div class="stat__val">Full</div>
-              <div class="stat__lbl" data-i18n="stagesContent.sgS4">Workshop capacity</div>
+            <div class="cx-card__stats">
+              <div class="cx-card__stat"><div class="cx-card__val">1K<small>+</small></div><div class="cx-card__lbl"
+                  data-i18n="cx.sg.s1">Main stage</div></div>
+              <div class="cx-card__stat"><div class="cx-card__val">23K<small>+</small></div><div class="cx-card__lbl"
+                  data-i18n="cx.sg.s2">Attendees</div></div>
+              <div class="cx-card__stat"><div class="cx-card__val">Full</div><div class="cx-card__lbl"
+                  data-i18n="cx.sg.s3">Workshop</div></div>
             </div>
-          </div>
-          <div class="launch-text intelligence-log" style="margin-top: 2rem;">
-            <div class="log-entry">
-              <span class="log-timestamp">[T+00:00:00]</span>
-              <p>Axiom invited to GITEX Asia 2026, Marina Bay Sands, Singapore.</p>
-            </div>
-            <div class="field-transmission">
-              <div class="transmission-header">ENCRYPTED_TRANSMISSION // FIELD_02</div>
-              <p>&ldquo;The argument is clear: better screens lead to better questions. Better questions lead to better governance.&rdquo;</p>
-            </div>
-          </div>
+          </article>
 
-          <div class="stage__gallery">
-            <img src="images/singapore-workshop-attentive.jpg" loading="lazy"
-              alt="Workshop audience fully engaged with the live demo">
-            <img src="images/singapore-mainstage.jpg" loading="lazy"
-              alt="Dr. Non on the main stage at Marina Bay Sands">
-            <img src="images/singapore-workshop.jpg" loading="lazy" alt="Workshop — standing room only">
-          </div>
-        </article>
+          <article class="cx-card">
+            <div class="cx-card__head">
+              <div class="cx-card__city"><span class="cx-card__flag" aria-hidden="true">🇹🇼</span><span
+                  class="cx-card__name">Taipei</span></div>
+              <span class="cx-card__date">2026.03.18</span>
+            </div>
+            <div class="cx-card__venue" data-i18n="cx.tpe.venue">Smart City Summit &amp; Expo · City Vision stage</div>
+            <div class="cx-card__shot">
+              <picture>
+                <source srcset="images/taipei-stage.webp" type="image/webp">
+                <img src="images/taipei-stage.jpg" loading="lazy" width="1400" height="933"
+                  alt="Dr. Non on the City Vision stage in Taipei">
+              </picture>
+            </div>
+            <div class="cx-card__body">
+              <span class="cx-card__format" data-i18n="cx.tpe.format">Keynote · SLIC Index V2 launch</span>
+              <p class="cx-card__note" data-i18n="cx.tpe.note">A working surface built in the room, not concept art. SLIC Index V2 went live mid-talk: 174 cities, 53 countries, adjustable ranking logic.</p>
+              <blockquote class="cx-card__quote"><span
+                  data-i18n="cx.tpe.quote">"We didn't build an index for the shelf. We built a command system for the street."</span><cite
+                  class="cx-card__cite" data-i18n="cx.tpe.cite">Taipei keynote</cite></blockquote>
+            </div>
+            <div class="cx-card__stats">
+              <div class="cx-card__stat"><div class="cx-card__val">174</div><div class="cx-card__lbl"
+                  data-i18n="cx.tpe.s1">Cities</div></div>
+              <div class="cx-card__stat"><div class="cx-card__val">53</div><div class="cx-card__lbl"
+                  data-i18n="cx.tpe.s2">Nations</div></div>
+              <div class="cx-card__stat"><div class="cx-card__val">45<small>m</small></div><div class="cx-card__lbl"
+                  data-i18n="cx.tpe.s3">To build</div></div>
+            </div>
+          </article>
 
-        <article class="stage">
-          <div class="stage__loc" data-i18n-html="stagesContent.shLoc"><b>Tomorrow.City Shanghai 2026</b> · Main Stage
-            · 2026</div>
-          <span class="section-tag">[EVENT_ID: TCITY_2026_SHA]</span>
-          <h3 class="stage__title" data-i18n="stagesContent.shTitle">Stop Calling It a Digital Twin. Call It God Mode.</h3>
-          <p class="stage__lead" data-i18n="stagesContent.shLede">A digital twin is the polite name. God Mode is the honest one — the holistic view of what a god would see of your city, so you can manage it better, not worship the dashboard. Dr Non's fourth time on this stage; the venue is the side story. The idea is the product: FloodDash on the cube screen, cooked live in the room.</p>
-          <blockquote class="stage__pull"><span data-i18n="stagesContent.shQuote">"Filter every concept through the 4Ps — Purpose, Practicality, Proof, People. Then design for humans. A sensor that says water is moving at some speed does not tell a mayor much. Convert that into cubic meters. Compare it to how much freeboard the reservoir still has. Then you know whether the water fits — or whether it floods. That basic mathematics is the product."</span><cite class="stage__cite" data-i18n="stagesContent.shCite">— Dr. Non, Tomorrow.City Shanghai keynote</cite>
-          </blockquote>
-          <div class="grid grid--4" style="margin-top:16px;">
-            <div class="cell">
-              <div class="stat__val">4th</div>
-              <div class="stat__lbl" data-i18n="stagesContent.shS1">Time on this stage</div>
+          <article class="cx-card">
+            <div class="cx-card__head">
+              <div class="cx-card__city"><span class="cx-card__flag" aria-hidden="true">🇨🇳</span><span
+                  class="cx-card__name">Shanghai</span></div>
+              <span class="cx-card__date">2026</span>
             </div>
-            <div class="cell">
-              <div class="stat__val">Live</div>
-              <div class="stat__lbl" data-i18n="stagesContent.shS2">FloodDash on cube screen</div>
+            <div class="cx-card__venue" data-i18n="cx.sh.venue">Tomorrow.City Shanghai · Main Stage · 4th appearance</div>
+            <div class="cx-card__shot">
+              <picture>
+                <source srcset="images/shanghai-stage-screen.webp" type="image/webp">
+                <img src="images/shanghai-stage-screen.jpg" loading="lazy" width="1400" height="933"
+                  alt="Tomorrow.City Shanghai — FloodDash running live on the cube screen">
+              </picture>
             </div>
-            <div class="cell">
-              <div class="stat__val">9</div>
-              <div class="stat__lbl" data-i18n="stagesContent.shS3">Public data sources</div>
+            <div class="cx-card__body">
+              <span class="cx-card__format" data-i18n="cx.sh.format">Keynote · Live demo · Panel</span>
+              <p class="cx-card__note" data-i18n="cx.sh.note">Stop calling it a digital twin — call it God Mode. FloodDash cooked live on the cube screen: raw speed → cubic metres → freeboard → does the water fit.</p>
+              <blockquote class="cx-card__quote"><span
+                  data-i18n="cx.sh.quote">"A sensor that says water is moving at some speed does not tell a mayor much. That basic mathematics is the product."</span><cite
+                  class="cx-card__cite" data-i18n="cx.sh.cite">Tomorrow.City Shanghai</cite></blockquote>
             </div>
-            <div class="cell">
-              <div class="stat__val">3</div>
-              <div class="stat__lbl" data-i18n="stagesContent.shS4">Takeaways (4Ps framework)</div>
+            <div class="cx-card__stats">
+              <div class="cx-card__stat"><div class="cx-card__val">4<small>th</small></div><div class="cx-card__lbl"
+                  data-i18n="cx.sh.s1">On this stage</div></div>
+              <div class="cx-card__stat"><div class="cx-card__val">9</div><div class="cx-card__lbl"
+                  data-i18n="cx.sh.s2">Data sources</div></div>
+              <div class="cx-card__stat"><div class="cx-card__val">4<small>P</small></div><div class="cx-card__lbl"
+                  data-i18n="cx.sh.s3">Takeaways</div></div>
             </div>
-          </div>
-          <div class="launch-text intelligence-log" style="margin-top: 2rem;">
-            <div class="log-entry">
-              <span class="log-timestamp">[T+00:00:00]</span>
-              <p>Tomorrow.City Shanghai 2026, main stage. Dr Non's fourth appearance on this stage — formerly Smart City
-                Expo World Congress China Stage. Same room, sharper thesis: stop calling it a digital twin.</p>
-            </div>
-            <div class="log-entry">
-              <span class="log-timestamp">[T+00:30:00]</span>
-              <p>Three takeaways delivered. (1) A soccer sim is God Mode in plain clothes — variables, attributes,
-                situation, let them interact, see what works. (2) FloodDash is cooking data, not collecting gadgets —
-                raw speed → cubic meters → freeboard → whether the water fits. (3) Filter every concept through the 4Ps:
-                Purpose, Practicality, Proof, People. Then design for humans.</p>
-            </div>
-            <div class="log-entry">
-              <span class="log-timestamp">[T+01:00:00]</span>
-              <p>FloodDash cooked live on the cube screen — Thailand flood watch running in the room, sensor stream
-                turned into the cubic-meter math a mayor can act on. Panel followed with global city leaders.</p>
-            </div>
-            <div class="field-transmission">
-              <div class="transmission-header">ENCRYPTED_TRANSMISSION // FIELD_03.5</div>
-              <p>&ldquo;Technology without trust is a demo. Trust without incentives is a speech. Use AI, build trust,
-                design incentives. That's the closing line — and it's the only one that survives contact with a city.&rdquo;</p>
-            </div>
-          </div>
+          </article>
+        </div>
 
-          <div class="stage__gallery">
-            <img src="images/shanghai-stage-screen.jpg" loading="lazy"
-              alt="Tomorrow.City Shanghai — FloodDash live on the cube screen, Thailand basin telemetry visible">
-            <img src="images/shanghai-keynote.jpg" loading="lazy"
-              alt="Dr. Non on the Tomorrow.City Shanghai main stage with the mic flag in frame">
-            <img src="images/shanghai-panel.jpg" loading="lazy"
-              alt="Tomorrow.City Shanghai panel — global city leaders after the keynote">
-          </div>
-        </article>
+        <div class="cx-ctrl" role="group" aria-label="Rail controls">
+          <button class="cx-ctrl__btn" type="button" data-cx-prev aria-label="Previous stops">&larr;</button>
+          <button class="cx-ctrl__btn" type="button" data-cx-next aria-label="More stops">&rarr;</button>
+        </div>
 
-        <article class="stage">
-          <div class="stage__loc" data-i18n-html="stagesContent.leapLoc"><b>LEAP East 2026</b> · Orbital Stage · Jul 10
-          </div>
-          <span class="section-tag">[EVENT_ID: LEAP_EAST_2026_BKK]</span>
-          <h3 class="stage__title" data-i18n="stagesContent.leapTitle">Asia's largest stage. FloodDash launches here.</h3>
-          <p class="stage__lead" data-i18n="stagesContent.leapLede">Panel on the Orbital Stage — "From Congestion to
-            Connection: The Tech Powered Future of Transport in Asia." Dr. Non Arkara, Senior Expert Smart City
-            Promotion at DEPA, joined Mitchell Price, Richard Chung, and Will Peters to close the Q1–Q2 arc with a live
-            FloodDash launch.</p>
-          <blockquote class="stage__pull"><span data-i18n="stagesContent.leapQuote">"Three stages in six months. Taipei
-              indexed the cities. GITEX filled the room. LEAP East shipped the flood watch — live, public, and running
-              before we left the stage."</span><cite class="stage__cite" data-i18n="stagesContent.leapCite">— Dr. Non,
-              LEAP East panel</cite></blockquote>
-          <div class="grid grid--4" style="margin-top:16px;">
-            <div class="cell">
-              <div class="stat__val">Orbital</div>
-              <div class="stat__lbl" data-i18n="stagesContent.leapS1">Main stage tier</div>
-            </div>
-            <div class="cell">
-              <div class="stat__val">4</div>
-              <div class="stat__lbl" data-i18n="stagesContent.leapS2">Panel speakers</div>
-            </div>
-            <div class="cell">
-              <div class="stat__val">9</div>
-              <div class="stat__lbl" data-i18n="stagesContent.leapS3">Live data sources</div>
-            </div>
-            <div class="cell">
-              <div class="stat__val">Live</div>
-              <div class="stat__lbl" data-i18n="stagesContent.leapS4">FloodDash at launch</div>
-            </div>
-          </div>
-          <div class="launch-text intelligence-log" style="margin-top: 2rem;">
-            <div class="log-entry">
-              <span class="log-timestamp">[T+00:00:00]</span>
-              <p>LEAP East 2026, Orbital Stage, Bangkok. Session: From Congestion to Connection — The Tech Powered Future
-                of Transport in Asia.</p>
-            </div>
-            <div class="log-entry">
-              <span class="log-timestamp">[T+00:45:00]</span>
-              <p>Panel: Mitchell Price, Richard Chung, Will Peters, Dr. Non Arkara (Senior Expert Smart City Promotion,
-                DEPA).</p>
-            </div>
-            <div class="log-entry">
-              <span class="log-timestamp">[T+01:00:00]</span>
-              <p>FloodDash launched live — Thailand flood watch, 24/7 geospatial data, nine public sources. Q1–Q2 trilogy
-                complete: GITEX → LEAP East → FloodDash.</p>
-            </div>
-            <div class="field-transmission">
-              <div class="transmission-header">ENCRYPTED_TRANSMISSION // FIELD_03</div>
-              <p>&ldquo;Everyone monitoring floods in Thailand should be on FloodDash today. Not next quarter. Today.&rdquo;</p>
-            </div>
+        <div class="cx-ledger" role="table" aria-label="Complete speaking circuit ledger">
+          <div class="cx-ledger__row cx-ledger__row--head" role="row">
+            <span role="columnheader" data-i18n="cx.l.date">Date</span>
+            <span role="columnheader" aria-hidden="true"></span>
+            <span role="columnheader" data-i18n="cx.l.city">City</span>
+            <span role="columnheader" data-i18n="cx.l.where">Venue</span>
+            <span role="columnheader" data-i18n="cx.l.fmt">Format</span>
           </div>
 
-          <div class="stage__gallery">
-            <img src="images/leap-east-panel-speakers.png" loading="lazy"
-              alt="LEAP East panel — Mitchell Price, Richard Chung, Will Peters, Dr. Non with DEPA backdrop">
-            <img src="images/leap-east-group-selfie.png" loading="lazy"
-              alt="LEAP East panel group photo on the Orbital Stage">
-            <img src="images/leap-east-orbital-wide.png" loading="lazy"
-              alt="LEAP East Orbital Stage — full panel wide shot">
+          <div class="cx-ledger__row" role="row">
+            <span class="cx-ledger__date" role="cell">2026.10.08</span>
+            <span class="cx-ledger__flag" role="cell" aria-hidden="true">🇯🇵</span>
+            <span class="cx-ledger__city" role="cell" data-i18n="cx.osaka.city">Osaka</span>
+            <span class="cx-ledger__where" role="cell" data-i18n="cx.osaka.venueShort">Osaka Metropolitan Univ.</span>
+            <span class="cx-ledger__fmt" role="cell" data-i18n="cx.osaka.format">Keynote · Case · Panel</span>
           </div>
-        </article>
+          <div class="cx-ledger__row" role="row">
+            <span class="cx-ledger__date" role="cell">2026.07.10</span>
+            <span class="cx-ledger__flag" role="cell" aria-hidden="true">🇹🇭</span>
+            <span class="cx-ledger__city" role="cell" data-i18n="cx.leap.city">Bangkok</span>
+            <span class="cx-ledger__where" role="cell" data-i18n="cx.leap.venueShort">LEAP East · Orbital</span>
+            <span class="cx-ledger__fmt" role="cell" data-i18n="cx.leap.format">Panel · Product launch</span>
+          </div>
+          <div class="cx-ledger__row" role="row">
+            <span class="cx-ledger__date" role="cell">2026.04</span>
+            <span class="cx-ledger__flag" role="cell" aria-hidden="true">🇸🇬</span>
+            <span class="cx-ledger__city" role="cell" data-i18n="cx.sg.city">Singapore</span>
+            <span class="cx-ledger__where" role="cell" data-i18n="cx.sg.venueShort">GITEX AI Asia · MBS</span>
+            <span class="cx-ledger__fmt" role="cell" data-i18n="cx.sg.format">Keynote · Sold-out workshop</span>
+          </div>
+          <div class="cx-ledger__row" role="row">
+            <span class="cx-ledger__date" role="cell">2026.03.18</span>
+            <span class="cx-ledger__flag" role="cell" aria-hidden="true">🇹🇼</span>
+            <span class="cx-ledger__city" role="cell" data-i18n="cx.tpe.city">Taipei</span>
+            <span class="cx-ledger__where" role="cell" data-i18n="cx.tpe.venueShort">SCSE · City Vision</span>
+            <span class="cx-ledger__fmt" role="cell" data-i18n="cx.tpe.format">Keynote · SLIC V2 launch</span>
+          </div>
+          <div class="cx-ledger__row" role="row">
+            <span class="cx-ledger__date" role="cell">2026</span>
+            <span class="cx-ledger__flag" role="cell" aria-hidden="true">🇨🇳</span>
+            <span class="cx-ledger__city" role="cell" data-i18n="cx.sh.city">Shanghai</span>
+            <span class="cx-ledger__where" role="cell" data-i18n="cx.sh.venueShort">Tomorrow.City · Main</span>
+            <span class="cx-ledger__fmt" role="cell" data-i18n="cx.sh.format">Keynote · Live demo · Panel</span>
+          </div>
+          <div class="cx-ledger__row cx-ledger__row--pending" role="row">
+            <span class="cx-ledger__date" role="cell" data-i18n="cx.l.pending">— pending</span>
+            <span class="cx-ledger__flag" role="cell" aria-hidden="true">🇭🇰</span>
+            <span class="cx-ledger__city" role="cell" data-i18n="cx.hk.city">Hong Kong</span>
+            <span class="cx-ledger__where" role="cell" data-i18n="cx.hk.venueShort">Date &amp; venue to confirm</span>
+            <span class="cx-ledger__fmt" role="cell" data-i18n="cx.hk.format">Talk · Urban data</span>
+          </div>
+        </div>
+
+        <div class="cx-ledger__foot">
+          <span data-i18n="cx.l.note">Every stop is listed, including the one the record does not yet cover. Nothing on this rail is asserted without a date or a photograph behind it.</span>
+          <span class="cx-ledger__date" data-i18n="cx.l.updated">Updated 2026.10</span>
+        </div>
       </div>
     </section>
 
