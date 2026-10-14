@@ -763,7 +763,7 @@ const uiCopy = {
       title: 'Governments are tired of <em>waiting for the deck.</em>',
       lede: 'One argument, delivered five times in eleven months, on five stages across Asia — always with a working surface running live in the room. Taipei indexed the cities. GITEX filled the hall. Shanghai put FloodDash on the cube screen. LEAP East launched it. Osaka asked what happens after the pilot works. Same thesis every time: build now, not after the budget cycle.',
 
-      meta: '2026 \u00b7 Osaka \u00b7 Bangkok \u00b7 Singapore \u00b7 Taipei \u00b7 Shanghai',},
+      meta: '2026 \u00b7 Osaka \u00b7 Shanghai \u00b7 Hong Kong \u00b7 Singapore \u00b7 Taipei',},
     cx: {
       stops: 'Stops', cities: 'Cities', shots: 'Stage shots', thesis: 'Thesis',
       osaka: {
@@ -777,9 +777,9 @@ const uiCopy = {
         s1: 'Sessions', s2: 'On record', s3: 'Delegations',
       },
       leap: {
-        city: 'Bangkok',
-        venue: 'LEAP East 2026 \u00b7 Orbital Stage',
-        venueShort: 'LEAP East \u00b7 Orbital',
+        city: 'Hong Kong',
+        venue: 'LEAP East 2026 \u00b7 Orbital Stage \u00b7 HKCEC',
+        venueShort: 'LEAP East \u00b7 HKCEC',
         format: 'Panel \u00b7 Product launch',
         note: 'From Congestion to Connection. Closed the Q1\u2013Q2 arc with a live FloodDash launch \u2014 Thailand flood watch, 24/7, nine public sources.',
         quote: '"Everyone monitoring floods in Thailand should be on FloodDash today. Not next quarter. Today."',
@@ -808,26 +808,21 @@ const uiCopy = {
       },
       sh: {
         city: 'Shanghai',
-        venue: 'Tomorrow.City Shanghai \u00b7 Main Stage \u00b7 4th appearance',
-        venueShort: 'Tomorrow.City \u00b7 Main',
+        venue: 'Tomorrow.City Shanghai 2026 \u00b7 Zhangjiang Science Hall \u00b7 4th appearance',
+        venueShort: 'Tomorrow.City \u00b7 Zhangjiang',
         format: 'Keynote \u00b7 Live demo \u00b7 Panel',
         note: 'Stop calling it a digital twin \u2014 call it God Mode. FloodDash cooked live on the cube screen: raw speed \u2192 cubic metres \u2192 freeboard \u2192 does the water fit.',
         quote: '"A sensor that says water is moving at some speed does not tell a mayor much. That basic mathematics is the product."',
         cite: 'Tomorrow.City Shanghai',
         s1: 'On this stage', s2: 'Data sources', s3: 'Takeaways',
       },
-      hk: {
-        city: 'Hong Kong',
-        venueShort: 'Date & venue to confirm',
-        format: 'Talk \u00b7 Urban data',
-      },
       l: {
         date: 'Date', city: 'City', where: 'Venue', fmt: 'Format',
-        pending: '\u2014 pending',
-        note: 'Every stop is listed, including the one the record does not yet cover. Nothing on this rail is asserted without a date or a photograph behind it.',
+        note: 'Every stop carries a date from the organiser\'s own agenda or programme. Nothing on this rail is asserted without one behind it.',
         updated: 'Updated 2026.10',
       },
-    },    teamSect: {
+    },
+    teamSect: {
       kicker: 'Who builds it',
       meta: 'Bangkok',
       foldLine: 'Team · Dr Non & Dr Poon · two founders, collective on call',
@@ -1034,7 +1029,7 @@ const uiCopy = {
       title: 'รัฐบาลเหนื่อย<em>กับการรองานนำเสนอ</em>แล้ว',
       lede: 'ประเด็นเดียว พูดห้าครั้งในสิบเอ็ดเดือน บนห้าเวทีทั่วเอเชีย \u2014 ทุกครั้งมีหน้าจอที่ใช้งานได้จริงเปิดอยู่ในห้อง ไทเปจัดอันดับเมือง GITEX เต็มห้อง เซี่ยงไฮ้เอา FloodDash ขึ้นจอคิวบ์ LEAP East เปิดตัวมันสด ๆ และโอซากะถามว่าหลังไพลอตได้ผลแล้วจะเกิดอะไรต่อ ประเด็นเดิมทุกครั้ง: สร้างเลย ไม่ต้องรอรอบงบประมาณถัดไป',
 
-      meta: '2569 \u00b7 \u0e42\u0e2d\u0e0b\u0e32\u0e01\u0e30 \u00b7 \u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21 \u00b7 \u0e2a\u0e34\u0e07\u0e04\u0e42\u0e1b\u0e23 \u00b7 \u0e44\u0e17\u0e40\u0e1b \u00b7 \u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e',},
+      meta: '2569 \u00b7 \u0e42\u0e2d\u0e0b\u0e32\u0e01\u0e30 \u00b7 \u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e \u00b7 \u0e2b\u0e48\u0e2d\u0e07\u0e01\u0e49\u0e07 \u00b7 \u0e2a\u0e34\u0e07\u0e04\u0e42\u0e1b\u0e23 \u00b7 \u0e44\u0e17\u0e40\u0e1b',},
     cx: {
       stops: '\u0e23\u0e2d\u0e1a\u0e2d\u0e23\u0e32\u0e22', cities: '\u0e40\u0e21\u0e37\u0e2d\u0e07', shots: '\u0e20\u0e32\u0e1e\u0e1a\u0e19\u0e40\u0e27\u0e17\u0e35', thesis: '\u0e1b\u0e23\u0e30\u0e40\u0e14\u0e47\u0e19\u0e2b\u0e25\u0e31\u0e01',
       osaka: {
@@ -1048,9 +1043,9 @@ const uiCopy = {
         s1: '\u0e0a\u0e48\u0e27\u0e07\u0e07\u0e32\u0e19', s2: '\u0e1a\u0e19\u0e40\u0e27\u0e17\u0e35', s3: '\u0e04\u0e13\u0e30\u0e40\u0e14\u0e34\u0e19\u0e07\u0e32\u0e19',
       },
       leap: {
-        city: '\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21',
-        venue: 'LEAP East 2026 \u00b7 \u0e40\u0e27\u0e17\u0e35 Orbital',
-        venueShort: 'LEAP East \u00b7 Orbital',
+        city: '\u0e2b\u0e48\u0e2d\u0e07\u0e01\u0e49\u0e07',
+        venue: 'LEAP East 2026 \u00b7 \u0e40\u0e27\u0e17\u0e35 Orbital \u00b7 \u0e28\u0e32\u0e42\u0e01\u0e31\u0e07\u0e01\u0e23',
+        venueShort: 'LEAP East \u00b7 HKCEC',
         format: '\u0e27\u0e07\u0e40\u0e2a\u0e27\u0e19\u0e32 \u00b7 \u0e40\u0e1b\u0e34\u0e14\u0e15\u0e31\u0e27\u0e1c\u0e25\u0e34\u0e14\u0e20\u0e31\u0e13\u0e17\u0e4c',
         note: 'From Congestion to Connection \u0e1b\u0e34\u0e14\u0e27\u0e07\u0e23\u0e2d\u0e1a Q1\u2013Q2 \u0e14\u0e49\u0e27\u0e22\u0e40\u0e1b\u0e34\u0e14\u0e15\u0e31\u0e27 FloodDash \u0e2a\u0e14 \u2014 \u0e40\u0e1d\u0e49\u0e32\u0e23\u0e30\u0e27\u0e31\u0e07\u0e19\u0e49\u0e33\u0e17\u0e48\u0e27\u0e04\u0e27\u0e23\u0e21 24/7 \u0e40\u0e01\u0e49\u0e32\u0e41\u0e2b\u0e25\u0e48\u0e02\u0e2d\u0e07\u0e21\u0e39\u0e25\u0e2a\u0e32\u0e18\u0e32\u0e23\u0e13',
         quote: '"\u0e17\u0e38\u0e01\u0e04\u0e19\u0e17\u0e35\u0e48\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e2a\u0e16\u0e32\u0e19\u0e01\u0e32\u0e13\u0e4c\u0e19\u0e49\u0e33\u0e17\u0e48\u0e27\u0e44\u0e17\u0e22\u0e04\u0e27\u0e23\u0e21\u0e44\u0e14\u0e49\u0e27\u0e0d\u0e1e\u0e32\u0e19 FloodDash \u0e27\u0e31\u0e19\u0e19\u0e35\u0e49 \u0e44\u0e21\u0e48\u0e43\u0e0a\u0e48 \u0e40\u0e14\u0e37\u0e2d\u0e19\u0e44\u0e1b \u0e27\u0e31\u0e19\u0e19\u0e35\u0e49"',
@@ -1079,7 +1074,7 @@ const uiCopy = {
       },
       sh: {
         city: '\u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e',
-        venue: 'Tomorrow.City \u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e \u00b7 \u0e40\u0e27\u0e17\u0e35\u0e2b\u0e25\u0e31\u0e01 \u00b7 \u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48 4',
+        venue: 'Tomorrow.City \u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e 2026 \u00b7 \u0e2b\u0e2d\u0e27\u0e34\u0e17\u0e22\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e08\u0e32\u0e07\u0e40\u0e08\u0e35\u0e22\u0e07 \u00b7 \u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48 4',
         venueShort: 'Tomorrow.City \u00b7 \u0e40\u0e27\u0e17\u0e35\u0e2b\u0e25\u0e31\u0e01',
         format: '\u0e27\u0e34\u0e17\u0e22\u0e01\u0e23 \u00b7 \u0e40\u0e14\u0e42\u0e21\u0e2a\u0e14 \u00b7 \u0e27\u0e07\u0e40\u0e2a\u0e27\u0e19\u0e32',
         note: '\u0e40\u0e25\u0e34\u0e01\u0e40\u0e23\u0e35\u0e22\u0e01\u0e27\u0e48\u0e32 digital twin \u2014 \u0e40\u0e23\u0e35\u0e22\u0e01\u0e27\u0e48\u0e32 God Mode \u0e41\u0e25\u0e30\u0e19 FloodDash \u0e1b\u0e23\u0e38\u0e07\u0e2a\u0e14\u0e1a\u0e19\u0e08\u0e2d\u0e04\u0e34\u0e1a: \u0e04\u0e27\u0e32\u0e21\u0e40\u0e23\u0e47\u0e27\u0e14\u0e34\u0e1a \u2192 \u0e25\u0e39\u0e01\u0e1a\u0e32\u0e28\u0e01\u0e21\u0e15\u0e23 \u2192 \u0e1b\u0e23\u0e34\u0e21\u0e32\u0e13\u0e19\u0e49\u0e33\u0e17\u0e35\u0e48\u0e16\u0e39\u0e01\u0e23\u0e31\u0e1a\u0e44\u0e14\u0e49 \u2192 \u0e19\u0e49\u0e33\u0e25\u0e49\u0e19\u0e2b\u0e23\u0e32\u0e21\u0e2a\u0e38\u0e14\u0e04\u0e30\u0e01\u0e1a',
@@ -1087,18 +1082,13 @@ const uiCopy = {
         cite: 'Tomorrow.City \u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e',
         s1: '\u0e1a\u0e19\u0e40\u0e27\u0e17\u0e35\u0e19\u0e35\u0e49', s2: '\u0e41\u0e2b\u0e25\u0e48\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25', s3: '\u0e02\u0e49\u0e2d\u0e2a\u0e23\u0e38\u0e1b',
       },
-      hk: {
-        city: '\u0e2b\u0e48\u0e2d\u0e07\u0e01\u0e49\u0e07',
-        venueShort: '\u0e23\u0e2d\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48\u0e41\u0e25\u0e30\u0e2a\u0e16\u0e32\u0e19\u0e17\u0e35\u0e48',
-        format: '\u0e1a\u0e23\u0e23\u0e22\u0e32\u0e22\u0e40\u0e17\u0e14\u0e2d\u0e19\u0e43\u0e19\u0e21\u0e35', 
-      },
       l: {
         date: '\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48', city: '\u0e40\u0e21\u0e37\u0e2d\u0e07', where: '\u0e2a\u0e16\u0e32\u0e19\u0e17\u0e35\u0e48', fmt: '\u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a',
-        pending: '\u2014 \u0e23\u0e2d\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25',
-        note: '\u0e17\u0e38\u0e01\u0e23\u0e2d\u0e1a\u0e17\u0e35\u0e48\u0e44\u0e1b\u0e40\u0e22\u0e37\u0e2d\u0e19\u0e16\u0e39\u0e01\u0e25\u0e49\u0e27\u0e22\u0e44\u0e27\u0e49 \u0e23\u0e2d\u0e1a\u0e17\u0e35\u0e48\u0e23\u0e30\u0e1a\u0e01\u0e33\u0e2d\u0e07\u0e44\u0e27\u0e49\u0e21\u0e48\u0e04\u0e23\u0e33\u0e21\u0e21\u0e14\u0e34\u0e16\u0e49\u0e27\u0e21\u0e17\u0e35\u0e48\u0e40\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e22\u0e31\u0e07 \u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e43\u0e14\u0e49\u0e17\u0e35\u0e48\u0e01\u0e33\u0e25\u0e2d\u0e14\u0e01\u0e32\u0e21\u0e17\u0e35\u0e48\u0e44\u0e21\u0e48\u0e21\u0e35\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48\u0e23\u0e2d\u0e07\u0e43\u0e19\u0e0a\u0e37\u0e49\u0e19\u0e21\u0e35\u0e16\u0e49\u0e32\u0e01\u0e2d\u0e35\u0e01\u0e02\u0e2d\u0e07\u0e23\u0e2d\u0e07',
+        note: '\u0e17\u0e38\u0e01\u0e23\u0e2d\u0e1a\u0e21\u0e35\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48\u0e21\u0e32\u0e08\u0e32\u0e01\u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e02\u0e2d\u0e07\u0e41\u0e2b\u0e25\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e1e\u0e34\u0e40\u0e01\u0e14\u0e2b\u0e2d\u0e31\u0e07\u0e2a\u0e34\u0e14\u0e2a\u0e32\u0e21\u0e21\u0e2d\u0e07\u0e1c\u0e39\u0e49\u0e2b\u0e49\u0e2d\u0e01\u0e32\u0e23\u0e13\u0e30',
         updated: '\u0e2d\u0e1b\u0e40\u0e14\u0e15 2026.10',
       },
-    },    teamSect: {
+    },
+    teamSect: {
       kicker: 'คนที่สร้าง',
       meta: 'กรุงเทพฯ',
       foldLine: 'ทีม · ดร.นน และ ดร.พูน · สองผู้ก่อตั้ง ทีมเสริมตามภารกิจ',
@@ -1305,7 +1295,7 @@ const uiCopy = {
       title: '政府已经<em>厌倦等一份幻灯片</em>了',
       lede: '一条论点，十一个月里讲了五遍，横跨亚洲五个舞台 —— 每一次现场都跑着一块真正能用的界面。台北给城市排了名，GITEX 坐满了人，\u4e0a\u6d77把 FloodDash 搬上了立方屏，LEAP East 当场发布，\u5927\u962a问的是试点跑通之后还剩什么。同一条论点：现在就建，别等下一个预算周期。',
 
-      meta: '2026 \u00b7 \u5927\u962a \u00b7 \u66fc\u8c37 \u00b7 \u65b0\u52a0\u5761 \u00b7 \u53f0\u5317 \u00b7 \u4e0a\u6d77',},
+      meta: '2026 \u00b7 \u5927\u962a \u00b7 \u4e0a\u6d77 \u00b7 \u9999\u6e2f \u00b7 \u65b0\u52a0\u5761 \u00b7 \u53f0\u5317',},
     cx: {
       stops: '\u573a\u6b21', cities: '\u57ce\u5e02', shots: '\u821e\u53f0\u5f71\u50cf', thesis: '\u4e00\u6761\u4e3b\u7ebf',
       osaka: {
@@ -1319,9 +1309,9 @@ const uiCopy = {
         s1: '\u573a\u6b21', s2: '\u53f0\u4e0a\u65f6\u957f', s3: '\u4ee3\u8868\u56e2',
       },
       leap: {
-        city: '\u66fc\u8c37',
-        venue: 'LEAP East 2026 \u00b7 Orbital \u4e3b\u821e\u53f0',
-        venueShort: 'LEAP East \u00b7 Orbital',
+        city: '\u9999\u6e2f',
+        venue: 'LEAP East 2026 \u00b7 Orbital \u4e3b\u821e\u53f0 \u00b7 \u9999\u6e2f\u4f1a\u8bae\u5c55\u89c8\u4e2d\u5fc3',
+        venueShort: 'LEAP East \u00b7 HKCEC',
         format: '\u5706\u684c \u00b7 \u4ea7\u54c1\u53d1\u5e03',
         note: '\u4ece\u62e5\u585e\u5230\u8fde\u63a5\u3002\u4ee5 FloodDash \u73b0\u573a\u53d1\u5e03\u6536\u675f Q1\u2013Q2\uff1a\u6cf0\u56fd\u6d2a\u6c34\u76d1\u6d4b\uff0c\u5168\u5929\u5019\uff0c\u4e5d\u4e2a\u516c\u5f00\u6570\u636e\u6e90\u3002',
         quote: '"\u6240\u6709\u5728\u76d1\u6d4b\u6cf0\u56fd\u6d2a\u6c34\u7684\u4eba\uff0c\u4eca\u5929\u5c31\u8be5\u7528\u4e0a FloodDash\u3002\u4e0d\u662f\u4e0b\u4e2a\u5b63\u5ea6\uff0c\u662f\u4eca\u5929\u3002"',
@@ -1350,7 +1340,7 @@ const uiCopy = {
       },
       sh: {
         city: '\u4e0a\u6d77',
-        venue: 'Tomorrow.City \u4e0a\u6d77 \u00b7 \u4e3b\u821e\u53f0 \u00b7 \u7b2c\u56db\u5ea6\u767b\u53f0',
+        venue: 'Tomorrow.City \u4e0a\u6d77 2026 \u00b7 \u5f20\u6c5f\u79d1\u5b66\u4f1a\u5802 \u00b7 \u7b2c\u56db\u5ea6\u767b\u53f0',
         venueShort: 'Tomorrow.City \u00b7 \u4e3b\u821e\u53f0',
         format: '\u4e3b\u65e8\u6f14\u8bb2 \u00b7 \u73b0\u573a\u6f14\u793a \u00b7 \u5706\u684c',
         note: '\u522b\u518d\u53eb\u5b83\u6570\u5b57\u5b6a\u751f \u2014\u2014 \u53eb\u5b83\u4e0a\u5e1d\u89c6\u89d2\u3002FloodDash \u5728\u7acb\u65b9\u5c4f\u4e0a\u73b0\u573a\u70f9\u5236\uff1a\u539f\u59cb\u6d41\u901f \u2192 \u7acb\u65b9\u7c73 \u2192 \u5269\u4f59\u5e93\u5bb9 \u2192 \u6c34\u653e\u4e0d\u653e\u5f97\u4e0b\u3002',
@@ -1358,18 +1348,13 @@ const uiCopy = {
         cite: 'Tomorrow.City \u4e0a\u6d77',
         s1: '\u767b\u53f0\u6b21\u6570', s2: '\u6570\u636e\u6e90', s3: '\u8981\u70b9',
       },
-      hk: {
-        city: '\u9999\u6e2f',
-        venueShort: '\u65e5\u671f\u5f85\u786e\u8ba4',
-        format: '\u6f14\u8bb2 \u00b7 \u57ce\u5e02\u6570\u636e',
-      },
       l: {
         date: '\u65e5\u671f', city: '\u57ce\u5e02', where: '\u573a\u5730', fmt: '\u5f62\u5f0f',
-        pending: '\u2014 \u5f85\u786e\u8ba4',
-        note: '\u6bcf\u4e00\u7ad9\u90fd\u5728\u518c\uff0c\u5305\u62ec\u5c1a\u672a\u8865\u9f50\u8d44\u6599\u7684\u90a3\u4e00\u7ad9\u3002\u8fd9\u6761\u8f68\u9053\u4e0a\u6ca1\u6709\u4e00\u6761\u6570\u636e\u662f\u5728\u7f3a\u5c11\u65e5\u671f\u6216\u7167\u7247\u7684\u60c5\u51b5\u4e0b\u65ad\u8a00\u7684\u3002',
+        note: '\u6bcf\u4e00\u7ad9\u90fd\u6709\u4e00\u4e2a\u6765\u81ea\u4e3b\u529e\u65b9\u5b98\u65b9\u65e5\u7a0b\u6216\u6d3b\u52a8\u624b\u518c\u7684\u65e5\u671f\u3002\u8fd9\u6761\u8f68\u9053\u4e0a\u6ca1\u6709\u4e00\u6761\u6570\u636e\u662f\u5728\u7f3a\u5c11\u4f9d\u636e\u7684\u60c5\u51b5\u4e0b\u65ad\u8a00\u7684\u3002',
         updated: '\u66f4\u65b0\u4e8e 2026.10',
       },
-    },    teamSect: {
+    },
+    teamSect: {
       kicker: '谁在搭',
       meta: '曼谷',
       foldLine: '团队 · 诺博士与蓬博士 · 两位创始人 按需集结',
@@ -1598,9 +1583,9 @@ const uiCopy = {
         s1: 'sessions', s2: 'onRecord', s3: 'delegations',
       },
       leap: {
-        city: 'Bangkok',
-        venue: 'LEAP.East.2026·Orbital.Stage',
-        venueShort: 'LEAP.East·Orbital',
+        city: 'HongKong',
+        venue: 'LEAP.East.2026·Orbital.Stage·HKCEC',
+        venueShort: 'LEAP.East·HKCEC',
         format: 'panel·productLaunch',
         note: '// fromCongestion → toConnection. closes(Q1..Q2) with floodDash.launch(live) : thailandFloodWatch(24/7, sources: 9)',
         quote: '"everyone(watching: thailandFloods) shouldBe(on: floodDash) { now: true }"',
@@ -1629,7 +1614,7 @@ const uiCopy = {
       },
       sh: {
         city: 'Shanghai',
-        venue: 'Tomorrow.City.shanghai·mainStage·appearance(4th)',
+        venue: 'Tomorrow.City.shanghai.2026·ZhangjiangScienceHall·appearance(4th)',
         venueShort: 'Tomorrow.City·main',
         format: 'keynote·liveDemo·panel',
         note: '// not("digitalTwin") → godMode. floodDash.cookedLive(on: cubeScreen) : rawSpeed → m³ → freeboard → doesWaterFit',
@@ -1637,18 +1622,13 @@ const uiCopy = {
         cite: 'tomorrowCity.shanghai',
         s1: 'onThisStage', s2: 'dataSources', s3: 'takeaways',
       },
-      hk: {
-        city: 'HongKong',
-        venueShort: 'date_venue.TBC',
-        format: 'talk·urbanData',
-      },
       l: {
         date: 'date', city: 'city', where: 'venue', fmt: 'format',
-        pending: '—.pending',
-        note: '// everyStop.listed(including: theOne.record.doesNotYetCover). nothingHere.asserted(without: date ∥ photograph)',
+        note: '// everyStop.dated(from: organiser.agenda ∥ organiser.programme). nothingHere.asserted(without: date)',
         updated: 'updated.2026.10',
       },
-    },    teamSect: {
+    },
+    teamSect: {
       kicker: '// WHO_BUILDS_IT',
       meta: '// bkk.base',
       foldLine: '// team: [DrNon, DrPoon] · founders: 2 · handlers: never[]',
