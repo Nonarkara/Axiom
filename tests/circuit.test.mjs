@@ -153,12 +153,69 @@ test('every photograph carries alt text and a real file', () => {
   );
 });
 
-test('the ledger lists every stop, including the one without a date', () => {
-  // one header row plus one row per stop
-  assert.ok(ledgerRows.length >= 7, `expected a header and 6 stop rows, found ${ledgerRows.length}`);
-  assert.match(circuit, /cx-ledger__row--pending/, 'the unconfirmed stop must be marked, not hidden');
-  assert.match(circuit, /data-i18n="cx\.hk\.city"/, 'Hong Kong must appear on the ledger');
-  assert.match(circuit, /data-i18n="cx\.l\.pending"/, 'the pending marker must be translatable');
+test('every ledger row carries a real date from the organiser', () => {
+  // The unconfirmed Hong Kong placeholder is gone: it turned out to be LEAP East
+  // 2026 at the Hong Kong Convention and Exhibition Centre, 8–10 July 2026. A row
+  // without a sourced date is the failure this whole rail was built to avoid, so
+  // the invariant is that none may exist.
+  assert.equal(ledgerRows.length, 6, 'one header row plus one row per stop');
+  assert.doesNotMatch(circuit, /cx-ledger__row--pending/, 'no stop may fall back to a pending marker');
+  assert.doesNotMatch(circuit, /data-i18n="cx\.l\.pending"/, 'the pending key should be gone with the row');
+
+  const ledgerBody = circuit.slice(circuit.indexOf('cx-ledger"'), circuit.indexOf('cx-ledger__foot'));
+  for (const match of ledgerBody.matchAll(/class="cx-ledger__date"[^>]*>([^<]+)</g)) {
+    const value = match[1].trim();
+    assert.match(value, /^\d{4}(\.\d{2}(\.\d{2})?)?$/, `unrecognised ledger date: "${value}"`);
+  }
+});
+
+test('LEAP East is Hong Kong, not Bangkok', () => {
+  // Regression guard. The rail previously placed LEAP East 2026 in Bangkok under
+  // an EVENT_ID ending _BKK. It was at the Hong Kong Convention and Exhibition
+  // Centre, 8–10 July 2026 — see leapeast.com/events/2026-agenda and the HKSAR
+  // Government release of 8 July 2026.
+  assert.match(circuit, /data-i18n="cx\.leap\.city">Hong Kong</);
+  assert.match(circuit, /data-i18n="cx\.leap\.venueShort">LEAP East · HKCEC</);
+  assert.doesNotMatch(circuit, /Bangkok/, 'LEAP East must not be filed under Bangkok');
+  assert.doesNotMatch(html, /LEAP_EAST_2026_BKK/);
+
+  const copy = tables();
+  for (const locale of LOCALE_KEYS) {
+    assert.equal(lookup(copy[locale], 'cx.leap.city'), copy[locale].cx.leap.city);
+    assert.match(lookup(copy[locale], 'cx.leap.venue'), /LEAP[ .]East/);
+    assert.doesNotMatch(lookup(copy[locale], 'cx.leap.venue'), /Bangkok|กรุงเทพฯ|曼谷/);
+  }
+});
+
+test('the rail and the ledger are ordered newest first', () => {
+  // The markup renders in document order, so ordering is structure. Getting it
+  // wrong puts a March talk above a September one with no other symptom.
+  const railDates = [...rail.matchAll(/class="cx-card__date">([\d.]+)</g)].map(m => m[1]);
+  // bound the slice at the footer, which reuses the .cx-ledger__date class for
+  // its own "Updated" stamp
+  const ledgerBody = circuit.slice(circuit.indexOf('cx-ledger"'), circuit.indexOf('cx-ledger__foot'));
+  const ledgerDates = [...ledgerBody.matchAll(/class="cx-ledger__date"[^>]*>([^<]+)</g)].map(m => m[1].trim());
+
+  assert.ok(railDates.length >= 5, 'expected five rail cards');
+  assert.deepEqual(railDates, ledgerDates, 'the ledger must mirror the rail order');
+
+  const keys = railDates.map(d => d.split('.').map(Number));
+  for (let i = 1; i < keys.length; i += 1) {
+    const [py, pm = 1, pd = 1] = keys[i - 1];
+    const [cy, cm = 1, cd = 1] = keys[i];
+    assert.ok(cy * 10000 + cm * 100 + cd <= py * 10000 + pm * 100 + pd,
+      `${railDates[i]} (${railDates[i - 1]}) is out of order`);
+  }
+});
+
+test('Shanghai is 2026, not 2025', () => {
+  // Tomorrow.City Shanghai 2026 ran 22–26 September 2026 at Zhangjiang Science
+  // Hall. The rail previously carried 2025-11-05, which no source supported.
+  assert.match(circuit, /2026\.09\.22/);
+  assert.doesNotMatch(circuit, /2025-11-05/);
+  for (const locale of LOCALE_KEYS) {
+    assert.match(lookup(tables()[locale], 'cx.sh.venue'), /2026/, `${locale} sh venue must name the year`);
+  }
 });
 
 test('card height is one token, and nothing in the card is unbounded', () => {
@@ -202,7 +259,10 @@ test('every circuit key resolves in all seven locales', () => {
 });
 
 /** Event and organisation names. These stay in Latin script in every locale. */
-const PROPER_NOUN_KEYS = new Set(['cx.osaka.cite', 'cx.leap.cite', 'cx.tpe.cite', 'cx.tpe.venueShort']);
+const PROPER_NOUN_KEYS = new Set([
+  'cx.osaka.cite', 'cx.leap.cite', 'cx.tpe.cite',
+  'cx.tpe.venueShort', 'cx.leap.venueShort', 'cx.sh.venueShort',
+]);
 
 test('no circuit key falls through to the English string in a non-English locale', () => {
   const copy = tables();

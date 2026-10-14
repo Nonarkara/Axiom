@@ -233,7 +233,7 @@
       "title": "정부는 <em>슬라이드를 기다리는 데 지쳤습니다.</em>",
       "lede": "같은 논지를 열한 달 동안 다섯 번, 아시아의 네 도시에서. 매번 방 안에는 실제로 작동하는 화면이 떠 있었습니다. 타이베이는 도시를 순위로 매겼고, GITEX는 홀을 가득 채웠고, 상하이에서는 FloodDash를 큐브 스크린에 올렸고, LEAP East는 그것을 그 자리에서 출시했고, 오사카는 파일럿이 돌아간 다음이 무엇인가를 물었습니다. 매번 같은 논지: 다음 예산 주기를 기다리지 말고 지금 만들라."
     ,
-        "meta": "2026 · 오사카 · 방콕 · 싱가포르 · 타이베이 · 상하이",},
+        "meta": "2026 · 오사카 · 상하이 · 홍콩 · 싱가포르 · 타이베이",},
     "cx": {
       "stops": "정차", "cities": "도시", "shots": "무대 사진", "thesis": "핵심 논지",
       "osaka": {
@@ -247,8 +247,8 @@
         "s1": "세션", "s2": "무대 시간", "s3": "대표단",
       },
       "leap": {
-        "city": "방콕",
-        "venue": "LEAP East 2026 · Orbital 스테이지",
+        "city": "홍콩",
+        "venue": "LEAP East 2026 · Orbital 스테이지 · 훙콩 회의전시장",
         "venueShort": "LEAP East · Orbital",
         "format": "패널 · 출시",
         "note": "혼잡에서 연결로. Q1–Q2를 FloodDash 현장 출시로 닫았다 — 태국 홍수 관측, 24/7, 아홉 개 공개 데이터 원천.",
@@ -278,7 +278,7 @@
       },
       "sh": {
         "city": "상하이",
-        "venue": "Tomorrow.City 상하이 · 메인 스테이지 · 네 번째 출전",
+        "venue": "Tomorrow.City 상하이 2026 · 장자잉 과학회관 · 네 번째 출전",
         "venueShort": "Tomorrow.City · 메인",
         "format": "기조연사 · 실시간 데모 · 패널",
         "note": "디지털 트윈이라고 부르지 마라 — God Mode라고 불러라. FloodDash를 큐브 스크린에서 실시간 조리: 원시 속도 → 세제곱미터 → 여유 용량 → 물이 들어오는가.",
@@ -286,15 +286,9 @@
         "cite": "Tomorrow.City 상하이",
         "s1": "출전 횟수", "s2": "데이터 원천", "s3": "요점",
       },
-      "hk": {
-        "city": "홍콩",
-        "venueShort": "일정·장소 확인 중",
-        "format": "발표 · 도시 데이터",
-      },
       "l": {
         "date": "날짜", "city": "도시", "where": "장소", "fmt": "형식",
-        "pending": "— 확인 중",
-        "note": "기록이 아직 없는 한 곳까지 포함해 모든 정차를 나열했다. 이 레일에는 날짜나 사진이 없는 주장이 없다.",
+        "note": "모든 정차는 주최 측의 공식 일정이나 프로그램에서 가져온 날짜를 가진다. 이 레일에는 그 근거 없는 주장이 없다.",
         "updated": "2026.10 갱신",
       },
     },
@@ -1219,7 +1213,7 @@
       "title": "政府は<em>スライドを待つのに疲れました。</em>",
       "lede": "同じ論旨を、11か月かけて五度、アジアの五つのステージで。毎回、部屋の中で実際に動いている画面が走っていた。台北は都市を格付けし、GITEXは会場を埋めた。上海はFloodDashをキューブ画面に載せ、LEAP Eastはそれがその場でローンチした。大阪はパイロットが動いたあとに何が残るかを聞いた。毎回同じ論旨：次の予算サイクルではなく、今すぐ構築せよ。"
     ,
-        "meta": "2026 · 大阪 · バンコク · シンガポール · 台北 · 上海",},
+        "meta": "2026 · 大阪 · 上海 · 香港 · シンガポール · 台北",},
     "cx": {
       "stops": "停留所", "cities": "都市", "shots": "ステージ写真", "thesis": "論旨",
       "osaka": {
@@ -1233,8 +1227,8 @@
         "s1": "セッション", "s2": "登壇時間", "s3": "代表団",
       },
       "leap": {
-        "city": "バンコク",
-        "venue": "LEAP East 2026 · Orbital ステージ",
+        "city": "香港",
+        "venue": "LEAP East 2026 · Orbital ステージ · 香港会議展示中心",
         "venueShort": "LEAP East · Orbital",
         "format": "パネル · 製品ローンチ",
         "note": "混雑から接続へ。Q1–Q2をFloodDashのライブローンチで閉じた——タイの洪水監視、24/7、九つの公開データソース。",
@@ -1264,7 +1258,7 @@
       },
       "sh": {
         "city": "上海",
-        "venue": "Tomorrow.City 上海 · メインステージ · 4度目",
+        "venue": "Tomorrow.City 上海 2026 · 張江科学会堂 · 4度目",
         "venueShort": "Tomorrow.City · メイン",
         "format": "基調講演 · ライブデモ · パネル",
         "note": "デジタルツインと呼ぶのはやめろ——ゴッドモードと呼べ。FloodDashをキューブ画面でライブ調理：生の流速 → 立方メートル → 空き容量 → 水が入るのか。",
@@ -1272,15 +1266,9 @@
         "cite": "Tomorrow.City 上海",
         "s1": "登場回数", "s2": "データソース", "s3": "要点",
       },
-      "hk": {
-        "city": "香港",
-        "venueShort": "日程・会場は確認中",
-        "format": "講演 · 都市データ",
-      },
       "l": {
         "date": "日付", "city": "都市", "where": "会場", "fmt": "形式",
-        "pending": "— 確認中",
-        "note": "記録がまだない一つを含めて、すべての停留所を記載した。このレールに日付も写真もない主張はない。",
+        "note": "すべての停留所には主催側の公式日程またはプログラムから得た日付がある。このレールに裏付けのない主張はない。",
         "updated": "2026.10 更新",
       },
     },
@@ -2184,7 +2172,7 @@
       "title": "Chính phủ đã mệt mỏi <em>chờ đợi slide.</em>",
       "lede": "Một luận điểm, nói năm lần trong mười một tháng, trên năm sân khấu khắp châu Á — mỗi lần đều có một màn hình thật sự chạy ngay trong phòng. Đài Bắc xếp hạng các thành phố, GITEX lấp kín hội trường, Thượng Hải đưa FloodDash lên màn hình khối, LEAP East tung nó ngay trên sân khấu, Osaka hỏi rằng sau khi thí điểm chạy được thì còn lại gì. Cùng một luận điểm: xây ngay, đừng chờ chu kỳ ngân sách tiếp theo."
     ,
-        "meta": "2026 · Osaka · Bangkok · Singapore · Đài Bắc · Thượng Hải",},
+        "meta": "2026 · Osaka · Thượng Hải · Hồng Kông · Singapore · Đài Bắc",},
     "cx": {
       "stops": "Chặng", "cities": "Thành phố", "shots": "Ảnh sân khấu", "thesis": "Luận điểm",
       "osaka": {
@@ -2198,8 +2186,8 @@
         "s1": "Phiên", "s2": "Trên sân khấu", "s3": "Phái đoàn",
       },
       "leap": {
-        "city": "Bangkok",
-        "venue": "LEAP East 2026 · Sân khấu Orbital",
+        "city": "Hồng Kông",
+        "venue": "LEAP East 2026 · Sân khấu Orbital · Trung tâm Hội chợ Triển lãm Hồng Kông",
         "venueShort": "LEAP East · Orbital",
         "format": "Bàn tròn · Ra mắt sản phẩm",
         "note": "Từ tắc nghẽn đến kết nối. Khép lại Q1–Q2 bằng ra mắt FloodDash trực tiếp — giám sát lũ Thái, 24/7, chín nguồn dữ liệu công.",
@@ -2229,7 +2217,7 @@
       },
       "sh": {
         "city": "Thượng Hải",
-        "venue": "Tomorrow.City Thượng Hải · Sân khấu chính · Lần thứ 4",
+        "venue": "Tomorrow.City Thượng Hải 2026 · Nhà hội nghịa khoa Trương Giang · Lần thứ 4",
         "venueShort": "Tomorrow.City · Chính",
         "format": "Điều phim · Demo trực tiếp · Bàn tròn",
         "note": "Đừng gọi nó là digital twin — hãy gọi là God Mode. FloodDash nấu trực tiếp trên màn hình khối: tốc độ thô → mét khối → dung tích còn lại → nước có vào được không.",
@@ -2237,15 +2225,9 @@
         "cite": "Tomorrow.City Thượng Hải",
         "s1": "Số lần lên sân khấu", "s2": "Nguồn dữ liệu", "s3": "Bài học",
       },
-      "hk": {
-        "city": "Hồng Kông",
-        "venueShort": "Ngày và địa điểm chờ xác nhận",
-        "format": "Bài nói · Dữ liệu đô thị",
-      },
       "l": {
         "date": "Ngày", "city": "Thành phố", "where": "Địa điểm", "fmt": "Hình thức",
-        "pending": "— chờ xác nhận",
-        "note": "Mọi chặng đều được liệt kê, gồm cả chặng mà hồ sơ chưa có. Không có tuyên bố nào trên thanh ray này thiếu ngày hoặc ảnh.",
+        "note": "Mỗi chặng đều có ngày lấy từ chương trình hoặc agenda chính thức của ban tổ chức. Không có tuyên bố nào trên thanh ray này thiếu căn cứ.",
         "updated": "Cập nhật 2026.10",
       },
     },
