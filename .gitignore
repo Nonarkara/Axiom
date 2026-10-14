@@ -1,6 +1,7 @@
 .DS_Store
 .vercel
-node_modules/
+# no trailing slash: a symlink named node_modules is a file, and node_modules/ would not match it
+node_modules
 .env
 .env.*
 !.env.example
