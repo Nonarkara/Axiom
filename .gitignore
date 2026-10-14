@@ -22,3 +22,6 @@ grab-*.mjs
 preview.mjs
 retry-*.mjs
 nw-shot.mjs
+
+# circuit-rail worktrees (the typo directory is real, it is in use)
+.worktiles/
