@@ -84,7 +84,7 @@
    trust at a glance. Column of numbers, column of glyphs.
    ============================================================ */
 :root {
-  --t-display: clamp(34px, 6.5vw, 52px);
+  --t-display: clamp(36px, 5.3vw, 76px);
   --t-title:   clamp(22px, 3.2vw, 28px);
   --t-lead:    clamp(19px, 3.4vw, 24px);
   --t-value:   20px;
@@ -93,7 +93,7 @@
   --t-micro:   11px;
   --t-label:   10px;
 
-  --tr-display: -0.022em;
+  --tr-display: -0.03em;
   --tr-title:   -0.014em;
   --tr-lead:    -0.008em;
   --tr-body:     0;

@@ -22,7 +22,7 @@
   position: relative;
   width: 100%;
   --hero-edge: max(var(--pad), calc((100% - var(--maxw, 1200px)) / 2));
-  --hero-display: 76px;
+  --hero-display: var(--t-display);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
   grid-template-areas: 'mode status' 'copy brief' 'nodes stats';
@@ -698,7 +698,7 @@
   font-size: var(--hero-display);
   font-weight: 800;
   line-height: 1.08;
-  letter-spacing: 0;
+  letter-spacing: var(--tr-display);
   color: var(--paper);
   text-shadow: none;
 }
