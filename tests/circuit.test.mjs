@@ -16,11 +16,14 @@
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 
 const html = await readFile(new URL('../public/index.html', import.meta.url), 'utf8');
 const circuitCss = await readFile(new URL('../public/circuit.css', import.meta.url), 'utf8');
 const ramsCss = await readFile(new URL('../public/rams.css', import.meta.url), 'utf8');
+
+const imageDir = new URL('../public/images/', import.meta.url);
+const imagesOnDisk = await readdir(imageDir);
 
 const appSource = await readFile(new URL('../public/app.js', import.meta.url), 'utf8');
 const regionalSource = await readFile(new URL('../public/i18n-regional.js', import.meta.url), 'utf8');
@@ -120,10 +123,62 @@ test('the bars state every stop, in the flow of the page', () => {
     assert.match(bar, /class="cx-bar__venue"/);
     assert.match(bar, /class="cx-bar__claim"/);
     assert.match(bar, /class="cx-bar__quote"/);
-    assert.equal((bar.match(/<b>/g) || []).length, 3, 'each bar carries exactly three numbers');
+    assert.match(bar, /class="cx-bar__shot"/, 'every stop carries a photograph');
+    assert.equal((bar.match(/<b>/g) || []).length, 3, 'each bar carries exactly three figures');
   }
   // the list is an <ol>, not a table
   assert.match(circuit, /<ol class="cx-bars">/);
+});
+
+test('every bar photograph resolves to a file that exists', () => {
+  // A speaking circuit whose only evidence that a person stood on a stage
+  // is a filename that 404s is worse than one with no photograph at all:
+  // it looks like evidence and is not. This is the guard for the exact
+  // regression where the bars were rebuilt and the <picture> dropped.
+  const referenced = [...circuit.matchAll(/cx-bar__shot[\s\S]*?<img src="images\/([^"]+)"/g)];
+  assert.equal(referenced.length, bars.length, `every bar must have a shot (found ${referenced.length}/${bars.length})`);
+  for (const [, file] of referenced) {
+    assert.ok(imagesOnDisk.includes(file), `images/${file} is referenced but not on disk`);
+  }
+  for (const [, file] of [...circuit.matchAll(/cx-bar__shot[\s\S]*?<source srcset="images\/([^"]+)"/g)]) {
+    assert.ok(imagesOnDisk.includes(file), `images/${file} (webp source) is referenced but not on disk`);
+  }
+});
+
+test('every stage photograph has an alt that names the place', () => {
+  for (const [, block] of [...circuit.matchAll(/<div class="cx-bar__shot">([\s\S]*?)<\/div>/g)]) {
+    const alt = block.match(/alt="([^"]+)"/);
+    assert.ok(alt, 'every stage photograph needs alt text');
+    assert.ok(alt[1].length > 20, `alt text is too thin to be useful: "${alt[1]}"`);
+  }
+});
+
+test('the stage-shot count in the header is the number of stage photos that exist', () => {
+  // The header states a figure. An unsourced figure on a judge-facing page is
+  // worse than no figure, because a reader cannot tell a real one from a
+  // guessed one. This counted 14 while 13 stage photos were on disk.
+  const STAGE_PREFIX = /^(osaka|shanghai|singapore|taipei|leap-east)/;
+  const stagePhotos = new Set(
+    imagesOnDisk
+      .map((f) => f.replace(/\.(jpg|webp|png)$/i, ''))
+      .filter((base) => STAGE_PREFIX.test(base)),
+  );
+  const stated = Number(html.match(/cx-head__num">(\d+)<\/span><span class="cx-head__lbl"\s+data-i18n="cx\.shots"/)?.[1]);
+  assert.equal(stated, stagePhotos.size,
+    `header claims ${stated} stage shots but ${stagePhotos.size} exist in public/images`);
+});
+
+test('a quote is never the same sentence as the claim above it', () => {
+  // The rebuild once wrote each note into its own quote slot, so every stop
+  // printed the same sentence twice in a row. Distinctness is the whole point
+  // of having a quote.
+  for (const key of ['osaka', 'sh', 'leap', 'sg', 'tpe']) {
+    const block = balancedBlock(appSource, appSource.indexOf(`${key}: {`));
+    const note = block.match(/note:\s*'((?:[^'\\]|\\.)*)'/)?.[1];
+    const quote = block.match(/quote:\s*'((?:[^'\\]|\\.)*)'/)?.[1];
+    assert.ok(note && quote, `${key}: needs both a note and a quote`);
+    assert.notEqual(note, quote, `${key}: the quote repeats the claim verbatim`);
+  }
 });
 
 test('the lede names every city, so the sequence is read before it is scanned', () => {
