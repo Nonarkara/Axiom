@@ -29,7 +29,7 @@
    ============================================================ */
 
 :root {
-  --cx-bar-h: 92px;
+  --cx-bar-h: 106px;
 }
 
 .cx-head {
@@ -124,11 +124,36 @@
 
 .cx-bar {
   display: grid;
-  grid-template-columns: 62px 124px minmax(0, 1fr) 264px;
+  grid-template-columns: 56px 112px 138px minmax(0, 1fr) 248px;
   align-items: center;
   gap: 0 14px;
   min-height: var(--cx-bar-h);
   border-bottom: 1px solid var(--line);
+}
+
+/* The photograph is the point of a speaking circuit. It is the only
+   evidence the reader gets that a person stood on that stage, so it
+   is not an ornament and it is not optional per-stop. */
+.cx-bar__shot {
+  position: relative;
+  align-self: stretch;
+  overflow: hidden;
+  background: var(--panel);
+  min-height: 0;
+}
+
+.cx-bar__shot picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.cx-bar__shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
 }
 
 .cx-bar__date {
@@ -199,8 +224,12 @@
   line-height: 1.35;
   color: var(--ink-3);
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  /* A quote is a sentence someone actually said. Clamping it to one
+     line cut it mid-word — "budget for, a…" — which is worse than
+     saying nothing. Two lines, then stop; never an ellipsis. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 /* three numbers, hairline-separated, right-aligned — the axis
@@ -244,6 +273,20 @@
   letter-spacing: 0;
 }
 
+/* Not every figure is a figure. "Orbital" is a stage name and "Full"
+   is a status — styled as numerals they read as measurements the page
+   did not make, which is worse than showing no number at all. A word
+   value is set as a word: label case, ink, no mono. */
+.cx-bar__figs .is-word b {
+  font-family: inherit;
+  font-size: var(--t-lede);
+  font-weight: 600;
+  letter-spacing: var(--tr-body);
+  font-style: italic;
+  color: var(--ink-2);
+  text-transform: none;
+}
+
 .cx-bar__figs > span > i {
   font-style: normal;
   font-size: var(--t-label);
@@ -280,7 +323,8 @@
     grid-template-columns: 58px minmax(0, 1fr);
     grid-template-areas:
       "date where"
-      "date what"
+      "shot shot"
+      "what what"
       "figs figs";
     row-gap: 3px;
     padding: 10px 0 11px;
@@ -289,6 +333,15 @@
 
   .cx-bar__date { grid-area: date; align-self: start; padding-top: 2px; }
   .cx-bar__where { grid-area: where; }
+  .cx-bar__shot {
+    grid-area: shot;
+    /* must stay a containing block — the <picture> inside is absolutely
+       positioned against it. `static` here lets every photo on the phone
+       escape to the nearest positioned ancestor and paint as a void. */
+    position: relative;
+    aspect-ratio: 16 / 7;
+    margin: 5px 0 7px;
+  }
   .cx-bar__what { grid-area: what; }
   .cx-bar__figs {
     grid-area: figs;
@@ -297,7 +350,10 @@
     border-top: 1px solid var(--line);
   }
 
-  .cx-bar__claim { -webkit-line-clamp: 2; }
+  /* The phone stack already carries a photograph per stop, so the
+     claim runs to its full length here. A description that stops at
+     "proof that…" tells the reader nothing; two honest lines do. */
+  .cx-bar__claim { -webkit-line-clamp: unset; display: block; }
   .cx-bar__quote { white-space: normal; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; }
   .cx-head__stats { width: 100%; padding-top: 6px; }
 }
