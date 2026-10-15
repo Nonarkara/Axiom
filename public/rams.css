@@ -1,4 +1,107 @@
 /* ============================================================
+   §0 THE BOX-TO-TEXT LAW — read this before adding any box
+   ------------------------------------------------------------
+   A box is a container for text. It is not a thing in its own
+   right, and the moment it is taller than the words it holds, it
+   stops describing the thing and starts advertising itself.
+
+   THE RULE. A box's vertical padding is never chosen freely. It
+   is derived from the line box it wraps:
+
+       line box <= 14px   ->  --box-pad-tight  (2px)
+       line box <= 20px   ->  --box-pad       (4px)
+       line box  > 20px   ->  --box-pad-loose (7px)
+
+   That is at most a third of the text height as air, above and
+   below. A 10px label gets 2px. A 13px lede gets 4px. A 24px
+   headline gets 7px. Nothing gets more.
+
+   WHY IT IS WRITTEN DOWN. Without this, every new component
+   reaches for `padding: 12px 20px` because that number feels
+   safe, and the page drifts back toward the generic look: boxes
+   floating in their own padding, reading as generative filler
+   rather than as instruments. The tokens exist so the decision
+   is made once, here, where it can be argued with.
+
+   ONE EXCEPTION, AND IT IS NOT AN EXCEPTION. Interactive
+   targets keep a 44px hit area — that is accessibility, not
+   styling, and it does not shrink. Where the visual box must
+   stay tight, the hit area is grown with an ::after that paints
+   outside the box, so the eye sees a label and the finger finds
+   a target.
+   ============================================================ */
+:root {
+  --box-pad-tight: 2px;
+  --box-pad: 4px;
+  --box-pad-loose: 7px;
+  /* target size floor — never below this, whatever the box looks like */
+  --tap: 44px;
+}
+
+/* ============================================================
+   §0.5 THE TYPE SCALE — read this before writing any text
+   ------------------------------------------------------------
+   Hierarchy is not made of size. It is made of the *ratio*
+   between steps, and of the discipline that only a few steps
+   are allowed to exist. A page with twenty-five font sizes has
+   no hierarchy at all — every element argues to be the
+   important one, and the reader gives up and leaves.
+
+   THE SCALE. Eight steps. No others, ever.
+
+       --t-display   the one hero statement. Once per page.
+       --t-title     section heads. The spine of the document.
+       --t-lead      a paragraph that introduces a section.
+       --t-value     a number that is the point (stats, names).
+       --t-lede      a short paragraph under a head.
+       --t-body      the reading size. Everything else is data.
+       --t-micro     dense cells and secondary lines.
+       --t-label     the label layer. UPPERCASE, TRACKED, DATA ONLY.
+
+   THE FLOOR IS 10px AND IT IS NOT A NEGOTIABLE. Anything that
+   wants to be smaller than --t-label is asking to be a label,
+   and pays for it in uppercase and tracking. A sentence set at
+   9px is unreadable on a phone held at arm's length, which is
+   the posture this site is designed for.
+
+   TRACKING IS HALF THE HIERARCHY. Size alone reads flat. What
+   makes a page look built rather than typed is the contrast
+   between tight display type and wide label type:
+
+       --tr-display  -0.022em   large type is SET TIGHT, always
+       --tr-title    -0.014em
+       --tr-lead     -0.008em
+       --tr-body      0
+       --tr-micro     0.03em
+       --tr-label     0.11em   the label layer is SET WIDE
+
+   Big tight, small wide. That opposition is what reads as
+   structure at a glance, and it is the single cheapest way to
+   look engineered instead of generated.
+
+   NUMBERS ARE ALWAYS MONO AND ALWAYS TABULAR. A figure that
+   changes width when its value changes is a figure you cannot
+   trust at a glance. Column of numbers, column of glyphs.
+   ============================================================ */
+:root {
+  --t-display: clamp(34px, 6.5vw, 52px);
+  --t-title:   clamp(22px, 3.2vw, 28px);
+  --t-lead:    clamp(19px, 3.4vw, 24px);
+  --t-value:   20px;
+  --t-lede:    15px;
+  --t-body:    13px;
+  --t-micro:   11px;
+  --t-label:   10px;
+
+  --tr-display: -0.022em;
+  --tr-title:   -0.014em;
+  --tr-lead:    -0.008em;
+  --tr-body:     0;
+  --tr-micro:    0.03em;
+  --tr-label:    0.11em;
+}
+
+/* ============================================================
    AXIOM — Operating Surface Design System
    An instrument panel for decision systems, not a decorative skin.
    Calm, precise, dense, legible. Built for operators under pressure.
@@ -113,7 +216,7 @@ body {
   color: var(--ink);
   font-family: 'Helvetica Neue', Helvetica, Arial, 'IBM Plex Sans Thai', 'Noto Sans KR', 'Noto Sans JP', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-variant-numeric: tabular-nums;
-  font-size: 13px;
+  font-size: var(--t-body);
   line-height: 1.42;
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
@@ -152,9 +255,9 @@ img {
    ============================================================ */
 
 .t-hero {
-  font-size: clamp(34px, 6.5vw, 52px);
+  font-size: var(--t-display);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tr-display);
   line-height: 1.05;
   margin: 0;
 }
@@ -166,28 +269,28 @@ img {
 
 .t-big {
   /* section metric / big value */
-  font-size: clamp(19px, 3.4vw, 24px);
+  font-size: var(--t-lead);
   font-weight: 600;
   line-height: 1.1;
-  letter-spacing: -0.005em;
+  letter-spacing: var(--tr-lead);
   margin: 0;
 }
 
 .t-statval {
-  font-size: 20px;
+  font-size: var(--t-value);
   font-weight: 600;
   line-height: 1;
 }
 
 .t-body {
-  font-size: 13px;
+  font-size: var(--t-body);
   font-weight: 500;
   line-height: 1.5;
   color: var(--ink);
 }
 
 .t-body-2 {
-  font-size: 13px;
+  font-size: var(--t-body);
   font-weight: 500;
   line-height: 1.5;
   color: var(--ink-2);
@@ -195,17 +298,17 @@ img {
 
 .t-label {
   /* §2.2 section header label */
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
 }
 
 .t-ctrl {
   /* control / nav */
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 600;
-  letter-spacing: 0.11em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
@@ -215,9 +318,9 @@ img {
 
 .t-micro {
   /* §2.2 micro-label / meta */
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
 }
@@ -264,37 +367,62 @@ summary:focus-visible {
   background: var(--th-blue);
 }
 
+/* ONE BAND. Everything in this row shares a height and a centre line. The
+   previous masthead had a 44px CTA against a 26px locale strip against 15px
+   nav text, so nothing in the bar had a shared edge — which is exactly the
+   kind of drift that makes a header read as assembled rather than drawn. */
 .masthead__inner {
   width: min(var(--maxw), calc(100% - (var(--pad) * 2)));
   margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 16px;
-  min-height: 52px;
-  padding: 8px 0;
+  min-height: 46px;
+  padding: 5px 0;
   flex-wrap: wrap;
+}
+
+/* the row height, so the strip and the CTA cannot drift apart again */
+.masthead__inner .btn,
+.masthead__inner .locale-switch {
+  height: 28px;
+  min-height: 28px;
+}
+
+.masthead__inner .btn {
+  position: relative;
+  padding: 0 12px;
+}
+
+/* the CTA keeps a 44px target without growing into a slab */
+.masthead__inner .btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: var(--tap);
+  transform: translateY(-50%);
 }
 
 .brand {
   display: flex;
-  align-items: baseline;
-  gap: 9px;
-  min-height: 44px;
-  padding: 8px 0;
   align-items: center;
+  gap: 9px;
+  min-height: 28px;
 }
 
 .brand__name {
-  font-size: 15px;
+  font-size: var(--t-lede);
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
 }
 
 .brand__ver {
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tr-label);
   color: var(--ink-3);
 }
 
@@ -311,9 +439,9 @@ summary:focus-visible {
   align-items: center;
   min-height: 44px;
   padding: 0 8px;
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 600;
-  letter-spacing: 0.11em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-2);
   transition: color var(--t-fast) var(--ease);
@@ -327,24 +455,38 @@ summary:focus-visible {
 .locale-switch {
   display: inline-flex;
   border: 1px solid var(--line-2);
+  background: var(--panel);
 }
 
 .locale-switch button {
   appearance: none;
-  background: var(--panel);
+  background: transparent;
   border: 0;
   border-left: 1px solid var(--line-2);
-  min-height: 44px;
-  min-width: 32px;
-  padding: 0 8px;
-  font-size: 10px;
+  position: relative;
+  /* the box hugs its code: two letters, two pixels of air */
+  min-height: 26px;
+  min-width: 28px;
+  padding: var(--box-pad-tight) 7px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.10em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-2);
   cursor: pointer;
   font-family: inherit;
   transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+
+/* the hit area grows outside the box so the 44px target survives the trim */
+.locale-switch button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: var(--tap);
+  transform: translateY(-50%);
 }
 
 .locale-switch button:first-child {
@@ -358,6 +500,11 @@ summary:focus-visible {
 .locale-switch button.active {
   background: var(--ink);
   color: var(--paper);
+}
+
+.locale-switch button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
 }
 
 /* ============================================================
@@ -375,18 +522,18 @@ summary:focus-visible {
 }
 
 .s-head__title {
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
 }
 
 .s-head__meta {
   min-width: 0;
   overflow-wrap: anywhere;
-  font-size: 10px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.10em;
+  letter-spacing: var(--tr-label);
   color: var(--ink-3);
   text-transform: uppercase;
 }
@@ -418,10 +565,11 @@ summary:focus-visible {
 
 .sandbox-note__tag {
   flex-shrink: 0;
-  padding: 9px 12px;
-  font-size: 9px;
+  align-self: flex-start;
+  padding: var(--box-pad-tight) 10px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--accent);
   border-right: 1px solid var(--line-2);
@@ -435,7 +583,7 @@ summary:focus-visible {
   overflow-wrap: anywhere;
   margin: 0;
   padding: 10px 14px;
-  font-size: 13px;
+  font-size: var(--t-body);
   font-weight: 500;
   line-height: 1.5;
   color: var(--ink-3);
@@ -452,8 +600,8 @@ summary:focus-visible {
   border-top: 2px solid var(--ocher);
   background: var(--panel);
   font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-  font-size: 11px;
-  letter-spacing: 0.04em;
+  font-size: var(--t-micro);
+  letter-spacing: var(--tr-micro);
   color: var(--ink-2);
   overflow: hidden;
 }
@@ -475,8 +623,8 @@ summary:focus-visible {
 .evidence-strip__key {
   color: var(--ink-4);
   text-transform: uppercase;
-  font-size: 9.5px;
-  letter-spacing: 0.12em;
+  font-size: var(--t-label);
+  letter-spacing: var(--tr-label);
 }
 
 .evidence-strip__val {
@@ -489,10 +637,9 @@ summary:focus-visible {
 }
 
 @media (max-width: 720px) {
-  .evidence-strip { font-size: 10px; }
+  .evidence-strip { font-size: var(--t-label); }
   .evidence-strip__cell { padding: 6px 10px; }
 }
-
 
 /* ============================================================
    §3.2 HAIRLINE CELL GRID — the workhorse
@@ -509,7 +656,7 @@ summary:focus-visible {
 
 .cell {
   background: var(--panel);
-  padding: 10px 13px 11px;
+  padding: var(--box-pad) 10px;
 }
 
 @media (min-width: 600px) {
@@ -534,23 +681,23 @@ summary:focus-visible {
 
 /* §4.2 STAT CELL — label left-grey, value large, tabular */
 .stat__lbl {
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
 }
 
 .stat__val {
-  font-size: clamp(22px, 4vw, 30px);
+  font-size: var(--t-title);
   font-weight: 600;
   margin-top: 6px;
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tr-title);
 }
 
 .stat__sub {
-  font-size: 10px;
+  font-size: var(--t-label);
   color: var(--ink-3);
   margin-top: 3px;
 }
@@ -572,7 +719,7 @@ summary:focus-visible {
 .row__k {
   min-width: 0;
   overflow-wrap: anywhere;
-  font-size: 13px;
+  font-size: var(--t-body);
   font-weight: 500;
 }
 
@@ -585,14 +732,14 @@ summary:focus-visible {
 }
 
 .row__v {
-  font-size: 13px;
+  font-size: var(--t-body);
   font-weight: 600;
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
 .row__delta {
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 600;
   color: var(--ink-3);
   width: 60px;
@@ -635,7 +782,7 @@ summary:focus-visible {
   border-radius: 50%;
   border: 1px solid var(--line-2);
   background: var(--panel);
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
@@ -655,12 +802,13 @@ summary:focus-visible {
 .plate__tag {
   background: var(--id-navy);
   color: var(--paper);
-  padding: 14px 20px;
+  align-self: flex-start;
+  padding: var(--box-pad) 10px;
   display: flex;
   align-items: center;
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
 }
 
@@ -683,11 +831,11 @@ summary:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 44px;
-  padding: 12px 20px;
-  font-size: 11px;
+  min-height: var(--tap);
+  padding: var(--box-pad-loose) 14px;
+  font-size: var(--t-micro);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   border: 1px solid var(--ink);
   cursor: pointer;
@@ -754,9 +902,9 @@ summary:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 22px;
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
   margin-bottom: 22px;
@@ -800,7 +948,7 @@ summary:focus-visible {
 }
 
 .hero__sub {
-  font-size: 14px;
+  font-size: var(--t-body);
   font-weight: 500;
   line-height: 1.55;
   color: var(--ink-2);
@@ -838,13 +986,13 @@ summary:focus-visible {
   display: flex;
   gap: 14px;
   padding: 3px 0;
-  font-size: 11px;
+  font-size: var(--t-micro);
 }
 
 .readout .k {
   color: var(--ink-3);
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   width: 64px;
 }
@@ -860,12 +1008,12 @@ summary:focus-visible {
    ============================================================ */
 
 .cv__name {
-  font-size: 18px;
+  font-size: var(--t-value);
   font-weight: 600;
 }
 
 .cv__role {
-  font-size: 12px;
+  font-size: var(--t-micro);
   font-weight: 500;
   color: var(--ink-2);
   margin-top: 2px;
@@ -876,9 +1024,9 @@ summary:focus-visible {
 }
 
 .cv-block__h {
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
   border-bottom: 1px solid var(--line);
@@ -893,7 +1041,7 @@ summary:focus-visible {
 }
 
 .cv-block li {
-  font-size: 12px;
+  font-size: var(--t-micro);
   font-weight: 500;
   line-height: 1.5;
   padding: 2px 0;
@@ -919,24 +1067,24 @@ summary:focus-visible {
 }
 
 .press-row__title {
-  font-size: 14px;
+  font-size: var(--t-body);
   font-weight: 600;
   line-height: 1.3;
 }
 
 .press-row__outlet {
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
   margin-top: 3px;
 }
 
 .press-row__meta {
-  font-size: 10px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-label);
   color: var(--ink-3);
   white-space: nowrap;
 }
@@ -957,9 +1105,9 @@ summary:focus-visible {
 }
 
 .field label {
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
 }
@@ -967,7 +1115,7 @@ summary:focus-visible {
 .field input,
 .field textarea {
   font-family: inherit;
-  font-size: 13px;
+  font-size: var(--t-body);
   color: var(--ink);
   background: var(--panel);
   border: 1px solid var(--line-2);
@@ -1009,15 +1157,15 @@ summary:focus-visible {
 .foot__row .nav a {
   min-height: 36px;
   padding: 6px 8px;
-  font-size: 10.5px;
-  letter-spacing: 0.08em;
+  font-size: var(--t-label);
+  letter-spacing: var(--tr-label);
 }
 
 .foot__note {
-  font-size: 10px;
+  font-size: var(--t-label);
   font-weight: 500;
   color: var(--ink-3);
-  letter-spacing: 0.04em;
+  letter-spacing: var(--tr-micro);
 }
 
 .foot__fineprint {
@@ -1034,26 +1182,26 @@ summary:focus-visible {
 .foot__fineprint-p,
 .foot__fineprint-copy {
   margin: 0 0 12px;
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 400;
   line-height: 1.6;
   color: var(--ink-2);
-  letter-spacing: 0.01em;
+  letter-spacing: var(--tr-micro);
 }
 
 .foot__fineprint-label {
   margin: 4px 0 8px;
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 600;
   line-height: 1.5;
   color: var(--ink-3);
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;}
 
 .foot__fineprint-list {
   margin: 0 0 14px;
   padding: 0 0 0 1.1em;
-  font-size: 12px;
+  font-size: var(--t-micro);
   line-height: 1.6;
   color: var(--ink-2);
 }
@@ -1071,9 +1219,9 @@ summary:focus-visible {
 
 .foot__fineprint-copy {
   margin-bottom: 0;
-  font-size: 11px;
+  font-size: var(--t-micro);
   color: var(--ink-3);
-  letter-spacing: 0.03em;
+  letter-spacing: var(--tr-micro);
   line-height: 1.6;
 }
 
@@ -1094,7 +1242,7 @@ summary:focus-visible {
 
   .foot__fineprint-p,
   .foot__fineprint-list {
-    font-size: 12px;
+    font-size: var(--t-micro);
     line-height: 1.65;
   }
 }
@@ -1128,9 +1276,9 @@ summary:focus-visible {
   gap: 8px 16px;
   align-items: center;
   margin: 0 0 14px;
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
   font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
@@ -1238,9 +1386,9 @@ summary:focus-visible {
   bottom: 0;
   margin: 0;
   padding: 10px 12px;
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.88);
   background: rgba(10, 14, 20, 0.78);
@@ -1270,7 +1418,7 @@ summary:focus-visible {
   background: var(--bg, #faf9f7);
   color: var(--ink);
   cursor: pointer;
-  font-size: 13px;
+  font-size: var(--t-body);
   line-height: 1;
   padding: 0;
   transition: color 120ms ease, border-color 120ms ease, background 120ms ease;
@@ -1319,8 +1467,8 @@ summary:focus-visible {
 }
 
 .flooddash-carousel__pause {
-  font-size: 10px;
-  letter-spacing: 0.04em;
+  font-size: var(--t-label);
+  letter-spacing: var(--tr-micro);
   margin-left: auto;
   min-width: 48px;
 }
@@ -1337,7 +1485,7 @@ summary:focus-visible {
 
   .flooddash-meta {
     gap: 6px 12px;
-    font-size: 10px;
+    font-size: var(--t-label);
   }
 }
 
@@ -1379,15 +1527,15 @@ summary:focus-visible {
 }
 
 .probono-card__org {
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
 }
 
 .probono-card__title {
-  font-size: 15px;
+  font-size: var(--t-lede);
   font-weight: 600;
   line-height: 1.2;
   margin: 5px 0;
@@ -1399,7 +1547,7 @@ summary:focus-visible {
 }
 
 .probono-card__for {
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 500;
   color: var(--ink-2);
   overflow-wrap: anywhere;
@@ -1416,126 +1564,22 @@ summary:focus-visible {
   text-decoration: none;
 }
 
-.probono-arch {
-  padding: 10px 14px 12px;
-  border-top: 1px solid var(--line);
-  background: #0a0a0a;
-  color: #faf9f7;
-  font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", monospace;
-}
-
-.probono-arch__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-}
-
-.probono-arch__tag {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ocher);
-}
-
-.probono-arch__idx {
-  font-size: 9px;
-  letter-spacing: 0.10em;
-  color: rgba(255, 255, 255, 0.45);
-  font-variant-numeric: tabular-nums;
-}
-
-.probono-arch__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  align-items: center;
-}
-
-.probono-arch__row--inputs .probono-arch__chip {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #faf9f7;
-}
-
-.probono-arch__row--outputs .probono-arch__chip {
-  background: rgba(var(--ocher-rgb), 0.10);
-  border: 1px solid rgba(var(--ocher-rgb), 0.55);
-  color: var(--ivory);
-}
-
-.probono-arch__chip {
-  display: inline-block;
-  padding: 3px 7px;
-  font-size: 9.5px;
-  line-height: 1.3;
-  white-space: nowrap;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #faf9f7;
-}
-
-.probono-arch__chip.is-emph {
-  font-weight: 700;
-}
-
-.probono-arch__arrow {
-  text-align: center;
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.45);
-  margin: 3px 0;
-  line-height: 1;
-}
-
-.probono-arch__core {
-  margin: 2px 0;
-  padding: 3px 6px;
-  background: var(--accent);
-  color: #faf9f7;
-  text-align: center;
-  border: 1px solid var(--accent-ink);
-  line-height: 1.15;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.probono-arch__core-name {
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.probono-arch__core-meta {
-  font-size: 6.5px;
-  color: rgba(255, 255, 255, 0.82);
-  letter-spacing: 0.02em;
-  line-height: 1;
-}
-
 /* === pro bono stack (visible tech list) === */
 .probono-stack {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 4px;
-  padding: 8px 14px 10px;
+  padding: var(--box-pad) 10px;
   border-top: 1px solid var(--line);
   background: var(--panel);
 }
 
 .probono-stack__lbl {
   font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", monospace;
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
   margin-right: 4px;
@@ -1545,7 +1589,7 @@ summary:focus-visible {
   display: inline-block;
   padding: 2px 6px;
   font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", monospace;
-  font-size: 9px;
+  font-size: var(--t-label);
   line-height: 1.3;
   background: transparent;
   border: 1px solid var(--line);
@@ -1564,9 +1608,9 @@ summary:focus-visible {
 .tags span {
   background: var(--panel);
   padding: 8px 12px;
-  font-size: 10px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-2);
 }
@@ -1580,9 +1624,9 @@ summary:focus-visible {
 }
 
 .chip {
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.10em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-2);
   border: 1px solid var(--line-2);
@@ -1624,21 +1668,21 @@ summary:focus-visible {
   padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
 }
-.stack__name { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.stack__name { font-size: var(--t-micro); font-weight: 700; letter-spacing: var(--tr-label); text-transform: uppercase; }
 .stack__role {
   margin-left: auto;
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.10em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
   white-space: nowrap;
 }
-.stack__count { font-size: 11px; font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.stack__count { font-size: var(--t-micro); font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .stack__items { display: flex; flex-wrap: wrap; gap: 6px; }
 .stack__items span,
 .stack__items a {
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 500;
   color: var(--ink-2);
   border: 1px solid var(--line-2);
@@ -1653,9 +1697,9 @@ summary:focus-visible {
 }
 .stack__items [data-runtime="local"]:hover::after {
   content: " // LOCAL";
-  font-size: 8px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tr-label);
   color: var(--accent);
 }
 .stack__items [data-runtime="local"].is-fav {
@@ -1663,18 +1707,18 @@ summary:focus-visible {
 }
 .stack__legend {
   margin-top: 8px;
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
 }
 .stack__legend [data-runtime="local"],
 .stack__legend [data-runtime="cloud"] {
   display: inline-block;
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
   border: 1px solid var(--line-2);
@@ -1718,9 +1762,9 @@ summary:focus-visible {
 }
 
 .numbered__n {
-  font-size: 11px;
+  font-size: var(--t-micro);
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tr-label);
   color: var(--ink-3);
   width: 24px;
   flex-shrink: 0;
@@ -1728,13 +1772,13 @@ summary:focus-visible {
 }
 
 .numbered__title {
-  font-size: 14px;
+  font-size: var(--t-body);
   font-weight: 600;
   line-height: 1.3;
 }
 
 .numbered__body {
-  font-size: 12px;
+  font-size: var(--t-micro);
   font-weight: 500;
   line-height: 1.55;
   color: var(--ink-2);
@@ -1763,9 +1807,9 @@ summary:focus-visible {
 }
 
 .sys-cell__idx {
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tr-label);
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
 }
@@ -1774,9 +1818,9 @@ summary:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-2);
 }
@@ -1784,9 +1828,9 @@ summary:focus-visible {
 .sys-cell__ver {
   margin-left: auto;
   margin-right: 2px;
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--tr-micro);
   font-variant-numeric: tabular-nums;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   color: var(--accent);
@@ -1819,22 +1863,22 @@ summary:focus-visible {
 }
 
 .sys-cell__name {
-  font-size: 15px;
+  font-size: var(--t-lede);
   font-weight: 600;
-  letter-spacing: -0.005em;
+  letter-spacing: var(--tr-lead);
   line-height: 1.1;
 }
 
 .sys-cell__cat {
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
 }
 
 .sys-cell__lede {
-  font-size: 12px;
+  font-size: var(--t-micro);
   font-weight: 500;
   line-height: 1.4;
   color: var(--ink-2);
@@ -1851,9 +1895,9 @@ summary:focus-visible {
   align-items: center;
   min-height: 28px;
   gap: 6px;
-  font-size: 12px;
+  font-size: var(--t-micro);
   font-weight: 600;
-  letter-spacing: 0.10em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink);
   transition: color var(--t-fast) var(--ease);
@@ -1877,7 +1921,7 @@ summary:focus-visible {
   padding: 10px 14px;
   border-top: 1px solid var(--line);
   color: var(--accent);
-  font-size: 12px;
+  font-size: var(--t-micro);
   font-weight: 600;
   letter-spacing: 0;
 }
@@ -1894,250 +1938,6 @@ summary:focus-visible {
 
 .sys-cell { position: relative; }
 .sys-cell[href] { cursor: pointer; }
-
-.sys-arch,
-.probono-arch {
-  display: none !important;
-}
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: calc(100% + 6px);
-  z-index: 20;
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 180ms ease, transform 180ms ease;
-  background: #0c0c0c;
-  color: #faf9f7;
-  border: 1px solid var(--accent);
-  padding: 6px 10px 6px;
-  font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", monospace;
-  font-size: 9px;
-  line-height: 1.25;
-  letter-spacing: 0.02em;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-.sys-arch::after {
-  content: "";
-  position: absolute;
-  left: 24px;
-  bottom: -5px;
-  width: 8px;
-  height: 8px;
-  background: #0c0c0c;
-  border-right: 1px solid var(--accent);
-  border-bottom: 1px solid var(--accent);
-  transform: rotate(45deg);
-}
-
-.sys-cell:hover > .sys-arch,
-.sys-cell:focus-visible > .sys-arch,
-.sys-cell:focus-within > .sys-arch {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.sys-arch__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 4px;
-  padding-bottom: 3px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-}
-
-.sys-arch__head-left {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.sys-arch__tag {
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ocher);
-}
-
-.sys-arch__spec {
-  font-size: 7.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--accent-ink);
-  background: rgba(var(--accent-rgb), 0.20);
-  border: 1px solid var(--accent-ink);
-  padding: 0px 4px;
-}
-
-.sys-arch__idx {
-  font-size: 8px;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.45);
-  font-variant-numeric: tabular-nums;
-}
-
-.sys-arch__flow {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.sys-arch__stage {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-
-.sys-arch__stage--inputs { flex: 1.1; }
-.sys-arch__stage--core { flex: 0.9; text-align: center; }
-.sys-arch__stage--outputs { flex: 1.1; }
-
-.sys-arch__lbl {
-  font-size: 7px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.40);
-  text-transform: uppercase;
-}
-
-.sys-arch__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
-  align-items: center;
-}
-
-.sys-arch__chip {
-  display: inline-block;
-  padding: 1px 4px;
-  font-size: 8px;
-  line-height: 1.2;
-  white-space: nowrap;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #e5e4e2;
-}
-
-.sys-arch__chip.is-emph {
-  background: rgba(var(--ocher-rgb), 0.10);
-  border: 1px solid rgba(var(--ocher-rgb), 0.45);
-  color: var(--ivory);
-  font-weight: 600;
-}
-
-.sys-arch__arrow {
-  font-size: 9px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.35);
-  flex-shrink: 0;
-}
-
-.sys-arch__core-box {
-  padding: 2px 5px;
-  background: var(--accent);
-  border: 1px solid var(--accent-ink);
-  color: #ffffff;
-  text-align: center;
-}
-
-.sys-arch__core-name {
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.10em;
-  white-space: nowrap;
-}
-
-.sys-arch__core-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2px;
-  margin-top: 1px;
-}
-
-.sys-arch__core-tag {
-  font-size: 6.5px;
-  padding: 0 3px;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  line-height: 1.15;
-  white-space: nowrap;
-}
-
-.sys-arch__foot {
-  margin-top: 4px;
-  padding-top: 3px;
-  border-top: 1px dashed rgba(255, 255, 255, 0.10);
-  font-size: 7.5px;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.50);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.sys-arch__meta {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-top: 5px;
-  padding-top: 4px;
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
-}
-
-.sys-arch__meta-row {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-}
-
-.sys-arch__meta-row .sys-arch__lbl {
-  flex-shrink: 0;
-  min-width: 52px;
-}
-
-.sys-arch__ai-copy {
-  margin: 0;
-  font-size: 8px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.75);
-  white-space: normal;
-}
-
-.sys-arch__dot {
-  color: var(--accent);
-  font-size: 6px;
-  vertical-align: middle;
-  margin-right: 2px;
-}
-
-/* Mobile + touch: no hover, render inline below the body with compact height. */
-@media (hover: none), (max-width: 700px) {
-  .sys-arch {
-    position: static;
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
-    margin-top: 6px;
-    box-shadow: none;
-    padding: 5px 8px 4px;
-  }
-  .sys-arch::after { display: none; }
-  .sys-arch__flow {
-    gap: 4px;
-  }
-}
-
-/* Very wide screens: cap the popover width so it doesn't overflow the column. */
-@media (min-width: 1100px) {
-  .sys-arch { max-width: 420px; }
-}
 
 .sys-cell:hover .sys-cell__link {
   color: var(--accent);
@@ -2232,10 +2032,10 @@ summary:focus-visible {
 }
 
 .cred-title {
-  font-size: 17px;
+  font-size: var(--t-value);
   font-weight: 600;
   line-height: 1.25;
-  letter-spacing: -0.005em;
+  letter-spacing: var(--tr-lead);
   margin: 8px 0 0;
 }
 
@@ -2270,7 +2070,7 @@ summary:focus-visible {
   min-height: 44px;
   padding: 0 16px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: var(--t-body);
   font-weight: 600;
   color: var(--ink);
   list-style: none;
@@ -2285,7 +2085,7 @@ summary:focus-visible {
   content: "+";
   flex-shrink: 0;
   font-family: var(--mono, ui-monospace, monospace);
-  font-size: 14px;
+  font-size: var(--t-body);
   font-weight: 600;
   color: var(--accent);
   line-height: 1;
@@ -2340,7 +2140,7 @@ summary:focus-visible {
 }
 
 .cred-list li {
-  font-size: 13px;
+  font-size: var(--t-body);
   line-height: 1.45;
   min-height: 28px;
   display: flex;
@@ -2377,7 +2177,7 @@ summary:focus-visible {
   margin: 18px 0 0;
   max-width: 64ch;
   color: var(--ink-3);
-  font-size: 12px;
+  font-size: var(--t-micro);
   line-height: 1.5;
 }
 
@@ -2427,9 +2227,9 @@ summary:focus-visible {
 .brand-preview__lbl {
   display: block;
   padding: 8px 10px;
-  font-size: 9px;
+  font-size: var(--t-label);
   font-weight: 600;
-  letter-spacing: 0.10em;
+  letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
 }
@@ -2490,60 +2290,60 @@ summary:focus-visible {
    every other locale so EN/ZH/KO/JA/VI users don't see Thai. */
 html:not([lang="th"]) .foot-th-only { display: none; }
 @media (max-width: 600px) {
-  .brand__ver { font-size: 10px !important; }
-  .stat__lbl { font-size: 10.5px !important; }
-  .field label { font-size: 10.5px !important; }
-  .press-row__outlet { font-size: 10.5px !important; }
-  .cv-block__h { font-size: 10.5px !important; }
-  .probono-card__org { font-size: 10.5px !important; }
-  .sys-cell__cat { font-size: 10.5px !important; }
-  .sys-cell__idx { font-size: 10.5px !important; }
-  .sys-cell__status { font-size: 10.5px !important; }
-  .sys-cell__ver { font-size: 10.5px !important; }
-  .sandbox-note__tag { font-size: 10.5px !important; }
-  .s-head__meta { font-size: 11px !important; }
-  .locale-btn { font-size: 11px !important; min-height: 32px; padding: 6px 8px; }
-  .hero-featured-badge__kicker { font-size: 10.5px !important; }
-  .hero-featured-badge__event { font-size: 9.5px !important; }
-  .hero-city-label { font-size: 10.5px !important; }
-  .hero-node-strip-label { font-size: 10px !important; }
-  .hero-node-meta { font-size: 10px !important; }
-  .hero-stat-label { font-size: 10px !important; }
+  .brand__ver { font-size: var(--t-label) !important; }
+  .stat__lbl { font-size: var(--t-label) !important; }
+  .field label { font-size: var(--t-label) !important; }
+  .press-row__outlet { font-size: var(--t-label) !important; }
+  .cv-block__h { font-size: var(--t-label) !important; }
+  .probono-card__org { font-size: var(--t-label) !important; }
+  .sys-cell__cat { font-size: var(--t-label) !important; }
+  .sys-cell__idx { font-size: var(--t-label) !important; }
+  .sys-cell__status { font-size: var(--t-label) !important; }
+  .sys-cell__ver { font-size: var(--t-label) !important; }
+  .sandbox-note__tag { font-size: var(--t-label) !important; }
+  .s-head__meta { font-size: var(--t-micro) !important; }
+  .locale-btn { font-size: var(--t-micro) !important; min-height: 32px; padding: 6px 8px; }
+  .hero-featured-badge__kicker { font-size: var(--t-label) !important; }
+  .hero-featured-badge__event { font-size: var(--t-label) !important; }
+  .hero-city-label { font-size: var(--t-label) !important; }
+  .hero-node-strip-label { font-size: var(--t-label) !important; }
+  .hero-node-meta { font-size: var(--t-label) !important; }
+  .hero-stat-label { font-size: var(--t-label) !important; }
   .sat-hud-provider,
   .sat-hud-coord,
   .sat-hud-zoom,
   .sat-hud-res,
-  .sat-hud-time { font-size: 10.5px !important; }
-  .map-mode-label { font-size: 10.5px !important; }
-  .intel-overlay-header { font-size: 10px !important; }
-  .intel-overlay-meta { font-size: 9.5px !important; }
+  .sat-hud-time { font-size: var(--t-label) !important; }
+  .map-mode-label { font-size: var(--t-label) !important; }
+  .intel-overlay-header { font-size: var(--t-label) !important; }
+  .intel-overlay-meta { font-size: var(--t-label) !important; }
 }
 
 /* Tablet: also bump the critical labels. Touch + smaller screen = same
    readability concern. iPad at 768-1023 still benefits from these bumps. */
 @media (min-width: 601px) and (max-width: 1023px) {
-  .stat__lbl { font-size: 10px !important; }
-  .field label { font-size: 10px !important; }
-  .probono-card__org { font-size: 10px !important; }
-  .sys-cell__cat { font-size: 10.5px !important; }
-  .sys-cell__idx { font-size: 10.5px !important; }
-  .sys-cell__status { font-size: 10.5px !important; }
-  .sys-cell__ver { font-size: 10.5px !important; }
+  .stat__lbl { font-size: var(--t-label) !important; }
+  .field label { font-size: var(--t-label) !important; }
+  .probono-card__org { font-size: var(--t-label) !important; }
+  .sys-cell__cat { font-size: var(--t-label) !important; }
+  .sys-cell__idx { font-size: var(--t-label) !important; }
+  .sys-cell__status { font-size: var(--t-label) !important; }
+  .sys-cell__ver { font-size: var(--t-label) !important; }
   .sat-hud-tile { display: none !important; }
   /* On iPad touch, hero stat + node labels are still 9px — bump them too */
-  .hero-stat-label { font-size: 10.5px !important; }
-  .hero-node-strip-label { font-size: 10.5px !important; }
-  .hero-node-meta { font-size: 10.5px !important; }
-  .hero-featured-badge__kicker { font-size: 10.5px !important; }
-  .hero-featured-badge__event { font-size: 9.5px !important; }
-  .hero-city-label { font-size: 10.5px !important; }
+  .hero-stat-label { font-size: var(--t-label) !important; }
+  .hero-node-strip-label { font-size: var(--t-label) !important; }
+  .hero-node-meta { font-size: var(--t-label) !important; }
+  .hero-featured-badge__kicker { font-size: var(--t-label) !important; }
+  .hero-featured-badge__event { font-size: var(--t-label) !important; }
+  .hero-city-label { font-size: var(--t-label) !important; }
   .sat-hud-provider,
   .sat-hud-coord,
   .sat-hud-zoom,
   .sat-hud-res,
-  .sat-hud-time { font-size: 10.5px !important; }
+  .sat-hud-time { font-size: var(--t-label) !important; }
   .sat-source-note { display: none !important; }
-  .sandbox-note__tag { font-size: 10.5px !important; }
+  .sandbox-note__tag { font-size: var(--t-label) !important; }
 }
 
 /* ============================================================
@@ -2591,7 +2391,7 @@ html:not([lang="th"]) .foot-th-only { display: none; }
   min-height: 44px;
   padding: 10px 16px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: var(--t-body);
   font-weight: 500;
   color: var(--ink-2);
   list-style: none;
@@ -2608,7 +2408,7 @@ html:not([lang="th"]) .foot-th-only { display: none; }
   padding-left: 12px;
   flex-shrink: 0;
   font-family: ui-monospace, monospace;
-  font-size: 14px;
+  font-size: var(--t-body);
   font-weight: 600;
   color: var(--accent);
 }

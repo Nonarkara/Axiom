@@ -231,7 +231,7 @@
     "stageSect": {
       "kicker": "다섯 정차, 하나의 호",
       "title": "정부는 <em>슬라이드를 기다리는 데 지쳤습니다.</em>",
-      "lede": "같은 논지를 열한 달 동안 다섯 번, 아시아의 네 도시에서. 매번 방 안에는 실제로 작동하는 화면이 떠 있었습니다. 타이베이는 도시를 순위로 매겼고, GITEX는 홀을 가득 채웠고, 상하이에서는 FloodDash를 큐브 스크린에 올렸고, LEAP East는 그것을 그 자리에서 출시했고, 오사카는 파일럿이 돌아간 다음이 무엇인가를 물었습니다. 매번 같은 논지: 다음 예산 주기를 기다리지 말고 지금 만들라."
+      "lede": "하나의 논지를 11개월 동안 다섯 번, 아시아의 다섯 무대에서. 매번 방 안에는 실제로 작동하는 화면이 떨고 있었습니다. 3월 <b>타이베이</b>에서 시작했고, 강연 도중 SLIC Index V2가 174개 도시 상대로 공개됐습니다. 4월 <b>GITEX 싱가포르</b>에서 홀을 가득 채웠고, 뒤따른 워크숍은 몇 분 만에 마감됐습니다. 7월에는 <b>LEAP East 홍콩</b>에서, 홍콩 회의전시장의 Orbital 스테이지에서 제품을 실제로 출시했습니다. 9월 <b>Tomorrow.City 상하이</b>에서는 FloodDash를 큐브 스크린에 올려，洪수 수학을 현장에서 그대로 계산해 보여줬습니다. 10월 <b>오사카</b>의 아시아 라운드테이블에서 마무리했고, 이후에 유일하게 중요한 질문을 남겼습니다. 파일럿이 이미 작동한다면, 그 다음에 무엇이 남는가."
     ,
         "meta": "2026 · 오사카 · 상하이 · 홍콩 · 싱가포르 · 타이베이",},
     "cx": {
@@ -1211,7 +1211,7 @@
     "stageSect": {
       "kicker": "五つの停留所、一つの弧",
       "title": "政府は<em>スライドを待つのに疲れました。</em>",
-      "lede": "同じ論旨を、11か月かけて五度、アジアの五つのステージで。毎回、部屋の中で実際に動いている画面が走っていた。台北は都市を格付けし、GITEXは会場を埋めた。上海はFloodDashをキューブ画面に載せ、LEAP Eastはそれがその場でローンチした。大阪はパイロットが動いたあとに何が残るかを聞いた。毎回同じ論旨：次の予算サイクルではなく、今すぐ構築せよ。"
+      "lede": "同じ論旨を、11か月かけて五度、アジアの五つのステージで。毎回、部屋の中で実際に動いている画面が走っていた。三月は<b>台北</b>で始まり、講演の途中で SLIC Index V2 が174都市に向けて公開された。四月は <b>GITEX シンガポール</b>で会場を満たし、後ろのワークショップは数分で定員に達した。七月は <b>LEAP East 香港</b>で、香港会議展示センターの Orbital ステージから製品を本当にリリースした。九月は <b>Tomorrow.City 上海</b>で FloodDash をキューブ画面に上げ、洪水の計算をその場で茹でた。十月は<b>大阪</b>のアジアラウンドテーブルで締め、その後で唯一重要な問いを残した。パイロットがすでに動いたあと、何が残っているのか。"
     ,
         "meta": "2026 · 大阪 · 上海 · 香港 · シンガポール · 台北",},
     "cx": {
@@ -2170,7 +2170,7 @@
     "stageSect": {
       "kicker": "Năm chặng, một vòng cung",
       "title": "Chính phủ đã mệt mỏi <em>chờ đợi slide.</em>",
-      "lede": "Một luận điểm, nói năm lần trong mười một tháng, trên năm sân khấu khắp châu Á — mỗi lần đều có một màn hình thật sự chạy ngay trong phòng. Đài Bắc xếp hạng các thành phố, GITEX lấp kín hội trường, Thượng Hải đưa FloodDash lên màn hình khối, LEAP East tung nó ngay trên sân khấu, Osaka hỏi rằng sau khi thí điểm chạy được thì còn lại gì. Cùng một luận điểm: xây ngay, đừng chờ chu kỳ ngân sách tiếp theo."
+      "lede": "Một luận điểm, nói năm lần trong mười một tháng, trên năm sân khấu khắp châu Á — mỗi lần đều có một màn hình thật sự chạy ngay trong phòng. Nó mở đầu tại <b>Đài Bắc</b> vào tháng Ba, khi SLIC Index V2 ra mắt giữa buổi nói trước 174 thành phố. Tháng Tư, <b>GITEX Singapore</b> lấp kín hội trường, và hội thảo phía sau keynote hết chỗ trong vài phút. Tháng Bảy, sản phẩm thực sự ra mắt tại <b>LEAP East Hồng Kông</b>, trên sân khấu Orbital tại Trung tâm Hội chợ Triển lãm Hồng Kông. Tháng Chín, <b>Tomorrow.City Thượng Hải</b> đưa FloodDash lên màn hình khối và nấu trực tiếp phép tính nước trước mắt cả khán phòng. Tháng Mười, khép lại tại <b>Osaka</b> trên Asia Roundtable — và đặt câu hỏi duy nhất còn quan trọng: sau khi thí điểm đã chạy được, còn lại điều gì?"
     ,
         "meta": "2026 · Osaka · Thượng Hải · Hồng Kông · Singapore · Đài Bắc",},
     "cx": {

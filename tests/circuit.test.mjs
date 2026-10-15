@@ -1,24 +1,22 @@
 // The speaking circuit. Three things are load-bearing and therefore tested:
 //
-//   1. FIXED FOOTPRINT. The original four keynote blocks grew the page by roughly
-//      a viewport per talk. That is the defect this section was built to remove,
-//      so the fix is asserted rather than trusted: card height comes from a single
-//      token, and nothing inside a card may exceed it. A future agent adding a
-//      seventh stop, or a fifth stat, must not be able to silently undo this.
+//   1. ONE BAR PER STOP, IN DATE ORDER, IN THE FLOW. The records began as four
+//      full-height articles — a viewport each — then became a horizontal rail
+//      and a ledger table, which stopped the bleed in the wrong register. They
+//      are now five bars stacked vertically. Adding a sixth adds one bar.
+//      The order is document order, so it has to be asserted, not assumed.
 //
-//   2. EVERY STOP IS ON THE LEDGER. The rail carries the stops with evidence. The
-//      ledger carries all of them, including the one whose date is not yet
-//      confirmed. A stop with no date is still a stop; it just has to SAY so
-//      rather than carry a date nobody can source.
+//   2. NO TABLE, NO SIDEWAYS SCROLL. Both were the wrong answer to the bleeding
+//      problem and are cheap to reintroduce by accident, so they are banned by
+//      name.
 //
 //   3. EVERY KEY TRANSLATES. Seven locales. A missing key silently falls back to
-//      English at runtime, which is exactly how a Thai reader ends up looking at
-//      English. This catches that at commit time instead.
+//      English at runtime, which is how a Thai reader ends up looking at
+//      English. This catches that at commit time.
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-
 
 const html = await readFile(new URL('../public/index.html', import.meta.url), 'utf8');
 const circuitCss = await readFile(new URL('../public/circuit.css', import.meta.url), 'utf8');
@@ -29,7 +27,7 @@ const regionalSource = await readFile(new URL('../public/i18n-regional.js', impo
 
 const LOCALE_KEYS = ['en', 'th', 'zh', 'ko', 'ja', 'vi', 'ts'];
 
-/** The body of a single CSS rule, e.g. `.cx-card { … }`, up to its own brace. */
+/** The body of a single CSS rule, up to its own closing brace. */
 function cssRule(source, selector) {
   const at = source.indexOf(selector);
   if (at < 0) return null;
@@ -61,15 +59,6 @@ function balancedBlock(source, from) {
   throw new Error('unbalanced object literal');
 }
 
-/**
- * Pull every `stageSect: { … }` and `cx: { … }` object literal out of a source
- * file and evaluate them.
- *
- * app.js cannot be run in a VM — it drives the DOM at module scope — so the
- * locale tables are lifted straight out of the source instead. That is more
- * honest anyway: this asserts what is actually in the file, not what a
- * half-stubbed runtime happens to produce.
- */
 function extractLocaleTables(source, keyOf, keys) {
   const blocks = {};
   for (const key of keys) {
@@ -84,10 +73,7 @@ const regionalTables = extractLocaleTables(regionalSource, k => `"${k}"`, ['stag
 
 /** zip the per-key block lists into one table per locale */
 function zipLocales(groups, count) {
-  return Array.from({ length: count }, (_, i) => ({
-    stageSect: groups.stageSect[i],
-    cx: groups.cx[i],
-  }));
+  return Array.from({ length: count }, (_, i) => ({ stageSect: groups.stageSect[i], cx: groups.cx[i] }));
 }
 
 const appLocaleTables = zipLocales(appTables, 4);
@@ -101,13 +87,14 @@ function lookup(table, key) {
   return key.split('.').reduce((node, part) => node?.[part], table);
 }
 
-/** The circuit copy for every locale: app.js holds en/th/zh/ts, regional holds ko/ja/vi. */
 function tables() {
   const merged = {};
   ['en', 'th', 'zh', 'ts'].forEach((locale, i) => { merged[locale] = appLocaleTables[i]; });
   ['ko', 'ja', 'vi'].forEach((locale, i) => { merged[locale] = regionalLocaleTables[i]; });
   return merged;
 }
+
+const bars = circuit.split('<li class="cx-bar">').slice(1);
 
 test('all seven locale tables were found in source', () => {
   assert.equal(appLocaleTables.length, 4, 'expected a table in each of en/th/zh/ts');
@@ -117,136 +104,94 @@ test('all seven locale tables were found in source', () => {
   }
 });
 
-const rail = circuit.slice(circuit.indexOf('class="cx-rail"'), circuit.indexOf('</div>\n\n        <div class="cx-ctrl"'));
-const cards = rail.split('<article class="cx-card">').slice(1);
-const ledgerRows = [...circuit.matchAll(/class="cx-ledger__row[ "]/g)];
+test('the table and the sideways rail are both gone', () => {
+  assert.doesNotMatch(circuit, /cx-ledger/, 'no ledger table — the cities belong in the prose');
+  assert.doesNotMatch(circuit, /cx-rail|cx-card|cx-ctrl/, 'no horizontal rail');
+  assert.doesNotMatch(circuitCss, /cx-ledger|cx-rail|cx-card|cx-ctrl/);
+  assert.doesNotMatch(html, /circuit\.js/, 'the rail-control script is dead weight now');
+  assert.doesNotMatch(ramsCss, /\.stage__/, 'dead .stage CSS must not linger');
+});
 
-test('the rail renders one card per sourced stop', () => {
-  assert.ok(cards.length >= 5, `expected at least 5 cards, found ${cards.length}`);
-  for (const card of cards) {
-    assert.match(card, /class="cx-card__venue"/, 'card needs a venue');
-    assert.match(card, /class="cx-card__format"/, 'card needs a format');
-    assert.match(card, /class="cx-card__note"/, 'card needs a note');
-    assert.match(card, /class="cx-card__quote"/, 'card needs a quote');
-    assert.match(card, /class="cx-card__cite"/, 'card needs attribution');
-    assert.match(card, /class="cx-card__shot"/, 'card needs a shot or a type block');
-    assert.equal((card.match(/class="cx-card__stat"/g) || []).length, 3, 'card needs exactly 3 readouts');
+test('the bars state every stop, in the flow of the page', () => {
+  assert.ok(bars.length >= 5, `expected at least 5 bars, found ${bars.length}`);
+  for (const bar of bars) {
+    assert.match(bar, /class="cx-bar__date"/);
+    assert.match(bar, /class="cx-bar__city"/);
+    assert.match(bar, /class="cx-bar__venue"/);
+    assert.match(bar, /class="cx-bar__claim"/);
+    assert.match(bar, /class="cx-bar__quote"/);
+    assert.equal((bar.match(/<b>/g) || []).length, 3, 'each bar carries exactly three numbers');
+  }
+  // the list is an <ol>, not a table
+  assert.match(circuit, /<ol class="cx-bars">/);
+});
+
+test('the lede names every city, so the sequence is read before it is scanned', () => {
+  const lede = circuit.slice(circuit.indexOf('class="cx-lede"'), circuit.indexOf('<ol class="cx-bars">'));
+  for (const city of ['Taipei', 'Singapore', 'Hong Kong', 'Shanghai', 'Osaka']) {
+    assert.match(lede, new RegExp(city), `the lede must name ${city}`);
   }
 });
 
-test('every photograph carries alt text and a real file', () => {
-  const imgs = [...circuit.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
-  assert.ok(imgs.length >= 5, `expected at least 5 stage photographs, found ${imgs.length}`);
-  for (const [, tag] of imgs) void tag;
-  for (const match of circuit.matchAll(/<img\b[^>]*>/g)) {
-    const tag = match[0];
-    assert.match(tag, /alt="[^"]{8,}"/, `weak or missing alt: ${tag.slice(0, 90)}`);
-  }
-  // every <source> must have a sibling fallback in a raster format
-  for (const match of circuit.matchAll(/<source\b[^>]*srcset="([^"]+)"[^>]*>/g)) {
-    assert.match(match[1], /\.webp$/, match[1]);
-  }
-  assert.equal(
-    [...circuit.matchAll(/<source\b/g)].length,
-    [...circuit.matchAll(/<picture>/g)].length,
-    'every picture needs a webp source',
-  );
-});
-
-test('every ledger row carries a real date from the organiser', () => {
-  // The unconfirmed Hong Kong placeholder is gone: it turned out to be LEAP East
-  // 2026 at the Hong Kong Convention and Exhibition Centre, 8–10 July 2026. A row
-  // without a sourced date is the failure this whole rail was built to avoid, so
-  // the invariant is that none may exist.
-  assert.equal(ledgerRows.length, 6, 'one header row plus one row per stop');
-  assert.doesNotMatch(circuit, /cx-ledger__row--pending/, 'no stop may fall back to a pending marker');
-  assert.doesNotMatch(circuit, /data-i18n="cx\.l\.pending"/, 'the pending key should be gone with the row');
-
-  const ledgerBody = circuit.slice(circuit.indexOf('cx-ledger"'), circuit.indexOf('cx-ledger__foot'));
-  for (const match of ledgerBody.matchAll(/class="cx-ledger__date"[^>]*>([^<]+)</g)) {
-    const value = match[1].trim();
-    assert.match(value, /^\d{4}(\.\d{2}(\.\d{2})?)?$/, `unrecognised ledger date: "${value}"`);
-  }
-});
-
-test('LEAP East is Hong Kong, not Bangkok', () => {
-  // Regression guard. The rail previously placed LEAP East 2026 in Bangkok under
-  // an EVENT_ID ending _BKK. It was at the Hong Kong Convention and Exhibition
-  // Centre, 8–10 July 2026 — see leapeast.com/events/2026-agenda and the HKSAR
-  // Government release of 8 July 2026.
-  assert.match(circuit, /data-i18n="cx\.leap\.city">Hong Kong</);
-  assert.match(circuit, /data-i18n="cx\.leap\.venueShort">LEAP East · HKCEC</);
-  assert.doesNotMatch(circuit, /Bangkok/, 'LEAP East must not be filed under Bangkok');
-  assert.doesNotMatch(html, /LEAP_EAST_2026_BKK/);
-
-  const copy = tables();
-  for (const locale of LOCALE_KEYS) {
-    assert.equal(lookup(copy[locale], 'cx.leap.city'), copy[locale].cx.leap.city);
-    assert.match(lookup(copy[locale], 'cx.leap.venue'), /LEAP[ .]East/);
-    assert.doesNotMatch(lookup(copy[locale], 'cx.leap.venue'), /Bangkok|กรุงเทพฯ|曼谷/);
-  }
-});
-
-test('the rail and the ledger are ordered newest first', () => {
-  // The markup renders in document order, so ordering is structure. Getting it
-  // wrong puts a March talk above a September one with no other symptom.
-  const railDates = [...rail.matchAll(/class="cx-card__date">([\d.]+)</g)].map(m => m[1]);
-  // bound the slice at the footer, which reuses the .cx-ledger__date class for
-  // its own "Updated" stamp
-  const ledgerBody = circuit.slice(circuit.indexOf('cx-ledger"'), circuit.indexOf('cx-ledger__foot'));
-  const ledgerDates = [...ledgerBody.matchAll(/class="cx-ledger__date"[^>]*>([^<]+)</g)].map(m => m[1].trim());
-
-  assert.ok(railDates.length >= 5, 'expected five rail cards');
-  assert.deepEqual(railDates, ledgerDates, 'the ledger must mirror the rail order');
-
-  const keys = railDates.map(d => d.split('.').map(Number));
+test('the bars are ordered newest first', () => {
+  const dates = [...circuit.matchAll(/class="cx-bar__date">([\d.]+)</g)].map(m => m[1]);
+  assert.equal(dates.length, bars.length);
+  const keys = dates.map(d => d.split('.').map(Number));
   for (let i = 1; i < keys.length; i += 1) {
     const [py, pm = 1, pd = 1] = keys[i - 1];
     const [cy, cm = 1, cd = 1] = keys[i];
     assert.ok(cy * 10000 + cm * 100 + cd <= py * 10000 + pm * 100 + pd,
-      `${railDates[i]} (${railDates[i - 1]}) is out of order`);
+      `${dates[i]} (${dates[i - 1]}) is out of order`);
   }
 });
 
-test('Shanghai is 2026, not 2025', () => {
-  // Tomorrow.City Shanghai 2026 ran 22–26 September 2026 at Zhangjiang Science
-  // Hall. The rail previously carried 2025-11-05, which no source supported.
+test('bar height is one token, and nothing inside a bar is unbounded', () => {
+  const token = circuitCss.match(/--cx-bar-h:\s*(\d+)px/);
+  assert.ok(token, '--cx-bar-h must be declared in circuit.css');
+  assert.equal((circuitCss.match(/--cx-bar-h:/g) || []).length, 1,
+    'the bar height is declared once, not redefined per breakpoint');
+  assert.match(cssRule(circuitCss, '.cx-bar {'), /min-height: var\(--cx-bar-h\)/);
+  // the only text blocks that could outgrow the budget are clamped
+  assert.match(cssRule(circuitCss, '.cx-bar__claim {'), /line-clamp: 2/);
+});
+
+test('no stop falls back to a pending marker', () => {
+  assert.doesNotMatch(circuit, /pending/);
+  assert.doesNotMatch(circuit, /cx\.l\.pending/);
+  for (const match of circuit.matchAll(/class="cx-bar__date">([^<]+)</g)) {
+    assert.match(match[1].trim(), /^\d{4}(\.\d{2}(\.\d{2})?)?$/, `unrecognised bar date: "${match[1]}"`);
+  }
+});
+
+test('LEAP East is Hong Kong, not Bangkok', () => {
+  // Regression guard. The rail previously filed LEAP East 2026 under Bangkok.
+  // It was at the Hong Kong Convention and Exhibition Centre, 8–10 July 2026.
+  assert.match(circuit, /data-i18n="cx\.leap\.city">Hong Kong</);
+  assert.doesNotMatch(circuit, /Bangkok/);
+  assert.doesNotMatch(html, /LEAP_EAST_2026_BKK/);
+  for (const locale of LOCALE_KEYS) {
+    assert.match(lookup(tables()[locale], 'cx.leap.venue'), /LEAP[ .]East/);
+    assert.doesNotMatch(lookup(tables()[locale], 'cx.leap.venue'), /Bangkok|กรุงเทพฯ|曼谷/);
+  }
+});
+
+test('Shanghai is 2026', () => {
+  // Tomorrow.City Shanghai 2026 ran 22–26 September 2026 at Zhangjiang.
   assert.match(circuit, /2026\.09\.22/);
   assert.doesNotMatch(circuit, /2025-11-05/);
   for (const locale of LOCALE_KEYS) {
-    assert.match(lookup(tables()[locale], 'cx.sh.venue'), /2026/, `${locale} sh venue must name the year`);
+    assert.match(lookup(tables()[locale], 'cx.sh.venue'), /2026/, `${locale} must name the year`);
   }
 });
 
-test('card height is one token, and nothing in the card is unbounded', () => {
-  // The footprint is the whole point: a seventh stop must cost no extra height.
-  const token = circuitCss.match(/--cx-card-h:\s*(\d+)px/);
-  assert.ok(token, '--cx-card-h must be declared in circuit.css');
-  assert.equal((circuitCss.match(/--cx-card-h:/g) || []).length, 2,
-    'one desktop value plus one mobile override — nothing else may redefine it');
-
-  const cardRule = cssRule(circuitCss, '.cx-card {');
-  assert.ok(cardRule, '.cx-card must exist');
-  assert.match(cardRule, /height: var\(--cx-card-h\)/, 'the card must take its height from the token');
-  assert.match(cardRule, /overflow: hidden/, 'overflow must be clipped so the card cannot grow');
-
-  // The two unbounded text blocks are the only places a card could silently
-  // outgrow its budget, so both must be line-clamped.
-  assert.match(cssRule(circuitCss, '.cx-card__note {'), /line-clamp: 3/);
-  assert.match(cssRule(circuitCss, '.cx-card__quote > span {'), /line-clamp: 2/);
-  assert.doesNotMatch(cssRule(circuitCss, '.cx-card__quote {'), /line-clamp/,
-    'clamping the blockquote would eat the <cite> attribution');
-});
-
-test('the retired .stage markup and its CSS are both gone', () => {
-  assert.doesNotMatch(circuit, /class="stage"/, 'the old vertical stage blocks must not return');
-  assert.doesNotMatch(ramsCss, /\.stage__/, 'dead .stage CSS must not linger');
-});
+/** Event and organisation names. These stay in Latin script in every locale. */
+const PROPER_NOUN_KEYS = new Set([
+  'cx.osaka.cite', 'cx.leap.cite', 'cx.tpe.cite', 'cx.tpe.venueShort',
+]);
 
 test('every circuit key resolves in all seven locales', () => {
   const used = new Set([...circuit.matchAll(/data-i18n="([^"]+)"/g)].map(m => m[1]));
-  assert.ok(used.size >= 25, `expected a substantial key surface, found ${used.size}`);
-
+  assert.ok(used.size >= 30, `expected a substantial key surface, found ${used.size}`);
   const copy = tables();
   const missing = [];
   for (const locale of LOCALE_KEYS) {
@@ -258,18 +203,9 @@ test('every circuit key resolves in all seven locales', () => {
   assert.deepEqual(missing, [], `untranslated circuit keys: ${missing.join(', ')}`);
 });
 
-/** Event and organisation names. These stay in Latin script in every locale. */
-const PROPER_NOUN_KEYS = new Set([
-  'cx.osaka.cite', 'cx.leap.cite', 'cx.tpe.cite',
-  'cx.tpe.venueShort', 'cx.leap.venueShort', 'cx.sh.venueShort',
-]);
-
-test('no circuit key falls through to the English string in a non-English locale', () => {
+test('no sentence-length key falls through to English in a non-English locale', () => {
   const copy = tables();
   const used = [...new Set([...circuit.matchAll(/data-i18n="([^"]+)"/g)].map(m => m[1]))];
-
-  // Short labels legitimately match across scripts (proper nouns, numbers).
-  // Only flag a locale that copied the English string for a sentence-length key.
   const suspicious = [];
   for (const locale of ['th', 'zh', 'ko', 'ja', 'vi']) {
     for (const key of used) {
@@ -281,14 +217,4 @@ test('no circuit key falls through to the English string in a non-English locale
     }
   }
   assert.deepEqual(suspicious, [], `untranslated sentence-length keys: ${suspicious.join(', ')}`);
-});
-
-test('the rail controls exist and the script ships', () => {
-  assert.match(html, /<script defer src="circuit\.js\?v=[^"]+"><\/script>/);
-  assert.match(html, /<link rel="stylesheet" href="circuit\.css\?v=[^"]+">/);
-  assert.match(html, /data-cx-prev/);
-  assert.match(html, /data-cx-next/);
-  const btn = cssRule(circuitCss, '.cx-ctrl__btn {');
-  assert.match(btn, /width: 44px/);
-  assert.match(btn, /height: 44px/);
 });

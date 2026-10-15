@@ -761,7 +761,7 @@ const uiCopy = {
     stageSect: {
       kicker: 'Five stops, one arc',
       title: 'Governments are tired of <em>waiting for the deck.</em>',
-      lede: 'One argument, delivered five times in eleven months, on five stages across Asia — always with a working surface running live in the room. Taipei indexed the cities. GITEX filled the hall. Shanghai put FloodDash on the cube screen. LEAP East launched it. Osaka asked what happens after the pilot works. Same thesis every time: build now, not after the budget cycle.',
+      lede: 'One argument, five times in eleven months, on five stages across Asia — always with a working surface running live in the room. It opened in <b>Taipei</b> in March, where SLIC Index V2 went live mid-talk to 174 cities. It filled the hall at <b>GITEX Singapore</b> in April, and the workshop behind the keynote sold out in minutes. It launched the product for real at <b>LEAP East in Hong Kong</b> in July, on the Orbital Stage at the Hong Kong Convention and Exhibition Centre. It put FloodDash on a cube screen at <b>Tomorrow.City Shanghai</b> in September and cooked the flood maths live in front of the room. It closed in <b>Osaka</b> in October at the Asia Roundtable, and asked the only question that matters afterwards: what happens once the pilot already works.',
 
       meta: '2026 \u00b7 Osaka \u00b7 Shanghai \u00b7 Hong Kong \u00b7 Singapore \u00b7 Taipei',},
     cx: {
@@ -1027,7 +1027,7 @@ const uiCopy = {
     stageSect: {
       kicker: 'ห้าหยุด หนึ่งเส้นเรื่อง',
       title: 'รัฐบาลเหนื่อย<em>กับการรองานนำเสนอ</em>แล้ว',
-      lede: 'ประเด็นเดียว พูดห้าครั้งในสิบเอ็ดเดือน บนห้าเวทีทั่วเอเชีย \u2014 ทุกครั้งมีหน้าจอที่ใช้งานได้จริงเปิดอยู่ในห้อง ไทเปจัดอันดับเมือง GITEX เต็มห้อง เซี่ยงไฮ้เอา FloodDash ขึ้นจอคิวบ์ LEAP East เปิดตัวมันสด ๆ และโอซากะถามว่าหลังไพลอตได้ผลแล้วจะเกิดอะไรต่อ ประเด็นเดิมทุกครั้ง: สร้างเลย ไม่ต้องรอรอบงบประมาณถัดไป',
+      lede: 'ประเด็นเดียว ห้าครั้งในสิบเอ็ดเดือน บนห้าเวทีทั่วเอเชีย — ทุกครั้งมีหน้าจอที่ใช้งานได้จริงเปิดอยู่ในห้อง เริ่มที่ <b>ไทเป</b> ในเดือนมีนาคม SLIC Index V2 เปิดใช้งานกลางงานต่อหน้าผู้ชม 174 เมือง แล้วเต็มห้องที่ <b>GITEX สิงคโปร์</b> ในเดือนเมษายน เวิร์กช็อปหลังวิทยากรขายหมดในไม่กี่นาที เปิดตัวผลิตภัณฑ์อย่างแท้จริงที่ <b>LEAP East ฮ่องกง</b> ในเดือนกรกฎาคม บนเวที Orbital ที่ศูนย์การประชุมและแสดงสินค้าฮ่องกง เอา FloodDash ขึ้นจอคิวบ์ที่ <b>Tomorrow.City เซี่ยงไฮ้</b> ในเดือนกันยายน ปรุงสดคณิตศาสตร์น้ำท่วมต่อหน้าผู้ชม และปิดที่ <b>โอซากะ</b> ในเดือนตุลาคมด้วยคำถามเดียวที่สำคัญที่สุด หลังไพลอตทำงานแล้ว เหลืออะไร',
 
       meta: '2569 \u00b7 \u0e42\u0e2d\u0e0b\u0e32\u0e01\u0e30 \u00b7 \u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e \u00b7 \u0e2b\u0e48\u0e2d\u0e07\u0e01\u0e49\u0e07 \u00b7 \u0e2a\u0e34\u0e07\u0e04\u0e42\u0e1b\u0e23 \u00b7 \u0e44\u0e17\u0e40\u0e1b',},
     cx: {
@@ -1293,7 +1293,7 @@ const uiCopy = {
     stageSect: {
       kicker: '五个舞台 一条主线',
       title: '政府已经<em>厌倦等一份幻灯片</em>了',
-      lede: '一条论点，十一个月里讲了五遍，横跨亚洲五个舞台 —— 每一次现场都跑着一块真正能用的界面。台北给城市排了名，GITEX 坐满了人，\u4e0a\u6d77把 FloodDash 搬上了立方屏，LEAP East 当场发布，\u5927\u962a问的是试点跑通之后还剩什么。同一条论点：现在就建，别等下一个预算周期。',
+      lede: '一条论点，十一个月里讲了五遍，横跨亚洲五个舞台 —— 每一次现场都跑着一块真正能用的界面。它在三月于<b>台北</b>开场，SLIC Index V2 在演讲中途上线，覆盖 174 座城市。四月在 <b>GITEX 新加坡</b>坐满了会场，主演讲后的工作坊几分钟内售罄。七月在 <b>LEAP East 香港</b>真正发布产品 —— 香港会议展览中心的 Orbital 主舞台。九月的 <b>Tomorrow.City 上海</b>把 FloodDash 搬上立方体屏，当场烹制洪水数学。十月在<b>大阪</b>的亚洲圆桌会议上收束，并问出此后唯一重要的问题：试点跑通之后还剩什么。',
 
       meta: '2026 \u00b7 \u5927\u962a \u00b7 \u4e0a\u6d77 \u00b7 \u9999\u6e2f \u00b7 \u65b0\u52a0\u5761 \u00b7 \u53f0\u5317',},
     cx: {
@@ -1567,7 +1567,7 @@ const uiCopy = {
     stageSect: {
       kicker: '// FIVE_STOPS_ONE_ARC',
       title: 'governments.tireof(waitingForTheDeck)',
-      lede: '// oneArgument × 11(months) × 5(stages) × asia. always(workingSurface: live, in: room)\n// taipei.indexed(cities) → gitex.filled(hall) → shanghai.put(floodDash, on: cubeScreen) → leapEast.launched(it) → osaka.asked(whatHappensAfterPilot.works)\n// thesis: { build: "now" }',
+      lede: '// oneArgument × 11(months) × 5(stages) × asia\\n// opened(taipei, mar) → filled(gitex.singapore, apr) → launched(leapEast.hongKong, jul · orbitalStage · HKCEC) → cookedLive(tomorrowCity.shanghai, sep · cubeScreen) → closed(osaka, oct)\\n// question(now) = what.remains(after: pilot.works)',
     
       meta: '// 2026.osaka.bangkok.singapore.taipei.shanghai',},
     cx: {
