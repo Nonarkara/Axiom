@@ -1956,6 +1956,10 @@ const i18nExt = {
         cta: 'Follow on Facebook',
       },
       p66: {
+        lede: "A 20-year reunion with a 2006 MIT thesis. Eleven form profiles — rectilinear to pinwheel. Nine form-performance metrics: rent, area, sky reach, daylight, form distinctiveness. Live scenario recalc on every edit. Inspired by SHDT.",
+        cta: 'Design the form',
+      },
+      p66: {
         cat: 'Colour Exhibition',
         lede: "348 colour combinations. Search a relationship, study it in grayscale, copy its values. Dr Non's colour exhibition, inspired by Sanzo Wada.",
         cta: 'Explore the palettes',
@@ -2417,6 +2421,10 @@ const i18nExt = {
         cta: 'ติดตาม Facebook',
       },
       p66: {
+        lede: "สอืนคลาสั่ว 20 ปี กับ MIT thesis ปี 2006. สิ้นฟอร์ม 11 แบบบ — จาก Rectilinear ถึง Pinwheel. ดัชนีฟอร์มประสิทธิภาพ 9 ด้าน: ค่าเช่า, พื้นที่, Sky Reach, Daylight, Form Distinctiveness. คำนวน scenario สองหร์เมือแก้ได้. ซ่ังเคียน SHDT.",
+        cta: 'ออกแบบ',
+      },
+      p66: {
         cat: 'นิทรรศการสี',
         lede: 'ชุดสี 348 ชุด ค้นหาความสัมพันธ์ของสี ดูแบบขาวดำ และคัดลอกค่าสี นิทรรศการสีของ Dr Non ที่ได้แรงบันดาลใจจาก Sanzo Wada',
         cta: 'สำรวจชุดสี',
@@ -2875,6 +2883,10 @@ const i18nExt = {
         cta: '在 Facebook 上关注',
       },
       p66: {
+        lede: "与 2006 年 MIT 学位论文的 20 年重造。十一种形状——从矩形到风车。九项形体性能指标：租金、面积、天空达成、日光、形状识别度。每次编辑都重新计算场景。致敬 SHDT。",
+        cta: '设计形状',
+      },
+      p66: {
         cat: '色彩展览',
         lede: '348 组配色。搜索色彩关系，以灰度研究，复制色值。Dr Non 的色彩展览，灵感来自和田三造。',
         cta: '探索配色',
@@ -3092,6 +3104,7 @@ const i18nExt = {
       p63: { lede: '// malaysia.godMode\n// jps.riverGauges(everyBasin) + met.warnings(malaysia)\n// transit(buses,trains) + aviation(ships,aircraft)\n// air + fire + citizen.index(who.lives.far.from.help)\n// map.oneScreen(locale[en,bm,zh])', cta: 'liveMap.open()' },
       p64: { lede: '// forestCarbon.thailand / provinceTap + drawBox\n// satellite.carbonStock + forestRemoval + emissions\n// fire + fossilCO2 + tVer.project(workbench)\n// sources + uncertainty / locale[th,en]', cta: 'assessment.open()' },
       p65: { lede: '// flooddash.community / facebook.channel\n// followers[112k] + likes[37k] + dailyBriefings.th\n// collab(SLIC, depa, RCAD)\n// liveIn.facebook.bitLy/flooddashThai', cta: 'facebook.follow()' },
+      p66: { lede: '// formHypes.shdt / 20yearReunion(MIT.thesis.2006)\n// formProfiles: 11 (rectilinear.to.pinwheel)\n// formPerf.metrics: 9 [rent, area, skyReach, daylight, distinctiveness]\n// liveRecalc.onEdit() // inspiredBy(SHDT)\n// conceptPrototype.notForConstruction', cta: 'form.design()' },
       p66: { cat: 'ColourExhibition', lede: 'palettes[348].search(relationship).study(grayscale).copy(css) // Dr Non × Sanzo Wada', cta: 'palettes.explore()' },
     },
     stagesContent: {
@@ -3373,7 +3386,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '66 systems · 5 countries',
+      sysMeta: '67 systems · 5 countries',
       command: 'City Dashboards',
       commandMeta: 'Real-time city operations rooms & environmental watch · 20',
       intelligence: 'Intelligence',
@@ -3381,7 +3394,7 @@ const i18nExt2 = {
       civic: 'Civic',
       civicMeta: 'National platforms & citizen infrastructure · 6',
       emerging: 'Emerging',
-      emergingMeta: 'Research-grade & new operating models · 10',
+      emergingMeta: 'Research-grade & new operating models · 11',
       lab: 'Lab',
       labMeta: 'Side tools · in the open · 22',
     },
@@ -3551,7 +3564,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '66 ระบบ · 5 ประเทศ',
+      sysMeta: '67 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
       commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 20',
       intelligence: 'ข่าวกรอง',
@@ -3559,7 +3572,7 @@ const i18nExt2 = {
       civic: 'พลเมือง',
       civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 6',
       emerging: 'ระบบใหม่',
-      emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 10',
+      emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 11',
       lab: 'แล็บ',
       labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 22',
     },
@@ -3727,7 +3740,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '66 个系统 · 5 个国家',
+      sysMeta: '67 个系统 · 5 个国家',
       command: '城市仪表板',
       commandMeta: '实时城市作战室与环境监测 · 20',
       intelligence: '情报',
@@ -3735,7 +3748,7 @@ const i18nExt2 = {
       civic: '民生',
       civicMeta: '国家级平台与公民基础设施 · 6',
       emerging: '新兴',
-      emergingMeta: '研究级与新运营模式 · 10',
+      emergingMeta: '研究级与新运营模式 · 11',
       lab: '实验室',
       labMeta: '辅助工具 · 开放中 · 22',
     },
@@ -3909,7 +3922,7 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '66 systems · 5 countries',
+      sysMeta: '67 systems · 5 countries',
       command: 'CityDashboards',
       commandMeta: 'cityOps.realtime & envWatch · count[20]',
       intelligence: 'Intelligence',
@@ -3917,7 +3930,7 @@ const i18nExt2 = {
       civic: 'Civic',
       civicMeta: 'nationalPlatforms & citizenInfra · count[6]',
       emerging: 'Emerging',
-      emergingMeta: 'researchGrade & newOperatingModels · count[10]',
+      emergingMeta: 'researchGrade & newOperatingModels · count[11]',
       lab: 'Lab',
       labMeta: 'sideTools & openProcess · count[22]',
     },

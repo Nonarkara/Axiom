@@ -572,6 +572,7 @@
       "p63": { "lede": "말레이시아 · 신 모드. 모든 유역의 JPS 수위, MET 말레이시아 경보, 버스와 기차, 선박과 항공기, 공기와 화재, 그리고 도움에서 멀리 사는 시민을 보여주는 시민 지수. 한 지도, EN · BM · 中文.", "cta": "실시간 지도 열기" },
       "p64": { "lede": "태국 산림 탄소 — 성을 탭하거나 박스를 그려 위성 기반 탄소 저장량, 산림 흡수와 배출, 산불과 화석 CO₂, 출처와 불확실성을 확인하세요. T-VER 프로젝트 평가 워크벤치 포함. 태국어 · 영어.", "cta": "평가 워크벤치 열기" },
       "p65": { "lede": "FloodDash의 공개 채널 — Facebook 팔로워 112K, 좋아요 37K. SLIC · depa · RCAD와 함께 매일 태국어로 홍수 브리핑. 데이터 투데이. 세이프 투모로우.", "cta": "Facebook에서 팔로우" },
+      "p66": { "lede": "2006년 MIT 학제 논문과의 20년 재환. 11개의 형태 프로필 — 가로형에서 폴레이트까지. 9개의 형태 성능 지표: 임대료, 면적, 하늘 도달률, 일광, 형태 고유성. 매 편집마다 장면 재계산. SHDT에서 방수.", "cta": "형태 설계" },
       "p66": { "cat": "색채 전시", "lede": "348가지 색 조합. 색의 관계를 검색하고, 흑백으로 살펴보고, 색상 값을 복사하세요. 산조 와다에서 영감을 받은 Dr Non의 색채 전시.", "cta": "팔레트 둘러보기" },
     },
     "stagesContent": {
@@ -918,7 +919,7 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "66개 시스템 · 5개국",
+      "sysMeta": "67개 시스템 · 5개국",
       "command": "도시 대시보드",
       "commandMeta": "실시간 도시 운영실 및 환경 관측 · 20",
       "intelligence": "인텔리전스",
@@ -926,7 +927,7 @@
       "civic": "시민",
       "civicMeta": "국가 플랫폼 및 시민 인프라 · 6",
       "emerging": "신규",
-      "emergingMeta": "연구급 및 새 운영 모델 · 10",
+      "emergingMeta": "연구급 및 새 운영 모델 · 11",
       "lab": "랩",
       "labMeta": "보조 도구 · 공개 진행 · 22"
     },
@@ -1552,6 +1553,7 @@
       "p63": { "lede": "マレーシア · ゴッドモード。全流域の JPS 水位、MET マレーシア警報、バスと鉄道、船舶と航空機、空気と火災、そして支援から遠い住民を示す市民指数。一つの地図、EN · BM · 中文。", "cta": "ライブマップを開く" },
       "p64": { "lede": "タイ森林炭素 — 州をタップまたはボックスを描き、衛星ベースの炭素ストック、森林吸収と排出、山火事と化石 CO₂、源泉と不確実性を確認。T-VER プロジェクト評価ワークベンチ付き。タイ語 · 英語。", "cta": "評価ワークベンチを開く" },
       "p65": { "lede": "FloodDash の公開チャンネル — Facebook フォロワー 112K、いいね 37K。SLIC · depa · RCAD と共に毎日タイ語で洪水ブリーフィング。データ・トゥデイ。セーファー・トゥモロー。", "cta": "Facebook でフォロー" },
+      "p66": { "lede": "2006年 MIT 卓論文との 20年べの再会。11の形状プロファイル——矩形から风車まで。9の形体性能指標：租料、面積、天空達成、日光、形状識別度。編集每回センサリオ重計算。SHDTに敬意。", "cta": "形状を設計" },
       "p66": { "cat": "色彩展示", "lede": "348の配色。色の関係を検索し、グレースケールで確かめ、色の値をコピー。和田三造に着想を得た Dr Non の色彩展示。", "cta": "配色を見る" },
     },
     "stagesContent": {
@@ -1877,7 +1879,7 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "66システム · 5か国",
+      "sysMeta": "67システム · 5か国",
       "command": "シティダッシュボード",
       "commandMeta": "リアルタイム都市運用室と環境観測 · 20",
       "intelligence": "インテリジェンス",
@@ -1885,7 +1887,7 @@
       "civic": "シビック",
       "civicMeta": "国家プラットフォームと市民インフラ · 6",
       "emerging": "新興",
-      "emergingMeta": "研究グレードと新運用モデル · 10",
+      "emergingMeta": "研究グレードと新運用モデル · 11",
       "lab": "ラボ",
       "labMeta": "補助ツール · 公開中 · 22"
     },
@@ -2511,6 +2513,7 @@
       "p63": { "lede": "Malaysia · Chế độ Thần. Mực nước sông JPS trên mọi lưu vực, cảnh báo MET Malaysia, xe buýt và tàu hỏa, tàu biển và máy bay, không khí và cháy, cùng chỉ số công dân cho biết ai sống xa sự trợ giúp. Một bản đồ, EN · BM · 中文.", "cta": "Mở bản đồ trực tiếp" },
       "p64": { "lede": "Carbon rừng Thái Lan — chạm một tỉnh hoặc kéo một ô để xem trữ lượng carbon dựa trên vệ tinh, hấp thụ và phát thải rừng, cháy rừng và CO₂ hóa thạch, kèm nguồn và độ bất định. Có bàn đánh giá dự án T-VER. Tiếng Thái · Tiếng Anh.", "cta": "Mở bàn đánh giá" },
       "p65": { "lede": "Kênh công khai của FloodDash — 112K người theo dõi, 37K lượt thích trên Facebook. Bản tin lũ hàng ngày bằng tiếng Thái, với SLIC · depa · RCAD. Dữ liệu hôm nay. An toàn hơn ngày mai.", "cta": "Theo dõi trên Facebook" },
+      "p66": { "lede": "Cuộ hẹn 20 năm với luận văn MIT năm 2006. 11 hình dạng — từ chắ nhật đến pinwheel. 9 chỉ số hiệu năng hình thể: tiền thuê, diện tích, tầm với, ánh sáng, độc đão hình dạng. Tính lại kịch bản theo từng lần chỉnh sửa. Lấy cảm hứng từ SHDT.", "cta": "Thiết kế hình dạng" },
       "p66": { "cat": "Triển lãm màu sắc", "lede": "348 tổ hợp màu. Tìm mối quan hệ giữa các màu, xem ở thang xám, sao chép mã màu. Triển lãm màu của Dr Non, lấy cảm hứng từ Sanzo Wada.", "cta": "Khám phá bảng màu" },
     },
     "stagesContent": {
@@ -2836,7 +2839,7 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "66 hệ thống · 5 quốc gia",
+      "sysMeta": "67 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
       "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 20",
       "intelligence": "Tình báo",
@@ -2844,7 +2847,7 @@
       "civic": "Công dân",
       "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 6",
       "emerging": "Mới nổi",
-      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 10",
+      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 11",
       "lab": "Lab",
       "labMeta": "Công cụ phụ · mở công khai · 22"
     },
