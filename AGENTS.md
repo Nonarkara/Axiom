@@ -127,3 +127,48 @@ If a future agent has re-broken it, the recovery is `git show 8bdf126:public/ind
 - The remote is `git@github.com:nonarkara/Axiom.git` (note lowercase `n`) — GitHub redirects to the new canonical `Nonarkara/Axiom.git` on push.
 - The deploy hook is flaky. If you push and don't see a Cloudflare deploy in 10 min, ask Dr Non — don't wait.
 - `data-theme="masterpiece"` is mentioned in the README's anti-regression note as historical law, but is **not** currently on `<html>`. The current theme is Thailand-flag / paper. The masterpiece theme CSS file is kept on disk for reference. Do not re-impose it without an explicit chat message from Dr Non.
+
+---
+
+## 8. axiomx — the reading room (a different site)
+
+**This brief was lost once and cost a session. It is written down here so it is not lost again.**
+
+`axiomx/` is a **second, separate website** — `https://axiomx.nonarkara.org`. It is **not** a variant of `public/` and **not** deployed by the Cloudflare workflow (that deploys `public/` only). It has its own deploy.
+
+### What it is
+
+A **book**, not a landing page. A two-pane reader: an index pane of clustered entries on the left, and a "plate" pane on the right that renders one long-form argument at a time. 111 entries across 17 groups (Index, Method, Catalogue, the system clusters, Pro bono, Stages, Field notes, Founders, Press, Brand, Record, Brief, Colophon).
+
+Its opening argument is the **opposite** of the main site's. The main site pitches *one screen, live, click it*. axiomx opens with:
+
+> The flood arrives at 2 a.m. The dashboard arrives next fiscal year.
+
+It is the long-form case for the work — the argument you make to a governor, not the one-liner you make to a browser. Keep it that way. Do not collapse axiomx into a marketing page, and do not copy the main site's density into it.
+
+### Files
+
+| File | Role |
+|---|---|
+| `axiomx/index.html` | Shell — index pane + plate pane. Static. |
+| `axiomx/catalog.js` | `window.AXIOM_SYSTEMS` — 67 systems, 20 fields each. One line, generated. |
+| `axiomx/reader.js` | All the prose (`book[]`) and all rendering. The content lives here, not in HTML. |
+| `axiomx/style.css` | Navy `#00247d` + red `#a51931` on paper `#faf9f7`. **Not** the main site's Lyons blue + ocher. Light and dark. |
+
+### Rules that are not obvious
+
+- **Numbers must derive, never be typed.** `systems.length`, `liveCount`, and the cluster breakdown are computed at runtime. A hardcoded count *will* drift — the previous version listed four different system totals on one page.
+- **`const MEDIA = 'https://axiom.nonarkara.org/'`** — system screenshots are hot-linked from the main site. axiomx is coupled to it by design; do not localise those paths casually.
+- **Every count claim must be checkable against the page.** The main site's evidence strip derives `Systems` from `.sys-cell[data-arch]` and `Live` from the Live badges. Keep axiomx in step.
+- **`.inset` is declared *after* the type rules on purpose.** The `.lede/.prose/.note` rules use a `margin` shorthand that resets left/right to `0` if `.inset` comes first — the lede silently jumps to x=0 while everything else sits at x=22.
+- **Index rows are `min-height: 44px`.** They were 27px across 111 entries. A `::after` hit area does **not** work here: the rows are stacked with zero gap, so grown hit areas overlap and steal each other's clicks. The row itself has to grow.
+- **`rule-list` is 920px for spec rows (`.fig/.def/.row/.layer`) but `rule-list--prose` is 66ch for numbered prose.** One width for both means the hairline rules run ~330px past the paragraph they annotate — the exact box-does-not-fit-its-text defect.
+- **Escape clears the search first**, wherever focus is. Clicking a result leaves the box populated but unfocused.
+- English-only. The main site's seven locales do **not** apply here; the colophon carries the Thai statement. Do not start translating it without being asked.
+
+### Testing it
+
+`.worktiles/journeys.mjs` runs 29 human journeys against a local server on port 5311:
+`cd axiomx && python3 -m http.server 5311` then `node .qa/axiomx-journeys.mjs`.
+
+Covers: land and read the pitch, open a system, deep links, `/` search, Escape-clears, arrow-key navigation, history back/forward, dark mode + persistence, phone at 390px, and that all 111 entries render without error. Run it before claiming axiomx works.

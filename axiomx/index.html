@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axiom — Decision systems</title>
+  <meta name="description" content="Axiom builds decision systems for cities, governments, and operators. One screen. One decision. Two weeks. 67 systems across 5 countries.">
+  <meta name="author" content="Dr Non Arkaraprasertkul · Axiom">
+  <meta name="theme-color" content="#faf9f7">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://axiomx.nonarkara.org/">
+  <link rel="icon" href="https://axiom.nonarkara.org/assets/axiom-logo.png" type="image/png">
+  <meta property="og:title" content="Axiom — Decision systems">
+  <meta property="og:description" content="Working decision systems for cities and governments. One screen. One decision. Two weeks.">
+  <meta property="og:url" content="https://axiomx.nonarkara.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://axiom.nonarkara.org/assets/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Axiom",
+    "url": "https://axiomx.nonarkara.org",
+    "description": "Decision systems for cities, governments, and operators. Built to run, not to sit in a deck.",
+    "areaServed": ["Thailand", "ASEAN", "Southeast Asia"],
+    "email": "non@nonarkara.org",
+    "founder": [
+      {"@type": "Person", "name": "Dr. Non Arkaraprasertkul"},
+      {"@type": "Person", "name": "Dr. Poon Thiengburanathum"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="shell" id="shell">
+    <aside class="index" id="indexPane">
+      <header class="bar">
+        <a class="mark" href="#axiom">Axiom</a>
+        <button type="button" class="text-btn" id="themeBtn">Dark</button>
+      </header>
+      <div class="find">
+        <label class="sr" for="q">Find in the index</label>
+        <input id="q" type="search" placeholder="Find" autocomplete="off" spellcheck="false" enterkeyhint="search">
+        <span class="find-count" id="findCount" hidden></span>
+      </div>
+      <nav class="index-scroll" id="nav" aria-label="Contents"></nav>
+    </aside>
+    <main class="plate" id="platePane">
+      <header class="bar">
+        <button type="button" class="text-btn back" id="backBtn">Index</button>
+        <p class="bar-kicker" id="barKicker"></p>
+        <a class="text-btn bar-open" id="barOpen" hidden target="_blank" rel="noopener">Open</a>
+        <button type="button" class="text-btn theme-mobile" id="themeBtn2">Dark</button>
+      </header>
+      <div class="locator" id="locator">
+        <span id="locatorNum"></span>
+        <span id="locatorMeta"></span>
+      </div>
+      <article class="plate-scroll" id="plate" tabindex="-1"></article>
+    </main>
+  </div>
+  <script src="catalog.js"></script>
+  <script src="reader.js"></script>
+</body>
+</html>
