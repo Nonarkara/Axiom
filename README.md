@@ -32,7 +32,7 @@ Both are deployed by GitHub Actions on push to `main`. They are different produc
 | Site | Host | Source | What it is |
 |---|---|---|---|
 | **Axiom** | [axiom.nonarkara.org](https://axiom.nonarkara.org) | `public/` | The pitch. One screen, live, click it. Satellite-intelligence dashboard used as marketing language. Seven locales. |
-| **axiomx** | axiomx.nonarkara.org | `axiomx/` | The argument. A two-pane book reader — 111 long-form entries. The case you make to a governor, not the one-liner you make to a browser. |
+| **axiomx** | axiomx.nonarkara.org | `axiomx/` | The argument. A two-pane book reader — 113 long-form entries. The case you make to a governor, not the one-liner you make to a browser. |
 
 The two sites argue deliberately opposite opening lines. The main site says *one screen, live, click it*. axiomx opens with:
 
@@ -235,12 +235,12 @@ Forks will not publish to axiom.nonarkara.org unless they wire their own Pages p
 
 ```bash
 npm test                                            # security + circuit regression suites
-node .qa/axiomx-journeys.mjs                        # 29 human journeys, axiomx on :5311
+node .qa/axiomx-journeys.mjs                        # 51 human journeys, axiomx on :5311
 AXIOMX_URL=https://axiomx.nonarkara.org/ \
-  node .qa/axiomx-journeys.mjs                      # the same 29 against the live host
+  node .qa/axiomx-journeys.mjs                      # the same journeys against the live host
 ```
 
-The axiomx suite expects **29 PASS, 0 FAIL**. Point it at the canonical host, not the `pages.dev` alias — the alias cannot catch a broken domain, which is exactly how a missing DNS record went unnoticed here.
+The axiomx suite expects **51 PASS, 0 FAIL**. Point it at the canonical host, not the `pages.dev` alias — the alias cannot catch a broken domain, which is exactly how a missing DNS record went unnoticed here.
 
 ---
 

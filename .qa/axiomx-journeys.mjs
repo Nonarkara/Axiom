@@ -30,11 +30,14 @@ async function newPage(w = 1440, h = 900) {
   check('URL deep-links to the entry', p.url().endsWith('#flood-ami'), p.url());
   const openBtn = await p.$eval('.bar-open', e => ({ hidden: e.hidden, href: e.getAttribute('href') }));
   check('Open button wired to the system', !openBtn.hidden && !!openBtn.href, JSON.stringify(openBtn));
+  await p.waitForFunction(() => { const i = document.querySelector('.plate-img'); return i && i.complete; }, null, { timeout: 5000 }).catch(() => {});
   const imgOk = await p.evaluate(() => {
-    const i = document.querySelector('.shot');
-    return i ? { src: i.src, ok: i.complete && i.naturalWidth > 0 } : null;
+    const i = document.querySelector('.plate-img');
+    return i ? { src: i.src, ok: i.complete && i.naturalWidth > 0, label: (document.querySelector('.plate-label') || {}).textContent || '', shot: !!document.querySelector('.shot') } : null;
   });
-  check('system screenshot loads from the main site', !!imgOk && imgOk.ok, imgOk ? imgOk.src : 'no img');
+  check('system plate artwork loads locally', !!imgOk && imgOk.ok && /\/art\//.test(imgOk.src), imgOk ? imgOk.src : 'no img');
+  check('plate carries a credit line', !!imgOk && imgOk.label.length > 10, imgOk ? imgOk.label : '');
+  check('plate replaces the screenshot', !!imgOk && !imgOk.shot);
   await p.context().close();
 }
 
@@ -59,7 +62,7 @@ async function newPage(w = 1440, h = 900) {
     val: document.getElementById('q').value,
     items: document.querySelectorAll('#nav .item').length,
   }));
-  check('Escape clears the search and restores the index', cleared.val === '' && cleared.items === 111,
+  check('Escape clears the search and restores the index', cleared.val === '' && cleared.items === 113,
         JSON.stringify(cleared));
   await p.keyboard.press('/');
   await p.keyboard.type('zzzznomatch');
@@ -68,7 +71,7 @@ async function newPage(w = 1440, h = 900) {
   await p.keyboard.press('Escape');
   await p.keyboard.press('Escape');
   await p.waitForTimeout(200);
-  check('second Escape fully restores', await p.evaluate(() => document.querySelectorAll('#nav .item').length === 111));
+  check('second Escape fully restores', await p.evaluate(() => document.querySelectorAll('#nav .item').length === 113));
   await p.context().close();
 }
 
@@ -212,11 +215,15 @@ async function newPage(w = 1440, h = 900) {
 }
 
 // ── FIELD CLIP ─────────────────────────────────────────────────────────────
-// FloodDash carries the ground-condition loop. It is portrait, so the plate
-// must cap it by height rather than letting it run the full measure.
+// The ground-condition loop lives on Innovation-as-a-Service, not FloodDash.
+// It is portrait, so the plate must cap it by height.
 {
+  const p0 = await newPage();
+  await p0.goto(BASE + '#flood-ami', { waitUntil: 'networkidle' });
+  check('FloodDash is clean of the clip', !(await p0.$('.clip')));
+  await p0.context().close();
   const p = await newPage();
-  await p.goto(BASE + '#flood-ami', { waitUntil: 'networkidle' });
+  await p.goto(BASE + '#iaas', { waitUntil: 'networkidle' });
   await p.waitForTimeout(600);
   const r = await p.evaluate(() => {
     const fig = document.querySelector('.clip');
@@ -232,7 +239,7 @@ async function newPage(w = 1440, h = 900) {
       tallest: v ? v.getBoundingClientRect().height < 700 : false,
     };
   });
-  check('FloodDash carries the field clip', r.found);
+  check('Innovation-as-a-Service carries the field clip', r.found);
   check('clip is capped by height, not the wide measure', r.tallest, `${r.w}x${r.h}`);
   check('clip is muted and loops', r.muted === true && r.loop === true);
   check('clip has a poster for reduced motion', r.poster === true);
@@ -249,6 +256,32 @@ async function newPage(w = 1440, h = 900) {
     try { const r = await fetch(u, { method: 'HEAD' }); return r.status; } catch (e) { return 0; }
   }, src);
   check('the clip asset actually resolves', res === 200, `HTTP ${res}`);
+  await p.context().close();
+}
+
+// ── PLATES: every system has a credited artwork; pro bono keeps its photo ──
+{
+  const p = await newPage();
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  const r = await p.evaluate(async () => {
+    const sys = (window.AXIOM_SYSTEMS || []).map(s => s.id);
+    const plates = window.AXIOM_PLATES || {};
+    const missing = sys.filter(id => !plates[id]);
+    const badLic = Object.keys(plates).filter(id => !/^(Public domain|CC0)$/.test(plates[id][5]));
+    const broken = [];
+    for (const id of Object.keys(plates)) {
+      const res = await fetch('art/' + id + '.webp', { method: 'HEAD' });
+      if (res.status !== 200) broken.push(id);
+    }
+    location.hash = '#pb-ascn';
+    await new Promise(r => setTimeout(r, 150));
+    const pb = !!document.querySelector('#plate .shot') && !document.querySelector('#plate .plate-art');
+    return { sys: sys.length, n: Object.keys(plates).length, missing, badLic, broken, pb };
+  });
+  check('every system has a plate', r.missing.length === 0 && r.n === r.sys, `${r.n}/${r.sys} ${r.missing.join(',')}`);
+  check('every plate is public domain or CC0', r.badLic.length === 0, r.badLic.join(','));
+  check('every plate image resolves', r.broken.length === 0, r.broken.join(','));
+  check('pro bono keeps its own photograph', r.pb);
   await p.context().close();
 }
 
