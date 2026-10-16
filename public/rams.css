@@ -828,11 +828,11 @@ summary:focus-visible {
    ============================================================ */
 
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: var(--tap);
-  padding: var(--box-pad-loose) 14px;
+  padding: var(--box-pad) 14px;
   font-size: var(--t-micro);
   font-weight: 600;
   letter-spacing: var(--tr-label);
@@ -860,6 +860,17 @@ summary:focus-visible {
 .btn--ghost:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+/* the hit area grows outside the box so the 44px target survives the trim */
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: var(--tap);
+  transform: translateY(-50%);
 }
 
 .btn .tri {
@@ -1515,7 +1526,7 @@ summary:focus-visible {
 
 .probono-card__shot {
   width: 100%;
-  aspect-ratio: 16/10;
+  aspect-ratio: 21/8;
   object-fit: cover;
   border-bottom: 1px solid var(--line);
   background: var(--line);
@@ -1802,7 +1813,7 @@ summary:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 7px 12px;
+  padding: var(--box-pad) 10px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1839,7 +1850,7 @@ summary:focus-visible {
 
 .sys-cell__shot {
   width: 100%;
-  aspect-ratio: 21 / 9;
+  aspect-ratio: 21 / 8;
   object-fit: cover;
   object-position: top center;
   border-bottom: 1px solid var(--line);
@@ -1849,10 +1860,10 @@ summary:focus-visible {
 }
 
 .sys-cell__body {
-  padding: 9px 12px 11px;
+  padding: var(--box-pad) 10px var(--box-pad-loose);
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
   flex: 1;
 }
 

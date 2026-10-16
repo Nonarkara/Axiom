@@ -4317,7 +4317,7 @@ const i18nPitch = {
       r3: 'rank({ cities: 157, live: true }) // within keynote(45min)',
       r4lbl: 'fieldNote[01]',
       r4: 'vendor.says("too complex") → workingVersion.inRoom(+14d)',
-      proofLine: 'systems.filter(s => s.inProduction).length === 38 // countries: 5\n// verify: open any below',
+      proofLine: 'document.querySelectorAll(".sys-cell[data-arch]").length === 67 // countries: 5\n// verify: open any below',
       faqLabel: 'objections.preempt()',
       q1: 'isExpensive?',
       a1: 'false // to start\nstep1 = proof({ weeks: 2, data: owned + freePublic, hardware: 0 })\nbiggerBuild.only({ after: proof.works })',
@@ -4352,7 +4352,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: '3D Urban Atlas', lede: 'A 3D city atlas and operations surface for DKI Jakarta — building massing, BMKG weather bulletins, citizen service CRM reports, and flood risk desks on one interactive screen. Bahasa Indonesia · EN.', cta: 'Open live system' },
     constitution: { cat: 'Civic Intelligence', lede: 'Read, highlight, listen to and practise the 2017 Thai Constitution across all 279 sections in Thai, English, and Chinese. Study cards, search, audio, and civic understanding. ไทย · EN · 中文.', cta: 'Open reading room' },
     ladder: { cat: 'Finance Intelligence', lede: 'The venture diligence and scorecard companion to Ikigai. Deal review, financial diligence checklist, thesis matching, and portfolio risk evaluation in one private workspace.', access: 'Sign-in required', cta: 'Open Ladder' },
-    proofLine: '66 systems across 5 countries. Open one. Use it. Judge.',
+    proofLine: '67 systems across 5 countries. Open one. Use it. Judge.',
   },
   th: {
     each: { cat: 'ระบบบริหารธุรกิจ', lede: 'ERP, ACT, CRM และ HR ในพื้นที่ทำงานภาษาไทยและอังกฤษ หน้าการเงินแสดงระยะเวลาที่เงินสดพอใช้ ค่าใช้จ่าย และเงินผ่อน ภาพตัวอย่างใช้ข้อมูลบริษัท ABC', access: 'ต้องเข้าสู่ระบบ', cta: 'เปิด EACH' },
@@ -4363,7 +4363,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: 'แผนที่เมือง 3D', lede: 'แผนที่เมือง 3D และโต๊ะปฏิบัติการจาการ์ตา — รูปทรงอาคาร ข่าวสภาพอากาศ BMKG รายงานบริการประชาชน CRM และโต๊ะความเสี่ยงน้ำท่วมในหน้าจอเดียว ภาษาอินโดนีเซีย · EN', cta: 'เปิดระบบจริง' },
     constitution: { cat: 'ปัญญาพลเมือง', lede: 'อ่าน ไฮไลต์ ฟัง และฝึกทำความเข้าใจรัฐธรรมนูญ พ.ศ. 2560 ครบทั้ง 279 มาตรา ในภาษาไทย อังกฤษ และจีน บัตรศึกษา ค้นหา เสียงอ่าน และความรู้พลเมือง ไทย · EN · 中文', cta: 'เปิดห้องอ่าน' },
     ladder: { cat: 'ปัญญาการเงิน', lede: 'เครื่องมือตรวจสอบกิจการและใบคะแนนคู่หูของ Ikigai ตรวจสอบดีล รายการตรวจสอบความรอบคอบทางการเงิน การเทียบสมมติฐานลงทุน และประเมินความเสี่ยงพอร์ตในพื้นที่ส่วนตัว', access: 'ต้องเข้าสู่ระบบ', cta: 'เปิด Ladder' },
-    proofLine: '66 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
+    proofLine: '67 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
   },
   zh: {
     each: { cat: '企业运营', lede: '集 ERP、ACT、CRM 和 HR 于一体的泰英双语工作空间。财务页呈现现金可支撑时长、费用和贷款分期。缩略图使用 ABC 公司的示例数据。', access: '需要登录', cta: '打开 EACH' },
@@ -4374,7 +4374,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: '三维城市地图', lede: '雅加达三维城市地图与运营平台——建筑体量、BMKG 气象公报、CRM 市民服务报告与水灾风险控制台汇聚于同一交互屏幕。印尼语 · 英语。', cta: '打开在线系统' },
     constitution: { cat: '公民智能', lede: '精读、高亮、倾听与练习 2017 年泰国宪法全部 279 条条文，支持泰语、英语和中文。学习卡片、全文搜索、语音朗读与公民常识。泰语 · 英语 · 中文。', cta: '打开阅读室' },
     ladder: { cat: '金融情报', lede: 'Ikigai 的风险投资尽调与评分卡伴侣。在专属私密工作空间中完成项目审阅、财务尽调清单核对、投资逻辑匹配与组合风险评估。', access: '需要登录', cta: '打开 Ladder' },
-    proofLine: '66 个系统，5 个国家。打开一个，亲自使用，再作判断。',
+    proofLine: '67 个系统，5 个国家。打开一个，亲自使用，再作判断。',
   },
   ko: {
     each: { cat: '비즈니스 운영', lede: 'ERP, ACT, CRM, HR을 한곳에 모은 태국어·영어 작업 공간. 재무 화면에서 현금 지속 기간, 비용, 대출 상환을 봅니다. 썸네일은 ABC 회사의 예시 데이터입니다.', access: '로그인 필요', cta: 'EACH 열기' },
@@ -4385,7 +4385,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: '3D 도시 지도', lede: '자카르타 수도권 3D 도시 지도 및 운영 표면 — 건물 형태, BMKG 기상 속보, CRM 시민 민원 보고, 홍수 위험 데스크를 한 화면에 통합. 인도네시아어 · EN.', cta: '라이브 시스템 열기' },
     constitution: { cat: '시민 인텔리전스', lede: '2017년 태국 헌법 전 279개 조항을 태국어·영어·중국어로 읽고, 하이라이트하고, 듣고, 연습하세요. 학습 카드, 검색, 오디오, 시민 이해. ไทย · EN · 中文.', cta: '열람실 열기' },
     ladder: { cat: '금융 인텔리전스', lede: 'Ikigai의 벤처 실사 및 스코어카드 동반 엔진. 거래 검토, 재무 실사 체크리스트, 투자 가설 매칭, 포트폴리오 위험 평가를 비공개 공간에서 수행.', access: '로그인 필요', cta: 'Ladder 열기' },
-    proofLine: '5개국의 66개 시스템. 하나를 열고, 사용하고, 판단하세요.',
+    proofLine: '5개국의 67개 시스템. 하나를 열고, 사용하고, 판단하세요.',
   },
   ja: {
     each: { cat: '業務管理', lede: 'ERP・ACT・CRM・HRをまとめたタイ語・英語のワークスペース。財務画面で資金の継続期間、費用、ローン返済を確認。サムネイルはABC社のサンプルデータです。', access: 'ログインが必要', cta: 'EACHを開く' },
@@ -4396,7 +4396,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: '3D都市アトラス', lede: 'ジャカルタ特別州の3D都市アトラスと運用環境 — 建物形状、BMKG気象速報、CRM市民サービス通報、洪水リスクデスクを1つの画面に統合。インドネシア語 · EN。', cta: '本番システムを開く' },
     constitution: { cat: 'シビックインテリジェンス', lede: '2017年タイ憲法の全279条をタイ語・英語・中国語で読み、ハイライトし、聴き、学ぶ。学習カード、検索、音声、市民理解。タイ語 · 英語 · 中国語。', cta: '読書室を開く' },
     ladder: { cat: '金融インテリジェンス', lede: 'Ikigaiのベンチャーデューデリジェンスおよびスコアカード連携エンジン。ディール精査、財務デューデリリスト、投資仮説照合、ポートフォリオのリスク評価を専用空間で。', access: 'ログインが必要', cta: 'Ladderを開く' },
-    proofLine: '5か国、66のシステム。ひとつ開いて、使って、判断してください。',
+    proofLine: '5か国、67のシステム。ひとつ開いて、使って、判断してください。',
   },
   vi: {
     each: { cat: 'Vận hành doanh nghiệp', lede: 'ERP, ACT, CRM và HR trong một không gian làm việc tiếng Thái/Anh. Màn hình tài chính hiển thị thời gian tiền mặt đủ dùng, chi phí và trả góp. Hình thu nhỏ dùng dữ liệu mẫu của công ty ABC.', access: 'Cần đăng nhập', cta: 'Mở EACH' },
@@ -4407,7 +4407,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: 'Bản đồ đô thị 3D', lede: 'Bản đồ đô thị 3D và bàn vận hành cho DKI Jakarta — khối công trình, bản tin thời tiết BMKG, báo cáo CRM dịch vụ công dân và rủi ro ngập lụt trên một màn hình tương tác. Tiếng Indonesia · EN.', cta: 'Mở hệ thống trực tiếp' },
     constitution: { cat: 'Trí tuệ công dân', lede: 'Đọc, đánh dấu, nghe và thực hành Hiến pháp Thái Lan 2017 với đầy đủ 279 điều bằng tiếng Thái, Anh và Trung. Thẻ học tập, tìm kiếm, âm thanh và hiểu biết công dân. Thái · EN · Trung.', cta: 'Mở phòng đọc' },
     ladder: { cat: 'Tình báo tài chính', lede: 'Công cụ thẩm định đầu tư mạo hiểm và bảng điểm đồng hành cùng Ikigai. Đánh giá thương vụ, danh mục thẩm định tài chính, khớp luận điểm và thẩm định rủi ro danh mục trong không gian riêng.', access: 'Cần đăng nhập', cta: 'Mở Ladder' },
-    proofLine: '66 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
+    proofLine: '67 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
   },
   ts: {
     each: { cat: 'BusinessOperations', lede: 'each.workspace({ modules: [ERP, ACT, CRM, HR], locales: [th, en] }) // finance: runway + expenses + installments; thumbnail: ABC.exampleData', access: 'auth.required', cta: 'each.open()' },
@@ -4418,7 +4418,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: 'UrbanAtlas3D', lede: 'jakarta.opsDesk({ massing: 3D, weather: BMKG, reports: CRM, flood: DSDA }) // DKI Jakarta ops', cta: 'system.openLive()' },
     constitution: { cat: 'CivicIntelligence', lede: 'constitution.study({ year: 2017, sections: 279, locales: [th, en, zh], audio: true, cards: true })', cta: 'readingRoom.open()' },
     ladder: { cat: 'FinanceIntelligence', lede: 'ladder.diligence({ deals, financialChecklist, thesisMatch, portfolioRisk }) // Ikigai companion', access: 'auth.required', cta: 'ladder.open()' },
-    proofLine: 'catalog.length === 66 // countries: 5; open → use → judge',
+    proofLine: 'catalog.length === 67 // countries: 5; open → use → judge',
   },
 };
 
@@ -4536,7 +4536,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function initEvidenceStrip() {
   const v = document.getElementById('evidenceVerified');
   const d = document.getElementById('evidenceDeploy');
-  if (!v && !d) return;
+  const sys = document.getElementById('evidenceSystems');
+  const live = document.getElementById('evidenceLive');
+  if (!v && !d && !sys && !live) return;
 
   // Verified date: build-date derived from the served page (refresh in human locale)
   if (v) {
@@ -4545,6 +4547,21 @@ function initEvidenceStrip() {
     const iso = `${now.getUTCFullYear()}-${String(now.getUTCMonth()+1).padStart(2,'0')}-${String(now.getUTCDate()).padStart(2,'0')}`;
     v.textContent = iso;
     v.title = `Last verified ${iso} · UTC`;
+  }
+
+  // Systems count: read from the DOM so the strip can never drift from the
+  // header. Scoped to [data-arch] on purpose — #brandGrid reuses .sys-cell for
+  // its eight brand-kit thumbnails, and those are not deployed systems.
+  if (sys) {
+    const n = document.querySelectorAll('.sys-cell[data-arch]').length;
+    if (n) sys.textContent = String(n);
+  }
+
+  // Live count: same discipline. Count the Live status badges rather than
+  // asserting a hand-kept figure, so the strip stays checkable against the page.
+  if (live) {
+    const n = document.querySelectorAll('[data-i18n="sysStatus.live"]').length;
+    if (n) live.textContent = String(n);
   }
 
   // Last deploy: derived from the page itself (server emits Last-Modified). Fall back to "just now".
