@@ -706,3 +706,56 @@ h1.name {
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
 }
+
+/* Plates — after DIE WELT's 2011 Ellsworth Kelly edition: art where the
+   photograph would be, set on the same measure as the type it sits beside.
+   A hairline frame, a museum label in mono, no shadow, no rounding. */
+.plate-art {
+  margin: 22px var(--pad) 0;
+  max-width: 960px;
+}
+.plate-img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(68vh, 640px);
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.plate-art figcaption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  margin-top: 11px;
+  padding-top: 9px;
+  border-top: 1px solid var(--line);
+  max-width: 66ch;
+}
+.plate-art figcaption p { margin: 0; }
+.plate-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.plate-label b { color: var(--ink); font-weight: 500; margin-right: 0.6em; }
+.plate-label i { font-style: italic; }
+.plate-why {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.plate-why::before { content: ""; display: inline-block; width: 9px; height: 9px; margin-right: 8px; background: var(--red); vertical-align: 0.05em; }
+.plate-src {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.plate-src a { color: var(--navy); font-size: inherit; }
+@media (max-width: 760px) {
+  .plate-img { max-height: 56vh; }
+}

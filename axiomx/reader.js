@@ -1,6 +1,10 @@
 (function () {
   const MEDIA = 'https://axiom.nonarkara.org/';
   const systems = Array.isArray(window.AXIOM_SYSTEMS) ? window.AXIOM_SYSTEMS : [];
+  // One public-domain artwork per system, in place of the product screenshot.
+  // After DIE WELT's 6 October 2011 edition, in which Ellsworth Kelly replaced
+  // every news photograph with his own work. Pro bono entries keep their photos.
+  const PLATES = window.AXIOM_PLATES || {};
 
   const shell = document.getElementById('shell');
   const nav = document.getElementById('nav');
@@ -50,6 +54,33 @@
     }
     fig.appendChild(v);
     if (clip.caption) fig.appendChild(el('figcaption', '', clip.caption));
+    plate.appendChild(fig);
+    return fig;
+  }
+
+  // A plate: the artwork, then a credit line set like a museum label, then one
+  // line on why this work stands for this system.
+  function addPlate(id, art) {
+    const fig = el('figure', 'plate-art');
+    const img = el('img', 'plate-img');
+    img.src = 'art/' + id + '.webp';
+    img.alt = art[1] + ', ' + art[0] + ', ' + art[2];
+    img.width = art[7];
+    img.height = art[8];
+    img.decoding = 'async';
+    fig.appendChild(img);
+    const cap = el('figcaption');
+    const label = el('p', 'plate-label');
+    label.appendChild(el('b', '', art[0]));
+    label.appendChild(el('i', '', art[1]));
+    label.appendChild(document.createTextNode(', ' + art[2] + '. ' + art[3] + '.'));
+    cap.appendChild(label);
+    cap.appendChild(el('p', 'plate-why', art[6]));
+    const src = el('p', 'plate-src');
+    src.appendChild(link(art[4], 'Source'));
+    src.appendChild(document.createTextNode(' · ' + art[5]));
+    cap.appendChild(src);
+    fig.appendChild(cap);
     plate.appendChild(fig);
     return fig;
   }
@@ -199,6 +230,36 @@
     ]}
   ], { num: '05' }));
 
+  book.push(doc('iaas', 'Practice', 'Innovation-as-a-Service', [
+    { type: 'h', text: 'Innovation-as-a-Service' },
+    { type: 'lede', text: 'Not a product. A way of working. We sit with the people who decide, and build the thing with them, inside their rules.' },
+    { type: 'clip', clip: {
+      src: 'media/showcase/iaas-hero.mp4',
+      poster: 'media/showcase/iaas-hero.jpg',
+      alt: 'Rain falling over a residential district, with rooftops and trees in view.',
+      caption: 'The ground condition. Read from standing in it, every flood season since the first watch, in Thai, in public.'
+    } },
+    { type: 'p', text: 'A city is usually sold a product: a box, a licence, a platform that arrives finished and fits nobody. Innovation-as-a-Service turns that around. We start with one problem the city already has, one decision it cannot make fast enough, and we build the answer alongside the people who own it.' },
+    { type: 'p', text: 'There is an old trap here. A city is asked for a feasibility study before it tries anything, but you cannot study something you have not yet tried. So we try it first, small and cheap, on data the city already holds, with no new hardware. Then the study writes itself from what actually happened.' },
+    { type: 'steps', items: [
+      { t: 'Start with the pain, not the product.', d: 'Who decides, what they need to know, and what it costs to know it late. Everything else waits.' },
+      { t: 'Steal, improve, credit.', d: 'If Taipei or Christchurch already solved part of it, we use that, adapt it, and say where it came from. Reinventing is the expensive option.' },
+      { t: 'Everyone can be an innovator.', d: 'Identify the pain point, build a rough version, show it, fix it. The method belongs to the clerk and the governor as much as to the engineer.' },
+      { t: 'Small wins pay for the next step.', d: 'Lower procurement cost, less R&D time, quick public results. The savings become the budget for what comes after.' }
+    ]},
+    { type: 'p', text: 'Four parties make it work: the people with the problem, the public agency that backs them, the private builders with the tools, and the partnership that holds them together. Top-down resources, bottom-up insight.' },
+    { type: 'p', text: 'FloodDash is the clearest example. It began as a public flood watch in Thai and grew into a national picture, because it was built where the water was, not in a meeting room.' },
+    { type: 'actions', items: [
+      { href: '#flood-ami', label: 'FloodDash' },
+      { href: '#steps', label: 'Three steps' },
+      { href: '#brief', label: 'Tell us the decision' }
+    ]},
+    { type: 'rows', items: [
+      { href: 'https://govinsider.asia/intl-en/article/can-innovation-as-a-service-close-the-gap-between-policy-and-implementation', title: 'Can innovation-as-a-service close the gap between policy and implementation?', meta: 'GovInsider' },
+      { href: 'https://ascn.nonarkara.org/', title: 'ASCN Innovation-as-a-Service: live systems, not a roadmap', meta: 'ascn.nonarkara.org' }
+    ]}
+  ]));
+
   book.push(doc('catalogue', 'Catalogue', 'How to read this', [
     { type: 'h', text: 'How to read this' },
     { type: 'lede', text: 'Every entry here started as one decision somebody could not make fast enough. It is live, or it says it is not.' },
@@ -214,6 +275,7 @@
 
   systems.forEach(function (system) {
     const bits = [system.cluster, system.name, system.cat, system.status, system.lede, system.cta];
+    if (PLATES[system.id]) bits.push(PLATES[system.id][0], PLATES[system.id][1]);
     if (system.arch) {
       bits.push(system.arch.foot, system.arch.ai, (system.arch.inputs || []).join(' '), (system.arch.outputs || []).join(' '), (system.arch.stack || []).join(' '));
     }
@@ -481,6 +543,20 @@
     { type: 'note', text: 'Bangkok · Southeast Asia' }
   ]));
 
+  book.push(doc('plates', 'Colophon', 'The plates', [
+    { type: 'h', text: 'The plates' },
+    { type: 'lede', text: 'No screenshots on the system pages. Each one carries a work of art instead.' },
+    { type: 'p', text: 'On 6 October 2011 the German daily DIE WELT handed a whole edition to the painter Ellsworth Kelly. It ran without a single news photograph; his cycle of colour and form ran from the first page to the last, beside the ordinary columns of type. The edition won gold at the 2012 LeadAwards. It was the second of the paper\u2019s artist editions, after Georg Baselitz in 2010.' },
+    { type: 'p', text: 'This book borrows the idea, not the pictures. Kelly\u2019s work is still in copyright, so every plate here is public domain or CC0: Renaissance frescoes, ukiyo-e prints, early abstraction, sculpture, a colour theory, a geometry book. Each sits beside a system because it says something true about it. The screenshots are one click away, behind Open.' },
+    { type: 'note', text: 'Pro bono entries keep their own photographs. That work belongs to the institutions it was done for.' },
+    { type: 'rows', items: [
+      { href: 'https://www.axelspringer.com/de/ax-press-release/die-welt-des-ellsworth-kelly', title: 'DIE WELT des Ellsworth Kelly (3 Oct 2011)', meta: 'Axel Springer' },
+      { href: 'https://www.axelspringer.com/de/ax-press-release/leadawards-2012-auszeichnungen-in-gold-und-bronze-fuer-medienmarken-von-axel-springer', title: 'LeadAwards 2012: gold for the Kelly edition', meta: 'Axel Springer' },
+      { href: 'https://www.lesershop24.de/die-welt/kuenstlerausgaben-uebersicht', title: 'DIE WELT artist editions since 2010', meta: 'WELT' }
+    ]},
+    { type: 'credits' }
+  ]));
+
   book.push(doc('colophon', 'Colophon', 'Colophon', [
     { type: 'h', text: 'Colophon' },
     { type: 'p', text: 'Axiom builds decision systems for cities, governments, and operators, to ISO/IEC digital-twin practice, AI governance, and data-protection frameworks.', lang: 'en' },
@@ -600,6 +676,22 @@
         addFigs(block.rows);
       } else if (block.type === 'actions') {
         addActions(block.items);
+      } else if (block.type === 'credits') {
+        const wrap = el('div', 'rule-list');
+        systems.forEach(function (s) {
+          const art = PLATES[s.id];
+          if (!art) return;
+          const a = link(art[4], '', 'row');
+          const text = el('span');
+          text.appendChild(el('b', '', s.name));
+          text.appendChild(el('i', '', art[0] + ', ' + art[1] + ', ' + art[2] + ' \u00b7 ' + art[5]));
+          a.appendChild(text);
+          a.appendChild(el('span', '', '\u2197'));
+          wrap.appendChild(a);
+        });
+        plate.appendChild(wrap);
+      } else if (block.type === 'clip') {
+        addClip(block.clip);
       } else if (block.type === 'image') {
         const img = el('img', 'shot');
         img.src = media(block.src);
@@ -677,7 +769,10 @@
     if (system.edition && system.edition.href) actions.push(system.edition);
     if (actions.length) addActions(actions);
 
-    if (system.img) {
+    const art = PLATES[system.id];
+    if (art) {
+      addPlate(system.id, art);
+    } else if (system.img) {
       const img = el('img', 'shot');
       img.src = media(system.img);
       img.alt = system.alt || system.name;

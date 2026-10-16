@@ -156,7 +156,7 @@ Proxied matches every other subdomain in the zone. There is **no wildcard** on `
 
 ### What it is
 
-A **book**, not a landing page. A two-pane reader: an index pane of clustered entries on the left, and a "plate" pane on the right that renders one long-form argument at a time. 111 entries across 17 groups (Index, Method, Catalogue, the system clusters, Pro bono, Stages, Field notes, Founders, Press, Brand, Record, Brief, Colophon).
+A **book**, not a landing page. A two-pane reader: an index pane of clustered entries on the left, and a "plate" pane on the right that renders one long-form argument at a time. 113 entries across 18 groups (Index, Method, Practice, Catalogue, the system clusters, Pro bono, Stages, Field notes, Founders, Press, Brand, Record, Brief, Colophon).
 
 Its opening argument is the **opposite** of the main site's. The main site pitches *one screen, live, click it*. axiomx opens with:
 
@@ -171,12 +171,13 @@ It is the long-form case for the work — the argument you make to a governor, n
 | `axiomx/index.html` | Shell — index pane + plate pane. Static. |
 | `axiomx/catalog.js` | `window.AXIOM_SYSTEMS` — 67 systems, 20 fields each. One line, generated. |
 | `axiomx/reader.js` | All the prose (`book[]`) and all rendering. The content lives here, not in HTML. |
+| `axiomx/plates.js` + `axiomx/art/` | `window.AXIOM_PLATES` — one public-domain/CC0 artwork per system (artist, title, year, collection, source, licence, why). Rendered in place of the screenshot, after DIE WELT's 2011 Ellsworth Kelly edition. Pro bono entries keep their photos. Credits list: `#plates`. |
 | `axiomx/style.css` | Navy `#00247d` + red `#a51931` on paper `#faf9f7`. **Not** the main site's Lyons blue + ocher. Light and dark. |
 
 ### Rules that are not obvious
 
 - **Numbers must derive, never be typed.** `systems.length`, `liveCount`, and the cluster breakdown are computed at runtime. A hardcoded count *will* drift — the previous version listed four different system totals on one page.
-- **`const MEDIA = 'https://axiom.nonarkara.org/'`** — system screenshots are hot-linked from the main site. axiomx is coupled to it by design; do not localise those paths casually.
+- **`const MEDIA = 'https://axiom.nonarkara.org/'`** — the field clip (on `#iaas`) and pro bono / stage photos are hot-linked from the main site; system pages show local plates from `art/` instead of screenshots. Any new system needs a plate, or the journey suite fails. axiomx is coupled to it by design; do not localise those paths casually.
 - **Every count claim must be checkable against the page.** The main site's evidence strip derives `Systems` from `.sys-cell[data-arch]` and `Live` from the Live badges. Keep axiomx in step.
 - **`.inset` is declared *after* the type rules on purpose.** The `.lede/.prose/.note` rules use a `margin` shorthand that resets left/right to `0` if `.inset` comes first — the lede silently jumps to x=0 while everything else sits at x=22.
 - **Index rows are `min-height: 44px`.** They were 27px across 111 entries. A `::after` hit area does **not** work here: the rows are stacked with zero gap, so grown hit areas overlap and steal each other's clicks. The row itself has to grow.
@@ -187,9 +188,9 @@ It is the long-form case for the work — the argument you make to a governor, n
 
 ### Testing it
 
-`.qa/axiomx-journeys.mjs` runs 29 human journeys. It defaults to a local server on port 5311 — `cd axiomx && python3 -m http.server 5311` then `node .qa/axiomx-journeys.mjs`.
+`.qa/axiomx-journeys.mjs` runs the human journeys. It defaults to a local server on port 5311 — `cd axiomx && python3 -m http.server 5311` then `node .qa/axiomx-journeys.mjs`.
 
-`AXIOMX_URL` overrides the base, so the **same 29 journeys** run against a deployment:
+`AXIOMX_URL` overrides the base, so the **same journeys** run against a deployment:
 `AXIOMX_URL=https://axiomx.nonarkara.org/ node .qa/axiomx-journeys.mjs`. Always run them against the canonical host, not the `pages.dev` alias — the alias cannot catch a broken domain or a stale zone.
 
-Covers: land and read the pitch, open a system, deep links, `/` search, Escape-clears, arrow-key navigation, history back/forward, dark mode + persistence, phone at 390px, and that all 111 entries render without error. Run it before claiming axiomx works. Expected: **29 PASS, 0 FAIL**.
+Covers: land and read the pitch, open a system, deep links, `/` search, Escape-clears, arrow-key navigation, history back/forward, dark mode + persistence, phone at 390px, every system has a credited PD/CC0 plate, FloodDash is clean of the clip, and that all 113 entries render without error. Run it before claiming axiomx works. Expected: **51 PASS, 0 FAIL**.
