@@ -1,5 +1,6 @@
 import { chromium } from 'playwright';
-const BASE = 'http://127.0.0.1:5311/';
+// Defaults to the local reading room; set AXIOMX_URL to test a deployment.
+const BASE = (process.env.AXIOMX_URL || 'http://127.0.0.1:5311/').replace(/\/?$/, '/');
 const b = await chromium.launch();
 const fails = [];
 const ok = [];
