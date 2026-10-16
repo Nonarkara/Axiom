@@ -134,7 +134,23 @@ If a future agent has re-broken it, the recovery is `git show 8bdf126:public/ind
 
 **This brief was lost once and cost a session. It is written down here so it is not lost again.**
 
-`axiomx/` is a **second, separate website** — `https://axiomx.nonarkara.org`. It is **not** a variant of `public/` and **not** deployed by the Cloudflare workflow (that deploys `public/` only). It has its own deploy.
+`axiomx/` is a **second, separate website** — `https://axiomx.nonarkara.org`. It is **not** a variant of `public/`. It has its own workflow, `cloudflare-pages-axiomx.yml`, which deploys `axiomx/` to the **`axiomx`** Pages project — `cloudflare-pages.yml` ships `public/` to the `axiom` project and knows nothing about it. Same `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` secrets, no pre-checks, scoped to `paths: axiomx/**`.
+
+### Deploying it
+
+```
+wrangler pages deploy axiomx --project-name=axiomx --branch=main
+```
+
+The Pages project is **`axiomx`**, whose `*.pages.dev` host is **`axiomx-1d4.pages.dev`**. Do not assume `axiomx.pages.dev` — that is not the project's address, and a deploy to the wrong name creates a *second* throwaway project rather than updating this one.
+
+**`axiomx.nonarkara.org` needs a DNS record that an agent cannot create.** The domain is attached to the project on the Cloudflare side, but wrangler's OAuth token is **Pages-scoped only** — `GET /zones/{id}/dns_records` returns **403** — and `wrangler login --scopes-list` offers only `zone:read`, with no DNS-write scope grantable at any scope level. Cloudflare auto-creates the CNAME only when a domain is attached *with zone authority*, so attaching via API leaves it stuck at `pending` / `CNAME record not set` indefinitely. Dr Non adds this record by hand in the dashboard:
+
+```
+Type: CNAME     Name: axiomx     Target: axiomx-1d4.pages.dev     Proxy: Proxied
+```
+
+Proxied matches every other subdomain in the zone. There is **no wildcard** on `nonarkara.org`, so a missing record fails closed — the host simply does not resolve. When it flips to `active`, Pages issues the certificate itself; no manual TLS step.
 
 ### What it is
 
@@ -168,7 +184,9 @@ It is the long-form case for the work — the argument you make to a governor, n
 
 ### Testing it
 
-`.worktiles/journeys.mjs` runs 29 human journeys against a local server on port 5311:
-`cd axiomx && python3 -m http.server 5311` then `node .qa/axiomx-journeys.mjs`.
+`.qa/axiomx-journeys.mjs` runs 29 human journeys. It defaults to a local server on port 5311 — `cd axiomx && python3 -m http.server 5311` then `node .qa/axiomx-journeys.mjs`.
 
-Covers: land and read the pitch, open a system, deep links, `/` search, Escape-clears, arrow-key navigation, history back/forward, dark mode + persistence, phone at 390px, and that all 111 entries render without error. Run it before claiming axiomx works.
+`AXIOMX_URL` overrides the base, so the **same 29 journeys** run against a deployment:
+`AXIOMX_URL=https://axiomx.nonarkara.org/ node .qa/axiomx-journeys.mjs`. Always run them against the canonical host, not the `pages.dev` alias — the alias cannot catch a broken domain or a stale zone.
+
+Covers: land and read the pitch, open a system, deep links, `/` search, Escape-clears, arrow-key navigation, history back/forward, dark mode + persistence, phone at 390px, and that all 111 entries render without error. Run it before claiming axiomx works. Expected: **29 PASS, 0 FAIL**.
