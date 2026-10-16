@@ -14,6 +14,7 @@
   const themeBtn = document.getElementById('themeBtn');
   const themeBtn2 = document.getElementById('themeBtn2');
   const backBtn = document.getElementById('backBtn');
+  const locale = document.querySelector('.locale');
 
   let current = '';
   let query = '';
@@ -791,6 +792,20 @@
   themeBtn2.addEventListener('click', function () {
     setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
   });
+
+  // EN is the only edition that exists. The other five are graded Soon and
+  // marked as such in the chrome, so a dead control is never shipped. Clicking
+  // one goes to "How to read this" -- the entry that defines Live, Preview and
+  // Soon -- rather than silently doing nothing, which is the one behaviour this
+  // book does not use anywhere else.
+  if (locale) {
+    locale.addEventListener('click', function (event) {
+      const btn = event.target.closest('button[data-locale]');
+      if (!btn || !btn.dataset.soon) return;
+      q.blur();
+      select('catalogue');
+    });
+  }
 
   document.addEventListener('keydown', function (event) {
     const typing = event.target === q;

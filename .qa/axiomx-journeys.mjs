@@ -153,6 +153,64 @@ async function newPage(w = 1440, h = 900) {
   await p.context().close();
 }
 
+// ── LOCALE CONTROL ─────────────────────────────────────────────────────────
+// The bar carries EN / TH / ZH / KO / JA / VI. Only EN exists. The rest are
+// graded Soon rather than hidden, and a Soon code must never be a dead
+// control — that is the one behaviour this book does not use anywhere else.
+{
+  const p = await newPage();
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  const codes = await p.$$eval('.locale-btn', els => els.map(e => e.dataset.locale));
+  check('locale control shows six codes', codes.length === 6, codes.join(' '));
+  check('EN is the active edition', await p.evaluate(() =>
+    document.querySelector('.locale-btn.is-active')?.dataset.locale === 'en'));
+
+  const soon = await p.$$eval('.locale-btn[data-soon]', els => els.map(e => e.dataset.locale));
+  check('five editions marked Soon, not hidden', soon.length === 5, soon.join(' '));
+
+  // A Soon code is not disabled. It has an action, and that action is to
+  // explain itself. aria-disabled here would be a lie and would also stop a
+  // keyboard user reaching the explanation.
+  const disabled = await p.$$eval('.locale-btn[data-soon]', els =>
+    els.filter(e => e.getAttribute('aria-disabled') === 'true').length);
+  check('Soon codes are not aria-disabled', disabled === 0, `${disabled} disabled`);
+
+  await p.click('.locale-btn[data-locale="th"]');
+  await p.waitForTimeout(350);
+  const landed = await p.evaluate(() => ({
+    hash: location.hash,
+    heading: (document.querySelector('h1.name') || {}).textContent?.trim()
+  }));
+  check('a Soon code explains itself, not nothing', landed.hash === '#catalogue', JSON.stringify(landed));
+  check('and lands on "How to read this"', landed.heading === 'How to read this', landed.heading);
+
+  // The bar carries the mark, six codes and Dark. It must not widen the page.
+  const overflow = await p.evaluate(() => {
+    const c = document.querySelector('.locale').getBoundingClientRect();
+    const bar = document.querySelector('.bar').getBoundingClientRect();
+    return { over: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+             inside: c.right <= bar.right };
+  });
+  check('locale control sits inside the bar', overflow.inside);
+  await p.context().close();
+}
+
+{
+  const ctx = await b.newContext({ viewport: { width: 390, height: 844 } });
+  const p = await ctx.newPage();
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  const ph = await p.evaluate(() => {
+    const btn = document.querySelector('.locale-btn');
+    return {
+      h: Math.round(btn.getBoundingClientRect().height),
+      over: document.documentElement.scrollWidth - document.documentElement.clientWidth
+    };
+  });
+  check('phone locale tap target ≥44px', ph.h >= 44, `${ph.h}px`);
+  check('locale control adds no phone overflow', ph.over <= 0, `${ph.over}px`);
+  await ctx.close();
+}
+
 // ── STRUCTURE: every entry renders without error ───────────────────────────
 {
   const p = await newPage();

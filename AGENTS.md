@@ -182,7 +182,8 @@ It is the long-form case for the work — the argument you make to a governor, n
 - **Index rows are `min-height: 44px`.** They were 27px across 111 entries. A `::after` hit area does **not** work here: the rows are stacked with zero gap, so grown hit areas overlap and steal each other's clicks. The row itself has to grow.
 - **`rule-list` is 920px for spec rows (`.fig/.def/.row/.layer`) but `rule-list--prose` is 66ch for numbered prose.** One width for both means the hairline rules run ~330px past the paragraph they annotate — the exact box-does-not-fit-its-text defect.
 - **Escape clears the search first**, wherever focus is. Clicking a result leaves the box populated but unfocused.
-- English-only. The main site's seven locales do **not** apply here; the colophon carries the Thai statement. Do not start translating it without being asked.
+- **The book is English-only. The main site's seven locales do not translate it; the colophon carries the Thai statement.** Do not start translating it without being asked.
+- **The locale control in the index bar grades itself with the book's own vocabulary.** `EN` is active; `TH ZH KO JA VI` are marked `data-soon`, drawn back from full ink with a dotted rule, and they are **not** `aria-disabled` — each one routes to the `#catalogue` entry ("How to read this"), which is where Live / Preview / Soon is defined. A Soon code that did nothing would be the only dead control in a book whose lede says *"It is live, or it says it is not."* If you translate an edition, the button stops being `data-soon` and gains the real switch.
 
 ### Testing it
 
