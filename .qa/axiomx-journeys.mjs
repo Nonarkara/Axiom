@@ -215,12 +215,25 @@ async function newPage(w = 1440, h = 900) {
 }
 
 // ── FIELD CLIP ─────────────────────────────────────────────────────────────
-// The ground-condition loop lives on Innovation-as-a-Service, not FloodDash.
+// The ground-condition loop appears twice, and the duplication is deliberate:
+// on FloodDash because that watch is read from standing in the rain, and on
+// Innovation-as-a-Service because the practice begins in the same place. Each
+// carries its own caption -- the same clip with a FloodDash sentence on the
+// practice page would be a claim about a page it is not making.
 // It is portrait, so the plate must cap it by height.
 {
   const p0 = await newPage();
   await p0.goto(BASE + '#flood-ami', { waitUntil: 'networkidle' });
-  check('FloodDash is clean of the clip', !(await p0.$('.clip')));
+  await p0.waitForTimeout(600);
+  const fd = await p0.evaluate(() => {
+    const fig = document.querySelector('.clip');
+    return {
+      found: !!fig,
+      caption: fig && fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : '',
+    };
+  });
+  check('FloodDash carries the clip, by instruction', fd.found);
+  check('and its caption is the flood one', /flood season/i.test(fd.caption), fd.caption.slice(0, 60));
   await p0.context().close();
   const p = await newPage();
   await p.goto(BASE + '#iaas', { waitUntil: 'networkidle' });
@@ -230,6 +243,7 @@ async function newPage(w = 1440, h = 900) {
     const v = fig && fig.querySelector('video');
     return {
       found: !!fig,
+      caption: fig && fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : '',
       h: v ? Math.round(v.getBoundingClientRect().height) : 0,
       w: v ? Math.round(v.getBoundingClientRect().width) : 0,
       muted: v ? v.muted : null,
@@ -240,6 +254,12 @@ async function newPage(w = 1440, h = 900) {
     };
   });
   check('Innovation-as-a-Service carries the field clip', r.found);
+  // The same clip appears here and on FloodDash, so the captions have to
+  // differ. A flood-season sentence on the practice page is a claim about a
+  // page it is not making -- it is the exact defect that a merge can introduce
+  // silently, by moving a figure without moving the words.
+  check('its caption is the practice one, not the flood one',
+    !/flood season|in Thai, in public/i.test(r.caption), r.caption.slice(0, 60));
   check('clip is capped by height, not the wide measure', r.tallest, `${r.w}x${r.h}`);
   check('clip is muted and loops', r.muted === true && r.loop === true);
   check('clip has a poster for reduced motion', r.poster === true);

@@ -237,7 +237,7 @@
       src: 'media/showcase/iaas-hero.mp4',
       poster: 'media/showcase/iaas-hero.jpg',
       alt: 'Rain falling over a residential district, with rooftops and trees in view.',
-      caption: 'The ground condition. Read from standing in it, every flood season since the first watch, in Thai, in public.'
+      caption: 'The ground condition. The thing you have to stand in before you can be trusted to build for it.'
     } },
     { type: 'p', text: 'A city is usually sold a product: a box, a licence, a platform that arrives finished and fits nobody. Innovation-as-a-Service turns that around. We start with one problem the city already has, one decision it cannot make fast enough, and we build the answer alongside the people who own it.' },
     { type: 'p', text: 'There is an old trap here. A city is asked for a feasibility study before it tries anything, but you cannot study something you have not yet tried. So we try it first, small and cheap, on data the city already holds, with no new hardware. Then the study writes itself from what actually happened.' },
