@@ -25,6 +25,21 @@ This repository is the public studio surface for **Axiom X Co., Ltd.** — the l
 
 Axiom is a Bangkok consultancy that builds decision systems for cities, governments, and operators. The site itself is an Axiom artifact. It proves capacity at a glance: satellite-theatre map, rotating headline, city-node strip, and the systems catalogue underneath. The visual signature *is* the pitch.
 
+### Two live sites ship from this repository
+
+Both are deployed by GitHub Actions on push to `main`. They are different products with different design languages, and they do not share a build step or a template.
+
+| Site | Host | Source | What it is |
+|---|---|---|---|
+| **Axiom** | [axiom.nonarkara.org](https://axiom.nonarkara.org) | `public/` | The pitch. One screen, live, click it. Satellite-intelligence dashboard used as marketing language. Seven locales. |
+| **axiomx** | axiomx.nonarkara.org | `axiomx/` | The argument. A two-pane book reader — 111 long-form entries. The case you make to a governor, not the one-liner you make to a browser. |
+
+The two sites argue deliberately opposite opening lines. The main site says *one screen, live, click it*. axiomx opens with:
+
+> The flood arrives at 2 a.m. The dashboard arrives next fiscal year.
+
+Same studio, same evidence, two registers. axiomx is English-only by design; the main site's seven locales do not apply to it. See [`AGENTS.md`](AGENTS.md) §8 for the full axiomx brief.
+
 **Axiom X design / civic product language** means:
 
 - **Instrument first.** Operators stare at these surfaces. Every mark has to serve a decision, not a moodboard.
@@ -113,7 +128,10 @@ No framework. No bundler. No build step. Edit `public/`, commit, push.
 | Map | Leaflet 1.9.4 from `unpkg.com` — live map with **AUTO TOUR** (Bangkok → Phuket → Middle East → SE Asia) |
 | Motion | Canvas 2D (`#heroCanvas`) behind the map |
 | Local server | `server.mjs` — Node 22+ (`node:sqlite`), static files from `public/`, `/api/*` for local pageviews and contact |
-| Deploy | GitHub Actions → Cloudflare Pages (`axiom`) → [axiom.nonarkara.org](https://axiom.nonarkara.org) (alias: axiom.pages.dev) |
+| Deploy (main) | GitHub Actions → Cloudflare Pages project `axiom` → [axiom.nonarkara.org](https://axiom.nonarkara.org) (alias: `axiom-9ye.pages.dev`) |
+| Deploy (axiomx) | GitHub Actions → Cloudflare Pages project `axiomx` → axiomx.nonarkara.org (alias: `axiomx-1d4.pages.dev`) |
+| axiomx shell | `axiomx/index.html` + `axiomx/style.css` — navy `#00247d` / red `#a51931` on paper. **Not** the main site's Lyons blue + ocher |
+| axiomx content | `axiomx/reader.js` (all prose and rendering) + `axiomx/catalog.js` (67 systems × 20 fields, generated) |
 | Local data | `data/axiom.sqlite` — gitignored. Not a production warehouse |
 
 The Cloudflare workflow deploys the `public/` folder as-is. There is no compile step between your editor and the live site. Cache-bust query strings (`?v=YYYYMMDDxx`) on CSS/JS exist because Cloudflare caches; bump them when those files change.
@@ -128,6 +146,31 @@ The Cloudflare workflow deploys the `public/` folder as-is. There is no compile 
 | Admin UI (`public/admin/`) | Internal. Auth required. No passwords are published here. |
 
 Thai first-person on the site is strictly **ผม**. Thai type is non-looped IBM Plex Sans Thai.
+
+---
+
+## Repository layout
+
+Two live sites, one nested open-source project, and the documents that govern both.
+
+```
+public/                  Axiom — the pitch. Deployed as-is; this folder IS the site.
+axiomx/                  axiomx — the reading room. Deployed as-is; a second, separate site.
+server.mjs               Local Node server for public/ only. Never deployed to Pages.
+data/                    Local SQLite. Gitignored.
+lib/                     Security headers, shared server modules.
+scripts/                 Operator tooling.
+tests/                   Node test runner suites (`npm test`).
+.qa/                     Playwright journey suites + visual audits.
+docs/                    Design docs, hero artwork, security audit.
+axiom DNA/               Nested open-source city-dashboard builder. Its own tree, own license.
+AGENTS.md                The contract an agent reads before touching anything.
+CLAUDE.md                Repo-level working notes.
+DESIGN-TENETS.md         Authored composition rules behind the visual identity.
+FINANCE.md               Studio financial record.
+```
+
+Read [`AGENTS.md`](AGENTS.md) before you edit anything. It carries the anti-regression rules that exist because this repository has already been flattened into a generic template once, and cost a session to recover.
 
 ---
 
@@ -177,10 +220,27 @@ This site has a documented history of being overwritten by assistants defaulting
 | Page system (type, spacing, components) | `public/rams.css` |
 | EN / TH / ZH / TS strings | `public/app.js` |
 | KO / JA / VI strings | `public/i18n-regional.js` |
+| axiomx prose, plate rendering, search | `axiomx/reader.js` |
+| axiomx systems data | `axiomx/catalog.js` |
+| axiomx type and colour | `axiomx/style.css` |
 | Local HTTP + `/api/*` | `server.mjs` |
-| Deploy | `.github/workflows/cloudflare-pages.yml` |
+| Deploy the main site | `.github/workflows/cloudflare-pages.yml` |
+| Deploy axiomx | `.github/workflows/cloudflare-pages-axiomx.yml` |
 
-Push to `main` deploys. Forks will not publish to axiom.nonarkara.org unless they wire their own Pages project and secrets — those secrets are **not** in this repository.
+Push to `main` deploys. The axiomx workflow is scoped to `paths: axiomx/**`, so main-site edits do not trigger it and axiomx edits do not redeploy the main site.
+
+Forks will not publish to axiom.nonarkara.org unless they wire their own Pages project and secrets — those secrets are **not** in this repository.
+
+### Verify before you claim it works
+
+```bash
+npm test                                            # security + circuit regression suites
+node .qa/axiomx-journeys.mjs                        # 29 human journeys, axiomx on :5311
+AXIOMX_URL=https://axiomx.nonarkara.org/ \
+  node .qa/axiomx-journeys.mjs                      # the same 29 against the live host
+```
+
+The axiomx suite expects **29 PASS, 0 FAIL**. Point it at the canonical host, not the `pages.dev` alias — the alias cannot catch a broken domain, which is exactly how a missing DNS record went unnoticed here.
 
 ---
 
