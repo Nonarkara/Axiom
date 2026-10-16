@@ -539,6 +539,76 @@ summary:focus-visible {
 }
 
 /* cluster label inside a section */
+/* ═══════════════════════════════════════════════════════════════
+   § FIELD — the ground condition
+   ------------------------------------------------------------
+   A portrait clip and one line, set against the City Dashboards
+   cluster that follows. The clip is portrait, so it is capped by
+   height and the text takes the rest of the line — never the
+   960px measure, which would scale it to roughly 1720px tall.
+
+   Padding is derived per §0: the label is a micro line box and gets
+   --box-pad-tight, the prose is a body line box and gets --box-pad-loose.
+   ═══════════════════════════════════════════════════════════════ */
+.field-band {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0 0 34px;
+  padding: var(--box-pad-loose) 0 22px;
+  border-bottom: 1px solid var(--ocher);
+}
+
+.field-band__clip {
+  flex: 0 0 auto;
+  display: block;
+  width: auto;
+  height: 300px;
+  max-width: 34vw;
+  background: var(--ink);
+}
+
+.field-band__cap {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-top: var(--box-pad-tight);
+}
+
+.field-band__cap .t-label {
+  color: var(--accent);
+  margin-bottom: var(--box-pad);
+}
+
+.field-band__line {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.field-band__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--box-pad-loose);
+  color: var(--accent);
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  min-height: var(--tap);
+}
+
+.field-band__cta:hover { color: var(--accent-hover); }
+
+@media (max-width: 860px) {
+  .field-band { flex-direction: column; gap: 14px; padding-bottom: 18px; }
+  .field-band__clip { height: 260px; max-width: none; }
+  .field-band__line { font-size: 16px; }
+}
+
 .cluster-head {
   display: flex;
   align-items: baseline;

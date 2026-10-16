@@ -404,6 +404,37 @@ h1.name {
 }
 .plate-scroll > .shot:first-child { margin-top: 0; }
 
+/* A looping clip is portrait, so it must NOT inherit .shot's 960px measure --
+   that would scale 480x860 up to roughly 1720px tall and the plate would read
+   as a billboard. The frame is capped by height and the caption takes the rest
+   of the line. */
+.clip {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  margin: 22px var(--pad) 0;
+}
+
+.clip video {
+  flex: 0 0 auto;
+  display: block;
+  width: auto;
+  height: 420px;
+  max-width: 44vw;
+  background: var(--ink);
+}
+
+.clip figcaption {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  padding-top: 2px;
+}
+
 .caption {
   margin: 8px var(--pad) 0;
   max-width: 68ch;
@@ -562,6 +593,9 @@ h1.name {
   /* the bar carries the mark, six locale codes and Dark; at 390px the codes
      are what give. Height stays 44px so the tap target does not. */
   .locale-btn { min-width: 24px; padding: 0 4px; font-size: 9px; }
+  .clip { flex-direction: column; gap: 11px; }
+  .clip video { height: 360px; max-width: none; }
+  .clip figcaption { font-size: 10px; }
   .fig, .fig--pair, .def, .layer, .arch[data-cols] {
     width: auto;
     max-width: none;
@@ -570,6 +604,104 @@ h1.name {
   .arch section + section { padding-left: 0; border-left: 0; padding-top: 11px; border-top: 1px solid var(--line); }
   .fig b { font-size: 20px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE RECEIVER — shape abstracted from a portable field radio
+   ═══════════════════════════════════════════════════════════════════════════
+
+   Not the object. The FORM, and only the form:
+
+     carry bracket   →  the rails that cap both zones
+     two-zone face   →  grille at one side, instrument dial at the other
+     perforated grille → the index, a surface you listen into rather than read
+     recessed dial   → the locator: light panel, ticks, numerals, red index line
+     knurled control →  the two switches, textured rather than turned
+
+   Nothing here is rounded. The radio is round; the book is not. A circle is
+   the one form this design will not borrow, because Axiom's law is square
+   corners and a cylinder reads as decoration. What transfers is proportion,
+   division, and the texture of a surface being tuned rather than read.
+
+   Every rule below is additive. No layout, no type size, and no 44px target
+   changes — the receiver is drawn on top of the book, never in place of it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Perforated grille. A 7px dot screen in ink at 4.5% — flat, no gradient
+   function involved. Dark mode inverts it so the holes stay holes. */
+.index {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7'%3E%3Ccircle cx='1.5' cy='1.5' r='1' fill='%23191712' fill-opacity='0.045'/%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .index {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7'%3E%3Ccircle cx='1.5' cy='1.5' r='1' fill='%23f3f0e8' fill-opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* The carry bracket. A radio's handle is a flat strap of metal standing above
+   the body, so the rails get a heavier rule on top and the index rail gets
+   its outer uprights — the two places the bracket would land on the case. */
+.bar {
+  box-shadow: inset 0 2px 0 var(--line);
+}
+
+.index > .bar {
+  border-left: 2px solid var(--ink);
+  border-right: 2px solid var(--ink);
+}
+
+/* The dial face. Light panel, a scale of ticks, and the red index line — the
+   single coloured rule the whole receiver is read against. The red is the
+   bottom edge rather than a line struck through the numerals: identical
+   signal, and the text stays legible. */
+.locator {
+  height: 46px;
+  flex: 0 0 46px;
+  position: relative;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--red);
+}
+
+/* The scale. Ticks every 8px with a full-height mark every fifth, drawn as
+   SVG so no gradient function is involved and the weights stay even. */
+.locator::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 7px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='7'%3E%3Cg fill='%23191712' fill-opacity='0.2'%3E%3Crect x='0' y='0' width='1' height='7'/%3E%3Crect x='8' y='4' width='1' height='3'/%3E%3Crect x='16' y='2' width='1' height='5'/%3E%3Crect x='24' y='4' width='1' height='3'/%3E%3Crect x='32' y='0' width='1' height='7'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .locator::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='7'%3E%3Cg fill='%23f3f0e8' fill-opacity='0.22'%3E%3Crect x='0' y='0' width='1' height='7'/%3E%3Crect x='8' y='4' width='1' height='3'/%3E%3Crect x='16' y='2' width='1' height='5'/%3E%3Crect x='24' y='4' width='1' height='3'/%3E%3Crect x='32' y='0' width='1' height='7'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* The numerals sit clear of the tick rail rather than on it. */
+#locatorNum, #locatorMeta { transform: translateY(-3px); }
+
+/* Knurling, abstracted. The radio's knobs are cylinders; this keeps the
+   grain and drops the circle. Three-pixel hairlines under the label, the
+   way a thumb reads a milled edge. */
+#themeBtn, #themeBtn2, .bar-open, .back {
+  position: relative;
+  padding-bottom: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='3'%3E%3Crect width='1' height='3' fill='%23191712' fill-opacity='0.24'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+}
+
+[data-theme="dark"] #themeBtn,
+[data-theme="dark"] #themeBtn2,
+[data-theme="dark"] .bar-open,
+[data-theme="dark"] .back {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='3'%3E%3Crect width='1' height='3' fill='%23f3f0e8' fill-opacity='0.28'/%3E%3C/svg%3E");
+}
+
+#themeBtn:hover, #themeBtn2:hover, .bar-open:hover, .back:hover { background-image: none; }
 
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }

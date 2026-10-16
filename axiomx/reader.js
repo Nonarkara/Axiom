@@ -25,6 +25,35 @@
     return MEDIA + src.split('/').map(encodeURIComponent).join('/');
   }
 
+  // A looping clip — the ground condition a system actually runs in. Muted and
+  // inline so it never interrupts, lazy so it costs nothing until the reader
+  // arrives, and it does not autoplay when the reader has asked for less
+  // motion: the poster still stands in, so the figure is never a blank box.
+  // If the browser refuses to autoplay, the poster is the honest fallback.
+  function addClip(clip) {
+    const fig = el('figure', 'clip');
+    const v = document.createElement('video');
+    v.muted = true;
+    v.loop = true;
+    v.playsInline = true;
+    v.preload = 'none';
+    v.setAttribute('poster', media(clip.poster));
+    v.setAttribute('aria-label', clip.alt || '');
+    const source = document.createElement('source');
+    source.src = media(clip.src);
+    source.type = 'video/mp4';
+    v.appendChild(source);
+    const still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!still) {
+      const started = v.play();
+      if (started && started.catch) started.catch(function () { /* poster stands in */ });
+    }
+    fig.appendChild(v);
+    if (clip.caption) fig.appendChild(el('figcaption', '', clip.caption));
+    plate.appendChild(fig);
+    return fig;
+  }
+
   function el(tag, cls, text) {
     const node = document.createElement(tag);
     if (cls) node.className = cls;
@@ -655,6 +684,9 @@
       img.addEventListener('error', function () { img.remove(); });
       plate.appendChild(img);
     }
+
+    // The ground condition, after the product shot. Any system may carry one.
+    if (system.video) addClip(system.video);
 
     const arch = system.arch;
     if (arch && ((arch.inputs && arch.inputs.length) || (arch.outputs && arch.outputs.length) || arch.core)) {

@@ -3980,6 +3980,11 @@ Object.keys(i18nExt2).forEach(locale => {
 // 77 provinces / 9 sources · SLIC 157 cities / 45 min · field note 01).
 const i18nPitch = {
   en: {
+    field: {
+      kicker: 'In the field',
+      line: 'Rain over a district on one of these watches right now. Innovation-as-a-Service is not a pitch delivered in a room — it is standing where the question gets asked.',
+      cta: 'See FloodDash live',
+    },
     pitch: {
       kicker: 'The problem we solve',
       meta: 'For governors · mayors · agency heads · operators',
@@ -4031,6 +4036,11 @@ const i18nPitch = {
     },
   },
   th: {
+    field: {
+      kicker: 'อยู่ในพื้นที่',
+      line: 'ฝนเหนือพื้นที่ที่กำลังอยู่บนหน้าจอเฝ้าระวังเหล่านี้อยู่ตอนนี้ Innovation-as-a-Service ไม่ใช่การเสนอขายในห้องประชุม แต่คือการยืนอยู่ตรงจุดที่คำถามถูกถาม',
+      cta: 'ดู FloodDash สด',
+    },
     pitch: {
       kicker: 'ปัญหาที่ผมแก้',
       meta: 'สำหรับผู้ว่าฯ · นายกเทศมนตรี · หัวหน้าหน่วยงาน · ผู้ดำเนินการ',
@@ -4082,6 +4092,11 @@ const i18nPitch = {
     },
   },
   zh: {
+    field: {
+      kicker: '在现场',
+      line: '此刻正下着雨的这个片区，正是这些监测画面正在看的地方。创新即服务不是会议室里的提案，而是站在问题被提出的地方。',
+      cta: '查看 FloodDash 实时系统',
+    },
     pitch: {
       kicker: '我们解决的问题',
       meta: '面向府尹 · 市长 · 部门负责人 · 运营方',
@@ -4133,6 +4148,11 @@ const i18nPitch = {
     },
   },
   ko: {
+    field: {
+      kicker: '현장',
+      line: '지금 비가 내리는 그 구역이 바로 이 감시 화면들이 지켜보는 곳입니다. Innovation-as-a-Service는 회의실에서의 제안이 아니라, 질문이 나오는 그 자리에 서는 일입니다.',
+      cta: 'FloodDash 실시간 보기',
+    },
     pitch: {
       kicker: '우리가 푸는 문제',
       meta: '주지사 · 시장 · 기관장 · 운영자를 위해',
@@ -4184,6 +4204,11 @@ const i18nPitch = {
     },
   },
   ja: {
+    field: {
+      kicker: '現場',
+      line: '今この雨が続いている区域が、まさにこれらの監視画面が見ている場所です。Innovation-as-a-Service は会議室での提案ではなく、質問が生まれる場所に立つことです。',
+      cta: 'FloodDash ライブを見る',
+    },
     pitch: {
       kicker: '私たちが解く問題',
       meta: '知事 · 市長 · 機関の長 · 事業者のために',
@@ -4235,6 +4260,11 @@ const i18nPitch = {
     },
   },
   vi: {
+    field: {
+      kicker: 'Tại hiện trường',
+      line: 'Khu vực đang mưa ngay lúc này chính là nơi các màn hình giám sát này đang theo dõi. Innovation-as-a-Service không phải một đề xuất trong phòng họp, mà là việc đứng ở đúng nơi câu hỏi được đặt ra.',
+      cta: 'Xem FloodDash trực tiếp',
+    },
     pitch: {
       kicker: 'Vấn đề chúng tôi giải quyết',
       meta: 'Dành cho tỉnh trưởng · thị trưởng · lãnh đạo cơ quan · đơn vị vận hành',
@@ -4286,6 +4316,11 @@ const i18nPitch = {
     },
   },
   ts: {
+    field: {
+      kicker: 'on site',
+      line: 'the district currently under rain is the one these watches are reading. Innovation-as-a-Service is not a pitch delivered in a room; it is standing where the question gets asked.',
+      cta: 'FloodDash.live()',
+    },
     pitch: {
       kicker: 'problem.solve()',
       meta: '// for: governor | mayor | agencyHead | operator',
@@ -5425,5 +5460,18 @@ function initFlooddashCarousel() {
     index = 0;
     el.textContent = phrases[0];
     fitPhrases();
+  });
+})();
+
+/* The field clip starts only when motion is welcome. A reader who has asked
+   for reduced motion keeps the poster — the same frame, still the same
+   figure — so nothing autoplays against a stated preference and the block
+   never collapses into an empty box. */
+(() => {
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (still) return;
+  document.querySelectorAll('[data-clip]').forEach((v) => {
+    const started = v.play();
+    if (started && started.catch) started.catch(() => { /* poster stands in */ });
   });
 })();
