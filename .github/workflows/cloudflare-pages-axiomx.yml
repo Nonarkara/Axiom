@@ -1,0 +1,29 @@
+name: Deploy axiomx to Cloudflare Pages
+
+# axiomx/ is a second, separate site (the reading room) — it is NOT under
+# public/ and is NOT deployed by cloudflare-pages.yml, which ships public/ only.
+# Same secrets, same wrangler-action pin, no pre-checks. Deploys axiomx/ to the
+# `axiomx` Pages project, whose canonical host is axiomx.nonarkara.org.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'axiomx/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy axiomx --project-name=axiomx --branch=main
