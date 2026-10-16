@@ -211,6 +211,47 @@ async function newPage(w = 1440, h = 900) {
   await ctx.close();
 }
 
+// ── FIELD CLIP ─────────────────────────────────────────────────────────────
+// FloodDash carries the ground-condition loop. It is portrait, so the plate
+// must cap it by height rather than letting it run the full measure.
+{
+  const p = await newPage();
+  await p.goto(BASE + '#flood-ami', { waitUntil: 'networkidle' });
+  await p.waitForTimeout(600);
+  const r = await p.evaluate(() => {
+    const fig = document.querySelector('.clip');
+    const v = fig && fig.querySelector('video');
+    return {
+      found: !!fig,
+      h: v ? Math.round(v.getBoundingClientRect().height) : 0,
+      w: v ? Math.round(v.getBoundingClientRect().width) : 0,
+      muted: v ? v.muted : null,
+      loop: v ? v.loop : null,
+      poster: v ? !!v.poster : null,
+      // it must not be the 960px screenshot measure scaled to a billboard
+      tallest: v ? v.getBoundingClientRect().height < 700 : false,
+    };
+  });
+  check('FloodDash carries the field clip', r.found);
+  check('clip is capped by height, not the wide measure', r.tallest, `${r.w}x${r.h}`);
+  check('clip is muted and loops', r.muted === true && r.loop === true);
+  check('clip has a poster for reduced motion', r.poster === true);
+
+  // The source is hot-linked off the main site, so this is really a check
+  // that the main site still serves the asset.
+  const src = await p.evaluate(() => {
+    const v = document.querySelector('.clip video source');
+    return v ? v.src : '';
+  });
+  check('clip points at the main-site asset', /axiom\.nonarkara\.org/.test(src), src);
+
+  const res = await p.evaluate(async (u) => {
+    try { const r = await fetch(u, { method: 'HEAD' }); return r.status; } catch (e) { return 0; }
+  }, src);
+  check('the clip asset actually resolves', res === 200, `HTTP ${res}`);
+  await p.context().close();
+}
+
 // ── STRUCTURE: every entry renders without error ───────────────────────────
 {
   const p = await newPage();
