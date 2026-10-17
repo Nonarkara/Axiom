@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 
 const source = await readFile(new URL('../public/footprint.js', import.meta.url), 'utf8');
@@ -200,5 +201,33 @@ test('every stated system count agrees with the catalogue', () => {
   for (const claim of claims) {
     assert.equal(claim, catalogLinks,
       `app.js claims ${claim} systems but the catalogue renders ${catalogLinks}`);
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Wrapping a thumbnail in <picture> means placing </picture> after the whole
+// <img …> tag. Matching only up to loading="lazy" splits the attribute list and
+// the parser renders the leftover alt text as visible copy — which is exactly
+// what happened the first time. These assert the structure, not the intent.
+// ---------------------------------------------------------------------------
+
+test('every <picture> wraps one complete <img>, never a split attribute list', () => {
+  const pictures = html.match(/<picture>[\s\S]*?<\/picture>/g) || [];
+  assert.ok(pictures.length > 0, 'expected catalogue thumbnails to be <picture>-wrapped');
+  for (const pic of pictures) {
+    assert.equal((pic.match(/<img /g) || []).length, 1, 'each <picture> holds exactly one <img>');
+    assert.match(pic, /<img[^>]*\/>|<img[^>]*>[\s\S]*<\/picture>/, 'the <img> tag must close inside the <picture>');
+    assert.doesNotMatch(pic, /<\/picture>\s+[a-z-]+="/, 'an attribute must not fall outside the tag');
+    assert.match(pic, /<picture>\s*<source /, 'the webp <source> must come first');
+  }
+});
+
+test('every wrapped thumbnail has a webp source and a real fallback on disk', () => {
+  for (const pic of html.match(/<picture>[\s\S]*?<\/picture>/g) || []) {
+    const webp = pic.match(/<source srcset="([^"]+)"/)?.[1];
+    const fallback = pic.match(/<img[^>]*src="([^"]+)"/)?.[1];
+    assert.ok(webp && fallback, 'each wrapper needs both a webp source and a fallback img');
+    assert.ok(existsSync(new URL(`../public/${webp}`, import.meta.url)), `${webp} missing`);
+    assert.ok(existsSync(new URL(`../public/${fallback}`, import.meta.url)), `${fallback} missing`);
   }
 });
