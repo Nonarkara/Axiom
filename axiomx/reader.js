@@ -612,7 +612,7 @@
         btn.type = 'button';
         btn.dataset.id = entry.id;
         btn.appendChild(el('span', 'num', entry.num || ''));
-        btn.appendChild(el('span', '', entry.title));
+        btn.appendChild(el('span', 'lb', entry.title));
         if (entry.id === current) btn.setAttribute('aria-current', 'true');
         box.appendChild(btn);
       });

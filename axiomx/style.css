@@ -229,7 +229,14 @@ button {
   overscroll-behavior: contain;
 }
 
-.index-scroll { padding: 8px 0 44px; }
+.index-scroll {
+  padding: 8px 0 44px;
+  /* A hovered row's label grows 7% out of its column and into the row's own
+     right padding -- space that is there to be used. Without this the vertical
+     scroller counts that as sideways overflow and grows a scrollbar. Clipped,
+     not hidden: hidden would make this a scroll container on the cross axis. */
+  overflow-x: clip;
+}
 
 .group { margin-top: 18px; }
 .group:first-child { margin-top: 8px; }
@@ -279,6 +286,26 @@ button {
 }
 
 .item:hover { color: var(--navy); }
+
+/* The index is 113 rows of near-identical 14px lines, so "which one am I about
+   to open" has to be answered by the row itself and not by the reader's care.
+   The label grows; the number holds its column and brightens. Growth is a
+   transform and not a font-size, because a font-size bump would re-wrap a long
+   title and shove every row below it down the page -- the affordance would cost
+   more than it gives. Scaled about its left edge so it opens into the space it
+   already has rather than into the number. */
+.item .lb { transform-origin: left center; }
+
+@media (hover: hover) {
+  .item:hover .lb { transform: scale(1.07); }
+  .item:hover .num { color: var(--navy); }
+}
+
+/* The growth is an affordance, not an animation -- it still happens for a
+   reader who has asked for no motion, it just arrives without the travel. */
+@media (prefers-reduced-motion: no-preference) {
+  .item .lb { transition: transform 130ms cubic-bezier(0.2, 0, 0, 1); }
+}
 
 .item[aria-current="true"] {
   font-weight: 500;
@@ -413,6 +440,13 @@ h1.name {
   align-items: flex-start;
   gap: 22px;
   margin: 22px var(--pad) 0;
+  /* The figure sizes to its own parts instead of claiming the 960px measure.
+     A 234px frame parked in a 960px box leaves one 726px hole beside it, and a
+     hole that big reads as a mistake, not as margin. Sized to its contents the
+     frame and its label are one object, and the space to their right is the
+     same space the plate credit above already leaves. */
+  width: fit-content;
+  max-width: 100%;
 }
 
 .clip video {
@@ -420,19 +454,31 @@ h1.name {
   display: block;
   width: auto;
   height: 420px;
-  max-width: 44vw;
+  max-width: none;
   background: var(--ink);
 }
 
+/* 64ch is the mono advance, not a typed pixel, so the label survives a change
+   of font size. Measured: 64ch holds this caption on two lines with no orphan
+   word. The basis shrinks when the figure is capped instead of overflowing. */
 .clip figcaption {
-  flex: 1 1 auto;
+  flex: 0 1 64ch;
   min-width: 0;
+  padding-top: 2px;
   font-family: var(--mono);
   font-size: 11px;
   line-height: 1.55;
   letter-spacing: 0.04em;
   color: var(--muted);
-  padding-top: 2px;
+}
+
+/* Narrower than this the column cannot hold a 234px frame and a 64ch label at
+   once -- the label shrinks to four stranded lines beside the frame. Measured:
+   the available width drops past the 666px the pair needs between a 1000px and
+   a 950px viewport, so the label goes under the frame instead. */
+@media (max-width: 1030px) {
+  .clip { display: block; width: auto; }
+  .clip figcaption { margin-top: 9px; max-width: 62ch; }
 }
 
 .caption {
@@ -593,8 +639,7 @@ h1.name {
   /* the bar carries the mark, six locale codes and Dark; at 390px the codes
      are what give. Height stays 44px so the tap target does not. */
   .locale-btn { min-width: 24px; padding: 0 4px; font-size: 9px; }
-  .clip { flex-direction: column; gap: 11px; }
-  .clip video { height: 360px; max-width: none; }
+  .clip video { height: 360px; }
   .clip figcaption { font-size: 10px; }
   .fig, .fig--pair, .def, .layer, .arch[data-cols] {
     width: auto;

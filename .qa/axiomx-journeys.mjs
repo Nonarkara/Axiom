@@ -324,6 +324,126 @@ async function newPage(w = 1440, h = 900) {
   await p.context().close();
 }
 
+// ── AFFORDANCE: the index row under the cursor has to say so ───────────────
+// 113 rows of near-identical 14px lines is where a hover either earns its
+// place or gets ignored. These guard the three things that make it honest:
+// the row grows, it grows without moving anything, and it never opens a
+// sideways scrollbar in a list that only scrolls vertically.
+{
+  const p = await newPage(1440, 900);
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  const widest = await p.evaluate(() => {
+    let best = null;
+    document.querySelectorAll('.item').forEach(el => {
+      const lb = el.querySelector('.lb');
+      if (!lb) return;
+      const w = lb.getBoundingClientRect().width;
+      if (!best || w > best.w) best = { w, id: el.dataset.id };
+    });
+    return best;
+  });
+  check('every index label carries its own hook', !!widest, widest ? widest.id : 'no .lb found');
+
+  const rest = await p.evaluate(() => getComputedStyle(document.querySelector('.item .lb')).transform);
+  check('a row at rest is not scaled', rest === 'none', rest);
+
+  await p.hover(`.item[data-id="${widest.id}"]`);
+  await p.waitForTimeout(320);
+  const h = await p.evaluate(id => {
+    const el = document.querySelector(`.item[data-id="${id}"]`);
+    const lb = el.querySelector('.lb');
+    const row = el.getBoundingClientRect(), lbBox = lb.getBoundingClientRect();
+    const sc = document.querySelector('.index-scroll');
+    const scale = new DOMMatrix(getComputedStyle(lb).transform).a;
+    return {
+      scale,
+      originX: getComputedStyle(lb).transformOrigin,
+      ox: getComputedStyle(sc).overflowX,
+      idxRight: Math.round(document.querySelector('.index').getBoundingClientRect().right),
+      lbRight: Math.round(lbBox.right),
+      rowH: Math.round(row.height),
+      // neighbour must not move: a hover that shifts the list is a bug
+      sibTop: Math.round(el.nextElementSibling ? el.nextElementSibling.getBoundingClientRect().top : 0),
+    };
+  }, widest.id);
+
+  check('the hovered label grows', h.scale > 1.05, `scale ${h.scale}`);
+  check('it grows from its left edge, not its centre', /^0px\b/.test(h.originX), h.originX);
+  check('the grown label stays inside the index column', h.lbRight <= h.idxRight, `${h.lbRight} vs ${h.idxRight}`);
+  check('the row keeps its 44px target', h.rowH >= 44, `${h.rowH}px`);
+  check('a vertical list never offers a sideways scrollbar', h.ox === 'hidden', `overflow-x ${h.ox}`);
+
+  const quiet = await p.evaluate(() => [...document.querySelectorAll('.item .lb')]
+    .filter(lb => getComputedStyle(lb).transform !== 'none').length);
+  check('exactly one row responds to the pointer', quiet === 1, `${quiet} scaled`);
+  await p.context().close();
+}
+
+// ── REDUCED MOTION: the affordance survives, the travel does not ───────────
+{
+  const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
+  const p = await ctx.newPage();
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  const id = await p.evaluate(() => document.querySelector('.item').dataset.id);
+  await p.hover(`.item[data-id="${id}"]`);
+  await p.waitForTimeout(200);
+  const r = await p.evaluate(sel => {
+    const lb = document.querySelector(sel);
+    return { t: getComputedStyle(lb).transform, dur: getComputedStyle(lb).transitionDuration };
+  }, `.item[data-id="${id}"] .lb`);
+  check('reduced motion still shows which row you are on', r.t !== 'none', r.t);
+  check('reduced motion drops the transition', /^(0s|0s, 0s)/.test(r.dur), r.dur);
+  await ctx.close();
+}
+
+// ── CLIP: a portrait frame must not claim a landscape measure ──────────────
+// The clip is 480x860. At a 960px measure it scales to roughly 1720px tall, so
+// it is capped by height and the figure sizes to its own parts instead of
+// leaving a hole beside a 234px frame.
+{
+  const p = await newPage(1440, 1000);
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  await p.evaluate(() => { location.hash = '#flood-ami'; });
+  await p.waitForTimeout(900);
+  const m = await p.evaluate(() => {
+    const c = document.querySelector('.clip'), v = document.querySelector('.clip video'), f = document.querySelector('.clip figcaption');
+    const cb = c.getBoundingClientRect(), vb = v.getBoundingClientRect(), fb = f.getBoundingClientRect();
+    return {
+      display: getComputedStyle(c).display, clipW: Math.round(cb.width),
+      vW: Math.round(vb.width), vH: Math.round(vb.height),
+      capLines: Math.round(fb.height / 17),
+      stacked: Math.abs(fb.x - vb.x) <= 1,
+    };
+  });
+  check('the clip is a frame and its label, not a half-empty box', m.display === 'flex' && !m.stacked, JSON.stringify(m));
+  check('the figure is sized to its parts, not to the measure', m.clipW < 900, `${m.clipW}px`);
+  check('the portrait frame is still capped by height', m.vW <= m.vH, `${m.vW}x${m.vH}`);
+  check('the label holds two lines at desktop measure', m.capLines <= 2, `${m.capLines} lines`);
+  await p.context().close();
+}
+
+// NARROW: below 1030px the label moves under the frame rather than stranding
+// four short lines beside it.
+for (const w of [1030, 900, 640, 390, 320]) {
+  const p = await newPage(w, 900);
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  await p.evaluate(() => { location.hash = '#flood-ami'; });
+  await p.waitForTimeout(800);
+  const r = await p.evaluate(() => {
+    const c = document.querySelector('.clip'), v = document.querySelector('.clip video'), f = document.querySelector('.clip figcaption');
+    const vb = v.getBoundingClientRect(), fb = f.getBoundingClientRect(), cb = c.getBoundingClientRect();
+    return {
+      stacked: Math.abs(fb.x - vb.x) <= 1,
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      fits: vb.right <= cb.right + 1 && fb.right <= cb.right + 1,
+    };
+  });
+  check(`the label moves under the frame @${w}`, r.stacked);
+  check(`the clip never leaves its column @${w}`, r.fits);
+  check(`no sideways overflow @${w}`, r.overflow === 0, `${r.overflow}px`);
+  await p.context().close();
+}
+
 console.log('PASS ' + ok.length);
 ok.forEach(o => console.log('  ✓ ' + o));
 console.log('\nFAIL ' + fails.length);
