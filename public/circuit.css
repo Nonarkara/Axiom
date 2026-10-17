@@ -53,7 +53,14 @@
 
 .cx-head__stats {
   display: flex;
+  /* The four labels are nowrap on purpose — "Stage shots" must not break across
+     lines under its own number. That makes the row intrinsically ~410px wide, so
+     below roughly 480px it cannot fit and pushes the whole page sideways. Let
+     the row wrap instead: each stat stays intact and moves down a line. The
+     breakpoints that used to swallow it (320, 360, 390, 414) all fit after. */
+  flex-wrap: wrap;
   gap: 0;
+  row-gap: 4px;
 }
 
 .cx-head__stat {
@@ -66,6 +73,17 @@
 
 .cx-head__stat:first-child {
   padding-left: 0;
+}
+
+/* Once the row wraps, the last divider on a line dangles and reads as a stray
+   mark. Below the width where all four fit on one row, separate them with
+   space instead — the accent numerals already carry the rhythm. */
+@media (max-width: 479px) {
+  .cx-head__stat {
+    border-right: 0;
+    padding-right: 16px;
+  }
+  .cx-head__stat:last-child { padding-right: 0; }
 }
 
 .cx-head__stat:last-child {
