@@ -535,6 +535,44 @@ for (const w of [1030, 900, 640, 390, 320]) {
   await p.context().close();
 }
 
+// ── JOURNEY: the stack entry and the touch targets ──────────────────────────
+// The stack entry appends 114 tool names as adjacent inline boxes. With no
+// whitespace between them there is no legal line break, so the row ran off the
+// page (+996px desktop, +1406px phone) and the main journeys never saw it:
+// they measure the document, and the plate scrolls sideways inside it.
+for (const [w, h] of [[1440, 900], [1030, 900], [390, 844], [320, 700]]) {
+  const p = await newPage(w, h);
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  await p.evaluate(() => { location.hash = '#stack'; });
+  await p.waitForTimeout(350);
+  const r = await p.evaluate(() => {
+    const pl = document.getElementById('plate');
+    return { plate: pl.scrollWidth - pl.clientWidth, doc: document.documentElement.scrollWidth - innerWidth,
+      tools: document.querySelectorAll('.tool').length, rows: new Set([...document.querySelectorAll('.tool')].map(e => Math.round(e.getBoundingClientRect().top))).size };
+  });
+  check(`stack: the plate does not scroll sideways @${w}`, r.plate <= 0, `${r.plate}px`);
+  check(`stack: no document overflow @${w}`, r.doc <= 0, `${r.doc}px`);
+  check(`stack: tool names wrap onto several rows @${w}`, r.tools > 100 && r.rows > 8, `${r.tools} tools, ${r.rows} rows`);
+  await p.context().close();
+}
+{
+  const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
+  const p = await ctx.newPage();
+  p.on('pageerror', e => fails.push('JS ERROR: ' + e.message));
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  await p.evaluate(() => { location.hash = '#moma-rules'; });
+  await p.waitForTimeout(250);
+  const pager = await p.evaluate(() => [...document.querySelectorAll('.pager a')].map(a => { const r = a.getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height)]; }));
+  check('phone: previous/next links are 44px targets in both dimensions', pager.length === 2 && pager.every(([w, h]) => w >= 44 && h >= 44), JSON.stringify(pager));
+  const bar = await p.evaluate(() => [...document.querySelectorAll('.text-btn')].filter(e => e.getBoundingClientRect().width).map(e => [e.id || e.textContent.trim(), Math.round(e.getBoundingClientRect().width), Math.round(e.getBoundingClientRect().height)]));
+  check('phone: bar text buttons are 44px in both dimensions', bar.length > 0 && bar.every(([, w, h]) => w >= 44 && h >= 44), JSON.stringify(bar));
+  await p.evaluate(() => { location.hash = '#non'; });
+  await p.waitForTimeout(250);
+  const act = await p.evaluate(() => [...document.querySelectorAll('.actions a')].map(a => { const r = a.getBoundingClientRect(); return [a.textContent.trim().slice(0, 14), Math.round(r.width), Math.round(r.height)]; }));
+  check('phone: action links are 44px in both dimensions', act.length > 0 && act.every(([, w, h]) => w >= 44 && h >= 44), JSON.stringify(act));
+  await ctx.close();
+}
+
 console.log('PASS ' + ok.length);
 ok.forEach(o => console.log('  ✓ ' + o));
 console.log('\nFAIL ' + fails.length);

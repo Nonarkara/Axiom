@@ -1,0 +1,5 @@
+# The plates are named by system, not hashed, so keep the lifetime short enough
+# that a swapped plate shows up the same day, and long enough that a second
+# visit does not revalidate sixty-seven images over a phone connection.
+/art/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400

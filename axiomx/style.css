@@ -175,6 +175,7 @@ button {
 }
 
 .text-btn:hover { color: var(--navy); }
+.text-btn { min-width: 44px; justify-content: center; }
 
 .back, .theme-mobile { display: none; }
 
@@ -433,7 +434,9 @@ h1.name {
 .actions a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 44px;
+  min-width: 44px;
 }
 
 .shot-link {
@@ -600,8 +603,12 @@ h1.name {
 .layer { grid-template-columns: minmax(8.5rem, 13rem) minmax(0, 1fr); gap: 12px; }
 .layer h2 { margin: 0; font-size: 14px; font-weight: 500; }
 .layer p { margin: 2px 0 0; font-size: 12px; color: var(--muted); }
-.tools { font-size: 13px; line-height: 1.7; }
-.tool { white-space: nowrap; margin-right: 12px; }
+/* The renderer appends tools as adjacent inline boxes with no whitespace
+   between them, so there was no legal break point: 114 names ran as one
+   unbreakable line and pushed the plate sideways (+996px desktop, +1406px
+   phone). A wrapping flex row breaks between names; each name stays whole. */
+.tools { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; font-size: 13px; line-height: 1.7; }
+.tool { white-space: nowrap; }
 .tool.is-fav { font-weight: 500; }
 .tool i {
   font-style: normal;
@@ -643,6 +650,12 @@ h1.name {
 }
 .pager a:last-child { margin-left: auto; text-align: right; }
 .pager a:hover { color: var(--navy); }
+/* Touch: the previous/next links were 22px tall. line-height rather than
+   flex so the ellipsis still truncates. */
+@media (max-width: 760px), (pointer: coarse) {
+  .pager a { display: block; line-height: 44px; min-width: 44px; }
+  a.tool { display: inline-flex; align-items: center; min-height: 44px; }
+}
 .is-live { color: var(--red); }
 .pager span { color: var(--muted); }
 
