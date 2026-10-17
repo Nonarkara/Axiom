@@ -5,6 +5,7 @@
   --line: #e4e0d6;
   --navy: #00247d;
   --red: #a51931;
+  --hover-wash: rgba(0, 36, 125, 0.035);
   --pad: 22px;
   --sans: "Helvetica Neue", Helvetica, Arial, "IBM Plex Sans Thai", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -18,6 +19,9 @@
   --line: #2c2a26;
   --navy: #9ebcf0;
   --red: #ef7d88;
+  /* The wash has to be light in the dark. A navy one would darken the row and
+     take contrast away from type that is already near-white on near-black. */
+  --hover-wash: rgba(158, 188, 240, 0.07);
   color-scheme: dark;
 }
 
@@ -285,18 +289,34 @@ button {
   font-variant-numeric: tabular-nums;
 }
 
-.item:hover { color: var(--navy); }
-
-/* The index is 113 rows of near-identical 14px lines, so "which one am I about
-   to open" has to be answered by the row itself and not by the reader's care.
-   The label grows; the number holds its column and brightens. Growth is a
-   transform and not a font-size, because a font-size bump would re-wrap a long
-   title and shove every row below it down the page -- the affordance would cost
-   more than it gives. Scaled about its left edge so it opens into the space it
-   already has rather than into the number. */
 .item .lb { transform-origin: left center; }
 
+/* The index is 113 rows of near-identical 14px lines, about 20 of which fit on
+   a screen, so the row under the cursor has to answer for itself. Three
+   signals, each doing a different job.
+
+   The wash is the one that matters. The clickable row is 419x44 but the title
+   inks only about 200px of it, so a text-only response swells a hand's width
+   away from a reader parked in the empty right-hand side of the row. The wash
+   spans the whole target, so the answer lands under the cursor wherever the
+   cursor is.
+
+   It is a wash and not a rule on the row's edge because the index is 18 groups
+   long: a third of the rows sit directly against a group heading, and there a
+   rule reads as a section divider rather than as a selection.
+
+   The label grows 7% from its left edge and the number brightens with it.
+   Growth is a transform and not a font-size, because a font-size bump would
+   re-wrap a long title and shove every row below it down the page -- the
+   affordance would cost more than it gives.
+
+   All of it sits behind (hover: hover). These states latch after a tap on a
+   touch screen and then stay latched, which is worse than no response at all. */
 @media (hover: hover) {
+  .item:hover {
+    color: var(--navy);
+    background: var(--hover-wash);
+  }
   .item:hover .lb { transform: scale(1.07); }
   .item:hover .num { color: var(--navy); }
 }

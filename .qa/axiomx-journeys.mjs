@@ -396,6 +396,97 @@ async function newPage(w = 1440, h = 900) {
   await ctx.close();
 }
 
+// ── THE RESPONSE COVERS THE TARGET, IN BOTH THEMES ────────────────────────
+// The clickable row is 419x44 but the title inks about 200px of it, so a
+// text-only hover answers a hand's width away from a reader parked in the
+// empty side of the row. The wash is what puts the answer under the cursor.
+for (const theme of ['light', 'dark']) {
+  const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
+  const p = await ctx.newPage();
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  if (theme === 'dark') {
+    await p.evaluate(() => { document.documentElement.dataset.theme = 'dark'; });
+    await p.waitForTimeout(250);
+  }
+  await p.hover('.item[data-id="flood-ami"]');
+  await p.waitForTimeout(320);
+  const row = await p.evaluate(() => {
+    const el = document.querySelector('.item[data-id="flood-ami"]');
+    const cs = getComputedStyle(el);
+    return {
+      bg: cs.backgroundColor, color: cs.color,
+      num: getComputedStyle(el.querySelector('.num')).color,
+      heights: [...new Set([...document.querySelectorAll('.item')].map(e => Math.round(e.getBoundingClientRect().height)))],
+    };
+  });
+  check(`${theme}: the hover washes the whole row`, row.bg !== 'rgba(0, 0, 0, 0)' && row.bg !== 'transparent', row.bg);
+  check(`${theme}: a wash that darkens a dark row would eat its own contrast`, theme === 'light'
+    ? row.bg.startsWith('rgba(0, 36, 125') : row.bg.startsWith('rgba(158, 188, 240'), row.bg);
+  check(`${theme}: row and number brighten together`, row.num === row.color, `${row.num} vs ${row.color}`);
+  check(`${theme}: the wash costs no row height`, row.heights.length === 1 && row.heights[0] === 44, JSON.stringify(row.heights));
+
+  // contrast read off the painted pixel, not modelled from the tokens
+  const shot = await p.locator('.item[data-id="flood-ami"]').screenshot();
+  const px = await p.evaluate(async b64 => {
+    const img = new Image(); img.src = 'data:image/png;base64,' + b64; await img.decode();
+    const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+    c.getContext('2d').drawImage(img, 0, 0);
+    const d = c.getContext('2d').getImageData(Math.round(img.width * 0.93), Math.round(img.height * 0.5), 1, 1).data;
+    return [d[0], d[1], d[2]];
+  }, shot.toString('base64'));
+  const fg = (row.color.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
+  const lum = c => { const f = x => { x /= 255; return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4); }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
+  const l1 = lum(fg), l2 = lum(px);
+  const ratio = Math.round(((Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05)) * 100) / 100;
+  check(`${theme}: the label keeps AA contrast on the painted wash`, ratio >= 4.5, `${ratio}:1`);
+  await ctx.close();
+}
+
+// ── TOUCH: a hover that latches after a tap is worse than no hover ────────
+{
+  const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
+  const p = await ctx.newPage();
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  await p.waitForTimeout(500);
+  const media = await p.evaluate(() => ({ none: matchMedia('(hover: none)').matches, coarse: matchMedia('(pointer: coarse)').matches }));
+  check('the phone really reports no hover', media.none && media.coarse, JSON.stringify(media));
+  await p.evaluate(() => { const bk = document.querySelector('.back'); if (bk) bk.click(); });
+  await p.waitForTimeout(400);
+  await p.tap('.item[data-id="flood-ami"]');
+  await p.waitForTimeout(700);
+  const after = await p.evaluate(() => {
+    const el = document.querySelector('.item[data-id="flood-ami"]');
+    return { bg: getComputedStyle(el).backgroundColor, scaled: getComputedStyle(el.querySelector('.lb')).transform, hash: location.hash };
+  });
+  check('a tap navigates', after.hash === '#flood-ami', after.hash);
+  check('no row is left washed behind the tap', after.bg === 'rgba(0, 0, 0, 0)', after.bg);
+  check('no label is left latched behind the tap', after.scaled === 'none', after.scaled);
+  await ctx.close();
+}
+
+// ── KEYBOARD: focus has its own signal and must not borrow the hover's ─────
+{
+  const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
+  const p = await ctx.newPage();
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  await p.waitForTimeout(500);
+  for (let i = 0; i < 9; i++) await p.keyboard.press('Tab');
+  const f = await p.evaluate(() => {
+    const el = document.activeElement;
+    if (!el || !el.classList.contains('item')) return null;
+    const cs = getComputedStyle(el);
+    return { outline: cs.outlineStyle + ' ' + cs.outlineWidth + ' ' + cs.outlineColor,
+             scaled: getComputedStyle(el.querySelector('.lb')).transform, bg: cs.backgroundColor };
+  });
+  check('tabbing lands on an index row', !!f, f ? '' : 'focus never reached a row');
+  if (f) {
+    check('focus is drawn as a real outline', f.outline.includes('solid'), f.outline);
+    check('focus does not borrow the hover wash', f.bg === 'rgba(0, 0, 0, 0)', f.bg);
+    check('focus does not inflate the label', f.scaled === 'none', f.scaled);
+  }
+  await ctx.close();
+}
+
 // ── CLIP: a portrait frame must not claim a landscape measure ──────────────
 // The clip is 480x860. At a 960px measure it scales to roughly 1720px tall, so
 // it is capped by height and the figure sizes to its own parts instead of
