@@ -777,6 +777,7 @@ const uiCopy = {
         s1: 'Sessions', s2: 'On record', s3: 'Delegations',
       },
       leap: {
+        v1: 'Orbital',
         city: 'Hong Kong',
         venue: 'LEAP East 2026 \u00b7 Orbital Stage \u00b7 HKCEC',
         venueShort: 'LEAP East \u00b7 HKCEC',
@@ -787,6 +788,7 @@ const uiCopy = {
         s1: 'Stage tier', s2: 'Speakers', s3: 'Live sources',
       },
       sg: {
+        v3: 'Full',
         city: 'Singapore',
         venue: 'GITEX AI Asia \u00b7 Marina Bay Sands \u00b7 Main Stage',
         venueShort: 'GITEX AI Asia \u00b7 MBS',
@@ -1043,6 +1045,7 @@ const uiCopy = {
         s1: '\u0e0a\u0e48\u0e27\u0e07\u0e07\u0e32\u0e19', s2: '\u0e1a\u0e19\u0e40\u0e27\u0e17\u0e35', s3: '\u0e04\u0e13\u0e30\u0e40\u0e14\u0e34\u0e19\u0e07\u0e32\u0e19',
       },
       leap: {
+        v1: 'Orbital',
         city: '\u0e2b\u0e48\u0e2d\u0e07\u0e01\u0e49\u0e07',
         venue: 'LEAP East 2026 \u00b7 \u0e40\u0e27\u0e17\u0e35 Orbital \u00b7 \u0e28\u0e32\u0e42\u0e01\u0e31\u0e07\u0e01\u0e23',
         venueShort: 'LEAP East \u00b7 HKCEC',
@@ -1053,6 +1056,7 @@ const uiCopy = {
         s1: '\u0e23\u0e30\u0e14\u0e1a\u0e40\u0e27\u0e17\u0e35', s2: '\u0e1c\u0e39\u0e49\u0e1e\u0e39\u0e14', s3: '\u0e41\u0e2b\u0e25\u0e48\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25',
       },
       sg: {
+        v3: 'เต็ม',
         city: '\u0e2a\u0e34\u0e07\u0e04\u0e42\u0e1b\u0e23',
         venue: 'GITEX AI Asia \u00b7 Marina Bay Sands \u00b7 \u0e40\u0e27\u0e17\u0e35\u0e2b\u0e25\u0e31\u0e01',
         venueShort: 'GITEX AI Asia \u00b7 MBS',
@@ -1309,6 +1313,7 @@ const uiCopy = {
         s1: '\u573a\u6b21', s2: '\u53f0\u4e0a\u65f6\u957f', s3: '\u4ee3\u8868\u56e2',
       },
       leap: {
+        v1: 'Orbital',
         city: '\u9999\u6e2f',
         venue: 'LEAP East 2026 \u00b7 Orbital \u4e3b\u821e\u53f0 \u00b7 \u9999\u6e2f\u4f1a\u8bae\u5c55\u89c8\u4e2d\u5fc3',
         venueShort: 'LEAP East \u00b7 HKCEC',
@@ -1319,6 +1324,7 @@ const uiCopy = {
         s1: '\u821e\u53f0\u7ea7\u522b', s2: '\u53d1\u8a00\u4eba', s3: '\u5b9e\u65f6\u6570\u636e\u6e90',
       },
       sg: {
+        v3: '满座',
         city: '\u65b0\u52a0\u5761',
         venue: 'GITEX AI Asia \u00b7 \u91d1\u6c99 \u00b7 \u4e3b\u821e\u53f0',
         venueShort: 'GITEX AI Asia \u00b7 MBS',
@@ -1583,6 +1589,7 @@ const uiCopy = {
         s1: 'sessions', s2: 'onRecord', s3: 'delegations',
       },
       leap: {
+        v1: 'orbItal',
         city: 'HongKong',
         venue: 'LEAP.East.2026·Orbital.Stage·HKCEC',
         venueShort: 'LEAP.East·HKCEC',
@@ -1593,6 +1600,7 @@ const uiCopy = {
         s1: 'stageTier', s2: 'speakers', s3: 'liveSources',
       },
       sg: {
+        v3: 'full',
         city: 'Singapore',
         venue: 'GITEX.AI.Asia·MBS·mainStage',
         venueShort: 'GITEX.AI.Asia·MBS',
@@ -4016,7 +4024,7 @@ const i18nPitch = {
       r3: '157 cities ranked live — shown working on stage within a 45-minute keynote.',
       r4lbl: 'Field note 01',
       r4: 'A vendor called it too complex. A working version was in the room fourteen days later.',
-      proofLine: '59 systems across 5 countries. Open one. Use it. Judge.',
+      proofLine: '67 systems across 5 countries. Open one. Use it. Judge.',
       faqLabel: 'Before you ask',
       q1: 'Is it expensive?',
       a1: "No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.",
@@ -4494,10 +4502,36 @@ Object.entries(window.AXIOM_FOOTPRINT.copy).forEach(([locale, copy]) => {
 
 const REGIONAL_LOCALES = new Set(['ko', 'ja', 'vi']);
 
+// One tab title per locale. Kept out of the uiCopy tables on purpose: it is
+// keyed BY locale, not contained in one, and putting it inside them would mean
+// seven tables each carrying seven titles.
+const DOC_TITLES = {
+  en: 'Axiom — Smart-City Dashboards & GovTech Systems',
+  th: 'Axiom — แดชบอร์ดเมืองอัจฉริยะและระบบภาครัฐ',
+  zh: 'Axiom — 智慧城市看板与政务系统',
+  ko: 'Axiom — 스마트시티 대시보드 및 행정 시스템',
+  ja: 'Axiom — スマートシティ・ダッシュボードと行政システム',
+  vi: 'Axiom — Bảng điều khiển đô thị thông minh và hệ thống hành chính',
+  ts: 'Axiom — Smart-City Dashboards & GovTech Systems',
+};
+
 function renderStaticCopy() {
   const copy = uiCopy[activeLocale] || uiCopy.en;
   const LOCALE_HTML_LANG = { en: 'en', th: 'th', zh: 'zh-Hans', ko: 'ko', ja: 'ja', vi: 'vi', ts: 'en' };
   document.documentElement.lang = LOCALE_HTML_LANG[activeLocale] || activeLocale;
+  // The browser tab is part of the page a reader is holding. Leaving it English
+  // in every locale is the one piece of copy that escapes the page entirely.
+  if (DOC_TITLES[activeLocale]) document.title = DOC_TITLES[activeLocale];
+  // The hero claims a system count. It used to be a literal "38" written into
+  // the markup, which drifted to a stale figure the moment the catalogue grew
+  // and nothing noticed — the catalogue is 67 and three other strings on this
+  // page already say so. Count it instead of claiming it.
+  const catalogLinks = document.querySelectorAll('.sys-cell__link').length;
+  if (catalogLinks) {
+    for (const el of document.querySelectorAll('[data-count="catalog"]')) {
+      el.textContent = String(catalogLinks);
+    }
+  }
   // Every locale (including regional ko/ja/vi) falls back to English on a missing key,
   // so switching zh → ko never leaves Chinese text on a node whose Korean value is absent.
   const lookup = (key) => {

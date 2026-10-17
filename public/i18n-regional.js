@@ -247,6 +247,7 @@
         "s1": "세션", "s2": "무대 시간", "s3": "대표단",
       },
       "leap": {
+        "v1": "오빗럴",
         "city": "홍콩",
         "venue": "LEAP East 2026 · Orbital 스테이지 · 훙콩 회의전시장",
         "venueShort": "LEAP East · Orbital",
@@ -257,6 +258,7 @@
         "s1": "무대 등급", "s2": "발언자", "s3": "실시간 원천",
       },
       "sg": {
+        "v3": "만석",
         "city": "싱가포르",
         "venue": "GITEX AI Asia · 마리나 베이 샌드스 · 메인 스테이지",
         "venueShort": "GITEX AI Asia · MBS",
@@ -1228,6 +1230,7 @@
         "s1": "セッション", "s2": "登壇時間", "s3": "代表団",
       },
       "leap": {
+        "v1": "Orbital",
         "city": "香港",
         "venue": "LEAP East 2026 · Orbital ステージ · 香港会議展示中心",
         "venueShort": "LEAP East · Orbital",
@@ -1238,6 +1241,7 @@
         "s1": "ステージ階", "s2": "登壇者", "s3": "ライブソース",
       },
       "sg": {
+        "v3": "満員",
         "city": "シンガポール",
         "venue": "GITEX AI Asia · マリーナベイサンズ · メインステージ",
         "venueShort": "GITEX AI Asia · MBS",
@@ -2188,6 +2192,7 @@
         "s1": "Phiên", "s2": "Trên sân khấu", "s3": "Phái đoàn",
       },
       "leap": {
+        "v1": "Orbital",
         "city": "Hồng Kông",
         "venue": "LEAP East 2026 · Sân khấu Orbital · Trung tâm Hội chợ Triển lãm Hồng Kông",
         "venueShort": "LEAP East · Orbital",
@@ -2198,6 +2203,7 @@
         "s1": "Cấp sân khấu", "s2": "Diễn giả", "s3": "Nguồn trực tiếp",
       },
       "sg": {
+        "v3": "Hết chỗ",
         "city": "Singapore",
         "venue": "GITEX AI Asia · Marina Bay Sands · Sân khấu chính",
         "venueShort": "GITEX AI Asia · MBS",

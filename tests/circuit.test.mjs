@@ -124,7 +124,7 @@ test('the bars state every stop, in the flow of the page', () => {
     assert.match(bar, /class="cx-bar__claim"/);
     assert.match(bar, /class="cx-bar__quote"/);
     assert.match(bar, /class="cx-bar__shot"/, 'every stop carries a photograph');
-    assert.equal((bar.match(/<b>/g) || []).length, 3, 'each bar carries exactly three figures');
+    assert.equal((bar.match(/<b[\s>]/g) || []).length, 3, 'each bar carries exactly three figures');
   }
   // the list is an <ol>, not a table
   assert.match(circuit, /<ol class="cx-bars">/);
