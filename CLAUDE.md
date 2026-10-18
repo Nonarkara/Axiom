@@ -1,3 +1,5 @@
+> **Read [ANTI-SLOP.md](ANTI-SLOP.md) before any design or frontend work.** These are Dr Non's hard rules against AI design slop: empty space is a decision, subtract before you add, and the map comes first. Check pages with `slop-lint` (tools/slop-lint.mjs in Nonarkara/palette).
+
 # Axiom — Project Instructions
 
 *Inherits all rules from `/Users/nonarkara/Projects/CLAUDE.md` — especially §0 (System Directive), §7 (Design Philosophy), §9 (Karpathy Guidelines), and §11 (Anti-Regression Laws — The Codex Incident). Read those first.*
