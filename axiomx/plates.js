@@ -804,5 +804,89 @@ window.AXIOM_PLATES = {
 1200,
 873,
 "Romantic"
+],
+"note-1": [
+"Pieter Brueghel the Younger",
+"The Peasant Wedding",
+"1630",
+"Tokyo Fuji Art Museum",
+"https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_d._J._-_Bauernhochzeit.jpg",
+"Public domain",
+"A working room, mid-task. Nobody is waiting on a committee — the table is laid and the work has already started.",
+"900",
+"640",
+"genre"
+],
+"note-2": [
+"Rijksmuseum",
+"Painter and Female Model in the Atelier (Houwelyck)",
+"c. 1630",
+"Rijksmuseum, RP-P-1898-A-21436",
+"https://commons.wikimedia.org/wiki/File:Schilder_en_vrouwelijk_model_in_atelier_Houwelyck_(serietitel),_RP-P-1898-A-21436.jpg",
+"CC0",
+"One person sets the direction and the other makes the thing. The skill sits in the hand that does not paint.",
+"900",
+"680",
+"print"
+],
+"note-3": [
+"Peter Paul Rubens",
+"The Judgement of Solomon",
+"c. 1617",
+"Original destroyed in 1695; after the workshop picture",
+"https://commons.wikimedia.org/wiki/File:Peter_Paul_Rubens_-_The_Judgement_of_Solomon_-_Google_Art_Project.jpg",
+"Public domain",
+"The decision comes first. He was asked to settle it, not to gather the evidence before beginning.",
+"900",
+"719",
+"Baroque"
+],
+"note-4": [
+"Pieter Bruegel the Elder",
+"The Harvesters",
+"1565",
+"Google Arts & Culture",
+"https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder-_The_Harvesters_-_Google_Art_Project_(cropped).jpg",
+"Public domain",
+"Nobody in the field reports to anybody. The work itself is the hierarchy.",
+"900",
+"484",
+"Renaissance"
+],
+"note-5": [
+"Raphael",
+"The School of Athens",
+"1511",
+"Stanza della Segnatura, Vatican",
+"https://commons.wikimedia.org/wiki/File:Raphael_School_of_Athens.jpg",
+"Public domain",
+"A room where the argument is the output. Everyone is thinking, and nobody has the last word.",
+"900",
+"588",
+"Renaissance"
+],
+"note-6": [
+"Joseph Wright of Derby",
+"An Experiment on a Bird in the Air Pump",
+"c. 1768",
+"National Gallery, London",
+"https://commons.wikimedia.org/wiki/File:Joseph_Wright_of_Derry_-_Experiment_with_the_Air_Pump_-_WGA25892.jpg",
+"Public domain",
+"The instrument is in the picture, not in a drawer. You watch the reading being taken.",
+"900",
+"664",
+"Rococo"
+],
+"stack": [
+"Johannes Vermeer",
+"The Art of Painting (detail)",
+"c. 1666–68",
+"Mauritshuis, The Hague",
+"https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_The_Art_of_Painting_(detail)_-_WGA24674.jpg",
+"Public domain",
+"One room, one window, everything the work needs inside it. Nothing waits on somebody else.",
+"900",
+"696",
+"Dutch Golden Age"
 ]
 };

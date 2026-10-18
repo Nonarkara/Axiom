@@ -1,4 +1,5 @@
 import { chromium } from 'playwright';
+import { readFile } from 'node:fs/promises';
 // Defaults to the local reading room; set AXIOMX_URL to test a deployment.
 const BASE = (process.env.AXIOMX_URL || 'http://127.0.0.1:5311/').replace(/\/?$/, '/');
 const b = await chromium.launch();
@@ -296,9 +297,13 @@ async function newPage(w = 1440, h = 900) {
     location.hash = '#pb-ascn';
     await new Promise(r => setTimeout(r, 150));
     const pb = !!document.querySelector('#plate .shot') && !document.querySelector('#plate .plate-art');
-    return { sys: sys.length, n: Object.keys(plates).length, missing, badLic, broken, pb };
+    const sysIds = new Set(sys);
+    const orphans = Object.keys(plates).filter(id => !sysIds.has(id)
+      && !/^note-\d|^stack$/.test(id));
+    return { sys: sys.length, n: Object.keys(plates).length, missing, badLic, broken, pb, orphans };
   });
-  check('every system has a plate', r.missing.length === 0 && r.n === r.sys, `${r.n}/${r.sys} ${r.missing.join(',')}`);
+  check('every system has a plate', r.missing.length === 0, `${r.n} plates for ${r.sys} systems, missing: ${r.missing.join(',') || 'none'}`);
+  check('no plate is orphaned', r.orphans.length === 0, r.orphans.join(','));
   check('every plate is public domain or CC0', r.badLic.length === 0, r.badLic.join(','));
   check('every plate image resolves', r.broken.length === 0, r.broken.join(','));
   check('pro bono keeps its own photograph', r.pb);
@@ -485,6 +490,114 @@ for (const theme of ['light', 'dark']) {
     check('focus does not inflate the label', f.scaled === 'none', f.scaled);
   }
   await ctx.close();
+}
+
+// ── FIELD NOTES: a claim you can only read is not a claim you can check ────
+// Each note is a title and a paragraph. On its own that leaves a hole in the
+// page, which is the tell that the note is asserting something it is not
+// showing. Under the prose each one now carries two objects: an artwork that
+// stands for the claim, and a drawing of the claim.
+{
+  const p = await newPage(1440, 1000);
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  const notes = await p.evaluate(async () => {
+    const ids = [...document.querySelectorAll('#nav button[data-id]')]
+      .map(b => b.dataset.id).filter(id => /^note-\d|^stack$/.test(id));
+    const out = [];
+    for (const id of ids) {
+      location.hash = '#' + id;
+      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+      const duo = document.querySelector('.duo');
+      const img = duo && duo.querySelector('.plate-img');
+      // The band is rebuilt on each note change; read the frame only once it has
+      // painted, or naturalWidth is still 0 and the ratio below comes back NaN.
+      if (img && !img.complete) {
+        await new Promise(r => { img.addEventListener('load', r, { once: true }); img.addEventListener('error', r, { once: true }); setTimeout(r, 5000); });
+      }
+      const svg = duo && duo.querySelector('svg.dg');
+      out.push({
+        id,
+        hasDuo: !!duo,
+        twoSides: duo ? duo.children.length === 2 : false,
+        artOk: !!(img && img.complete && img.naturalWidth > 0),
+        artRatio: img ? +(img.naturalWidth / img.naturalHeight).toFixed(2) : 0,
+        artLabel: !!(duo && duo.querySelector('.plate-label b')),
+        artSrc: !!(duo && duo.querySelector('.plate-src a[href^="https://commons"]')),
+        hasSvg: !!svg,
+        svgTitled: !!(svg && svg.querySelector('title') && svg.querySelector('title').textContent.trim()),
+        shapes: svg ? svg.querySelectorAll('path,rect,circle,polygon,text').length : 0,
+        capText: (duo && duo.querySelector('.duo-fig figcaption') || {}).textContent || '',
+      });
+    }
+    return out;
+  });
+  check('all seven field notes carry a duo band', notes.length === 7, `${notes.length} notes`);
+  for (const n of notes) {
+    check(`${n.id}: has a duo`, n.hasDuo);
+    check(`${n.id}: duo is two sides`, n.twoSides);
+    check(`${n.id}: artwork side loads`, n.artOk);
+    check(`${n.id}: artwork is landscape`, n.artRatio > 1.2, `${n.artRatio}`);
+    check(`${n.id}: artwork keeps its museum label`, n.artLabel && n.artSrc);
+    check(`${n.id}: diagram is drawn`, n.hasSvg && n.shapes >= 6, `${n.shapes} shapes`);
+    check(`${n.id}: diagram is named for a screen reader`, n.svgTitled);
+    check(`${n.id}: caption explains the drawing`, n.capText.length > 20);
+  }
+
+  // A vertical frame in this column would reintroduce the imbalance the column
+  // exists to remove, so the duo's own art is capped by height rather than
+  // allowed to stand tall beside a wide diagram.
+  const capped = await p.evaluate(() => {
+    location.hash = '#note-1';
+    const img = document.querySelector('.duo .plate-img');
+    return img ? Math.round(img.getBoundingClientRect().height) : 0;
+  });
+  check('duo artwork is capped, never billboarded', capped > 0 && capped <= 300, `${capped}px`);
+
+  const overflow = await p.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  check('the duo adds no sideways overflow', overflow === 0, `${overflow}px`);
+  await p.context().close();
+}
+
+// ── THE DIAGRAMS OBEY THE HOUSE RULES ──────────────────────────────────────
+// Rams as method: square corners, hairline or single-weight strokes, and no
+// decoration that is not carrying meaning. An SVG cannot be audited by looking
+// at it, so it is audited by reading it.
+{
+  const raw = await readFile(new URL('../axiomx/diagrams.js', import.meta.url), 'utf8');
+  // The prose at the top of that file describes these rules, so it necessarily
+  // contains the words "gradient" and "corner". Audit the drawing, not the
+  // comment about the drawing — otherwise this check passes and fails on prose.
+  const svg = raw.replace(/\/\*[\s\S]*?\*\//g, '');
+  check('no diagram paints a gradient', !/<(linear|radial)Gradient|url\(#/i.test(svg));
+  check('no diagram rounds a corner', !/rx\s*=|ry\s*=|border-radius/i.test(svg));
+  check('no diagram uses a filter or shadow', !/<filter|feDropShadow|drop-shadow/i.test(svg));
+  check('no diagram sets an inline hex colour', !/#[0-9a-f]{3,6}/i.test(svg));
+  const keys = [...raw.matchAll(/^  '([a-z0-9-]+)':/gim)].map(m => m[1]);
+  check('there is a diagram per field note', keys.length === 7, keys.join(','));
+  check('every diagram names itself for assistive tech',
+    (raw.match(/aria-labelledby=/g) || []).length === keys.length,
+    `${(raw.match(/aria-labelledby=/g) || []).length} for ${keys.length} diagrams`);
+}
+
+// ── PHONE: the duo stacks, and the diagram stays legible ───────────────────
+for (const w of [390, 320]) {
+  const p = await newPage(w, 900);
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  await p.evaluate(() => { location.hash = '#note-5'; });
+  await p.waitForTimeout(700);
+  const r = await p.evaluate(() => {
+    const duo = document.querySelector('.duo');
+    const kids = duo ? [...duo.children].map(c => Math.round(c.getBoundingClientRect().top)) : [];
+    return {
+      stacked: kids.length === 2 && kids[1] > kids[0],
+      svgW: Math.round((document.querySelector('.duo svg.dg') || { getBoundingClientRect: () => ({ width: 0 }) }).getBoundingClientRect().width),
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    };
+  });
+  check(`duo stacks at ${w}px`, r.stacked);
+  check(`diagram still reads at ${w}px`, r.svgW > 200, `${r.svgW}px wide`);
+  check(`no sideways overflow at ${w}px`, r.overflow === 0, `${r.overflow}px`);
+  await p.context().close();
 }
 
 // ── CLIP: a portrait frame must not claim a landscape measure ──────────────

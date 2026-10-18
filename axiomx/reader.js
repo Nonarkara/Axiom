@@ -5,6 +5,7 @@
   // After DIE WELT's 6 October 2011 edition, in which Ellsworth Kelly replaced
   // every news photograph with his own work. Pro bono entries keep their photos.
   const PLATES = window.AXIOM_PLATES || {};
+  const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
 
   const shell = document.getElementById('shell');
   const nav = document.getElementById('nav');
@@ -60,7 +61,7 @@
 
   // A plate: the artwork, then a credit line set like a museum label, then one
   // line on why this work stands for this system.
-  function addPlate(id, art) {
+  function addPlate(id, art, host) {
     const fig = el('figure', 'plate-art');
     const img = el('img', 'plate-img');
     img.src = 'art/' + id + '.webp';
@@ -81,8 +82,28 @@
     src.appendChild(document.createTextNode(' · ' + art[5]));
     cap.appendChild(src);
     fig.appendChild(cap);
-    plate.appendChild(fig);
+    (host || plate).appendChild(fig);
     return fig;
+  }
+
+  // The field notes get two objects under the prose: an artwork that stands for
+  // the claim, and a drawing of the claim. The plate keeps the same museum label
+  // it carries everywhere else — same credit, same source, same licence — so the
+  // duo inherits the audit trail rather than needing its own.
+  function addDuo(block) {
+    const art = PLATES[block.plate];
+    if (!art) return;
+    const band = el('section', 'duo');
+    addPlate(block.plate, art, band);
+
+    const fig = el('figure', 'duo-fig');
+    const svg = DIAGRAMS[block.diagram];
+    if (svg) fig.innerHTML = svg;
+    if (block.caption) fig.appendChild(el('figcaption', '', block.caption));
+    band.appendChild(fig);
+
+    plate.appendChild(band);
+    return band;
   }
 
   function el(tag, cls, text) {
@@ -352,10 +373,23 @@
     ['note-6', 'Instrument from day one.', 'Not after. Every Axiom system ships with a trail: pageviews, use, decision logs. Not because day one needs a dashboard of itself, but because measuring a live system later is close to impossible. The next version is built from what the first one taught. Leave a record.']
   ];
 
+  // Under each note, two objects: an artwork that stands for the claim, and a
+  // drawing of the claim. The caption names what the drawing is asserting, so
+  // the figure is never asked to speak for itself.
+  const duoCaption = {
+    'note-1': 'Both lanes begin with the same request. Only one of them arrives anywhere.',
+    'note-2': 'Direction runs left to right. The dashed return is the step that is usually skipped.',
+    'note-3': 'The same four things, in a different order. The decision is the only one that comes first.',
+    'note-4': 'The tree gives the chain of command. The grid gives the work. They are not the same shape.',
+    'note-5': 'One model returns one line. Eleven priors return a spread, and the spread is what you read.',
+    'note-6': 'The loop closes on day one. The shortcut is the one that cannot be taken back later.'
+  };
+
   notes.forEach(function (row, i) {
     book.push(doc(row[0], 'Field notes', row[1], [
       { type: 'h', text: row[1] },
-      { type: 'lede', text: row[2] }
+      { type: 'lede', text: row[2] },
+      { type: 'duo', plate: row[0], diagram: row[0], caption: duoCaption[row[0]] }
     ], { num: String(i + 1).padStart(2, '0') }));
   });
 
@@ -363,6 +397,7 @@
     { type: 'h', text: 'The desk' },
     { type: 'lede', text: 'Local first. No build team. No vendor lock-in. One machine in Bangkok runs inference, builds, and deploys.' },
     { type: 'note', text: 'Nine layers. Heavier type marks the tools in daily use. “Cloud” marks what does not run on the desk.' },
+    { type: 'duo', plate: 'stack', diagram: 'stack', caption: 'Everything runs in one room. Whatever does not run in the room is marked as such.' },
     { type: 'stack' }
   ], { num: '07' }));
 
@@ -698,6 +733,8 @@
         img.alt = block.alt || '';
         img.addEventListener('error', function () { img.remove(); });
         plate.appendChild(img);
+      } else if (block.type === 'duo') {
+        addDuo(block);
       } else if (block.type === 'defs') {
         const wrap = el('div', 'rule-list');
         block.rows.forEach(function (row) {
