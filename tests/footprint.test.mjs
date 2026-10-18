@@ -205,6 +205,50 @@ test('every stated system count agrees with the catalogue', () => {
 });
 
 // ---------------------------------------------------------------------------
+// The assertion above only ever matched English, because "'67 systems'" is
+// English. Thai, Chinese, Korean, Japanese and Vietnamese each state the count
+// in their own grammar, so the five of them could drift and the guard above
+// would still be green. It did: five proof lines sat at 38 for months.
+//
+// app.js carries the proof line twice. The legacy block is overwritten at load
+// by catalogReleaseCopy, so what renders is the second one -- but the legacy
+// copy still sits in the file, where the next reader greps for it and finds a
+// number the site does not use.
+//
+// So the rule is stated as an invariant over every numeral, not as a pattern:
+// the only two numbers a proof line is allowed to contain are the catalogue
+// size and the country count. That catches a wrong count in any language, in
+// either copy block, and it does not need to know seven grammars.
+// ---------------------------------------------------------------------------
+const COUNTRIES = 5;
+
+test('every proof line, in every locale and both copy blocks, states only real counts', () => {
+  const proofLines = Array.from(app.matchAll(/proofLine:\s*'([^']*)'/g), m => m[1]);
+  assert.ok(proofLines.length >= 14,
+    `expected proof lines for 7 locales across two copy blocks, found ${proofLines.length}`);
+
+  for (const line of proofLines) {
+    const numerals = (line.match(/\d+/g) || []).map(Number);
+    for (const n of numerals) {
+      assert.ok(n === catalogLinks || n === COUNTRIES,
+        `proof line states ${n}, which is neither the catalogue (${catalogLinks}) ` +
+        `nor the country count (${COUNTRIES}): "${line.slice(0, 60)}"`);
+    }
+  }
+});
+
+test('the country count is the same in every locale', () => {
+  const sysMeta = Array.from(app.matchAll(/sysMeta:\s*'([^']*)'/g), m => m[1]);
+  assert.ok(sysMeta.length >= 4, 'expected sysMeta across locales');
+  for (const line of sysMeta) {
+    const country = (line.match(/(\d+)\s*(?:countries|ประเทศ|个国家|개국|か国|quốc gia)/) || [])[1];
+    assert.ok(country, `no country count found in sysMeta: "${line}"`);
+    assert.equal(Number(country), COUNTRIES,
+      `sysMeta says ${country} countries, expected ${COUNTRIES}: "${line}"`);
+  }
+});
+
+// ---------------------------------------------------------------------------
 // Wrapping a thumbnail in <picture> means placing </picture> after the whole
 // <img …> tag. Matching only up to loading="lazy" splits the attribute list and
 // the parser renders the leftover alt text as visible copy — which is exactly
