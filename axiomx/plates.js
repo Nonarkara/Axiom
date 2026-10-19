@@ -888,5 +888,53 @@ window.AXIOM_PLATES = {
 "900",
 "696",
 "Dutch Golden Age"
+],
+"simcity": [
+"Johannes Vermeer",
+"The Little Street (Het Straatje)",
+"c. 1658",
+"Rijksmuseum, Amsterdam",
+"https://commons.wikimedia.org/wiki/File:The_Little_Street_by_Johannes_Vermeer_(1).jpg",
+"Public domain",
+"A real Delft street, drawn by the painter of its quietest house. The economy of a city is the sum of every door that opens onto the lane.",
+1200,
+800,
+"Dutch Golden Age"
+],
+"miaoshen": [
+"Utagawa Hiroshige",
+"Sumida gawa no tsuki (Moon on the Sumida River)",
+"1844",
+"Library of Congress",
+"https://commons.wikimedia.org/wiki/File:Sumida_gawa_no_tsuki_LCCN2009615468.jpg",
+"Public domain",
+"A river at night, the moon laid flat across the current. Still water running — a city read by someone who arrived on the water and is still arriving.",
+1200,
+811,
+"ukiyo-e"
+],
+"tdv": [
+"Giovanni Battista Piranesi",
+"Arch of Constantine in Rome, from Views of Rome",
+"c. 1750–60",
+"Honolulu Museum of Art",
+"https://commons.wikimedia.org/wiki/File:%27Arch_of_Constantine_in_Rome%27_from_%27Views_of_Rome%27_by_Giovanni_Battista_Piranesi%2C_etching%2C_Honolulu_Museum_of_Art.JPG",
+"CC0",
+"An ancient arch drawn as a working drawing of place — depth, scale, the building as one shape, the road behind it as another. The campus, plotted.",
+1200,
+617,
+"etching"
+],
+"shdt": [
+"Pieter Bruegel the Elder",
+"Landscape with the Flight into Egypt",
+"1563",
+"Web Gallery of Art",
+"https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Landscape_with_the_Flight_into_Egypt_-_WGA03341.jpg",
+"Public domain",
+"A landscape where the eye measures the journey from earth to sky. Form, sky-reach, daylight — all of them rendered in one quiet horizontal picture.",
+1200,
+806,
+"Renaissance"
 ]
 };
