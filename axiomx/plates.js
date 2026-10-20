@@ -423,6 +423,18 @@ window.AXIOM_PLATES = {
 1200,
 "Baroque"
 ],
+"techhunt": [
+"Edgar Degas",
+"Portraits at the Stock Exchange",
+"ca. 1878–79",
+"Metropolitan Museum of Art, New York",
+"https://commons.wikimedia.org/wiki/File:Portraits_at_the_Stock_Exchange_MET_DT1044.jpg",
+"CC0",
+"A stockmarket for city builders; evaluating verified signals before capital and procurement commit.",
+960,
+1200,
+"impressionism"
+],
 "podcast-20min": [
 "Edgar Degas",
 "The Orchestra at the Opera",
