@@ -1927,6 +1927,14 @@ summary:focus-visible {
 
 .sys-cell__shot {
   width: 100%;
+  /* height:auto is load-bearing, not a default. An <img> carries a height
+     attribute, which the browser treats as a presentational hint for the
+     height property. Author CSS sets width but not height, so the hint won:
+     the aspect-ratio below was ignored and a 16:10 screenshot rendered at
+     its own 800px, blowing a 152px band into a portrait column and leaving
+     the grid ragged. height:auto hands the box back to the ratio, so the
+     band is 21:8 whatever the file's own dimensions are. */
+  height: auto;
   aspect-ratio: 21 / 8;
   object-fit: cover;
   object-position: top center;
@@ -1944,10 +1952,22 @@ summary:focus-visible {
   flex: 1;
 }
 
-.sys-cell__shot--contain {
-  height: auto;
-  object-fit: contain;
-  background: var(--paper);
+/* A thumbnail that holds a subject in a portrait frame cannot survive a
+   top crop. object-fit:contain used to be the answer, and it was worse:
+   the image was letterboxed inside the 21:8 band against a background the
+   same colour as the card, so it read as a small stray picture floating in
+   an empty strip rather than as a thumbnail. The band is fixed, so the
+   crop window moves instead — the subject stays whole, and every card in
+   the grid keeps the same height.
+
+   --lower drops the window to hold a figure and what it holds.
+   --middle drops it to hold a model that sits on a field. */
+.sys-cell__shot--lower {
+  object-position: 50% 20%;
+}
+
+.sys-cell__shot--middle {
+  object-position: 50% 45%;
 }
 
 .sys-cell__name {

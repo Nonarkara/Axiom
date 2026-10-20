@@ -115,6 +115,7 @@ If a future agent has re-broken it, the recovery is `git show 8bdf126:public/ind
 | `npm run check` | **Local** syntax check (`node --check`) on `server.mjs` + `public/app.js` + scripts. **Never put this in CI** — see §4.8. |
 | `npm run qa:links` | Link audit (`.qa/release-audit.mjs`) |
 | `npm run qa:visual` | Playwright visual regression (`.qa/visual-qa.mjs`) |
+| `npm run qa:thumbs` | Catalogue thumbnail band check (`.qa/catalogue-thumbs.mjs`) — needs a server on port 5312 |
 | `npm test` | Unit tests (`node --test tests/*.test.mjs`) — footprint, catalogue, circuit, security. Run before pushing a change to `public/` or `axiomx/`. |
 | `npm run export:evidence` | Snapshot the live site for evidence of authorship |
 
@@ -216,3 +217,14 @@ Two rules that came out of it:
 
 - **A duplicate key in an object literal overwrites by position, not by intent.** Guard for duplicate keys directly; a check that looks for missing content will never see this.
 - **When two catalogue entries turn out to be the same system, let the live system name it.** The live FormHypes titles itself *"FormHypes — Architectural intelligence"* and brands *"FormHypes, inspired by SHDT"* — SHDT is the MIT classmate, not the product. So the surviving card is "FormHypes · SHDT", and the count is 70.
+
+### The thumbnails are one band, and the crop window moves
+
+Every catalogue card carries a product screenshot in a **21:8 band**. Two CSS facts keep that band intact, and both have already broken on the live site:
+
+- **`.sys-cell__shot` needs `height: auto`.** An `<img>` carries a `height` attribute, which the browser treats as a presentational hint for the `height` *property*. Author CSS set `width` but not `height`, so the hint won and the `aspect-ratio: 21/8` was ignored — a 16:10 screenshot rendered at its own 800px, a portrait column that blew the card to 930px against 297px neighbours. `height: auto` hands the box back to the ratio. **Do not remove it.**
+- **`object-fit: contain` is banned here.** It letterboxes the image inside the band against the card's own background, so the thumbnail reads as a small stray picture floating in an empty strip. The band is fixed, so the **crop window moves** instead: `--lower` (`50% 20%`) holds a figure and what it holds; `--middle` (`50% 45%`) holds a model that sits on a field.
+
+`.qa/catalogue-thumbs.mjs` is the guard. It defaults to a local server on port 5312 — `python3 -m http.server 5312 --directory public` then `node .qa/catalogue-thumbs.mjs`. `AXIOM_URL` overrides the base, so the **same checks** run against a deployment: `AXIOM_URL=https://axiom.nonarkara.org/ node .qa/catalogue-thumbs.mjs`.
+
+Eight checks, and two of them are the ones that catch the real defects: every thumbnail **fills** its band (`object-fit` must be `cover` — a correct-shaped box can still letterbox), and the band is **one height across the catalogue** (a card taller than its row-mates leaves holes under the text). It also fails on any JS or console error, and scopes to `.sys-cell[data-arch]` so the eight brand-sheet cards are out of scope. Expected: **8 PASS, 0 FAIL**.
