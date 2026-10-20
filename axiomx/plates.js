@@ -16,16 +16,16 @@ window.AXIOM_PLATES = {
 "ukiyo-e"
 ],
 "flooddash-fb": [
-"Pieter Bruegel the Elder",
-"Hunters in the Snow",
-"1565",
-"Kunsthistorisches Museum, Vienna",
-"https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Hunters_in_the_Snow_(Winter)_-_Google_Art_Project.jpg",
+"Vincent van Gogh",
+"The Starry Night",
+"1889",
+"Museum of Modern Art, New York",
+"https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
 "Public domain",
-"Many small figures reading the same weather together; a community is the sensor.",
+"A community looking up into the churning nocturnal sky; atmospheric forces observed through collective vision.",
 1200,
-854,
-"Renaissance"
+927,
+"post-impressionism"
 ],
 "sikhio": [
 "Ambrogio Lorenzetti",
@@ -304,16 +304,16 @@ window.AXIOM_PLATES = {
 "academic"
 ],
 "daytraders": [
-"Quentin Matsys",
-"The Moneylender and His Wife",
-"1514",
-"Musée du Louvre, Paris",
-"https://commons.wikimedia.org/wiki/File:Massysm_Quentin_%E2%80%94_The_Moneylender_and_his_Wife_%E2%80%94_1514.jpg",
+"Edward Hopper",
+"Nighthawks",
+"1942",
+"Art Institute of Chicago",
+"https://commons.wikimedia.org/wiki/File:Nighthawks_by_Edward_Hopper_1942.jpg",
 "Public domain",
-"Weighing coins by hand, eyes on the scale — trading as attention.",
+"Late-night concentration under stark fluorescent light; trading as nocturnal attention while the rest of the city sleeps.",
 1200,
-1129,
-"Northern Renaissance"
+655,
+"realism"
 ],
 "day2": [
 "Claude Monet",
@@ -484,16 +484,16 @@ window.AXIOM_PLATES = {
 "Romantic"
 ],
 "ascn": [
-"Raphael",
-"The Marriage of the Virgin",
-"early 1500s",
-"Pinacoteca di Brera, Milan",
-"https://commons.wikimedia.org/wiki/File:Raphael_Marriage_of_the_Virgin.jpg",
+"Alexander Calder",
+"Untitled (East Building Mobile)",
+"1976",
+"National Gallery of Art, Washington, D.C.",
+"https://commons.wikimedia.org/wiki/File:National_Gallery_of_Art_DC_2007i.jpg",
 "Public domain",
-"A network of cities converging on one temple — governance by gathering.",
-642,
-960,
-"Renaissance"
+"Suspended elements moving in deliberate kinetic equilibrium; a regional network balancing through dynamic tension rather than rigid hierarchy.",
+753,
+1200,
+"mobile"
 ],
 "dao": [
 "Claude Monet",
@@ -604,16 +604,16 @@ window.AXIOM_PLATES = {
 "drawing"
 ],
 "time-pop": [
-"Pieter Claesz",
-"Vanitas Still Life with Skull, Globe, Shells and Jewellery Box",
-"1653",
-"Private collection",
-"https://commons.wikimedia.org/wiki/File:Pieter_Claesz_-_Vanitas_still_life_with_skull,_globe,_shells,_jewelry_box_and_other_objects.jpg",
+"Evelyn De Morgan",
+"The Hourglass",
+"1905",
+"De Morgan Collection, Cannon Hall Museum",
+"https://commons.wikimedia.org/wiki/File:Evelyn_de_Morgan_-_The_Hourglass,_1905.jpg",
 "Public domain",
-"A skull, a watch and a guttering candle — the old way of saying time pops.",
-1024,
-808,
-"still life"
+"Golden sand slipping through glass into an endless heap; data expiring the moment attention turns away.",
+765,
+900,
+"Pre-Raphaelite"
 ],
 "luma-house": [
 "Vilhelm Hammershøi",
@@ -640,16 +640,16 @@ window.AXIOM_PLATES = {
 "sculpture"
 ],
 "shophouse-metropolis": [
-"Bernardo Bellotto",
-"View of the Grand Canal from Punta della Dogana",
-"18th century",
-"Ca’ Rezzonico, Venice (Egidio Martini collection)",
-"https://commons.wikimedia.org/wiki/File:(Venice)_Veduta_del_Canal_Grande_dalla_Punta_della_Dogana_-_Bernardo_Bellotto.jpg",
+"Tingqua (Guan Lianchang)",
+"The Shop of Tingqua, the Painter",
+"c. 1855",
+"Peabody Essex Museum, Salem",
+"https://commons.wikimedia.org/wiki/File:Shop_of_Tingqua,_the_painter.jpg",
 "Public domain",
-"Street-front houses shoulder to shoulder; a metropolis made of shophouses.",
+"Living upstairs, workshop on the floor, street through the shutters; the Southeast Asian shophouse painted from inside its own trade.",
 1200,
-762,
-"veduta"
+808,
+"gouache"
 ],
 "locating-shanghai": [
 "Qing Court Academy painters",
