@@ -10,7 +10,7 @@
   // Cloudflare serves static assets with a four-hour max-age. A plate whose
   // file changed under the same name keeps serving the old bytes for hours,
   // so every plate is addressed by a versioned path. Bump this when art ships.
-  const ART_V = '20261020b';
+  const ART_V = '20261020d';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
 
   const shell = document.getElementById('shell');
@@ -61,6 +61,118 @@
     }
     fig.appendChild(v);
     if (clip.caption) fig.appendChild(el('figcaption', '', clip.caption));
+    plate.appendChild(fig);
+    return fig;
+  }
+
+  const FIELD_VIDEOS = [
+    {
+      id: '0-A3R_i3wrs',
+      title: 'ยืนกลางซอยน้ำท่วม — อธิบายสถานการณ์จากจุดเกิดเหตุ',
+      meta: 'FloodDash Field · Live',
+      desc: 'The ground condition. Read from standing in it — every flood season since the first watch, in Thai, in public.'
+    },
+    {
+      id: 'lLnq4LefXiI',
+      title: 'หน้าจอจริง — คะแนนจังหวัด · เรดาร์ · MY AREA',
+      meta: 'System Walkthrough · Multi-source',
+      desc: 'Reading the situation picture: how provincial hazard scoring, rain radar, and neighborhood alerts work together in real time.'
+    },
+    {
+      id: 'O80WcxnzC9Q',
+      title: 'เปิดแผนที่บนโน้ตบุ๊ก — อ่านสียังไงไม่ให้ตกใจ',
+      meta: 'Decision Guide · Interface',
+      desc: 'Decoding colour bands and risk thresholds without panic: how a commander or resident reads the map.'
+    },
+    {
+      id: 'RQe0izP7BUs',
+      title: 'น้ำท่วมถึงน่อง! เดินเช็ก FloodDash กลางซอย',
+      meta: 'Ground Truth · Field Check',
+      desc: 'Ground-truthing civic models in shin-deep floodwaters: verifying sensors against physical reality.'
+    },
+    {
+      id: '1SNQIOcz7-o',
+      title: 'ทำไมกรุงเทพฯ ฝนตกหนักวันนี้? + AI ช่วยเฝ้าระวังน้ำท่วม',
+      meta: 'Analysis · Meteorology & AI',
+      desc: 'Analyzing urban cloudburst dynamics, weather radar patterns, and real-time surveillance.'
+    }
+  ];
+
+  function addVideoStudio(captionText) {
+    const fig = el('figure', 'vstudio');
+
+    const main = el('div', 'vstudio-main');
+    const wrap = el('div', 'vstudio-player');
+    const iframe = document.createElement('iframe');
+    iframe.className = 'vstudio-iframe';
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + FIELD_VIDEOS[0].id + '?enablejsapi=1&rel=0';
+    iframe.title = FIELD_VIDEOS[0].title;
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure');
+    iframe.setAttribute('allowfullscreen', 'true');
+    wrap.appendChild(iframe);
+    main.appendChild(wrap);
+
+    const info = el('figcaption', 'vstudio-info');
+    const metaTag = el('span', 'vstudio-tag', FIELD_VIDEOS[0].meta);
+    const titleEl = el('h3', 'vstudio-title', FIELD_VIDEOS[0].title);
+    const descEl = el('p', 'vstudio-desc', captionText || FIELD_VIDEOS[0].desc);
+    info.appendChild(metaTag);
+    info.appendChild(titleEl);
+    info.appendChild(descEl);
+    main.appendChild(info);
+    fig.appendChild(main);
+
+    const list = el('div', 'vstudio-list');
+    const listHead = el('div', 'vstudio-list-head');
+    listHead.appendChild(el('span', 'vstudio-list-title', 'Field Briefings'));
+    listHead.appendChild(el('span', 'vstudio-list-count', FIELD_VIDEOS.length + ' videos'));
+    list.appendChild(listHead);
+
+    const itemsWrap = el('div', 'vstudio-items');
+    itemsWrap.setAttribute('role', 'tablist');
+
+    FIELD_VIDEOS.forEach(function (v, idx) {
+      const card = el('button', 'vstudio-item' + (idx === 0 ? ' is-active' : ''));
+      card.type = 'button';
+      card.setAttribute('role', 'tab');
+      card.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+      card.setAttribute('aria-label', v.title);
+
+      const thumb = el('div', 'vstudio-thumb');
+      const img = document.createElement('img');
+      img.src = 'https://img.youtube.com/vi/' + v.id + '/mqdefault.jpg';
+      img.alt = v.title;
+      img.loading = 'lazy';
+      thumb.appendChild(img);
+      const badge = el('span', 'vstudio-idx', '0' + (idx + 1));
+      thumb.appendChild(badge);
+      card.appendChild(thumb);
+
+      const copy = el('div', 'vstudio-meta');
+      copy.appendChild(el('span', 'vstudio-item-meta', v.meta));
+      copy.appendChild(el('span', 'vstudio-item-title', v.title));
+      card.appendChild(copy);
+
+      card.addEventListener('click', function () {
+        itemsWrap.querySelectorAll('.vstudio-item').forEach(function (c) {
+          c.classList.remove('is-active');
+          c.setAttribute('aria-selected', 'false');
+        });
+        card.classList.add('is-active');
+        card.setAttribute('aria-selected', 'true');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?autoplay=1&enablejsapi=1&rel=0';
+        iframe.title = v.title;
+        metaTag.textContent = v.meta;
+        titleEl.textContent = v.title;
+        descEl.textContent = v.desc;
+      });
+
+      itemsWrap.appendChild(card);
+    });
+
+    list.appendChild(itemsWrap);
+    fig.appendChild(list);
     plate.appendChild(fig);
     return fig;
   }
@@ -295,12 +407,7 @@
   book.push(doc('iaas', 'Practice', 'Innovation-as-a-Service', [
     { type: 'h', text: 'Innovation-as-a-Service' },
     { type: 'lede', text: 'Not a product. A way of working. We sit with the people who decide, and build the thing with them, inside their rules.' },
-    { type: 'clip', clip: {
-      src: 'media/showcase/iaas-hero.mp4',
-      poster: 'media/showcase/iaas-hero.jpg',
-      alt: 'Rain falling over a residential district, with rooftops and trees in view.',
-      caption: 'The ground condition. The thing you have to stand in before you can be trusted to build for it.'
-    } },
+    { type: 'vstudio', caption: 'The ground condition. The thing you have to stand in before you can be trusted to build for it.' },
     { type: 'p', text: 'A city is usually sold a product: a box, a licence, a platform that arrives finished and fits nobody. Innovation-as-a-Service turns that around. We start with one problem the city already has, one decision it cannot make fast enough, and we build the answer alongside the people who own it.' },
     { type: 'p', text: 'There is an old trap here. A city is asked for a feasibility study before it tries anything, but you cannot study something you have not yet tried. So we try it first, small and cheap, on data the city already holds, with no new hardware. Then the study writes itself from what actually happened.' },
     { type: 'steps', items: [
@@ -784,6 +891,8 @@
         plate.appendChild(wrap);
       } else if (block.type === 'clip') {
         addClip(block.clip);
+      } else if (block.type === 'vstudio') {
+        addVideoStudio(block.caption);
       } else if (block.type === 'hero') {
         const art = PLATES[block.plate];
         if (art) addHero(block.plate, art);
@@ -881,7 +990,11 @@
     }
 
     // The ground condition, after the product shot. Any system may carry one.
-    if (system.video) addClip(system.video);
+    if (system.id === 'flood-ami') {
+      addVideoStudio('The ground condition. Read from standing in it — every flood season since the first watch, in Thai, in public.');
+    } else if (system.video) {
+      addClip(system.video);
+    }
 
     const arch = system.arch;
     if (arch && ((arch.inputs && arch.inputs.length) || (arch.outputs && arch.outputs.length) || arch.core)) {

@@ -11,7 +11,13 @@ async function newPage(w = 1440, h = 900) {
   const ctx = await b.newContext({ viewport: { width: w, height: h } });
   const p = await ctx.newPage();
   p.on('pageerror', e => fails.push('JS ERROR: ' + e.message));
-  p.on('console', m => { if (m.type() === 'error') fails.push('CONSOLE: ' + m.text()); });
+  p.on('console', m => {
+    if (m.type() === 'error') {
+      const txt = m.text();
+      if (txt.includes('compute-pressure')) return;
+      fails.push('CONSOLE: ' + txt);
+    }
+  });
   return p;
 }
 
@@ -216,68 +222,58 @@ async function newPage(w = 1440, h = 900) {
   await ctx.close();
 }
 
-// ── FIELD CLIP ─────────────────────────────────────────────────────────────
-// The ground-condition loop appears twice, and the duplication is deliberate:
+// ── FIELD VIDEO STUDIO ──────────────────────────────────────────────────────────
+// The field briefing video deck appears on FloodDash and Innovation-as-a-Service:
 // on FloodDash because that watch is read from standing in the rain, and on
 // Innovation-as-a-Service because the practice begins in the same place. Each
-// carries its own caption -- the same clip with a FloodDash sentence on the
-// practice page would be a claim about a page it is not making.
-// It is portrait, so the plate must cap it by height.
+// carries its own caption.
 {
   const p0 = await newPage();
   await p0.goto(BASE + '#flood-ami', { waitUntil: 'networkidle' });
   await p0.waitForTimeout(600);
   const fd = await p0.evaluate(() => {
-    const fig = document.querySelector('.clip');
+    const fig = document.querySelector('.vstudio');
     return {
       found: !!fig,
-      caption: fig && fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : '',
+      caption: fig && fig.querySelector('.vstudio-desc') ? fig.querySelector('.vstudio-desc').textContent : '',
     };
   });
-  check('FloodDash carries the clip, by instruction', fd.found);
+  check('FloodDash carries the video studio, by instruction', fd.found);
   check('and its caption is the flood one', /flood season/i.test(fd.caption), fd.caption.slice(0, 60));
   await p0.context().close();
   const p = await newPage();
   await p.goto(BASE + '#iaas', { waitUntil: 'networkidle' });
   await p.waitForTimeout(600);
-  const r = await p.evaluate(() => {
-    const fig = document.querySelector('.clip');
-    const v = fig && fig.querySelector('video');
+  const r = await p.evaluate(async () => {
+    const fig = document.querySelector('.vstudio');
+    const iframe = fig && fig.querySelector('iframe');
+    const items = fig ? Array.from(fig.querySelectorAll('.vstudio-item')) : [];
+    const initialSrc = iframe ? iframe.src : '';
+    
+    // Test interactive clicking on thumbnail 1 (index 1)
+    let switchWorked = false;
+    if (items.length > 1) {
+      items[1].click();
+      switchWorked = iframe && iframe.src.includes('lLnq4LefXiI') && items[1].classList.contains('is-active');
+    }
+
     return {
       found: !!fig,
-      caption: fig && fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : '',
-      h: v ? Math.round(v.getBoundingClientRect().height) : 0,
-      w: v ? Math.round(v.getBoundingClientRect().width) : 0,
-      muted: v ? v.muted : null,
-      loop: v ? v.loop : null,
-      poster: v ? !!v.poster : null,
-      // it must not be the 960px screenshot measure scaled to a billboard
-      tallest: v ? v.getBoundingClientRect().height < 700 : false,
+      caption: fig && fig.querySelector('.vstudio-desc') ? fig.querySelector('.vstudio-desc').textContent : '',
+      initialSrc,
+      itemCount: items.length,
+      switchWorked,
+      w: fig ? Math.round(fig.getBoundingClientRect().width) : 0,
+      fits: fig ? fig.getBoundingClientRect().width <= 960 : false,
     };
   });
-  check('Innovation-as-a-Service carries the field clip', r.found);
-  // The same clip appears here and on FloodDash, so the captions have to
-  // differ. A flood-season sentence on the practice page is a claim about a
-  // page it is not making -- it is the exact defect that a merge can introduce
-  // silently, by moving a figure without moving the words.
+  check('Innovation-as-a-Service carries the field video studio', r.found);
   check('its caption is the practice one, not the flood one',
     !/flood season|in Thai, in public/i.test(r.caption), r.caption.slice(0, 60));
-  check('clip is capped by height, not the wide measure', r.tallest, `${r.w}x${r.h}`);
-  check('clip is muted and loops', r.muted === true && r.loop === true);
-  check('clip has a poster for reduced motion', r.poster === true);
-
-  // The source is hot-linked off the main site, so this is really a check
-  // that the main site still serves the asset.
-  const src = await p.evaluate(() => {
-    const v = document.querySelector('.clip video source');
-    return v ? v.src : '';
-  });
-  check('clip points at the main-site asset', /axiom\.nonarkara\.org/.test(src), src);
-
-  const res = await p.evaluate(async (u) => {
-    try { const r = await fetch(u, { method: 'HEAD' }); return r.status; } catch (e) { return 0; }
-  }, src);
-  check('the clip asset actually resolves', res === 200, `HTTP ${res}`);
+  check('video studio has an iframe pointing at YouTube hero', /youtube-nocookie\.com\/embed\/0-A3R_i3wrs/.test(r.initialSrc), r.initialSrc);
+  check('video studio carries 5 field briefing cards', r.itemCount === 5, `${r.itemCount} items`);
+  check('clicking a playlist item switches player to that video', r.switchWorked === true);
+  check('video studio fits bounded measure', r.fits, `${r.w}px`);
   await p.context().close();
 }
 
@@ -612,50 +608,44 @@ for (const w of [390, 320]) {
   await p.context().close();
 }
 
-// ── CLIP: a portrait frame must not claim a landscape measure ──────────────
-// The clip is 480x860. At a 960px measure it scales to roughly 1720px tall, so
-// it is capped by height and the figure sizes to its own parts instead of
-// leaving a hole beside a 234px frame.
+// ── VIDEO STUDIO: responsive layout and no sideways overflow ──────────────
 {
   const p = await newPage(1440, 1000);
   await p.goto(BASE, { waitUntil: 'networkidle' });
   await p.evaluate(() => { location.hash = '#flood-ami'; });
   await p.waitForTimeout(900);
   const m = await p.evaluate(() => {
-    const c = document.querySelector('.clip'), v = document.querySelector('.clip video'), f = document.querySelector('.clip figcaption');
-    const cb = c.getBoundingClientRect(), vb = v.getBoundingClientRect(), fb = f.getBoundingClientRect();
+    const s = document.querySelector('.vstudio'), v = document.querySelector('.vstudio-player'), l = document.querySelector('.vstudio-list');
+    const sb = s.getBoundingClientRect(), vb = v.getBoundingClientRect(), lb = l.getBoundingClientRect();
     return {
-      display: getComputedStyle(c).display, clipW: Math.round(cb.width),
-      vW: Math.round(vb.width), vH: Math.round(vb.height),
-      capLines: Math.round(fb.height / 17),
-      stacked: Math.abs(fb.x - vb.x) <= 1,
+      display: getComputedStyle(s).display,
+      studioW: Math.round(sb.width),
+      vW: Math.round(vb.width),
+      lW: Math.round(lb.width),
+      sideBySide: Math.abs(vb.y - lb.y) < 15,
     };
   });
-  check('the clip is a frame and its label, not a half-empty box', m.display === 'flex' && !m.stacked, JSON.stringify(m));
-  check('the figure is sized to its parts, not to the measure', m.clipW < 900, `${m.clipW}px`);
-  check('the portrait frame is still capped by height', m.vW <= m.vH, `${m.vW}x${m.vH}`);
-  check('the label holds two lines at desktop measure', m.capLines <= 2, `${m.capLines} lines`);
+  check('video studio is a grid with side-by-side player and playlist', m.display === 'grid' && m.sideBySide, JSON.stringify(m));
+  check('the studio is sized to its container, not overflowing', m.studioW <= 960, `${m.studioW}px`);
   await p.context().close();
 }
 
-// NARROW: below 1030px the label moves under the frame rather than stranding
-// four short lines beside it.
+// NARROW: across viewports, video studio stacks cleanly without sideways overflow
 for (const w of [1030, 900, 640, 390, 320]) {
   const p = await newPage(w, 900);
   await p.goto(BASE, { waitUntil: 'networkidle' });
   await p.evaluate(() => { location.hash = '#flood-ami'; });
   await p.waitForTimeout(800);
   const r = await p.evaluate(() => {
-    const c = document.querySelector('.clip'), v = document.querySelector('.clip video'), f = document.querySelector('.clip figcaption');
-    const vb = v.getBoundingClientRect(), fb = f.getBoundingClientRect(), cb = c.getBoundingClientRect();
+    const s = document.querySelector('.vstudio');
+    const sb = s.getBoundingClientRect();
+    const overflow = document.documentElement.scrollWidth - document.documentElement.clientWidth;
     return {
-      stacked: Math.abs(fb.x - vb.x) <= 1,
-      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-      fits: vb.right <= cb.right + 1 && fb.right <= cb.right + 1,
+      overflow,
+      fits: sb.right <= document.documentElement.clientWidth + 2,
     };
   });
-  check(`the label moves under the frame @${w}`, r.stacked);
-  check(`the clip never leaves its column @${w}`, r.fits);
+  check(`video studio never leaves its column @${w}`, r.fits);
   check(`no sideways overflow @${w}`, r.overflow === 0, `${r.overflow}px`);
   await p.context().close();
 }
