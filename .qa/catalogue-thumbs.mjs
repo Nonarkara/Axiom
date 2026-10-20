@@ -33,7 +33,17 @@ check('the catalogue has cards to check', ids.length > 0, `${ids.length} cards`)
 for (const id of ids) {
   await p.locator(`[data-arch="${id}"]`).scrollIntoViewIfNeeded();
 }
-await p.waitForTimeout(1500);
+
+// Lazy images fetch only when they approach the viewport, and a real network
+// needs far longer than a fixed pause to deliver seventy of them. Wait for
+// the loads to settle rather than guessing a duration. `complete` is true
+// when a load has finished whether it succeeded or failed, so a genuinely
+// broken asset still reaches this point and is reported below as 0x0 — the
+// wait distinguishes "not arrived yet" from "not there".
+await p.waitForFunction(() => {
+  const imgs = [...document.querySelectorAll('.sys-cell[data-arch] .sys-cell__shot')];
+  return imgs.length > 0 && imgs.every(i => i.complete);
+}, null, { timeout: 60000 }).catch(() => {});
 
 const shots = await p.evaluate(() =>
   [...document.querySelectorAll('.sys-cell[data-arch] .sys-cell__shot')].map(img => {
