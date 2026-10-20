@@ -4,7 +4,13 @@
   // One public-domain artwork per system, in place of the product screenshot.
   // After DIE WELT's 6 October 2011 edition, in which Ellsworth Kelly replaced
   // every news photograph with his own work. Pro bono entries keep their photos.
+  // The page artworks are our own crayon studies instead, and carry the studio
+  // credit rather than a public source.
   const PLATES = window.AXIOM_PLATES || {};
+  // Cloudflare serves static assets with a four-hour max-age. A plate whose
+  // file changed under the same name keeps serving the old bytes for hours,
+  // so every plate is addressed by a versioned path. Bump this when art ships.
+  const ART_V = '20261020a';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
 
   const shell = document.getElementById('shell');
@@ -61,10 +67,24 @@
 
   // A plate: the artwork, then a credit line set like a museum label, then one
   // line on why this work stands for this system.
+  // A museum work has a public source to point at. A studio original has
+  // none, and a dead link is worse than no link at all — so the label says
+  // what the work is instead of pretending there is somewhere to see it.
+  function sourceLine(art) {
+    const src = el('p', 'plate-src');
+    if (art[4]) {
+      src.appendChild(link(art[4], 'Source'));
+      src.appendChild(document.createTextNode(' · ' + art[5]));
+    } else {
+      src.appendChild(document.createTextNode(art[5]));
+    }
+    return src;
+  }
+
   function addPlate(id, art, host) {
     const fig = el('figure', 'plate-art');
     const img = el('img', 'plate-img');
-    img.src = 'art/' + id + '.webp';
+    img.src = 'art/' + id + '.webp?v=' + ART_V;
     img.alt = art[1] + ', ' + art[0] + ', ' + art[2];
     img.width = art[7];
     img.height = art[8];
@@ -77,10 +97,7 @@
     label.appendChild(document.createTextNode(', ' + art[2] + '. ' + art[3] + '.'));
     cap.appendChild(label);
     cap.appendChild(el('p', 'plate-why', art[6]));
-    const src = el('p', 'plate-src');
-    src.appendChild(link(art[4], 'Source'));
-    src.appendChild(document.createTextNode(' · ' + art[5]));
-    cap.appendChild(src);
+    cap.appendChild(sourceLine(art));
     fig.appendChild(cap);
     (host || plate).appendChild(fig);
     return fig;
@@ -92,7 +109,7 @@
   function addHero(id, art) {
     const fig = el('figure', 'hero-art');
     const img = el('img', 'hero-img');
-    img.src = 'art/' + id + '.webp';
+    img.src = 'art/' + id + '.webp?v=' + ART_V;
     img.alt = art[1] + ', ' + art[0] + ', ' + art[2];
     img.width = art[7];
     img.height = art[8];
@@ -105,10 +122,7 @@
     label.appendChild(document.createTextNode(', ' + art[2] + '. ' + art[3] + '.'));
     cap.appendChild(label);
     cap.appendChild(el('p', 'plate-why', art[6]));
-    const src = el('p', 'plate-src');
-    src.appendChild(link(art[4], 'Source'));
-    src.appendChild(document.createTextNode(' · ' + art[5]));
-    cap.appendChild(src);
+    cap.appendChild(sourceLine(art));
     fig.appendChild(cap);
     plate.appendChild(fig);
     return fig;
