@@ -1964,10 +1964,6 @@ const i18nExt = {
         cta: 'Follow on Facebook',
       },
       p66: {
-        lede: "A 20-year reunion with a 2006 MIT thesis. Eleven form profiles — rectilinear to pinwheel. Nine form-performance metrics: rent, area, sky reach, daylight, form distinctiveness. Live scenario recalc on every edit. Inspired by SHDT.",
-        cta: 'Design the form',
-      },
-      p66: {
         cat: 'Colour Exhibition',
         lede: "348 colour combinations. Search a relationship, study it in grayscale, copy its values. Dr Non's colour exhibition, inspired by Sanzo Wada.",
         cta: 'Explore the palettes',
@@ -1985,7 +1981,7 @@ const i18nExt = {
         cta: 'Enter the campus',
       },
       p70: {
-        lede: 'Architectural intelligence — 11 form profiles (rectilinear to pinwheel), 9 form-performance metrics (rent, area, sky reach, daylight, distinctiveness). A 20-year reunion with a 2006 MIT thesis. Live scenario recalc on every edit.',
+        lede: 'Architectural intelligence — 11 form profiles (rectilinear to pinwheel), 9 form-performance metrics: rent, area, sky reach, daylight, form distinctiveness. A 20-year reunion with a 2006 MIT thesis. Live scenario recalc on every edit. Inspired by SHDT.',
         cta: 'Design the form',
       },
     },
@@ -2445,10 +2441,6 @@ const i18nExt = {
         cta: 'ติดตาม Facebook',
       },
       p66: {
-        lede: "สอืนคลาสั่ว 20 ปี กับ MIT thesis ปี 2006. สิ้นฟอร์ม 11 แบบบ — จาก Rectilinear ถึง Pinwheel. ดัชนีฟอร์มประสิทธิภาพ 9 ด้าน: ค่าเช่า, พื้นที่, Sky Reach, Daylight, Form Distinctiveness. คำนวน scenario สองหร์เมือแก้ได้. ซ่ังเคียน SHDT.",
-        cta: 'ออกแบบ',
-      },
-      p66: {
         cat: 'นิทรรศการสี',
         lede: 'ชุดสี 348 ชุด ค้นหาความสัมพันธ์ของสี ดูแบบขาวดำ และคัดลอกค่าสี นิทรรศการสีของ Dr Non ที่ได้แรงบันดาลใจจาก Sanzo Wada',
         cta: 'สำรวจชุดสี',
@@ -2466,7 +2458,7 @@ const i18nExt = {
         cta: 'เข้าวิทยาเขต',
       },
       p70: {
-        lede: 'ความฉลาดทางสถาปัตยกรรม — 11 รูปทรง (จาก rectilinear ถึง pinwheel) ดัชนีประสิทธิภาพทรง 9 ด้าน (ค่าเช่า พื้นที่ sky reach daylight distinctiveness) การกลับมาพบกันใหม่หลัง 20 ปี กับ MIT thesis ปี 2006 คำนวณ scenario ใหม่แบบสดทุกครั้งที่แก้',
+        lede: 'ความฉลาดทางสถาปัตยกรรม — 11 รูปทรง (จาก rectilinear ถึง pinwheel) ดัชนีประสิทธิภาพทรง 9 ด้าน (ค่าเช่า พื้นที่ sky reach daylight distinctiveness) การกลับมาพบกันใหม่หลัง 20 ปี กับ MIT thesis ปี 2006 คำนวณ scenario ใหม่แบบสดทุกครั้งที่แก้ ซ่ังเคียน SHDT.',
         cta: 'ออกแบบ',
       },
     },
@@ -2923,10 +2915,6 @@ const i18nExt = {
         cta: '在 Facebook 上关注',
       },
       p66: {
-        lede: "与 2006 年 MIT 学位论文的 20 年重造。十一种形状——从矩形到风车。九项形体性能指标：租金、面积、天空达成、日光、形状识别度。每次编辑都重新计算场景。致敬 SHDT。",
-        cta: '设计形状',
-      },
-      p66: {
         cat: '色彩展览',
         lede: '348 组配色。搜索色彩关系，以灰度研究，复制色值。Dr Non 的色彩展览，灵感来自和田三造。',
         cta: '探索配色',
@@ -2944,7 +2932,7 @@ const i18nExt = {
         cta: '进入园区',
       },
       p70: {
-        lede: '建筑智能——11 种形态（从矩形到风车），9 项形态性能指标（租金、面积、天空达成、日光、形态识别度）。与 2006 年 MIT 学位论文相隔 20 年的重逢。每次编辑都即时重算场景。',
+        lede: '建筑智能——11 种形态（从矩形到风车），9 项形态性能指标（租金、面积、天空达成、日光、形态识别度）。与 2006 年 MIT 学位论文相隔 20 年的重逢。每次编辑都即时重算场景。致敬 SHDT。',
         cta: '设计形态',
       },
     },
@@ -3160,12 +3148,11 @@ const i18nExt = {
       p63: { lede: '// malaysia.godMode\n// jps.riverGauges(everyBasin) + met.warnings(malaysia)\n// transit(buses,trains) + aviation(ships,aircraft)\n// air + fire + citizen.index(who.lives.far.from.help)\n// map.oneScreen(locale[en,bm,zh])', cta: 'liveMap.open()' },
       p64: { lede: '// forestCarbon.thailand / provinceTap + drawBox\n// satellite.carbonStock + forestRemoval + emissions\n// fire + fossilCO2 + tVer.project(workbench)\n// sources + uncertainty / locale[th,en]', cta: 'assessment.open()' },
       p65: { lede: '// flooddash.community / facebook.channel\n// followers[112k] + likes[37k] + dailyBriefings.th\n// collab(SLIC, depa, RCAD)\n// liveIn.facebook.bitLy/flooddashThai', cta: 'facebook.follow()' },
-      p66: { lede: '// formHypes.shdt / 20yearReunion(MIT.thesis.2006)\n// formProfiles: 11 (rectilinear.to.pinwheel)\n// formPerf.metrics: 9 [rent, area, skyReach, daylight, distinctiveness]\n// liveRecalc.onEdit() // inspiredBy(SHDT)\n// conceptPrototype.notForConstruction', cta: 'form.design()' },
       p66: { cat: 'ColourExhibition', lede: 'palettes[348].search(relationship).study(grayscale).copy(css) // Dr Non × Sanzo Wada', cta: 'palettes.explore()' },
       p67: { lede: '// simsmartcity / realSite(OSM) → cityEconomy.growsLive\n// inspiredBy(SimCity2000) // urbanPlanning.rules(2026)\n// build.aCity(on: realPlace) → watch(the.economy)', cta: 'demo.open()' },
       p68: { lede: '// miaoshen.shanghai / threeDay.guide(asLetters)\n// still.water.running — read(when: in.place)\n// locales[th,en,zh]', cta: 'book.open()' },
       p69: { lede: '// tdv.thailandDigitalValley / siRacha.campus(twin)\n// buildings[5] · area[86k m²] · floorPlans[25.published]\n// chibi.visitors(animated) · IoT[1].CAD', cta: 'campus.enter()' },
-      p70: { lede: '// shdt.formHypes / 20year.reunion(MIT.thesis.2006)\n// profiles[11.rectilinear→pinwheel] · metrics[9.rent|area|skyReach|daylight|distinctiveness]\n// recalc.on(every.edit) // live.scenario', cta: 'form.design()' },
+      p70: { lede: '// formHypes.shdt / 20yearReunion(MIT.thesis.2006)\n// formProfiles: 11 (rectilinear.to.pinwheel)\n// formPerf.metrics: 9 [rent, area, skyReach, daylight, distinctiveness]\n// liveRecalc.onEdit() // inspiredBy(SHDT)\n// conceptPrototype.notForConstruction', cta: 'form.design()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -3392,7 +3379,6 @@ const i18nExt2 = {
       c47:'City Economics',
       c48:'Fieldwork Book',
       c49:'Campus Intelligence',
-      c50:'Working Instrument',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -3450,9 +3436,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '71 systems · 5 countries',
+      sysMeta: '70 systems · 5 countries',
       command: 'City Dashboards',
-      commandMeta: 'Real-time city operations rooms & environmental watch · 20',
+      commandMeta: 'Real-time city operations rooms & environmental watch · 22',
       intelligence: 'Intelligence',
       intelligenceMeta: 'Signal & analysis · 9',
       civic: 'Civic',
@@ -3460,7 +3446,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'Research-grade & new operating models · 10',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 26',
+      labMeta: 'Side tools · in the open · 23',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -3574,7 +3560,6 @@ const i18nExt2 = {
       c47:'เศรษฐศาสตร์เมือง',
       c48:'หนังสือภาคสนาม',
       c49:'ข่าวกรองวิทยาเขต',
-      c50:'เครื่องมือใช้งานจริง',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -3632,9 +3617,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '71 ระบบ · 5 ประเทศ',
+      sysMeta: '70 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
-      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 20',
+      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 22',
       intelligence: 'ข่าวกรอง',
       intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 9',
       civic: 'พลเมือง',
@@ -3642,7 +3627,7 @@ const i18nExt2 = {
       emerging: 'ระบบใหม่',
       emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 10',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 26',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 23',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -3754,7 +3739,6 @@ const i18nExt2 = {
       c47:'城市经济',
       c48:'田野志',
       c49:'校园智能',
-      c50:'可用工具',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -3812,9 +3796,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '71 个系统 · 5 个国家',
+      sysMeta: '70 个系统 · 5 个国家',
       command: '城市仪表板',
-      commandMeta: '实时城市作战室与环境监测 · 20',
+      commandMeta: '实时城市作战室与环境监测 · 22',
       intelligence: '情报',
       intelligenceMeta: '信号与分析 · 9',
       civic: '民生',
@@ -3822,7 +3806,7 @@ const i18nExt2 = {
       emerging: '新兴',
       emergingMeta: '研究级与新运营模式 · 10',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 26',
+      labMeta: '辅助工具 · 开放中 · 23',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3940,7 +3924,6 @@ const i18nExt2 = {
       c47:'CityEconomics',
       c48:'FieldworkBook',
       c49:'CampusIntel',
-      c50:'WorkingInstrument',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -3998,9 +3981,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '71 systems · 5 countries',
+      sysMeta: '70 systems · 5 countries',
       command: 'CityDashboards',
-      commandMeta: 'cityOps.realtime & envWatch · count[20]',
+      commandMeta: 'cityOps.realtime & envWatch · count[22]',
       intelligence: 'Intelligence',
       intelligenceMeta: 'signal & analysis · count[9]',
       civic: 'Civic',
@@ -4008,7 +3991,7 @@ const i18nExt2 = {
       emerging: 'Emerging',
       emergingMeta: 'researchGrade & newOperatingModels · count[10]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[26]',
+      labMeta: 'sideTools & openProcess · count[23]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
@@ -4092,7 +4075,7 @@ const i18nPitch = {
       r3: '157 cities ranked live — shown working on stage within a 45-minute keynote.',
       r4lbl: 'Field note 01',
       r4: 'A vendor called it too complex. A working version was in the room fourteen days later.',
-      proofLine: '71 systems across 5 countries. Open one. Use it. Judge.',
+      proofLine: '70 systems across 5 countries. Open one. Use it. Judge.',
       faqLabel: 'Before you ask',
       q1: 'Is it expensive?',
       a1: "No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.",
@@ -4148,7 +4131,7 @@ const i18nPitch = {
       r3: 'จัดอันดับ 157 เมืองแบบสด — ใช้งานได้จริงบนเวทีภายในคีย์โน้ต 45 นาที',
       r4lbl: 'บันทึกภาคสนาม 01',
       r4: 'ผู้ขายบอกว่าซับซ้อนเกินไป สิบสี่วันต่อมา ระบบที่ใช้งานได้ก็อยู่ในห้องประชุมแล้ว',
-      proofLine: '71 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
+      proofLine: '70 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
       faqLabel: 'ก่อนที่คุณจะถาม',
       q1: 'แพงไหม?',
       a1: 'ไม่แพงในการเริ่มต้น ขั้นแรกคือพิสูจน์ผลสองสัปดาห์บนข้อมูลที่คุณมีอยู่แล้ว ไม่ต้องซื้อฮาร์ดแวร์ คุณตัดสินใจเรื่องที่ใหญ่กว่าก็ต่อเมื่อได้เห็นมันใช้งานได้แล้ว',
@@ -4204,7 +4187,7 @@ const i18nPitch = {
       r3: '157 座城市实时排名——在一场 45 分钟的主题演讲中现场跑通。',
       r4lbl: '现场笔记 01',
       r4: '供应商说太复杂。十四天后，可用版本已经摆在会议室里。',
-      proofLine: '71 个系统，5 个国家。打开一个，亲自使用，再作判断。',
+      proofLine: '70 个系统，5 个国家。打开一个，亲自使用，再作判断。',
       faqLabel: '在你开口之前',
       q1: '贵吗？',
       a1: '起步不贵。第一步是基于你已有数据的两周验证，无需购买硬件。只有亲眼看到它跑通，你才需要决定更大的投入。',
@@ -4260,7 +4243,7 @@ const i18nPitch = {
       r3: '157개 도시 실시간 순위 — 45분 기조연설 안에 무대에서 작동을 보였습니다.',
       r4lbl: '현장 노트 01',
       r4: '벤더는 너무 복잡하다고 했습니다. 14일 뒤, 작동하는 버전이 회의실에 있었습니다.',
-      proofLine: '5개국의 71개 시스템. 하나를 열고, 사용하고, 판단하세요.',
+      proofLine: '5개국의 70개 시스템. 하나를 열고, 사용하고, 판단하세요.',
       faqLabel: '묻기 전에 답합니다',
       q1: '비싸지 않나요?',
       a1: '시작은 비싸지 않습니다. 첫 단계는 이미 가진 데이터로 하는 2주 검증이며, 하드웨어 구매가 없습니다. 작동하는 것을 본 뒤에 더 큰 결정을 하시면 됩니다.',
@@ -4316,7 +4299,7 @@ const i18nPitch = {
       r3: '157都市をライブでランキング——45分の基調講演の中で、壇上で動かしてみせました。',
       r4lbl: 'フィールドノート 01',
       r4: 'ベンダーは複雑すぎると言った。14日後、動くバージョンが会議室にあった。',
-      proofLine: '5か国、71のシステム。ひとつ開いて、使って、判断してください。',
+      proofLine: '5か国、70のシステム。ひとつ開いて、使って、判断してください。',
       faqLabel: '聞かれる前に',
       q1: '高くありませんか？',
       a1: '始めるのに高くはありません。最初の一歩はお手持ちのデータによる2週間の実証で、ハードウェア購入は不要です。動くのを見てから、より大きな判断をしてください。',
@@ -4372,7 +4355,7 @@ const i18nPitch = {
       r3: 'Xếp hạng trực tiếp 157 thành phố — chạy thật trên sân khấu trong một bài keynote 45 phút.',
       r4lbl: 'Ghi chép thực địa 01',
       r4: 'Nhà cung cấp nói quá phức tạp. Mười bốn ngày sau, một phiên bản chạy được đã có trong phòng họp.',
-      proofLine: '71 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
+      proofLine: '70 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
       faqLabel: 'Trước khi bạn hỏi',
       q1: 'Có đắt không?',
       a1: 'Khởi đầu thì không. Bước một là thử nghiệm hai tuần trên dữ liệu bạn đã có, không phải mua phần cứng. Bạn chỉ quyết định việc lớn hơn sau khi đã thấy nó chạy.',
@@ -4428,7 +4411,7 @@ const i18nPitch = {
       r3: 'rank({ cities: 157, live: true }) // within keynote(45min)',
       r4lbl: 'fieldNote[01]',
       r4: 'vendor.says("too complex") → workingVersion.inRoom(+14d)',
-      proofLine: 'document.querySelectorAll(".sys-cell[data-arch]").length === 71 // countries: 5\n// verify: open any below',
+      proofLine: 'document.querySelectorAll(".sys-cell[data-arch]").length === 70 // countries: 5\n// verify: open any below',
       faqLabel: 'objections.preempt()',
       q1: 'isExpensive?',
       a1: 'false // to start\nstep1 = proof({ weeks: 2, data: owned + freePublic, hardware: 0 })\nbiggerBuild.only({ after: proof.works })',
@@ -4463,7 +4446,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: '3D Urban Atlas', lede: 'A 3D city atlas and operations surface for DKI Jakarta — building massing, BMKG weather bulletins, citizen service CRM reports, and flood risk desks on one interactive screen. Bahasa Indonesia · EN.', cta: 'Open live system' },
     constitution: { cat: 'Civic Intelligence', lede: 'Read, highlight, listen to and practise the 2017 Thai Constitution across all 279 sections in Thai, English, and Chinese. Study cards, search, audio, and civic understanding. ไทย · EN · 中文.', cta: 'Open reading room' },
     ladder: { cat: 'Finance Intelligence', lede: 'The venture diligence and scorecard companion to Ikigai. Deal review, financial diligence checklist, thesis matching, and portfolio risk evaluation in one private workspace.', access: 'Sign-in required', cta: 'Open Ladder' },
-    proofLine: '71 systems across 5 countries. Open one. Use it. Judge.',
+    proofLine: '70 systems across 5 countries. Open one. Use it. Judge.',
   },
   th: {
     each: { cat: 'ระบบบริหารธุรกิจ', lede: 'ERP, ACT, CRM และ HR ในพื้นที่ทำงานภาษาไทยและอังกฤษ หน้าการเงินแสดงระยะเวลาที่เงินสดพอใช้ ค่าใช้จ่าย และเงินผ่อน ภาพตัวอย่างใช้ข้อมูลบริษัท ABC', access: 'ต้องเข้าสู่ระบบ', cta: 'เปิด EACH' },
@@ -4474,7 +4457,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: 'แผนที่เมือง 3D', lede: 'แผนที่เมือง 3D และโต๊ะปฏิบัติการจาการ์ตา — รูปทรงอาคาร ข่าวสภาพอากาศ BMKG รายงานบริการประชาชน CRM และโต๊ะความเสี่ยงน้ำท่วมในหน้าจอเดียว ภาษาอินโดนีเซีย · EN', cta: 'เปิดระบบจริง' },
     constitution: { cat: 'ปัญญาพลเมือง', lede: 'อ่าน ไฮไลต์ ฟัง และฝึกทำความเข้าใจรัฐธรรมนูญ พ.ศ. 2560 ครบทั้ง 279 มาตรา ในภาษาไทย อังกฤษ และจีน บัตรศึกษา ค้นหา เสียงอ่าน และความรู้พลเมือง ไทย · EN · 中文', cta: 'เปิดห้องอ่าน' },
     ladder: { cat: 'ปัญญาการเงิน', lede: 'เครื่องมือตรวจสอบกิจการและใบคะแนนคู่หูของ Ikigai ตรวจสอบดีล รายการตรวจสอบความรอบคอบทางการเงิน การเทียบสมมติฐานลงทุน และประเมินความเสี่ยงพอร์ตในพื้นที่ส่วนตัว', access: 'ต้องเข้าสู่ระบบ', cta: 'เปิด Ladder' },
-    proofLine: '71 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
+    proofLine: '70 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
   },
   zh: {
     each: { cat: '企业运营', lede: '集 ERP、ACT、CRM 和 HR 于一体的泰英双语工作空间。财务页呈现现金可支撑时长、费用和贷款分期。缩略图使用 ABC 公司的示例数据。', access: '需要登录', cta: '打开 EACH' },
@@ -4485,7 +4468,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: '三维城市地图', lede: '雅加达三维城市地图与运营平台——建筑体量、BMKG 气象公报、CRM 市民服务报告与水灾风险控制台汇聚于同一交互屏幕。印尼语 · 英语。', cta: '打开在线系统' },
     constitution: { cat: '公民智能', lede: '精读、高亮、倾听与练习 2017 年泰国宪法全部 279 条条文，支持泰语、英语和中文。学习卡片、全文搜索、语音朗读与公民常识。泰语 · 英语 · 中文。', cta: '打开阅读室' },
     ladder: { cat: '金融情报', lede: 'Ikigai 的风险投资尽调与评分卡伴侣。在专属私密工作空间中完成项目审阅、财务尽调清单核对、投资逻辑匹配与组合风险评估。', access: '需要登录', cta: '打开 Ladder' },
-    proofLine: '71 个系统，5 个国家。打开一个，亲自使用，再作判断。',
+    proofLine: '70 个系统，5 个国家。打开一个，亲自使用，再作判断。',
   },
   ko: {
     each: { cat: '비즈니스 운영', lede: 'ERP, ACT, CRM, HR을 한곳에 모은 태국어·영어 작업 공간. 재무 화면에서 현금 지속 기간, 비용, 대출 상환을 봅니다. 썸네일은 ABC 회사의 예시 데이터입니다.', access: '로그인 필요', cta: 'EACH 열기' },
@@ -4496,7 +4479,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: '3D 도시 지도', lede: '자카르타 수도권 3D 도시 지도 및 운영 표면 — 건물 형태, BMKG 기상 속보, CRM 시민 민원 보고, 홍수 위험 데스크를 한 화면에 통합. 인도네시아어 · EN.', cta: '라이브 시스템 열기' },
     constitution: { cat: '시민 인텔리전스', lede: '2017년 태국 헌법 전 279개 조항을 태국어·영어·중국어로 읽고, 하이라이트하고, 듣고, 연습하세요. 학습 카드, 검색, 오디오, 시민 이해. ไทย · EN · 中文.', cta: '열람실 열기' },
     ladder: { cat: '금융 인텔리전스', lede: 'Ikigai의 벤처 실사 및 스코어카드 동반 엔진. 거래 검토, 재무 실사 체크리스트, 투자 가설 매칭, 포트폴리오 위험 평가를 비공개 공간에서 수행.', access: '로그인 필요', cta: 'Ladder 열기' },
-    proofLine: '5개국의 71개 시스템. 하나를 열고, 사용하고, 판단하세요.',
+    proofLine: '5개국의 70개 시스템. 하나를 열고, 사용하고, 판단하세요.',
   },
   ja: {
     each: { cat: '業務管理', lede: 'ERP・ACT・CRM・HRをまとめたタイ語・英語のワークスペース。財務画面で資金の継続期間、費用、ローン返済を確認。サムネイルはABC社のサンプルデータです。', access: 'ログインが必要', cta: 'EACHを開く' },
@@ -4507,7 +4490,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: '3D都市アトラス', lede: 'ジャカルタ特別州の3D都市アトラスと運用環境 — 建物形状、BMKG気象速報、CRM市民サービス通報、洪水リスクデスクを1つの画面に統合。インドネシア語 · EN。', cta: '本番システムを開く' },
     constitution: { cat: 'シビックインテリジェンス', lede: '2017年タイ憲法の全279条をタイ語・英語・中国語で読み、ハイライトし、聴き、学ぶ。学習カード、検索、音声、市民理解。タイ語 · 英語 · 中国語。', cta: '読書室を開く' },
     ladder: { cat: '金融インテリジェンス', lede: 'Ikigaiのベンチャーデューデリジェンスおよびスコアカード連携エンジン。ディール精査、財務デューデリリスト、投資仮説照合、ポートフォリオのリスク評価を専用空間で。', access: 'ログインが必要', cta: 'Ladderを開く' },
-    proofLine: '5か国、71のシステム。ひとつ開いて、使って、判断してください。',
+    proofLine: '5か国、70のシステム。ひとつ開いて、使って、判断してください。',
   },
   vi: {
     each: { cat: 'Vận hành doanh nghiệp', lede: 'ERP, ACT, CRM và HR trong một không gian làm việc tiếng Thái/Anh. Màn hình tài chính hiển thị thời gian tiền mặt đủ dùng, chi phí và trả góp. Hình thu nhỏ dùng dữ liệu mẫu của công ty ABC.', access: 'Cần đăng nhập', cta: 'Mở EACH' },
@@ -4518,7 +4501,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: 'Bản đồ đô thị 3D', lede: 'Bản đồ đô thị 3D và bàn vận hành cho DKI Jakarta — khối công trình, bản tin thời tiết BMKG, báo cáo CRM dịch vụ công dân và rủi ro ngập lụt trên một màn hình tương tác. Tiếng Indonesia · EN.', cta: 'Mở hệ thống trực tiếp' },
     constitution: { cat: 'Trí tuệ công dân', lede: 'Đọc, đánh dấu, nghe và thực hành Hiến pháp Thái Lan 2017 với đầy đủ 279 điều bằng tiếng Thái, Anh và Trung. Thẻ học tập, tìm kiếm, âm thanh và hiểu biết công dân. Thái · EN · Trung.', cta: 'Mở phòng đọc' },
     ladder: { cat: 'Tình báo tài chính', lede: 'Công cụ thẩm định đầu tư mạo hiểm và bảng điểm đồng hành cùng Ikigai. Đánh giá thương vụ, danh mục thẩm định tài chính, khớp luận điểm và thẩm định rủi ro danh mục trong không gian riêng.', access: 'Cần đăng nhập', cta: 'Mở Ladder' },
-    proofLine: '71 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
+    proofLine: '70 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
   },
   ts: {
     each: { cat: 'BusinessOperations', lede: 'each.workspace({ modules: [ERP, ACT, CRM, HR], locales: [th, en] }) // finance: runway + expenses + installments; thumbnail: ABC.exampleData', access: 'auth.required', cta: 'each.open()' },
@@ -4529,7 +4512,7 @@ const catalogReleaseCopy = {
     jakarta: { cat: 'UrbanAtlas3D', lede: 'jakarta.opsDesk({ massing: 3D, weather: BMKG, reports: CRM, flood: DSDA }) // DKI Jakarta ops', cta: 'system.openLive()' },
     constitution: { cat: 'CivicIntelligence', lede: 'constitution.study({ year: 2017, sections: 279, locales: [th, en, zh], audio: true, cards: true })', cta: 'readingRoom.open()' },
     ladder: { cat: 'FinanceIntelligence', lede: 'ladder.diligence({ deals, financialChecklist, thesisMatch, portfolioRisk }) // Ikigai companion', access: 'auth.required', cta: 'ladder.open()' },
-    proofLine: 'catalog.length === 71 // countries: 5; open → use → judge',
+    proofLine: 'catalog.length === 70 // countries: 5; open → use → judge',
   },
 };
 

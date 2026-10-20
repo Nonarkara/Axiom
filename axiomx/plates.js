@@ -925,18 +925,6 @@ window.AXIOM_PLATES = {
 617,
 "etching"
 ],
-"shdt": [
-"Pieter Bruegel the Elder",
-"Landscape with the Flight into Egypt",
-"1563",
-"Web Gallery of Art",
-"https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Landscape_with_the_Flight_into_Egypt_-_WGA03341.jpg",
-"Public domain",
-"A landscape where the eye measures the journey from earth to sky. Form, sky-reach, daylight — all of them rendered in one quiet horizontal picture.",
-1200,
-806,
-"Renaissance"
-],
 "page-hero": [
 "Winslow Homer",
 "The Gulf Stream",
