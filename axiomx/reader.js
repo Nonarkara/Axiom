@@ -86,6 +86,34 @@
     return fig;
   }
 
+  // The hero: one wide plate, edge to edge, with the museum label under it.
+  // The poster above it is a sentence long; the picture has to run the length
+  // of that sentence, not sit beside it like a stamp.
+  function addHero(id, art) {
+    const fig = el('figure', 'hero-art');
+    const img = el('img', 'hero-img');
+    img.src = 'art/' + id + '.webp';
+    img.alt = art[1] + ', ' + art[0] + ', ' + art[2];
+    img.width = art[7];
+    img.height = art[8];
+    img.decoding = 'async';
+    fig.appendChild(img);
+    const cap = el('figcaption');
+    const label = el('p', 'plate-label');
+    label.appendChild(el('b', '', art[0]));
+    label.appendChild(el('i', '', art[1]));
+    label.appendChild(document.createTextNode(', ' + art[2] + '. ' + art[3] + '.'));
+    cap.appendChild(label);
+    cap.appendChild(el('p', 'plate-why', art[6]));
+    const src = el('p', 'plate-src');
+    src.appendChild(link(art[4], 'Source'));
+    src.appendChild(document.createTextNode(' · ' + art[5]));
+    cap.appendChild(src);
+    fig.appendChild(cap);
+    plate.appendChild(fig);
+    return fig;
+  }
+
   // The field notes get two objects under the prose: an artwork that stands for
   // the claim, and a drawing of the claim. The plate keeps the same museum label
   // it carries everywhere else — same credit, same source, same licence — so the
@@ -177,6 +205,7 @@
 
   book.push(doc('axiom', 'Index', 'Axiom', [
     { type: 'poster', text: 'The flood arrives at 2 a.m.', em: 'The dashboard arrives next fiscal year.' },
+    { type: 'hero', plate: 'page-hero' },
     { type: 'lede', text: 'City data already exists. In a crisis, nobody sees it whole. We build one screen for one decision, and put it in the room in two weeks.' },
     { type: 'figs', rows: [
       { v: String(systems.length), l: 'Systems', t: 'Across five countries. Open one.' },
@@ -196,6 +225,7 @@
   book.push(doc('problem', 'Method', 'The picture is late', [
     { type: 'h', text: 'The picture is late' },
     { type: 'lede', text: 'Rain, traffic, air, complaints, satellites — held by a dozen agencies, each on its own clock. The crisis arrives on one clock. It arrives at 2 a.m. Nothing else does.' },
+    { type: 'plate', plate: 'page-problem' },
     { type: 'steps', items: [
       { t: 'The data is already there.', d: 'It sits in TMD rainfall gauges, GISTDA satellite passes, Pollution Control Department air readings, municipal spreadsheets, and a phone call from a district officer. Almost all of it is public. None of it is hard to obtain. It is only hard to see.' },
       { t: 'The clocks do not match.', d: 'Gauges report every five minutes. A satellite passes every ten days. Complaints get logged when somebody is awake to log them. A decision needs all three in the same second. No agency is built to do that, because no single agency owns the decision that would need it.' },
@@ -207,6 +237,7 @@
   book.push(doc('room', 'Method', 'No handlers', [
     { type: 'h', text: 'No handlers' },
     { type: 'lede', text: 'Bring the problem. The people you meet in week one are the people writing the code in week two. There is no account layer and no hand-off.' },
+    { type: 'plate', plate: 'page-room' },
     { type: 'steps', items: [
       { t: 'The large firm', d: 'A senior partner sells the work. A delivery team you never meet builds it. You get slides, a change-request cycle, and a vendor relationship to manage instead of a problem to solve.' },
       { t: 'What that costs', d: 'Every question survives two translations — once into a proposal, once into a build. The answers come back shaped like the proposal rather than like your problem.' },
@@ -219,9 +250,9 @@
     { type: 'h', text: 'Three steps' },
     { type: 'lede', text: 'Two weeks to a screen somebody can actually use. The steps never change. The decision does.' },
     { type: 'steps', items: [
-      { t: 'Week 1 — Name the decision.', d: 'We sit with the person who really decides — a governor, a flood desk, a port authority — and agree on one decision to make faster. Who owns it. What data already exists. What it would mean to be wrong in time.' },
-      { t: 'Week 2 — A working screen, in the room.', d: 'Built on your data and on free public sources. No new hardware, no procurement, no procurement-grade lead time. You judge it live, on your own numbers, and tell us what is wrong with it.' },
-      { t: 'From day one — Measure, then scale.', d: 'Every screen logs who opens it and which decision it served. The next version is built from what the first one taught. Scaling follows use instead of being decided in advance.' }
+      { t: 'Week 1 — Name the decision.', d: 'We sit with the person who really decides — a governor, a flood desk, a port authority — and agree on one decision to make faster. Who owns it. What data already exists. What it would mean to be wrong in time.', plate: 'page-step-1' },
+      { t: 'Week 2 — A working screen, in the room.', d: 'Built on your data and on free public sources. No new hardware, no procurement, no procurement-grade lead time. You judge it live, on your own numbers, and tell us what is wrong with it.', plate: 'page-step-2' },
+      { t: 'From day one — Measure, then scale.', d: 'Every screen logs who opens it and which decision it served. The next version is built from what the first one taught. Scaling follows use instead of being decided in advance.', plate: 'page-step-3' }
     ]},
     { type: 'note', text: 'The constraint is never the technology. It is agreeing, in week one, that there is one decision worth two weeks.' }
   ], { num: '03' }));
@@ -235,6 +266,7 @@
       { v: '45m', l: 'SLIC · Taipei', t: '157 cities ranked live, on stage, inside a 45-minute keynote.' },
       { v: '14d', l: 'Field note', t: 'A vendor called it too complex. A working version was in the room fourteen days later.' }
     ]},
+    { type: 'plate', plate: 'page-changed' },
     { type: 'p', text: 'One objection is worth answering properly. Two weeks sounds fast because it sounds thin. It is thin — on purpose. A first screen is one decision, live, on real data, with its limits visible. It is not a finished product and we will not sell it as one.' },
     { type: 'p', text: 'What it buys is knowledge. In two weeks you find out whether the decision is real, whether the data actually supports it, and whether anybody opens the screen at two in the morning. A year of procurement answers none of those three questions until it is too late to change course.' },
     { type: 'p', text: systems.length + ' systems across five countries. Open one. Use it. Judge it.' }
@@ -248,7 +280,8 @@
       { t: 'Is our data safe?', d: 'The first step uses public data, so sensitive records stay with you. Delivery follows PDPA, GDPR-informed practice, and ISO/IEC frameworks. That is practice, not a certification. See the record.' },
       { t: 'You are a small team. Can you deliver?', d: 'You deal with the builders — Dr Non Arkaraprasertkul and Dr Poon Thiengburanathum. Specialists join for a mission, not as a standing bench.' },
       { t: 'Will it still run after launch?', d: 'Most systems here have outlived their launch. Each is documented and instrumented so your own team can keep it.' }
-    ]}
+    ]},
+    { type: 'plate', plate: 'page-questions' }
   ], { num: '05' }));
 
   book.push(doc('iaas', 'Practice', 'Innovation-as-a-Service', [
@@ -284,6 +317,7 @@
   book.push(doc('catalogue', 'Catalogue', 'How to read this', [
     { type: 'h', text: 'How to read this' },
     { type: 'lede', text: 'Every entry here started as one decision somebody could not make fast enough. It is live, or it says it is not.' },
+    { type: 'plate', plate: 'page-catalogue' },
     { type: 'p', text: 'These are not demos dressed up for a pitch. They are working systems in a sandbox, built to scale rather than to impress. Deployments under NDA are larger; what you can open here behaves like them, with advanced modules withheld.' },
     { type: 'steps', items: [
       { t: 'Live', d: 'Running now, on public or client data. Read the entry, then open it. It will still be running in the morning.' },
@@ -616,6 +650,20 @@
     { type: 'note', text: 'Bangkok · Southeast Asia. © 2026 Axiom X Co., Ltd. Figures on this site are case-specific. They are not a promise of the next case.' }
   ]));
 
+  // Which artworks does the book actually mount? A plate that exists in
+  // plates.js but is wired into no page is a file nobody ever sees, so the list
+  // of live plates is derived here and read by the QA harness.
+  const bookPlates = [];
+  book.forEach(function (entry) {
+    (entry.blocks || []).forEach(function (block) {
+      if (block.plate && bookPlates.indexOf(block.plate) === -1) bookPlates.push(block.plate);
+      (block.items || []).forEach(function (item) {
+        if (item && item.plate && bookPlates.indexOf(item.plate) === -1) bookPlates.push(item.plate);
+      });
+    });
+  });
+  window.AXIOM_BOOK_PLATES = bookPlates;
+
   function visible() {
     const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
     if (!words.length) return book;
@@ -668,6 +716,7 @@
       row.appendChild(el('div', 'n', String(i + 1).padStart(2, '0')));
       row.appendChild(el('h2', '', item.t));
       row.appendChild(el('p', '', item.d));
+      if (item.plate && PLATES[item.plate]) addPlate(item.plate, PLATES[item.plate], row);
       wrap.appendChild(row);
     });
     plate.appendChild(wrap);
@@ -727,6 +776,12 @@
         plate.appendChild(wrap);
       } else if (block.type === 'clip') {
         addClip(block.clip);
+      } else if (block.type === 'hero') {
+        const art = PLATES[block.plate];
+        if (art) addHero(block.plate, art);
+      } else if (block.type === 'plate') {
+        const art = PLATES[block.plate];
+        if (art) addPlate(block.plate, art);
       } else if (block.type === 'image') {
         const img = el('img', 'shot');
         img.src = media(block.src);

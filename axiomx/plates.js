@@ -936,5 +936,113 @@ window.AXIOM_PLATES = {
 1200,
 806,
 "Renaissance"
+],
+"page-hero": [
+"Winslow Homer",
+"The Gulf Stream",
+"1899",
+"Metropolitan Museum of Art, New York",
+"https://commons.wikimedia.org/wiki/File:Winslow_Homer_-_The_Gulf_Stream_-_Metropolitan_Museum_of_Art.jpg",
+"Public domain",
+"A dismasted boat, still afloat, still not safe, with the sharks already in the water behind it. The sea does not wait for the budget cycle.",
+1800,
+1082,
+"American Realism"
+],
+"page-problem": [
+"Pieter Bruegel the Elder",
+"The Numbering at Bethlehem",
+"1566",
+"Royal Museums of Fine Arts of Belgium, Brussels",
+"https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Numbering_at_Bethlehem_-_Google_Art_Project.jpg",
+"Public domain",
+"The whole village, counted in one pass, in the snow, after the fact. The record is complete and it arrives too late. That is the problem in one panel.",
+1200,
+831,
+"Renaissance"
+],
+"page-room": [
+"Rembrandt",
+"The Syndics of the Amsterdam Drapers' Guild",
+"1662",
+"Rijksmuseum, Amsterdam",
+"https://commons.wikimedia.org/wiki/File:Rembrandt_-_De_Staalmeesters-_het_college_van_staalmeesters_(waardijns)_van_het_Amsterdamse_lakenbereidersgilde_-_Google_Art_Project.jpg",
+"Public domain",
+"Five men in one room, examining the work, deciding in front of each other. Nobody is translating and nobody is handing it on.",
+1200,
+811,
+"Dutch Golden Age"
+],
+"page-step-1": [
+"Rembrandt",
+"The Anatomy Lesson of Dr. Nicolaes Tulp",
+"1632",
+"Mauritshuis, The Hague",
+"https://commons.wikimedia.org/wiki/File:Rembrandt_-_The_Anatomy_Lesson_of_Dr_Nicolaes_Tulp.jpg",
+"Public domain",
+"A group looks hard at one thing and names what it finds. Week one is this: name the decision, in the room, with the people who own it.",
+1200,
+904,
+"Dutch Golden Age"
+],
+"page-step-2": [
+"Diego Velázquez",
+"Las Meninas",
+"1656–57",
+"Museo del Prado, Madrid",
+"https://commons.wikimedia.org/wiki/File:Las_Meninas_(1656),_by_Velazquez.jpg",
+"Public domain",
+"The canvas stands in the room with the people who made it. A working screen is not a promise in a deck. It is a surface in the room, on your own numbers, to be judged.",
+1042,
+1200,
+"Spanish Baroque"
+],
+"page-step-3": [
+"Piero della Francesca",
+"The Flagellation of Christ",
+"1459–60",
+"Galleria Nazionale delle Marche, Urbino",
+"https://commons.wikimedia.org/wiki/File:Piero_della_Francesca_-_The_Flagellation_-_WGA17600.jpg",
+"Public domain",
+"Piero was a mathematician before he was a painter. The picture and the proof are one object. That is what measure-then-scale means.",
+1200,
+873,
+"Renaissance"
+],
+"page-changed": [
+"Jusepe de Ribera",
+"Archimedes",
+"c. 1630",
+"Museo del Prado, Madrid",
+"https://commons.wikimedia.org/wiki/File:José_de_Ribera_-_Arquímedes.jpg",
+"Public domain",
+"Not promised in a deck. Archimedes does not need to be believed; he needs the water to rise. That is what two weeks buys you.",
+935,
+1200,
+"Baroque"
+],
+"page-questions": [
+"Pieter Brueghel the Younger",
+"The Village Lawyer",
+"1621",
+"Kunsthistorisches Museum, Vienna",
+"https://commons.wikimedia.org/wiki/File:Pieter_Brueghel_the_Younger_-_Village_Lawyer_-_WGA3633.jpg",
+"Public domain",
+"The question arrives with a person attached to it. Bring the problem, and the answer is written from what actually happened — not from what was quoted.",
+1200,
+701,
+"Flemish Baroque"
+],
+"page-catalogue": [
+"David Teniers the Younger",
+"Archduke Leopold William in his Gallery at Brussels",
+"1650",
+"Kunsthistorisches Museum, Vienna",
+"https://commons.wikimedia.org/wiki/File:David_Teniers_the_Younger_-_Archduke_Leopold_William_in_his_Gallery_at_Brussels_-_Google_Art_Project.jpg",
+"Public domain",
+"A gallery of pictures, each one standing for a thing, each one labelled with where it came from. That is the catalogue: one plate per system, credited and sourced.",
+1200,
+894,
+"Flemish Baroque"
 ]
 };

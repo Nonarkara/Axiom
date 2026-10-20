@@ -20,7 +20,7 @@ async function newPage(w = 1440, h = 900) {
   const p = await newPage();
   await p.goto(BASE, { waitUntil: 'networkidle' });
   check('lands on the pitch', (await p.textContent('.poster')).includes('flood arrives'));
-  check('67 shown, not 66', (await p.textContent('.fig b')) === '67', `got "${await p.textContent('.fig b')}"`);
+  check('71 systems shown', (await p.textContent('.fig b')) === '71', `got "${await p.textContent('.fig b')}"`);
   const kicker = await p.textContent('.bar-kicker');
   check('bar kicker populated', kicker.trim().length > 0, `"${kicker}"`);
   // click through the index to a live system
@@ -46,6 +46,7 @@ async function newPage(w = 1440, h = 900) {
 {
   const p = await newPage();
   await p.goto(BASE, { waitUntil: 'networkidle' });
+  const baseline = await p.$$eval('#nav .item', e => e.length);
   await p.keyboard.press('/');
   const focused = await p.evaluate(() => document.activeElement.id);
   check('"/" focuses search', focused === 'q', `focus was #${focused}`);
@@ -63,8 +64,8 @@ async function newPage(w = 1440, h = 900) {
     val: document.getElementById('q').value,
     items: document.querySelectorAll('#nav .item').length,
   }));
-  check('Escape clears the search and restores the index', cleared.val === '' && cleared.items === 113,
-        JSON.stringify(cleared));
+  check('Escape clears the search and restores the index', cleared.val === '' && cleared.items === baseline,
+        JSON.stringify({ cleared, baseline }));
   await p.keyboard.press('/');
   await p.keyboard.type('zzzznomatch');
   await p.waitForTimeout(250);
@@ -72,7 +73,7 @@ async function newPage(w = 1440, h = 900) {
   await p.keyboard.press('Escape');
   await p.keyboard.press('Escape');
   await p.waitForTimeout(200);
-  check('second Escape fully restores', await p.evaluate(() => document.querySelectorAll('#nav .item').length === 113));
+  check('second Escape fully restores', await p.evaluate((n) => document.querySelectorAll('#nav .item').length === n, baseline));
   await p.context().close();
 }
 
@@ -298,12 +299,19 @@ async function newPage(w = 1440, h = 900) {
     await new Promise(r => setTimeout(r, 150));
     const pb = !!document.querySelector('#plate .shot') && !document.querySelector('#plate .plate-art');
     const sysIds = new Set(sys);
-    const orphans = Object.keys(plates).filter(id => !sysIds.has(id)
-      && !/^note-\d|^stack$/.test(id));
-    return { sys: sys.length, n: Object.keys(plates).length, missing, badLic, broken, pb, orphans };
+    // A plate is live if a system mounts it or a page in the book references it.
+    // Deriving this beats exempting a prefix: a plate added to plates.js and
+    // wired into nothing now fails, instead of passing on a naming convention.
+    const bookIds = new Set(window.AXIOM_BOOK_PLATES || []);
+    const orphans = Object.keys(plates).filter(id => !sysIds.has(id) && !bookIds.has(id));
+    // The mirror: a page that asks for an artwork nobody defined renders empty,
+    // because the plate builders skip an unknown id without complaining.
+    const dangling = [...bookIds].filter(id => !plates[id]);
+    return { sys: sys.length, n: Object.keys(plates).length, missing, badLic, broken, pb, orphans, dangling, book: bookIds.size };
   });
   check('every system has a plate', r.missing.length === 0, `${r.n} plates for ${r.sys} systems, missing: ${r.missing.join(',') || 'none'}`);
   check('no plate is orphaned', r.orphans.length === 0, r.orphans.join(','));
+  check('every page artwork exists', r.dangling.length === 0, r.dangling.join(','));
   check('every plate is public domain or CC0', r.badLic.length === 0, r.badLic.join(','));
   check('every plate image resolves', r.broken.length === 0, r.broken.join(','));
   check('pro bono keeps its own photograph', r.pb);

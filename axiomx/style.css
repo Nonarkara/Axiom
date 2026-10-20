@@ -811,6 +811,49 @@ h1.name {
   max-width: 66ch;
 }
 .plate-art figcaption p { margin: 0; }
+
+/* ── HERO ─────────────────────────────────────────────────────────────────
+   The poster is one sentence long. The picture under it has to run the
+   length of that sentence rather than sit beside it like a stamp, so the
+   plate goes edge to edge and only the label takes a measure. The label
+   is the same museum label every other plate in this book carries:
+   artist, title, year, collection, source, licence, and one line on why
+   this work stands here. The audit trail is not a nicety; it is the
+   reason the picture can be trusted to carry the sentence.
+   ─────────────────────────────────────────────────────────────────────── */
+.hero-art { margin: 24px 0 0; }
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 58vh;
+  object-fit: cover;
+  object-position: center 42%;
+  border-bottom: 1px solid var(--line);
+  background: var(--line);
+}
+.hero-art figcaption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  margin: 11px var(--pad) 0;
+  padding-top: 9px;
+  border-top: 1px solid var(--line);
+  max-width: 66ch;
+}
+.hero-art figcaption p { margin: 0; }
+
+/* A step that carries a plate puts the picture under its own paragraph, in
+   the prose column, not at the 960px plate measure. A wide image under a
+   short paragraph reads as a second page. */
+.numbered .plate-art {
+  margin: 16px 0 0;
+  max-width: 520px;
+}
+.numbered .plate-img { max-height: 380px; }
+.numbered .plate-label { font-size: 10px; }
+.numbered .plate-why { font-size: 13px; line-height: 1.45; }
+
 .plate-label {
   font-family: var(--mono);
   font-size: 11px;
