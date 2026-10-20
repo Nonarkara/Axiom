@@ -10,7 +10,7 @@
   // Cloudflare serves static assets with a four-hour max-age. A plate whose
   // file changed under the same name keeps serving the old bytes for hours,
   // so every plate is addressed by a versioned path. Bump this when art ships.
-  const ART_V = '20261020f';
+  const ART_V = '20261020g';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
 
   const shell = document.getElementById('shell');
@@ -190,7 +190,8 @@
   function addPlate(id, art, host) {
     const fig = el('figure', 'plate-art');
     const img = el('img', 'plate-img');
-    img.src = 'art/' + id + '.webp?v=' + ART_V;
+    const artSrc = 'art/' + id + '.webp?v=' + ART_V;
+    img.src = artSrc;
     img.alt = art[1] + ', ' + art[0] + ', ' + art[2];
     img.width = art[7];
     img.height = art[8];
@@ -202,9 +203,48 @@
     label.appendChild(el('i', '', art[1]));
     label.appendChild(document.createTextNode(', ' + art[2] + '. ' + art[3] + '.'));
     cap.appendChild(label);
-    cap.appendChild(el('p', 'plate-why', art[6]));
+    const whyP = el('p', 'plate-why', art[6]);
+    cap.appendChild(whyP);
     cap.appendChild(sourceLine(art));
     fig.appendChild(cap);
+
+    // Easter egg: Double-click (or double-tap on touch) at the artwork to toggle
+    // the real production system screen from axiom.nonarkara.org.
+    const sys = systems.find(function (s) { return s.id === id; });
+    if (sys && sys.img) {
+      fig.style.cursor = 'pointer';
+      fig.title = 'Double-click to view the real production interface';
+      let showingScreen = false;
+      const screenSrc = media(sys.img);
+      function toggle() {
+        showingScreen = !showingScreen;
+        if (showingScreen) {
+          img.src = screenSrc;
+          img.alt = sys.alt || sys.name;
+          fig.classList.add('is-real-screen');
+          whyP.textContent = '⚡ Production Interface · ' + (sys.name || id) + ' (double-click to return to masterwork).';
+        } else {
+          img.src = artSrc;
+          img.alt = art[1] + ', ' + art[0] + ', ' + art[2];
+          fig.classList.remove('is-real-screen');
+          whyP.textContent = art[6];
+        }
+      }
+      fig.addEventListener('dblclick', function (e) {
+        e.preventDefault();
+        toggle();
+      });
+      let lastTap = 0;
+      fig.addEventListener('touchend', function (e) {
+        const now = Date.now();
+        if (now - lastTap < 350) {
+          e.preventDefault();
+          toggle();
+        }
+        lastTap = now;
+      });
+    }
+
     (host || plate).appendChild(fig);
     return fig;
   }

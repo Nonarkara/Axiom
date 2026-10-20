@@ -1002,6 +1002,9 @@ h1.name {
   border: 1px solid var(--line);
   background: var(--line);
 }
+.plate-art.is-real-screen .plate-img {
+  outline: 1px solid var(--accent);
+}
 .plate-art figcaption {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
