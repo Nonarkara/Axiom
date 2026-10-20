@@ -4,13 +4,13 @@
   // One public-domain artwork per system, in place of the product screenshot.
   // After DIE WELT's 6 October 2011 edition, in which Ellsworth Kelly replaced
   // every news photograph with his own work. Pro bono entries keep their photos.
-  // The page artworks are our own crayon studies instead, and carry the studio
-  // credit rather than a public source.
+  // The nine page artworks are museum works too, chosen because the painting
+  // tells that page's story — the flood, the missing picture, the working thing.
   const PLATES = window.AXIOM_PLATES || {};
   // Cloudflare serves static assets with a four-hour max-age. A plate whose
   // file changed under the same name keeps serving the old bytes for hours,
   // so every plate is addressed by a versioned path. Bump this when art ships.
-  const ART_V = '20261020a';
+  const ART_V = '20261020b';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
 
   const shell = document.getElementById('shell');
@@ -67,17 +67,11 @@
 
   // A plate: the artwork, then a credit line set like a museum label, then one
   // line on why this work stands for this system.
-  // A museum work has a public source to point at. A studio original has
-  // none, and a dead link is worse than no link at all — so the label says
-  // what the work is instead of pretending there is somewhere to see it.
+  // Every plate is a museum work with a public source to point at.
   function sourceLine(art) {
     const src = el('p', 'plate-src');
-    if (art[4]) {
-      src.appendChild(link(art[4], 'Source'));
-      src.appendChild(document.createTextNode(' · ' + art[5]));
-    } else {
-      src.appendChild(document.createTextNode(art[5]));
-    }
+    src.appendChild(link(art[4], 'Source'));
+    src.appendChild(document.createTextNode(' · ' + art[5]));
     return src;
   }
 

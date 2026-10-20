@@ -289,10 +289,10 @@ async function newPage(w = 1440, h = 900) {
     const sys = (window.AXIOM_SYSTEMS || []).map(s => s.id);
     const plates = window.AXIOM_PLATES || {};
     const missing = sys.filter(id => !plates[id]);
-    // A plate is either a museum work (public domain, or CC0) or a studio
-    // original we made for this book. The second kind is not a licence gap -
-    // it is the house credit, and it carries no public source link.
-    const OK_LIC = ['Public domain', 'CC0', 'Original crayon study · all rights reserved'];
+    // Every plate is a museum work: public domain, or CC0 from the holding
+    // museum's own open-access file. There are no studio originals, so a
+    // plate that carries anything else is a licence gap, not a house credit.
+    const OK_LIC = ['Public domain', 'CC0'];
     const badLic = Object.keys(plates).filter(id => !OK_LIC.includes(plates[id][5]));
     const broken = [];
     for (const id of Object.keys(plates)) {
@@ -316,7 +316,7 @@ async function newPage(w = 1440, h = 900) {
   check('every system has a plate', r.missing.length === 0, `${r.n} plates for ${r.sys} systems, missing: ${r.missing.join(',') || 'none'}`);
   check('no plate is orphaned', r.orphans.length === 0, r.orphans.join(','));
   check('every page artwork exists', r.dangling.length === 0, r.dangling.join(','));
-  check('every plate is public domain, CC0, or a studio original', r.badLic.length === 0, r.badLic.join(','));
+  check('every plate is public domain or CC0', r.badLic.length === 0, r.badLic.join(','));
   check('every plate image resolves', r.broken.length === 0, r.broken.join(','));
   check('pro bono keeps its own photograph', r.pb);
   await p.context().close();
