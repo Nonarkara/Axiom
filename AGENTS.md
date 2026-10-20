@@ -115,6 +115,7 @@ If a future agent has re-broken it, the recovery is `git show 8bdf126:public/ind
 | `npm run check` | **Local** syntax check (`node --check`) on `server.mjs` + `public/app.js` + scripts. **Never put this in CI** — see §4.8. |
 | `npm run qa:links` | Link audit (`.qa/release-audit.mjs`) |
 | `npm run qa:visual` | Playwright visual regression (`.qa/visual-qa.mjs`) |
+| `npm test` | Unit tests (`node --test tests/*.test.mjs`) — footprint, catalogue, circuit, security. Run before pushing a change to `public/` or `axiomx/`. |
 | `npm run export:evidence` | Snapshot the live site for evidence of authorship |
 
 ---
@@ -195,6 +196,23 @@ It is the long-form case for the work — the argument you make to a governor, n
 `AXIOMX_URL` overrides the base, so the **same journeys** run against a deployment:
 `AXIOMX_URL=https://axiomx.nonarkara.org/ node .qa/axiomx-journeys.mjs`. Always run them against the canonical host, not the `pages.dev` alias — the alias cannot catch a broken domain or a stale zone.
 
-Covers: land and read the pitch, open a system, deep links, `/` search, Escape-clears, arrow-key navigation, history back/forward, dark mode + persistence, phone at 390px, every system has a credited PD/CC0 plate, FloodDash carries the clip and Innovation-as-a-Service carries its own, the index hover affordance in both themes with its AA contrast read off the painted pixel, no latched hover state on touch, keyboard focus kept distinct from hover, the stack plate does not scroll sideways, 44px tap targets, the clip geometry across nine widths, and that all 113 entries render without error. Run it before claiming axiomx works. Expected: **187 PASS, 0 FAIL**.
+Covers: land and read the pitch, open a system, deep links, `/` search, Escape-clears, arrow-key navigation, history back/forward, dark mode + persistence, phone at 390px, every system has a credited PD/CC0 plate, FloodDash carries the clip and Innovation-as-a-Service carries its own, the index hover affordance in both themes with its AA contrast read off the painted pixel, no latched hover state on touch, keyboard focus kept distinct from hover, the stack plate does not scroll sideways, 44px tap targets, the clip geometry across nine widths, and that all 116 entries render without error. Run it before claiming axiomx works. Expected: **188 PASS, 0 FAIL**.
 
 The pass count moves as checks are added, so read the number off the output rather than trusting this line — and update it in the same commit that changes the count. It said 51 while the suite ran 115, which is exactly the kind of drift this suite exists to catch, in the one file that tells the next agent what to expect.
+
+### One catalogue, two renderings
+
+`axiom.nonarkara.org` and `axiomx.nonarkara.org` are two sites presenting **one catalogue**. `axiomx/catalog.js` holds it as data; `public/index.html` renders it as cards. They are the same 70 systems, and they must agree on every one of them.
+
+They did not, for a long time, and every test on either site was green the whole time:
+
+- `simcity` and `tdv` sat in Lab on axiom and in City Dashboards on axiomx, so the two sites stated different cluster sizes for the same systems.
+- `formhypes` and `colors` both claimed the number 59.
+- Both of those cards then asked for the copy key `panels.p66`. In a JavaScript object literal the second definition wins, so the **FormHypes card rendered the Palette's description** — 348 colour combinations on an architectural-intelligence card, live on the public site. Nothing threw. Nothing was missing from the DOM.
+
+`tests/catalogue.test.mjs` is the guard that would have caught all of it: same ids, same cluster per id, same number per id, no shared URL, no shared copy key, and no duplicate key inside a locale's copy block. `npm test` runs it.
+
+Two rules that came out of it:
+
+- **A duplicate key in an object literal overwrites by position, not by intent.** Guard for duplicate keys directly; a check that looks for missing content will never see this.
+- **When two catalogue entries turn out to be the same system, let the live system name it.** The live FormHypes titles itself *"FormHypes — Architectural intelligence"* and brands *"FormHypes, inspired by SHDT"* — SHDT is the MIT classmate, not the product. So the surviving card is "FormHypes · SHDT", and the count is 70.
