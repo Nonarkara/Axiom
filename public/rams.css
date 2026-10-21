@@ -1467,6 +1467,31 @@ summary:focus-visible {
   letter-spacing: var(--tr-label);
 }
 
+/* Eleven links do not divide by two, so a wrapping strip strands one of
+   them twice: a row of ten and a single link at nine hundred pixels, and
+   five and five and a single link at four hundred. Eleven does divide by
+   four, and by three. So below 880px — the width where one row still
+   holds all eleven — the nav is decided columns: four, four and three,
+   and never a link alone in a corner. Above 880px it is still one row. */
+@media (max-width: 880px) {
+  .foot__row .nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px 8px;
+  }
+
+  .foot__row .nav a {
+    width: fit-content;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .foot__row .nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .foot__note {
   font-size: var(--t-label);
   font-weight: 500;
@@ -2619,6 +2644,23 @@ summary:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+/* The nine layers are a set, not a strip that happens to run out of room.
+   A flex strip held all nine on one line down to 765px and stranded the
+   ninth chip on a line of its own below that, because nine does not fit
+   in a row and the strip broke where the arithmetic broke. Nine does
+   divide by three, so below 800px the shelf is a decided three-by-three
+   matrix — and above it the strip still holds all nine in one line. */
+@media (max-width: 800px) {
+  .stack-glimpse__items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stack-glimpse__items>span {
+    text-align: center;
+  }
 }
 
 .stack-details {

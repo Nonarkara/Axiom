@@ -877,8 +877,14 @@
 .hero-console__foot-scope {
   font-weight: 700;
   color: var(--paper);
-  flex: 1;
-  white-space: nowrap;
+  /* The label is the live fact, so it takes the width it needs. `flex: 1`
+     gave it a zero basis and handed it whatever was left over, which was
+     seven pixels short of the whole label in a console of 271px, so the
+     label was cut mid-word. It keeps its own width now, and if a panel
+     ever gets narrower than the label it wraps instead of being cut. */
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
 }
