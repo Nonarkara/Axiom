@@ -802,9 +802,11 @@ summary:focus-visible {
 }
 
 /* sandbox operational note — systems section footnote */
+/* The kicker sits above the note. Beside it, an 18px label sat at the top
+   of a 98px column with 158px of nothing under it. */
 .sandbox-note {
-  display: flex;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   max-width: 78ch;
   margin: 0 0 12px;
   border: 1px solid var(--line-2);
@@ -812,15 +814,14 @@ summary:focus-visible {
 }
 
 .sandbox-note__tag {
-  flex-shrink: 0;
-  align-self: flex-start;
+  justify-self: start;
+  align-self: start;
   padding: var(--box-pad-tight) 10px;
   font-size: var(--t-label);
   font-weight: 600;
   letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--accent);
-  border-right: 1px solid var(--line-2);
   background: var(--paper);
   display: flex;
   align-items: center;
@@ -897,12 +898,22 @@ summary:focus-visible {
    1px hairlines. Structural whitespace. No arbitrary offsets.
    ============================================================ */
 
+/* The rule belongs to the CELL, not to the frame around the table.
+   A frame painted by the grid showed through wherever the last row was
+   short — two columns of nothing in a 300px beige block that read as a
+   card that failed to load. Drawing the rule on the cell itself means
+   the table's edge follows its content, and a short last row is simply
+   the end of the table. */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  background: transparent;
+}
+
+.grid > * {
+  outline: 1px solid var(--line);
+  outline-offset: 0;
 }
 
 .cell {
@@ -924,9 +935,31 @@ summary:focus-visible {
   .grid--4 {
     grid-template-columns: repeat(4, 1fr);
   }
+}
 
+/* The five pro bono cards. A decided progression — five, three, two, one —
+   not a patch for one width. Five across below 1200px handed each card
+   146px, which is narrower than the screenshot it has to show, and the
+   shelf inside it had nowhere to put a technology name. */
+.grid--5 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 520px) {
   .grid--5 {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 760px) {
+  .grid--5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid--5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 
@@ -1043,9 +1076,12 @@ summary:focus-visible {
    §4.6 STATUS PLATE — the ink sign-plate
    ============================================================ */
 
+/* The label is the panel's header bar, and the body is under it. As two
+   columns of a flex row, the 24px label sat at the top of a 437px column
+   with 414px of nothing under it. */
 .plate {
-  display: flex;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   border: 1px solid var(--line-2);
   background: var(--panel);
 }
@@ -1053,7 +1089,8 @@ summary:focus-visible {
 .plate__tag {
   background: var(--id-navy);
   color: var(--paper);
-  align-self: flex-start;
+  align-self: start;
+  justify-self: stretch;
   padding: var(--box-pad) 10px;
   display: flex;
   align-items: center;
@@ -1836,12 +1873,16 @@ summary:focus-visible {
 /* === pro bono stack (visible tech list) === */
 /* The stack is a label and a shelf of technologies. The label sits on its
    own line and the shelf below it is a grid, so the shelf never leaves one
-   chip alone on a line of its own. */
+   chip alone on a line of its own.
+   The shelf is TWO columns at every width. `auto-fill` was tried and
+   rejected: it handed the shelf three columns at 360px, one at 768px and
+   two at 1440px, so the same five cards showed three different shelves.
+   A technology name may be two words, so it breaks inside its own cell
+   rather than reaching outside it. */
 .probono-stack {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(64px, max-content));
-  justify-content: start;
-  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
   gap: 4px;
   padding: var(--box-pad) 10px;
   border-top: 1px solid var(--line);
@@ -1851,7 +1892,7 @@ summary:focus-visible {
 .probono-stack__lbl { grid-column: 1 / -1; }
 
 .probono-stack__chip {
-  display: inline-block;
+  display: block;
   padding: 2px 6px;
   font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", monospace;
   font-size: var(--t-label);
@@ -1859,21 +1900,26 @@ summary:focus-visible {
   background: transparent;
   border: 1px solid var(--line);
   color: var(--ink-2);
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 
 /* A ruled strip of tags. The strip is a table, so it is a grid: the cells
-   are equal and the rows are decided. */
+   are equal and the rows are decided. The rule belongs to the cell, as it
+   does in the hairline cell grid — a frame painted by the grid shows
+   through wherever the last row is short. */
 .tags {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  background: transparent;
 }
 
 .tags span {
   background: var(--panel);
+  outline: 1px solid var(--line);
+  outline-offset: 0;
   padding: 8px 12px;
   font-size: var(--t-label);
   font-weight: 600;
@@ -2519,13 +2565,14 @@ summary:focus-visible {
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   margin-top: 16px;
-  background: var(--line);
-  border: 1px solid var(--line-2);
+  background: transparent;
 }
 
 .brand-preview__item {
   display: block;
   background: var(--panel);
+  outline: 1px solid var(--line);
+  outline-offset: 0;
   color: inherit;
   text-decoration: none;
 }

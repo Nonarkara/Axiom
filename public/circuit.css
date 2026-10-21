@@ -143,7 +143,7 @@
 
 .cx-bar {
   display: grid;
-  grid-template-columns: 56px 112px 138px minmax(0, 1fr) 248px;
+  grid-template-columns: 56px 112px 138px minmax(0, 1fr) 288px;
   align-items: center;
   gap: 0 14px;
   min-height: var(--cx-bar-h);
