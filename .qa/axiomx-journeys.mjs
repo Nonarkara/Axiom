@@ -274,25 +274,53 @@ async function newPage(w = 1440, h = 900) {
   check('and its caption is the flood one', /flood season/i.test(fd.caption), fd.caption.slice(0, 60));
   await p0.context().close();
   const p = await newPage();
+  // The third-party PLAYER is a poster until the reader asks for the film.
+  // Thumbnail stills come from YouTube's image CDN (their licence does not
+  // travel), but nothing may load from the player host until a click.
+  const playerHits = [];
+  p.on('request', req => {
+    if (/youtube-nocookie\.com/.test(req.url())) playerHits.push(req.url());
+  });
   await p.goto(BASE + '#iaas', { waitUntil: 'networkidle' });
   await p.waitForTimeout(600);
+  // Snapshot before any click: the listener keeps counting for the rest of
+  // the block, and the player host is allowed to hear from us after that.
+  const playerHitsBefore = playerHits.length;
   const r = await p.evaluate(async () => {
     const fig = document.querySelector('.vstudio');
-    const iframe = fig && fig.querySelector('iframe');
     const items = fig ? Array.from(fig.querySelectorAll('.vstudio-item')) : [];
-    const initialSrc = iframe ? iframe.src : '';
-    
-    // Test interactive clicking on thumbnail 1 (index 1)
+    const poster = fig ? fig.querySelector('.vstudio-poster') : null;
+    const onLoad = {
+      iframe: !!(fig && fig.querySelector('iframe')),
+      poster: !!poster,
+      posterSrc: poster && poster.querySelector('img') ? poster.querySelector('img').src : '',
+    };
+
+    // The reader asks for the film: the poster becomes the player.
+    let afterPoster = { src: '', exists: false };
+    if (poster) {
+      poster.click();
+      await new Promise(res => setTimeout(res, 500));
+      const f = fig.querySelector('iframe');
+      afterPoster = { src: f ? f.src : '', exists: !!f };
+    }
+
+    // And a briefing chosen from the list is the same request, not a second
+    // one. It must play without a further click on the poster.
     let switchWorked = false;
-    if (items.length > 1) {
-      items[1].click();
-      switchWorked = iframe && iframe.src.includes('lLnq4LefXiI') && items[1].classList.contains('is-active');
+    const live = Array.from(fig.querySelectorAll('.vstudio-item'));
+    if (live.length > 1) {
+      live[1].click();
+      await new Promise(res => setTimeout(res, 500));
+      const f = fig.querySelector('iframe');
+      switchWorked = !!f && f.src.includes('lLnq4LefXiI') && live[1].classList.contains('is-active');
     }
 
     return {
       found: !!fig,
       caption: fig && fig.querySelector('.vstudio-desc') ? fig.querySelector('.vstudio-desc').textContent : '',
-      initialSrc,
+      onLoad,
+      afterPoster,
       itemCount: items.length,
       switchWorked,
       w: fig ? Math.round(fig.getBoundingClientRect().width) : 0,
@@ -302,9 +330,16 @@ async function newPage(w = 1440, h = 900) {
   check('Innovation-as-a-Service carries the field video studio', r.found);
   check('its caption is the practice one, not the flood one',
     !/flood season|in Thai, in public/i.test(r.caption), r.caption.slice(0, 60));
-  check('video studio has an iframe pointing at YouTube hero', /youtube-nocookie\.com\/embed\/0-A3R_i3wrs/.test(r.initialSrc), r.initialSrc);
+  check('the player is a poster until the reader asks', r.onLoad.poster && !r.onLoad.iframe,
+    `poster=${r.onLoad.poster} iframe=${r.onLoad.iframe}`);
+  check('no request reaches the player host before the click', playerHitsBefore === 0,
+    `${playerHitsBefore} hits`);
+  check('the poster shows the hero briefing', /0-A3R_i3wrs/.test(r.onLoad.posterSrc), r.onLoad.posterSrc);
+  check('clicking the poster plays the hero briefing',
+    r.afterPoster.exists && /youtube-nocookie\.com\/embed\/0-A3R_i3wrs/.test(r.afterPoster.src) &&
+    /autoplay=1/.test(r.afterPoster.src), r.afterPoster.src);
   check('video studio carries 5 field briefing cards', r.itemCount === 5, `${r.itemCount} items`);
-  check('clicking a playlist item switches player to that video', r.switchWorked === true);
+  check('clicking a playlist item plays that video, no second click', r.switchWorked === true);
   check('video studio fits bounded measure', r.fits, `${r.w}px`);
   await p.context().close();
 }
