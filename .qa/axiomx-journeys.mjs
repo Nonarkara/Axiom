@@ -369,6 +369,65 @@ async function newPage(w = 1440, h = 900) {
   await p.context().close();
 }
 
+// ── THE LABEL NEVER OUTRUNS THE PICTURE ───────────────────────────────────
+// A caption whose measure has nothing to do with the artwork it labels is
+// spatial hallucination in its purest form: the text hangs past the edge of
+// the picture it describes. The label's width is measured from the rendered
+// plate in JS, because a portrait plate is capped by max-height and CSS
+// cannot measure a height-capped image. This walks every entry and holds
+// the line, so the fix cannot quietly come apart.
+{
+  const p = await newPage(1440, 900);
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  const r = await p.evaluate(async () => {
+    const ids = [...document.querySelectorAll('#nav button[data-id]')].map(b => b.dataset.id);
+    const over = [];
+    const seen = new Set();
+    for (const id of ids) {
+      location.hash = '#' + id;
+      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+      // Every picture the book puts on a page, the hero included.
+      const imgs = [...document.querySelectorAll('img')]
+        .filter(i => /\/art\/[^?]+\.webp/.test(i.src))
+        .filter(i => {
+          const m = i.src.match(/\/art\/([^?]+)\.webp/);
+          if (seen.has(m[1])) return false;
+          seen.add(m[1]);
+          return true;
+        });
+      for (const img of imgs) {
+        // The label is measured once the picture has loaded, so wait for that
+        // before judging it — an unloaded image measures 0px and would make
+        // every caption look like an overhang.
+        for (let i = 0; i < 60 && !(img.complete && img.naturalWidth > 0); i++) {
+          await new Promise(r => setTimeout(r, 50));
+        }
+        // The label is fitted by a ResizeObserver, and that callback is
+        // delivered after layout — not on the frame the image finished
+        // loading. Measure once the caption stops moving, or the check
+        // reads the pre-fit width and reports an overhang that is not there.
+        const fig = img.closest('figure');
+        const cap = fig && fig.querySelector('figcaption');
+        if (!cap) continue;
+        let prev = -1, cw = 0, iw = 0;
+        for (let i = 0; i < 40; i++) {
+          await new Promise(r => requestAnimationFrame(r));
+          cw = cap.getBoundingClientRect().width;
+          iw = img.getBoundingClientRect().width;
+          if (cw === prev) break;
+          prev = cw;
+        }
+        if (cw > iw + 1) over.push(id + ' (caption ' + Math.round(cw) + 'px on a ' + Math.round(iw) + 'px plate)');
+      }
+    }
+    const defined = Object.keys((window.AXIOM_PLATES || {})).length;
+    return { total: ids.length, measured: seen.size, defined, over };
+  });
+  check('every plate label fits inside its own picture', r.over.length === 0, r.over.slice(0, 3).join('; '));
+  check('and the check reached every plate in the book', r.measured === r.defined, r.measured + ' of ' + r.defined);
+  await p.context().close();
+}
+
 // ── AFFORDANCE: the index row under the cursor has to say so ───────────────
 // 113 rows of near-identical 14px lines is where a hover either earns its
 // place or gets ignored. These guard the three things that make it honest:
