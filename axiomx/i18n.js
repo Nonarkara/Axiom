@@ -612,10 +612,10 @@
       "cta": "Open the workspace"
     },
     "champion": {
-      "name": "CHAOS XI · Champion",
+      "name": "SCD · Soccer Coach Desk",
       "cat": "Tactical Simulation",
-      "lede": "Set the formation, pressing, and plan. Watch the match respond. A football coaching board, career, and tactical classroom on the same simulation.",
-      "cta": "Open the touchline"
+      "lede": "Sideline coaching console and tactical lab for Thailand's Road to the World Cup. Ride the plans, adjust pressing detents, and switch shape in real time.",
+      "cta": "Open the coaching desk"
     },
     "soccer": {
       "name": "Soccer · NSP",
@@ -1040,10 +1040,10 @@
       "cta": "เปิดเวิร์กสเปซ"
     },
     "champion": {
-      "name": "CHAOS XI · Champion",
+      "name": "SCD · โต๊ะโค้ชฟุตบอล",
       "cat": "จำลองแท็กติกฟุตบอล",
-      "lede": "เลือกแผนการเล่น การเพรส และรูปแบบทีม แล้วดูเกมตอบสนอง กระดานโค้ช โหมดอาชีพ และห้องเรียนแท็กติกใช้ระบบจำลองเดียวกัน",
-      "cta": "เปิดข้างสนาม"
+      "lede": "โต๊ะโค้ชข้างสนามและห้องทดลองแท็กติกทีมชาติไทยสู่ฟุตบอลโลก สั่งแผนการเล่น ปรับระดับการเพรส และเปลี่ยนรูปแบบทีมสดระหว่างเกม",
+      "cta": "เปิดโต๊ะโค้ช"
     },
     "soccer": {
       "name": "Soccer · NSP",
@@ -1468,10 +1468,10 @@
       "cta": "打开工作区"
     },
     "champion": {
-      "name": "CHAOS XI · Champion",
+      "name": "SCD · 足球教练控制台",
       "cat": "足球战术模拟",
-      "lede": "调整阵型、压迫和战术，观察比赛如何回应。教练战术板、生涯模式和战术课堂共用一套模拟系统。",
-      "cta": "打开场边控制台"
+      "lede": "泰国队冲击世界杯的场边执教控制台与战术实验室。实时调整战术走线、压迫挡位与阵型切换。",
+      "cta": "打开执教控制台"
     },
     "soccer": {
       "name": "Soccer · NSP",
@@ -1896,10 +1896,10 @@
       "cta": "워크스페이스 열기"
     },
     "champion": {
-      "name": "CHAOS XI · Champion",
+      "name": "SCD · 축구 코칭 데스크",
       "cat": "축구 전술 시뮬레이션",
-      "lede": "포메이션, 압박, 전술을 바꾸고 경기의 반응을 보세요. 코칭 보드, 커리어, 전술 교실이 같은 시뮬레이션을 사용합니다.",
-      "cta": "터치라인 열기"
+      "lede": "태국 축구 국가대표팀 월드컵 본선행을 위한 사이드라인 코칭 콘솔과 전술 실험실. 실시간 전술 플랜, 압박 강도, 포메이션 전환.",
+      "cta": "코칭 데스크 열기"
     },
     "soccer": {
       "name": "Soccer · NSP",
@@ -2324,10 +2324,10 @@
       "cta": "ワークスペースを開く"
     },
     "champion": {
-      "name": "CHAOS XI · Champion",
+      "name": "SCD · サッカーコーチングデスク",
       "cat": "サッカー戦術シミュレーション",
-      "lede": "陣形、プレス、戦術を変え、試合の反応を見る。コーチングボード、キャリア、戦術教室が同じシミュレーションを使います。",
-      "cta": "タッチラインを開く"
+      "lede": "タイ代表ワールドカップ挑戦のためのタッチライン・コーチングコンソール＆戦術ラボ。プラン選択、プレス強度、陣形をリアルタイム調整。",
+      "cta": "コーチングデスクを開く"
     },
     "soccer": {
       "name": "Soccer · NSP",
@@ -2752,10 +2752,10 @@
       "cta": "Mở không gian làm việc"
     },
     "champion": {
-      "name": "CHAOS XI · Champion",
+      "name": "SCD · Bàn huấn luyện bóng đá",
       "cat": "Mô phỏng chiến thuật",
-      "lede": "Đổi đội hình, pressing và lối chơi rồi xem trận đấu phản ứng. Bảng huấn luyện, sự nghiệp và lớp chiến thuật dùng cùng một mô phỏng.",
-      "cta": "Mở đường biên"
+      "lede": "Bàn huấn luyện đường biên và phòng thí nghiệm chiến thuật đưa ĐT Thái Lan tới World Cup. Điều chỉnh lối chơi, cường độ pressing và đổi đội hình theo thời gian thực.",
+      "cta": "Mở bàn huấn luyện"
     },
     "soccer": {
       "name": "Soccer · NSP",

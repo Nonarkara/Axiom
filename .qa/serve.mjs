@@ -69,7 +69,24 @@ http.createServer(async (req, res) => {
       return;
     }
 
-    if (!info || !info.isFile()) { res.writeHead(404).end('not found'); return; }
+    if (!info || !info.isFile()) {
+      // A directory is a route, not a 404: serve its index.html.
+      if (info && info.isDirectory()) {
+        const idx = path.join(file, 'index.html');
+        const idxInfo = await stat(idx).catch(() => null);
+        if (idxInfo && idxInfo.isFile()) {
+          res.writeHead(200, {
+            'Content-Type': TYPES['.html'],
+            'Content-Length': idxInfo.size,
+            'Cache-Control': 'no-store',
+          });
+          createReadStream(idx).pipe(res);
+          return;
+        }
+      }
+      res.writeHead(404).end('not found');
+      return;
+    }
     res.writeHead(200, {
       'Content-Type': TYPES[path.extname(file).toLowerCase()] || 'application/octet-stream',
       'Content-Length': info.size,
