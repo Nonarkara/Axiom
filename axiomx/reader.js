@@ -10,7 +10,7 @@
   // Cloudflare serves static assets with a four-hour max-age. A plate whose
   // file changed under the same name keeps serving the old bytes for hours,
   // so every plate is addressed by a versioned path. Bump this when art ships.
-  const ART_V = '20261021a';
+  const ART_V = '20261021b';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
   const I18N = window.AXIOM_I18N || { ui: {}, systems: {}, docs: {} };
 
@@ -993,12 +993,20 @@
     if (locDoc && locDoc.blocks) {
       blocks = locDoc.blocks;
     } else if (locDoc) {
+      let pIdx = 0;
       blocks = (entry.blocks || []).map(function (b) {
         if (b.type === 'poster' && locDoc.poster) return Object.assign({}, b, { text: locDoc.poster, em: locDoc.posterEm || b.em });
         if (b.type === 'h' && locDoc.title) return Object.assign({}, b, { text: locDoc.title });
         if (b.type === 'lede' && locDoc.lede) return Object.assign({}, b, { text: locDoc.lede });
         if (b.type === 'steps' && locDoc.steps) return Object.assign({}, b, { items: locDoc.steps });
         if (b.type === 'figs' && locDoc.figs) return Object.assign({}, b, { rows: locDoc.figs });
+        if (b.type === 'p') {
+          pIdx++;
+          const pKey = 'p' + pIdx;
+          if (locDoc[pKey]) return Object.assign({}, b, { text: locDoc[pKey] });
+          if (Array.isArray(locDoc.paragraphs) && locDoc.paragraphs[pIdx - 1]) return Object.assign({}, b, { text: locDoc.paragraphs[pIdx - 1] });
+        }
+        if (b.type === 'note' && locDoc.note) return Object.assign({}, b, { text: locDoc.note });
         return b;
       });
     }

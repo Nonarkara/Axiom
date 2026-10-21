@@ -15,8 +15,8 @@
 // measures the site instead of the transport.
 
 import http from 'node:http';
-import { createReadStream } from 'node:fs';
-import { stat } from 'node:fs/promises';
+import { createReadStream, existsSync } from 'node:fs';
+import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -48,8 +48,28 @@ http.createServer(async (req, res) => {
     if (rel.endsWith('/')) rel += 'index.html';
     const file = path.join(base, path.normalize(rel).replace(/^(\.\.[/\\])+/, ''));
     if (!file.startsWith(base)) { res.writeHead(403).end('forbidden'); return; }
-    const info = await stat(file);
-    if (!info.isFile()) { res.writeHead(404).end('not found'); return; }
+    const info = await stat(file).catch(() => null);
+
+    // The reading room is a hash-routed book: one document, many entries. A
+    // path with no extension that does not exist on disk is therefore an
+    // entry, and is served the shell with the hash set. This makes every
+    // entry addressable by a real URL, which the spatial gate needs — it
+    // loads each route in an iframe, and a fragment-only change never fires
+    // the load event, so two entries measured one after the other would
+    // silently measure the first one twice.
+    if (!info && !path.extname(rel) && existsSync(path.join(base, 'index.html'))) {
+      const entry = rel.replace(/\.html$/, '').replace(/^\/+|\/+$/g, '');
+      const html = await readFile(path.join(base, 'index.html'), 'utf8');
+      const shim = `<script>if(location.pathname!=='/'&&!location.hash){location.hash='${entry}';}</script>`;
+      const body = /<head[^>]*>/i.test(html)
+        ? html.replace(/<head[^>]*>/i, (m) => m + shim)
+        : shim + html;
+      res.writeHead(200, { 'Content-Type': TYPES['.html'], 'Cache-Control': 'no-store' });
+      res.end(body);
+      return;
+    }
+
+    if (!info || !info.isFile()) { res.writeHead(404).end('not found'); return; }
     res.writeHead(200, {
       'Content-Type': TYPES[path.extname(file).toLowerCase()] || 'application/octet-stream',
       'Content-Length': info.size,

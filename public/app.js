@@ -1875,7 +1875,7 @@ const i18nExt = {
         cta: 'Read the essay',
       },
       p45: {
-        lede: 'Five Asian theaters — Southeast Asia, East Asia, South Asia, Thailand, and the Gulf as Asia\'s energy lifeline — on one live map: conflict events, fires, air and sea traffic, regional news and TV, from open data.',
+        lede: 'Five Asian theaters and five strategic chokepoints — Malacca, Hormuz, Bab-el-Mandeb, Taiwan, Sunda — on one live map: conflict frontiers, fires, air and maritime corridors, regional news and TV, from open data.',
         cta:'Open live system',
       },
       p46: {
@@ -2352,7 +2352,7 @@ const i18nExt = {
         cta: 'อ่านบทความ',
       },
       p45: {
-        lede: 'ห้าสมรภูมิเอเชีย — เอเชียตะวันออกเฉียงใต้ เอเชียตะวันออก เอเชียใต้ ไทย และอ่าวเปอร์เซียในฐานะเส้นเลือดพลังงานของเอเชีย — บนแผนที่สดแผ่นเดียว: เหตุความขัดแย้ง จุดความร้อน การจราจรทางอากาศและทางทะเล ข่าวและทีวีระดับภูมิภาค จากข้อมูลเปิด',
+        lede: 'ห้าสมรภูมิเอเชียและ 5 จุดยุทธศาสตร์ทางทะเล — มะละกา ฮอร์มุซ บับเอลมันเดบ ไต้หวัน ซุนดา — บนแผนที่สดแผ่นเดียว: แนวรบความขัดแย้ง จุดความร้อน เส้นทางบินและเส้นทางเดินเรือ ข่าวและทีวีระดับภูมิภาค จากข้อมูลเปิด',
         cta:'เปิดระบบสด',
       },
       p46: {
@@ -2826,7 +2826,7 @@ const i18nExt = {
         cta: '阅读长文',
       },
       p45: {
-        lede: '亚洲五大战区——东南亚、东亚、南亚、泰国，以及作为亚洲能源生命线的海湾——同在一张实时地图上：冲突事件、热点火情、空中与海上交通、区域新闻与电视，全部来自开放数据。',
+        lede: '亚洲五大战区与五大战略海上咽喉——马六甲、霍尔木兹、曼德海峡、台湾海峡、巽他海峡——同在一张实时地图上：冲突前沿、火情热点、海空航运走廊、区域新闻与电视，全部来自开放数据。',
         cta:'打开在线系统',
       },
       p46: {
@@ -3127,7 +3127,7 @@ const i18nExt = {
       p42: { lede: '// triBorder.command(TH)\n// myanmar · cambodia · southernTheatre\n// liveOps + playback + executiveIntel.on(map)', cta: 'system.live.open()' },
       p43: { lede: '// bkk.heritage.blockByBlock()\n// quarters: 9 · monuments: 571 · walks: 7\n// siblingOf(atlas.nonarkara.org)', cta: 'system.live.open()' },
       p44: { lede: '// bkk.shophouseInventory.existence: false\n// 400k buildings · no survey · 2311 sample · treasuryPressureMap · fourColour.answer\n// publishedIn(ShophouseMetropolis, harvardGSD)', cta: 'essay.read()' },
-      p45: { lede: '// asia.theaters(5)\n// SE Asia · East Asia · South Asia · Thailand · Gulf lifeline // conflict + fires + ADS-B + AIS + news + TV', cta: 'system.open()' },
+      p45: { lede: '// asia.theaters(5) + chokepoints(5)\n// Malacca · Hormuz · Mandeb · Taiwan · Sunda // conflict + fires + ADS-B + AIS + news + TV', cta: 'system.open()' },
       p46: { lede: '// world.console()\n// planet-scale ADS-B + AIS · conflict + fires · intel + markets docked open', cta: 'system.open()' },
       p47: { lede: '// shanghai.fieldwork.20years\n// 15 chapters · 76312 words · 134 images · 5h audio · 475 citations // v3 readingEdition, 2026', cta: 'book.open()' },
       p48: { name: 'floodDash.thailandWatch', lede: '// floodDash.thailand.live()\n// 9 public.sources · streams.every(3-60min) // all 77 provinces · one.situation.picture', cta: 'system.open()' },
