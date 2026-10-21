@@ -167,33 +167,65 @@ async function newPage(w = 1440, h = 900) {
 // ── LOCALE CONTROL ─────────────────────────────────────────────────────────
 // The bar carries EN / TH / ZH / KO / JA / VI. Only EN exists. The rest are
 // graded Soon rather than hidden, and a Soon code must never be a dead
-// control — that is the one behaviour this book does not use anywhere else.
+// ── JOURNEY 8: multilingual switching across all six editions ───────────────
+// When editions are translated, each code switches the active language, updates
+// document lang attribute, index groups, controls, and pitches.
 {
   const p = await newPage();
   await p.goto(BASE, { waitUntil: 'networkidle' });
   const codes = await p.$$eval('.locale-btn', els => els.map(e => e.dataset.locale));
   check('locale control shows six codes', codes.length === 6, codes.join(' '));
-  check('EN is the active edition', await p.evaluate(() =>
+  check('EN is the active edition by default', await p.evaluate(() =>
     document.querySelector('.locale-btn.is-active')?.dataset.locale === 'en'));
 
-  const soon = await p.$$eval('.locale-btn[data-soon]', els => els.map(e => e.dataset.locale));
-  check('five editions marked Soon, not hidden', soon.length === 5, soon.join(' '));
-
-  // A Soon code is not disabled. It has an action, and that action is to
-  // explain itself. aria-disabled here would be a lie and would also stop a
-  // keyboard user reaching the explanation.
-  const disabled = await p.$$eval('.locale-btn[data-soon]', els =>
-    els.filter(e => e.getAttribute('aria-disabled') === 'true').length);
-  check('Soon codes are not aria-disabled', disabled === 0, `${disabled} disabled`);
-
+  // Switch to TH
   await p.click('.locale-btn[data-locale="th"]');
-  await p.waitForTimeout(350);
-  const landed = await p.evaluate(() => ({
-    hash: location.hash,
-    heading: (document.querySelector('h1.name') || {}).textContent?.trim()
+  await p.waitForTimeout(200);
+  const thState = await p.evaluate(() => ({
+    lang: document.documentElement.lang,
+    active: document.querySelector('.locale-btn.is-active')?.dataset.locale,
+    poster: document.querySelector('.poster')?.textContent || '',
+    saved: localStorage.getItem('axiomx_locale')
   }));
-  check('a Soon code explains itself, not nothing', landed.hash === '#catalogue', JSON.stringify(landed));
-  check('and lands on "How to read this"', landed.heading === 'How to read this', landed.heading);
+  check('TH switches active edition', thState.active === 'th', thState.active);
+  check('TH sets document lang', thState.lang === 'th', thState.lang);
+  check('TH translates pitch poster', thState.poster.includes('น้ำท่วม'), thState.poster);
+  check('TH persists locale in storage', thState.saved === 'th', thState.saved);
+
+  // Switch to ZH
+  await p.click('.locale-btn[data-locale="zh"]');
+  await p.waitForTimeout(200);
+  const zhLang = await p.evaluate(() => document.documentElement.lang);
+  check('ZH sets document lang zh-Hans', zhLang === 'zh-Hans', zhLang);
+
+  // Switch to KO
+  await p.click('.locale-btn[data-locale="ko"]');
+  await p.waitForTimeout(200);
+  const koLang = await p.evaluate(() => document.documentElement.lang);
+  check('KO sets document lang ko', koLang === 'ko', koLang);
+
+  // Switch to JA
+  await p.click('.locale-btn[data-locale="ja"]');
+  await p.waitForTimeout(200);
+  const jaLang = await p.evaluate(() => document.documentElement.lang);
+  check('JA sets document lang ja', jaLang === 'ja', jaLang);
+
+  // Switch to VI
+  await p.click('.locale-btn[data-locale="vi"]');
+  await p.waitForTimeout(200);
+  const viLang = await p.evaluate(() => document.documentElement.lang);
+  check('VI sets document lang vi', viLang === 'vi', viLang);
+
+  // Switch back to EN
+  await p.click('.locale-btn[data-locale="en"]');
+  await p.waitForTimeout(200);
+  const enState = await p.evaluate(() => ({
+    lang: document.documentElement.lang,
+    active: document.querySelector('.locale-btn.is-active')?.dataset.locale,
+    poster: document.querySelector('.poster')?.textContent || ''
+  }));
+  check('EN restores active edition', enState.active === 'en', enState.active);
+  check('EN restores pitch poster', enState.poster.includes('flood arrives'), enState.poster);
 
   // The bar carries the mark, six codes and Dark. It must not widen the page.
   const overflow = await p.evaluate(() => {

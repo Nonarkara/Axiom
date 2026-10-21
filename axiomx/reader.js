@@ -12,6 +12,49 @@
   // so every plate is addressed by a versioned path. Bump this when art ships.
   const ART_V = '20261021a';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
+  const I18N = window.AXIOM_I18N || { ui: {}, systems: {}, docs: {} };
+
+  let currentLocale = 'en';
+  try {
+    const saved = localStorage.getItem('axiomx_locale');
+    const param = new URLSearchParams(location.search).get('lang');
+    if (param && ['en', 'th', 'zh', 'ko', 'ja', 'vi'].includes(param)) currentLocale = param;
+    else if (saved && ['en', 'th', 'zh', 'ko', 'ja', 'vi'].includes(saved)) currentLocale = saved;
+  } catch (e) {}
+
+  function resolve(obj, path) {
+    if (!obj || !path) return undefined;
+    if (obj[path] !== undefined) return obj[path];
+    const parts = path.split('.');
+    let cur = obj;
+    for (let i = 0; i < parts.length; i++) {
+      if (cur == null || typeof cur !== 'object') return undefined;
+      cur = cur[parts[i]];
+    }
+    return cur !== undefined ? cur : undefined;
+  }
+
+  function t(key, fallback) {
+    const locMap = I18N.ui?.[currentLocale] || {};
+    const enMap = I18N.ui?.en || {};
+    const valLoc = resolve(locMap, key);
+    if (valLoc !== undefined) return valLoc;
+    const valEn = resolve(enMap, key);
+    if (valEn !== undefined) return valEn;
+    return fallback !== undefined ? fallback : key;
+  }
+
+  function localizedTitle(entry) {
+    if (!entry) return '';
+    if (entry.kind === 'system') {
+      const locSys = (I18N.systems?.[currentLocale] || {})[entry.id];
+      if (locSys && locSys.name) return locSys.name;
+      return entry.title;
+    }
+    const locDoc = (I18N.docs?.[currentLocale] || {})[entry.id];
+    if (locDoc && locDoc.title) return locDoc.title;
+    return entry.title;
+  }
 
   const shell = document.getElementById('shell');
   const nav = document.getElementById('nav');
@@ -182,7 +225,7 @@
   // Every plate is a museum work with a public source to point at.
   function sourceLine(art) {
     const src = el('p', 'plate-src');
-    src.appendChild(link(art[4], 'Source'));
+    src.appendChild(link(art[4], t('source', 'Source')));
     src.appendChild(document.createTextNode(' · ' + art[5]));
     return src;
   }
@@ -862,8 +905,17 @@
     const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
     if (!words.length) return book;
     return book.filter(function (entry) {
-      const hay = entry.search.toLowerCase();
-      return words.every(function (word) { return hay.indexOf(word) !== -1; });
+      const hay = (entry.search || '').toLowerCase();
+      const title = localizedTitle(entry).toLowerCase();
+      const group = t('groups.' + entry.group, entry.group).toLowerCase();
+      let locLede = '';
+      if (entry.kind === 'system') {
+        const locSys = (I18N.systems?.[currentLocale] || {})[entry.id];
+        if (locSys && locSys.lede) locLede = locSys.lede.toLowerCase();
+      }
+      return words.every(function (word) {
+        return hay.indexOf(word) !== -1 || title.indexOf(word) !== -1 || group.indexOf(word) !== -1 || locLede.indexOf(word) !== -1;
+      });
     });
   }
 
@@ -871,15 +923,16 @@
     const list = visible();
     nav.replaceChildren();
     if (!list.length) {
-      nav.appendChild(el('p', 'empty', 'Nothing under that name.'));
+      nav.appendChild(el('p', 'empty', t('empty', 'Nothing under that name.')));
     } else {
       let group = null;
       let box = null;
       list.forEach(function (entry) {
-        if (entry.group !== group) {
-          group = entry.group;
+        const transGroup = t('groups.' + entry.group, entry.group);
+        if (transGroup !== group) {
+          group = transGroup;
           box = el('section', 'group');
-          const count = list.filter(function (item) { return item.group === group; }).length;
+          const count = list.filter(function (item) { return t('groups.' + item.group, item.group) === group; }).length;
           const h = el('h2', '', group);
           h.appendChild(el('span', '', String(count)));
           box.appendChild(h);
@@ -889,7 +942,7 @@
         btn.type = 'button';
         btn.dataset.id = entry.id;
         btn.appendChild(el('span', 'num', entry.num || ''));
-        btn.appendChild(el('span', 'lb', entry.title));
+        btn.appendChild(el('span', 'lb', localizedTitle(entry)));
         if (entry.id === current) btn.setAttribute('aria-current', 'true');
         box.appendChild(btn);
       });
@@ -935,7 +988,22 @@
   }
 
   function renderDoc(entry) {
-    (entry.blocks || []).forEach(function (block) {
+    const locDoc = (I18N.docs?.[currentLocale] || {})[entry.id];
+    let blocks = entry.blocks;
+    if (locDoc && locDoc.blocks) {
+      blocks = locDoc.blocks;
+    } else if (locDoc) {
+      blocks = (entry.blocks || []).map(function (b) {
+        if (b.type === 'poster' && locDoc.poster) return Object.assign({}, b, { text: locDoc.poster, em: locDoc.posterEm || b.em });
+        if (b.type === 'h' && locDoc.title) return Object.assign({}, b, { text: locDoc.title });
+        if (b.type === 'lede' && locDoc.lede) return Object.assign({}, b, { text: locDoc.lede });
+        if (b.type === 'steps' && locDoc.steps) return Object.assign({}, b, { items: locDoc.steps });
+        if (b.type === 'figs' && locDoc.figs) return Object.assign({}, b, { rows: locDoc.figs });
+        return b;
+      });
+    }
+
+    (blocks || []).forEach(function (block) {
       if (block.type === 'poster') {
         const h = el('h1', 'poster', block.text);
         if (block.em) h.appendChild(el('em', '', block.em));
@@ -1047,13 +1115,18 @@
   }
 
   function renderSystem(system) {
-    const h = el('h1', 'name', system.name);
+    const locSys = (I18N.systems?.[currentLocale] || {})[system.id] || {};
+    const sysName = locSys.name || system.name;
+    const sysLede = locSys.lede || system.lede;
+    const sysCta = locSys.cta || system.cta || 'Open';
+
+    const h = el('h1', 'name', sysName);
     plate.appendChild(h);
-    if (system.lede) {
-      plate.appendChild(el('p', 'lede inset', system.lede));
+    if (sysLede) {
+      plate.appendChild(el('p', 'lede inset', sysLede));
     }
     const actions = [];
-    if (system.href) actions.push({ href: system.href, label: (system.cta || 'Open').replace(/\s*▸\s*$/, '') });
+    if (system.href) actions.push({ href: system.href, label: sysCta.replace(/\s*▸\s*$/, '') });
     if (system.edition && system.edition.href) actions.push(system.edition);
     if (actions.length) addActions(actions);
 
@@ -1063,7 +1136,7 @@
     } else if (system.img) {
       const img = el('img', 'shot');
       img.src = media(system.img);
-      img.alt = system.alt || system.name;
+      img.alt = system.alt || sysName;
       img.addEventListener('error', function () { img.remove(); });
       plate.appendChild(img);
     }
@@ -1078,7 +1151,7 @@
     const arch = system.arch;
     if (arch && ((arch.inputs && arch.inputs.length) || (arch.outputs && arch.outputs.length) || arch.core)) {
       const grid = el('div', 'arch');
-      [['Inputs', arch.inputs || []], [arch.core ? arch.core.name : 'Engine', arch.core ? (arch.core.meta || []) : []], ['Outputs', arch.outputs || []]].forEach(function (col) {
+      [[t('inputs', 'Inputs'), arch.inputs || []], [arch.core ? arch.core.name : t('core', 'Engine'), arch.core ? (arch.core.meta || []) : []], [t('outputs', 'Outputs'), arch.outputs || []]].forEach(function (col) {
         if (!col[1].length) return;
         const section = el('section');
         section.appendChild(el('h2', '', col[0]));
@@ -1116,15 +1189,19 @@
   function renderPlate(entry) {
     plate.replaceChildren();
     plate.scrollTop = 0;
-    barKicker.textContent = entry.group;
+    barKicker.textContent = t('groups.' + entry.group, entry.group);
     locatorNum.textContent = entry.num || '';
     locatorMeta.replaceChildren();
     if (entry.kind === 'system') {
-      const bits = [entry.system.cat, entry.system.arch && entry.system.arch.ver ? 'v' + entry.system.arch.ver : ''].filter(Boolean);
+      const locSys = (I18N.systems?.[currentLocale] || {})[entry.system.id] || {};
+      const cat = locSys.cat || entry.system.cat;
+      const status = entry.system.status;
+      const statusLabel = t('status.' + status, status);
+      const bits = [cat, entry.system.arch && entry.system.arch.ver ? 'v' + entry.system.arch.ver : ''].filter(Boolean);
       if (bits.length) locatorMeta.append(bits.join('  ·  '));
-      if (entry.system.status) {
+      if (status) {
         if (bits.length) locatorMeta.append('  ·  ');
-        locatorMeta.appendChild(el('span', entry.system.status === 'Live' ? 'is-live' : '', entry.system.status));
+        locatorMeta.appendChild(el('span', status === 'Live' ? 'is-live' : '', statusLabel));
       }
     } else if (entry.locator) {
       locatorMeta.textContent = entry.locator;
@@ -1134,7 +1211,7 @@
     if (href) {
       barOpen.hidden = false;
       barOpen.href = href;
-      barOpen.textContent = 'Open';
+      barOpen.textContent = t('barOpen', 'Open');
     } else {
       barOpen.hidden = true;
       barOpen.removeAttribute('href');
@@ -1146,12 +1223,13 @@
     const near = neighbors(entry);
     const pager = el('nav', 'pager');
     pager.setAttribute('aria-label', 'Adjacent entries');
-    if (near.prev) pager.appendChild(link('#' + near.prev.id, '← ' + near.prev.title));
+    if (near.prev) pager.appendChild(link('#' + near.prev.id, '← ' + localizedTitle(near.prev)));
     else pager.appendChild(el('span', '', ''));
-    if (near.next) pager.appendChild(link('#' + near.next.id, near.next.title + ' →'));
+    if (near.next) pager.appendChild(link('#' + near.next.id, localizedTitle(near.next) + ' →'));
     plate.appendChild(pager);
 
-    document.title = entry.id === 'axiom' ? 'Axiom — Decision systems' : entry.title + ' — Axiom';
+    const docTitle = localizedTitle(entry);
+    document.title = entry.id === 'axiom' ? t('docTitlePitch', 'Axiom — Decision systems') : docTitle + ' — Axiom';
   }
 
   function paint(opts) {
@@ -1182,12 +1260,32 @@
   function setTheme(theme) {
     document.documentElement.dataset.theme = theme;
     try { localStorage.setItem('axiomx-theme', theme); } catch (err) { /* private mode */ }
-    const label = theme === 'dark' ? 'Light' : 'Dark';
+    const label = theme === 'dark' ? t('themeLight', 'Light') : t('themeDark', 'Dark');
     themeBtn.textContent = label;
     themeBtn2.textContent = label;
     themeBtn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', theme === 'dark' ? '#111110' : '#faf9f7');
+  }
+
+  function setLocale(loc) {
+    if (!loc || !['en', 'th', 'zh', 'ko', 'ja', 'vi'].includes(loc)) return;
+    currentLocale = loc;
+    try { localStorage.setItem('axiomx_locale', loc); } catch (e) {}
+    document.documentElement.lang = loc === 'zh' ? 'zh-Hans' : loc;
+    document.querySelectorAll('.locale-btn').forEach(function (btn) {
+      const active = btn.dataset.locale === loc;
+      btn.classList.toggle('is-active', active);
+      if (active) btn.setAttribute('aria-current', 'true');
+      else btn.removeAttribute('aria-current');
+    });
+    if (q) q.placeholder = t('searchPlaceholder', 'Find');
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    const label = isDark ? t('themeLight', 'Light') : t('themeDark', 'Dark');
+    if (themeBtn) themeBtn.textContent = label;
+    if (themeBtn2) themeBtn2.textContent = label;
+    if (backBtn) backBtn.textContent = t('back', 'Back');
+    paint({ keepScroll: true });
   }
 
   nav.addEventListener('click', function (event) {
@@ -1212,17 +1310,11 @@
     setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
   });
 
-  // EN is the only edition that exists. The other five are graded Soon and
-  // marked as such in the chrome, so a dead control is never shipped. Clicking
-  // one goes to "How to read this" -- the entry that defines Live, Preview and
-  // Soon -- rather than silently doing nothing, which is the one behaviour this
-  // book does not use anywhere else.
   if (locale) {
     locale.addEventListener('click', function (event) {
       const btn = event.target.closest('button[data-locale]');
-      if (!btn || !btn.dataset.soon) return;
-      q.blur();
-      select('catalogue');
+      if (!btn) return;
+      setLocale(btn.dataset.locale);
     });
   }
 
@@ -1276,5 +1368,6 @@
   let stored = 'light';
   try { stored = localStorage.getItem('axiomx-theme') || 'light'; } catch (err) { stored = 'light'; }
   setTheme(stored === 'dark' ? 'dark' : 'light');
+  setLocale(currentLocale);
   select(decodeURIComponent(location.hash.replace(/^#/, '')) || 'axiom', { push: false, open: location.hash.length > 1 });
 })();
