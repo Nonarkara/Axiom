@@ -545,6 +545,58 @@ h1.name {
   border: 0;
 }
 
+/* The poster. The same frame the film opens on, and the same play mark the
+   catalogue uses, so one gesture means the same thing on both sites. */
+.vstudio-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--ink);
+  cursor: pointer;
+  overflow: hidden;
+  display: block;
+}
+
+.vstudio-poster-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+.vstudio-poster:hover .vstudio-poster-img {
+  transform: scale(1.02);
+  filter: brightness(0.9);
+}
+
+.vstudio-poster-play {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  background: var(--navy);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.vstudio-poster:hover .vstudio-poster-play {
+  transform: translateY(-2px);
+}
+
 .vstudio-info {
   margin-top: 12px;
   padding: 0 2px;
@@ -780,12 +832,13 @@ h1.name {
 .def > :first-child { color: var(--muted); }
 
 .row {
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
   text-decoration: none;
   color: inherit;
 }
 .row b { font-weight: 500; font-size: 15px; display: block; }
+.row__arrow { color: var(--muted); font-weight: 400; margin-left: 6px; }
 .row i { font-style: normal; color: var(--muted); font-size: 13px; }
 .row:hover b { color: var(--navy); }
 

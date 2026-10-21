@@ -146,14 +146,48 @@
 
     const main = el('div', 'vstudio-main');
     const wrap = el('div', 'vstudio-player');
-    const iframe = document.createElement('iframe');
-    iframe.className = 'vstudio-iframe';
-    iframe.src = 'https://www.youtube-nocookie.com/embed/' + FIELD_VIDEOS[0].id + '?enablejsapi=1&rel=0';
-    iframe.title = FIELD_VIDEOS[0].title;
-    iframe.setAttribute('frameborder', '0');
-    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure');
-    iframe.setAttribute('allowfullscreen', 'true');
-    wrap.appendChild(iframe);
+
+    // THE PLAYER IS A POSTER UNTIL THE READER ASKS FOR THE FILM.
+    // A third-party frame that loads on its own is a request to a third
+    // party the reader never made, and it is the reason the entry takes
+    // seconds to settle. The poster is the same frame, still the same
+    // figure, and it becomes the film on one click.
+    const poster = document.createElement('button');
+    poster.type = 'button';
+    poster.className = 'vstudio-poster';
+    poster.setAttribute('aria-label', 'Play the field briefing');
+    const posterImg = document.createElement('img');
+    posterImg.className = 'vstudio-poster-img';
+    posterImg.src = 'https://img.youtube.com/vi/' + FIELD_VIDEOS[0].id + '/hqdefault.jpg';
+    posterImg.alt = '';
+    posterImg.loading = 'lazy';
+    poster.appendChild(posterImg);
+    const playBtn = el('span', 'vstudio-poster-play');
+    playBtn.setAttribute('aria-hidden', 'true');
+    playBtn.textContent = '▶';
+    poster.appendChild(playBtn);
+    wrap.appendChild(poster);
+
+    let iframe = null;
+    function startVideo(v, autoplay) {
+      if (!iframe) {
+        iframe = document.createElement('iframe');
+        iframe.className = 'vstudio-iframe';
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure');
+        iframe.setAttribute('allowfullscreen', 'true');
+        iframe.setAttribute('frameborder', '0');
+        wrap.appendChild(iframe);
+      }
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + v.id +
+        '?enablejsapi=1&rel=0' + (autoplay ? '&autoplay=1' : '');
+      iframe.title = v.title;
+    }
+
+    poster.addEventListener('click', function () {
+      poster.remove();
+      startVideo(FIELD_VIDEOS[0], true);
+    });
+
     main.appendChild(wrap);
 
     const info = el('figcaption', 'vstudio-info');
@@ -204,8 +238,12 @@
         });
         card.classList.add('is-active');
         card.setAttribute('aria-selected', 'true');
-        iframe.src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?autoplay=1&enablejsapi=1&rel=0';
-        iframe.title = v.title;
+        // Choosing a briefing from the list IS the request to watch it.
+        // Leaving the poster up would ask the reader to click twice for one
+        // intent, and put the decision in one place and the action in
+        // another — the scattered-action failure.
+        if (poster.parentNode) poster.remove();
+        startVideo(v, true);
         metaTag.textContent = v.meta;
         titleEl.textContent = v.title;
         descEl.textContent = v.desc;
@@ -1078,10 +1116,13 @@
         block.items.forEach(function (item) {
           const a = link(item.href, '', 'row');
           const text = el('span');
-          text.appendChild(el('b', '', item.title));
+          const title = el('b', '', item.title);
+          // The arrow is a signifier on the title's line. In a column of its
+          // own it left 92px of nothing under it in every multi-line row.
+          title.appendChild(el('span', 'row__arrow', '↗'));
+          text.appendChild(title);
           text.appendChild(el('i', '', item.meta));
           a.appendChild(text);
-          a.appendChild(el('span', '', '↗'));
           wrap.appendChild(a);
         });
         plate.appendChild(wrap);
