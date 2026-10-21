@@ -2692,6 +2692,17 @@ summary:focus-visible {
 /* Thai-only fineprint. Show only when document is in Thai; hide on
    every other locale so EN/ZH/KO/JA/VI users don't see Thai. */
 html:not([lang="th"]) .foot-th-only { display: none; }
+
+/* The masthead is one band. The wordmark and the language switch are one
+   group, and on a phone they were pushed onto two rows by a descriptor
+   that the hero states anyway: 170px of brand plus 218px of switch against
+   a 358px row, so the switch dropped to a second line at the left with
+   140px of nothing beside it. Below 480px the descriptor goes and the
+   identity and the control share the row they belong on. */
+@media (max-width: 479px) {
+  .brand__ver { display: none; }
+}
+
 @media (max-width: 600px) {
   .brand__ver { font-size: var(--t-label) !important; }
   .stat__lbl { font-size: var(--t-label) !important; }

@@ -1,3 +1,5 @@
+> **Read [MSH.md](MSH.md) before any design or frontend work.** This is Dr Non's standing design law: spatial hallucination is when an interface invents a reason for things to occupy space. When you find it, massacre. The law carries the symptom table, the eight laws, the repair procedure, and the evidence required before anyone may declare a pass.
+>
 > **Read [ANTI-SLOP.md](ANTI-SLOP.md) before any design or frontend work.** These are Dr Non's hard rules against AI design slop: empty space is a decision, subtract before you add, and the map comes first. Check pages with `slop-lint` (tools/slop-lint.mjs in Nonarkara/palette).
 
 # AGENTS.md
@@ -123,6 +125,7 @@ If a future agent has re-broken it, the recovery is `git show 8bdf126:public/ind
 | `npm run qa:spatial` | Spatial gate (`scripts/spatial/spatial-check.mjs`) — measures holes, orphans, scattered pairs, wrapping and dead space against the baseline |
 | `npm run qa:spatial:falsify` | Proves the spatial gate bites — injects known defects and asserts each one is caught |
 | `npm run qa:sweep` | Chunked spatial sweep (`.qa/spatial-sweep.mjs`) — for route sets too large for one browser run |
+| `node .qa/msh-evidence.mjs` | **The evidence MSH.md requires** — measures chrome cost, task visibility, geometry, hierarchy and preservation at 390/1024/1440 and writes the screenshots to `docs/design/evidence/` |
 | `npm run security:headers` | Regenerate `public/_headers` from `lib/security.mjs` — **run after any change to an inline script** |
 | `npm test` | Unit tests (`node --test tests/*.test.mjs`) — footprint, catalogue, circuit, security. Run before pushing a change to `public/` or `axiomx/`. |
 | `npm run export:evidence` | Snapshot the live site for evidence of authorship |
@@ -131,6 +134,16 @@ If a future agent has re-broken it, the recovery is `git show 8bdf126:public/ind
 
 ## 7. When in doubt
 
+- **The law is [MSH.md](MSH.md).** Spatial hallucination is when an interface
+  invents a reason for things to occupy space instead of arranging them around
+  how people read, choose and act. When you find it, massacre. MSH carries the
+  symptom table, the eight laws, the repair procedure, and the evidence it
+  requires before anyone may declare a pass — **source scans and successful
+  builds cannot prove a visual pass.** If rendering was unavailable, say
+  **unverified**.
+- The evidence for a visual change is `node .qa/msh-evidence.mjs` (screenshots
+  and measurements at 390, 1024 and 1440) plus the spatial gate. The last
+  audit is `docs/design/msh-audit-2026-10-22.md`.
 - Before a design revision, read `DESIGN-TENETS.md` and use the linked canonical
   `bauhaus-human-design` method. Quality evidence supplements the mechanical gate;
   it never authorizes theme replacement or removal of earned interactions.
@@ -250,6 +263,8 @@ Eight checks, and two of them are the ones that catch the real defects: every th
 ---
 
 ## 9. The spatial gate — measure the layout, do not eyeball it
+
+**The law is [MSH.md](MSH.md).** This section is how the project measures it. The gate cannot judge taste and cannot tell whether whitespace supports reading — that stays human. What the gate does is make you *look*: it names every hole, orphan, stranded item, scattered pair and accidental wrap, and refuses to let one through unnamed.
 
 **Spatial hallucination** is when an interface invents a reason for things to occupy space, instead of arranging them around how people read, choose and act. Six modes, and the recurring test is *"Why is this here, why this size, and why this far from that?"* — if the answer is *"the grid put it there,"* the layout has failed.
 
