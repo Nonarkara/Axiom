@@ -99,7 +99,7 @@ services:
   # ============================================================================
 
   mosquitto:
-    image: eclipse-mosquitto:2.0.18
+    image: eclipse-mosquitto:2.0.22
     container_name: axiom-mosquitto
     <<: *restart-policy
     <<: *default-network
@@ -119,7 +119,7 @@ services:
       retries: 3
 
   thingsboard:
-    image: thingsboard/tb-postgres:3.6.0
+    image: thingsboard/tb-postgres:4.2.1.1
     container_name: axiom-thingsboard
     <<: *restart-policy
     <<: *default-network
@@ -155,7 +155,7 @@ services:
   # ============================================================================
 
   kong:
-    image: kong:3.6.0
+    image: kong:3.9.3
     container_name: axiom-kong
     <<: *restart-policy
     <<: *default-network
@@ -200,7 +200,7 @@ services:
   # ============================================================================
 
   grafana:
-    image: grafana/grafana:10.4.0
+    image: grafana/grafana:13.2.4
     container_name: axiom-grafana
     <<: *restart-policy
     <<: *default-network
@@ -245,7 +245,7 @@ services:
       start_period: 60s
 
   metabase:
-    image: metabase/metabase:v0.49.0
+    image: metabase/metabase:v0.64.2.7
     container_name: axiom-metabase
     <<: *restart-policy
     <<: *default-network
@@ -283,7 +283,7 @@ services:
   # ============================================================================
 
   traefik:
-    image: traefik:v3.0
+    image: traefik:v3.7
     container_name: axiom-traefik
     <<: *restart-policy
     <<: *default-network
@@ -355,7 +355,7 @@ services:
   # ============================================================================
 
   redis:
-    image: redis:7-alpine
+    image: redis:8-alpine
     container_name: axiom-redis
     <<: *restart-policy
     <<: *default-network
