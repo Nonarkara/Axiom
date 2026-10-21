@@ -576,6 +576,16 @@ summary:focus-visible {
   width: 100%;
 }
 
+/* The poster is a picture beside the analysis column. When the column
+   narrowed, the three points grew taller than the poster and left 358px of
+   nothing under it — a photo stranded beside an empty area. Below 1200px
+   the band stacks, so the poster is the banner it is and the points read
+   under it. */
+@media (max-width: 1200px) {
+  .field-band--video { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .field-band--video .field-band__media { max-width: 640px; }
+}
+
 .field-band__video-wrap {
   position: relative;
   width: 100%;
@@ -828,9 +838,12 @@ summary:focus-visible {
 }
 
 /* EVIDENCE STRIP — fine-print provenance for the systems section */
+/* The provenance strip: a ruled row of key/value cells. A grid, so the
+   cells are a strip and not a row that breaks with one cell left over. */
 .evidence-strip {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, max-content));
+  justify-content: start;
   align-items: center;
   gap: 0;
   margin: 0 0 28px;
@@ -1119,10 +1132,17 @@ summary:focus-visible {
   color: var(--paper);
 }
 
+/* The hero's two calls to action. A grid, so the row has a shape at every
+   width instead of breaking wherever it runs out of room and leaving the
+   second button alone on the last line. */
 .btn-row {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  justify-content: start;
   gap: 12px;
+}
+@media (max-width: 560px) {
+  .btn-row { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ============================================================
@@ -1814,9 +1834,13 @@ summary:focus-visible {
 }
 
 /* === pro bono stack (visible tech list) === */
+/* The stack is a label and a shelf of technologies. The label sits on its
+   own line and the shelf below it is a grid, so the shelf never leaves one
+   chip alone on a line of its own. */
 .probono-stack {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, max-content));
+  justify-content: start;
   align-items: center;
   gap: 4px;
   padding: var(--box-pad) 10px;
@@ -1824,15 +1848,7 @@ summary:focus-visible {
   background: var(--panel);
 }
 
-.probono-stack__lbl {
-  font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", monospace;
-  font-size: var(--t-label);
-  font-weight: 700;
-  letter-spacing: var(--tr-label);
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-right: 4px;
-}
+.probono-stack__lbl { grid-column: 1 / -1; }
 
 .probono-stack__chip {
   display: inline-block;
@@ -1846,9 +1862,11 @@ summary:focus-visible {
   white-space: nowrap;
 }
 
+/* A ruled strip of tags. The strip is a table, so it is a grid: the cells
+   are equal and the rows are decided. */
 .tags {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
@@ -1865,11 +1883,20 @@ summary:focus-visible {
 }
 
 /* creds chips, built-with stack */
+/* Four credentials. Four, two or one to a row — never three and an orphan.
+   Tracks are content-width, so a chip is never stretched to fill a cell. */
 .chips {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, max-content));
+  justify-content: start;
   gap: 6px;
   margin-top: 10px;
+}
+@media (max-width: 900px) {
+  .chips { grid-template-columns: repeat(2, minmax(0, max-content)); }
+}
+@media (max-width: 460px) {
+  .chips { grid-template-columns: minmax(0, max-content); }
 }
 
 .chip {
@@ -1908,11 +1935,14 @@ summary:focus-visible {
 }
 .stack__icon svg { width: 26px; height: 26px; display: block; }
 .stack__main { padding: 14px 16px 16px; min-width: 0; }
+/* The layer's name and its role on the left, the count on the right, both
+   rows of the same grid. Before, the count was pushed to the far edge and
+   wrapped onto a line of its own on a phone. */
 .stack__head {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
-  flex-wrap: wrap;
-  gap: 6px 10px;
+  gap: 2px 10px;
   margin-bottom: 11px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
@@ -1927,8 +1957,16 @@ summary:focus-visible {
   color: var(--ink-3);
   white-space: nowrap;
 }
-.stack__count { font-size: var(--t-micro); font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
-.stack__items { display: flex; flex-wrap: wrap; gap: 6px; }
+.stack__count { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: var(--t-micro); font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+/* A shelf of technology names, in a grid with a decided number of columns.
+   The chips keep their own width; the grid only decides where the breaks
+   fall. */
+.stack__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, max-content));
+  justify-content: start;
+  gap: 6px;
+}
 .stack__items span,
 .stack__items a {
   font-size: var(--t-micro);

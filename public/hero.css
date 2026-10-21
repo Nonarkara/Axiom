@@ -1157,8 +1157,12 @@
   .hero-map-space { display: block; grid-area: map; min-height: 180px; pointer-events: none; }
   .hero-subtitle { font-size: 15px; line-height: 1.45; }
   .hero-node-strip-scroller {
-    grid-template-columns: repeat(4, minmax(148px, 1fr));
-    overflow-x: auto;
+    /* All four theatres are visible at once. A sideways strip put the
+       fourth card behind a scroll the reader had no reason to know about,
+       and the theatre it named was a decision they could not make. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow-x: visible;
+  }
     scroll-snap-type: x proximity;
   }
   /* Cap the rotating second line so longer non-EN phrases never wrap

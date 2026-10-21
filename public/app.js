@@ -3375,6 +3375,12 @@ const i18nExt2 = {
       c37:'Urban Research',
       c38:'Fieldwork Book',
       c39:'National Programme',
+      c40:'City Pulse',
+      c41:'Traffic Regulation',
+      c42:'District Operations',
+      c43:'Podcast',
+      c44:'Network Evaluation',
+      c45:'Brain Practice',
       c46:'Open Source Kit',
       c47:'City Economics',
       c48:'Fieldwork Book',
@@ -5547,14 +5553,28 @@ function initFlooddashCarousel() {
   }
 
   function moveToStop(city) {
-    // Keep the geographic anchor in the uncovered map column, away from the headline.
+    // Keep the geographic anchor in the uncovered map column, away from the
+    // headline AND away from the console. The offset used to be a fixed
+    // tenth of the map width, which put the anchor at 60% — exactly where
+    // the Decision Systems Console now stands, so the panel covered the
+    // label of the very theatre the tour was on. The clear column is
+    // measured from the grid instead of guessed.
     const size = map.getSize();
     const viewport = document.querySelector('.hero-map-space');
     const bounds = viewport?.getBoundingClientRect();
-    const mapBounds = container.getBoundingClientRect();
+    const mapBounds = (container.getBoundingClientRect && container.getBoundingClientRect()) || { left: 0, top: 0, width: size.x, height: size.y };
     const phone = window.matchMedia('(max-width: 600px)').matches;
     const targetY = phone && bounds ? bounds.top - mapBounds.top + bounds.height / 2 : size.y / 2;
-    const offset = L.point(phone ? 0 : -size.x * 0.1, size.y / 2 - targetY);
+    let offsetX = phone ? 0 : -size.x * 0.1;
+    if (!phone) {
+      const rectOf = (el) => (el && el.getBoundingClientRect && el.getBoundingClientRect()) || null;
+      const copyRect = rectOf(document.querySelector('.hero-copy'));
+      const consoleRect = rectOf(document.getElementById('heroConsole'));
+      const left = copyRect ? copyRect.right - mapBounds.left : 0;
+      const right = consoleRect ? consoleRect.left - mapBounds.left : size.x;
+      if (right > left + 80) offsetX = (left + right) / 2 - size.x / 2;
+    }
+    const offset = L.point(offsetX, size.y / 2 - targetY);
     const zoom = phone && city.zoom <= 5 ? Math.max(3, city.zoom - 1) : city.zoom;
     const center = map.unproject(map.project([city.lat, city.lng], zoom).add(offset), zoom);
     map.flyTo(center, zoom, { duration: tourDuration, animate: !axiomMedia.isReduced });
