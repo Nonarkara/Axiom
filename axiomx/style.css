@@ -806,14 +806,31 @@ h1.name {
   line-height: 1.5;
 }
 
-.layer { grid-template-columns: minmax(8.5rem, 13rem) minmax(0, 1fr); gap: 12px; }
+/* The layer name is a heading for the shelf under it, not a label in a
+   column beside it. A 13rem label cell next to a 240px shelf left 200px of
+   nothing under the name, and the eye had to travel the width of the page
+   to read the tools it was labelling. */
+.layer { grid-template-columns: minmax(0, 1fr); gap: 6px 12px; }
+.layer__head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 14px; }
 .layer h2 { margin: 0; font-size: 14px; font-weight: 500; }
 .layer p { margin: 2px 0 0; font-size: 12px; color: var(--muted); }
 /* The renderer appends tools as adjacent inline boxes with no whitespace
    between them, so there was no legal break point: 114 names ran as one
    unbreakable line and pushed the plate sideways (+996px desktop, +1406px
    phone). A wrapping flex row breaks between names; each name stays whole. */
-.tools { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; font-size: 13px; line-height: 1.7; }
+/* The tool shelf is a grid, not a row that breaks wherever it runs out of
+   room. A grid has a decided number of columns at every width, so the last
+   row is part of the shape instead of an accident. */
+.tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  justify-items: start;
+  align-items: baseline;
+  column-gap: 12px;
+  row-gap: 2px;
+  font-size: 13px;
+  line-height: 1.7;
+}
 .tool { white-space: nowrap; }
 .tool.is-fav { font-weight: 500; }
 .tool i {

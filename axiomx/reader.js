@@ -10,7 +10,7 @@
   // Cloudflare serves static assets with a four-hour max-age. A plate whose
   // file changed under the same name keeps serving the old bytes for hours,
   // so every plate is addressed by a versioned path. Bump this when art ships.
-  const ART_V = '20261021b';
+  const ART_V = '20261021c';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
   const I18N = window.AXIOM_I18N || { ui: {}, systems: {}, docs: {} };
 
@@ -1103,7 +1103,7 @@
         const wrap = el('div', 'rule-list');
         STACK.forEach(function (layer) {
           const line = el('div', 'layer');
-          const head = el('div');
+          const head = el('div', 'layer__head');
           head.appendChild(el('h2', '', layer[0]));
           head.appendChild(el('p', '', layer[1]));
           line.appendChild(head);
