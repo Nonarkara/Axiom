@@ -13,6 +13,8 @@
     "export:evidence": "node scripts/export-evidence-snapshot.mjs",
     "qa:links": "node .qa/release-audit.mjs",
     "qa:visual": "node .qa/visual-qa.mjs",
-    "qa:thumbs": "node .qa/catalogue-thumbs.mjs"
+    "qa:thumbs": "node .qa/catalogue-thumbs.mjs",
+    "qa:journeys": "node .qa/axiomx-journeys.mjs",
+    "qa:plates": "node .qa/axiomx-plates.mjs"
   }
 }

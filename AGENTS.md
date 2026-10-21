@@ -116,6 +116,8 @@ If a future agent has re-broken it, the recovery is `git show 8bdf126:public/ind
 | `npm run qa:links` | Link audit (`.qa/release-audit.mjs`) |
 | `npm run qa:visual` | Playwright visual regression (`.qa/visual-qa.mjs`) |
 | `npm run qa:thumbs` | Catalogue thumbnail band check (`.qa/catalogue-thumbs.mjs`) — needs a server on port 5312 |
+| `npm run qa:journeys` | Reading-room human journeys (`.qa/axiomx-journeys.mjs`) — needs a server on port 5311 |
+| `npm run qa:plates` | Reading-room plate discipline (`.qa/axiomx-plates.mjs`) — reads the built book, no server needed |
 | `npm test` | Unit tests (`node --test tests/*.test.mjs`) — footprint, catalogue, circuit, security. Run before pushing a change to `public/` or `axiomx/`. |
 | `npm run export:evidence` | Snapshot the live site for evidence of authorship |
 
@@ -199,7 +201,9 @@ It is the long-form case for the work — the argument you make to a governor, n
 
 ### Testing it
 
-`.qa/axiomx-journeys.mjs` runs the human journeys. It defaults to a local server on port 5311 — `cd axiomx && python3 -m http.server 5311` then `node .qa/axiomx-journeys.mjs`.
+`.qa/axiomx-journeys.mjs` runs the human journeys. It defaults to a local server on port 5311 — `node .qa/serve.mjs 5311` then `node .qa/axiomx-journeys.mjs`.
+
+**Use `.qa/serve.mjs`, not `python3 -m http.server`.** That server is single-threaded and speaks HTTP/1.0, so it answers one request at a time and closes every connection. The reading room loads a 200KB locale bundle, and a browser opening several requests at once stalls behind one slow response — the run then times out or reports `ERR_SOCKET_NOT_CONNECTED` against a page that is perfectly fine. Two failures were reported on a deployment that was clean. `.qa/serve.mjs` is concurrent and keeps connections alive, so a local run measures the site instead of the transport.
 
 `AXIOMX_URL` overrides the base, so the **same journeys** run against a deployment:
 `AXIOMX_URL=https://axiomx.nonarkara.org/ node .qa/axiomx-journeys.mjs`. Always run them against the canonical host, not the `pages.dev` alias — the alias cannot catch a broken domain or a stale zone.
@@ -232,6 +236,6 @@ Every catalogue card carries a product screenshot in a **21:8 band**. Two CSS fa
 - **`.sys-cell__shot` needs `height: auto`.** An `<img>` carries a `height` attribute, which the browser treats as a presentational hint for the `height` *property*. Author CSS set `width` but not `height`, so the hint won and the `aspect-ratio: 21/8` was ignored — a 16:10 screenshot rendered at its own 800px, a portrait column that blew the card to 930px against 297px neighbours. `height: auto` hands the box back to the ratio. **Do not remove it.**
 - **`object-fit: contain` is banned here.** It letterboxes the image inside the band against the card's own background, so the thumbnail reads as a small stray picture floating in an empty strip. The band is fixed, so the **crop window moves** instead: `--lower` (`50% 20%`) holds a figure and what it holds; `--middle` (`50% 45%`) holds a model that sits on a field.
 
-`.qa/catalogue-thumbs.mjs` is the guard. It defaults to a local server on port 5312 — `python3 -m http.server 5312 --directory public` then `node .qa/catalogue-thumbs.mjs`. `AXIOM_URL` overrides the base, so the **same checks** run against a deployment: `AXIOM_URL=https://axiom.nonarkara.org/ node .qa/catalogue-thumbs.mjs`.
+`.qa/catalogue-thumbs.mjs` is the guard. It defaults to a local server on port 5312 — `node .qa/serve.mjs 5312 public` then `node .qa/catalogue-thumbs.mjs`. `AXIOM_URL` overrides the base, so the **same checks** run against a deployment: `AXIOM_URL=https://axiom.nonarkara.org/ node .qa/catalogue-thumbs.mjs`.
 
 Eight checks, and two of them are the ones that catch the real defects: every thumbnail **fills** its band (`object-fit` must be `cover` — a correct-shaped box can still letterbox), and the band is **one height across the catalogue** (a card taller than its row-mates leaves holes under the text). It also fails on any JS or console error, and scopes to `.sys-cell[data-arch]` so the eight brand-sheet cards are out of scope. Expected: **8 PASS, 0 FAIL**.
