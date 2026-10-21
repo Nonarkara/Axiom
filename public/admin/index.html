@@ -71,12 +71,10 @@
 
       <section class="workspace-panel pipeline-panel">
         <div class="panel-head">
-          <div>
-            <span class="section-kicker">Sales pipeline</span>
-            <h2>Active leads &amp; prospects</h2>
-            <p>Projects with clear leads but no signed contract yet. Stage: lead → proposal → negotiation → won / lost.</p>
-          </div>
+          <span class="section-kicker">Sales pipeline</span>
           <button type="button" class="panel-btn" id="newPipelineBtn">New lead</button>
+          <h2>Active leads &amp; prospects</h2>
+          <p>Projects with clear leads but no signed contract yet. Stage: lead → proposal → negotiation → won / lost.</p>
         </div>
 
         <div id="pipelineTableWrap">
@@ -156,20 +154,18 @@
       <section class="workspace-grid">
         <section class="workspace-panel">
           <div class="panel-head">
-            <div>
-              <span class="section-kicker" data-i18n="case.kicker">Project proof</span>
-              <h2 data-i18n="case.title">Case-study records</h2>
-              <p data-i18n="case.desc">Pick a project, update the facts, and the public evidence section will read the new record.</p>
-            </div>
+            <span class="section-kicker" data-i18n="case.kicker">Project proof</span>
             <button type="button" class="panel-btn" id="newCaseStudyBtn" data-i18n="actions.newCase">New project record</button>
+            <h2 data-i18n="case.title">Case-study records</h2>
+            <p data-i18n="case.desc">Pick a project, update the facts, and the public evidence section will read the new record.</p>
           </div>
 
           <div class="editor-grid">
             <aside class="record-list" id="caseStudyList" aria-label="Case-study records"></aside>
 
             <form id="caseStudyForm" class="editor-form">
-              <div class="form-grid form-grid-three">
-                <label class="field">
+              <div class="form-grid form-grid-fields">
+                <label class="field field--wide">
                   <span id="caseBadgeLabel">Badge</span>
                   <input id="caseBadge" name="badge" type="text" autocomplete="off">
                 </label>
@@ -183,22 +179,22 @@
                 </label>
               </div>
 
-              <div class="form-grid form-grid-three">
-                <label class="field">
+              <div class="form-grid form-grid-fields">
+                <label class="field field--wide">
                   <span id="caseClientLabel">Who it was for</span>
                   <input id="caseClient" name="client" type="text" autocomplete="off">
                 </label>
-                <label class="field">
+                <label class="field field--wide">
                   <span id="caseLocationLabel">Where</span>
                   <input id="caseLocation" name="location" type="text" autocomplete="off">
                 </label>
-                <label class="field">
+                <label class="field field--wide">
                   <span id="caseSectorLabel">Type of work</span>
                   <input id="caseSector" name="sector" type="text" autocomplete="off">
                 </label>
               </div>
 
-              <div class="form-grid form-grid-four">
+              <div class="form-grid form-grid-fields">
                 <label class="field">
                   <span id="caseStatusLabel">Delivery status</span>
                   <select id="caseStatus" name="status">
@@ -224,20 +220,20 @@
                 </label>
               </div>
 
-              <div class="form-grid form-grid-four">
+              <div class="form-grid form-grid-fields">
                 <label class="field">
                   <span id="caseArtifactCountLabel">Proof artifacts</span>
                   <input id="caseArtifactCount" name="artifactCount" type="number" min="1" step="1">
                 </label>
-                <label class="field">
+                <label class="field field--wide">
                   <span id="caseLastVerifiedAtLabel">Last verified</span>
                   <input id="caseLastVerifiedAt" name="lastVerifiedAt" type="datetime-local">
                 </label>
-                <label class="field">
+                <label class="field field--wide">
                   <span id="caseLinkUrlLabel">Live URL</span>
                   <input id="caseLinkUrl" name="linkUrl" type="url" autocomplete="off">
                 </label>
-                <label class="field">
+                <label class="field field--wide">
                   <span id="caseEvidenceSourceUrlLabel">Proof source URL</span>
                   <input id="caseEvidenceSourceUrl" name="evidenceSourceUrl" type="url" autocomplete="off">
                 </label>
@@ -270,34 +266,32 @@
 
         <section class="workspace-panel">
           <div class="panel-head">
-            <div>
-              <span class="section-kicker" data-i18n="history.kicker">Project timeline</span>
-              <h2 data-i18n="history.title">Public history records</h2>
-              <p data-i18n="history.desc">This list explains where the proof came from and when the work entered the public record.</p>
-            </div>
+            <span class="section-kicker" data-i18n="history.kicker">Project timeline</span>
             <button type="button" class="panel-btn" id="newHistoryBtn" data-i18n="actions.newHistory">New timeline entry</button>
+            <h2 data-i18n="history.title">Public history records</h2>
+            <p data-i18n="history.desc">This list explains where the proof came from and when the work entered the public record.</p>
           </div>
 
           <div class="editor-grid">
             <aside class="record-list" id="historyList" aria-label="Timeline records"></aside>
 
             <form id="historyForm" class="editor-form">
-              <div class="form-grid form-grid-three">
+              <div class="form-grid form-grid-fields">
                 <label class="field">
                   <span id="historyOrderLabel">Display order</span>
                   <input id="historyOrder" name="historyOrder" type="number" min="0" step="1">
                 </label>
-                <label class="field">
+                <label class="field field--wide">
                   <span id="historyLocationLabel">Location</span>
                   <input id="historyLocation" name="location" type="text" autocomplete="off">
                 </label>
-                <label class="field">
+                <label class="field field--wide">
                   <span id="historyUrlLabel">Source URL</span>
                   <input id="historyUrl" name="url" type="url" autocomplete="off">
                 </label>
               </div>
 
-              <div class="form-grid form-grid-three">
+              <div class="form-grid form-grid-fields">
                 <label class="field">
                   <span id="historyStatusLabel">Record status</span>
                   <select id="historyStatus" name="status">

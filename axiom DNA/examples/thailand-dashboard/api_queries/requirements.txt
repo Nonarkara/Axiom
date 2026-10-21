@@ -2,31 +2,31 @@
 # Install: pip install -r requirements.txt
 
 # Database
-psycopg2-binary>=2.9.9
+psycopg2-binary>=2.9.13
 
 # HTTP requests
-requests>=2.31.0
-urllib3>=2.0.0
+requests>=2.34.2
+urllib3>=2.8.0
 
 # GTFS Realtime parsing
-gtfs-realtime-bindings>=1.0.0
+gtfs-realtime-bindings>=3.0.0
 
 # Data processing
-pandas>=2.0.0
-numpy>=1.24.0
+pandas>=3.0.6
+numpy>=2.5.4
 
 # Geospatial
-shapely>=2.0.0
+shapely>=2.2.0
 
 # Environment configuration
-python-dotenv>=1.0.0
+python-dotenv>=1.2.4
 
 # MQTT client (for direct MQTT publishing)
-paho-mqtt>=1.6.0
+paho-mqtt>=2.1.0
 
 # Scheduling (for cron-style pollers)
-schedule>=1.2.0
+schedule>=1.2.2
 
 # Web framework (for webhook receivers)
-flask>=3.0.0
-gunicorn>=21.0.0
+flask>=3.1.3
+gunicorn>=26.2.0

@@ -4,8 +4,57 @@
   // One public-domain artwork per system, in place of the product screenshot.
   // After DIE WELT's 6 October 2011 edition, in which Ellsworth Kelly replaced
   // every news photograph with his own work. Pro bono entries keep their photos.
+  // The nine page artworks are museum works too, chosen because the painting
+  // tells that page's story — the flood, the missing picture, the working thing.
   const PLATES = window.AXIOM_PLATES || {};
+  // Cloudflare serves static assets with a four-hour max-age. A plate whose
+  // file changed under the same name keeps serving the old bytes for hours,
+  // so every plate is addressed by a versioned path. Bump this when art ships.
+  const ART_V = '20261021c';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
+  const I18N = window.AXIOM_I18N || { ui: {}, systems: {}, docs: {} };
+
+  let currentLocale = 'en';
+  try {
+    const saved = localStorage.getItem('axiomx_locale');
+    const param = new URLSearchParams(location.search).get('lang');
+    if (param && ['en', 'th', 'zh', 'ko', 'ja', 'vi'].includes(param)) currentLocale = param;
+    else if (saved && ['en', 'th', 'zh', 'ko', 'ja', 'vi'].includes(saved)) currentLocale = saved;
+  } catch (e) {}
+
+  function resolve(obj, path) {
+    if (!obj || !path) return undefined;
+    if (obj[path] !== undefined) return obj[path];
+    const parts = path.split('.');
+    let cur = obj;
+    for (let i = 0; i < parts.length; i++) {
+      if (cur == null || typeof cur !== 'object') return undefined;
+      cur = cur[parts[i]];
+    }
+    return cur !== undefined ? cur : undefined;
+  }
+
+  function t(key, fallback) {
+    const locMap = I18N.ui?.[currentLocale] || {};
+    const enMap = I18N.ui?.en || {};
+    const valLoc = resolve(locMap, key);
+    if (valLoc !== undefined) return valLoc;
+    const valEn = resolve(enMap, key);
+    if (valEn !== undefined) return valEn;
+    return fallback !== undefined ? fallback : key;
+  }
+
+  function localizedTitle(entry) {
+    if (!entry) return '';
+    if (entry.kind === 'system') {
+      const locSys = (I18N.systems?.[currentLocale] || {})[entry.id];
+      if (locSys && locSys.name) return locSys.name;
+      return entry.title;
+    }
+    const locDoc = (I18N.docs?.[currentLocale] || {})[entry.id];
+    if (locDoc && locDoc.title) return locDoc.title;
+    return entry.title;
+  }
 
   const shell = document.getElementById('shell');
   const nav = document.getElementById('nav');
@@ -59,12 +108,255 @@
     return fig;
   }
 
+  const FIELD_VIDEOS = [
+    {
+      id: '0-A3R_i3wrs',
+      title: 'ยืนกลางซอยน้ำท่วม — อธิบายสถานการณ์จากจุดเกิดเหตุ',
+      meta: 'FloodDash Field · Live',
+      desc: 'The ground condition. Read from standing in it — every flood season since the first watch, in Thai, in public.'
+    },
+    {
+      id: 'lLnq4LefXiI',
+      title: 'หน้าจอจริง — คะแนนจังหวัด · เรดาร์ · MY AREA',
+      meta: 'System Walkthrough · Multi-source',
+      desc: 'Reading the situation picture: how provincial hazard scoring, rain radar, and neighborhood alerts work together in real time.'
+    },
+    {
+      id: 'O80WcxnzC9Q',
+      title: 'เปิดแผนที่บนโน้ตบุ๊ก — อ่านสียังไงไม่ให้ตกใจ',
+      meta: 'Decision Guide · Interface',
+      desc: 'Decoding colour bands and risk thresholds without panic: how a commander or resident reads the map.'
+    },
+    {
+      id: 'RQe0izP7BUs',
+      title: 'น้ำท่วมถึงน่อง! เดินเช็ก FloodDash กลางซอย',
+      meta: 'Ground Truth · Field Check',
+      desc: 'Ground-truthing civic models in shin-deep floodwaters: verifying sensors against physical reality.'
+    },
+    {
+      id: '1SNQIOcz7-o',
+      title: 'ทำไมกรุงเทพฯ ฝนตกหนักวันนี้? + AI ช่วยเฝ้าระวังน้ำท่วม',
+      meta: 'Analysis · Meteorology & AI',
+      desc: 'Analyzing urban cloudburst dynamics, weather radar patterns, and real-time surveillance.'
+    }
+  ];
+
+  function addVideoStudio(captionText) {
+    const fig = el('figure', 'vstudio');
+
+    const main = el('div', 'vstudio-main');
+    const wrap = el('div', 'vstudio-player');
+
+    // THE PLAYER IS A POSTER UNTIL THE READER ASKS FOR THE FILM.
+    // A third-party frame that loads on its own is a request to a third
+    // party the reader never made, and it is the reason the entry takes
+    // seconds to settle. The poster is the same frame, still the same
+    // figure, and it becomes the film on one click.
+    const poster = document.createElement('button');
+    poster.type = 'button';
+    poster.className = 'vstudio-poster';
+    poster.setAttribute('aria-label', 'Play the field briefing');
+    const posterImg = document.createElement('img');
+    posterImg.className = 'vstudio-poster-img';
+    posterImg.src = 'https://img.youtube.com/vi/' + FIELD_VIDEOS[0].id + '/hqdefault.jpg';
+    posterImg.alt = '';
+    posterImg.loading = 'lazy';
+    poster.appendChild(posterImg);
+    const playBtn = el('span', 'vstudio-poster-play');
+    playBtn.setAttribute('aria-hidden', 'true');
+    playBtn.textContent = '▶';
+    poster.appendChild(playBtn);
+    wrap.appendChild(poster);
+
+    let iframe = null;
+    function startVideo(v, autoplay) {
+      if (!iframe) {
+        iframe = document.createElement('iframe');
+        iframe.className = 'vstudio-iframe';
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure');
+        iframe.setAttribute('allowfullscreen', 'true');
+        iframe.setAttribute('frameborder', '0');
+        wrap.appendChild(iframe);
+      }
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + v.id +
+        '?enablejsapi=1&rel=0' + (autoplay ? '&autoplay=1' : '');
+      iframe.title = v.title;
+    }
+
+    poster.addEventListener('click', function () {
+      poster.remove();
+      startVideo(FIELD_VIDEOS[0], true);
+    });
+
+    main.appendChild(wrap);
+
+    const info = el('figcaption', 'vstudio-info');
+    const metaTag = el('span', 'vstudio-tag', FIELD_VIDEOS[0].meta);
+    const titleEl = el('h3', 'vstudio-title', FIELD_VIDEOS[0].title);
+    const descEl = el('p', 'vstudio-desc', captionText || FIELD_VIDEOS[0].desc);
+    info.appendChild(metaTag);
+    info.appendChild(titleEl);
+    info.appendChild(descEl);
+    main.appendChild(info);
+    fig.appendChild(main);
+
+    const list = el('div', 'vstudio-list');
+    const listHead = el('div', 'vstudio-list-head');
+    listHead.appendChild(el('span', 'vstudio-list-title', 'Field Briefings'));
+    listHead.appendChild(el('span', 'vstudio-list-count', FIELD_VIDEOS.length + ' videos'));
+    list.appendChild(listHead);
+
+    const itemsWrap = el('div', 'vstudio-items');
+    itemsWrap.setAttribute('role', 'tablist');
+
+    FIELD_VIDEOS.forEach(function (v, idx) {
+      const card = el('button', 'vstudio-item' + (idx === 0 ? ' is-active' : ''));
+      card.type = 'button';
+      card.setAttribute('role', 'tab');
+      card.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+      card.setAttribute('aria-label', v.title);
+
+      const thumb = el('div', 'vstudio-thumb');
+      const img = document.createElement('img');
+      img.src = 'https://img.youtube.com/vi/' + v.id + '/mqdefault.jpg';
+      img.alt = v.title;
+      img.loading = 'lazy';
+      thumb.appendChild(img);
+      const badge = el('span', 'vstudio-idx', '0' + (idx + 1));
+      thumb.appendChild(badge);
+      card.appendChild(thumb);
+
+      const copy = el('div', 'vstudio-meta');
+      copy.appendChild(el('span', 'vstudio-item-meta', v.meta));
+      copy.appendChild(el('span', 'vstudio-item-title', v.title));
+      card.appendChild(copy);
+
+      card.addEventListener('click', function () {
+        itemsWrap.querySelectorAll('.vstudio-item').forEach(function (c) {
+          c.classList.remove('is-active');
+          c.setAttribute('aria-selected', 'false');
+        });
+        card.classList.add('is-active');
+        card.setAttribute('aria-selected', 'true');
+        // Choosing a briefing from the list IS the request to watch it.
+        // Leaving the poster up would ask the reader to click twice for one
+        // intent, and put the decision in one place and the action in
+        // another — the scattered-action failure.
+        if (poster.parentNode) poster.remove();
+        startVideo(v, true);
+        metaTag.textContent = v.meta;
+        titleEl.textContent = v.title;
+        descEl.textContent = v.desc;
+      });
+
+      itemsWrap.appendChild(card);
+    });
+
+    list.appendChild(itemsWrap);
+    fig.appendChild(list);
+    plate.appendChild(fig);
+    return fig;
+  }
+
   // A plate: the artwork, then a credit line set like a museum label, then one
   // line on why this work stands for this system.
+  // Every plate is a museum work with a public source to point at.
+  function sourceLine(art) {
+    const src = el('p', 'plate-src');
+    src.appendChild(link(art[4], t('source', 'Source')));
+    src.appendChild(document.createTextNode(' · ' + art[5]));
+    return src;
+  }
+
   function addPlate(id, art, host) {
     const fig = el('figure', 'plate-art');
     const img = el('img', 'plate-img');
-    img.src = 'art/' + id + '.webp';
+    const artSrc = 'art/' + id + '.webp?v=' + ART_V;
+    img.src = artSrc;
+    img.alt = art[1] + ', ' + art[0] + ', ' + art[2];
+    img.width = art[7];
+    img.height = art[8];
+    img.decoding = 'async';
+    fig.appendChild(img);
+    const cap = el('figcaption');
+    const label = el('p', 'plate-label');
+    label.appendChild(el('b', '', art[0]));
+    label.appendChild(el('i', '', art[1]));
+    label.appendChild(document.createTextNode(', ' + art[2] + '. ' + art[3] + '.'));
+    cap.appendChild(label);
+    const whyP = el('p', 'plate-why', art[6]);
+    cap.appendChild(whyP);
+    cap.appendChild(sourceLine(art));
+    fig.appendChild(cap);
+
+    // Easter egg: Double-click (or double-tap on touch) at the artwork to toggle
+    // the real production system screen from axiom.nonarkara.org.
+    const sys = systems.find(function (s) { return s.id === id; });
+    if (sys && sys.img) {
+      fig.style.cursor = 'pointer';
+      fig.title = 'Double-click to view the real production interface';
+      let showingScreen = false;
+      const screenSrc = media(sys.img);
+      function toggle() {
+        showingScreen = !showingScreen;
+        if (showingScreen) {
+          img.src = screenSrc;
+          img.alt = sys.alt || sys.name;
+          fig.classList.add('is-real-screen');
+          whyP.textContent = '⚡ Production Interface · ' + (sys.name || id) + ' (double-click to return to masterwork).';
+        } else {
+          img.src = artSrc;
+          img.alt = art[1] + ', ' + art[0] + ', ' + art[2];
+          fig.classList.remove('is-real-screen');
+          whyP.textContent = art[6];
+        }
+      }
+      fig.addEventListener('dblclick', function (e) {
+        e.preventDefault();
+        toggle();
+      });
+      let lastTap = 0;
+      fig.addEventListener('touchend', function (e) {
+        const now = Date.now();
+        if (now - lastTap < 350) {
+          e.preventDefault();
+          toggle();
+        }
+        lastTap = now;
+      });
+    }
+
+    (host || plate).appendChild(fig);
+
+    // The label belongs to the plate, so the label is never allowed to run
+    // wider than the plate it names. A portrait work is height-capped by
+    // the page, so CSS alone cannot measure it — the rendered image can.
+    // The label keeps its own reading measure when the plate is wide enough
+    // to carry it, and shrinks to the plate when it is not.
+    const reading = parseFloat(getComputedStyle(cap).maxWidth) || 0;
+    function fitLabel() {
+      if (!img.naturalWidth) return;
+      const w = Math.round(img.getBoundingClientRect().width);
+      if (!w) return;
+      cap.style.maxWidth = Math.min(w, reading || w) + 'px';
+    }
+    if (window.ResizeObserver) {
+      new ResizeObserver(fitLabel).observe(img);
+    } else {
+      img.addEventListener('load', fitLabel);
+      window.addEventListener('resize', fitLabel);
+    }
+    fitLabel();
+    return fig;
+  }
+
+  // The hero: one wide plate, edge to edge, with the museum label under it.
+  // The poster above it is a sentence long; the picture has to run the length
+  // of that sentence, not sit beside it like a stamp.
+  function addHero(id, art) {
+    const fig = el('figure', 'hero-art');
+    const img = el('img', 'hero-img');
+    img.src = 'art/' + id + '.webp?v=' + ART_V;
     img.alt = art[1] + ', ' + art[0] + ', ' + art[2];
     img.width = art[7];
     img.height = art[8];
@@ -77,12 +369,9 @@
     label.appendChild(document.createTextNode(', ' + art[2] + '. ' + art[3] + '.'));
     cap.appendChild(label);
     cap.appendChild(el('p', 'plate-why', art[6]));
-    const src = el('p', 'plate-src');
-    src.appendChild(link(art[4], 'Source'));
-    src.appendChild(document.createTextNode(' · ' + art[5]));
-    cap.appendChild(src);
+    cap.appendChild(sourceLine(art));
     fig.appendChild(cap);
-    (host || plate).appendChild(fig);
+    plate.appendChild(fig);
     return fig;
   }
 
@@ -177,6 +466,7 @@
 
   book.push(doc('axiom', 'Index', 'Axiom', [
     { type: 'poster', text: 'The flood arrives at 2 a.m.', em: 'The dashboard arrives next fiscal year.' },
+    { type: 'hero', plate: 'page-hero' },
     { type: 'lede', text: 'City data already exists. In a crisis, nobody sees it whole. We build one screen for one decision, and put it in the room in two weeks.' },
     { type: 'figs', rows: [
       { v: String(systems.length), l: 'Systems', t: 'Across five countries. Open one.' },
@@ -196,6 +486,7 @@
   book.push(doc('problem', 'Method', 'The picture is late', [
     { type: 'h', text: 'The picture is late' },
     { type: 'lede', text: 'Rain, traffic, air, complaints, satellites — held by a dozen agencies, each on its own clock. The crisis arrives on one clock. It arrives at 2 a.m. Nothing else does.' },
+    { type: 'plate', plate: 'page-problem' },
     { type: 'steps', items: [
       { t: 'The data is already there.', d: 'It sits in TMD rainfall gauges, GISTDA satellite passes, Pollution Control Department air readings, municipal spreadsheets, and a phone call from a district officer. Almost all of it is public. None of it is hard to obtain. It is only hard to see.' },
       { t: 'The clocks do not match.', d: 'Gauges report every five minutes. A satellite passes every ten days. Complaints get logged when somebody is awake to log them. A decision needs all three in the same second. No agency is built to do that, because no single agency owns the decision that would need it.' },
@@ -207,6 +498,7 @@
   book.push(doc('room', 'Method', 'No handlers', [
     { type: 'h', text: 'No handlers' },
     { type: 'lede', text: 'Bring the problem. The people you meet in week one are the people writing the code in week two. There is no account layer and no hand-off.' },
+    { type: 'plate', plate: 'page-room' },
     { type: 'steps', items: [
       { t: 'The large firm', d: 'A senior partner sells the work. A delivery team you never meet builds it. You get slides, a change-request cycle, and a vendor relationship to manage instead of a problem to solve.' },
       { t: 'What that costs', d: 'Every question survives two translations — once into a proposal, once into a build. The answers come back shaped like the proposal rather than like your problem.' },
@@ -219,9 +511,9 @@
     { type: 'h', text: 'Three steps' },
     { type: 'lede', text: 'Two weeks to a screen somebody can actually use. The steps never change. The decision does.' },
     { type: 'steps', items: [
-      { t: 'Week 1 — Name the decision.', d: 'We sit with the person who really decides — a governor, a flood desk, a port authority — and agree on one decision to make faster. Who owns it. What data already exists. What it would mean to be wrong in time.' },
-      { t: 'Week 2 — A working screen, in the room.', d: 'Built on your data and on free public sources. No new hardware, no procurement, no procurement-grade lead time. You judge it live, on your own numbers, and tell us what is wrong with it.' },
-      { t: 'From day one — Measure, then scale.', d: 'Every screen logs who opens it and which decision it served. The next version is built from what the first one taught. Scaling follows use instead of being decided in advance.' }
+      { t: 'Week 1 — Name the decision.', d: 'We sit with the person who really decides — a governor, a flood desk, a port authority — and agree on one decision to make faster. Who owns it. What data already exists. What it would mean to be wrong in time.', plate: 'page-step-1' },
+      { t: 'Week 2 — A working screen, in the room.', d: 'Built on your data and on free public sources. No new hardware, no procurement, no procurement-grade lead time. You judge it live, on your own numbers, and tell us what is wrong with it.', plate: 'page-step-2' },
+      { t: 'From day one — Measure, then scale.', d: 'Every screen logs who opens it and which decision it served. The next version is built from what the first one taught. Scaling follows use instead of being decided in advance.', plate: 'page-step-3' }
     ]},
     { type: 'note', text: 'The constraint is never the technology. It is agreeing, in week one, that there is one decision worth two weeks.' }
   ], { num: '03' }));
@@ -235,6 +527,7 @@
       { v: '45m', l: 'SLIC · Taipei', t: '157 cities ranked live, on stage, inside a 45-minute keynote.' },
       { v: '14d', l: 'Field note', t: 'A vendor called it too complex. A working version was in the room fourteen days later.' }
     ]},
+    { type: 'plate', plate: 'page-changed' },
     { type: 'p', text: 'One objection is worth answering properly. Two weeks sounds fast because it sounds thin. It is thin — on purpose. A first screen is one decision, live, on real data, with its limits visible. It is not a finished product and we will not sell it as one.' },
     { type: 'p', text: 'What it buys is knowledge. In two weeks you find out whether the decision is real, whether the data actually supports it, and whether anybody opens the screen at two in the morning. A year of procurement answers none of those three questions until it is too late to change course.' },
     { type: 'p', text: systems.length + ' systems across five countries. Open one. Use it. Judge it.' }
@@ -248,18 +541,15 @@
       { t: 'Is our data safe?', d: 'The first step uses public data, so sensitive records stay with you. Delivery follows PDPA, GDPR-informed practice, and ISO/IEC frameworks. That is practice, not a certification. See the record.' },
       { t: 'You are a small team. Can you deliver?', d: 'You deal with the builders — Dr Non Arkaraprasertkul and Dr Poon Thiengburanathum. Specialists join for a mission, not as a standing bench.' },
       { t: 'Will it still run after launch?', d: 'Most systems here have outlived their launch. Each is documented and instrumented so your own team can keep it.' }
-    ]}
+    ]},
+    { type: 'plate', plate: 'page-questions' }
   ], { num: '05' }));
 
   book.push(doc('iaas', 'Practice', 'Innovation-as-a-Service', [
     { type: 'h', text: 'Innovation-as-a-Service' },
     { type: 'lede', text: 'Not a product. A way of working. We sit with the people who decide, and build the thing with them, inside their rules.' },
-    { type: 'clip', clip: {
-      src: 'media/showcase/iaas-hero.mp4',
-      poster: 'media/showcase/iaas-hero.jpg',
-      alt: 'Rain falling over a residential district, with rooftops and trees in view.',
-      caption: 'The ground condition. The thing you have to stand in before you can be trusted to build for it.'
-    } },
+    { type: 'plate', plate: 'iaas' },
+    { type: 'vstudio', caption: 'The ground condition. The thing you have to stand in before you can be trusted to build for it.' },
     { type: 'p', text: 'A city is usually sold a product: a box, a licence, a platform that arrives finished and fits nobody. Innovation-as-a-Service turns that around. We start with one problem the city already has, one decision it cannot make fast enough, and we build the answer alongside the people who own it.' },
     { type: 'p', text: 'There is an old trap here. A city is asked for a feasibility study before it tries anything, but you cannot study something you have not yet tried. So we try it first, small and cheap, on data the city already holds, with no new hardware. Then the study writes itself from what actually happened.' },
     { type: 'steps', items: [
@@ -284,6 +574,7 @@
   book.push(doc('catalogue', 'Catalogue', 'How to read this', [
     { type: 'h', text: 'How to read this' },
     { type: 'lede', text: 'Every entry here started as one decision somebody could not make fast enough. It is live, or it says it is not.' },
+    { type: 'plate', plate: 'page-catalogue' },
     { type: 'p', text: 'These are not demos dressed up for a pitch. They are working systems in a sandbox, built to scale rather than to impress. Deployments under NDA are larger; what you can open here behaves like them, with advanced modules withheld.' },
     { type: 'steps', items: [
       { t: 'Live', d: 'Running now, on public or client data. Read the entry, then open it. It will still be running in the morning.' },
@@ -322,7 +613,11 @@
   book.push(doc('probono', 'Pro bono', 'Institutional work', [
     { type: 'h', text: 'Institutional work' },
     { type: 'lede', text: 'Five platforms. Live, public, and still in use. Not a deck, and not a report.' },
-    { type: 'p', text: 'Each one was built with the institution that had to use it.' }
+    { type: 'plate', plate: 'probono' },
+    { type: 'p', text: 'Each one was built with the institution that had to use it.' },
+    { type: 'rows', items: probono.map(function (row) {
+      return { href: '#' + row[0], title: row[1], meta: row[2] + ' @ ' + row[3] };
+    })}
   ]));
 
   probono.forEach(function (row, i) {
@@ -335,17 +630,6 @@
     ], { num: String(i + 1).padStart(2, '0') }));
   });
 
-  book.push(doc('stages', 'Stages', 'Proven in public', [
-    { type: 'h', text: 'Proven in public' },
-    { type: 'lede', text: 'Five stages across Asia in 2026. Each one had a system running live in the room — SLIC Index in Taipei, FloodDash in Singapore, Shanghai, and Hong Kong, DEPA in Osaka.' },
-    { type: 'figs', rows: [
-      { v: '5', l: 'Stops', t: 'Osaka, Shanghai, Hong Kong, Singapore, Taipei.' },
-      { v: '5', l: 'Cities', t: 'One thesis, carried into a different room each time.' },
-      { v: '13', l: 'Photographs', t: 'From the stage, not from a stock library.' }
-    ]},
-    { type: 'note', text: 'Every date comes from the organiser’s agenda. Nothing here is asserted without one.' }
-  ]));
-
   const stages = [
     ['osaka', '10.08', 'Osaka', '2026.10.08', 'Osaka Metropolitan University · Morinomiya', 'What happens after the pilot works — and why the constraint is institutional, not technical.', 'images/osaka-keynote.jpg', 'Dr. Non speaking at the Osaka Asia Roundtable 2026', [['3', 'Sessions'], ['7 min', 'On record'], ['4', 'Delegations']]],
     ['shanghai', '09.22', 'Shanghai', '2026.09.22', 'Tomorrow.City Shanghai 2026 · Zhangjiang Science Hall', 'Stop calling it a digital twin — call it God Mode. Raw speed, to cubic metres, to freeboard, to whether the water fits.', 'images/shanghai-stage-screen.jpg', 'Tomorrow.City Shanghai — FloodDash running live on the cube screen', [['4th', 'On this stage'], ['9', 'Data sources'], ['4', 'Takeaways']]],
@@ -353,6 +637,21 @@
     ['singapore', '04', 'Singapore', '2026.04', 'GITEX AI Asia · Marina Bay Sands · Main Stage', 'A main-stage keynote, then a workshop that filled in minutes. The hallway was full. Every face was on the demo.', 'images/singapore-workshop.jpg', 'Dr. Non at the lectern, GITEX AI Asia 2026, Singapore', [['1K+', 'Main stage'], ['23K+', 'Attendees'], ['Full', 'Workshop']]],
     ['taipei', '03.18', 'Taipei', '2026.03.18', 'Smart City Summit & Expo · City Vision stage', 'A working surface, built in the room, not concept art. 174 cities, 53 nations, ranking logic you can adjust.', 'images/taipei-stage.jpg', 'Dr. Non on the City Vision stage in Taipei', [['174', 'Cities'], ['53', 'Nations'], ['45 min', 'To build']]]
   ];
+
+  book.push(doc('stages', 'Stages', 'Proven in public', [
+    { type: 'h', text: 'Proven in public' },
+    { type: 'lede', text: 'Five stages across Asia in 2026. Each one had a system running live in the room — SLIC Index in Taipei, FloodDash in Singapore, Shanghai, and Hong Kong, DEPA in Osaka.' },
+    { type: 'plate', plate: 'stages' },
+    { type: 'figs', rows: [
+      { v: '5', l: 'Stops', t: 'Osaka, Shanghai, Hong Kong, Singapore, Taipei.' },
+      { v: '5', l: 'Cities', t: 'One thesis, carried into a different room each time.' },
+      { v: '13', l: 'Photographs', t: 'From the stage, not from a stock library.' }
+    ]},
+    { type: 'rows', items: stages.map(function (row) {
+      return { href: '#' + row[0], title: row[2], meta: row[3] + ' @ ' + row[4].split(' @ ')[0] };
+    })},
+    { type: 'note', text: 'Every date comes from the organiser’s agenda. Nothing here is asserted without one.' }
+  ]));
 
   stages.forEach(function (row) {
     book.push(doc(row[0], 'Stages', row[2], [
@@ -404,6 +703,7 @@
   book.push(doc('non', 'Founders', 'Dr. Non Arkaraprasertkul', [
     { type: 'h', text: 'Dr. Non Arkaraprasertkul' },
     { type: 'lede', text: 'Co-founder. Systems and story. Anthropologist, architect, builder. He watches how a city actually behaves, then turns that into an interface people use without a manual.' },
+    { type: 'plate', plate: 'non' },
     { type: 'p', text: 'PhD in Anthropology, Harvard. MIT and Oxford. Former visiting lecturer at MIT, postdoctoral fellow at NYU. He designs from fieldwork, because people are not spreadsheets and cities are not slides.' },
     { type: 'note', text: 'PhD · Harvard · MPhil · Oxford · MSc · MIT · Visiting lecturer · MIT' },
     { type: 'steps', items: [
@@ -424,6 +724,7 @@
   book.push(doc('poon', 'Founders', 'Dr. Poon Thiengburanathum', [
     { type: 'h', text: 'Dr. Poon Thiengburanathum' },
     { type: 'lede', text: 'Co-founder. Infrastructure and delivery. Engineer, strategist, the person who keeps ambition tied to a system that survives contact with the city.' },
+    { type: 'plate', plate: 'poon' },
     { type: 'p', text: 'Associate professor at Chiang Mai University. Co-author of Chiang Mai’s Smart City Master Plan. He works on cities as complex adaptive systems — bus prediction, transit decisions, infrastructure that has to last.' },
     { type: 'note', text: 'PhD · civil engineering · Associate professor · Chiang Mai University' },
     { type: 'steps', items: [
@@ -440,6 +741,7 @@
   book.push(doc('collective', 'Founders', 'The collective', [
     { type: 'h', text: 'The collective, on call' },
     { type: 'lede', text: 'You talk to the two people who write the code and decide the architecture. When a mission needs someone else, that person joins for the mission. There is no standing bench.' },
+    { type: 'plate', plate: 'collective' },
     { type: 'p', text: 'Researchers, traffic engineers, anthropologists, financiers, policy translators, media operators. Paid for the problem in front of us, not kept on an org chart waiting for one.' },
     { type: 'note', text: 'Traffic engineers · UAV operators · Economists · Financiers · Policy translators · Urban researchers · Media operators' }
   ]));
@@ -447,6 +749,7 @@
   book.push(doc('press', 'Press', 'Outside the room', [
     { type: 'h', text: 'Outside the room' },
     { type: 'lede', text: 'Read it. Watch it. Then decide.' },
+    { type: 'plate', plate: 'press' },
     { type: 'rows', items: [
       { href: 'https://govinsider.asia/intl-en/article/with-the-vendor-saying-no-thai-civil-servant-built-his-own-tools', title: 'With the vendor saying no, a Thai civil servant built his own tools', meta: 'GovInsider · News' },
       { href: 'https://govinsider.asia/intl-en/article/can-innovation-as-a-service-close-the-gap-between-policy-and-implementation', title: 'Can innovation-as-a-service close the gap between policy and implementation?', meta: 'GovInsider · Feature' },
@@ -489,6 +792,7 @@
   book.push(doc('entity', 'Record', 'Axiom X Co., Ltd.', [
     { type: 'h', text: 'Axiom X Co., Ltd.' },
     { type: 'lede', text: 'The work operates as Axiom. The registered entity is Axiom X Co., Ltd., in Thailand.' },
+    { type: 'plate', plate: 'entity' },
     { type: 'defs', rows: [
       { k: 'Thai name', v: 'บริษัท แอคเซี่ยม เอ็กซ์ จำกัด', lang: 'th' },
       { k: 'English name', v: 'Axiom X Co., Ltd.' },
@@ -508,6 +812,7 @@
   book.push(doc('standards', 'Record', 'Standards, by practice', [
     { type: 'h', text: 'Standards, by practice' },
     { type: 'lede', text: 'We design and deliver against these frameworks. This is operational alignment. It is not a claim of ISO certification, unless an independent audit is named.' },
+    { type: 'plate', plate: 'standards' },
     { type: 'groups', groups: [
       { title: 'Foundations', items: [
         { text: 'ISO/IEC 30173:2023 — digital twin concepts', href: 'https://www.iso.org/standard/44290.html' },
@@ -549,6 +854,7 @@
   book.push(doc('ledger', 'Record', 'The record', [
     { type: 'h', text: 'The record' },
     { type: 'lede', text: 'Every number on this site, stated once. None of them is typed in — they are read from the catalogue, so none of them can drift.' },
+    { type: 'plate', plate: 'ledger' },
     { type: 'defs', rows: [
       { k: 'Systems', v: systems.length + ' entries, all of them listed in the index to your left.' },
       { k: 'Live', v: liveCount + ' are marked Live. The rest are marked Preview, Soon or Dev, and say so on their entry.' },
@@ -564,6 +870,7 @@
   book.push(doc('brief', 'Brief', 'Tell us the decision', [
     { type: 'h', text: 'Tell us the decision' },
     { type: 'lede', text: 'We will show it working in two weeks.' },
+    { type: 'plate', plate: 'brief' },
     { type: 'p', text: 'Write one paragraph: the decision that has to get faster, who makes it, and where the data sits today. You will get a clear yes, a clear no, or one sharper question. No sales deck. No procurement warm-up.' },
     { type: 'steps', items: [
       { t: 'Week 1', d: 'The decision, the people, and the data, agreed on one page.' },
@@ -581,6 +888,7 @@
   book.push(doc('plates', 'Colophon', 'The plates', [
     { type: 'h', text: 'The plates' },
     { type: 'lede', text: 'No screenshots on the system pages. Each one carries a work of art instead.' },
+    { type: 'plate', plate: 'plates' },
     { type: 'p', text: 'On 6 October 2011 the German daily DIE WELT handed a whole edition to the painter Ellsworth Kelly. It ran without a single news photograph; his cycle of colour and form ran from the first page to the last, beside the ordinary columns of type. The edition won gold at the 2012 LeadAwards. It was the second of the paper\u2019s artist editions, after Georg Baselitz in 2010.' },
     { type: 'p', text: 'This book borrows the idea, not the pictures. Kelly\u2019s work is still in copyright, so every plate here is public domain or CC0: Renaissance frescoes, ukiyo-e prints, early abstraction, sculpture, a colour theory, a geometry book. Each sits beside a system because it says something true about it. The screenshots are one click away, behind Open.' },
     { type: 'note', text: 'Pro bono entries keep their own photographs. That work belongs to the institutions it was done for.' },
@@ -594,6 +902,7 @@
 
   book.push(doc('colophon', 'Colophon', 'Colophon', [
     { type: 'h', text: 'Colophon' },
+    { type: 'plate', plate: 'colophon' },
     { type: 'p', text: 'Axiom builds decision systems for cities, governments, and operators, to ISO/IEC digital-twin practice, AI governance, and data-protection frameworks.', lang: 'en' },
     { type: 'p', text: 'Axiom สร้างแดชบอร์ดเมืองอัจฉริยะและระบบข้อมูลเพื่อการตัดสินใจสำหรับเมือง หน่วยงานรัฐ และผู้บริหารทั่วอาเซียน — ระบบที่ใช้งานได้จริงในการปฏิบัติงาน ไม่ใช่เพียงสไลด์นำเสนอ', lang: 'th' },
     { type: 'p', text: 'ก่อตั้งและนำโดย ดร.นน อัครประเสริฐกุล ผู้เชี่ยวชาญอาวุโส ฝ่ายส่งเสริมเมืองอัจฉริยะ สำนักงานส่งเสริมเศรษฐกิจดิจิทัล (depa) — ที่ปรึกษาและวิทยากรด้านเมืองอัจฉริยะ การวิเคราะห์ข้อมูลเมือง และการเปลี่ยนผ่านสู่ดิจิทัลของภาครัฐ', lang: 'th' },
@@ -616,12 +925,35 @@
     { type: 'note', text: 'Bangkok · Southeast Asia. © 2026 Axiom X Co., Ltd. Figures on this site are case-specific. They are not a promise of the next case.' }
   ]));
 
+  // Which artworks does the book actually mount? A plate that exists in
+  // plates.js but is wired into no page is a file nobody ever sees, so the list
+  // of live plates is derived here and read by the QA harness.
+  const bookPlates = [];
+  book.forEach(function (entry) {
+    (entry.blocks || []).forEach(function (block) {
+      if (block.plate && bookPlates.indexOf(block.plate) === -1) bookPlates.push(block.plate);
+      (block.items || []).forEach(function (item) {
+        if (item && item.plate && bookPlates.indexOf(item.plate) === -1) bookPlates.push(item.plate);
+      });
+    });
+  });
+  window.AXIOM_BOOK_PLATES = bookPlates;
+
   function visible() {
     const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
     if (!words.length) return book;
     return book.filter(function (entry) {
-      const hay = entry.search.toLowerCase();
-      return words.every(function (word) { return hay.indexOf(word) !== -1; });
+      const hay = (entry.search || '').toLowerCase();
+      const title = localizedTitle(entry).toLowerCase();
+      const group = t('groups.' + entry.group, entry.group).toLowerCase();
+      let locLede = '';
+      if (entry.kind === 'system') {
+        const locSys = (I18N.systems?.[currentLocale] || {})[entry.id];
+        if (locSys && locSys.lede) locLede = locSys.lede.toLowerCase();
+      }
+      return words.every(function (word) {
+        return hay.indexOf(word) !== -1 || title.indexOf(word) !== -1 || group.indexOf(word) !== -1 || locLede.indexOf(word) !== -1;
+      });
     });
   }
 
@@ -629,15 +961,16 @@
     const list = visible();
     nav.replaceChildren();
     if (!list.length) {
-      nav.appendChild(el('p', 'empty', 'Nothing under that name.'));
+      nav.appendChild(el('p', 'empty', t('empty', 'Nothing under that name.')));
     } else {
       let group = null;
       let box = null;
       list.forEach(function (entry) {
-        if (entry.group !== group) {
-          group = entry.group;
+        const transGroup = t('groups.' + entry.group, entry.group);
+        if (transGroup !== group) {
+          group = transGroup;
           box = el('section', 'group');
-          const count = list.filter(function (item) { return item.group === group; }).length;
+          const count = list.filter(function (item) { return t('groups.' + item.group, item.group) === group; }).length;
           const h = el('h2', '', group);
           h.appendChild(el('span', '', String(count)));
           box.appendChild(h);
@@ -647,7 +980,7 @@
         btn.type = 'button';
         btn.dataset.id = entry.id;
         btn.appendChild(el('span', 'num', entry.num || ''));
-        btn.appendChild(el('span', 'lb', entry.title));
+        btn.appendChild(el('span', 'lb', localizedTitle(entry)));
         if (entry.id === current) btn.setAttribute('aria-current', 'true');
         box.appendChild(btn);
       });
@@ -668,6 +1001,7 @@
       row.appendChild(el('div', 'n', String(i + 1).padStart(2, '0')));
       row.appendChild(el('h2', '', item.t));
       row.appendChild(el('p', '', item.d));
+      if (item.plate && PLATES[item.plate]) addPlate(item.plate, PLATES[item.plate], row);
       wrap.appendChild(row);
     });
     plate.appendChild(wrap);
@@ -692,7 +1026,30 @@
   }
 
   function renderDoc(entry) {
-    (entry.blocks || []).forEach(function (block) {
+    const locDoc = (I18N.docs?.[currentLocale] || {})[entry.id];
+    let blocks = entry.blocks;
+    if (locDoc && locDoc.blocks) {
+      blocks = locDoc.blocks;
+    } else if (locDoc) {
+      let pIdx = 0;
+      blocks = (entry.blocks || []).map(function (b) {
+        if (b.type === 'poster' && locDoc.poster) return Object.assign({}, b, { text: locDoc.poster, em: locDoc.posterEm || b.em });
+        if (b.type === 'h' && locDoc.title) return Object.assign({}, b, { text: locDoc.title });
+        if (b.type === 'lede' && locDoc.lede) return Object.assign({}, b, { text: locDoc.lede });
+        if (b.type === 'steps' && locDoc.steps) return Object.assign({}, b, { items: locDoc.steps });
+        if (b.type === 'figs' && locDoc.figs) return Object.assign({}, b, { rows: locDoc.figs });
+        if (b.type === 'p') {
+          pIdx++;
+          const pKey = 'p' + pIdx;
+          if (locDoc[pKey]) return Object.assign({}, b, { text: locDoc[pKey] });
+          if (Array.isArray(locDoc.paragraphs) && locDoc.paragraphs[pIdx - 1]) return Object.assign({}, b, { text: locDoc.paragraphs[pIdx - 1] });
+        }
+        if (b.type === 'note' && locDoc.note) return Object.assign({}, b, { text: locDoc.note });
+        return b;
+      });
+    }
+
+    (blocks || []).forEach(function (block) {
       if (block.type === 'poster') {
         const h = el('h1', 'poster', block.text);
         if (block.em) h.appendChild(el('em', '', block.em));
@@ -727,6 +1084,14 @@
         plate.appendChild(wrap);
       } else if (block.type === 'clip') {
         addClip(block.clip);
+      } else if (block.type === 'vstudio') {
+        addVideoStudio(block.caption);
+      } else if (block.type === 'hero') {
+        const art = PLATES[block.plate];
+        if (art) addHero(block.plate, art);
+      } else if (block.type === 'plate') {
+        const art = PLATES[block.plate];
+        if (art) addPlate(block.plate, art);
       } else if (block.type === 'image') {
         const img = el('img', 'shot');
         img.src = media(block.src);
@@ -751,10 +1116,13 @@
         block.items.forEach(function (item) {
           const a = link(item.href, '', 'row');
           const text = el('span');
-          text.appendChild(el('b', '', item.title));
+          const title = el('b', '', item.title);
+          // The arrow is a signifier on the title's line. In a column of its
+          // own it left 92px of nothing under it in every multi-line row.
+          title.appendChild(el('span', 'row__arrow', '↗'));
+          text.appendChild(title);
           text.appendChild(el('i', '', item.meta));
           a.appendChild(text);
-          a.appendChild(el('span', '', '↗'));
           wrap.appendChild(a);
         });
         plate.appendChild(wrap);
@@ -776,7 +1144,7 @@
         const wrap = el('div', 'rule-list');
         STACK.forEach(function (layer) {
           const line = el('div', 'layer');
-          const head = el('div');
+          const head = el('div', 'layer__head');
           head.appendChild(el('h2', '', layer[0]));
           head.appendChild(el('p', '', layer[1]));
           line.appendChild(head);
@@ -796,13 +1164,18 @@
   }
 
   function renderSystem(system) {
-    const h = el('h1', 'name', system.name);
+    const locSys = (I18N.systems?.[currentLocale] || {})[system.id] || {};
+    const sysName = locSys.name || system.name;
+    const sysLede = locSys.lede || system.lede;
+    const sysCta = locSys.cta || system.cta || 'Open';
+
+    const h = el('h1', 'name', sysName);
     plate.appendChild(h);
-    if (system.lede) {
-      plate.appendChild(el('p', 'lede inset', system.lede));
+    if (sysLede) {
+      plate.appendChild(el('p', 'lede inset', sysLede));
     }
     const actions = [];
-    if (system.href) actions.push({ href: system.href, label: (system.cta || 'Open').replace(/\s*▸\s*$/, '') });
+    if (system.href) actions.push({ href: system.href, label: sysCta.replace(/\s*▸\s*$/, '') });
     if (system.edition && system.edition.href) actions.push(system.edition);
     if (actions.length) addActions(actions);
 
@@ -812,18 +1185,22 @@
     } else if (system.img) {
       const img = el('img', 'shot');
       img.src = media(system.img);
-      img.alt = system.alt || system.name;
+      img.alt = system.alt || sysName;
       img.addEventListener('error', function () { img.remove(); });
       plate.appendChild(img);
     }
 
     // The ground condition, after the product shot. Any system may carry one.
-    if (system.video) addClip(system.video);
+    if (system.id === 'flood-ami') {
+      addVideoStudio('The ground condition. Read from standing in it — every flood season since the first watch, in Thai, in public.');
+    } else if (system.video) {
+      addClip(system.video);
+    }
 
     const arch = system.arch;
     if (arch && ((arch.inputs && arch.inputs.length) || (arch.outputs && arch.outputs.length) || arch.core)) {
       const grid = el('div', 'arch');
-      [['Inputs', arch.inputs || []], [arch.core ? arch.core.name : 'Engine', arch.core ? (arch.core.meta || []) : []], ['Outputs', arch.outputs || []]].forEach(function (col) {
+      [[t('inputs', 'Inputs'), arch.inputs || []], [arch.core ? arch.core.name : t('core', 'Engine'), arch.core ? (arch.core.meta || []) : []], [t('outputs', 'Outputs'), arch.outputs || []]].forEach(function (col) {
         if (!col[1].length) return;
         const section = el('section');
         section.appendChild(el('h2', '', col[0]));
@@ -861,15 +1238,19 @@
   function renderPlate(entry) {
     plate.replaceChildren();
     plate.scrollTop = 0;
-    barKicker.textContent = entry.group;
+    barKicker.textContent = t('groups.' + entry.group, entry.group);
     locatorNum.textContent = entry.num || '';
     locatorMeta.replaceChildren();
     if (entry.kind === 'system') {
-      const bits = [entry.system.cat, entry.system.arch && entry.system.arch.ver ? 'v' + entry.system.arch.ver : ''].filter(Boolean);
+      const locSys = (I18N.systems?.[currentLocale] || {})[entry.system.id] || {};
+      const cat = locSys.cat || entry.system.cat;
+      const status = entry.system.status;
+      const statusLabel = t('status.' + status, status);
+      const bits = [cat, entry.system.arch && entry.system.arch.ver ? 'v' + entry.system.arch.ver : ''].filter(Boolean);
       if (bits.length) locatorMeta.append(bits.join('  ·  '));
-      if (entry.system.status) {
+      if (status) {
         if (bits.length) locatorMeta.append('  ·  ');
-        locatorMeta.appendChild(el('span', entry.system.status === 'Live' ? 'is-live' : '', entry.system.status));
+        locatorMeta.appendChild(el('span', status === 'Live' ? 'is-live' : '', statusLabel));
       }
     } else if (entry.locator) {
       locatorMeta.textContent = entry.locator;
@@ -879,7 +1260,7 @@
     if (href) {
       barOpen.hidden = false;
       barOpen.href = href;
-      barOpen.textContent = 'Open';
+      barOpen.textContent = t('barOpen', 'Open');
     } else {
       barOpen.hidden = true;
       barOpen.removeAttribute('href');
@@ -891,12 +1272,13 @@
     const near = neighbors(entry);
     const pager = el('nav', 'pager');
     pager.setAttribute('aria-label', 'Adjacent entries');
-    if (near.prev) pager.appendChild(link('#' + near.prev.id, '← ' + near.prev.title));
+    if (near.prev) pager.appendChild(link('#' + near.prev.id, '← ' + localizedTitle(near.prev)));
     else pager.appendChild(el('span', '', ''));
-    if (near.next) pager.appendChild(link('#' + near.next.id, near.next.title + ' →'));
+    if (near.next) pager.appendChild(link('#' + near.next.id, localizedTitle(near.next) + ' →'));
     plate.appendChild(pager);
 
-    document.title = entry.id === 'axiom' ? 'Axiom — Decision systems' : entry.title + ' — Axiom';
+    const docTitle = localizedTitle(entry);
+    document.title = entry.id === 'axiom' ? t('docTitlePitch', 'Axiom — Decision systems') : docTitle + ' — Axiom';
   }
 
   function paint(opts) {
@@ -927,12 +1309,32 @@
   function setTheme(theme) {
     document.documentElement.dataset.theme = theme;
     try { localStorage.setItem('axiomx-theme', theme); } catch (err) { /* private mode */ }
-    const label = theme === 'dark' ? 'Light' : 'Dark';
+    const label = theme === 'dark' ? t('themeLight', 'Light') : t('themeDark', 'Dark');
     themeBtn.textContent = label;
     themeBtn2.textContent = label;
     themeBtn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', theme === 'dark' ? '#111110' : '#faf9f7');
+  }
+
+  function setLocale(loc) {
+    if (!loc || !['en', 'th', 'zh', 'ko', 'ja', 'vi'].includes(loc)) return;
+    currentLocale = loc;
+    try { localStorage.setItem('axiomx_locale', loc); } catch (e) {}
+    document.documentElement.lang = loc === 'zh' ? 'zh-Hans' : loc;
+    document.querySelectorAll('.locale-btn').forEach(function (btn) {
+      const active = btn.dataset.locale === loc;
+      btn.classList.toggle('is-active', active);
+      if (active) btn.setAttribute('aria-current', 'true');
+      else btn.removeAttribute('aria-current');
+    });
+    if (q) q.placeholder = t('searchPlaceholder', 'Find');
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    const label = isDark ? t('themeLight', 'Light') : t('themeDark', 'Dark');
+    if (themeBtn) themeBtn.textContent = label;
+    if (themeBtn2) themeBtn2.textContent = label;
+    if (backBtn) backBtn.textContent = t('back', 'Back');
+    paint({ keepScroll: true });
   }
 
   nav.addEventListener('click', function (event) {
@@ -957,17 +1359,11 @@
     setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
   });
 
-  // EN is the only edition that exists. The other five are graded Soon and
-  // marked as such in the chrome, so a dead control is never shipped. Clicking
-  // one goes to "How to read this" -- the entry that defines Live, Preview and
-  // Soon -- rather than silently doing nothing, which is the one behaviour this
-  // book does not use anywhere else.
   if (locale) {
     locale.addEventListener('click', function (event) {
       const btn = event.target.closest('button[data-locale]');
-      if (!btn || !btn.dataset.soon) return;
-      q.blur();
-      select('catalogue');
+      if (!btn) return;
+      setLocale(btn.dataset.locale);
     });
   }
 
@@ -1021,5 +1417,6 @@
   let stored = 'light';
   try { stored = localStorage.getItem('axiomx-theme') || 'light'; } catch (err) { stored = 'light'; }
   setTheme(stored === 'dark' ? 'dark' : 'light');
+  setLocale(currentLocale);
   select(decodeURIComponent(location.hash.replace(/^#/, '')) || 'axiom', { push: false, open: location.hash.length > 1 });
 })();

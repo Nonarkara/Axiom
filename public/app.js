@@ -1875,7 +1875,7 @@ const i18nExt = {
         cta: 'Read the essay',
       },
       p45: {
-        lede: 'Five Asian theaters — Southeast Asia, East Asia, South Asia, Thailand, and the Gulf as Asia\'s energy lifeline — on one live map: conflict events, fires, air and sea traffic, regional news and TV, from open data.',
+        lede: 'Five Asian theaters and five strategic chokepoints — Malacca, Hormuz, Bab-el-Mandeb, Taiwan, Sunda — on one live map: conflict frontiers, fires, air and maritime corridors, regional news and TV, from open data.',
         cta:'Open live system',
       },
       p46: {
@@ -1964,10 +1964,6 @@ const i18nExt = {
         cta: 'Follow on Facebook',
       },
       p66: {
-        lede: "A 20-year reunion with a 2006 MIT thesis. Eleven form profiles — rectilinear to pinwheel. Nine form-performance metrics: rent, area, sky reach, daylight, form distinctiveness. Live scenario recalc on every edit. Inspired by SHDT.",
-        cta: 'Design the form',
-      },
-      p66: {
         cat: 'Colour Exhibition',
         lede: "348 colour combinations. Search a relationship, study it in grayscale, copy its values. Dr Non's colour exhibition, inspired by Sanzo Wada.",
         cta: 'Explore the palettes',
@@ -1985,7 +1981,7 @@ const i18nExt = {
         cta: 'Enter the campus',
       },
       p70: {
-        lede: 'Architectural intelligence — 11 form profiles (rectilinear to pinwheel), 9 form-performance metrics (rent, area, sky reach, daylight, distinctiveness). A 20-year reunion with a 2006 MIT thesis. Live scenario recalc on every edit.',
+        lede: 'Architectural intelligence — 11 form profiles (rectilinear to pinwheel), 9 form-performance metrics: rent, area, sky reach, daylight, form distinctiveness. A 20-year reunion with a 2006 MIT thesis. Live scenario recalc on every edit. Inspired by SHDT.',
         cta: 'Design the form',
       },
     },
@@ -2356,7 +2352,7 @@ const i18nExt = {
         cta: 'อ่านบทความ',
       },
       p45: {
-        lede: 'ห้าสมรภูมิเอเชีย — เอเชียตะวันออกเฉียงใต้ เอเชียตะวันออก เอเชียใต้ ไทย และอ่าวเปอร์เซียในฐานะเส้นเลือดพลังงานของเอเชีย — บนแผนที่สดแผ่นเดียว: เหตุความขัดแย้ง จุดความร้อน การจราจรทางอากาศและทางทะเล ข่าวและทีวีระดับภูมิภาค จากข้อมูลเปิด',
+        lede: 'ห้าสมรภูมิเอเชียและ 5 จุดยุทธศาสตร์ทางทะเล — มะละกา ฮอร์มุซ บับเอลมันเดบ ไต้หวัน ซุนดา — บนแผนที่สดแผ่นเดียว: แนวรบความขัดแย้ง จุดความร้อน เส้นทางบินและเส้นทางเดินเรือ ข่าวและทีวีระดับภูมิภาค จากข้อมูลเปิด',
         cta:'เปิดระบบสด',
       },
       p46: {
@@ -2445,10 +2441,6 @@ const i18nExt = {
         cta: 'ติดตาม Facebook',
       },
       p66: {
-        lede: "สอืนคลาสั่ว 20 ปี กับ MIT thesis ปี 2006. สิ้นฟอร์ม 11 แบบบ — จาก Rectilinear ถึง Pinwheel. ดัชนีฟอร์มประสิทธิภาพ 9 ด้าน: ค่าเช่า, พื้นที่, Sky Reach, Daylight, Form Distinctiveness. คำนวน scenario สองหร์เมือแก้ได้. ซ่ังเคียน SHDT.",
-        cta: 'ออกแบบ',
-      },
-      p66: {
         cat: 'นิทรรศการสี',
         lede: 'ชุดสี 348 ชุด ค้นหาความสัมพันธ์ของสี ดูแบบขาวดำ และคัดลอกค่าสี นิทรรศการสีของ Dr Non ที่ได้แรงบันดาลใจจาก Sanzo Wada',
         cta: 'สำรวจชุดสี',
@@ -2466,7 +2458,7 @@ const i18nExt = {
         cta: 'เข้าวิทยาเขต',
       },
       p70: {
-        lede: 'ความฉลาดทางสถาปัตยกรรม — 11 รูปทรง (จาก rectilinear ถึง pinwheel) ดัชนีประสิทธิภาพทรง 9 ด้าน (ค่าเช่า พื้นที่ sky reach daylight distinctiveness) การกลับมาพบกันใหม่หลัง 20 ปี กับ MIT thesis ปี 2006 คำนวณ scenario ใหม่แบบสดทุกครั้งที่แก้',
+        lede: 'ความฉลาดทางสถาปัตยกรรม — 11 รูปทรง (จาก rectilinear ถึง pinwheel) ดัชนีประสิทธิภาพทรง 9 ด้าน (ค่าเช่า พื้นที่ sky reach daylight distinctiveness) การกลับมาพบกันใหม่หลัง 20 ปี กับ MIT thesis ปี 2006 คำนวณ scenario ใหม่แบบสดทุกครั้งที่แก้ ซ่ังเคียน SHDT.',
         cta: 'ออกแบบ',
       },
     },
@@ -2834,7 +2826,7 @@ const i18nExt = {
         cta: '阅读长文',
       },
       p45: {
-        lede: '亚洲五大战区——东南亚、东亚、南亚、泰国，以及作为亚洲能源生命线的海湾——同在一张实时地图上：冲突事件、热点火情、空中与海上交通、区域新闻与电视，全部来自开放数据。',
+        lede: '亚洲五大战区与五大战略海上咽喉——马六甲、霍尔木兹、曼德海峡、台湾海峡、巽他海峡——同在一张实时地图上：冲突前沿、火情热点、海空航运走廊、区域新闻与电视，全部来自开放数据。',
         cta:'打开在线系统',
       },
       p46: {
@@ -2923,10 +2915,6 @@ const i18nExt = {
         cta: '在 Facebook 上关注',
       },
       p66: {
-        lede: "与 2006 年 MIT 学位论文的 20 年重造。十一种形状——从矩形到风车。九项形体性能指标：租金、面积、天空达成、日光、形状识别度。每次编辑都重新计算场景。致敬 SHDT。",
-        cta: '设计形状',
-      },
-      p66: {
         cat: '色彩展览',
         lede: '348 组配色。搜索色彩关系，以灰度研究，复制色值。Dr Non 的色彩展览，灵感来自和田三造。',
         cta: '探索配色',
@@ -2944,7 +2932,7 @@ const i18nExt = {
         cta: '进入园区',
       },
       p70: {
-        lede: '建筑智能——11 种形态（从矩形到风车），9 项形态性能指标（租金、面积、天空达成、日光、形态识别度）。与 2006 年 MIT 学位论文相隔 20 年的重逢。每次编辑都即时重算场景。',
+        lede: '建筑智能——11 种形态（从矩形到风车），9 项形态性能指标（租金、面积、天空达成、日光、形态识别度）。与 2006 年 MIT 学位论文相隔 20 年的重逢。每次编辑都即时重算场景。致敬 SHDT。',
         cta: '设计形态',
       },
     },
@@ -3139,15 +3127,15 @@ const i18nExt = {
       p42: { lede: '// triBorder.command(TH)\n// myanmar · cambodia · southernTheatre\n// liveOps + playback + executiveIntel.on(map)', cta: 'system.live.open()' },
       p43: { lede: '// bkk.heritage.blockByBlock()\n// quarters: 9 · monuments: 571 · walks: 7\n// siblingOf(atlas.nonarkara.org)', cta: 'system.live.open()' },
       p44: { lede: '// bkk.shophouseInventory.existence: false\n// 400k buildings · no survey · 2311 sample · treasuryPressureMap · fourColour.answer\n// publishedIn(ShophouseMetropolis, harvardGSD)', cta: 'essay.read()' },
-      p45: { lede: '// asia.theaters(5)\n// SE Asia · East Asia · South Asia · Thailand · Gulf lifeline // conflict + fires + ADS-B + AIS + news + TV', cta: 'system.open()' },
+      p45: { lede: '// asia.theaters(5) + chokepoints(5)\n// Malacca · Hormuz · Mandeb · Taiwan · Sunda // conflict + fires + ADS-B + AIS + news + TV', cta: 'system.open()' },
       p46: { lede: '// world.console()\n// planet-scale ADS-B + AIS · conflict + fires · intel + markets docked open', cta: 'system.open()' },
       p47: { lede: '// shanghai.fieldwork.20years\n// 15 chapters · 76312 words · 134 images · 5h audio · 475 citations // v3 readingEdition, 2026', cta: 'book.open()' },
-      p48: { lede: '// floodDash.thailand.live()\n// 9 public.sources · streams.every(3-60min) // all 77 provinces · one.situation.picture', cta: 'system.open()' },
-      p49: { lede: '// sikhio.municipality.surface()\n// AQI + weather + traffic + city.live.data // for: operators(who.actually.decide)', cta: 'system.open()' },
+      p48: { name: 'floodDash.thailandWatch', lede: '// floodDash.thailand.live()\n// 9 public.sources · streams.every(3-60min) // all 77 provinces · one.situation.picture', cta: 'system.open()' },
+      p49: { name: 'sikhio.operationsDesk', lede: '// sikhio.municipality.surface()\n// AQI + weather + traffic + city.live.data // for: operators(who.actually.decide)', cta: 'system.open()' },
       p50: { lede: '// NST-01.nakhonSiThammarat()\n// 3D city + satellite + flood + KhaoLuang.basin + PakPhanang // 30+ live.sources', cta: 'system.open()' },
-      p51: { lede: '// laemChabang.portTraffic()\n// truck.traffic + regulatory.compliance // coordinate.port + reduce.congestion', cta: 'system.open()' },
-      p52: { lede: '// podcast.20min.drNon()\n// ideas + agents + geopolitics // spotify.live // episodes.shipping', cta: 'spotify.open()' },
-      p53: { lede: '// ASCN.ASEAN.directorCut()\n// 134 projects · 38 cities · 4 M&E cycles // portfolio.momentum + focus.shifts', cta: 'system.open()' },
+      p51: { name: 'laemChabang.portOperations', lede: '// laemChabang.portTraffic()\n// truck.traffic + regulatory.compliance // coordinate.port + reduce.congestion', cta: 'system.open()' },
+      p52: { name: 'drNon.twentyMinutes', lede: '// podcast.20min.drNon()\n// ideas + agents + geopolitics // spotify.live // episodes.shipping', cta: 'spotify.open()' },
+      p53: { name: 'ascn.performanceReview.directorsCut', lede: '// ASCN.ASEAN.directorCut()\n// 134 projects · 38 cities · 4 M&E cycles // portfolio.momentum + focus.shifts', cta: 'system.open()' },
       p54: { lede: '// omniArcade.brainPractice()\n// 16-bit browser.arcade + BrainBriefing(on: every.cartridge) // no.ads · scores.localOnly', cta: 'system.open()' },
       p55: { lede: '// rag.nonarkara.org / retrieval_as_a_service\n// upload(PDF, links) → cite(source) → silence.when(corpus.silent)\n// 100MB/workspace · Telegram + LINE · localMac(Bangkok) · no.outbound', cta: 'workspace.open()' },
       p56: { lede: '// axiom.designCore / operatingStandard.behindAllAxiom\n// tokens.css + components.html + 5line.DNA + AGENTS.md // functionFirst, thenSubtract\n// dropInto(agent) → firstPass.correct.always // MIT.license = clone, fork, ship', cta: 'repo.open()' },
@@ -3160,12 +3148,11 @@ const i18nExt = {
       p63: { lede: '// malaysia.godMode\n// jps.riverGauges(everyBasin) + met.warnings(malaysia)\n// transit(buses,trains) + aviation(ships,aircraft)\n// air + fire + citizen.index(who.lives.far.from.help)\n// map.oneScreen(locale[en,bm,zh])', cta: 'liveMap.open()' },
       p64: { lede: '// forestCarbon.thailand / provinceTap + drawBox\n// satellite.carbonStock + forestRemoval + emissions\n// fire + fossilCO2 + tVer.project(workbench)\n// sources + uncertainty / locale[th,en]', cta: 'assessment.open()' },
       p65: { lede: '// flooddash.community / facebook.channel\n// followers[112k] + likes[37k] + dailyBriefings.th\n// collab(SLIC, depa, RCAD)\n// liveIn.facebook.bitLy/flooddashThai', cta: 'facebook.follow()' },
-      p66: { lede: '// formHypes.shdt / 20yearReunion(MIT.thesis.2006)\n// formProfiles: 11 (rectilinear.to.pinwheel)\n// formPerf.metrics: 9 [rent, area, skyReach, daylight, distinctiveness]\n// liveRecalc.onEdit() // inspiredBy(SHDT)\n// conceptPrototype.notForConstruction', cta: 'form.design()' },
       p66: { cat: 'ColourExhibition', lede: 'palettes[348].search(relationship).study(grayscale).copy(css) // Dr Non × Sanzo Wada', cta: 'palettes.explore()' },
       p67: { lede: '// simsmartcity / realSite(OSM) → cityEconomy.growsLive\n// inspiredBy(SimCity2000) // urbanPlanning.rules(2026)\n// build.aCity(on: realPlace) → watch(the.economy)', cta: 'demo.open()' },
       p68: { lede: '// miaoshen.shanghai / threeDay.guide(asLetters)\n// still.water.running — read(when: in.place)\n// locales[th,en,zh]', cta: 'book.open()' },
       p69: { lede: '// tdv.thailandDigitalValley / siRacha.campus(twin)\n// buildings[5] · area[86k m²] · floorPlans[25.published]\n// chibi.visitors(animated) · IoT[1].CAD', cta: 'campus.enter()' },
-      p70: { lede: '// shdt.formHypes / 20year.reunion(MIT.thesis.2006)\n// profiles[11.rectilinear→pinwheel] · metrics[9.rent|area|skyReach|daylight|distinctiveness]\n// recalc.on(every.edit) // live.scenario', cta: 'form.design()' },
+      p70: { lede: '// formHypes.shdt / 20yearReunion(MIT.thesis.2006)\n// formProfiles: 11 (rectilinear.to.pinwheel)\n// formPerf.metrics: 9 [rent, area, skyReach, daylight, distinctiveness]\n// liveRecalc.onEdit() // inspiredBy(SHDT)\n// conceptPrototype.notForConstruction', cta: 'form.design()' },
     },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
@@ -3388,11 +3375,16 @@ const i18nExt2 = {
       c37:'Urban Research',
       c38:'Fieldwork Book',
       c39:'National Programme',
+      c40:'City Pulse',
+      c41:'Traffic Regulation',
+      c42:'District Operations',
+      c43:'Podcast',
+      c44:'Network Evaluation',
+      c45:'Brain Practice',
       c46:'Open Source Kit',
       c47:'City Economics',
       c48:'Fieldwork Book',
       c49:'Campus Intelligence',
-      c50:'Working Instrument',
     },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -3452,15 +3444,15 @@ const i18nExt2 = {
     sysClusters: {
       sysMeta: '71 systems · 5 countries',
       command: 'City Dashboards',
-      commandMeta: 'Real-time city operations rooms & environmental watch · 20',
+      commandMeta: 'Real-time city operations rooms & environmental watch · 22',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'Signal & analysis · 8',
+      intelligenceMeta: 'Signal & analysis · 9',
       civic: 'Civic',
-      civicMeta: 'National platforms & citizen infrastructure · 6',
+      civicMeta: 'National platforms & citizen infrastructure · 7',
       emerging: 'Emerging',
-      emergingMeta: 'Research-grade & new operating models · 11',
+      emergingMeta: 'Research-grade & new operating models · 10',
       lab: 'Lab',
-      labMeta: 'Side tools · in the open · 22',
+      labMeta: 'Side tools · in the open · 23',
     },
     sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development', soon: 'Coming soon' },
     metaKeys: {
@@ -3574,7 +3566,6 @@ const i18nExt2 = {
       c47:'เศรษฐศาสตร์เมือง',
       c48:'หนังสือภาคสนาม',
       c49:'ข่าวกรองวิทยาเขต',
-      c50:'เครื่องมือใช้งานจริง',
     },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -3634,15 +3625,15 @@ const i18nExt2 = {
     sysClusters: {
       sysMeta: '71 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
-      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 20',
+      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 22',
       intelligence: 'ข่าวกรอง',
-      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 8',
+      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 9',
       civic: 'พลเมือง',
-      civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 6',
+      civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 7',
       emerging: 'ระบบใหม่',
-      emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 11',
+      emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 10',
       lab: 'แล็บ',
-      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 22',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 23',
     },
     sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา', soon: 'เร็ว ๆ นี้' },
     metaKeys: {
@@ -3754,7 +3745,6 @@ const i18nExt2 = {
       c47:'城市经济',
       c48:'田野志',
       c49:'校园智能',
-      c50:'可用工具',
     },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -3814,15 +3804,15 @@ const i18nExt2 = {
     sysClusters: {
       sysMeta: '71 个系统 · 5 个国家',
       command: '城市仪表板',
-      commandMeta: '实时城市作战室与环境监测 · 20',
+      commandMeta: '实时城市作战室与环境监测 · 22',
       intelligence: '情报',
-      intelligenceMeta: '信号与分析 · 8',
+      intelligenceMeta: '信号与分析 · 9',
       civic: '民生',
-      civicMeta: '国家级平台与公民基础设施 · 6',
+      civicMeta: '国家级平台与公民基础设施 · 7',
       emerging: '新兴',
-      emergingMeta: '研究级与新运营模式 · 11',
+      emergingMeta: '研究级与新运营模式 · 10',
       lab: '实验室',
-      labMeta: '辅助工具 · 开放中 · 22',
+      labMeta: '辅助工具 · 开放中 · 23',
     },
     sysStatus: { live: '在线', preview: '预览', dev: '开发中', soon: '即将推出' },
     pressContent: {
@@ -3940,7 +3930,6 @@ const i18nExt2 = {
       c47:'CityEconomics',
       c48:'FieldworkBook',
       c49:'CampusIntel',
-      c50:'WorkingInstrument',
     },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
@@ -4000,15 +3989,15 @@ const i18nExt2 = {
     sysClusters: {
       sysMeta: '71 systems · 5 countries',
       command: 'CityDashboards',
-      commandMeta: 'cityOps.realtime & envWatch · count[20]',
+      commandMeta: 'cityOps.realtime & envWatch · count[22]',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'signal & analysis · count[8]',
+      intelligenceMeta: 'signal & analysis · count[9]',
       civic: 'Civic',
-      civicMeta: 'nationalPlatforms & citizenInfra · count[6]',
+      civicMeta: 'nationalPlatforms & citizenInfra · count[7]',
       emerging: 'Emerging',
-      emergingMeta: 'researchGrade & newOperatingModels · count[11]',
+      emergingMeta: 'researchGrade & newOperatingModels · count[10]',
       lab: 'Lab',
-      labMeta: 'sideTools & openProcess · count[22]',
+      labMeta: 'sideTools & openProcess · count[23]',
     },
     sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage', soon: 'coming.soon' },
     metaKeys: {
@@ -4057,9 +4046,65 @@ Object.keys(i18nExt2).forEach(locale => {
 const i18nPitch = {
   en: {
     field: {
-      kicker: 'In the field',
-      line: 'Rain over a district on one of these watches right now. Innovation-as-a-Service is not a pitch delivered in a room — it is standing where the question gets asked.',
+      kicker: 'In the field · Ground Truth',
+      videoTag: 'CANONICAL FIELD BRIEFING · CRISIS GROUND TRUTH',
+      title: 'The flood arrives at 2 a.m. The dashboard arrives next fiscal year.',
+      line: 'Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:',
+      point1Title: 'Zero-Latency Ingestion Beats Fiscal-Year Inertia',
+      point1Desc: 'Official vendor quotes take a budget year and deliver static PDFs. We stream 9 public agencies (C-band rain radar, water telemetry, river basin gauges) every 3–60 minutes directly into client-side browser memory.',
+      point2Title: 'Calibrated Against Physical Ground Reality',
+      point2Desc: 'Thresholds and alerts are tested in the flooded soi with operators and residents. Decisions happen in seconds without phone trees or bureaucratic lag.',
+      point3Title: 'Radical Public Inclusion Without License Tolls',
+      point3Desc: '112,000+ daily citizens, governors, and emergency responders read the exact same unified situation picture simultaneously — breaking information asymmetry with $0 proprietary licensing fees.',
       cta: 'See FloodDash live',
+      ctaBriefings: 'Daily Briefings (112K Followers)'
+    },
+    heroConsole: {
+      title: 'DECISION SYSTEMS CONSOLE',
+      tabSystems: 'Systems & Problems',
+      tabImpact: 'Citizen Impact',
+      tabTrends: 'Tech DNA & Trends',
+      tabDossier: 'Active Brief',
+      systemsLabel: 'Live Systems in Production',
+      problemsLabel: 'Critical Domains Served',
+      slideDecksLabel: 'Slide Decks / Mockups',
+      tagFlood: 'DISASTER & FLOOD · 22',
+      floodTitle: 'Flash floods, cloudburst radar & river basin water levels',
+      floodDesc: 'FloodDash, Rayong Water Watch, Nakhon Si Thammarat · 2-hr predictive lead time before inundation.',
+      tagAir: 'AIR QUALITY & SMOKE · 14',
+      airTitle: 'Micro-basin PM2.5 dispersion, smoke plumes & wildfire hotspots',
+      airDesc: 'AirDash, Chiang Mai Air, C-Air · 24/7 hyper-local sensor fusion across northern river valleys.',
+      tagPorts: 'SEAPORTS & LOGISTICS · 9',
+      portsTitle: 'AIS vessel queues, container bottlenecks & truck turnaround',
+      portsDesc: 'Laem Chabang Port, Thailand Maritime · coordinating terminal gates and deep-water berths.',
+      tagAirspace: 'AIRSPACE & TRANSIT · 7',
+      airspaceTitle: 'Real-time ADS-B flight tracking & cross-border transit corridors',
+      airspaceDesc: 'SE Asia Airspace, Regional Mobility · flight trajectory prediction & highway congestion relief.',
+      tagCivic: 'MUNICIPAL & HEALTH · 11',
+      civicTitle: 'Hospital bed loads, emergency dispatch & civic grievances',
+      civicDesc: 'Sikhio Operations, BKKx Culture · operational triage desks for municipal leaders who actually decide.',
+      tagSecurity: 'SOVEREIGN & INTEL · 8',
+      securityTitle: 'Border corridors, conflict mapping & Straits of Malacca lifelines',
+      securityDesc: 'Asia Theatres, World Console · unclassified multi-source situational awareness from open data.',
+      citizensLabel: 'Citizens Protected',
+      provincesLabel: 'Thai Provinces Covered',
+      countriesLabel: 'Nations Deployed',
+      socialTitle: 'Active Citizen Community',
+      socialDesc: 'Daily broadcast followers on FloodDash channels receiving verified alerts during monsoon floods, without algorithmic noise or ads.',
+      feedsTitle: 'Public Data Feeds Synthesized',
+      feedsDesc: 'Live telemetry from meteorological radar, water gates, air sensors, ADS-B receivers, and maritime AIS fused into a single screen.',
+      speedTitle: 'Turnaround Velocity',
+      speedDesc: 'From fragmented agency databases to an operating decision screen in the hands of mayors and governors, bypassing fiscal-year inertia.',
+      costTitle: 'Proprietary Software Lock-In',
+      costDesc: '100% open-standard web architectures with zero annual vendor licensing fees, ensuring sustainable civic independence.',
+      dna1Title: 'Browser-Native Vector & Canvas Engines',
+      dna1Desc: 'Zero server-rendered lag. Complex geospatial lines, telemetry grids, and animations run client-side at 60 FPS in pure vanilla JavaScript.',
+      dna2Title: 'Automated Multi-Source Sensor Fusion',
+      dna2Desc: 'Ingesting disjointed C-band radar sweeps, river sensors, IoT air monitors, and satellite passes into unified situational models.',
+      dna3Title: 'Mathematical Provincial Hazard Indexing',
+      dna3Desc: 'Replacing qualitative consultant opinions with quantitative vulnerability formulas: rainfall anomaly, slope saturation, drainage runoff.',
+      dna4Title: 'Local-First Sovereign RAG & Intelligence',
+      dna4Desc: 'Air-gapped and local-first document retrieval engines that analyze municipal datasets and regulations without leaking sovereign data abroad.'
     },
     pitch: {
       kicker: 'The problem we solve',
@@ -4092,7 +4137,7 @@ const i18nPitch = {
       r3: '157 cities ranked live — shown working on stage within a 45-minute keynote.',
       r4lbl: 'Field note 01',
       r4: 'A vendor called it too complex. A working version was in the room fourteen days later.',
-      proofLine: '71 systems across 5 countries. Open one. Use it. Judge.',
+    proofLine: '71 systems across 5 countries. Open one. Use it. Judge.',
       faqLabel: 'Before you ask',
       q1: 'Is it expensive?',
       a1: "No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.",
@@ -4113,9 +4158,65 @@ const i18nPitch = {
   },
   th: {
     field: {
-      kicker: 'อยู่ในพื้นที่',
-      line: 'ฝนเหนือพื้นที่ที่กำลังอยู่บนหน้าจอเฝ้าระวังเหล่านี้อยู่ตอนนี้ Innovation-as-a-Service ไม่ใช่การเสนอขายในห้องประชุม แต่คือการยืนอยู่ตรงจุดที่คำถามถูกถาม',
+      kicker: 'อยู่ในพื้นที่จริง · ข้อเท็จจริงหน้างาน',
+      videoTag: 'การบรรยายสรุปสถานการณ์จริง · ข้อมูลวิกฤตจากจุดเกิดเหตุ',
+      title: 'น้ำท่วมมาถึงตอนตีสอง แดชบอร์ดมาถึงปีงบประมาณหน้า',
+      line: 'บันทึกภาพขณะยืนลุยน้ำท่วมระดับหน้าแข้งในวิกฤตน้ำหลาก Innovation-as-a-Service ไม่ใช่สไลด์ขายงานในห้องแอร์ แต่ถูกสร้างขึ้นขณะยืนอยู่ ณ จุดที่คำถามเกิดขึ้น นี่คือบทพิสูจน์ถึงความก้าวหน้าล้ำสมัยของแนวทางเรา:',
+      point1Title: 'ประมวลผลทันทีโดยไม่ต้องรอรอบงบประมาณ',
+      point1Desc: 'ระบบราชการทั่วไปต้องรองบข้ามปีเพื่อได้ไฟล์ PDF สรุปสถานการณ์ เราดึงข้อมูล 9 หน่วยงานรัฐ (เรดาร์ฝน C-band, โทรมาตรน้ำ, ประตูระบายน้ำ) ทุก 3–60 นาที เข้าสู่เบราว์เซอร์โดยตรง',
+      point2Title: 'สอบเทียบกับความเป็นจริงบนพื้นดิน',
+      point2Desc: 'เกณฑ์การเตือนภัยถูกทดสอบจริงกลางซอยน้ำท่วมร่วมกับชาวบ้านและเจ้าหน้าที่หน้างาน ทำให้การตัดสินใจเกิดขึ้นได้ในไม่กี่วินาทีโดยไม่ต้องรอสายโทรศัพท์',
+      point3Title: 'เปิดกว้างให้ประชาชนทุกคนโดยไม่มีค่าลิขสิทธิ์',
+      point3Desc: 'ประชาชนกว่า 112,000 คน ผู้ว่าฯ และทีมกู้ภัยอ่านภาพสถานการณ์เดียวกันพร้อมกันทั้งหมด ทลายความเหลื่อมล้ำทางข้อมูลโดยไม่ต้องจ่ายค่าใบอนุญาตซอฟต์แวร์นับล้าน',
       cta: 'ดู FloodDash สด',
+      ctaBriefings: 'สรุปสถานการณ์ประจำวัน (ผู้ติดตาม 112K)'
+    },
+    heroConsole: {
+      title: 'คอนโซลระบบข้อมูลเพื่อการตัดสินใจ',
+      tabSystems: 'ระบบและปัญหา',
+      tabImpact: 'ผลกระทบต่อประชาชน',
+      tabTrends: 'เทคโนโลยีและดีเอ็นเอ',
+      tabDossier: 'สรุปสถานการณ์',
+      systemsLabel: 'ระบบใช้งานจริง',
+      problemsLabel: 'มิติปัญหาเมืองสำคัญ',
+      slideDecksLabel: 'สไลด์ขายงาน / ม็อกอัป',
+      tagFlood: 'ภัยพิบัติและน้ำท่วม · 22',
+      floodTitle: 'น้ำท่วมฉับพลัน เรดาร์กลุ่มฝน และระดับน้ำในลุ่มน้ำ',
+      floodDesc: 'FloodDash, ศูนย์เฝ้าระวังระยอง, นครศรีธรรมราช · คาดการณ์ล่วงหน้า 2 ชั่วโมงก่อนน้ำเอ่อท่วม',
+      tagAir: 'คุณภาพอากาศและฝุ่นควัน · 14',
+      airTitle: 'การแพร่กระจาย PM2.5 ในแอ่งกระทะและจุดความร้อนไฟป่า',
+      airDesc: 'AirDash, เชียงใหม่อากาศ, C-Air · รวมเซนเซอร์ระดับจุลภาค 24 ชั่วโมงในหุบเขาภาคเหนือ',
+      tagPorts: 'ท่าเรือและโลจิสติกส์ · 9',
+      portsTitle: 'คิวเรือสินค้า AIS คอขวดตู้สินค้า และรอบรถบรรทุก',
+      portsDesc: 'ท่าเรือแหลมฉบัง, พาณิชยนาวีไทย · ประสานงานประตูเทียบท่าและหน้าท่าอย่างแม่นยำ',
+      tagAirspace: 'น่านฟ้าและการเดินทาง · 7',
+      airspaceTitle: 'ติดตามเครื่องบิน ADS-B แบบเรียลไทม์และระเบียงเดินทางข้ามแดน',
+      airspaceDesc: 'น่านฟ้าอาเซียน, ระบบสัญจรภูมิภาค · วิเคราะห์แนวบินและบรรเทาจราจรบนเส้นทางสายหลัก',
+      tagCivic: 'เทศบาลและสาธารณสุข · 11',
+      civicTitle: 'ภาระเตียงโรงพยาบาล หน่วยแพทย์ฉุกเฉิน และเรื่องร้องทุกข์',
+      civicDesc: 'โต๊ะปฏิบัติการสีคิ้ว, BKKx วัฒนธรรม · หน้าจอสั่งการจริงสำหรับผู้บริหารที่ต้องตัดสินใจ',
+      tagSecurity: 'ความมั่นคงและยุทธศาสตร์ · 8',
+      securityTitle: 'แนวระเบียงชายแดน แผนที่ความขัดแย้ง และช่องแคบมะละกา',
+      securityDesc: 'สมรภูมิเอเชีย, คอนโซลโลก · ตรวจจับสถานการณ์จากข้อมูลเปิดไร้ชั้นความลับ',
+      citizensLabel: 'ประชาชนที่ได้รับการดูแล',
+      provincesLabel: 'จังหวัดที่ครอบคลุมทั่วไทย',
+      countriesLabel: 'ประเทศที่ติดตั้งระบบ',
+      socialTitle: 'ชุมชนประชาชนที่ติดตามจริง',
+      socialDesc: 'ผู้ติดตามรายงานสด FloodDash ทุกวันในช่วงน้ำท่วม รับข่าวกรองที่ตรวจสอบแล้วโดยไร้อัลกอริทึมรบกวน',
+      feedsTitle: 'ชุดข้อมูลสาธารณะที่เชื่อมต่อ',
+      feedsDesc: 'รวมเรดาร์อุตุนิยมวิทยา ประตูน้ำ เซนเซอร์อากาศ ตัวรับสัญญาณเครื่องบินและเรือไว้บนจอเดียว',
+      speedTitle: 'ความเร็วในการขึ้นระบบ',
+      speedDesc: 'จากฐานข้อมูลกระจัดกระจายสู่หน้าจอใช้งานจริงในมือนายกเทศมนตรีและผู้ว่าฯ ภายในสองสัปดาห์',
+      costTitle: 'การผูกขาดซอฟต์แวร์',
+      costDesc: 'สถาปัตยกรรมเว็บมาตรฐานเปิด 100% ไม่มีค่าธรรมเนียมรายปี สร้างความมั่นคงทางดิจิทัลระยะยาว',
+      dna1Title: 'เอนจินเวกเตอร์และแคนวาสบนเบราว์เซอร์',
+      dna1Desc: 'ไร้ความหน่วงจากเซิร์ฟเวอร์ กราฟิกภูมิสารสนเทศและเส้นข้อมูลแสดงผลลื่นไหล 60 FPS ด้วย JavaScript แท้',
+      dna2Title: 'การผสานเซนเซอร์หลากแหล่งอัตโนมัติ',
+      dna2Desc: 'เชื่อมโยงเรดาร์ C-band เซนเซอร์ระดับน้ำ เซนเซอร์ตรวจวัดอากาศ และดาวเทียมเป็นแบบจำลองเดียว',
+      dna3Title: 'ดัชนีชี้วัดความเสี่ยงเชิงคณิตศาสตร์',
+      dna3Desc: 'แทนที่ความเห็นส่วนบุคคลด้วยสูตรความเปราะบางเชิงปริมาณ: ความผิดปกติของฝน ความอิ่มตัวดิน การระบาย',
+      dna4Title: 'ระบบ RAG อัจฉริยะแบบ Local-First',
+      dna4Desc: 'ระบบค้นคืนเอกสารและกฎหมายเมืองที่ทำงานในเครื่อง ไม่ส่งออกข้อมูลอธิปไตยของชาติไปภายนอก'
     },
     pitch: {
       kicker: 'ปัญหาที่ผมแก้',
@@ -4148,7 +4249,7 @@ const i18nPitch = {
       r3: 'จัดอันดับ 157 เมืองแบบสด — ใช้งานได้จริงบนเวทีภายในคีย์โน้ต 45 นาที',
       r4lbl: 'บันทึกภาคสนาม 01',
       r4: 'ผู้ขายบอกว่าซับซ้อนเกินไป สิบสี่วันต่อมา ระบบที่ใช้งานได้ก็อยู่ในห้องประชุมแล้ว',
-      proofLine: '71 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
+    proofLine: '71 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
       faqLabel: 'ก่อนที่คุณจะถาม',
       q1: 'แพงไหม?',
       a1: 'ไม่แพงในการเริ่มต้น ขั้นแรกคือพิสูจน์ผลสองสัปดาห์บนข้อมูลที่คุณมีอยู่แล้ว ไม่ต้องซื้อฮาร์ดแวร์ คุณตัดสินใจเรื่องที่ใหญ่กว่าก็ต่อเมื่อได้เห็นมันใช้งานได้แล้ว',
@@ -4169,9 +4270,65 @@ const i18nPitch = {
   },
   zh: {
     field: {
-      kicker: '在现场',
-      line: '此刻正下着雨的这个片区，正是这些监测画面正在看的地方。创新即服务不是会议室里的提案，而是站在问题被提出的地方。',
+      kicker: '在现场 · 真实态势',
+      videoTag: '权威现场简报 · 危机一线直击',
+      title: '洪水凌晨两点到来。仪表盘下个财年才到。',
+      line: '在季风暴雨峰值期间，站在没过小腿的积水中现场录制。“创新即服务”不是会议室里的方案路演，而是在问题发生的一线动手构建。这个视频印证了我们前沿方案的硬核实力：',
+      point1Title: '零延迟实时接入击穿预算审批惯性',
+      point1Desc: '传统供应商走预算周期需要整整一年，最终只交付静态 PDF 报告。我们将 9 个公共机构数据（C 波段测雨雷达、水文遥测、流域水位计）每 3–60 分钟直接流式注入浏览器内存。',
+      point2Title: '基于街巷物理真实校准告警阈值',
+      point2Desc: '告警线与防汛策略直接在受淹巷道与前线工作人员及居民一同实地验证，数秒内即可形成果断决策，无需层层汇报或漫长电话确认。',
+      point3Title: '打破软件许可壁垒的全民无门槛共享',
+      point3Desc: '逾 112,000 名日常市民、府尹与应急救援队伍同时读取同一张无损态势图，以 0 元专有软件许可费彻底消除信息不对称。',
       cta: '查看 FloodDash 实时系统',
+      ctaBriefings: '每日防汛简报（112K 关注）'
+    },
+    heroConsole: {
+      title: '决策系统指挥台',
+      tabSystems: '系统与议题',
+      tabImpact: '公众影响力',
+      tabTrends: '技术基因与趋势',
+      tabDossier: '当前简报',
+      systemsLabel: '已上线运行系统',
+      problemsLabel: '覆盖核心城市领域',
+      slideDecksLabel: '演示幻灯片 / 模型图',
+      tagFlood: '灾害与防汛 · 22',
+      floodTitle: '内涝、暴雨雷达与流域水文水位监测',
+      floodDesc: 'FloodDash、罗勇水务、洛坤府 · 积水前 2 小时精准预见期。',
+      tagAir: '空气质量与烟雾 · 14',
+      airTitle: '微盆地 PM2.5 扩散、烟羽与林火热点',
+      airDesc: 'AirDash、清迈空气、C-Air · 覆盖北部河谷盆地的 24 小时超本地传感器融合。',
+      tagPorts: '港口航运与物流 · 9',
+      portsTitle: 'AIS 船舶排队、集装箱瓶颈与货车周转',
+      portsDesc: '林查班港、泰国海事 · 精准协调闸口吞吐与深水泊位分配。',
+      tagAirspace: '空域与骨干交通 · 7',
+      airspaceTitle: '实时 ADS-B 航班追踪与跨城交通走廊',
+      airspaceDesc: '东南亚空域、区域机动性 · 飞行航迹预测与骨干高速疏堵。',
+      tagCivic: '市政运营与公共医疗 · 11',
+      civicTitle: '医院床位负荷、紧急调度与市民诉求分流',
+      civicDesc: '西球市政、BKKx 3D · 专为拍板决策者打造的战术处置台。',
+      tagSecurity: '地缘安全与开源情报 · 8',
+      securityTitle: '边境走廊、冲突态势图与马六甲生命线',
+      securityDesc: '亚洲战区、全球总控台 · 基于全公开数据的非涉密全域态势感知。',
+      citizensLabel: '受保护民众总数',
+      provincesLabel: '覆盖全泰各府',
+      countriesLabel: '部署主权国家',
+      socialTitle: '高黏度公民社群',
+      socialDesc: 'FloodDash 官方频道每日追踪受众，在季风期接收无算法噪音与广告的核实预警。',
+      feedsTitle: '深度汇聚的公共数据流',
+      feedsDesc: '将气象雷达、水闸遥测、空气微站、ADS-B 与船舶 AIS 熔铸于一屏。',
+      speedTitle: '极速交付与投产速度',
+      speedDesc: '从零散的部门原始数据库到市长与府尹手中的实战决策屏，两周之内即刻交付。',
+      costTitle: '告别专有软件锁死',
+      costDesc: '100% 开放标准 Web 架构，无昂贵年度许可授权费，保障长久自主可控。',
+      dna1Title: '浏览器原生矢量与 Canvas 引擎',
+      dna1Desc: '零服务器渲染等待。复杂的空间数据线条与遥测网格完全依靠原生 JS 以 60 帧极速运行。',
+      dna2Title: '自动化多源传感器融合机制',
+      dna2Desc: '将离散的 C 波段雷达扫描、河道浮标、空气传感器与卫星影像整合成统一态势。',
+      dna3Title: '严密数学化的省域风险指数',
+      dna3Desc: '以量化致灾公式取代顾问主观打分：异常雨量、土壤含水饱和度与排涝径流函数。',
+      dna4Title: '本土化优先的主权级 RAG 检索',
+      dna4Desc: '离线私有化运行的政策与规章智能检索系统，不泄露任何关键国家与市政遥测数据。'
     },
     pitch: {
       kicker: '我们解决的问题',
@@ -4204,7 +4361,7 @@ const i18nPitch = {
       r3: '157 座城市实时排名——在一场 45 分钟的主题演讲中现场跑通。',
       r4lbl: '现场笔记 01',
       r4: '供应商说太复杂。十四天后，可用版本已经摆在会议室里。',
-      proofLine: '71 个系统，5 个国家。打开一个，亲自使用，再作判断。',
+    proofLine: '71 个系统，5 个国家。打开一个，亲自使用，再作判断。',
       faqLabel: '在你开口之前',
       q1: '贵吗？',
       a1: '起步不贵。第一步是基于你已有数据的两周验证，无需购买硬件。只有亲眼看到它跑通，你才需要决定更大的投入。',
@@ -4225,9 +4382,65 @@ const i18nPitch = {
   },
   ko: {
     field: {
-      kicker: '현장',
-      line: '지금 비가 내리는 그 구역이 바로 이 감시 화면들이 지켜보는 곳입니다. Innovation-as-a-Service는 회의실에서의 제안이 아니라, 질문이 나오는 그 자리에 서는 일입니다.',
+      kicker: '현장 · 실측된 현실',
+      videoTag: '위기 현장 브리핑 · 침수 현장 직격',
+      title: '홍수는 새벽 2시에 옵니다. 대시보드는 다음 회계연도에 옵니다.',
+      line: '몬순 폭우 정점 당시 정강이까지 차오른 침수 골목에서 직접 촬영했습니다. Innovation-as-a-Service는 에어컨 나오는 회의실에서의 제안이 아니라, 질문이 터져 나오는 재난의 현장에 서서 만들어집니다. 이 영상이 증명하는 우리의 혁신적 접근법은 다음과 같습니다:',
+      point1Title: '예산 주기 관성을 깨부수는 무지연 스트리밍',
+      point1Desc: '전통적인 벤더는 1년 예산 주기를 거쳐 결국 정적 PDF를 납품합니다. 우리는 9개 공공 기관 데이터(C-밴드 강우 레이더, 수위 원격 측정, 수문 수위계)를 3–60분마다 브라우저 메모리로 직접 실시간 주입합니다.',
+      point2Title: '골목의 물리적 현장 현실로 직접 보정',
+      point2Desc: '경보 임계값은 침수된 골목에서 주민과 현장 운영자와 함께 직접 검증됩니다. 전화 보고에 시간을 낭비하지 않고 수초 안에 과감한 결정을 내릴 수 있습니다.',
+      point3Title: '라이선스 통행료 없는 급진적 공공 공유',
+      point3Desc: '112,000명 이상의 일상 시민, 주지사, 재난 구조팀이 완전히 동일한 상황도를 동시에 읽습니다. 10억 원대 독점 소프트웨어 비용 없이 정보 비대칭을 완전히 해소합니다.',
       cta: 'FloodDash 실시간 보기',
+      ctaBriefings: '일일 홍수 브리핑 (112K 구독)'
+    },
+    heroConsole: {
+      title: '의사결정 시스템 콘솔',
+      tabSystems: '시스템 및 이슈',
+      tabImpact: '시민 영향력',
+      tabTrends: '기술 DNA 및 트렌드',
+      tabDossier: '활성 브리프',
+      systemsLabel: '운영 중인 실시간 시스템',
+      problemsLabel: '해결 중인 핵심 도시 영역',
+      slideDecksLabel: '슬라이드 발표 자료 / 목업',
+      tagFlood: '재난 및 홍수 방재 · 22',
+      floodTitle: '도시 침수, 국지성 호우 레이더 및 유역 수위 감시',
+      floodDesc: 'FloodDash, 라용 수자원 감시, 나콘시탐마랏 · 침수 발생 2시간 전 예측 경보.',
+      tagAir: '대기질 및 산불 연무 · 14',
+      airTitle: '분지 지형 PM2.5 확산, 연무 기둥 및 산불 핫스팟',
+      airDesc: 'AirDash, 치앙마이 대기, C-Air · 북부 분지 계곡 24시간 초밀착 센서 융합.',
+      tagPorts: '항만 및 물류 관제 · 9',
+      portsTitle: 'AIS 선박 대기열, 컨테이너 병목 및 화물차 회전율',
+      portsDesc: '람차방 항만, 태국 해사 관제 · 게이트 통과와 심수 부두의 실시간 조율.',
+      tagAirspace: '영공 및 간선 교통 · 7',
+      airspaceTitle: '실시간 ADS-B 항공 추적 및 광역 교통 회랑',
+      airspaceDesc: '동남아 영공, 광역 이동성 · 비행 궤적 예측 및 고속도로 정체 완화.',
+      tagCivic: '지자체 운영 및 응급 의료 · 11',
+      civicTitle: '병원 병상 부하, 응급 출동 및 시민 민원 분류',
+      civicDesc: '시คิ้ว 운영 데스크, BKKx 문화 · 실제 결정을 내리는 지자체장을 위한 상황판.',
+      tagSecurity: '주권 안보 및 오픈소스 인텔 · 8',
+      securityTitle: '국경 회랑, 분쟁 매핑 및 믈라카 해협 에너지 생명선',
+      securityDesc: '아시아 전구, 글로벌 총괄 데스크 · 공개 데이터 기반 비인가 다원 상황 인식.',
+      citizensLabel: '보호받는 시민 총수',
+      provincesLabel: '태국 전역 관할 주',
+      countriesLabel: '배치된 주권 국가',
+      socialTitle: '활동 중인 시민 커뮤니티',
+      socialDesc: 'FloodDash 공식 채널 구독자 — 알고리즘 노이즈와 광고 없이 신속한 검증 경보 수신.',
+      feedsTitle: '통합된 공공 데이터 스트림',
+      feedsDesc: '기상 레이더, 수문, 대기 센서, ADS-B 및 해상 AIS 신호를 단일 화면에 융합.',
+      speedTitle: '신속한 구축 및 턴어라운드',
+      speedDesc: '파편화된 기관 데이터베이스에서 시장과 주지사 손안의 실전 결제 화면까지 2주 완료.',
+      costTitle: '독점 소프트웨어 종속 탈피',
+      costDesc: '100% 개방형 표준 웹 아키텍처로 연간 라이선스 비용 0원, 항구적 디지털 주권 보장.',
+      dna1Title: '브라우저 네이티브 벡터 및 캔버스 엔진',
+      dna1Desc: '서버 렌더링 지연 제로. 순수 바닐라 JS로 복잡한 지리 공간 데이터 라인을 60 FPS로 구동.',
+      dna2Title: '자동화된 다원 센서 융합 메커니즘',
+      dna2Desc: 'C-밴드 레이더 스위프, 하천 센서, IoT 공기질 감시기와 위성 신호를 단일 모델로 결합.',
+      dna3Title: '엄밀한 수학적 주 단위 위험 지수화',
+      dna3Desc: '컨설턴트의 주관적 의견 대신 강우 편차, 토양 포화도, 배수 유출 공식 기반 정량화.',
+      dna4Title: '로컬 우선 주권형 RAG 인텔리전스',
+      dna4Desc: '국가 주권 데이터를 해외로 유출하지 않고 내부에서 규정과 지자체 문서를 분석하는 검색 엔진.'
     },
     pitch: {
       kicker: '우리가 푸는 문제',
@@ -4260,7 +4473,7 @@ const i18nPitch = {
       r3: '157개 도시 실시간 순위 — 45분 기조연설 안에 무대에서 작동을 보였습니다.',
       r4lbl: '현장 노트 01',
       r4: '벤더는 너무 복잡하다고 했습니다. 14일 뒤, 작동하는 버전이 회의실에 있었습니다.',
-      proofLine: '5개국의 71개 시스템. 하나를 열고, 사용하고, 판단하세요.',
+    proofLine: '5개국의 71개 시스템. 하나를 열고, 사용하고, 판단하세요.',
       faqLabel: '묻기 전에 답합니다',
       q1: '비싸지 않나요?',
       a1: '시작은 비싸지 않습니다. 첫 단계는 이미 가진 데이터로 하는 2주 검증이며, 하드웨어 구매가 없습니다. 작동하는 것을 본 뒤에 더 큰 결정을 하시면 됩니다.',
@@ -4281,9 +4494,65 @@ const i18nPitch = {
   },
   ja: {
     field: {
-      kicker: '現場',
-      line: '今この雨が続いている区域が、まさにこれらの監視画面が見ている場所です。Innovation-as-a-Service は会議室での提案ではなく、質問が生まれる場所に立つことです。',
+      kicker: '現場 · 実測された現実',
+      videoTag: '現場危機ブリーフィング · 浸水最前線からの実況',
+      title: '洪水は午前2時に来る。ダッシュボードは来年度に来る。',
+      line: 'モンスーン豪雨のピーク時、すねまで水に浸かった浸水路地で直接収録。「Innovation-as-a-Service」は空調の効いた会議室での提案ではなく、問題が起きている現場に立って作られます。この動画が証明する私たちの先進的アプローチは以下の通りです：',
+      point1Title: '予算サイクルの停滞を打ち破るゼロ遅延配信',
+      point1Desc: '従来型ベンダーは予算サイクルに1年を費やし、静的なPDFを納品します。私たちは9つの公的機関データ（Cバンド降雨レーダー、河川テレメータ、水門水位計）を3〜60分ごとにブラウザメモリへ直接ストリーミングします。',
+      point2Title: '路地の物理的現実に基づき直接キャリブレーション',
+      point2Desc: '警戒ラインや警報閾値は、浸水した路地で住民や運用責任者とともに検証されます。電話確認に時間を浪費せず、数秒で的確な意思決定を下せます。',
+      point3Title: '高額ライセンス不要の急進的パブリック共有',
+      point3Desc: '11.2万人以上の日常市民、知事、救助隊が完全に同一の状況図を同時に把握。数億円規模の独占ソフトウェア費用を課すことなく、情報非対称性を完全に解消します。',
       cta: 'FloodDash ライブを見る',
+      ctaBriefings: '日次洪水ブリーフィング（登録11.2万）'
+    },
+    heroConsole: {
+      title: '意思決定システム統合司令台',
+      tabSystems: 'システムと課題',
+      tabImpact: '市民への影響',
+      tabTrends: '技術DNAと動向',
+      tabDossier: '現在ブリーフ',
+      systemsLabel: '本番稼働中システム',
+      problemsLabel: '解決対象の都市中核領域',
+      slideDecksLabel: '提案スライド / モックアップ',
+      tagFlood: '防災・洪水監視 · 22',
+      floodTitle: '内水氾濫、集中豪雨レーダー、河川流域水位監視',
+      floodDesc: 'FloodDash、ラヨーン水管理、ナコーンシータンマラート · 浸水2時間前の高精度事前予見。',
+      tagAir: '大気質と煙霧 · 14',
+      airTitle: '微盆地PM2.5拡散、煙羽、山火事ホットスポット',
+      airDesc: 'AirDash、チェンマイ大気、C-Air · 北部盆地における24時間超ローカルセンサー統合。',
+      tagPorts: '港湾と物流 · 9',
+      portsTitle: 'AIS船舶待機列、コンテナ滞留、トラック回転効率',
+      portsDesc: 'レムチャバン港、タイ海事管制 · ターミナルゲートと大深水バースの精密同期。',
+      tagAirspace: '上空と広域交通 · 7',
+      airspaceTitle: 'リアルタイムADS-B航空追跡と越境交通回廊',
+      airspaceDesc: '東南アジア空域、広域モビリティ · 飛行経路予測と主要幹線高速の渋滞解消。',
+      tagCivic: '行政運営と地域医療 · 11',
+      civicTitle: '病院病床負荷、緊急出動、市民要望トリアージ',
+      civicDesc: 'シーキウ行政オペレーション、BKKx 3D · 実際に決断を下す首長のための実戦司令卓。',
+      tagSecurity: '主権安全保障とOSINT · 8',
+      securityTitle: '国境回廊、紛争マッピング、マラッカ海峡エネルギー生命線',
+      securityDesc: 'アジア戦域、ワールドコンソール · 公開データに基づく非機密マルチソース状況認識。',
+      citizensLabel: '保護下にある市民数',
+      provincesLabel: 'タイ全土カバー県数',
+      countriesLabel: '配備主権国家数',
+      socialTitle: '高エンゲージメント市民群',
+      socialDesc: 'FloodDash公式チャンネル登録者 — アルゴリズムによるノイズや広告なしに検証済み警報を受信。',
+      feedsTitle: '統合された公的データ流',
+      feedsDesc: '気象レーダー、水門、大気センサー、ADS-B、船舶AISを1画面に完全凝縮。',
+      speedTitle: '立ち上げと稼働の速度',
+      speedDesc: '分散した各省庁データベースから首長や知事の手元の実動画面まで、わずか2週間で完成。',
+      costTitle: '独自ベンダーロックイン打破',
+      costDesc: '100%オープン標準Webアーキテクチャにより年間ライセンス料ゼロ、持続的な自主独立を担保。',
+      dna1Title: 'ブラウザネイティブのベクター＆Canvasエンジン',
+      dna1Desc: 'サーバー側レンダリング遅延なし。複雑な地理空間データ線群を純粋なJavaScriptで60 FPS稼働。',
+      dna2Title: '自律的多源センサーフュージョン機構',
+      dna2Desc: 'Cバンドレーダースキャン、河川ブイ、IoT大気監視機、衛星画像を統一モデルに統合。',
+      dna3Title: '厳密な数学的地域リスクインデックス',
+      dna3Desc: 'コンサルの主観的見解を排し、降雨偏差・土壌水分飽和度・排水流出の定量的公式で算出。',
+      dna4Title: 'ローカルファーストの主権型RAGインテリジェンス',
+      dna4Desc: '国家機密や市政データを海外に漏洩させることなく、内部で法規や都市文書を解析する検索基盤。'
     },
     pitch: {
       kicker: '私たちが解く問題',
@@ -4316,7 +4585,7 @@ const i18nPitch = {
       r3: '157都市をライブでランキング——45分の基調講演の中で、壇上で動かしてみせました。',
       r4lbl: 'フィールドノート 01',
       r4: 'ベンダーは複雑すぎると言った。14日後、動くバージョンが会議室にあった。',
-      proofLine: '5か国、71のシステム。ひとつ開いて、使って、判断してください。',
+    proofLine: '5か国、71のシステム。ひとつ開いて、使って、判断してください。',
       faqLabel: '聞かれる前に',
       q1: '高くありませんか？',
       a1: '始めるのに高くはありません。最初の一歩はお手持ちのデータによる2週間の実証で、ハードウェア購入は不要です。動くのを見てから、より大きな判断をしてください。',
@@ -4337,9 +4606,65 @@ const i18nPitch = {
   },
   vi: {
     field: {
-      kicker: 'Tại hiện trường',
-      line: 'Khu vực đang mưa ngay lúc này chính là nơi các màn hình giám sát này đang theo dõi. Innovation-as-a-Service không phải một đề xuất trong phòng họp, mà là việc đứng ở đúng nơi câu hỏi được đặt ra.',
+      kicker: 'Tại hiện trường · Dữ liệu thực địa',
+      videoTag: 'BÁO CÁO THỰC ĐỊA KINH ĐIỂN · TRỰC TIẾP TRONG TÂM BÃO LŨ',
+      title: 'Lũ đến lúc 2 giờ sáng. Dashboard đến vào năm tài khóa sau.',
+      line: 'Được ghi hình khi đứng ngập nước đến bắp chân ngay giữa đỉnh điểm mùa mưa lũ. Innovation-as-a-Service không phải bài thuyết trình trong phòng họp máy lạnh — nó được tạo ra khi đứng ở chính nơi câu hỏi sinh tử được đặt ra. Đây là minh chứng cho tính đột phá trong cách tiếp cận của chúng tôi:',
+      point1Title: 'Xử lý luồng tức thời vượt qua sức ỳ chu kỳ ngân sách',
+      point1Desc: 'Các nhà thầu truyền thống mất cả năm để xin duyệt ngân sách và chỉ giao về file PDF tĩnh. Chúng tôi truyền trực tiếp dữ liệu từ 9 cơ quan nhà nước (radar đo mưa băng C, đo xa thủy văn, mực nước sông) mỗi 3–60 phút thẳng vào bộ nhớ trình duyệt.',
+      point2Title: 'Hiệu chuẩn trực tiếp với thực tế hiện trường',
+      point2Desc: 'Các ngưỡng cảnh báo và thuật toán được thử nghiệm ngay trong con hẻm ngập nước cùng người dân và đội ngũ tác chiến, giúp đưa ra quyết định hành động trong vài giây mà không cần gọi điện hỏi han.',
+      point3Title: 'Minh bạch hóa vì cộng đồng mà không tính phí bản quyền',
+      point3Desc: 'Hơn 112.000 người dân, tỉnh trưởng và đội cứu hộ cùng đọc chung một bức tranh tình huống đồng nhất vào cùng một thời điểm — xóa bỏ hoàn toàn bất đối xứng thông tin mà không thu tiền bản quyền triệu đô.',
       cta: 'Xem FloodDash trực tiếp',
+      ctaBriefings: 'Điểm tin lũ hàng ngày (112K người theo dõi)'
+    },
+    heroConsole: {
+      title: 'BÀN ĐIỀU KHIỂN HỆ THỐNG RA QUYẾT ĐỊNH',
+      tabSystems: 'Hệ thống & Vấn đề',
+      tabImpact: 'Tác động xã hội',
+      tabTrends: 'DNA công nghệ',
+      tabDossier: 'Hồ sơ đang mở',
+      systemsLabel: 'Hệ thống đang chạy thật',
+      problemsLabel: 'Lĩnh vực đô thị giải quyết',
+      slideDecksLabel: 'Bản vẽ mô phỏng / Slide',
+      tagFlood: 'THIÊN TAI & LŨ LỤT · 22',
+      floodTitle: 'Ngập úng đô thị, radar mưa dông & mực nước lưu vực sông',
+      floodDesc: 'FloodDash, Giám sát nước Rayong, Nakhon Si Thammarat · Cảnh báo trước 2 giờ trước khi ngập tràn.',
+      tagAir: 'CHẤT LƯỢNG KHÔNG KHÍ · 14',
+      airTitle: 'Khuếch tán PM2.5 lòng chảo, vệt khói & điểm cháy rừng',
+      airDesc: 'AirDash, Không khí Chiang Mai, C-Air · Hợp nhất cảm biến siêu cục bộ 24/7 khắp các thung lũng miền bắc.',
+      tagPorts: 'CẢNG BIỂN & HẬU CẦN · 9',
+      portsTitle: 'Hàng chờ tàu AIS, nghẽn container & quay vòng xe tải',
+      portsDesc: 'Cảng Laem Chabang, Hàng hải Thái Lan · Điều phối cổng cảng và cầu cảng nước sâu theo thời gian thực.',
+      tagAirspace: 'VÙNG TRỜI & GIAO THÔNG · 7',
+      airspaceTitle: 'Theo dõi chuyến bay ADS-B & hành lang giao thông liên vùng',
+      airspaceDesc: 'Vùng trời Đông Nam Á, Di chuyển khu vực · Dự báo quỹ đạo bay & giảm tải cao tốc huyết mạch.',
+      tagCivic: 'ĐÔ THỊ & Y TẾ CÔNG CỘNG · 11',
+      civicTitle: 'Tải giường bệnh viện, cấp cứu khẩn cấp & xử lý khiếu nại',
+      civicDesc: 'Bàn tác chiến Sikhio, Văn hóa BKKx · Bàn làm việc thực chiến cho lãnh đạo cần ra quyết định tức thì.',
+      tagSecurity: 'AN NINH CHỦ QUYỀN & TÌNH BÁO · 8',
+      securityTitle: 'Hành lang biên giới, bản đồ xung đột & huyết mạch Malacca',
+      securityDesc: 'Chiến trường châu Á, Bàn điều khiển toàn cầu · Nhận thức tình huống đa nguồn từ dữ liệu mở không mật.',
+      citizensLabel: 'Người dân được bảo vệ',
+      provincesLabel: 'Tỉnh thành phủ khắp Thái Lan',
+      countriesLabel: 'Quốc gia triển khai',
+      socialTitle: 'Cộng đồng người dân tương tác',
+      socialDesc: 'Người theo dõi phát sóng hàng ngày trên FloodDash — nhận tin cảnh báo đã kiểm chứng không nhiễu thuật toán.',
+      feedsTitle: 'Luồng dữ liệu công được hợp nhất',
+      feedsDesc: 'Kết nối radar khí tượng, cống xả, cảm biến không khí, máy thu ADS-B và tàu biển AIS trên một màn hình.',
+      speedTitle: 'Tốc độ triển khai bàn giao',
+      speedDesc: 'Từ các cơ sở dữ liệu phân tán tới màn hình tác chiến trong tay tỉnh trưởng và thị trưởng chỉ trong hai tuần.',
+      costTitle: 'Chấm dứt trói buộc phần mềm',
+      costDesc: 'Kiến trúc web chuẩn mở 100% với chi phí bản quyền hàng năm bằng 0, bảo đảm tự chủ công nghệ lâu dài.',
+      dna1Title: 'Động cơ đồ họa Canvas & Vector trên trình duyệt',
+      dna1Desc: 'Không phụ thuộc máy chủ. Các đường dữ liệu không gian và lưới viễn thám chạy mượt mà 60 FPS bằng JavaScript thuần.',
+      dna2Title: 'Cơ chế hợp nhất cảm biến đa nguồn tự động',
+      dna2Desc: 'Kết hợp các lượt quét radar băng C, trạm đo thủy văn, máy đo IoT và ảnh vệ tinh thành mô hình thống nhất.',
+      dna3Title: 'Chỉ số hóa rủi ro cấp tỉnh bằng toán học',
+      dna3Desc: 'Thay thế ý kiến chủ quan bằng công thức định lượng: lượng mưa bất thường, độ bão hòa đất, dòng chảy thoát nước.',
+      dna4Title: 'Trí tuệ RAG bảo vệ chủ quyền dữ liệu',
+      dna4Desc: 'Công cụ tra cứu tài liệu và quy chuẩn chạy biệt lập tại chỗ, không xuất dữ liệu nhạy cảm ra nước ngoài.'
     },
     pitch: {
       kicker: 'Vấn đề chúng tôi giải quyết',
@@ -4372,7 +4697,7 @@ const i18nPitch = {
       r3: 'Xếp hạng trực tiếp 157 thành phố — chạy thật trên sân khấu trong một bài keynote 45 phút.',
       r4lbl: 'Ghi chép thực địa 01',
       r4: 'Nhà cung cấp nói quá phức tạp. Mười bốn ngày sau, một phiên bản chạy được đã có trong phòng họp.',
-      proofLine: '71 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
+    proofLine: '71 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
       faqLabel: 'Trước khi bạn hỏi',
       q1: 'Có đắt không?',
       a1: 'Khởi đầu thì không. Bước một là thử nghiệm hai tuần trên dữ liệu bạn đã có, không phải mua phần cứng. Bạn chỉ quyết định việc lớn hơn sau khi đã thấy nó chạy.',
@@ -4393,9 +4718,65 @@ const i18nPitch = {
   },
   ts: {
     field: {
-      kicker: 'on site',
-      line: 'the district currently under rain is the one these watches are reading. Innovation-as-a-Service is not a pitch delivered in a room; it is standing where the question gets asked.',
+      kicker: 'onSite.groundTruth()',
+      videoTag: '// CANONICAL_FIELD_BRIEFING: liveInTheFlood()',
+      title: 'flood.arrivesAt("02:00") // dashboard.arrivesAt("nextFiscalYear")',
+      line: '// recorded: standingInFloodwater({ depth: "shin" })\n// innovation_as_a_service !== conferenceRoom.pitch()\n// innovation_as_a_service === standingWhereQuestionIsAsked()\n// approach.cuttingEdge: Proof[3]',
+      point1Title: 'zeroLatency.beats(budgetCycleInertia)',
+      point1Desc: '// traditional: 1y quote → PDF\n// axiom: 9 publicStreams (radar + gauges + flow) → inMemoryStreams({ refresh: "3-60m" })',
+      point2Title: 'calibratedAgainstPhysicalGroundTruth',
+      point2Desc: '// tested in soi with residents + dispatchers\n// phoneCalls.firstHour === 0 → decisions.immediate()',
+      point3Title: 'radicalPublicInclusion({ licenseCost: 0 })',
+      point3Desc: '// citizens[112_000+] + governors + rescuers\n// read(sameUnifiedSituationPicture) simultaneously // proprietaryTolls: 0',
       cta: 'FloodDash.live()',
+      ctaBriefings: 'dailyBriefings.view({ followers: "112k" })'
+    },
+    heroConsole: {
+      title: 'DECISION_SYSTEMS_CONSOLE',
+      tabSystems: 'systems.domains()',
+      tabImpact: 'impact.citizens()',
+      tabTrends: 'tech.dna()',
+      tabDossier: 'active.dossier()',
+      systemsLabel: 'systems.inProduction',
+      problemsLabel: 'criticalDomains.served',
+      slideDecksLabel: 'slideDecks.shipped',
+      tagFlood: 'DISASTER_FLOOD[22]',
+      floodTitle: 'flashFloods + cloudburstRadar + basinTelemetry',
+      floodDesc: 'FloodDash + Rayong + NST // leadTime: "2h" before inundation',
+      tagAir: 'AIR_QUALITY_SMOKE[14]',
+      airTitle: 'pm25Dispersion + smokePlumes + wildfireHotspots',
+      airDesc: 'AirDash + ChiangMaiAir + CAir // 24/7 hyperLocal sensorFusion',
+      tagPorts: 'SEAPORTS_LOGISTICS[9]',
+      portsTitle: 'aisVesselQueues + containerBottlenecks + truckTurnaround',
+      portsDesc: 'LaemChabangPort + ThailandMaritime // gateCoordination',
+      tagAirspace: 'AIRSPACE_TRANSIT[7]',
+      airspaceTitle: 'adsbFlightTracking + crossBorderTransit',
+      airspaceDesc: 'seAsiaAirspace + regionalMobility // trajectoryPrediction',
+      tagCivic: 'MUNICIPAL_HEALTH[11]',
+      civicTitle: 'hospitalBeds + emergencyDispatch + civicGrievances',
+      civicDesc: 'SikhioOps + BKKxCulture // operationalTriageDesks',
+      tagSecurity: 'SOVEREIGN_INTEL[8]',
+      securityTitle: 'borderCorridors + conflictMapping + malaccaLifeline',
+      securityDesc: 'asiaTheatres + worldConsole // unclassifiedOpenIntel',
+      citizensLabel: 'citizens.protected',
+      provincesLabel: 'provinces.covered',
+      countriesLabel: 'nations.deployed',
+      socialTitle: 'activeCitizenCommunity',
+      socialDesc: 'dailyFollowers[112_000+] // zeroAds, zeroAlgorithmicNoise',
+      feedsTitle: 'publicDataFeeds.synthesized',
+      feedsDesc: 'fused({ radar, waterGates, air, adsb, ais }) → oneScreen',
+      speedTitle: 'turnaroundVelocity',
+      speedDesc: 'rawDatabases → operatingScreen({ time: "<2w" })',
+      costTitle: 'vendorLockIn',
+      costDesc: 'openStandardWebArchitectures // annualLicenseFees: 0',
+      dna1Title: 'browserNative.vectorEngines',
+      dna1Desc: 'zeroServerLag // geospatialLines + canvas2D @ 60fps',
+      dna2Title: 'automatedMultiSource.sensorFusion',
+      dna2Desc: 'fuse({ cbandRadar, telemetry, airSensors, satellite })',
+      dna3Title: 'mathematical.provincialScoring',
+      dna3Desc: 'vulnerabilityIndex = f(rainAnomaly, soilSaturation, drainage)',
+      dna4Title: 'localFirst.sovereignRAG',
+      dna4Desc: 'airGappedDocumentRetrieval // sovereignData.exported: false'
     },
     pitch: {
       kicker: 'problem.solve()',
@@ -4456,79 +4837,86 @@ Object.keys(i18nPitch).forEach(locale => {
 const catalogReleaseCopy = {
   en: {
     each: { cat: 'Business Operations', lede: 'ERP, ACT, CRM, and HR in one Thai/English workspace. Cash runway, expenses, and loan installments on the finance screen. The thumbnail shows ABC Company example data.', access: 'Sign-in required', cta: 'Open EACH' },
-    champion: { cat: 'Tactical Simulation', lede: 'Set the formation, pressing, and plan. Watch the match respond. A football coaching board, career, and tactical classroom on the same simulation.', cta: 'Open the touchline' },
+    champion: { cat: 'Tactical Simulation', lede: "Sideline coaching console and tactical lab for Thailand's Road to the World Cup. Ride the plans, adjust pressing detents, and switch shape in real time.", cta: 'Open the coaching desk' },
     soccer: { cat: 'Football Research', lede: 'A football tactics desk inside the NSP research prototype. Thai public-TV sources and official viewing destinations, with a rights notice before entry.', cta: 'Open the research desk' },
     vision: { cat: 'Computer-Vision Classroom', lede: 'How a picture becomes numbers, edges, motion, and a guess. Learn on public cameras, train a model, and test it in your browser without uploading your own images.', cta: 'Open the classroom' },
     dao: { lede: "The updated Dao De Jing reading room: 81 chapters in English, Thai, and Chinese, with character study, illustrated notes, and Palette's colour relationships.", original: 'Read the original version' },
     jakarta: { cat: '3D Urban Atlas', lede: 'A 3D city atlas and operations surface for DKI Jakarta — building massing, BMKG weather bulletins, citizen service CRM reports, and flood risk desks on one interactive screen. Bahasa Indonesia · EN.', cta: 'Open live system' },
     constitution: { cat: 'Civic Intelligence', lede: 'Read, highlight, listen to and practise the 2017 Thai Constitution across all 279 sections in Thai, English, and Chinese. Study cards, search, audio, and civic understanding. ไทย · EN · 中文.', cta: 'Open reading room' },
     ladder: { cat: 'Finance Intelligence', lede: 'The venture diligence and scorecard companion to Ikigai. Deal review, financial diligence checklist, thesis matching, and portfolio risk evaluation in one private workspace.', access: 'Sign-in required', cta: 'Open Ladder' },
+    techhunt: { cat: 'National Programme', lede: 'The verified technology stockmarket for Thai cities: 125 verified startups across 7 smart-city domains, ranked by live signal strength for procurement officers and urban planners. A collaborative initiative by depa, SLIC, and UWN.', cta: 'Open TechHunt' },
     proofLine: '71 systems across 5 countries. Open one. Use it. Judge.',
   },
   th: {
     each: { cat: 'ระบบบริหารธุรกิจ', lede: 'ERP, ACT, CRM และ HR ในพื้นที่ทำงานภาษาไทยและอังกฤษ หน้าการเงินแสดงระยะเวลาที่เงินสดพอใช้ ค่าใช้จ่าย และเงินผ่อน ภาพตัวอย่างใช้ข้อมูลบริษัท ABC', access: 'ต้องเข้าสู่ระบบ', cta: 'เปิด EACH' },
-    champion: { cat: 'จำลองแท็กติกฟุตบอล', lede: 'เลือกแผนการเล่น การเพรส และรูปแบบทีม แล้วดูเกมตอบสนอง กระดานโค้ช โหมดอาชีพ และห้องเรียนแท็กติกใช้ระบบจำลองเดียวกัน', cta: 'เปิดข้างสนาม' },
+    champion: { cat: 'จำลองแท็กติกฟุตบอล', lede: 'โต๊ะโค้ชข้างสนามและห้องทดลองแท็กติกทีมชาติไทยสู่ฟุตบอลโลก สั่งแผนการเล่น ปรับระดับการเพรส และเปลี่ยนรูปแบบทีมสดระหว่างเกม', cta: 'เปิดโต๊ะโค้ช' },
     soccer: { cat: 'งานวิจัยฟุตบอล', lede: 'โต๊ะวิเคราะห์แท็กติกฟุตบอลในต้นแบบวิจัย NSP รวมแหล่งทีวีสาธารณะไทยและช่องทางรับชมอย่างเป็นทางการ พร้อมประกาศสิทธิ์ก่อนเข้าใช้งาน', cta: 'เปิดโต๊ะวิจัย' },
     vision: { cat: 'ห้องเรียนคอมพิวเตอร์วิทัศน์', lede: 'ภาพกลายเป็นตัวเลข ขอบภาพ การเคลื่อนไหว และการคาดเดาอย่างไร เรียนกับกล้องสาธารณะ ฝึกโมเดล และทดสอบในเบราว์เซอร์โดยไม่อัปโหลดภาพของคุณ', cta: 'เปิดห้องเรียน' },
     dao: { lede: 'ห้องอ่านเต้าเต๋อจิงฉบับปรับปรุง 81 บทในภาษาอังกฤษ ไทย และจีน พร้อมเรียนตัวอักษร บันทึกภาพประกอบ และความสัมพันธ์ของสีจาก Palette', original: 'อ่านฉบับเดิม' },
     jakarta: { cat: 'แผนที่เมือง 3D', lede: 'แผนที่เมือง 3D และโต๊ะปฏิบัติการจาการ์ตา — รูปทรงอาคาร ข่าวสภาพอากาศ BMKG รายงานบริการประชาชน CRM และโต๊ะความเสี่ยงน้ำท่วมในหน้าจอเดียว ภาษาอินโดนีเซีย · EN', cta: 'เปิดระบบจริง' },
     constitution: { cat: 'ปัญญาพลเมือง', lede: 'อ่าน ไฮไลต์ ฟัง และฝึกทำความเข้าใจรัฐธรรมนูญ พ.ศ. 2560 ครบทั้ง 279 มาตรา ในภาษาไทย อังกฤษ และจีน บัตรศึกษา ค้นหา เสียงอ่าน และความรู้พลเมือง ไทย · EN · 中文', cta: 'เปิดห้องอ่าน' },
     ladder: { cat: 'ปัญญาการเงิน', lede: 'เครื่องมือตรวจสอบกิจการและใบคะแนนคู่หูของ Ikigai ตรวจสอบดีล รายการตรวจสอบความรอบคอบทางการเงิน การเทียบสมมติฐานลงทุน และประเมินความเสี่ยงพอร์ตในพื้นที่ส่วนตัว', access: 'ต้องเข้าสู่ระบบ', cta: 'เปิด Ladder' },
+    techhunt: { cat: 'โครงการระดับชาติ', lede: 'ตลาดเทคโนโลยีที่ผ่านการตรวจสอบสำหรับเมืองไทย: 125 สตาร์ทอัพที่ผ่านการยืนยันใน 7 ด้านเมืองอัจฉริยะ จัดอันดับตามความแรงของสัญญาณสดสำหรับเจ้าหน้าที่จัดซื้อจัดจ้างและนักวางผังเมือง ความร่วมมือโดย depa, SLIC และ บพข. (UWN)', cta: 'เปิด TechHunt' },
     proofLine: '71 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
   },
   zh: {
     each: { cat: '企业运营', lede: '集 ERP、ACT、CRM 和 HR 于一体的泰英双语工作空间。财务页呈现现金可支撑时长、费用和贷款分期。缩略图使用 ABC 公司的示例数据。', access: '需要登录', cta: '打开 EACH' },
-    champion: { cat: '足球战术模拟', lede: '调整阵型、压迫和战术，观察比赛如何回应。教练战术板、生涯模式和战术课堂共用一套模拟系统。', cta: '打开场边控制台' },
+    champion: { cat: '足球战术模拟', lede: '泰国队冲击世界杯的场边执教控制台与战术实验室。实时调整战术走线、压迫挡位与阵型切换。', cta: '打开执教控制台' },
     soccer: { cat: '足球研究', lede: 'NSP 研究原型中的足球战术桌。收录泰国公共电视来源和官方观看渠道，进入前展示版权须知。', cta: '打开研究桌' },
     vision: { cat: '计算机视觉课堂', lede: '图像如何变成数字、边缘、运动和推测。用公共摄像头学习、训练模型，并在浏览器中测试，无需上传自己的图像。', cta: '打开课堂' },
     dao: { lede: '更新后的《道德经》阅读室：81 章，英语、泰语、中文，配有汉字学习、插图笔记和 Palette 的色彩关系。', original: '阅读原版' },
     jakarta: { cat: '三维城市地图', lede: '雅加达三维城市地图与运营平台——建筑体量、BMKG 气象公报、CRM 市民服务报告与水灾风险控制台汇聚于同一交互屏幕。印尼语 · 英语。', cta: '打开在线系统' },
     constitution: { cat: '公民智能', lede: '精读、高亮、倾听与练习 2017 年泰国宪法全部 279 条条文，支持泰语、英语和中文。学习卡片、全文搜索、语音朗读与公民常识。泰语 · 英语 · 中文。', cta: '打开阅读室' },
     ladder: { cat: '金融情报', lede: 'Ikigai 的风险投资尽调与评分卡伴侣。在专属私密工作空间中完成项目审阅、财务尽调清单核对、投资逻辑匹配与组合风险评估。', access: '需要登录', cta: '打开 Ladder' },
+    techhunt: { cat: '国家级项目', lede: '面向泰国城市的已验证技术市场：覆盖 7 大智慧城市领域的 125 家已认证初创企业，按实时信号强度排序，专为采购官员和城市规划者打造。由 depa、SLIC 与 UWN 联合发起。', cta: '打开 TechHunt' },
     proofLine: '71 个系统，5 个国家。打开一个，亲自使用，再作判断。',
   },
   ko: {
     each: { cat: '비즈니스 운영', lede: 'ERP, ACT, CRM, HR을 한곳에 모은 태국어·영어 작업 공간. 재무 화면에서 현금 지속 기간, 비용, 대출 상환을 봅니다. 썸네일은 ABC 회사의 예시 데이터입니다.', access: '로그인 필요', cta: 'EACH 열기' },
-    champion: { cat: '축구 전술 시뮬레이션', lede: '포메이션, 압박, 전술을 바꾸고 경기의 반응을 보세요. 코칭 보드, 커리어, 전술 교실이 같은 시뮬레이션을 사용합니다.', cta: '터치라인 열기' },
+    champion: { cat: '축구 전술 시뮬레이션', lede: '태국 축구 국가대표팀 월드컵 본선행을 위한 사이드라인 코칭 콘솔과 전술 실험실. 실시간 전술 플랜, 압박 강도, 포메이션 전환.', cta: '코칭 데스크 열기' },
     soccer: { cat: '축구 연구', lede: 'NSP 연구 프로토타입의 축구 전술 데스크. 태국 공영 TV 소스와 공식 시청 경로를 모으며, 입장 전에 권리 안내를 제공합니다.', cta: '연구 데스크 열기' },
     vision: { cat: '컴퓨터 비전 교실', lede: '사진이 숫자, 윤곽, 움직임, 추측이 되는 과정. 공공 카메라로 배우고 모델을 훈련하며, 개인 이미지를 업로드하지 않고 브라우저에서 시험합니다.', cta: '교실 열기' },
     dao: { lede: '새로 단장한 도덕경 읽기 공간. 영어·태국어·중국어 81장, 한자 학습, 그림 노트, Palette의 색채 관계를 담았습니다.', original: '이전 버전 읽기' },
     jakarta: { cat: '3D 도시 지도', lede: '자카르타 수도권 3D 도시 지도 및 운영 표면 — 건물 형태, BMKG 기상 속보, CRM 시민 민원 보고, 홍수 위험 데스크를 한 화면에 통합. 인도네시아어 · EN.', cta: '라이브 시스템 열기' },
     constitution: { cat: '시민 인텔리전스', lede: '2017년 태국 헌법 전 279개 조항을 태국어·영어·중국어로 읽고, 하이라이트하고, 듣고, 연습하세요. 학습 카드, 검색, 오디오, 시민 이해. ไทย · EN · 中文.', cta: '열람실 열기' },
     ladder: { cat: '금융 인텔리전스', lede: 'Ikigai의 벤처 실사 및 스코어카드 동반 엔진. 거래 검토, 재무 실사 체크리스트, 투자 가설 매칭, 포트폴리오 위험 평가를 비공개 공간에서 수행.', access: '로그인 필요', cta: 'Ladder 열기' },
+    techhunt: { cat: '국가 프로그램', lede: '태국 도시를 위한 검증된 기술 시장: 조달 담당관과 도시 계획가를 위해 7개 스마트시티 도메인에 걸쳐 라이브 신호 강도로 순위를 매긴 125개 검증된 스타트업. depa, SLIC, UWN의 공동 이니셔티브.', cta: 'TechHunt 열기' },
     proofLine: '5개국의 71개 시스템. 하나를 열고, 사용하고, 판단하세요.',
   },
   ja: {
     each: { cat: '業務管理', lede: 'ERP・ACT・CRM・HRをまとめたタイ語・英語のワークスペース。財務画面で資金の継続期間、費用、ローン返済を確認。サムネイルはABC社のサンプルデータです。', access: 'ログインが必要', cta: 'EACHを開く' },
-    champion: { cat: 'サッカー戦術シミュレーション', lede: '陣形、プレス、戦術を変え、試合の反応を見る。コーチングボード、キャリア、戦術教室が同じシミュレーションを使います。', cta: 'タッチラインを開く' },
+    champion: { cat: 'サッカー戦術シミュレーション', lede: 'タイ代表ワールドカップ挑戦のためのタッチライン・コーチングコンソール＆戦術ラボ。プラン選択、プレス強度、陣形をリアルタイム調整。', cta: 'コーチングデスクを開く' },
     soccer: { cat: 'サッカー研究', lede: 'NSP研究プロトタイプ内のサッカー戦術デスク。タイの公共テレビと公式視聴先を集め、入場前に権利の注意事項を表示します。', cta: '研究デスクを開く' },
     vision: { cat: 'コンピュータービジョン教室', lede: '画像が数字、輪郭、動き、推測に変わる過程。公共カメラで学び、モデルを訓練し、自分の画像をアップロードせずブラウザーで試します。', cta: '教室を開く' },
     dao: { lede: '刷新した道徳経の読書室。英語・タイ語・中国語の81章、漢字学習、挿絵ノート、Paletteの色彩関係を収録。', original: '旧版を読む' },
     jakarta: { cat: '3D都市アトラス', lede: 'ジャカルタ特別州の3D都市アトラスと運用環境 — 建物形状、BMKG気象速報、CRM市民サービス通報、洪水リスクデスクを1つの画面に統合。インドネシア語 · EN。', cta: '本番システムを開く' },
     constitution: { cat: 'シビックインテリジェンス', lede: '2017年タイ憲法の全279条をタイ語・英語・中国語で読み、ハイライトし、聴き、学ぶ。学習カード、検索、音声、市民理解。タイ語 · 英語 · 中国語。', cta: '読書室を開く' },
     ladder: { cat: '金融インテリジェンス', lede: 'Ikigaiのベンチャーデューデリジェンスおよびスコアカード連携エンジン。ディール精査、財務デューデリリスト、投資仮説照合、ポートフォリオのリスク評価を専用空間で。', access: 'ログインが必要', cta: 'Ladderを開く' },
+    techhunt: { cat: '国家プログラム', lede: 'タイの都市のための検証済み技術市場：調達担当官と都市計画家のために、7つのスマートシティ領域にわたりライブ信号強度で順位付けされた125の検証済みスタートアップ。depa、SLIC、UWNの共同イニシアチブ。', cta: 'TechHuntを開く' },
     proofLine: '5か国、71のシステム。ひとつ開いて、使って、判断してください。',
   },
   vi: {
     each: { cat: 'Vận hành doanh nghiệp', lede: 'ERP, ACT, CRM và HR trong một không gian làm việc tiếng Thái/Anh. Màn hình tài chính hiển thị thời gian tiền mặt đủ dùng, chi phí và trả góp. Hình thu nhỏ dùng dữ liệu mẫu của công ty ABC.', access: 'Cần đăng nhập', cta: 'Mở EACH' },
-    champion: { cat: 'Mô phỏng chiến thuật', lede: 'Đổi đội hình, pressing và lối chơi rồi xem trận đấu phản ứng. Bảng huấn luyện, sự nghiệp và lớp chiến thuật dùng cùng một mô phỏng.', cta: 'Mở đường biên' },
+    champion: { cat: 'Mô phỏng chiến thuật', lede: 'Bàn huấn luyện đường biên và phòng thí nghiệm chiến thuật đưa ĐT Thái Lan tới World Cup. Điều chỉnh lối chơi, cường độ pressing và đổi đội hình theo thời gian thực.', cta: 'Mở bàn huấn luyện' },
     soccer: { cat: 'Nghiên cứu bóng đá', lede: 'Bàn chiến thuật bóng đá trong nguyên mẫu nghiên cứu NSP. Nguồn truyền hình công cộng Thái Lan và nơi xem chính thức, có thông báo quyền trước khi vào.', cta: 'Mở bàn nghiên cứu' },
     vision: { cat: 'Lớp thị giác máy tính', lede: 'Ảnh trở thành số, đường biên, chuyển động và phỏng đoán thế nào. Học với camera công cộng, huấn luyện mô hình và thử trong trình duyệt mà không tải ảnh riêng lên.', cta: 'Mở lớp học' },
     dao: { lede: 'Phòng đọc Đạo Đức Kinh được cập nhật: 81 chương bằng tiếng Anh, Thái và Trung, học chữ, ghi chú minh họa và quan hệ màu của Palette.', original: 'Đọc phiên bản gốc' },
     jakarta: { cat: 'Bản đồ đô thị 3D', lede: 'Bản đồ đô thị 3D và bàn vận hành cho DKI Jakarta — khối công trình, bản tin thời tiết BMKG, báo cáo CRM dịch vụ công dân và rủi ro ngập lụt trên một màn hình tương tác. Tiếng Indonesia · EN.', cta: 'Mở hệ thống trực tiếp' },
     constitution: { cat: 'Trí tuệ công dân', lede: 'Đọc, đánh dấu, nghe và thực hành Hiến pháp Thái Lan 2017 với đầy đủ 279 điều bằng tiếng Thái, Anh và Trung. Thẻ học tập, tìm kiếm, âm thanh và hiểu biết công dân. Thái · EN · Trung.', cta: 'Mở phòng đọc' },
     ladder: { cat: 'Tình báo tài chính', lede: 'Công cụ thẩm định đầu tư mạo hiểm và bảng điểm đồng hành cùng Ikigai. Đánh giá thương vụ, danh mục thẩm định tài chính, khớp luận điểm và thẩm định rủi ro danh mục trong không gian riêng.', access: 'Cần đăng nhập', cta: 'Mở Ladder' },
+    techhunt: { cat: 'Chương trình quốc gia', lede: 'Thị trường công nghệ đã được xác minh cho các thành phố Thái Lan: 125 công ty khởi nghiệp được chứng nhận trên 7 lĩnh vực thành phố thông minh, xếp hạng theo cường độ tín hiệu trực tiếp cho cán bộ mua sắm và quy hoạch đô thị. Sáng kiến hợp tác giữa depa, SLIC và UWN.', cta: 'Mở TechHunt' },
     proofLine: '71 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
   },
   ts: {
     each: { cat: 'BusinessOperations', lede: 'each.workspace({ modules: [ERP, ACT, CRM, HR], locales: [th, en] }) // finance: runway + expenses + installments; thumbnail: ABC.exampleData', access: 'auth.required', cta: 'each.open()' },
-    champion: { cat: 'TacticalSimulation', lede: 'match.simulate({ formation, press, plan }) // coaching.board + career + classroom', cta: 'touchline.open()' },
+    champion: { cat: 'TacticalSimulation', lede: 'scd.coachDesk({ team: "thailand", target: "worldCup2030", plans, press, shape }) // sideline.console', cta: 'coachDesk.open()' },
     soccer: { cat: 'FootballResearch', lede: 'nsp.tacticsDesk // research.preview; publicTV.thailand + official.viewingLinks; rights.notice.beforeEntry', cta: 'researchDesk.open()' },
     vision: { cat: 'ComputerVisionClassroom', lede: 'image → numbers → edges → motion → prediction // public.cameras; model.train(); private.images.stayInBrowser', cta: 'classroom.open()' },
     dao: { lede: 'dao.read({ chapters: 81, locales: [en, th, zh], characters: true, illustratedNotes: true, colours: Palette })', original: 'dao.original.open()' },
     jakarta: { cat: 'UrbanAtlas3D', lede: 'jakarta.opsDesk({ massing: 3D, weather: BMKG, reports: CRM, flood: DSDA }) // DKI Jakarta ops', cta: 'system.openLive()' },
     constitution: { cat: 'CivicIntelligence', lede: 'constitution.study({ year: 2017, sections: 279, locales: [th, en, zh], audio: true, cards: true })', cta: 'readingRoom.open()' },
     ladder: { cat: 'FinanceIntelligence', lede: 'ladder.diligence({ deals, financialChecklist, thesisMatch, portfolioRisk }) // Ikigai companion', access: 'auth.required', cta: 'ladder.open()' },
+    techhunt: { cat: 'NationalProgramme', lede: 'techhunt.market({ verifiedStartups: 125, domains: 7, provinces: 77, ranking: "signal_strength", partners: ["depa", "slic", "uwn"] })', cta: 'techhunt.open()' },
     proofLine: 'catalog.length === 71 // countries: 5; open → use → judge',
   },
 };
@@ -4542,6 +4930,7 @@ Object.entries(catalogReleaseCopy).forEach(([locale, release]) => {
     jakarta: release.jakarta,
     constitution: release.constitution,
     ladder: release.ladder,
+    techhunt: release.techhunt,
   });
   Object.assign(uiCopy[locale].panels.p24, release.dao);
   uiCopy[locale].pitch.proofLine = release.proofLine;
@@ -5049,6 +5438,10 @@ function initFlooddashCarousel() {
     if (featuredEvent) featuredEvent.textContent = eventId;
     if (featuredName) featuredName.textContent = featuredNameText;
     if (featuredLede) featuredLede.textContent = sitrep;
+    const consoleFootScope = document.getElementById('consoleFootScope');
+    if (consoleFootScope) {
+      consoleFootScope.textContent = `ACTIVE THEATRE: ${String(name).toUpperCase()}`;
+    }
     if (projectSelect) {
       projectSelect.value = theatre.key;
       Array.from(projectSelect.options).forEach(option => { option.textContent = theatreCopy(option.value).name; });
@@ -5160,14 +5553,28 @@ function initFlooddashCarousel() {
   }
 
   function moveToStop(city) {
-    // Keep the geographic anchor in the uncovered map column, away from the headline.
+    // Keep the geographic anchor in the uncovered map column, away from the
+    // headline AND away from the console. The offset used to be a fixed
+    // tenth of the map width, which put the anchor at 60% — exactly where
+    // the Decision Systems Console now stands, so the panel covered the
+    // label of the very theatre the tour was on. The clear column is
+    // measured from the grid instead of guessed.
     const size = map.getSize();
     const viewport = document.querySelector('.hero-map-space');
     const bounds = viewport?.getBoundingClientRect();
-    const mapBounds = container.getBoundingClientRect();
+    const mapBounds = (container.getBoundingClientRect && container.getBoundingClientRect()) || { left: 0, top: 0, width: size.x, height: size.y };
     const phone = window.matchMedia('(max-width: 600px)').matches;
     const targetY = phone && bounds ? bounds.top - mapBounds.top + bounds.height / 2 : size.y / 2;
-    const offset = L.point(phone ? 0 : -size.x * 0.1, size.y / 2 - targetY);
+    let offsetX = phone ? 0 : -size.x * 0.1;
+    if (!phone) {
+      const rectOf = (el) => (el && el.getBoundingClientRect && el.getBoundingClientRect()) || null;
+      const copyRect = rectOf(document.querySelector('.hero-copy'));
+      const consoleRect = rectOf(document.getElementById('heroConsole'));
+      const left = copyRect ? copyRect.right - mapBounds.left : 0;
+      const right = consoleRect ? consoleRect.left - mapBounds.left : size.x;
+      if (right > left + 80) offsetX = (left + right) / 2 - size.x / 2;
+    }
+    const offset = L.point(offsetX, size.y / 2 - targetY);
     const zoom = phone && city.zoom <= 5 ? Math.max(3, city.zoom - 1) : city.zoom;
     const center = map.unproject(map.project([city.lat, city.lng], zoom).add(offset), zoom);
     map.flyTo(center, zoom, { duration: tourDuration, animate: !axiomMedia.isReduced });
@@ -5268,6 +5675,21 @@ function initFlooddashCarousel() {
   syncTheatre(CITIES[0]);
   setModeUI(autoTour);
   moveToStop(CITIES[0]);
+
+  const consoleTabs = Array.from(document.querySelectorAll('.hero-console__tab'));
+  consoleTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('aria-controls');
+      consoleTabs.forEach(t => {
+        const isCurrent = t === tab;
+        t.classList.toggle('is-active', isCurrent);
+        t.setAttribute('aria-selected', String(isCurrent));
+      });
+      document.querySelectorAll('.hero-console__panel').forEach(panel => {
+        panel.hidden = panel.id !== targetId;
+      });
+    });
+  });
 })();
 (function initDataLines() {
   const canvas = document.getElementById('heroCanvas');
@@ -5367,6 +5789,9 @@ function initFlooddashCarousel() {
     const cw = canvas.offsetWidth;
     const ch = canvas.offsetHeight;
     if (!cw || !ch) return;
+    // When the rich decision console is active, the DOM HUD and console
+    // render the theatre metadata with zero clutter; skip canvas text overlay.
+    if (document.getElementById('heroConsole')) return;
     // On mobile, the Leaflet map covers the canvas — skip the canvas
     // tick overlay (the DOM HUD pill is visible on top of the map).
     if (useLiteCanvas) return;
@@ -5570,6 +5995,15 @@ function initFlooddashCarousel() {
    figure — so nothing autoplays against a stated preference and the block
    never collapses into an empty box. */
 (() => {
+  const fieldVideoWrap = document.getElementById('fieldVideoWrap');
+  if (fieldVideoWrap) {
+    const startVideo = () => {
+      const videoId = fieldVideoWrap.dataset.videoId || '0-A3R_i3wrs';
+      fieldVideoWrap.innerHTML = `<iframe class="field-band__iframe" src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&amp;rel=0&amp;modestbranding=1" title="Axiom X · Field Briefing: The Flood Arrives at 2 AM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    };
+    fieldVideoWrap.addEventListener('click', startVideo);
+  }
+
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (still) return;
   document.querySelectorAll('[data-clip]').forEach((v) => {

@@ -2,7 +2,7 @@
 window.AXIOM_FOOTPRINT = {
   stops: [
     { key: 'thailand', lat: 13.5, lng: 101, zoom: 5, scope: 'national', currency: 'THB', system: 'FloodDash', href: 'https://flood-ami.pages.dev/', projects: ['flood', 'air', 'sciti', 'carbon'], eventId: 'THAILAND_WATCH' },
-    { key: 'chiang-mai', lat: 18.7883, lng: 98.9853, zoom: 11, scope: 'city', currency: 'THB', system: 'City Hub', href: 'https://city-hub.pages.dev/', projects: ['city-hub'], eventId: 'CHIANG_MAI_WATCH' },
+    { key: 'chiang-mai', lat: 18.7883, lng: 98.9853, zoom: 11, scope: 'city', currency: 'THB', system: 'City Hub', href: 'https://hub.nonarkara.org/', projects: ['city-hub'], eventId: 'CHIANG_MAI_WATCH' },
     { key: 'lopburi', lat: 14.7995, lng: 100.6534, zoom: 10, scope: 'city', currency: 'THB', system: 'Lopburi Operations', href: 'https://lopburi.nonarkara.org/lopburi', projects: ['lopburi'], eventId: 'LOPBURI_WATCH' },
     { key: 'sikhio', lat: 14.8994, lng: 101.7233, zoom: 11, scope: 'city', currency: 'THB', system: 'Sikhio Town Operations', href: 'https://sikhio.nonarkara.org/', projects: ['sikhio'], eventId: 'SIKHIO_WATCH' },
     { key: 'bangkok', lat: 13.80, lng: 100.64, zoom: 10, scope: 'city', currency: 'THB', system: 'BKKx 3D Atlas', href: 'https://atlas.nonarkara.org/', projects: ['chula', 'kmitl', 'mtt', 'atlas', 'culture'], eventId: 'BANGKOK_WATCH' },

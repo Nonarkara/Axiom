@@ -45,15 +45,15 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20261017a">
-  <link rel="stylesheet" href="hero.css?v=20261013a">
+  <link rel="stylesheet" href="rams.css?v=20261022a">
+  <link rel="stylesheet" href="hero.css?v=20261022a">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
-  <script src="i18n-regional.js?v=20261016a"></script>
+  <script src="i18n-regional.js?v=20261021b"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
-  <script defer src="footprint.js?v=20261013a"></script>
-  <script defer src="app.js?v=20261017a"></script>
+  <script defer src="footprint.js?v=20261021d"></script>
+  <script defer src="app.js?v=20261021e"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -164,7 +164,7 @@
 }
 </script>
   <link rel="stylesheet" href="editorial.css?v=20261005h">
-  <link rel="stylesheet" href="circuit.css?v=20261017a">
+  <link rel="stylesheet" href="circuit.css?v=20261021e">
 </head>
 
 <body>
@@ -305,16 +305,187 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l4-4 4 4"/><path d="M9 5v14"/><path d="M15 19l4-4-4-4"/><path d="M19 15H5"/></svg>
           <span data-i18n="hero.exploreHint">Drag map &middot; Tap a theatre</span>
         </div>
-      <a class="hero-featured-badge" id="heroFeaturedBadge" href="https://flood-ami.pages.dev/" target="_blank"
-        rel="noopener">
-        <span class="hero-featured-badge__kicker" data-i18n="hero.featured.kicker">PROJECT BRIEF</span>
-        <span class="hero-featured-badge__event" id="heroFeaturedEvent">EVENT_ID: THAILAND_WATCH</span>
-        <span class="hero-featured-badge__name" id="heroFeaturedName">FloodDash</span>
-        <span class="hero-featured-badge__lede" id="heroFeaturedLede">Thailand · National coverage · THB. FloodDash · AirDash · SCITI · Forest Carbon Thailand.</span>
-        <span class="hero-featured-badge__cta"><span data-i18n="hero.featured.cta">Open live system</span> <span
-            class="tri">▸</span></span>
-      </a>
-      <p class="hero-footprint-note" data-i18n="hero.footprintNote">Geographic scope · national and regional anchors are not installation sites.</p>
+
+        <div class="hero-console" id="heroConsole" aria-label="Axiom Decision Systems Console">
+          <div class="hero-console__head">
+            <div class="hero-console__title-wrap">
+              <span class="hero-console__pulse" aria-hidden="true"></span>
+              <span class="hero-console__title" data-i18n="heroConsole.title">DECISION SYSTEMS CONSOLE</span>
+            </div>
+            <nav class="hero-console__nav" role="tablist" aria-label="Console Views">
+              <button class="hero-console__tab is-active" type="button" role="tab" id="tabBtnSystems" aria-selected="true" aria-controls="panelSystems" data-tab="systems">
+                <span class="hero-console__tab-num">01</span>
+                <span data-i18n="heroConsole.tabSystems">Systems &amp; Problems</span>
+              </button>
+              <button class="hero-console__tab" type="button" role="tab" id="tabBtnImpact" aria-selected="false" aria-controls="panelImpact" data-tab="impact">
+                <span class="hero-console__tab-num">02</span>
+                <span data-i18n="heroConsole.tabImpact">Citizen Impact</span>
+              </button>
+              <button class="hero-console__tab" type="button" role="tab" id="tabBtnTrends" aria-selected="false" aria-controls="panelTrends" data-tab="trends">
+                <span class="hero-console__tab-num">03</span>
+                <span data-i18n="heroConsole.tabTrends">Tech DNA &amp; Trends</span>
+              </button>
+              <button class="hero-console__tab" type="button" role="tab" id="tabBtnDossier" aria-selected="false" aria-controls="panelDossier" data-tab="dossier">
+                <span class="hero-console__tab-num">04</span>
+                <span data-i18n="heroConsole.tabDossier">Active Brief</span>
+              </button>
+            </nav>
+          </div>
+
+          <!-- Panel 01: Systems & Problems -->
+          <div class="hero-console__panel" id="panelSystems" role="tabpanel" aria-labelledby="tabBtnSystems">
+            <div class="hero-console__metric-row">
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val" data-count="catalog">71</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.systemsLabel">Live Systems</span>
+              </div>
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val">8</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.problemsLabel">Critical Domains</span>
+              </div>
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val">0</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.slideDecksLabel">Slide Decks</span>
+              </div>
+            </div>
+            <div class="hero-console__list">
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagFlood">DISASTER &amp; FLOOD · 22</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.floodTitle">Flash floods, cloudburst radar &amp; river basin water levels</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.floodDesc">FloodDash, Rayong Water Watch, Nakhon Si Thammarat · 2-hr predictive lead time before inundation.</p>
+              </div>
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagAir">AIR QUALITY &amp; SMOKE · 14</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.airTitle">Micro-basin PM2.5 dispersion, smoke plumes &amp; wildfire hotspots</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.airDesc">AirDash, Chiang Mai Air, C-Air · 24/7 hyper-local sensor fusion across northern river valleys.</p>
+              </div>
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagPorts">SEAPORTS &amp; LOGISTICS · 9</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.portsTitle">AIS vessel queues, container bottlenecks &amp; truck turnaround</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.portsDesc">Laem Chabang Port, Thailand Maritime · coordinating terminal gates and deep-water berths.</p>
+              </div>
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagAirspace">AIRSPACE &amp; TRANSIT · 7</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.airspaceTitle">Real-time ADS-B flight tracking &amp; cross-border transit corridors</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.airspaceDesc">SE Asia Airspace, Regional Mobility · flight trajectory prediction &amp; highway congestion relief.</p>
+              </div>
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagCivic">MUNICIPAL &amp; HEALTH · 11</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.civicTitle">Hospital bed loads, emergency dispatch &amp; civic grievances</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.civicDesc">Sikhio Operations, BKKx Culture · operational triage desks for municipal leaders who actually decide.</p>
+              </div>
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagSecurity">SOVEREIGN &amp; INTEL · 8</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.securityTitle">Border corridors, conflict mapping &amp; Straits of Malacca lifelines</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.securityDesc">Asia Theatres, World Console · unclassified multi-source situational awareness from open data.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 02: Citizen Impact -->
+          <div class="hero-console__panel" id="panelImpact" role="tabpanel" aria-labelledby="tabBtnImpact" hidden>
+            <div class="hero-console__metric-row">
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val">68M+</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.citizensLabel">Citizens Protected</span>
+              </div>
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val">77/77</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.provincesLabel">Thai Provinces</span>
+              </div>
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val">5</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.countriesLabel">Nations Deployed</span>
+              </div>
+            </div>
+            <div class="hero-console__impact-grid">
+              <div class="hero-console__impact-card">
+                <span class="hero-console__impact-num">112,000+</span>
+                <div class="hero-console__impact-title" data-i18n="heroConsole.socialTitle">Active Citizen Community</div>
+                <p class="hero-console__impact-desc" data-i18n="heroConsole.socialDesc">Daily broadcast followers on FloodDash channels receiving verified alerts during monsoon floods, without algorithmic noise or ads.</p>
+              </div>
+              <div class="hero-console__impact-card">
+                <span class="hero-console__impact-num">247+</span>
+                <div class="hero-console__impact-title" data-i18n="heroConsole.feedsTitle">Public Data Feeds Synthesized</div>
+                <p class="hero-console__impact-desc" data-i18n="heroConsole.feedsDesc">Live telemetry from meteorological radar, water gates, air sensors, ADS-B receivers, and maritime AIS fused into a single screen.</p>
+              </div>
+              <div class="hero-console__impact-card">
+                <span class="hero-console__impact-num">&lt; 2 Weeks</span>
+                <div class="hero-console__impact-title" data-i18n="heroConsole.speedTitle">Turnaround Velocity</div>
+                <p class="hero-console__impact-desc" data-i18n="heroConsole.speedDesc">From fragmented agency databases to an operating decision screen in the hands of mayors and governors, bypassing fiscal-year inertia.</p>
+              </div>
+              <div class="hero-console__impact-card">
+                <span class="hero-console__impact-num">$0</span>
+                <div class="hero-console__impact-title" data-i18n="heroConsole.costTitle">Proprietary Software Lock-In</div>
+                <p class="hero-console__impact-desc" data-i18n="heroConsole.costDesc">100% open-standard web architectures with zero annual vendor licensing fees, ensuring sustainable civic independence.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 03: Tech DNA & Trends -->
+          <div class="hero-console__panel" id="panelTrends" role="tabpanel" aria-labelledby="tabBtnTrends" hidden>
+            <div class="hero-console__keywords-strip">
+              <span class="hero-console__kw">#Canvas2D</span>
+              <span class="hero-console__kw">#EdgeSimulation</span>
+              <span class="hero-console__kw">#SensorFusion</span>
+              <span class="hero-console__kw">#LocalFirstRAG</span>
+              <span class="hero-console__kw">#ProvincialScoring</span>
+              <span class="hero-console__kw">#ZeroLockIn</span>
+              <span class="hero-console__kw">#OpenTelemetry</span>
+            </div>
+            <div class="hero-console__dna-list">
+              <div class="hero-console__dna-row">
+                <span class="hero-console__dna-idx">01</span>
+                <div>
+                  <strong class="hero-console__dna-title" data-i18n="heroConsole.dna1Title">Browser-Native Vector &amp; Canvas Engines</strong>
+                  <p class="hero-console__dna-desc" data-i18n="heroConsole.dna1Desc">Zero server-rendered lag. Complex geospatial lines, telemetry grids, and animations run client-side at 60 FPS in pure vanilla JavaScript.</p>
+                </div>
+              </div>
+              <div class="hero-console__dna-row">
+                <span class="hero-console__dna-idx">02</span>
+                <div>
+                  <strong class="hero-console__dna-title" data-i18n="heroConsole.dna2Title">Automated Multi-Source Sensor Fusion</strong>
+                  <p class="hero-console__dna-desc" data-i18n="heroConsole.dna2Desc">Harmonizing C-band Doppler radar sweeps, stream telemetry gauges, micro-IoT air monitors, and satellite SAR layers into unified grids.</p>
+                </div>
+              </div>
+              <div class="hero-console__dna-row">
+                <span class="hero-console__dna-idx">03</span>
+                <div>
+                  <strong class="hero-console__dna-title" data-i18n="heroConsole.dna3Title">Mathematical Provincial Risk Scoring</strong>
+                  <p class="hero-console__dna-desc" data-i18n="heroConsole.dna3Desc">Replacing qualitative opinions with deterministic vulnerability formulas: rainfall anomaly + soil saturation + drainage capacity.</p>
+                </div>
+              </div>
+              <div class="hero-console__dna-row">
+                <span class="hero-console__dna-idx">04</span>
+                <div>
+                  <strong class="hero-console__dna-title" data-i18n="heroConsole.dna4Title">Sovereign &amp; Local-First RAG Intelligence</strong>
+                  <p class="hero-console__dna-desc" data-i18n="heroConsole.dna4Desc">On-premise air-gapped document retrieval and operational regulatory playbooks without exporting sovereign data abroad.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 04: Active Brief (Preserves required test elements & links) -->
+          <div class="hero-console__panel" id="panelDossier" role="tabpanel" aria-labelledby="tabBtnDossier" hidden>
+            <a class="hero-featured-badge" id="heroFeaturedBadge" href="https://flood-ami.pages.dev/" target="_blank"
+              rel="noopener">
+              <span class="hero-featured-badge__kicker" data-i18n="hero.featured.kicker">PROJECT BRIEF</span>
+              <span class="hero-featured-badge__event" id="heroFeaturedEvent">EVENT_ID: THAILAND_WATCH</span>
+              <span class="hero-featured-badge__name" id="heroFeaturedName">FloodDash</span>
+              <span class="hero-featured-badge__lede" id="heroFeaturedLede">Thailand · National coverage · THB. FloodDash · AirDash · SCITI · Forest Carbon Thailand.</span>
+              <span class="hero-featured-badge__cta"><span data-i18n="hero.featured.cta">Open live system</span> <span
+                  class="tri">▸</span></span>
+            </a>
+          </div>
+
+          <div class="hero-console__foot">
+            <span class="hero-console__status-dot" aria-hidden="true"></span>
+            <span class="hero-console__foot-scope" id="consoleFootScope">ACTIVE THEATRE: THAILAND WATCH</span>
+            <span class="hero-console__foot-time">LIVE · 60 FPS</span>
+          </div>
+        </div>
+
+        <p class="hero-footprint-note" data-i18n="hero.footprintNote">Geographic scope · national and regional anchors are not installation sites.</p>
       </div>
       <div class="hero-scroll-indicator">
         <div class="hero-scroll-line"></div>
@@ -483,27 +654,66 @@
           <div class="evidence-strip__cell"><span class="evidence-strip__key">Last deploy</span><span class="evidence-strip__val" id="evidenceDeploy">~5 min ago</span></div>
         </div>
 
-        <!-- FIELD — the ground condition. Paired with FloodDash immediately below:
-             the same watch, seen from outside the browser. Autoplay is started by
-             app.js rather than the autoplay attribute, so a reader who has asked
-             for less motion gets the poster instead of a moving clip. -->
-        <figure class="field-band">
-          <video class="field-band__clip" data-clip src="media/showcase/iaas-hero.mp4"
-                 poster="media/showcase/iaas-hero.jpg" muted loop playsinline preload="none"
-                 width="480" height="860"
-                 aria-label="Rain falling over a residential district, with rooftops and trees in view."></video>
-          <figcaption class="field-band__cap">
-            <span class="t-label" data-i18n="field.kicker">In the field</span>
-            <p class="field-band__line" data-i18n="field.line">Rain over a district on one of these watches right now. Innovation-as-a-Service is not a pitch delivered in a room — it is standing where the question gets asked.</p>
-            <a class="field-band__cta" href="https://flood-ami.pages.dev/" target="_blank" rel="noopener"><span
-                data-i18n="field.cta">See FloodDash live</span> <span class="tri">▸</span></a>
-          </figcaption>
-        </figure>
+        <!-- FIELD — the ground condition & canonical briefing video -->
+        <section class="field-band field-band--video" id="groundTruth" aria-label="Field Ground Truth and Approach">
+          <div class="field-band__media">
+            <div class="field-band__video-wrap" id="fieldVideoWrap" data-video-id="0-A3R_i3wrs">
+              <picture class="field-band__poster-picture">
+                <source srcset="media/showcase/youtube-field.webp" type="image/webp">
+                <img class="field-band__poster" src="media/showcase/youtube-field.jpg" alt="Dr Non Arkaraprasertkul standing in shin-deep floodwaters during monsoon peak" loading="lazy">
+              </picture>
+              <button class="field-band__play-btn" type="button" aria-label="Play canonical field briefing video">
+                <span class="field-band__play-icon" aria-hidden="true">▶</span>
+                <span class="field-band__play-txt">PLAY FIELD BRIEFING · 01:42</span>
+              </button>
+            </div>
+            <div class="field-band__video-meta">
+              <span class="field-band__tag" data-i18n="field.videoTag">CANONICAL FIELD BRIEFING · CRISIS GROUND TRUTH</span>
+              <span class="field-band__cite">Dr. Non standing in floodwaters · Bangkok Soi Monsoon Peak</span>
+            </div>
+          </div>
+          <div class="field-band__cap">
+            <span class="t-label" data-i18n="field.kicker">In the field · Ground Truth</span>
+            <h3 class="field-band__title" data-i18n="field.title">The flood arrives at 2 a.m. The dashboard arrives next fiscal year.</h3>
+            <p class="field-band__line" data-i18n="field.line">Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:</p>
+            <div class="field-band__points">
+              <div class="field-band__point">
+                <span class="field-band__point-num">01</span>
+                <div class="field-band__point-body">
+                  <strong data-i18n="field.point1Title">Zero-Latency Ingestion Beats Fiscal-Year Inertia</strong>
+                  <p data-i18n="field.point1Desc">Official vendor quotes take a budget year and deliver static PDFs. We stream 9 public agencies (C-band rain radar, water telemetry, river basin gauges) every 3–60 minutes directly into client-side browser memory.</p>
+                </div>
+              </div>
+              <div class="field-band__point">
+                <span class="field-band__point-num">02</span>
+                <div class="field-band__point-body">
+                  <strong data-i18n="field.point2Title">Calibrated Against Physical Ground Reality</strong>
+                  <p data-i18n="field.point2Desc">Thresholds and alerts are tested in the flooded soi with operators and residents. Decisions happen in seconds without phone trees or bureaucratic lag.</p>
+                </div>
+              </div>
+              <div class="field-band__point">
+                <span class="field-band__point-num">03</span>
+                <div class="field-band__point-body">
+                  <strong data-i18n="field.point3Title">Radical Public Inclusion Without License Tolls</strong>
+                  <p data-i18n="field.point3Desc">112,000+ daily citizens, governors, and emergency responders read the exact same unified situation picture simultaneously — breaking information asymmetry with $0 proprietary licensing fees.</p>
+                </div>
+              </div>
+            </div>
+            <div class="field-band__actions">
+              <a class="btn btn--primary" href="https://flood-ami.pages.dev/" target="_blank" rel="noopener">
+                <span data-i18n="field.cta">See FloodDash live</span> <span class="tri">▸</span>
+              </a>
+              <a class="btn btn--subtle" href="https://bit.ly/flooddashthai" target="_blank" rel="noopener">
+                <span data-i18n="field.ctaBriefings">Daily Briefings (112K Followers)</span> <span class="tri">▸</span>
+              </a>
+            </div>
+          </div>
+        </section>
 
         <!-- CITY DASHBOARDS -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.command">City Dashboards</div>
-          <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time city operations rooms &amp; environmental watch · 20</div>
+          <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time city operations rooms &amp; environmental watch · 22</div>
         </div>
         <div class="grid grid--3">
           <a class="sys-cell" data-arch="flood-ami" href="https://flood-ami.pages.dev/" target="_blank" rel="noopener">
@@ -631,8 +841,7 @@
           <a class="sys-cell" data-arch="kuching" href="https://kuching.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">05</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <img class="sys-cell__shot" src="photos/products/Kuching Dashboard.png" loading="lazy"
-              alt="Greater Kuching IOC">
+            <picture><source srcset="screenshots/kuching.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/kuching.png" loading="lazy" width="1024" height="661" alt="Greater Kuching IOC"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">Kuching IOC</div>
               <div class="sys-cell__cat" data-i18n="cats.c05">Intelligent Operations</div>
@@ -659,7 +868,8 @@
           <a class="sys-cell" data-arch="chula" href="https://chula.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">13</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/chula.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/chula.jpg" loading="lazy" alt="Chula Control Tower"></picture>
+            <picture><source srcset="screenshots/chula-new.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/chula-new.jpg" loading="lazy" width="1024" height="587"
+              alt="Chula Control Tower"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">Chula Control Tower</div>
               <div class="sys-cell__cat" data-i18n="cats.c13">Campus Intelligence</div>
@@ -673,7 +883,7 @@
           <a class="sys-cell" data-arch="chonburi" href="https://chonburi-control-tower.pages.dev" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">16</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/chonburi-control-tower.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/chonburi-control-tower.png" loading="lazy"
+            <picture><source srcset="screenshots/chonburi-new.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/chonburi-new.jpg" loading="lazy" width="1024" height="640"
               alt="Chonburi Control Tower"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">Chonburi Control Tower</div>
@@ -715,10 +925,10 @@
                   class="tri">▸</span></span>
             </div>
           </a>
-          <a class="sys-cell" data-arch="city-hub" href="https://city-hub.pages.dev/" target="_blank" rel="noopener">
+          <a class="sys-cell" data-arch="city-hub" href="https://hub.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">15</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/cityhub-split-satellite.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/cityhub-split-satellite.jpg" loading="lazy" alt="City Hub"></picture>
+            <picture><source srcset="screenshots/cityhub.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/cityhub.jpg" loading="lazy" width="1024" height="661" alt="City Hub"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">City Hub</div>
               <div class="sys-cell__cat" data-i18n="cats.c15">City Intelligence</div>
@@ -785,12 +995,37 @@
                   class="tri">▸</span></span>
             </div>
           </a>
-        </div>
+          <a class="sys-cell" data-arch="simcity" href="https://simcity.nonarkara.org/" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">67</span><span class="sys-cell__status"><span
+                  class="dot"></span><span data-i18n="sysStatus.preview">Preview</span></span></div>
+            <picture><source srcset="screenshots/simcity.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/simcity.jpg" loading="lazy" width="1280" height="800"
+              alt="simsmartcity — a district of Bangkok on OpenStreetMap, a road grid drawn and 12 jobs on the site"></picture>
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">simsmartcity</div>
+              <div class="sys-cell__cat" data-i18n="cats.c47">City Economics</div>
+              <div class="sys-cell__lede" data-i18n="panels.p67.lede">Build a city on a real OpenStreetMap site and watch its economy grow. Inspired by SimCity 2000; 2026 urban-planning rules.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.p67.cta">Open the demo</span> <span
+                  class="tri">▸</span></span>
+            </div>
+          </a>
+          <a class="sys-cell" data-arch="tdv" href="https://tdv.nonarkara.org/" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">69</span><span class="sys-cell__status"><span
+                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+            <picture><source srcset="screenshots/tdv.webp" type="image/webp"><img class="sys-cell__shot sys-cell__shot--middle" src="screenshots/tdv.jpg" loading="lazy" width="1400" height="1000"
+              alt="Thailand Digital Valley — the campus as a 3D digital twin, a cluster of buildings on a surveyed base with roads and green"></picture>
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">TDV · Thailand Digital Valley</div>
+              <div class="sys-cell__cat" data-i18n="cats.c49">Campus Intelligence</div>
+              <div class="sys-cell__lede" data-i18n="panels.p69.lede">A full-campus digital twin of Thailand Digital Valley in Si Racha — 5 buildings, 86,000 m², sourced building information, 25 published floor plans, animated chibi visitors and IoT 1 CAD.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.p69.cta">Enter the campus</span> <span
+                  class="tri">▸</span></span>
+            </div>
+          </a>        </div>
 
         <!-- INTELLIGENCE -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.intelligence">Intelligence</div>
-          <div class="s-head__meta" data-i18n="sysClusters.intelligenceMeta">Signal &amp; analysis · 8</div>
+          <div class="s-head__meta" data-i18n="sysClusters.intelligenceMeta">Signal &amp; analysis · 9</div>
         </div>
         <div class="grid grid--3">
           
@@ -823,11 +1058,11 @@
           <a class="sys-cell" data-arch="asiawatch" href="https://asia.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">44</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/asiawatch.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/asiawatch.jpg" loading="lazy" alt="Asia Political Dashboard — five Asian theaters, live air and sea traffic, conflict frontiers on one map"></picture>
+            <picture><source srcset="screenshots/asiawatch.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/asiawatch.jpg" loading="lazy" alt="AsiaWatch · Pan-Asian Sentinel — five Asian theaters, five strategic chokepoints, live air and sea traffic"></picture>
             <div class="sys-cell__body">
-              <div class="sys-cell__name">Asia Political Dashboard</div>
+              <div class="sys-cell__name">AsiaWatch · Pan-Asian Sentinel</div>
               <div class="sys-cell__cat" data-i18n="cats.c02">Strategic Intelligence</div>
-              <div class="sys-cell__lede" data-i18n="panels.p45.lede">Five Asian theaters — Southeast Asia, East Asia, South Asia, Thailand, and the Gulf as Asia's energy lifeline — on one live map: conflict events, fires, air and sea traffic, regional news and TV, from open data.</div>
+              <div class="sys-cell__lede" data-i18n="panels.p45.lede">Five Asian theaters and five strategic chokepoints — Malacca, Hormuz, Bab-el-Mandeb, Taiwan, Sunda — on one live map: conflict frontiers, fires, air and maritime corridors, regional news and TV, from open data.</div>
               <span class="sys-cell__link"><span data-i18n="panels.p45.cta">Open live system</span> <span
                   class="tri">▸</span></span>
             </div>
@@ -889,15 +1124,15 @@
             </div>
           </a>
           <a class="sys-cell" data-arch="formhypes" href="https://shdt.nonarkara.org/" target="_blank" rel="noopener">
-            <div class="sys-cell__head"><span class="sys-cell__idx">59</span><span class="sys-cell__status"><span
+            <div class="sys-cell__head"><span class="sys-cell__idx">70</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/formhypes.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/formhypes.jpg" loading="lazy"
-              alt="FormHypes — architectural intelligence: 11 form profiles, 9 form-performance metrics, live scenario recalc"></picture>
+            <picture><source srcset="screenshots/formhypes.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/formhypes.jpg" loading="lazy" width="1440" height="900"
+              alt="FormHypes · SHDT — a tall tower on a 3D Bangkok block, compared against an alternative form on gross area and rentable area"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">FormHypes · SHDT</div>
               <div class="sys-cell__cat" data-i18n="cats.c34">Working Instrument</div>
-              <div class="sys-cell__lede" data-i18n="panels.p66.lede">A 20-year reunion with a 2006 MIT thesis. Eleven form profiles — rectilinear to pinwheel. Nine form-performance metrics: rent, area, sky reach, daylight, form distinctiveness. Live scenario recalc on every edit. Inspired by SHDT.</div>
-              <span class="sys-cell__link"><span data-i18n="panels.p66.cta">Design the form</span> <span
+              <div class="sys-cell__lede" data-i18n="panels.p70.lede">Architectural intelligence — 11 form profiles (rectilinear to pinwheel), 9 form-performance metrics: rent, area, sky reach, daylight, form distinctiveness. A 20-year reunion with a 2006 MIT thesis. Live scenario recalc on every edit. Inspired by SHDT.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.p70.cta">Design the form</span> <span
                   class="tri">▸</span></span>
             </div>
           </a>
@@ -921,7 +1156,7 @@
         <!-- CIVIC -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.civic">Civic</div>
-          <div class="s-head__meta" data-i18n="sysClusters.civicMeta">National platforms &amp; citizen infrastructure · 6</div>
+          <div class="s-head__meta" data-i18n="sysClusters.civicMeta">National platforms &amp; citizen infrastructure · 7</div>
         </div>
         <div class="grid grid--3">
           <a class="sys-cell" data-arch="sciti" href="https://sciti.nonarkara.org/" target="_blank" rel="noopener">
@@ -985,7 +1220,7 @@
           <a class="sys-cell" data-arch="carbon" href="https://carbon.nonarkara.org/?lang=th" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">57</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/carbon.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/carbon.jpg" loading="lazy"
+            <picture><source srcset="screenshots/carbon.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/carbon.png" loading="lazy" width="1024" height="661"
               alt="Forest Carbon Thailand — satellite-based carbon stock, forest removals, fire and fossil CO₂, plus T-VER project assessment workbench"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">Forest Carbon Thailand</div>
@@ -998,8 +1233,8 @@
           <a class="sys-cell" data-arch="constitution" href="https://constitution.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">65</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/constitution.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/constitution.png" loading="lazy"
-              alt="Thai Constitution Reading &amp; Practice Platform — all 279 sections in Thai, English and Chinese"></picture>
+            <picture><source srcset="screenshots/constitution-reader.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/constitution-reader.jpg" loading="lazy" width="1200" height="678"
+              alt="รัฐธรรมนูญ — the Thai Constitution reader: read the 2017 constitution section by section, slowly, with a crayon illustration of a woman reading at a desk"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">Thai Constitution Reader</div>
               <div class="sys-cell__cat" data-i18n="panels.constitution.cat">Civic Intelligence</div>
@@ -1008,12 +1243,25 @@
                   class="tri">▸</span></span>
             </div>
           </a>
+          <a class="sys-cell" data-arch="techhunt" href="https://citytechatlas.lovable.app" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">71</span><span class="sys-cell__status"><span
+                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+            <picture><source srcset="screenshots/techhunt.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/techhunt.jpg" loading="lazy" width="1024" height="577"
+              alt="Smart City Thailand TechHunt — The verified technology stockmarket for Thai cities"></picture>
+            <div class="sys-cell__body">
+              <div class="sys-cell__name">Smart City Thailand TechHunt</div>
+              <div class="sys-cell__cat" data-i18n="panels.techhunt.cat">National Programme</div>
+              <div class="sys-cell__lede" data-i18n="panels.techhunt.lede">The verified technology stockmarket for Thai cities: 125 verified startups across 7 smart-city domains, ranked by live signal strength for procurement officers and urban planners. A collaborative initiative by depa, SLIC, and UWN.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.techhunt.cta">Open TechHunt</span> <span
+                  class="tri">▸</span></span>
+            </div>
+          </a>
         </div>
 
         <!-- EMERGING -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.emerging">Emerging</div>
-          <div class="s-head__meta" data-i18n="sysClusters.emergingMeta">Research-grade &amp; new operating models · 11</div>
+          <div class="s-head__meta" data-i18n="sysClusters.emergingMeta">Research-grade &amp; new operating models · 10</div>
         </div>
         <div class="grid grid--3">
           <a class="sys-cell" data-arch="podcast-20min" href="https://open.spotify.com/show/0342w6de0LJk5wXCSNCqa3?si=jGar41OPTHak-43L2ltq9w" target="_blank"
@@ -1077,7 +1325,7 @@
           <a class="sys-cell" data-arch="horizon45" href="https://horizon-field-lab.pages.dev/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">20</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/horizon45-new.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/horizon45-new.png" loading="lazy" alt="Horizon 45"></picture>
+            <picture><source srcset="screenshots/horizon45-new.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/horizon45-new.png" loading="lazy" width="1024" height="661" alt="Horizon 45"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">Horizon 45</div>
               <div class="sys-cell__cat" data-i18n="cats.c20">Capability Lab</div>
@@ -1089,10 +1337,10 @@
                   class="tri">▸</span></span>
             </div>
           </a>
-          <a class="sys-cell" data-arch="ascn" href="https://ascn-smart-cities-network.pages.dev/" target="_blank" rel="noopener">
+          <a class="sys-cell" data-arch="ascn" href="https://ascn.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">46</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/ascn-director.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/ascn-director.png" loading="lazy" alt="ASCN Smart Cities Network - Director's Cut"></picture>
+            <picture><source srcset="screenshots/ascn.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/ascn.png" loading="lazy" width="1024" height="661" alt="ASCN Smart Cities Network - Director's Cut"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name" data-i18n="panels.p53.name">ASCN Performance Review (Director's Cut)</div>
               <div class="sys-cell__cat" data-i18n="cats.c44">Network Evaluation</div>
@@ -1153,7 +1401,7 @@
           </a>
           <a class="sys-cell" id="ladder" data-arch="ladder" href="https://ladder.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">66</span><span class="sys-cell__status"><span data-i18n="panels.ladder.access">Sign-in required</span></span></div>
-            <picture><source srcset="screenshots/ladder.webp" type="image/webp"><img class="sys-cell__shot sys-cell__shot--contain" src="screenshots/ladder.png" loading="lazy" width="688" height="458" alt="Ladder — Ikigai venture diligence, deal workflow, and company scorecard engine"></picture>
+            <picture><source srcset="screenshots/ladder-funds.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/ladder-funds.jpg" loading="lazy" width="1024" height="661" alt="Ladder VC Console — venture diligence and scorecard companion to Ikigai"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">Ladder · Ikigai</div>
               <div class="sys-cell__cat" data-i18n="panels.ladder.cat">Finance Intelligence</div>
@@ -1171,7 +1419,7 @@
         <!-- LAB -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.lab">Lab</div>
-          <div class="s-head__meta" data-i18n="sysClusters.labMeta">Side tools · in the open · 22</div>
+          <div class="s-head__meta" data-i18n="sysClusters.labMeta">Side tools · in the open · 23</div>
         </div>
         <div class="grid grid--3">
           <a class="sys-cell" data-arch="omniarcade" href="https://games.nonarkara.org/" target="_blank" rel="noopener">
@@ -1304,7 +1552,7 @@
           <a class="sys-cell" data-arch="locating-shanghai" href="https://shanghai.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">48</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="showcase/locating-shanghai.webp" type="image/webp"><img class="sys-cell__shot" src="showcase/locating-shanghai.png" loading="lazy"
+            <picture><source srcset="showcase/locating-shanghai-new.webp" type="image/webp"><img class="sys-cell__shot" src="showcase/locating-shanghai-new.png" loading="lazy" width="1024" height="655"
               alt="Locating Shanghai — 20 years of fieldwork on globalization, heritage industry, and the economy of urban space"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">Locating Shanghai</div>
@@ -1329,12 +1577,12 @@
           </a>
           <a class="sys-cell" data-arch="champion" href="https://champion.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">60</span><span class="sys-cell__status"><span class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/champion.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/champion.png" loading="lazy" alt="CHAOS XI — Thailand versus Asia, formations, pressing and match telemetry"></picture>
+            <picture><source srcset="screenshots/champion.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/champion.png" loading="lazy" alt="SCD — โต๊ะโค้ชฟุตบอล / Soccer Coach Desk: Thailand to World Cup Tactical Lab"></picture>
             <div class="sys-cell__body">
-              <div class="sys-cell__name">CHAOS XI · Champion</div>
+              <div class="sys-cell__name">SCD · Soccer Coach Desk</div>
               <div class="sys-cell__cat" data-i18n="panels.champion.cat">Tactical Simulation</div>
-              <div class="sys-cell__lede" data-i18n="panels.champion.lede">Set the formation, pressing, and plan. Watch the match respond. A football coaching board, career, and tactical classroom on the same simulation.</div>
-              <span class="sys-cell__link"><span data-i18n="panels.champion.cta">Open the touchline</span> <span class="tri">▸</span></span>
+              <div class="sys-cell__lede" data-i18n="panels.champion.lede">Sideline coaching console and tactical lab for Thailand's Road to the World Cup. Ride the plans, adjust pressing detents, and switch shape in real time.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.champion.cta">Open the coaching desk</span> <span class="tri">▸</span></span>
             </div>
           </a>
           <a class="sys-cell" data-arch="soccer" href="https://soccer.nonarkara.org/" target="_blank" rel="noopener">
@@ -1349,7 +1597,8 @@
           </a>
           <a class="sys-cell" data-arch="vision" href="https://vision.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">62</span><span class="sys-cell__status"><span class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/vision.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/vision.png" loading="lazy" alt="Vision — computer-vision classroom with picture, numbers, edges, motion and objects lenses"></picture>
+            <picture><source srcset="screenshots/vision-new.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/vision-new.png" loading="lazy" width="1024" height="595"
+              alt="Vision — computer-vision classroom with picture, numbers, edges, motion and objects lenses"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">Vision</div>
               <div class="sys-cell__cat" data-i18n="panels.vision.cat">Computer-Vision Classroom</div>
@@ -1359,7 +1608,7 @@
           </a>
           <a class="sys-cell" id="each" data-arch="each" href="https://each.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">63</span><span class="sys-cell__status"><span data-i18n="panels.each.access">Sign-in required</span></span></div>
-            <picture><source srcset="screenshots/each.webp" type="image/webp"><img class="sys-cell__shot sys-cell__shot--contain" src="screenshots/each.jpg" loading="lazy" width="1280" height="720" alt="EACH finance workspace — ABC Company example data, cash runway, expenses and loan installments"></picture>
+            <picture><source srcset="screenshots/each.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/each.jpg" loading="lazy" width="1280" height="720" alt="EACH finance workspace — ABC Company example data, cash runway, expenses and loan installments"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">EACH</div>
               <div class="sys-cell__cat" data-i18n="panels.each.cat">Business Operations</div>
@@ -1454,24 +1703,12 @@
                   class="tri">▸</span></span>
             </div>
           </a>
-          <a class="sys-cell" data-arch="simcity" href="https://simcity.nonarkara.org/" target="_blank" rel="noopener">
-            <div class="sys-cell__head"><span class="sys-cell__idx">67</span><span class="sys-cell__status"><span
-                  class="dot"></span><span data-i18n="sysStatus.preview">Preview</span></span></div>
-            <picture><source srcset="screenshots/simcity.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/simcity.jpg" loading="lazy"
-              alt="simsmartcity — real-site city economics on OpenStreetMap, inspired by SimCity 2000"></picture>
-            <div class="sys-cell__body">
-              <div class="sys-cell__name">simsmartcity</div>
-              <div class="sys-cell__cat" data-i18n="cats.c47">City Economics</div>
-              <div class="sys-cell__lede" data-i18n="panels.p67.lede">Build a city on a real OpenStreetMap site and watch its economy grow. Inspired by SimCity 2000; 2026 urban-planning rules.</div>
-              <span class="sys-cell__link"><span data-i18n="panels.p67.cta">Open the demo</span> <span
-                  class="tri">▸</span></span>
-            </div>
-          </a>
+          
           <a class="sys-cell" data-arch="miaoshen" href="https://miaoshen.nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">68</span><span class="sys-cell__status"><span
                   class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/miaoshen.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/miaoshen.jpg" loading="lazy"
-              alt="淼燊的上海 · Shanghai, Still Water Running — a three-day guide written as letters"></picture>
+            <picture><source srcset="screenshots/miaoshen.webp" type="image/webp"><img class="sys-cell__shot sys-cell__shot--lower" src="screenshots/miaoshen.png" loading="lazy" width="480" height="333"
+              alt="淼燊的上海 · Shanghai, Still Water Running — an old woman selling peas in a lane while a girl greets her"></picture>
             <div class="sys-cell__body">
               <div class="sys-cell__name">淼燊的上海</div>
               <div class="sys-cell__cat" data-i18n="cats.c48">Fieldwork Book</div>
@@ -1480,32 +1717,8 @@
                   class="tri">▸</span></span>
             </div>
           </a>
-          <a class="sys-cell" data-arch="tdv" href="https://tdv.nonarkara.org/" target="_blank" rel="noopener">
-            <div class="sys-cell__head"><span class="sys-cell__idx">69</span><span class="sys-cell__status"><span
-                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/tdv.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/tdv.jpg" loading="lazy"
-              alt="Thailand Digital Valley — 5 buildings · 86,000 m² · Campus guide"></picture>
-            <div class="sys-cell__body">
-              <div class="sys-cell__name">TDV · Thailand Digital Valley</div>
-              <div class="sys-cell__cat" data-i18n="cats.c49">Campus Intelligence</div>
-              <div class="sys-cell__lede" data-i18n="panels.p69.lede">A full-campus digital twin of Thailand Digital Valley in Si Racha — 5 buildings, 86,000 m², sourced building information, 25 published floor plans, animated chibi visitors and IoT 1 CAD.</div>
-              <span class="sys-cell__link"><span data-i18n="panels.p69.cta">Enter the campus</span> <span
-                  class="tri">▸</span></span>
-            </div>
-          </a>
-          <a class="sys-cell" data-arch="shdt" href="https://shdt.nonarkara.org/" target="_blank" rel="noopener">
-            <div class="sys-cell__head"><span class="sys-cell__idx">70</span><span class="sys-cell__status"><span
-                  class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
-            <picture><source srcset="screenshots/shdt.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/shdt.jpg" loading="lazy"
-              alt="SHDT · FormHypes — architectural intelligence, 11 form profiles, 9 form-performance metrics, live scenario recalc"></picture>
-            <div class="sys-cell__body">
-              <div class="sys-cell__name">SHDT · FormHypes</div>
-              <div class="sys-cell__cat" data-i18n="cats.c50">Working Instrument</div>
-              <div class="sys-cell__lede" data-i18n="panels.p70.lede">Architectural intelligence — 11 form profiles (rectilinear to pinwheel), 9 form-performance metrics (rent, area, sky reach, daylight, distinctiveness). A 20-year reunion with a 2006 MIT thesis. Live scenario recalc on every edit.</div>
-              <span class="sys-cell__link"><span data-i18n="panels.p70.cta">Design the form</span> <span
-                  class="tri">▸</span></span>
-            </div>
-          </a>
+          
+          
         </div>
       </div>
     </section>

@@ -559,6 +559,179 @@ summary:focus-visible {
   border-bottom: 1px solid var(--ocher);
 }
 
+.field-band--video {
+  display: grid;
+  grid-template-columns: minmax(320px, 480px) 1fr;
+  align-items: start;
+  gap: 36px;
+  margin: 0 0 40px;
+  padding: 32px 0 28px;
+  border-bottom: 1px solid var(--ocher);
+}
+
+.field-band__media {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* The poster is a picture beside the analysis column. When the column
+   narrowed, the three points grew taller than the poster and left 358px of
+   nothing under it — a photo stranded beside an empty area. Below 1200px
+   the band stacks, so the poster is the banner it is and the points read
+   under it. */
+@media (max-width: 1200px) {
+  .field-band--video { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .field-band--video .field-band__media { max-width: 640px; }
+}
+
+.field-band__video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.field-band__poster-picture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.field-band__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+.field-band__video-wrap:hover .field-band__poster {
+  transform: scale(1.02);
+  filter: brightness(0.9);
+}
+
+.field-band__play-btn {
+  position: absolute;
+  inset: auto auto 14px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--accent);
+  color: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.field-band__video-wrap:hover .field-band__play-btn {
+  background: var(--ocher);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.field-band__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  z-index: 3;
+}
+
+.field-band__video-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
+}
+
+.field-band__tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.field-band__cite {
+  font-size: 12px;
+  color: var(--ink-2);
+}
+
+.field-band__title {
+  margin: 8px 0 10px;
+  font-family: var(--font-display, inherit);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.field-band__points {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 18px 0 22px;
+}
+
+.field-band__point {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.field-band__point-num {
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.field-band__point-body strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.field-band__point-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.field-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.field-band__actions .btn {
+  min-height: 44px;
+  padding: 10px 18px;
+}
+
 .field-band__clip {
   flex: 0 0 auto;
   display: block;
@@ -605,6 +778,11 @@ summary:focus-visible {
 
 @media (max-width: 860px) {
   .field-band { flex-direction: column; gap: 14px; padding-bottom: 18px; }
+  .field-band--video {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-bottom: 24px;
+  }
   .field-band__clip { height: 260px; max-width: none; }
   .field-band__line { font-size: 16px; }
 }
@@ -624,9 +802,11 @@ summary:focus-visible {
 }
 
 /* sandbox operational note — systems section footnote */
+/* The kicker sits above the note. Beside it, an 18px label sat at the top
+   of a 98px column with 158px of nothing under it. */
 .sandbox-note {
-  display: flex;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   max-width: 78ch;
   margin: 0 0 12px;
   border: 1px solid var(--line-2);
@@ -634,15 +814,14 @@ summary:focus-visible {
 }
 
 .sandbox-note__tag {
-  flex-shrink: 0;
-  align-self: flex-start;
+  justify-self: start;
+  align-self: start;
   padding: var(--box-pad-tight) 10px;
   font-size: var(--t-label);
   font-weight: 600;
   letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--accent);
-  border-right: 1px solid var(--line-2);
   background: var(--paper);
   display: flex;
   align-items: center;
@@ -660,9 +839,12 @@ summary:focus-visible {
 }
 
 /* EVIDENCE STRIP — fine-print provenance for the systems section */
+/* The provenance strip: a ruled row of key/value cells. A grid, so the
+   cells are a strip and not a row that breaks with one cell left over. */
 .evidence-strip {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, max-content));
+  justify-content: start;
   align-items: center;
   gap: 0;
   margin: 0 0 28px;
@@ -716,12 +898,22 @@ summary:focus-visible {
    1px hairlines. Structural whitespace. No arbitrary offsets.
    ============================================================ */
 
+/* The rule belongs to the CELL, not to the frame around the table.
+   A frame painted by the grid showed through wherever the last row was
+   short — two columns of nothing in a 300px beige block that read as a
+   card that failed to load. Drawing the rule on the cell itself means
+   the table's edge follows its content, and a short last row is simply
+   the end of the table. */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  background: transparent;
+}
+
+.grid > * {
+  outline: 1px solid var(--line);
+  outline-offset: 0;
 }
 
 .cell {
@@ -743,9 +935,31 @@ summary:focus-visible {
   .grid--4 {
     grid-template-columns: repeat(4, 1fr);
   }
+}
 
+/* The five pro bono cards. A decided progression — five, three, two, one —
+   not a patch for one width. Five across below 1200px handed each card
+   146px, which is narrower than the screenshot it has to show, and the
+   shelf inside it had nowhere to put a technology name. */
+.grid--5 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 520px) {
   .grid--5 {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 760px) {
+  .grid--5 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid--5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 
@@ -862,9 +1076,12 @@ summary:focus-visible {
    §4.6 STATUS PLATE — the ink sign-plate
    ============================================================ */
 
+/* The label is the panel's header bar, and the body is under it. As two
+   columns of a flex row, the 24px label sat at the top of a 437px column
+   with 414px of nothing under it. */
 .plate {
-  display: flex;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   border: 1px solid var(--line-2);
   background: var(--panel);
 }
@@ -872,7 +1089,8 @@ summary:focus-visible {
 .plate__tag {
   background: var(--id-navy);
   color: var(--paper);
-  align-self: flex-start;
+  align-self: start;
+  justify-self: stretch;
   padding: var(--box-pad) 10px;
   display: flex;
   align-items: center;
@@ -951,10 +1169,17 @@ summary:focus-visible {
   color: var(--paper);
 }
 
+/* The hero's two calls to action. A grid, so the row has a shape at every
+   width instead of breaking wherever it runs out of room and leaving the
+   second button alone on the last line. */
 .btn-row {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  justify-content: start;
   gap: 12px;
+}
+@media (max-width: 560px) {
+  .btn-row { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ============================================================
@@ -1240,6 +1465,31 @@ summary:focus-visible {
   padding: 6px 8px;
   font-size: var(--t-label);
   letter-spacing: var(--tr-label);
+}
+
+/* Eleven links do not divide by two, so a wrapping strip strands one of
+   them twice: a row of ten and a single link at nine hundred pixels, and
+   five and five and a single link at four hundred. Eleven does divide by
+   four, and by three. So below 880px — the width where one row still
+   holds all eleven — the nav is decided columns: four, four and three,
+   and never a link alone in a corner. Above 880px it is still one row. */
+@media (max-width: 880px) {
+  .foot__row .nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px 8px;
+  }
+
+  .foot__row .nav a {
+    width: fit-content;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .foot__row .nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .foot__note {
@@ -1646,28 +1896,28 @@ summary:focus-visible {
 }
 
 /* === pro bono stack (visible tech list) === */
+/* The stack is a label and a shelf of technologies. The label sits on its
+   own line and the shelf below it is a grid, so the shelf never leaves one
+   chip alone on a line of its own.
+   The shelf is TWO columns at every width. `auto-fill` was tried and
+   rejected: it handed the shelf three columns at 360px, one at 768px and
+   two at 1440px, so the same five cards showed three different shelves.
+   A technology name may be two words, so it breaks inside its own cell
+   rather than reaching outside it. */
 .probono-stack {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
   gap: 4px;
   padding: var(--box-pad) 10px;
   border-top: 1px solid var(--line);
   background: var(--panel);
 }
 
-.probono-stack__lbl {
-  font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", monospace;
-  font-size: var(--t-label);
-  font-weight: 700;
-  letter-spacing: var(--tr-label);
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-right: 4px;
-}
+.probono-stack__lbl { grid-column: 1 / -1; }
 
 .probono-stack__chip {
-  display: inline-block;
+  display: block;
   padding: 2px 6px;
   font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", monospace;
   font-size: var(--t-label);
@@ -1675,19 +1925,26 @@ summary:focus-visible {
   background: transparent;
   border: 1px solid var(--line);
   color: var(--ink-2);
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 
+/* A ruled strip of tags. The strip is a table, so it is a grid: the cells
+   are equal and the rows are decided. The rule belongs to the cell, as it
+   does in the hairline cell grid — a frame painted by the grid shows
+   through wherever the last row is short. */
 .tags {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  background: transparent;
 }
 
 .tags span {
   background: var(--panel);
+  outline: 1px solid var(--line);
+  outline-offset: 0;
   padding: 8px 12px;
   font-size: var(--t-label);
   font-weight: 600;
@@ -1697,11 +1954,20 @@ summary:focus-visible {
 }
 
 /* creds chips, built-with stack */
+/* Four credentials. Four, two or one to a row — never three and an orphan.
+   Tracks are content-width, so a chip is never stretched to fill a cell. */
 .chips {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, max-content));
+  justify-content: start;
   gap: 6px;
   margin-top: 10px;
+}
+@media (max-width: 900px) {
+  .chips { grid-template-columns: repeat(2, minmax(0, max-content)); }
+}
+@media (max-width: 460px) {
+  .chips { grid-template-columns: minmax(0, max-content); }
 }
 
 .chip {
@@ -1740,11 +2006,14 @@ summary:focus-visible {
 }
 .stack__icon svg { width: 26px; height: 26px; display: block; }
 .stack__main { padding: 14px 16px 16px; min-width: 0; }
+/* The layer's name and its role on the left, the count on the right, both
+   rows of the same grid. Before, the count was pushed to the far edge and
+   wrapped onto a line of its own on a phone. */
 .stack__head {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
-  flex-wrap: wrap;
-  gap: 6px 10px;
+  gap: 2px 10px;
   margin-bottom: 11px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
@@ -1759,8 +2028,16 @@ summary:focus-visible {
   color: var(--ink-3);
   white-space: nowrap;
 }
-.stack__count { font-size: var(--t-micro); font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
-.stack__items { display: flex; flex-wrap: wrap; gap: 6px; }
+.stack__count { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: var(--t-micro); font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+/* A shelf of technology names, in a grid with a decided number of columns.
+   The chips keep their own width; the grid only decides where the breaks
+   fall. */
+.stack__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, max-content));
+  justify-content: start;
+  gap: 6px;
+}
 .stack__items span,
 .stack__items a {
   font-size: var(--t-micro);
@@ -1927,6 +2204,14 @@ summary:focus-visible {
 
 .sys-cell__shot {
   width: 100%;
+  /* height:auto is load-bearing, not a default. An <img> carries a height
+     attribute, which the browser treats as a presentational hint for the
+     height property. Author CSS sets width but not height, so the hint won:
+     the aspect-ratio below was ignored and a 16:10 screenshot rendered at
+     its own 800px, blowing a 152px band into a portrait column and leaving
+     the grid ragged. height:auto hands the box back to the ratio, so the
+     band is 21:8 whatever the file's own dimensions are. */
+  height: auto;
   aspect-ratio: 21 / 8;
   object-fit: cover;
   object-position: top center;
@@ -1944,10 +2229,22 @@ summary:focus-visible {
   flex: 1;
 }
 
-.sys-cell__shot--contain {
-  height: auto;
-  object-fit: contain;
-  background: var(--paper);
+/* A thumbnail that holds a subject in a portrait frame cannot survive a
+   top crop. object-fit:contain used to be the answer, and it was worse:
+   the image was letterboxed inside the 21:8 band against a background the
+   same colour as the card, so it read as a small stray picture floating in
+   an empty strip rather than as a thumbnail. The band is fixed, so the
+   crop window moves instead — the subject stays whole, and every card in
+   the grid keeps the same height.
+
+   --lower drops the window to hold a figure and what it holds.
+   --middle drops it to hold a model that sits on a field. */
+.sys-cell__shot--lower {
+  object-position: 50% 20%;
+}
+
+.sys-cell__shot--middle {
+  object-position: 50% 45%;
 }
 
 .sys-cell__name {
@@ -2293,13 +2590,14 @@ summary:focus-visible {
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   margin-top: 16px;
-  background: var(--line);
-  border: 1px solid var(--line-2);
+  background: transparent;
 }
 
 .brand-preview__item {
   display: block;
   background: var(--panel);
+  outline: 1px solid var(--line);
+  outline-offset: 0;
   color: inherit;
   text-decoration: none;
 }
@@ -2346,6 +2644,23 @@ summary:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+/* The nine layers are a set, not a strip that happens to run out of room.
+   A flex strip held all nine on one line down to 765px and stranded the
+   ninth chip on a line of its own below that, because nine does not fit
+   in a row and the strip broke where the arithmetic broke. Nine does
+   divide by three, so below 800px the shelf is a decided three-by-three
+   matrix — and above it the strip still holds all nine in one line. */
+@media (max-width: 800px) {
+  .stack-glimpse__items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stack-glimpse__items>span {
+    text-align: center;
+  }
 }
 
 .stack-details {

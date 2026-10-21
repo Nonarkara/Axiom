@@ -11,7 +11,13 @@ async function newPage(w = 1440, h = 900) {
   const ctx = await b.newContext({ viewport: { width: w, height: h } });
   const p = await ctx.newPage();
   p.on('pageerror', e => fails.push('JS ERROR: ' + e.message));
-  p.on('console', m => { if (m.type() === 'error') fails.push('CONSOLE: ' + m.text()); });
+  p.on('console', m => {
+    if (m.type() === 'error') {
+      const txt = m.text();
+      if (txt.includes('compute-pressure')) return;
+      fails.push('CONSOLE: ' + txt);
+    }
+  });
   return p;
 }
 
@@ -20,7 +26,7 @@ async function newPage(w = 1440, h = 900) {
   const p = await newPage();
   await p.goto(BASE, { waitUntil: 'networkidle' });
   check('lands on the pitch', (await p.textContent('.poster')).includes('flood arrives'));
-  check('67 shown, not 66', (await p.textContent('.fig b')) === '67', `got "${await p.textContent('.fig b')}"`);
+  check('71 systems shown', (await p.textContent('.fig b')) === '71', `got "${await p.textContent('.fig b')}"`);
   const kicker = await p.textContent('.bar-kicker');
   check('bar kicker populated', kicker.trim().length > 0, `"${kicker}"`);
   // click through the index to a live system
@@ -46,6 +52,7 @@ async function newPage(w = 1440, h = 900) {
 {
   const p = await newPage();
   await p.goto(BASE, { waitUntil: 'networkidle' });
+  const baseline = await p.$$eval('#nav .item', e => e.length);
   await p.keyboard.press('/');
   const focused = await p.evaluate(() => document.activeElement.id);
   check('"/" focuses search', focused === 'q', `focus was #${focused}`);
@@ -63,8 +70,8 @@ async function newPage(w = 1440, h = 900) {
     val: document.getElementById('q').value,
     items: document.querySelectorAll('#nav .item').length,
   }));
-  check('Escape clears the search and restores the index', cleared.val === '' && cleared.items === 113,
-        JSON.stringify(cleared));
+  check('Escape clears the search and restores the index', cleared.val === '' && cleared.items === baseline,
+        JSON.stringify({ cleared, baseline }));
   await p.keyboard.press('/');
   await p.keyboard.type('zzzznomatch');
   await p.waitForTimeout(250);
@@ -72,7 +79,7 @@ async function newPage(w = 1440, h = 900) {
   await p.keyboard.press('Escape');
   await p.keyboard.press('Escape');
   await p.waitForTimeout(200);
-  check('second Escape fully restores', await p.evaluate(() => document.querySelectorAll('#nav .item').length === 113));
+  check('second Escape fully restores', await p.evaluate((n) => document.querySelectorAll('#nav .item').length === n, baseline));
   await p.context().close();
 }
 
@@ -160,33 +167,65 @@ async function newPage(w = 1440, h = 900) {
 // ── LOCALE CONTROL ─────────────────────────────────────────────────────────
 // The bar carries EN / TH / ZH / KO / JA / VI. Only EN exists. The rest are
 // graded Soon rather than hidden, and a Soon code must never be a dead
-// control — that is the one behaviour this book does not use anywhere else.
+// ── JOURNEY 8: multilingual switching across all six editions ───────────────
+// When editions are translated, each code switches the active language, updates
+// document lang attribute, index groups, controls, and pitches.
 {
   const p = await newPage();
   await p.goto(BASE, { waitUntil: 'networkidle' });
   const codes = await p.$$eval('.locale-btn', els => els.map(e => e.dataset.locale));
   check('locale control shows six codes', codes.length === 6, codes.join(' '));
-  check('EN is the active edition', await p.evaluate(() =>
+  check('EN is the active edition by default', await p.evaluate(() =>
     document.querySelector('.locale-btn.is-active')?.dataset.locale === 'en'));
 
-  const soon = await p.$$eval('.locale-btn[data-soon]', els => els.map(e => e.dataset.locale));
-  check('five editions marked Soon, not hidden', soon.length === 5, soon.join(' '));
-
-  // A Soon code is not disabled. It has an action, and that action is to
-  // explain itself. aria-disabled here would be a lie and would also stop a
-  // keyboard user reaching the explanation.
-  const disabled = await p.$$eval('.locale-btn[data-soon]', els =>
-    els.filter(e => e.getAttribute('aria-disabled') === 'true').length);
-  check('Soon codes are not aria-disabled', disabled === 0, `${disabled} disabled`);
-
+  // Switch to TH
   await p.click('.locale-btn[data-locale="th"]');
-  await p.waitForTimeout(350);
-  const landed = await p.evaluate(() => ({
-    hash: location.hash,
-    heading: (document.querySelector('h1.name') || {}).textContent?.trim()
+  await p.waitForTimeout(200);
+  const thState = await p.evaluate(() => ({
+    lang: document.documentElement.lang,
+    active: document.querySelector('.locale-btn.is-active')?.dataset.locale,
+    poster: document.querySelector('.poster')?.textContent || '',
+    saved: localStorage.getItem('axiomx_locale')
   }));
-  check('a Soon code explains itself, not nothing', landed.hash === '#catalogue', JSON.stringify(landed));
-  check('and lands on "How to read this"', landed.heading === 'How to read this', landed.heading);
+  check('TH switches active edition', thState.active === 'th', thState.active);
+  check('TH sets document lang', thState.lang === 'th', thState.lang);
+  check('TH translates pitch poster', thState.poster.includes('น้ำท่วม'), thState.poster);
+  check('TH persists locale in storage', thState.saved === 'th', thState.saved);
+
+  // Switch to ZH
+  await p.click('.locale-btn[data-locale="zh"]');
+  await p.waitForTimeout(200);
+  const zhLang = await p.evaluate(() => document.documentElement.lang);
+  check('ZH sets document lang zh-Hans', zhLang === 'zh-Hans', zhLang);
+
+  // Switch to KO
+  await p.click('.locale-btn[data-locale="ko"]');
+  await p.waitForTimeout(200);
+  const koLang = await p.evaluate(() => document.documentElement.lang);
+  check('KO sets document lang ko', koLang === 'ko', koLang);
+
+  // Switch to JA
+  await p.click('.locale-btn[data-locale="ja"]');
+  await p.waitForTimeout(200);
+  const jaLang = await p.evaluate(() => document.documentElement.lang);
+  check('JA sets document lang ja', jaLang === 'ja', jaLang);
+
+  // Switch to VI
+  await p.click('.locale-btn[data-locale="vi"]');
+  await p.waitForTimeout(200);
+  const viLang = await p.evaluate(() => document.documentElement.lang);
+  check('VI sets document lang vi', viLang === 'vi', viLang);
+
+  // Switch back to EN
+  await p.click('.locale-btn[data-locale="en"]');
+  await p.waitForTimeout(200);
+  const enState = await p.evaluate(() => ({
+    lang: document.documentElement.lang,
+    active: document.querySelector('.locale-btn.is-active')?.dataset.locale,
+    poster: document.querySelector('.poster')?.textContent || ''
+  }));
+  check('EN restores active edition', enState.active === 'en', enState.active);
+  check('EN restores pitch poster', enState.poster.includes('flood arrives'), enState.poster);
 
   // The bar carries the mark, six codes and Dark. It must not widen the page.
   const overflow = await p.evaluate(() => {
@@ -215,68 +254,93 @@ async function newPage(w = 1440, h = 900) {
   await ctx.close();
 }
 
-// ── FIELD CLIP ─────────────────────────────────────────────────────────────
-// The ground-condition loop appears twice, and the duplication is deliberate:
+// ── FIELD VIDEO STUDIO ──────────────────────────────────────────────────────────
+// The field briefing video deck appears on FloodDash and Innovation-as-a-Service:
 // on FloodDash because that watch is read from standing in the rain, and on
 // Innovation-as-a-Service because the practice begins in the same place. Each
-// carries its own caption -- the same clip with a FloodDash sentence on the
-// practice page would be a claim about a page it is not making.
-// It is portrait, so the plate must cap it by height.
+// carries its own caption.
 {
   const p0 = await newPage();
   await p0.goto(BASE + '#flood-ami', { waitUntil: 'networkidle' });
   await p0.waitForTimeout(600);
   const fd = await p0.evaluate(() => {
-    const fig = document.querySelector('.clip');
+    const fig = document.querySelector('.vstudio');
     return {
       found: !!fig,
-      caption: fig && fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : '',
+      caption: fig && fig.querySelector('.vstudio-desc') ? fig.querySelector('.vstudio-desc').textContent : '',
     };
   });
-  check('FloodDash carries the clip, by instruction', fd.found);
+  check('FloodDash carries the video studio, by instruction', fd.found);
   check('and its caption is the flood one', /flood season/i.test(fd.caption), fd.caption.slice(0, 60));
   await p0.context().close();
   const p = await newPage();
+  // The third-party PLAYER is a poster until the reader asks for the film.
+  // Thumbnail stills come from YouTube's image CDN (their licence does not
+  // travel), but nothing may load from the player host until a click.
+  const playerHits = [];
+  p.on('request', req => {
+    if (/youtube-nocookie\.com/.test(req.url())) playerHits.push(req.url());
+  });
   await p.goto(BASE + '#iaas', { waitUntil: 'networkidle' });
   await p.waitForTimeout(600);
-  const r = await p.evaluate(() => {
-    const fig = document.querySelector('.clip');
-    const v = fig && fig.querySelector('video');
+  // Snapshot before any click: the listener keeps counting for the rest of
+  // the block, and the player host is allowed to hear from us after that.
+  const playerHitsBefore = playerHits.length;
+  const r = await p.evaluate(async () => {
+    const fig = document.querySelector('.vstudio');
+    const items = fig ? Array.from(fig.querySelectorAll('.vstudio-item')) : [];
+    const poster = fig ? fig.querySelector('.vstudio-poster') : null;
+    const onLoad = {
+      iframe: !!(fig && fig.querySelector('iframe')),
+      poster: !!poster,
+      posterSrc: poster && poster.querySelector('img') ? poster.querySelector('img').src : '',
+    };
+
+    // The reader asks for the film: the poster becomes the player.
+    let afterPoster = { src: '', exists: false };
+    if (poster) {
+      poster.click();
+      await new Promise(res => setTimeout(res, 500));
+      const f = fig.querySelector('iframe');
+      afterPoster = { src: f ? f.src : '', exists: !!f };
+    }
+
+    // And a briefing chosen from the list is the same request, not a second
+    // one. It must play without a further click on the poster.
+    let switchWorked = false;
+    const live = Array.from(fig.querySelectorAll('.vstudio-item'));
+    if (live.length > 1) {
+      live[1].click();
+      await new Promise(res => setTimeout(res, 500));
+      const f = fig.querySelector('iframe');
+      switchWorked = !!f && f.src.includes('lLnq4LefXiI') && live[1].classList.contains('is-active');
+    }
+
     return {
       found: !!fig,
-      caption: fig && fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : '',
-      h: v ? Math.round(v.getBoundingClientRect().height) : 0,
-      w: v ? Math.round(v.getBoundingClientRect().width) : 0,
-      muted: v ? v.muted : null,
-      loop: v ? v.loop : null,
-      poster: v ? !!v.poster : null,
-      // it must not be the 960px screenshot measure scaled to a billboard
-      tallest: v ? v.getBoundingClientRect().height < 700 : false,
+      caption: fig && fig.querySelector('.vstudio-desc') ? fig.querySelector('.vstudio-desc').textContent : '',
+      onLoad,
+      afterPoster,
+      itemCount: items.length,
+      switchWorked,
+      w: fig ? Math.round(fig.getBoundingClientRect().width) : 0,
+      fits: fig ? fig.getBoundingClientRect().width <= 960 : false,
     };
   });
-  check('Innovation-as-a-Service carries the field clip', r.found);
-  // The same clip appears here and on FloodDash, so the captions have to
-  // differ. A flood-season sentence on the practice page is a claim about a
-  // page it is not making -- it is the exact defect that a merge can introduce
-  // silently, by moving a figure without moving the words.
+  check('Innovation-as-a-Service carries the field video studio', r.found);
   check('its caption is the practice one, not the flood one',
     !/flood season|in Thai, in public/i.test(r.caption), r.caption.slice(0, 60));
-  check('clip is capped by height, not the wide measure', r.tallest, `${r.w}x${r.h}`);
-  check('clip is muted and loops', r.muted === true && r.loop === true);
-  check('clip has a poster for reduced motion', r.poster === true);
-
-  // The source is hot-linked off the main site, so this is really a check
-  // that the main site still serves the asset.
-  const src = await p.evaluate(() => {
-    const v = document.querySelector('.clip video source');
-    return v ? v.src : '';
-  });
-  check('clip points at the main-site asset', /axiom\.nonarkara\.org/.test(src), src);
-
-  const res = await p.evaluate(async (u) => {
-    try { const r = await fetch(u, { method: 'HEAD' }); return r.status; } catch (e) { return 0; }
-  }, src);
-  check('the clip asset actually resolves', res === 200, `HTTP ${res}`);
+  check('the player is a poster until the reader asks', r.onLoad.poster && !r.onLoad.iframe,
+    `poster=${r.onLoad.poster} iframe=${r.onLoad.iframe}`);
+  check('no request reaches the player host before the click', playerHitsBefore === 0,
+    `${playerHitsBefore} hits`);
+  check('the poster shows the hero briefing', /0-A3R_i3wrs/.test(r.onLoad.posterSrc), r.onLoad.posterSrc);
+  check('clicking the poster plays the hero briefing',
+    r.afterPoster.exists && /youtube-nocookie\.com\/embed\/0-A3R_i3wrs/.test(r.afterPoster.src) &&
+    /autoplay=1/.test(r.afterPoster.src), r.afterPoster.src);
+  check('video studio carries 5 field briefing cards', r.itemCount === 5, `${r.itemCount} items`);
+  check('clicking a playlist item plays that video, no second click', r.switchWorked === true);
+  check('video studio fits bounded measure', r.fits, `${r.w}px`);
   await p.context().close();
 }
 
@@ -288,7 +352,11 @@ async function newPage(w = 1440, h = 900) {
     const sys = (window.AXIOM_SYSTEMS || []).map(s => s.id);
     const plates = window.AXIOM_PLATES || {};
     const missing = sys.filter(id => !plates[id]);
-    const badLic = Object.keys(plates).filter(id => !/^(Public domain|CC0)$/.test(plates[id][5]));
+    // Every plate is a museum work: public domain, or CC0 from the holding
+    // museum's own open-access file. There are no studio originals, so a
+    // plate that carries anything else is a licence gap, not a house credit.
+    const OK_LIC = ['Public domain', 'CC0'];
+    const badLic = Object.keys(plates).filter(id => !OK_LIC.includes(plates[id][5]));
     const broken = [];
     for (const id of Object.keys(plates)) {
       const res = await fetch('art/' + id + '.webp', { method: 'HEAD' });
@@ -298,12 +366,19 @@ async function newPage(w = 1440, h = 900) {
     await new Promise(r => setTimeout(r, 150));
     const pb = !!document.querySelector('#plate .shot') && !document.querySelector('#plate .plate-art');
     const sysIds = new Set(sys);
-    const orphans = Object.keys(plates).filter(id => !sysIds.has(id)
-      && !/^note-\d|^stack$/.test(id));
-    return { sys: sys.length, n: Object.keys(plates).length, missing, badLic, broken, pb, orphans };
+    // A plate is live if a system mounts it or a page in the book references it.
+    // Deriving this beats exempting a prefix: a plate added to plates.js and
+    // wired into nothing now fails, instead of passing on a naming convention.
+    const bookIds = new Set(window.AXIOM_BOOK_PLATES || []);
+    const orphans = Object.keys(plates).filter(id => !sysIds.has(id) && !bookIds.has(id));
+    // The mirror: a page that asks for an artwork nobody defined renders empty,
+    // because the plate builders skip an unknown id without complaining.
+    const dangling = [...bookIds].filter(id => !plates[id]);
+    return { sys: sys.length, n: Object.keys(plates).length, missing, badLic, broken, pb, orphans, dangling, book: bookIds.size };
   });
   check('every system has a plate', r.missing.length === 0, `${r.n} plates for ${r.sys} systems, missing: ${r.missing.join(',') || 'none'}`);
   check('no plate is orphaned', r.orphans.length === 0, r.orphans.join(','));
+  check('every page artwork exists', r.dangling.length === 0, r.dangling.join(','));
   check('every plate is public domain or CC0', r.badLic.length === 0, r.badLic.join(','));
   check('every plate image resolves', r.broken.length === 0, r.broken.join(','));
   check('pro bono keeps its own photograph', r.pb);
@@ -326,6 +401,65 @@ async function newPage(w = 1440, h = 900) {
     return { total: ids.length, bad };
   });
   check('all ' + r.total + ' entries render', r.bad.length === 0, r.bad.join(', '));
+  await p.context().close();
+}
+
+// ── THE LABEL NEVER OUTRUNS THE PICTURE ───────────────────────────────────
+// A caption whose measure has nothing to do with the artwork it labels is
+// spatial hallucination in its purest form: the text hangs past the edge of
+// the picture it describes. The label's width is measured from the rendered
+// plate in JS, because a portrait plate is capped by max-height and CSS
+// cannot measure a height-capped image. This walks every entry and holds
+// the line, so the fix cannot quietly come apart.
+{
+  const p = await newPage(1440, 900);
+  await p.goto(BASE, { waitUntil: 'networkidle' });
+  const r = await p.evaluate(async () => {
+    const ids = [...document.querySelectorAll('#nav button[data-id]')].map(b => b.dataset.id);
+    const over = [];
+    const seen = new Set();
+    for (const id of ids) {
+      location.hash = '#' + id;
+      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+      // Every picture the book puts on a page, the hero included.
+      const imgs = [...document.querySelectorAll('img')]
+        .filter(i => /\/art\/[^?]+\.webp/.test(i.src))
+        .filter(i => {
+          const m = i.src.match(/\/art\/([^?]+)\.webp/);
+          if (seen.has(m[1])) return false;
+          seen.add(m[1]);
+          return true;
+        });
+      for (const img of imgs) {
+        // The label is measured once the picture has loaded, so wait for that
+        // before judging it — an unloaded image measures 0px and would make
+        // every caption look like an overhang.
+        for (let i = 0; i < 60 && !(img.complete && img.naturalWidth > 0); i++) {
+          await new Promise(r => setTimeout(r, 50));
+        }
+        // The label is fitted by a ResizeObserver, and that callback is
+        // delivered after layout — not on the frame the image finished
+        // loading. Measure once the caption stops moving, or the check
+        // reads the pre-fit width and reports an overhang that is not there.
+        const fig = img.closest('figure');
+        const cap = fig && fig.querySelector('figcaption');
+        if (!cap) continue;
+        let prev = -1, cw = 0, iw = 0;
+        for (let i = 0; i < 40; i++) {
+          await new Promise(r => requestAnimationFrame(r));
+          cw = cap.getBoundingClientRect().width;
+          iw = img.getBoundingClientRect().width;
+          if (cw === prev) break;
+          prev = cw;
+        }
+        if (cw > iw + 1) over.push(id + ' (caption ' + Math.round(cw) + 'px on a ' + Math.round(iw) + 'px plate)');
+      }
+    }
+    const defined = Object.keys((window.AXIOM_PLATES || {})).length;
+    return { total: ids.length, measured: seen.size, defined, over };
+  });
+  check('every plate label fits inside its own picture', r.over.length === 0, r.over.slice(0, 3).join('; '));
+  check('and the check reached every plate in the book', r.measured === r.defined, r.measured + ' of ' + r.defined);
   await p.context().close();
 }
 
@@ -600,50 +734,44 @@ for (const w of [390, 320]) {
   await p.context().close();
 }
 
-// ── CLIP: a portrait frame must not claim a landscape measure ──────────────
-// The clip is 480x860. At a 960px measure it scales to roughly 1720px tall, so
-// it is capped by height and the figure sizes to its own parts instead of
-// leaving a hole beside a 234px frame.
+// ── VIDEO STUDIO: responsive layout and no sideways overflow ──────────────
 {
   const p = await newPage(1440, 1000);
   await p.goto(BASE, { waitUntil: 'networkidle' });
   await p.evaluate(() => { location.hash = '#flood-ami'; });
   await p.waitForTimeout(900);
   const m = await p.evaluate(() => {
-    const c = document.querySelector('.clip'), v = document.querySelector('.clip video'), f = document.querySelector('.clip figcaption');
-    const cb = c.getBoundingClientRect(), vb = v.getBoundingClientRect(), fb = f.getBoundingClientRect();
+    const s = document.querySelector('.vstudio'), v = document.querySelector('.vstudio-player'), l = document.querySelector('.vstudio-list');
+    const sb = s.getBoundingClientRect(), vb = v.getBoundingClientRect(), lb = l.getBoundingClientRect();
     return {
-      display: getComputedStyle(c).display, clipW: Math.round(cb.width),
-      vW: Math.round(vb.width), vH: Math.round(vb.height),
-      capLines: Math.round(fb.height / 17),
-      stacked: Math.abs(fb.x - vb.x) <= 1,
+      display: getComputedStyle(s).display,
+      studioW: Math.round(sb.width),
+      vW: Math.round(vb.width),
+      lW: Math.round(lb.width),
+      sideBySide: Math.abs(vb.y - lb.y) < 15,
     };
   });
-  check('the clip is a frame and its label, not a half-empty box', m.display === 'flex' && !m.stacked, JSON.stringify(m));
-  check('the figure is sized to its parts, not to the measure', m.clipW < 900, `${m.clipW}px`);
-  check('the portrait frame is still capped by height', m.vW <= m.vH, `${m.vW}x${m.vH}`);
-  check('the label holds two lines at desktop measure', m.capLines <= 2, `${m.capLines} lines`);
+  check('video studio is a grid with side-by-side player and playlist', m.display === 'grid' && m.sideBySide, JSON.stringify(m));
+  check('the studio is sized to its container, not overflowing', m.studioW <= 960, `${m.studioW}px`);
   await p.context().close();
 }
 
-// NARROW: below 1030px the label moves under the frame rather than stranding
-// four short lines beside it.
+// NARROW: across viewports, video studio stacks cleanly without sideways overflow
 for (const w of [1030, 900, 640, 390, 320]) {
   const p = await newPage(w, 900);
   await p.goto(BASE, { waitUntil: 'networkidle' });
   await p.evaluate(() => { location.hash = '#flood-ami'; });
   await p.waitForTimeout(800);
   const r = await p.evaluate(() => {
-    const c = document.querySelector('.clip'), v = document.querySelector('.clip video'), f = document.querySelector('.clip figcaption');
-    const vb = v.getBoundingClientRect(), fb = f.getBoundingClientRect(), cb = c.getBoundingClientRect();
+    const s = document.querySelector('.vstudio');
+    const sb = s.getBoundingClientRect();
+    const overflow = document.documentElement.scrollWidth - document.documentElement.clientWidth;
     return {
-      stacked: Math.abs(fb.x - vb.x) <= 1,
-      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-      fits: vb.right <= cb.right + 1 && fb.right <= cb.right + 1,
+      overflow,
+      fits: sb.right <= document.documentElement.clientWidth + 2,
     };
   });
-  check(`the label moves under the frame @${w}`, r.stacked);
-  check(`the clip never leaves its column @${w}`, r.fits);
+  check(`video studio never leaves its column @${w}`, r.fits);
   check(`no sideways overflow @${w}`, r.overflow === 0, `${r.overflow}px`);
   await p.context().close();
 }

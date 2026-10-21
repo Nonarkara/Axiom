@@ -52,13 +52,14 @@
 }
 
 .cx-head__stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, max-content));
+  justify-content: start;
   /* The four labels are nowrap on purpose — "Stage shots" must not break across
      lines under its own number. That makes the row intrinsically ~410px wide, so
      below roughly 480px it cannot fit and pushes the whole page sideways. Let
      the row wrap instead: each stat stays intact and moves down a line. The
      breakpoints that used to swallow it (320, 360, 390, 414) all fit after. */
-  flex-wrap: wrap;
   gap: 0;
   row-gap: 4px;
 }
@@ -142,7 +143,7 @@
 
 .cx-bar {
   display: grid;
-  grid-template-columns: 56px 112px 138px minmax(0, 1fr) 248px;
+  grid-template-columns: 56px 112px 138px minmax(0, 1fr) 288px;
   align-items: center;
   gap: 0 14px;
   min-height: var(--cx-bar-h);
@@ -219,9 +220,11 @@
   letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-2);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* The name of the place is the address. It was cut at 167px, which is
+     the same as saying nothing. It wraps instead. */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
 }
 
 .cx-bar__claim {
@@ -374,6 +377,9 @@
   .cx-bar__claim { -webkit-line-clamp: unset; display: block; }
   .cx-bar__quote { white-space: normal; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; }
   .cx-head__stats { width: 100%; padding-top: 6px; }
+  /* Four stats, two to a row on a narrow column. A row of three and an
+     orphan is not a shape anyone chose. */
+  .cx-head__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (prefers-reduced-motion: reduce) {

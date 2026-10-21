@@ -420,6 +420,11 @@ h1.name {
   gap: 8px 22px;
   margin: 16px var(--pad) 0;
 }
+/* On a narrow column the actions are a list, one per line. A row that
+   breaks wherever it runs out of room leaves the last action alone. */
+@media (max-width: 560px) {
+  .actions { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
 
 .actions a, .inline-link {
   color: var(--navy);
@@ -504,6 +509,259 @@ h1.name {
   .clip figcaption { margin-top: 9px; max-width: 62ch; }
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   VIDEO STUDIO — In-the-field briefings & video player deck
+   ═══════════════════════════════════════════════════════════════════════════ */
+.vstudio {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  gap: 22px;
+  width: min(960px, calc(100% - (var(--pad) * 2)));
+  margin: 22px var(--pad) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0 20px;
+}
+
+.vstudio-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.vstudio-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--line);
+}
+
+.vstudio-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* The poster. The same frame the film opens on, and the same play mark the
+   catalogue uses, so one gesture means the same thing on both sites. */
+.vstudio-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--ink);
+  cursor: pointer;
+  overflow: hidden;
+  display: block;
+}
+
+.vstudio-poster-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+.vstudio-poster:hover .vstudio-poster-img {
+  transform: scale(1.02);
+  filter: brightness(0.9);
+}
+
+.vstudio-poster-play {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  background: var(--navy);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.vstudio-poster:hover .vstudio-poster-play {
+  transform: translateY(-2px);
+}
+
+.vstudio-info {
+  margin-top: 12px;
+  padding: 0 2px;
+}
+
+.vstudio-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  margin-bottom: 4px;
+}
+
+.vstudio-title {
+  margin: 2px 0 6px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.vstudio-desc {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.vstudio-list {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--line);
+  padding-left: 20px;
+  min-width: 0;
+}
+
+.vstudio-list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 8px;
+}
+
+.vstudio-list-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.vstudio-list-count {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.vstudio-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.vstudio-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px;
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  min-height: 54px;
+}
+
+.vstudio-item:hover {
+  background: var(--hover-wash);
+  border-color: var(--line);
+}
+
+.vstudio-item.is-active {
+  background: var(--hover-wash);
+  border-color: var(--navy);
+}
+
+.vstudio-thumb {
+  position: relative;
+  flex: 0 0 76px;
+  aspect-ratio: 16 / 9;
+  background: #111;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.vstudio-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vstudio-idx {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  font-family: var(--mono);
+  font-size: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 1px 3px;
+  line-height: 1;
+}
+
+.vstudio-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.vstudio-item-meta {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.vstudio-item-title {
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--ink);
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .vstudio {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .vstudio-list {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+  .vstudio-items {
+    max-height: none;
+  }
+}
+
 .caption {
   margin: 8px var(--pad) 0;
   max-width: 68ch;
@@ -574,12 +832,13 @@ h1.name {
 .def > :first-child { color: var(--muted); }
 
 .row {
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
   text-decoration: none;
   color: inherit;
 }
 .row b { font-weight: 500; font-size: 15px; display: block; }
+.row__arrow { color: var(--muted); font-weight: 400; margin-left: 6px; }
 .row i { font-style: normal; color: var(--muted); font-size: 13px; }
 .row:hover b { color: var(--navy); }
 
@@ -600,14 +859,31 @@ h1.name {
   line-height: 1.5;
 }
 
-.layer { grid-template-columns: minmax(8.5rem, 13rem) minmax(0, 1fr); gap: 12px; }
+/* The layer name is a heading for the shelf under it, not a label in a
+   column beside it. A 13rem label cell next to a 240px shelf left 200px of
+   nothing under the name, and the eye had to travel the width of the page
+   to read the tools it was labelling. */
+.layer { grid-template-columns: minmax(0, 1fr); gap: 6px 12px; }
+.layer__head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 14px; }
 .layer h2 { margin: 0; font-size: 14px; font-weight: 500; }
 .layer p { margin: 2px 0 0; font-size: 12px; color: var(--muted); }
 /* The renderer appends tools as adjacent inline boxes with no whitespace
    between them, so there was no legal break point: 114 names ran as one
    unbreakable line and pushed the plate sideways (+996px desktop, +1406px
    phone). A wrapping flex row breaks between names; each name stays whole. */
-.tools { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; font-size: 13px; line-height: 1.7; }
+/* The tool shelf is a grid, not a row that breaks wherever it runs out of
+   room. A grid has a decided number of columns at every width, so the last
+   row is part of the shape instead of an accident. */
+.tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  justify-items: start;
+  align-items: baseline;
+  column-gap: 12px;
+  row-gap: 2px;
+  font-size: 13px;
+  line-height: 1.7;
+}
 .tool { white-space: nowrap; }
 .tool.is-fav { font-weight: 500; }
 .tool i {
@@ -642,9 +918,11 @@ h1.name {
 }
 .pager a {
   max-width: 46%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  /* A destination the reader cannot read is not a destination. The label
+     wraps to a second line rather than being cut, so nothing is hidden. */
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
   color: inherit;
   text-decoration: none;
 }
@@ -653,7 +931,11 @@ h1.name {
 /* Touch: the previous/next links were 22px tall. line-height rather than
    flex so the ellipsis still truncates. */
 @media (max-width: 760px), (pointer: coarse) {
-  .pager a { display: block; line-height: 44px; min-width: 44px; }
+  /* On a phone the two labels are stacked, not squeezed. Squeezing them
+     into half a row each is what put a name out of reach. */
+  .pager { flex-direction: column; gap: 0; }
+  .pager a { display: flex; align-items: center; min-width: 44px; min-height: 44px; line-height: 1.4; padding: 10px 0; max-width: 100%; }
+  .pager a:last-child { margin-left: 0; text-align: left; }
   a.tool { display: inline-flex; align-items: center; min-height: 44px; }
 }
 .is-live { color: var(--red); }
@@ -801,6 +1083,9 @@ h1.name {
   border: 1px solid var(--line);
   background: var(--line);
 }
+.plate-art.is-real-screen .plate-img {
+  outline: 1px solid var(--accent);
+}
 .plate-art figcaption {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -811,6 +1096,49 @@ h1.name {
   max-width: 66ch;
 }
 .plate-art figcaption p { margin: 0; }
+
+/* ── HERO ─────────────────────────────────────────────────────────────────
+   The poster is one sentence long. The picture under it has to run the
+   length of that sentence rather than sit beside it like a stamp, so the
+   plate goes edge to edge and only the label takes a measure. The label
+   is the same museum label every other plate in this book carries:
+   artist, title, year, collection, source, licence, and one line on why
+   this work stands here. The audit trail is not a nicety; it is the
+   reason the picture can be trusted to carry the sentence.
+   ─────────────────────────────────────────────────────────────────────── */
+.hero-art { margin: 24px 0 0; }
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 58vh;
+  object-fit: cover;
+  object-position: center 42%;
+  border-bottom: 1px solid var(--line);
+  background: var(--line);
+}
+.hero-art figcaption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  margin: 11px var(--pad) 0;
+  padding-top: 9px;
+  border-top: 1px solid var(--line);
+  max-width: 66ch;
+}
+.hero-art figcaption p { margin: 0; }
+
+/* A step that carries a plate puts the picture under its own paragraph, in
+   the prose column, not at the 960px plate measure. A wide image under a
+   short paragraph reads as a second page. */
+.numbered .plate-art {
+  margin: 16px 0 0;
+  max-width: 520px;
+}
+.numbered .plate-img { max-height: 380px; }
+.numbered .plate-label { font-size: 10px; }
+.numbered .plate-why { font-size: 13px; line-height: 1.45; }
+
 .plate-label {
   font-family: var(--mono);
   font-size: 11px;
