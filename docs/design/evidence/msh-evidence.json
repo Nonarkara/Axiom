@@ -1,0 +1,296 @@
+[
+  {
+    "surface": "axiom",
+    "viewport": "390x844",
+    "file": "docs/design/evidence/axiom-390x844.png",
+    "vw": 390,
+    "vh": 844,
+    "docH": 31074,
+    "headerH": 50,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 50,
+    "chromePct": 5.9,
+    "firstAction": {
+      "top": 12,
+      "tag": "A",
+      "text": "Axiom\n        Decision Systems"
+    },
+    "h1": {
+      "text": "Innovation\n          as a Service",
+      "size": 36,
+      "y": 357,
+      "bottom": 435
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.hero-title",
+        "text": "Innovation\n          as a Service",
+        "size": 36,
+        "weight": "800",
+        "y": 357
+      },
+      {
+        "tag": "H3.field-band__title",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 24,
+        "weight": "700",
+        "y": 4280
+      },
+      {
+        "tag": "H2.t-big",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 19,
+        "weight": "600",
+        "y": 1444
+      }
+    ],
+    "errors": []
+  },
+  {
+    "surface": "axiom",
+    "viewport": "1024x900",
+    "file": "docs/design/evidence/axiom-1024x900.png",
+    "vw": 1024,
+    "vh": 900,
+    "docH": 13296,
+    "headerH": 50,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 50,
+    "chromePct": 5.6,
+    "firstAction": {
+      "top": 12,
+      "tag": "A",
+      "text": "Axiom\n        Decision Systems"
+    },
+    "h1": {
+      "text": "Innovation\n          as a Service",
+      "size": 64,
+      "y": 205,
+      "bottom": 343
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.hero-title",
+        "text": "Innovation\n          as a Service",
+        "size": 64,
+        "weight": "800",
+        "y": 205
+      },
+      {
+        "tag": "H2.t-big",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 24,
+        "weight": "600",
+        "y": 793
+      },
+      {
+        "tag": "H3.field-band__title",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 24,
+        "weight": "700",
+        "y": 2877
+      }
+    ],
+    "errors": []
+  },
+  {
+    "surface": "axiom",
+    "viewport": "1440x900",
+    "file": "docs/design/evidence/axiom-1440x900.png",
+    "vw": 1440,
+    "vh": 900,
+    "docH": 13257,
+    "headerH": 58,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 58,
+    "chromePct": 6.4,
+    "firstAction": {
+      "top": 8,
+      "tag": "A",
+      "text": "How It Works"
+    },
+    "h1": {
+      "text": "Innovation\n          as a Service",
+      "size": 76,
+      "y": 205,
+      "bottom": 369
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.hero-title",
+        "text": "Innovation\n          as a Service",
+        "size": 76,
+        "weight": "800",
+        "y": 205
+      },
+      {
+        "tag": "H2.t-big",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 24,
+        "weight": "600",
+        "y": 780
+      },
+      {
+        "tag": "H3.field-band__title",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 24,
+        "weight": "700",
+        "y": 2381
+      }
+    ],
+    "errors": []
+  },
+  {
+    "surface": "axiomx",
+    "viewport": "390x844",
+    "file": "docs/design/evidence/axiomx-390x844.png",
+    "vw": 390,
+    "vh": 844,
+    "docH": 844,
+    "headerH": 44,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 44,
+    "chromePct": 5.2,
+    "firstAction": {
+      "top": 326,
+      "tag": "A",
+      "text": "Open live system"
+    },
+    "h1": {
+      "text": "FLOODDASH (Thailand Flood Watch)",
+      "size": 28,
+      "y": 118,
+      "bottom": 175
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.name",
+        "text": "FLOODDASH (Thailand Flood Watch)",
+        "size": 28,
+        "weight": "500",
+        "y": 118
+      },
+      {
+        "tag": "H3.vstudio-title",
+        "text": "ยืนกลางซอยน้ำท่วม — อธิบายสถานการณ",
+        "size": 15,
+        "weight": "600",
+        "y": 1112
+      },
+      {
+        "tag": "H2",
+        "text": "Inputs",
+        "size": 10,
+        "weight": "500",
+        "y": 1650
+      }
+    ],
+    "errors": []
+  },
+  {
+    "surface": "axiomx",
+    "viewport": "1024x900",
+    "file": "docs/design/evidence/axiomx-1024x900.png",
+    "vw": 1024,
+    "vh": 900,
+    "docH": 900,
+    "headerH": 44,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 44,
+    "chromePct": 4.9,
+    "firstAction": {
+      "top": 1,
+      "tag": "BUTTON",
+      "text": "VI"
+    },
+    "h1": {
+      "text": "FLOODDASH (Thailand Flood Watch)",
+      "size": 31,
+      "y": 118,
+      "bottom": 181
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.name",
+        "text": "FLOODDASH (Thailand Flood Watch)",
+        "size": 31,
+        "weight": "500",
+        "y": 118
+      },
+      {
+        "tag": "H3.vstudio-title",
+        "text": "ยืนกลางซอยน้ำท่วม — อธิบายสถานการณ",
+        "size": 15,
+        "weight": "600",
+        "y": 1220
+      },
+      {
+        "tag": "H2",
+        "text": "Index1",
+        "size": 10,
+        "weight": "500",
+        "y": 104
+      }
+    ],
+    "errors": []
+  },
+  {
+    "surface": "axiomx",
+    "viewport": "1440x900",
+    "file": "docs/design/evidence/axiomx-1440x900.png",
+    "vw": 1440,
+    "vh": 900,
+    "docH": 900,
+    "headerH": 44,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 44,
+    "chromePct": 4.9,
+    "firstAction": {
+      "top": 1,
+      "tag": "BUTTON",
+      "text": "VI"
+    },
+    "h1": {
+      "text": "FLOODDASH (Thailand Flood Watch)",
+      "size": 40,
+      "y": 118,
+      "bottom": 200
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.name",
+        "text": "FLOODDASH (Thailand Flood Watch)",
+        "size": 40,
+        "weight": "500",
+        "y": 118
+      },
+      {
+        "tag": "H3.vstudio-title",
+        "text": "ยืนกลางซอยน้ำท่วม — อธิบายสถานการณ",
+        "size": 15,
+        "weight": "600",
+        "y": 1528
+      },
+      {
+        "tag": "H2",
+        "text": "Index1",
+        "size": 10,
+        "weight": "500",
+        "y": 104
+      }
+    ],
+    "errors": []
+  }
+]
