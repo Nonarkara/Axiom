@@ -43,15 +43,15 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20261020a">
-  <link rel="stylesheet" href="hero.css?v=20261021a">
+  <link rel="stylesheet" href="rams.css?v=20261021b">
+  <link rel="stylesheet" href="hero.css?v=20261021b">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
   <script src="i18n-regional.js?v=20261021a"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
   <script defer src="footprint.js?v=20261013a"></script>
-  <script defer src="app.js?v=20261021a"></script>
+  <script defer src="app.js?v=20261021b"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -303,16 +303,187 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l4-4 4 4"/><path d="M9 5v14"/><path d="M15 19l4-4-4-4"/><path d="M19 15H5"/></svg>
           <span data-i18n="hero.exploreHint">Drag map &middot; Tap a theatre</span>
         </div>
-      <a class="hero-featured-badge" id="heroFeaturedBadge" href="https://flood-ami.pages.dev/" target="_blank"
-        rel="noopener">
-        <span class="hero-featured-badge__kicker" data-i18n="hero.featured.kicker">PROJECT BRIEF</span>
-        <span class="hero-featured-badge__event" id="heroFeaturedEvent">EVENT_ID: THAILAND_WATCH</span>
-        <span class="hero-featured-badge__name" id="heroFeaturedName">FloodDash</span>
-        <span class="hero-featured-badge__lede" id="heroFeaturedLede">Thailand · National coverage · THB. FloodDash · AirDash · SCITI · Forest Carbon Thailand.</span>
-        <span class="hero-featured-badge__cta"><span data-i18n="hero.featured.cta">Open live system</span> <span
-            class="tri">▸</span></span>
-      </a>
-      <p class="hero-footprint-note" data-i18n="hero.footprintNote">Geographic scope · national and regional anchors are not installation sites.</p>
+
+        <div class="hero-console" id="heroConsole" aria-label="Axiom Decision Systems Console">
+          <div class="hero-console__head">
+            <div class="hero-console__title-wrap">
+              <span class="hero-console__pulse" aria-hidden="true"></span>
+              <span class="hero-console__title" data-i18n="heroConsole.title">DECISION SYSTEMS CONSOLE</span>
+            </div>
+            <nav class="hero-console__nav" role="tablist" aria-label="Console Views">
+              <button class="hero-console__tab is-active" type="button" role="tab" id="tabBtnSystems" aria-selected="true" aria-controls="panelSystems" data-tab="systems">
+                <span class="hero-console__tab-num">01</span>
+                <span data-i18n="heroConsole.tabSystems">Systems &amp; Problems</span>
+              </button>
+              <button class="hero-console__tab" type="button" role="tab" id="tabBtnImpact" aria-selected="false" aria-controls="panelImpact" data-tab="impact">
+                <span class="hero-console__tab-num">02</span>
+                <span data-i18n="heroConsole.tabImpact">Citizen Impact</span>
+              </button>
+              <button class="hero-console__tab" type="button" role="tab" id="tabBtnTrends" aria-selected="false" aria-controls="panelTrends" data-tab="trends">
+                <span class="hero-console__tab-num">03</span>
+                <span data-i18n="heroConsole.tabTrends">Tech DNA &amp; Trends</span>
+              </button>
+              <button class="hero-console__tab" type="button" role="tab" id="tabBtnDossier" aria-selected="false" aria-controls="panelDossier" data-tab="dossier">
+                <span class="hero-console__tab-num">04</span>
+                <span data-i18n="heroConsole.tabDossier">Active Brief</span>
+              </button>
+            </nav>
+          </div>
+
+          <!-- Panel 01: Systems & Problems -->
+          <div class="hero-console__panel" id="panelSystems" role="tabpanel" aria-labelledby="tabBtnSystems">
+            <div class="hero-console__metric-row">
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val" data-count="catalog">71</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.systemsLabel">Live Systems</span>
+              </div>
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val">8</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.problemsLabel">Critical Domains</span>
+              </div>
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val">0</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.slideDecksLabel">Slide Decks</span>
+              </div>
+            </div>
+            <div class="hero-console__list">
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagFlood">DISASTER &amp; FLOOD · 22</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.floodTitle">Flash floods, cloudburst radar &amp; river basin water levels</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.floodDesc">FloodDash, Rayong Water Watch, Nakhon Si Thammarat · 2-hr predictive lead time before inundation.</p>
+              </div>
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagAir">AIR QUALITY &amp; SMOKE · 14</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.airTitle">Micro-basin PM2.5 dispersion, smoke plumes &amp; wildfire hotspots</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.airDesc">AirDash, Chiang Mai Air, C-Air · 24/7 hyper-local sensor fusion across northern river valleys.</p>
+              </div>
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagPorts">SEAPORTS &amp; LOGISTICS · 9</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.portsTitle">AIS vessel queues, container bottlenecks &amp; truck turnaround</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.portsDesc">Laem Chabang Port, Thailand Maritime · coordinating terminal gates and deep-water berths.</p>
+              </div>
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagAirspace">AIRSPACE &amp; TRANSIT · 7</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.airspaceTitle">Real-time ADS-B flight tracking &amp; cross-border transit corridors</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.airspaceDesc">SE Asia Airspace, Regional Mobility · flight trajectory prediction &amp; highway congestion relief.</p>
+              </div>
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagCivic">MUNICIPAL &amp; HEALTH · 11</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.civicTitle">Hospital bed loads, emergency dispatch &amp; civic grievances</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.civicDesc">Sikhio Operations, BKKx Culture · operational triage desks for municipal leaders who actually decide.</p>
+              </div>
+              <div class="hero-console__item">
+                <span class="hero-console__item-tag" data-i18n="heroConsole.tagSecurity">SOVEREIGN &amp; INTEL · 8</span>
+                <div class="hero-console__item-name" data-i18n="heroConsole.securityTitle">Border corridors, conflict mapping &amp; Straits of Malacca lifelines</div>
+                <p class="hero-console__item-desc" data-i18n="heroConsole.securityDesc">Asia Theatres, World Console · unclassified multi-source situational awareness from open data.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 02: Citizen Impact -->
+          <div class="hero-console__panel" id="panelImpact" role="tabpanel" aria-labelledby="tabBtnImpact" hidden>
+            <div class="hero-console__metric-row">
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val">68M+</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.citizensLabel">Citizens Protected</span>
+              </div>
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val">77/77</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.provincesLabel">Thai Provinces</span>
+              </div>
+              <div class="hero-console__metric">
+                <span class="hero-console__metric-val">5</span>
+                <span class="hero-console__metric-lbl" data-i18n="heroConsole.countriesLabel">Nations Deployed</span>
+              </div>
+            </div>
+            <div class="hero-console__impact-grid">
+              <div class="hero-console__impact-card">
+                <span class="hero-console__impact-num">112,000+</span>
+                <div class="hero-console__impact-title" data-i18n="heroConsole.socialTitle">Active Citizen Community</div>
+                <p class="hero-console__impact-desc" data-i18n="heroConsole.socialDesc">Daily broadcast followers on FloodDash channels receiving verified alerts during monsoon floods, without algorithmic noise or ads.</p>
+              </div>
+              <div class="hero-console__impact-card">
+                <span class="hero-console__impact-num">247+</span>
+                <div class="hero-console__impact-title" data-i18n="heroConsole.feedsTitle">Public Data Feeds Synthesized</div>
+                <p class="hero-console__impact-desc" data-i18n="heroConsole.feedsDesc">Live telemetry from meteorological radar, water gates, air sensors, ADS-B receivers, and maritime AIS fused into a single screen.</p>
+              </div>
+              <div class="hero-console__impact-card">
+                <span class="hero-console__impact-num">&lt; 2 Weeks</span>
+                <div class="hero-console__impact-title" data-i18n="heroConsole.speedTitle">Turnaround Velocity</div>
+                <p class="hero-console__impact-desc" data-i18n="heroConsole.speedDesc">From fragmented agency databases to an operating decision screen in the hands of mayors and governors, bypassing fiscal-year inertia.</p>
+              </div>
+              <div class="hero-console__impact-card">
+                <span class="hero-console__impact-num">$0</span>
+                <div class="hero-console__impact-title" data-i18n="heroConsole.costTitle">Proprietary Software Lock-In</div>
+                <p class="hero-console__impact-desc" data-i18n="heroConsole.costDesc">100% open-standard web architectures with zero annual vendor licensing fees, ensuring sustainable civic independence.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 03: Tech DNA & Trends -->
+          <div class="hero-console__panel" id="panelTrends" role="tabpanel" aria-labelledby="tabBtnTrends" hidden>
+            <div class="hero-console__keywords-strip">
+              <span class="hero-console__kw">#Canvas2D</span>
+              <span class="hero-console__kw">#EdgeSimulation</span>
+              <span class="hero-console__kw">#SensorFusion</span>
+              <span class="hero-console__kw">#LocalFirstRAG</span>
+              <span class="hero-console__kw">#ProvincialScoring</span>
+              <span class="hero-console__kw">#ZeroLockIn</span>
+              <span class="hero-console__kw">#OpenTelemetry</span>
+            </div>
+            <div class="hero-console__dna-list">
+              <div class="hero-console__dna-row">
+                <span class="hero-console__dna-idx">01</span>
+                <div>
+                  <strong class="hero-console__dna-title" data-i18n="heroConsole.dna1Title">Browser-Native Vector &amp; Canvas Engines</strong>
+                  <p class="hero-console__dna-desc" data-i18n="heroConsole.dna1Desc">Zero server-rendered lag. Complex geospatial lines, telemetry grids, and animations run client-side at 60 FPS in pure vanilla JavaScript.</p>
+                </div>
+              </div>
+              <div class="hero-console__dna-row">
+                <span class="hero-console__dna-idx">02</span>
+                <div>
+                  <strong class="hero-console__dna-title" data-i18n="heroConsole.dna2Title">Automated Multi-Source Sensor Fusion</strong>
+                  <p class="hero-console__dna-desc" data-i18n="heroConsole.dna2Desc">Harmonizing C-band Doppler radar sweeps, stream telemetry gauges, micro-IoT air monitors, and satellite SAR layers into unified grids.</p>
+                </div>
+              </div>
+              <div class="hero-console__dna-row">
+                <span class="hero-console__dna-idx">03</span>
+                <div>
+                  <strong class="hero-console__dna-title" data-i18n="heroConsole.dna3Title">Mathematical Provincial Risk Scoring</strong>
+                  <p class="hero-console__dna-desc" data-i18n="heroConsole.dna3Desc">Replacing qualitative opinions with deterministic vulnerability formulas: rainfall anomaly + soil saturation + drainage capacity.</p>
+                </div>
+              </div>
+              <div class="hero-console__dna-row">
+                <span class="hero-console__dna-idx">04</span>
+                <div>
+                  <strong class="hero-console__dna-title" data-i18n="heroConsole.dna4Title">Sovereign &amp; Local-First RAG Intelligence</strong>
+                  <p class="hero-console__dna-desc" data-i18n="heroConsole.dna4Desc">On-premise air-gapped document retrieval and operational regulatory playbooks without exporting sovereign data abroad.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 04: Active Brief (Preserves required test elements & links) -->
+          <div class="hero-console__panel" id="panelDossier" role="tabpanel" aria-labelledby="tabBtnDossier" hidden>
+            <a class="hero-featured-badge" id="heroFeaturedBadge" href="https://flood-ami.pages.dev/" target="_blank"
+              rel="noopener">
+              <span class="hero-featured-badge__kicker" data-i18n="hero.featured.kicker">PROJECT BRIEF</span>
+              <span class="hero-featured-badge__event" id="heroFeaturedEvent">EVENT_ID: THAILAND_WATCH</span>
+              <span class="hero-featured-badge__name" id="heroFeaturedName">FloodDash</span>
+              <span class="hero-featured-badge__lede" id="heroFeaturedLede">Thailand · National coverage · THB. FloodDash · AirDash · SCITI · Forest Carbon Thailand.</span>
+              <span class="hero-featured-badge__cta"><span data-i18n="hero.featured.cta">Open live system</span> <span
+                  class="tri">▸</span></span>
+            </a>
+          </div>
+
+          <div class="hero-console__foot">
+            <span class="hero-console__status-dot" aria-hidden="true"></span>
+            <span class="hero-console__foot-scope" id="consoleFootScope">ACTIVE THEATRE: THAILAND WATCH</span>
+            <span class="hero-console__foot-time">LIVE · 60 FPS</span>
+          </div>
+        </div>
+
+        <p class="hero-footprint-note" data-i18n="hero.footprintNote">Geographic scope · national and regional anchors are not installation sites.</p>
       </div>
       <div class="hero-scroll-indicator">
         <div class="hero-scroll-line"></div>
@@ -481,22 +652,61 @@
           <div class="evidence-strip__cell"><span class="evidence-strip__key">Last deploy</span><span class="evidence-strip__val" id="evidenceDeploy">~5 min ago</span></div>
         </div>
 
-        <!-- FIELD — the ground condition. Paired with FloodDash immediately below:
-             the same watch, seen from outside the browser. Autoplay is started by
-             app.js rather than the autoplay attribute, so a reader who has asked
-             for less motion gets the poster instead of a moving clip. -->
-        <figure class="field-band">
-          <video class="field-band__clip" data-clip src="media/showcase/iaas-hero.mp4"
-                 poster="media/showcase/iaas-hero.jpg" muted loop playsinline preload="none"
-                 width="480" height="860"
-                 aria-label="Rain falling over a residential district, with rooftops and trees in view."></video>
-          <figcaption class="field-band__cap">
-            <span class="t-label" data-i18n="field.kicker">In the field</span>
-            <p class="field-band__line" data-i18n="field.line">Rain over a district on one of these watches right now. Innovation-as-a-Service is not a pitch delivered in a room — it is standing where the question gets asked.</p>
-            <a class="field-band__cta" href="https://flood-ami.pages.dev/" target="_blank" rel="noopener"><span
-                data-i18n="field.cta">See FloodDash live</span> <span class="tri">▸</span></a>
-          </figcaption>
-        </figure>
+        <!-- FIELD — the ground condition & canonical briefing video -->
+        <section class="field-band field-band--video" id="groundTruth" aria-label="Field Ground Truth and Approach">
+          <div class="field-band__media">
+            <div class="field-band__video-wrap" id="fieldVideoWrap" data-video-id="0-A3R_i3wrs">
+              <picture class="field-band__poster-picture">
+                <source srcset="media/showcase/youtube-field.webp" type="image/webp">
+                <img class="field-band__poster" src="media/showcase/youtube-field.jpg" alt="Dr Non Arkaraprasertkul standing in shin-deep floodwaters during monsoon peak" loading="lazy">
+              </picture>
+              <button class="field-band__play-btn" type="button" aria-label="Play canonical field briefing video">
+                <span class="field-band__play-icon" aria-hidden="true">▶</span>
+                <span class="field-band__play-txt">PLAY FIELD BRIEFING · 01:42</span>
+              </button>
+            </div>
+            <div class="field-band__video-meta">
+              <span class="field-band__tag" data-i18n="field.videoTag">CANONICAL FIELD BRIEFING · CRISIS GROUND TRUTH</span>
+              <span class="field-band__cite">Dr. Non standing in floodwaters · Bangkok Soi Monsoon Peak</span>
+            </div>
+          </div>
+          <div class="field-band__cap">
+            <span class="t-label" data-i18n="field.kicker">In the field · Ground Truth</span>
+            <h3 class="field-band__title" data-i18n="field.title">The flood arrives at 2 a.m. The dashboard arrives next fiscal year.</h3>
+            <p class="field-band__line" data-i18n="field.line">Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:</p>
+            <div class="field-band__points">
+              <div class="field-band__point">
+                <span class="field-band__point-num">01</span>
+                <div class="field-band__point-body">
+                  <strong data-i18n="field.point1Title">Zero-Latency Ingestion Beats Fiscal-Year Inertia</strong>
+                  <p data-i18n="field.point1Desc">Official vendor quotes take a budget year and deliver static PDFs. We stream 9 public agencies (C-band rain radar, water telemetry, river basin gauges) every 3–60 minutes directly into client-side browser memory.</p>
+                </div>
+              </div>
+              <div class="field-band__point">
+                <span class="field-band__point-num">02</span>
+                <div class="field-band__point-body">
+                  <strong data-i18n="field.point2Title">Calibrated Against Physical Ground Reality</strong>
+                  <p data-i18n="field.point2Desc">Thresholds and alerts are tested in the flooded soi with operators and residents. Decisions happen in seconds without phone trees or bureaucratic lag.</p>
+                </div>
+              </div>
+              <div class="field-band__point">
+                <span class="field-band__point-num">03</span>
+                <div class="field-band__point-body">
+                  <strong data-i18n="field.point3Title">Radical Public Inclusion Without License Tolls</strong>
+                  <p data-i18n="field.point3Desc">112,000+ daily citizens, governors, and emergency responders read the exact same unified situation picture simultaneously — breaking information asymmetry with $0 proprietary licensing fees.</p>
+                </div>
+              </div>
+            </div>
+            <div class="field-band__actions">
+              <a class="btn btn--primary" href="https://flood-ami.pages.dev/" target="_blank" rel="noopener">
+                <span data-i18n="field.cta">See FloodDash live</span> <span class="tri">▸</span>
+              </a>
+              <a class="btn btn--subtle" href="https://bit.ly/flooddashthai" target="_blank" rel="noopener">
+                <span data-i18n="field.ctaBriefings">Daily Briefings (112K Followers)</span> <span class="tri">▸</span>
+              </a>
+            </div>
+          </div>
+        </section>
 
         <!-- CITY DASHBOARDS -->
         <div class="cluster-head">

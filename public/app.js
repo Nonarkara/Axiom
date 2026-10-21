@@ -4040,9 +4040,65 @@ Object.keys(i18nExt2).forEach(locale => {
 const i18nPitch = {
   en: {
     field: {
-      kicker: 'In the field',
-      line: 'Rain over a district on one of these watches right now. Innovation-as-a-Service is not a pitch delivered in a room — it is standing where the question gets asked.',
+      kicker: 'In the field · Ground Truth',
+      videoTag: 'CANONICAL FIELD BRIEFING · CRISIS GROUND TRUTH',
+      title: 'The flood arrives at 2 a.m. The dashboard arrives next fiscal year.',
+      line: 'Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:',
+      point1Title: 'Zero-Latency Ingestion Beats Fiscal-Year Inertia',
+      point1Desc: 'Official vendor quotes take a budget year and deliver static PDFs. We stream 9 public agencies (C-band rain radar, water telemetry, river basin gauges) every 3–60 minutes directly into client-side browser memory.',
+      point2Title: 'Calibrated Against Physical Ground Reality',
+      point2Desc: 'Thresholds and alerts are tested in the flooded soi with operators and residents. Decisions happen in seconds without phone trees or bureaucratic lag.',
+      point3Title: 'Radical Public Inclusion Without License Tolls',
+      point3Desc: '112,000+ daily citizens, governors, and emergency responders read the exact same unified situation picture simultaneously — breaking information asymmetry with $0 proprietary licensing fees.',
       cta: 'See FloodDash live',
+      ctaBriefings: 'Daily Briefings (112K Followers)'
+    },
+    heroConsole: {
+      title: 'DECISION SYSTEMS CONSOLE',
+      tabSystems: 'Systems & Problems',
+      tabImpact: 'Citizen Impact',
+      tabTrends: 'Tech DNA & Trends',
+      tabDossier: 'Active Brief',
+      systemsLabel: 'Live Systems in Production',
+      problemsLabel: 'Critical Domains Served',
+      slideDecksLabel: 'Slide Decks / Mockups',
+      tagFlood: 'DISASTER & FLOOD · 22',
+      floodTitle: 'Flash floods, cloudburst radar & river basin water levels',
+      floodDesc: 'FloodDash, Rayong Water Watch, Nakhon Si Thammarat · 2-hr predictive lead time before inundation.',
+      tagAir: 'AIR QUALITY & SMOKE · 14',
+      airTitle: 'Micro-basin PM2.5 dispersion, smoke plumes & wildfire hotspots',
+      airDesc: 'AirDash, Chiang Mai Air, C-Air · 24/7 hyper-local sensor fusion across northern river valleys.',
+      tagPorts: 'SEAPORTS & LOGISTICS · 9',
+      portsTitle: 'AIS vessel queues, container bottlenecks & truck turnaround',
+      portsDesc: 'Laem Chabang Port, Thailand Maritime · coordinating terminal gates and deep-water berths.',
+      tagAirspace: 'AIRSPACE & TRANSIT · 7',
+      airspaceTitle: 'Real-time ADS-B flight tracking & cross-border transit corridors',
+      airspaceDesc: 'SE Asia Airspace, Regional Mobility · flight trajectory prediction & highway congestion relief.',
+      tagCivic: 'MUNICIPAL & HEALTH · 11',
+      civicTitle: 'Hospital bed loads, emergency dispatch & civic grievances',
+      civicDesc: 'Sikhio Operations, BKKx Culture · operational triage desks for municipal leaders who actually decide.',
+      tagSecurity: 'SOVEREIGN & INTEL · 8',
+      securityTitle: 'Border corridors, conflict mapping & Straits of Malacca lifelines',
+      securityDesc: 'Asia Theatres, World Console · unclassified multi-source situational awareness from open data.',
+      citizensLabel: 'Citizens Protected',
+      provincesLabel: 'Thai Provinces Covered',
+      countriesLabel: 'Nations Deployed',
+      socialTitle: 'Active Citizen Community',
+      socialDesc: 'Daily broadcast followers on FloodDash channels receiving verified alerts during monsoon floods, without algorithmic noise or ads.',
+      feedsTitle: 'Public Data Feeds Synthesized',
+      feedsDesc: 'Live telemetry from meteorological radar, water gates, air sensors, ADS-B receivers, and maritime AIS fused into a single screen.',
+      speedTitle: 'Turnaround Velocity',
+      speedDesc: 'From fragmented agency databases to an operating decision screen in the hands of mayors and governors, bypassing fiscal-year inertia.',
+      costTitle: 'Proprietary Software Lock-In',
+      costDesc: '100% open-standard web architectures with zero annual vendor licensing fees, ensuring sustainable civic independence.',
+      dna1Title: 'Browser-Native Vector & Canvas Engines',
+      dna1Desc: 'Zero server-rendered lag. Complex geospatial lines, telemetry grids, and animations run client-side at 60 FPS in pure vanilla JavaScript.',
+      dna2Title: 'Automated Multi-Source Sensor Fusion',
+      dna2Desc: 'Ingesting disjointed C-band radar sweeps, river sensors, IoT air monitors, and satellite passes into unified situational models.',
+      dna3Title: 'Mathematical Provincial Hazard Indexing',
+      dna3Desc: 'Replacing qualitative consultant opinions with quantitative vulnerability formulas: rainfall anomaly, slope saturation, drainage runoff.',
+      dna4Title: 'Local-First Sovereign RAG & Intelligence',
+      dna4Desc: 'Air-gapped and local-first document retrieval engines that analyze municipal datasets and regulations without leaking sovereign data abroad.'
     },
     pitch: {
       kicker: 'The problem we solve',
@@ -4096,9 +4152,65 @@ const i18nPitch = {
   },
   th: {
     field: {
-      kicker: 'อยู่ในพื้นที่',
-      line: 'ฝนเหนือพื้นที่ที่กำลังอยู่บนหน้าจอเฝ้าระวังเหล่านี้อยู่ตอนนี้ Innovation-as-a-Service ไม่ใช่การเสนอขายในห้องประชุม แต่คือการยืนอยู่ตรงจุดที่คำถามถูกถาม',
+      kicker: 'อยู่ในพื้นที่จริง · ข้อเท็จจริงหน้างาน',
+      videoTag: 'การบรรยายสรุปสถานการณ์จริง · ข้อมูลวิกฤตจากจุดเกิดเหตุ',
+      title: 'น้ำท่วมมาถึงตอนตีสอง แดชบอร์ดมาถึงปีงบประมาณหน้า',
+      line: 'บันทึกภาพขณะยืนลุยน้ำท่วมระดับหน้าแข้งในวิกฤตน้ำหลาก Innovation-as-a-Service ไม่ใช่สไลด์ขายงานในห้องแอร์ แต่ถูกสร้างขึ้นขณะยืนอยู่ ณ จุดที่คำถามเกิดขึ้น นี่คือบทพิสูจน์ถึงความก้าวหน้าล้ำสมัยของแนวทางเรา:',
+      point1Title: 'ประมวลผลทันทีโดยไม่ต้องรอรอบงบประมาณ',
+      point1Desc: 'ระบบราชการทั่วไปต้องรองบข้ามปีเพื่อได้ไฟล์ PDF สรุปสถานการณ์ เราดึงข้อมูล 9 หน่วยงานรัฐ (เรดาร์ฝน C-band, โทรมาตรน้ำ, ประตูระบายน้ำ) ทุก 3–60 นาที เข้าสู่เบราว์เซอร์โดยตรง',
+      point2Title: 'สอบเทียบกับความเป็นจริงบนพื้นดิน',
+      point2Desc: 'เกณฑ์การเตือนภัยถูกทดสอบจริงกลางซอยน้ำท่วมร่วมกับชาวบ้านและเจ้าหน้าที่หน้างาน ทำให้การตัดสินใจเกิดขึ้นได้ในไม่กี่วินาทีโดยไม่ต้องรอสายโทรศัพท์',
+      point3Title: 'เปิดกว้างให้ประชาชนทุกคนโดยไม่มีค่าลิขสิทธิ์',
+      point3Desc: 'ประชาชนกว่า 112,000 คน ผู้ว่าฯ และทีมกู้ภัยอ่านภาพสถานการณ์เดียวกันพร้อมกันทั้งหมด ทลายความเหลื่อมล้ำทางข้อมูลโดยไม่ต้องจ่ายค่าใบอนุญาตซอฟต์แวร์นับล้าน',
       cta: 'ดู FloodDash สด',
+      ctaBriefings: 'สรุปสถานการณ์ประจำวัน (ผู้ติดตาม 112K)'
+    },
+    heroConsole: {
+      title: 'คอนโซลระบบข้อมูลเพื่อการตัดสินใจ',
+      tabSystems: 'ระบบและปัญหา',
+      tabImpact: 'ผลกระทบต่อประชาชน',
+      tabTrends: 'เทคโนโลยีและดีเอ็นเอ',
+      tabDossier: 'สรุปสถานการณ์',
+      systemsLabel: 'ระบบใช้งานจริง',
+      problemsLabel: 'มิติปัญหาเมืองสำคัญ',
+      slideDecksLabel: 'สไลด์ขายงาน / ม็อกอัป',
+      tagFlood: 'ภัยพิบัติและน้ำท่วม · 22',
+      floodTitle: 'น้ำท่วมฉับพลัน เรดาร์กลุ่มฝน และระดับน้ำในลุ่มน้ำ',
+      floodDesc: 'FloodDash, ศูนย์เฝ้าระวังระยอง, นครศรีธรรมราช · คาดการณ์ล่วงหน้า 2 ชั่วโมงก่อนน้ำเอ่อท่วม',
+      tagAir: 'คุณภาพอากาศและฝุ่นควัน · 14',
+      airTitle: 'การแพร่กระจาย PM2.5 ในแอ่งกระทะและจุดความร้อนไฟป่า',
+      airDesc: 'AirDash, เชียงใหม่อากาศ, C-Air · รวมเซนเซอร์ระดับจุลภาค 24 ชั่วโมงในหุบเขาภาคเหนือ',
+      tagPorts: 'ท่าเรือและโลจิสติกส์ · 9',
+      portsTitle: 'คิวเรือสินค้า AIS คอขวดตู้สินค้า และรอบรถบรรทุก',
+      portsDesc: 'ท่าเรือแหลมฉบัง, พาณิชยนาวีไทย · ประสานงานประตูเทียบท่าและหน้าท่าอย่างแม่นยำ',
+      tagAirspace: 'น่านฟ้าและการเดินทาง · 7',
+      airspaceTitle: 'ติดตามเครื่องบิน ADS-B แบบเรียลไทม์และระเบียงเดินทางข้ามแดน',
+      airspaceDesc: 'น่านฟ้าอาเซียน, ระบบสัญจรภูมิภาค · วิเคราะห์แนวบินและบรรเทาจราจรบนเส้นทางสายหลัก',
+      tagCivic: 'เทศบาลและสาธารณสุข · 11',
+      civicTitle: 'ภาระเตียงโรงพยาบาล หน่วยแพทย์ฉุกเฉิน และเรื่องร้องทุกข์',
+      civicDesc: 'โต๊ะปฏิบัติการสีคิ้ว, BKKx วัฒนธรรม · หน้าจอสั่งการจริงสำหรับผู้บริหารที่ต้องตัดสินใจ',
+      tagSecurity: 'ความมั่นคงและยุทธศาสตร์ · 8',
+      securityTitle: 'แนวระเบียงชายแดน แผนที่ความขัดแย้ง และช่องแคบมะละกา',
+      securityDesc: 'สมรภูมิเอเชีย, คอนโซลโลก · ตรวจจับสถานการณ์จากข้อมูลเปิดไร้ชั้นความลับ',
+      citizensLabel: 'ประชาชนที่ได้รับการดูแล',
+      provincesLabel: 'จังหวัดที่ครอบคลุมทั่วไทย',
+      countriesLabel: 'ประเทศที่ติดตั้งระบบ',
+      socialTitle: 'ชุมชนประชาชนที่ติดตามจริง',
+      socialDesc: 'ผู้ติดตามรายงานสด FloodDash ทุกวันในช่วงน้ำท่วม รับข่าวกรองที่ตรวจสอบแล้วโดยไร้อัลกอริทึมรบกวน',
+      feedsTitle: 'ชุดข้อมูลสาธารณะที่เชื่อมต่อ',
+      feedsDesc: 'รวมเรดาร์อุตุนิยมวิทยา ประตูน้ำ เซนเซอร์อากาศ ตัวรับสัญญาณเครื่องบินและเรือไว้บนจอเดียว',
+      speedTitle: 'ความเร็วในการขึ้นระบบ',
+      speedDesc: 'จากฐานข้อมูลกระจัดกระจายสู่หน้าจอใช้งานจริงในมือนายกเทศมนตรีและผู้ว่าฯ ภายในสองสัปดาห์',
+      costTitle: 'การผูกขาดซอฟต์แวร์',
+      costDesc: 'สถาปัตยกรรมเว็บมาตรฐานเปิด 100% ไม่มีค่าธรรมเนียมรายปี สร้างความมั่นคงทางดิจิทัลระยะยาว',
+      dna1Title: 'เอนจินเวกเตอร์และแคนวาสบนเบราว์เซอร์',
+      dna1Desc: 'ไร้ความหน่วงจากเซิร์ฟเวอร์ กราฟิกภูมิสารสนเทศและเส้นข้อมูลแสดงผลลื่นไหล 60 FPS ด้วย JavaScript แท้',
+      dna2Title: 'การผสานเซนเซอร์หลากแหล่งอัตโนมัติ',
+      dna2Desc: 'เชื่อมโยงเรดาร์ C-band เซนเซอร์ระดับน้ำ เซนเซอร์ตรวจวัดอากาศ และดาวเทียมเป็นแบบจำลองเดียว',
+      dna3Title: 'ดัชนีชี้วัดความเสี่ยงเชิงคณิตศาสตร์',
+      dna3Desc: 'แทนที่ความเห็นส่วนบุคคลด้วยสูตรความเปราะบางเชิงปริมาณ: ความผิดปกติของฝน ความอิ่มตัวดิน การระบาย',
+      dna4Title: 'ระบบ RAG อัจฉริยะแบบ Local-First',
+      dna4Desc: 'ระบบค้นคืนเอกสารและกฎหมายเมืองที่ทำงานในเครื่อง ไม่ส่งออกข้อมูลอธิปไตยของชาติไปภายนอก'
     },
     pitch: {
       kicker: 'ปัญหาที่ผมแก้',
@@ -4152,9 +4264,65 @@ const i18nPitch = {
   },
   zh: {
     field: {
-      kicker: '在现场',
-      line: '此刻正下着雨的这个片区，正是这些监测画面正在看的地方。创新即服务不是会议室里的提案，而是站在问题被提出的地方。',
+      kicker: '在现场 · 真实态势',
+      videoTag: '权威现场简报 · 危机一线直击',
+      title: '洪水凌晨两点到来。仪表盘下个财年才到。',
+      line: '在季风暴雨峰值期间，站在没过小腿的积水中现场录制。“创新即服务”不是会议室里的方案路演，而是在问题发生的一线动手构建。这个视频印证了我们前沿方案的硬核实力：',
+      point1Title: '零延迟实时接入击穿预算审批惯性',
+      point1Desc: '传统供应商走预算周期需要整整一年，最终只交付静态 PDF 报告。我们将 9 个公共机构数据（C 波段测雨雷达、水文遥测、流域水位计）每 3–60 分钟直接流式注入浏览器内存。',
+      point2Title: '基于街巷物理真实校准告警阈值',
+      point2Desc: '告警线与防汛策略直接在受淹巷道与前线工作人员及居民一同实地验证，数秒内即可形成果断决策，无需层层汇报或漫长电话确认。',
+      point3Title: '打破软件许可壁垒的全民无门槛共享',
+      point3Desc: '逾 112,000 名日常市民、府尹与应急救援队伍同时读取同一张无损态势图，以 0 元专有软件许可费彻底消除信息不对称。',
       cta: '查看 FloodDash 实时系统',
+      ctaBriefings: '每日防汛简报（112K 关注）'
+    },
+    heroConsole: {
+      title: '决策系统指挥台',
+      tabSystems: '系统与议题',
+      tabImpact: '公众影响力',
+      tabTrends: '技术基因与趋势',
+      tabDossier: '当前简报',
+      systemsLabel: '已上线运行系统',
+      problemsLabel: '覆盖核心城市领域',
+      slideDecksLabel: '演示幻灯片 / 模型图',
+      tagFlood: '灾害与防汛 · 22',
+      floodTitle: '内涝、暴雨雷达与流域水文水位监测',
+      floodDesc: 'FloodDash、罗勇水务、洛坤府 · 积水前 2 小时精准预见期。',
+      tagAir: '空气质量与烟雾 · 14',
+      airTitle: '微盆地 PM2.5 扩散、烟羽与林火热点',
+      airDesc: 'AirDash、清迈空气、C-Air · 覆盖北部河谷盆地的 24 小时超本地传感器融合。',
+      tagPorts: '港口航运与物流 · 9',
+      portsTitle: 'AIS 船舶排队、集装箱瓶颈与货车周转',
+      portsDesc: '林查班港、泰国海事 · 精准协调闸口吞吐与深水泊位分配。',
+      tagAirspace: '空域与骨干交通 · 7',
+      airspaceTitle: '实时 ADS-B 航班追踪与跨城交通走廊',
+      airspaceDesc: '东南亚空域、区域机动性 · 飞行航迹预测与骨干高速疏堵。',
+      tagCivic: '市政运营与公共医疗 · 11',
+      civicTitle: '医院床位负荷、紧急调度与市民诉求分流',
+      civicDesc: '西球市政、BKKx 3D · 专为拍板决策者打造的战术处置台。',
+      tagSecurity: '地缘安全与开源情报 · 8',
+      securityTitle: '边境走廊、冲突态势图与马六甲生命线',
+      securityDesc: '亚洲战区、全球总控台 · 基于全公开数据的非涉密全域态势感知。',
+      citizensLabel: '受保护民众总数',
+      provincesLabel: '覆盖全泰各府',
+      countriesLabel: '部署主权国家',
+      socialTitle: '高黏度公民社群',
+      socialDesc: 'FloodDash 官方频道每日追踪受众，在季风期接收无算法噪音与广告的核实预警。',
+      feedsTitle: '深度汇聚的公共数据流',
+      feedsDesc: '将气象雷达、水闸遥测、空气微站、ADS-B 与船舶 AIS 熔铸于一屏。',
+      speedTitle: '极速交付与投产速度',
+      speedDesc: '从零散的部门原始数据库到市长与府尹手中的实战决策屏，两周之内即刻交付。',
+      costTitle: '告别专有软件锁死',
+      costDesc: '100% 开放标准 Web 架构，无昂贵年度许可授权费，保障长久自主可控。',
+      dna1Title: '浏览器原生矢量与 Canvas 引擎',
+      dna1Desc: '零服务器渲染等待。复杂的空间数据线条与遥测网格完全依靠原生 JS 以 60 帧极速运行。',
+      dna2Title: '自动化多源传感器融合机制',
+      dna2Desc: '将离散的 C 波段雷达扫描、河道浮标、空气传感器与卫星影像整合成统一态势。',
+      dna3Title: '严密数学化的省域风险指数',
+      dna3Desc: '以量化致灾公式取代顾问主观打分：异常雨量、土壤含水饱和度与排涝径流函数。',
+      dna4Title: '本土化优先的主权级 RAG 检索',
+      dna4Desc: '离线私有化运行的政策与规章智能检索系统，不泄露任何关键国家与市政遥测数据。'
     },
     pitch: {
       kicker: '我们解决的问题',
@@ -4208,9 +4376,65 @@ const i18nPitch = {
   },
   ko: {
     field: {
-      kicker: '현장',
-      line: '지금 비가 내리는 그 구역이 바로 이 감시 화면들이 지켜보는 곳입니다. Innovation-as-a-Service는 회의실에서의 제안이 아니라, 질문이 나오는 그 자리에 서는 일입니다.',
+      kicker: '현장 · 실측된 현실',
+      videoTag: '위기 현장 브리핑 · 침수 현장 직격',
+      title: '홍수는 새벽 2시에 옵니다. 대시보드는 다음 회계연도에 옵니다.',
+      line: '몬순 폭우 정점 당시 정강이까지 차오른 침수 골목에서 직접 촬영했습니다. Innovation-as-a-Service는 에어컨 나오는 회의실에서의 제안이 아니라, 질문이 터져 나오는 재난의 현장에 서서 만들어집니다. 이 영상이 증명하는 우리의 혁신적 접근법은 다음과 같습니다:',
+      point1Title: '예산 주기 관성을 깨부수는 무지연 스트리밍',
+      point1Desc: '전통적인 벤더는 1년 예산 주기를 거쳐 결국 정적 PDF를 납품합니다. 우리는 9개 공공 기관 데이터(C-밴드 강우 레이더, 수위 원격 측정, 수문 수위계)를 3–60분마다 브라우저 메모리로 직접 실시간 주입합니다.',
+      point2Title: '골목의 물리적 현장 현실로 직접 보정',
+      point2Desc: '경보 임계값은 침수된 골목에서 주민과 현장 운영자와 함께 직접 검증됩니다. 전화 보고에 시간을 낭비하지 않고 수초 안에 과감한 결정을 내릴 수 있습니다.',
+      point3Title: '라이선스 통행료 없는 급진적 공공 공유',
+      point3Desc: '112,000명 이상의 일상 시민, 주지사, 재난 구조팀이 완전히 동일한 상황도를 동시에 읽습니다. 10억 원대 독점 소프트웨어 비용 없이 정보 비대칭을 완전히 해소합니다.',
       cta: 'FloodDash 실시간 보기',
+      ctaBriefings: '일일 홍수 브리핑 (112K 구독)'
+    },
+    heroConsole: {
+      title: '의사결정 시스템 콘솔',
+      tabSystems: '시스템 및 이슈',
+      tabImpact: '시민 영향력',
+      tabTrends: '기술 DNA 및 트렌드',
+      tabDossier: '활성 브리프',
+      systemsLabel: '운영 중인 실시간 시스템',
+      problemsLabel: '해결 중인 핵심 도시 영역',
+      slideDecksLabel: '슬라이드 발표 자료 / 목업',
+      tagFlood: '재난 및 홍수 방재 · 22',
+      floodTitle: '도시 침수, 국지성 호우 레이더 및 유역 수위 감시',
+      floodDesc: 'FloodDash, 라용 수자원 감시, 나콘시탐마랏 · 침수 발생 2시간 전 예측 경보.',
+      tagAir: '대기질 및 산불 연무 · 14',
+      airTitle: '분지 지형 PM2.5 확산, 연무 기둥 및 산불 핫스팟',
+      airDesc: 'AirDash, 치앙마이 대기, C-Air · 북부 분지 계곡 24시간 초밀착 센서 융합.',
+      tagPorts: '항만 및 물류 관제 · 9',
+      portsTitle: 'AIS 선박 대기열, 컨테이너 병목 및 화물차 회전율',
+      portsDesc: '람차방 항만, 태국 해사 관제 · 게이트 통과와 심수 부두의 실시간 조율.',
+      tagAirspace: '영공 및 간선 교통 · 7',
+      airspaceTitle: '실시간 ADS-B 항공 추적 및 광역 교통 회랑',
+      airspaceDesc: '동남아 영공, 광역 이동성 · 비행 궤적 예측 및 고속도로 정체 완화.',
+      tagCivic: '지자체 운영 및 응급 의료 · 11',
+      civicTitle: '병원 병상 부하, 응급 출동 및 시민 민원 분류',
+      civicDesc: '시คิ้ว 운영 데스크, BKKx 문화 · 실제 결정을 내리는 지자체장을 위한 상황판.',
+      tagSecurity: '주권 안보 및 오픈소스 인텔 · 8',
+      securityTitle: '국경 회랑, 분쟁 매핑 및 믈라카 해협 에너지 생명선',
+      securityDesc: '아시아 전구, 글로벌 총괄 데스크 · 공개 데이터 기반 비인가 다원 상황 인식.',
+      citizensLabel: '보호받는 시민 총수',
+      provincesLabel: '태국 전역 관할 주',
+      countriesLabel: '배치된 주권 국가',
+      socialTitle: '활동 중인 시민 커뮤니티',
+      socialDesc: 'FloodDash 공식 채널 구독자 — 알고리즘 노이즈와 광고 없이 신속한 검증 경보 수신.',
+      feedsTitle: '통합된 공공 데이터 스트림',
+      feedsDesc: '기상 레이더, 수문, 대기 센서, ADS-B 및 해상 AIS 신호를 단일 화면에 융합.',
+      speedTitle: '신속한 구축 및 턴어라운드',
+      speedDesc: '파편화된 기관 데이터베이스에서 시장과 주지사 손안의 실전 결제 화면까지 2주 완료.',
+      costTitle: '독점 소프트웨어 종속 탈피',
+      costDesc: '100% 개방형 표준 웹 아키텍처로 연간 라이선스 비용 0원, 항구적 디지털 주권 보장.',
+      dna1Title: '브라우저 네이티브 벡터 및 캔버스 엔진',
+      dna1Desc: '서버 렌더링 지연 제로. 순수 바닐라 JS로 복잡한 지리 공간 데이터 라인을 60 FPS로 구동.',
+      dna2Title: '자동화된 다원 센서 융합 메커니즘',
+      dna2Desc: 'C-밴드 레이더 스위프, 하천 센서, IoT 공기질 감시기와 위성 신호를 단일 모델로 결합.',
+      dna3Title: '엄밀한 수학적 주 단위 위험 지수화',
+      dna3Desc: '컨설턴트의 주관적 의견 대신 강우 편차, 토양 포화도, 배수 유출 공식 기반 정량화.',
+      dna4Title: '로컬 우선 주권형 RAG 인텔리전스',
+      dna4Desc: '국가 주권 데이터를 해외로 유출하지 않고 내부에서 규정과 지자체 문서를 분석하는 검색 엔진.'
     },
     pitch: {
       kicker: '우리가 푸는 문제',
@@ -4264,9 +4488,65 @@ const i18nPitch = {
   },
   ja: {
     field: {
-      kicker: '現場',
-      line: '今この雨が続いている区域が、まさにこれらの監視画面が見ている場所です。Innovation-as-a-Service は会議室での提案ではなく、質問が生まれる場所に立つことです。',
+      kicker: '現場 · 実測された現実',
+      videoTag: '現場危機ブリーフィング · 浸水最前線からの実況',
+      title: '洪水は午前2時に来る。ダッシュボードは来年度に来る。',
+      line: 'モンスーン豪雨のピーク時、すねまで水に浸かった浸水路地で直接収録。「Innovation-as-a-Service」は空調の効いた会議室での提案ではなく、問題が起きている現場に立って作られます。この動画が証明する私たちの先進的アプローチは以下の通りです：',
+      point1Title: '予算サイクルの停滞を打ち破るゼロ遅延配信',
+      point1Desc: '従来型ベンダーは予算サイクルに1年を費やし、静的なPDFを納品します。私たちは9つの公的機関データ（Cバンド降雨レーダー、河川テレメータ、水門水位計）を3〜60分ごとにブラウザメモリへ直接ストリーミングします。',
+      point2Title: '路地の物理的現実に基づき直接キャリブレーション',
+      point2Desc: '警戒ラインや警報閾値は、浸水した路地で住民や運用責任者とともに検証されます。電話確認に時間を浪費せず、数秒で的確な意思決定を下せます。',
+      point3Title: '高額ライセンス不要の急進的パブリック共有',
+      point3Desc: '11.2万人以上の日常市民、知事、救助隊が完全に同一の状況図を同時に把握。数億円規模の独占ソフトウェア費用を課すことなく、情報非対称性を完全に解消します。',
       cta: 'FloodDash ライブを見る',
+      ctaBriefings: '日次洪水ブリーフィング（登録11.2万）'
+    },
+    heroConsole: {
+      title: '意思決定システム統合司令台',
+      tabSystems: 'システムと課題',
+      tabImpact: '市民への影響',
+      tabTrends: '技術DNAと動向',
+      tabDossier: '現在ブリーフ',
+      systemsLabel: '本番稼働中システム',
+      problemsLabel: '解決対象の都市中核領域',
+      slideDecksLabel: '提案スライド / モックアップ',
+      tagFlood: '防災・洪水監視 · 22',
+      floodTitle: '内水氾濫、集中豪雨レーダー、河川流域水位監視',
+      floodDesc: 'FloodDash、ラヨーン水管理、ナコーンシータンマラート · 浸水2時間前の高精度事前予見。',
+      tagAir: '大気質と煙霧 · 14',
+      airTitle: '微盆地PM2.5拡散、煙羽、山火事ホットスポット',
+      airDesc: 'AirDash、チェンマイ大気、C-Air · 北部盆地における24時間超ローカルセンサー統合。',
+      tagPorts: '港湾と物流 · 9',
+      portsTitle: 'AIS船舶待機列、コンテナ滞留、トラック回転効率',
+      portsDesc: 'レムチャバン港、タイ海事管制 · ターミナルゲートと大深水バースの精密同期。',
+      tagAirspace: '上空と広域交通 · 7',
+      airspaceTitle: 'リアルタイムADS-B航空追跡と越境交通回廊',
+      airspaceDesc: '東南アジア空域、広域モビリティ · 飛行経路予測と主要幹線高速の渋滞解消。',
+      tagCivic: '行政運営と地域医療 · 11',
+      civicTitle: '病院病床負荷、緊急出動、市民要望トリアージ',
+      civicDesc: 'シーキウ行政オペレーション、BKKx 3D · 実際に決断を下す首長のための実戦司令卓。',
+      tagSecurity: '主権安全保障とOSINT · 8',
+      securityTitle: '国境回廊、紛争マッピング、マラッカ海峡エネルギー生命線',
+      securityDesc: 'アジア戦域、ワールドコンソール · 公開データに基づく非機密マルチソース状況認識。',
+      citizensLabel: '保護下にある市民数',
+      provincesLabel: 'タイ全土カバー県数',
+      countriesLabel: '配備主権国家数',
+      socialTitle: '高エンゲージメント市民群',
+      socialDesc: 'FloodDash公式チャンネル登録者 — アルゴリズムによるノイズや広告なしに検証済み警報を受信。',
+      feedsTitle: '統合された公的データ流',
+      feedsDesc: '気象レーダー、水門、大気センサー、ADS-B、船舶AISを1画面に完全凝縮。',
+      speedTitle: '立ち上げと稼働の速度',
+      speedDesc: '分散した各省庁データベースから首長や知事の手元の実動画面まで、わずか2週間で完成。',
+      costTitle: '独自ベンダーロックイン打破',
+      costDesc: '100%オープン標準Webアーキテクチャにより年間ライセンス料ゼロ、持続的な自主独立を担保。',
+      dna1Title: 'ブラウザネイティブのベクター＆Canvasエンジン',
+      dna1Desc: 'サーバー側レンダリング遅延なし。複雑な地理空間データ線群を純粋なJavaScriptで60 FPS稼働。',
+      dna2Title: '自律的多源センサーフュージョン機構',
+      dna2Desc: 'Cバンドレーダースキャン、河川ブイ、IoT大気監視機、衛星画像を統一モデルに統合。',
+      dna3Title: '厳密な数学的地域リスクインデックス',
+      dna3Desc: 'コンサルの主観的見解を排し、降雨偏差・土壌水分飽和度・排水流出の定量的公式で算出。',
+      dna4Title: 'ローカルファーストの主権型RAGインテリジェンス',
+      dna4Desc: '国家機密や市政データを海外に漏洩させることなく、内部で法規や都市文書を解析する検索基盤。'
     },
     pitch: {
       kicker: '私たちが解く問題',
@@ -4320,9 +4600,65 @@ const i18nPitch = {
   },
   vi: {
     field: {
-      kicker: 'Tại hiện trường',
-      line: 'Khu vực đang mưa ngay lúc này chính là nơi các màn hình giám sát này đang theo dõi. Innovation-as-a-Service không phải một đề xuất trong phòng họp, mà là việc đứng ở đúng nơi câu hỏi được đặt ra.',
+      kicker: 'Tại hiện trường · Dữ liệu thực địa',
+      videoTag: 'BÁO CÁO THỰC ĐỊA KINH ĐIỂN · TRỰC TIẾP TRONG TÂM BÃO LŨ',
+      title: 'Lũ đến lúc 2 giờ sáng. Dashboard đến vào năm tài khóa sau.',
+      line: 'Được ghi hình khi đứng ngập nước đến bắp chân ngay giữa đỉnh điểm mùa mưa lũ. Innovation-as-a-Service không phải bài thuyết trình trong phòng họp máy lạnh — nó được tạo ra khi đứng ở chính nơi câu hỏi sinh tử được đặt ra. Đây là minh chứng cho tính đột phá trong cách tiếp cận của chúng tôi:',
+      point1Title: 'Xử lý luồng tức thời vượt qua sức ỳ chu kỳ ngân sách',
+      point1Desc: 'Các nhà thầu truyền thống mất cả năm để xin duyệt ngân sách và chỉ giao về file PDF tĩnh. Chúng tôi truyền trực tiếp dữ liệu từ 9 cơ quan nhà nước (radar đo mưa băng C, đo xa thủy văn, mực nước sông) mỗi 3–60 phút thẳng vào bộ nhớ trình duyệt.',
+      point2Title: 'Hiệu chuẩn trực tiếp với thực tế hiện trường',
+      point2Desc: 'Các ngưỡng cảnh báo và thuật toán được thử nghiệm ngay trong con hẻm ngập nước cùng người dân và đội ngũ tác chiến, giúp đưa ra quyết định hành động trong vài giây mà không cần gọi điện hỏi han.',
+      point3Title: 'Minh bạch hóa vì cộng đồng mà không tính phí bản quyền',
+      point3Desc: 'Hơn 112.000 người dân, tỉnh trưởng và đội cứu hộ cùng đọc chung một bức tranh tình huống đồng nhất vào cùng một thời điểm — xóa bỏ hoàn toàn bất đối xứng thông tin mà không thu tiền bản quyền triệu đô.',
       cta: 'Xem FloodDash trực tiếp',
+      ctaBriefings: 'Điểm tin lũ hàng ngày (112K người theo dõi)'
+    },
+    heroConsole: {
+      title: 'BÀN ĐIỀU KHIỂN HỆ THỐNG RA QUYẾT ĐỊNH',
+      tabSystems: 'Hệ thống & Vấn đề',
+      tabImpact: 'Tác động xã hội',
+      tabTrends: 'DNA công nghệ',
+      tabDossier: 'Hồ sơ đang mở',
+      systemsLabel: 'Hệ thống đang chạy thật',
+      problemsLabel: 'Lĩnh vực đô thị giải quyết',
+      slideDecksLabel: 'Bản vẽ mô phỏng / Slide',
+      tagFlood: 'THIÊN TAI & LŨ LỤT · 22',
+      floodTitle: 'Ngập úng đô thị, radar mưa dông & mực nước lưu vực sông',
+      floodDesc: 'FloodDash, Giám sát nước Rayong, Nakhon Si Thammarat · Cảnh báo trước 2 giờ trước khi ngập tràn.',
+      tagAir: 'CHẤT LƯỢNG KHÔNG KHÍ · 14',
+      airTitle: 'Khuếch tán PM2.5 lòng chảo, vệt khói & điểm cháy rừng',
+      airDesc: 'AirDash, Không khí Chiang Mai, C-Air · Hợp nhất cảm biến siêu cục bộ 24/7 khắp các thung lũng miền bắc.',
+      tagPorts: 'CẢNG BIỂN & HẬU CẦN · 9',
+      portsTitle: 'Hàng chờ tàu AIS, nghẽn container & quay vòng xe tải',
+      portsDesc: 'Cảng Laem Chabang, Hàng hải Thái Lan · Điều phối cổng cảng và cầu cảng nước sâu theo thời gian thực.',
+      tagAirspace: 'VÙNG TRỜI & GIAO THÔNG · 7',
+      airspaceTitle: 'Theo dõi chuyến bay ADS-B & hành lang giao thông liên vùng',
+      airspaceDesc: 'Vùng trời Đông Nam Á, Di chuyển khu vực · Dự báo quỹ đạo bay & giảm tải cao tốc huyết mạch.',
+      tagCivic: 'ĐÔ THỊ & Y TẾ CÔNG CỘNG · 11',
+      civicTitle: 'Tải giường bệnh viện, cấp cứu khẩn cấp & xử lý khiếu nại',
+      civicDesc: 'Bàn tác chiến Sikhio, Văn hóa BKKx · Bàn làm việc thực chiến cho lãnh đạo cần ra quyết định tức thì.',
+      tagSecurity: 'AN NINH CHỦ QUYỀN & TÌNH BÁO · 8',
+      securityTitle: 'Hành lang biên giới, bản đồ xung đột & huyết mạch Malacca',
+      securityDesc: 'Chiến trường châu Á, Bàn điều khiển toàn cầu · Nhận thức tình huống đa nguồn từ dữ liệu mở không mật.',
+      citizensLabel: 'Người dân được bảo vệ',
+      provincesLabel: 'Tỉnh thành phủ khắp Thái Lan',
+      countriesLabel: 'Quốc gia triển khai',
+      socialTitle: 'Cộng đồng người dân tương tác',
+      socialDesc: 'Người theo dõi phát sóng hàng ngày trên FloodDash — nhận tin cảnh báo đã kiểm chứng không nhiễu thuật toán.',
+      feedsTitle: 'Luồng dữ liệu công được hợp nhất',
+      feedsDesc: 'Kết nối radar khí tượng, cống xả, cảm biến không khí, máy thu ADS-B và tàu biển AIS trên một màn hình.',
+      speedTitle: 'Tốc độ triển khai bàn giao',
+      speedDesc: 'Từ các cơ sở dữ liệu phân tán tới màn hình tác chiến trong tay tỉnh trưởng và thị trưởng chỉ trong hai tuần.',
+      costTitle: 'Chấm dứt trói buộc phần mềm',
+      costDesc: 'Kiến trúc web chuẩn mở 100% với chi phí bản quyền hàng năm bằng 0, bảo đảm tự chủ công nghệ lâu dài.',
+      dna1Title: 'Động cơ đồ họa Canvas & Vector trên trình duyệt',
+      dna1Desc: 'Không phụ thuộc máy chủ. Các đường dữ liệu không gian và lưới viễn thám chạy mượt mà 60 FPS bằng JavaScript thuần.',
+      dna2Title: 'Cơ chế hợp nhất cảm biến đa nguồn tự động',
+      dna2Desc: 'Kết hợp các lượt quét radar băng C, trạm đo thủy văn, máy đo IoT và ảnh vệ tinh thành mô hình thống nhất.',
+      dna3Title: 'Chỉ số hóa rủi ro cấp tỉnh bằng toán học',
+      dna3Desc: 'Thay thế ý kiến chủ quan bằng công thức định lượng: lượng mưa bất thường, độ bão hòa đất, dòng chảy thoát nước.',
+      dna4Title: 'Trí tuệ RAG bảo vệ chủ quyền dữ liệu',
+      dna4Desc: 'Công cụ tra cứu tài liệu và quy chuẩn chạy biệt lập tại chỗ, không xuất dữ liệu nhạy cảm ra nước ngoài.'
     },
     pitch: {
       kicker: 'Vấn đề chúng tôi giải quyết',
@@ -4376,9 +4712,65 @@ const i18nPitch = {
   },
   ts: {
     field: {
-      kicker: 'on site',
-      line: 'the district currently under rain is the one these watches are reading. Innovation-as-a-Service is not a pitch delivered in a room; it is standing where the question gets asked.',
+      kicker: 'onSite.groundTruth()',
+      videoTag: '// CANONICAL_FIELD_BRIEFING: liveInTheFlood()',
+      title: 'flood.arrivesAt("02:00") // dashboard.arrivesAt("nextFiscalYear")',
+      line: '// recorded: standingInFloodwater({ depth: "shin" })\n// innovation_as_a_service !== conferenceRoom.pitch()\n// innovation_as_a_service === standingWhereQuestionIsAsked()\n// approach.cuttingEdge: Proof[3]',
+      point1Title: 'zeroLatency.beats(budgetCycleInertia)',
+      point1Desc: '// traditional: 1y quote → PDF\n// axiom: 9 publicStreams (radar + gauges + flow) → inMemoryStreams({ refresh: "3-60m" })',
+      point2Title: 'calibratedAgainstPhysicalGroundTruth',
+      point2Desc: '// tested in soi with residents + dispatchers\n// phoneCalls.firstHour === 0 → decisions.immediate()',
+      point3Title: 'radicalPublicInclusion({ licenseCost: 0 })',
+      point3Desc: '// citizens[112_000+] + governors + rescuers\n// read(sameUnifiedSituationPicture) simultaneously // proprietaryTolls: 0',
       cta: 'FloodDash.live()',
+      ctaBriefings: 'dailyBriefings.view({ followers: "112k" })'
+    },
+    heroConsole: {
+      title: 'DECISION_SYSTEMS_CONSOLE',
+      tabSystems: 'systems.domains()',
+      tabImpact: 'impact.citizens()',
+      tabTrends: 'tech.dna()',
+      tabDossier: 'active.dossier()',
+      systemsLabel: 'systems.inProduction',
+      problemsLabel: 'criticalDomains.served',
+      slideDecksLabel: 'slideDecks.shipped',
+      tagFlood: 'DISASTER_FLOOD[22]',
+      floodTitle: 'flashFloods + cloudburstRadar + basinTelemetry',
+      floodDesc: 'FloodDash + Rayong + NST // leadTime: "2h" before inundation',
+      tagAir: 'AIR_QUALITY_SMOKE[14]',
+      airTitle: 'pm25Dispersion + smokePlumes + wildfireHotspots',
+      airDesc: 'AirDash + ChiangMaiAir + CAir // 24/7 hyperLocal sensorFusion',
+      tagPorts: 'SEAPORTS_LOGISTICS[9]',
+      portsTitle: 'aisVesselQueues + containerBottlenecks + truckTurnaround',
+      portsDesc: 'LaemChabangPort + ThailandMaritime // gateCoordination',
+      tagAirspace: 'AIRSPACE_TRANSIT[7]',
+      airspaceTitle: 'adsbFlightTracking + crossBorderTransit',
+      airspaceDesc: 'seAsiaAirspace + regionalMobility // trajectoryPrediction',
+      tagCivic: 'MUNICIPAL_HEALTH[11]',
+      civicTitle: 'hospitalBeds + emergencyDispatch + civicGrievances',
+      civicDesc: 'SikhioOps + BKKxCulture // operationalTriageDesks',
+      tagSecurity: 'SOVEREIGN_INTEL[8]',
+      securityTitle: 'borderCorridors + conflictMapping + malaccaLifeline',
+      securityDesc: 'asiaTheatres + worldConsole // unclassifiedOpenIntel',
+      citizensLabel: 'citizens.protected',
+      provincesLabel: 'provinces.covered',
+      countriesLabel: 'nations.deployed',
+      socialTitle: 'activeCitizenCommunity',
+      socialDesc: 'dailyFollowers[112_000+] // zeroAds, zeroAlgorithmicNoise',
+      feedsTitle: 'publicDataFeeds.synthesized',
+      feedsDesc: 'fused({ radar, waterGates, air, adsb, ais }) → oneScreen',
+      speedTitle: 'turnaroundVelocity',
+      speedDesc: 'rawDatabases → operatingScreen({ time: "<2w" })',
+      costTitle: 'vendorLockIn',
+      costDesc: 'openStandardWebArchitectures // annualLicenseFees: 0',
+      dna1Title: 'browserNative.vectorEngines',
+      dna1Desc: 'zeroServerLag // geospatialLines + canvas2D @ 60fps',
+      dna2Title: 'automatedMultiSource.sensorFusion',
+      dna2Desc: 'fuse({ cbandRadar, telemetry, airSensors, satellite })',
+      dna3Title: 'mathematical.provincialScoring',
+      dna3Desc: 'vulnerabilityIndex = f(rainAnomaly, soilSaturation, drainage)',
+      dna4Title: 'localFirst.sovereignRAG',
+      dna4Desc: 'airGappedDocumentRetrieval // sovereignData.exported: false'
     },
     pitch: {
       kicker: 'problem.solve()',
@@ -5040,6 +5432,10 @@ function initFlooddashCarousel() {
     if (featuredEvent) featuredEvent.textContent = eventId;
     if (featuredName) featuredName.textContent = featuredNameText;
     if (featuredLede) featuredLede.textContent = sitrep;
+    const consoleFootScope = document.getElementById('consoleFootScope');
+    if (consoleFootScope) {
+      consoleFootScope.textContent = `ACTIVE THEATRE: ${String(name).toUpperCase()}`;
+    }
     if (projectSelect) {
       projectSelect.value = theatre.key;
       Array.from(projectSelect.options).forEach(option => { option.textContent = theatreCopy(option.value).name; });
@@ -5259,6 +5655,21 @@ function initFlooddashCarousel() {
   syncTheatre(CITIES[0]);
   setModeUI(autoTour);
   moveToStop(CITIES[0]);
+
+  const consoleTabs = Array.from(document.querySelectorAll('.hero-console__tab'));
+  consoleTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('aria-controls');
+      consoleTabs.forEach(t => {
+        const isCurrent = t === tab;
+        t.classList.toggle('is-active', isCurrent);
+        t.setAttribute('aria-selected', String(isCurrent));
+      });
+      document.querySelectorAll('.hero-console__panel').forEach(panel => {
+        panel.hidden = panel.id !== targetId;
+      });
+    });
+  });
 })();
 (function initDataLines() {
   const canvas = document.getElementById('heroCanvas');
@@ -5358,6 +5769,9 @@ function initFlooddashCarousel() {
     const cw = canvas.offsetWidth;
     const ch = canvas.offsetHeight;
     if (!cw || !ch) return;
+    // When the rich decision console is active, the DOM HUD and console
+    // render the theatre metadata with zero clutter; skip canvas text overlay.
+    if (document.getElementById('heroConsole')) return;
     // On mobile, the Leaflet map covers the canvas — skip the canvas
     // tick overlay (the DOM HUD pill is visible on top of the map).
     if (useLiteCanvas) return;
@@ -5561,6 +5975,15 @@ function initFlooddashCarousel() {
    figure — so nothing autoplays against a stated preference and the block
    never collapses into an empty box. */
 (() => {
+  const fieldVideoWrap = document.getElementById('fieldVideoWrap');
+  if (fieldVideoWrap) {
+    const startVideo = () => {
+      const videoId = fieldVideoWrap.dataset.videoId || '0-A3R_i3wrs';
+      fieldVideoWrap.innerHTML = `<iframe class="field-band__iframe" src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&amp;rel=0&amp;modestbranding=1" title="Axiom X · Field Briefing: The Flood Arrives at 2 AM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    };
+    fieldVideoWrap.addEventListener('click', startVideo);
+  }
+
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (still) return;
   document.querySelectorAll('[data-clip]').forEach((v) => {
