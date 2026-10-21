@@ -85,13 +85,12 @@
 .sat-signal-marker {
   position: relative;
   box-sizing: border-box;
-  width: 14px;
-  height: 14px;
-  margin: 9px;
+  width: 10px;
+  height: 10px;
+  margin: 0;
   background: var(--accent);
   border: 1px solid var(--paper);
-  box-shadow: 0 0 0 0 var(--accent);
-  animation: sat-pulse 2.4s infinite;
+  box-shadow: none;
   cursor: pointer;
 }
 
@@ -103,7 +102,6 @@
   background: transparent;
   border: 0;
   box-shadow: none;
-  animation: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,12 +110,11 @@
 
 .sat-signal-dot {
   display: block;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background: var(--ocher);
   border: 1px solid var(--paper);
   box-shadow: none;
-  animation: none;
 }
 
 .sat-project-pin { display: flex; justify-content: center; align-items: flex-start; }
@@ -145,72 +142,11 @@
   pointer-events: none;
 }
 
-@keyframes sat-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.6); }
-  70%  { box-shadow: 0 0 0 12px rgba(var(--accent-rgb), 0); }
-  100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
-}
-
-/* ----- Telemetry axes (decorative crosshair) ----- */
+/* ----- Telemetry axes (purged sci-fi slop) ----- */
 .telemetry-axis-x,
-.telemetry-axis-y {
-  position: absolute;
-  z-index: 3;
-  background: var(--accent);
-  opacity: 0.18;
-  pointer-events: none;
-}
-
-.telemetry-axis-x {
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 1px;
-}
-
-.telemetry-axis-y {
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-}
-
-/* ----- Hero tracker (decorative) ----- */
+.telemetry-axis-y,
 .hero-tracker {
-  position: absolute;
-  z-index: 3;
-  top: 50%;
-  left: 50%;
-  width: 24px;
-  height: 24px;
-  margin: -12px 0 0 -12px;
-  background: transparent;
-  border: 1px solid var(--accent);
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.hero-tracker::before,
-.hero-tracker::after {
-  content: "";
-  position: absolute;
-  background: var(--accent);
-}
-
-.hero-tracker::before {
-  top: -8px;
-  left: 50%;
-  width: 1px;
-  height: 8px;
-  margin-left: -0.5px;
-}
-
-.hero-tracker::after {
-  top: 50%;
-  left: -8px;
-  width: 8px;
-  height: 1px;
-  margin-top: -0.5px;
+  display: none !important;
 }
 
 /* ----- City label (top-right, large mono) -----
@@ -261,7 +197,7 @@
   border: 0;
 }
 
-/* ----- Map Mode Indicator (top-left, AUTO TOUR pill) ----- */
+/* ----- Map Mode Indicator (top-left, AUTO TOUR toolbar) ----- */
 .map-mode {
   position: relative;
   grid-area: mode;
@@ -270,43 +206,39 @@
   left: auto;
   align-self: start;
   display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  align-items: stretch;
+  background: rgba(10, 12, 16, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .map-mode-indicator {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 10px;
-  background: rgba(10, 10, 12, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  font-family: ui-monospace, "JetBrains Mono", monospace;
+  padding: 0 12px;
+  height: 38px;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   color: var(--paper);
   text-transform: uppercase;
 }
 
 .map-mode-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: #1ec96b;
-  box-shadow: 0 0 0 0 rgba(30, 201, 107, 0.5);
-  animation: map-mode-pulse 1.6s infinite;
+  width: 6px;
+  height: 6px;
+  background: var(--paper);
+  box-shadow: none;
 }
 
 .map-mode-dot.exploring {
-  background: var(--accent);
-  box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.5);
-}
-
-@keyframes map-mode-pulse {
-  0%   { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
-  70%  { box-shadow: 0 0 0 8px transparent; opacity: 0.8; }
-  100% { box-shadow: 0 0 0 0 transparent; opacity: 1; }
+  background: var(--ocher);
+  box-shadow: none;
 }
 
 .map-mode-label.exploring {
@@ -318,31 +250,22 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   padding: 0;
-  background: rgba(10, 10, 12, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  border: 0;
   color: var(--paper);
   cursor: pointer;
-  transition: background 150ms ease, border-color 150ms ease;
+  transition: background 150ms ease, color 150ms ease;
 }
 
 .map-mode-btn:hover {
-  background: rgba(var(--accent-rgb), 0.85);
-  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--paper);
 }
 
-.map-mode-btn-pulse {
-  animation: map-mode-btn-pulse 0.6s ease 3;
-}
-
-@keyframes map-mode-btn-pulse {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.08); }
-}
-
-/* ----- Map Explore Hint (bottom-left) ----- */
+/* ----- Map Explore Hint (integrated telemetry caption, not box soup) ----- */
 .map-explore-hint {
   position: relative;
   grid-area: hint;
@@ -352,16 +275,17 @@
   justify-self: start;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  background: rgba(10, 10, 12, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  font-family: ui-monospace, "JetBrains Mono", monospace;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--paper);
-  opacity: 0.85;
+  opacity: 0.65;
   pointer-events: none;
 }
 
@@ -518,7 +442,7 @@
   display: none !important;
 }
 
-/* ----- Theatre signal HUD (top-center) ----- */
+/* ----- Theatre signal HUD (top-right telemetry) ----- */
 .sat-hud {
   position: relative;
   grid-area: status;
@@ -529,11 +453,11 @@
   flex-direction: column;
   gap: 4px;
   padding: 8px 14px;
-  background: rgba(10, 10, 12, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  font-family: ui-monospace, "JetBrains Mono", monospace;
+  background: rgba(10, 12, 16, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
   color: var(--paper);
-  min-width: 320px;
+  min-width: 280px;
   max-width: min(560px, 90vw);
   pointer-events: none;
 }
@@ -576,17 +500,10 @@
 
 .sat-hud-live-dot {
   display: inline-block;
-  width: 7px;
-  height: 7px;
-  background: var(--accent);
-  box-shadow: 0 0 0 0 var(--accent);
-  animation: sat-hud-live-dot 1.4s infinite;
-}
-
-@keyframes sat-hud-live-dot {
-  0%   { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.6); }
-  70%  { box-shadow: 0 0 0 8px transparent; }
-  100% { box-shadow: 0 0 0 0 transparent; }
+  width: 6px;
+  height: 6px;
+  background: var(--paper);
+  box-shadow: none;
 }
 
 .sat-hud-theatre {
@@ -1041,24 +958,25 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 6px;
-  padding: 18px 22px 16px;
+  padding: 16px 18px 14px;
   min-width: 0;
   margin: 0;
   max-width: none;
-  background: rgba(8, 10, 14, 0.92);
-  border: 1px solid var(--accent);
-  border-left: 3px solid var(--accent);
+  background: rgba(10, 12, 16, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 2px solid var(--accent);
   color: var(--paper);
   font-family: var(--mono, 'IBM Plex Mono', monospace);
   text-decoration: none;
-  transition: background 200ms ease, border-color 200ms ease;
+  transition: background 150ms ease, border-color 150ms ease;
   box-shadow: none;
 }
 
 .hero-featured-badge:hover {
-  background: rgba(8, 10, 14, 0.98);
+  background: rgba(10, 12, 16, 0.98);
   transform: none;
-  border-color: var(--ocher);
+  border-color: rgba(255, 255, 255, 0.32);
+  border-top-color: var(--accent);
   box-shadow: none;
 }
 

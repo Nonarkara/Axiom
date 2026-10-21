@@ -10,7 +10,7 @@
   // Cloudflare serves static assets with a four-hour max-age. A plate whose
   // file changed under the same name keeps serving the old bytes for hours,
   // so every plate is addressed by a versioned path. Bump this when art ships.
-  const ART_V = '20261020g';
+  const ART_V = '20261021a';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
 
   const shell = document.getElementById('shell');
@@ -246,6 +246,26 @@
     }
 
     (host || plate).appendChild(fig);
+
+    // The label belongs to the plate, so the label is never allowed to run
+    // wider than the plate it names. A portrait work is height-capped by
+    // the page, so CSS alone cannot measure it — the rendered image can.
+    // The label keeps its own reading measure when the plate is wide enough
+    // to carry it, and shrinks to the plate when it is not.
+    const reading = parseFloat(getComputedStyle(cap).maxWidth) || 0;
+    function fitLabel() {
+      if (!img.naturalWidth) return;
+      const w = Math.round(img.getBoundingClientRect().width);
+      if (!w) return;
+      cap.style.maxWidth = Math.min(w, reading || w) + 'px';
+    }
+    if (window.ResizeObserver) {
+      new ResizeObserver(fitLabel).observe(img);
+    } else {
+      img.addEventListener('load', fitLabel);
+      window.addEventListener('resize', fitLabel);
+    }
+    fitLabel();
     return fig;
   }
 
@@ -447,6 +467,7 @@
   book.push(doc('iaas', 'Practice', 'Innovation-as-a-Service', [
     { type: 'h', text: 'Innovation-as-a-Service' },
     { type: 'lede', text: 'Not a product. A way of working. We sit with the people who decide, and build the thing with them, inside their rules.' },
+    { type: 'plate', plate: 'iaas' },
     { type: 'vstudio', caption: 'The ground condition. The thing you have to stand in before you can be trusted to build for it.' },
     { type: 'p', text: 'A city is usually sold a product: a box, a licence, a platform that arrives finished and fits nobody. Innovation-as-a-Service turns that around. We start with one problem the city already has, one decision it cannot make fast enough, and we build the answer alongside the people who own it.' },
     { type: 'p', text: 'There is an old trap here. A city is asked for a feasibility study before it tries anything, but you cannot study something you have not yet tried. So we try it first, small and cheap, on data the city already holds, with no new hardware. Then the study writes itself from what actually happened.' },
@@ -511,7 +532,11 @@
   book.push(doc('probono', 'Pro bono', 'Institutional work', [
     { type: 'h', text: 'Institutional work' },
     { type: 'lede', text: 'Five platforms. Live, public, and still in use. Not a deck, and not a report.' },
-    { type: 'p', text: 'Each one was built with the institution that had to use it.' }
+    { type: 'plate', plate: 'probono' },
+    { type: 'p', text: 'Each one was built with the institution that had to use it.' },
+    { type: 'rows', items: probono.map(function (row) {
+      return { href: '#' + row[0], title: row[1], meta: row[2] + ' @ ' + row[3] };
+    })}
   ]));
 
   probono.forEach(function (row, i) {
@@ -524,17 +549,6 @@
     ], { num: String(i + 1).padStart(2, '0') }));
   });
 
-  book.push(doc('stages', 'Stages', 'Proven in public', [
-    { type: 'h', text: 'Proven in public' },
-    { type: 'lede', text: 'Five stages across Asia in 2026. Each one had a system running live in the room — SLIC Index in Taipei, FloodDash in Singapore, Shanghai, and Hong Kong, DEPA in Osaka.' },
-    { type: 'figs', rows: [
-      { v: '5', l: 'Stops', t: 'Osaka, Shanghai, Hong Kong, Singapore, Taipei.' },
-      { v: '5', l: 'Cities', t: 'One thesis, carried into a different room each time.' },
-      { v: '13', l: 'Photographs', t: 'From the stage, not from a stock library.' }
-    ]},
-    { type: 'note', text: 'Every date comes from the organiser’s agenda. Nothing here is asserted without one.' }
-  ]));
-
   const stages = [
     ['osaka', '10.08', 'Osaka', '2026.10.08', 'Osaka Metropolitan University · Morinomiya', 'What happens after the pilot works — and why the constraint is institutional, not technical.', 'images/osaka-keynote.jpg', 'Dr. Non speaking at the Osaka Asia Roundtable 2026', [['3', 'Sessions'], ['7 min', 'On record'], ['4', 'Delegations']]],
     ['shanghai', '09.22', 'Shanghai', '2026.09.22', 'Tomorrow.City Shanghai 2026 · Zhangjiang Science Hall', 'Stop calling it a digital twin — call it God Mode. Raw speed, to cubic metres, to freeboard, to whether the water fits.', 'images/shanghai-stage-screen.jpg', 'Tomorrow.City Shanghai — FloodDash running live on the cube screen', [['4th', 'On this stage'], ['9', 'Data sources'], ['4', 'Takeaways']]],
@@ -542,6 +556,21 @@
     ['singapore', '04', 'Singapore', '2026.04', 'GITEX AI Asia · Marina Bay Sands · Main Stage', 'A main-stage keynote, then a workshop that filled in minutes. The hallway was full. Every face was on the demo.', 'images/singapore-workshop.jpg', 'Dr. Non at the lectern, GITEX AI Asia 2026, Singapore', [['1K+', 'Main stage'], ['23K+', 'Attendees'], ['Full', 'Workshop']]],
     ['taipei', '03.18', 'Taipei', '2026.03.18', 'Smart City Summit & Expo · City Vision stage', 'A working surface, built in the room, not concept art. 174 cities, 53 nations, ranking logic you can adjust.', 'images/taipei-stage.jpg', 'Dr. Non on the City Vision stage in Taipei', [['174', 'Cities'], ['53', 'Nations'], ['45 min', 'To build']]]
   ];
+
+  book.push(doc('stages', 'Stages', 'Proven in public', [
+    { type: 'h', text: 'Proven in public' },
+    { type: 'lede', text: 'Five stages across Asia in 2026. Each one had a system running live in the room — SLIC Index in Taipei, FloodDash in Singapore, Shanghai, and Hong Kong, DEPA in Osaka.' },
+    { type: 'plate', plate: 'stages' },
+    { type: 'figs', rows: [
+      { v: '5', l: 'Stops', t: 'Osaka, Shanghai, Hong Kong, Singapore, Taipei.' },
+      { v: '5', l: 'Cities', t: 'One thesis, carried into a different room each time.' },
+      { v: '13', l: 'Photographs', t: 'From the stage, not from a stock library.' }
+    ]},
+    { type: 'rows', items: stages.map(function (row) {
+      return { href: '#' + row[0], title: row[2], meta: row[3] + ' @ ' + row[4].split(' @ ')[0] };
+    })},
+    { type: 'note', text: 'Every date comes from the organiser’s agenda. Nothing here is asserted without one.' }
+  ]));
 
   stages.forEach(function (row) {
     book.push(doc(row[0], 'Stages', row[2], [
@@ -593,6 +622,7 @@
   book.push(doc('non', 'Founders', 'Dr. Non Arkaraprasertkul', [
     { type: 'h', text: 'Dr. Non Arkaraprasertkul' },
     { type: 'lede', text: 'Co-founder. Systems and story. Anthropologist, architect, builder. He watches how a city actually behaves, then turns that into an interface people use without a manual.' },
+    { type: 'plate', plate: 'non' },
     { type: 'p', text: 'PhD in Anthropology, Harvard. MIT and Oxford. Former visiting lecturer at MIT, postdoctoral fellow at NYU. He designs from fieldwork, because people are not spreadsheets and cities are not slides.' },
     { type: 'note', text: 'PhD · Harvard · MPhil · Oxford · MSc · MIT · Visiting lecturer · MIT' },
     { type: 'steps', items: [
@@ -613,6 +643,7 @@
   book.push(doc('poon', 'Founders', 'Dr. Poon Thiengburanathum', [
     { type: 'h', text: 'Dr. Poon Thiengburanathum' },
     { type: 'lede', text: 'Co-founder. Infrastructure and delivery. Engineer, strategist, the person who keeps ambition tied to a system that survives contact with the city.' },
+    { type: 'plate', plate: 'poon' },
     { type: 'p', text: 'Associate professor at Chiang Mai University. Co-author of Chiang Mai’s Smart City Master Plan. He works on cities as complex adaptive systems — bus prediction, transit decisions, infrastructure that has to last.' },
     { type: 'note', text: 'PhD · civil engineering · Associate professor · Chiang Mai University' },
     { type: 'steps', items: [
@@ -629,6 +660,7 @@
   book.push(doc('collective', 'Founders', 'The collective', [
     { type: 'h', text: 'The collective, on call' },
     { type: 'lede', text: 'You talk to the two people who write the code and decide the architecture. When a mission needs someone else, that person joins for the mission. There is no standing bench.' },
+    { type: 'plate', plate: 'collective' },
     { type: 'p', text: 'Researchers, traffic engineers, anthropologists, financiers, policy translators, media operators. Paid for the problem in front of us, not kept on an org chart waiting for one.' },
     { type: 'note', text: 'Traffic engineers · UAV operators · Economists · Financiers · Policy translators · Urban researchers · Media operators' }
   ]));
@@ -636,6 +668,7 @@
   book.push(doc('press', 'Press', 'Outside the room', [
     { type: 'h', text: 'Outside the room' },
     { type: 'lede', text: 'Read it. Watch it. Then decide.' },
+    { type: 'plate', plate: 'press' },
     { type: 'rows', items: [
       { href: 'https://govinsider.asia/intl-en/article/with-the-vendor-saying-no-thai-civil-servant-built-his-own-tools', title: 'With the vendor saying no, a Thai civil servant built his own tools', meta: 'GovInsider · News' },
       { href: 'https://govinsider.asia/intl-en/article/can-innovation-as-a-service-close-the-gap-between-policy-and-implementation', title: 'Can innovation-as-a-service close the gap between policy and implementation?', meta: 'GovInsider · Feature' },
@@ -678,6 +711,7 @@
   book.push(doc('entity', 'Record', 'Axiom X Co., Ltd.', [
     { type: 'h', text: 'Axiom X Co., Ltd.' },
     { type: 'lede', text: 'The work operates as Axiom. The registered entity is Axiom X Co., Ltd., in Thailand.' },
+    { type: 'plate', plate: 'entity' },
     { type: 'defs', rows: [
       { k: 'Thai name', v: 'บริษัท แอคเซี่ยม เอ็กซ์ จำกัด', lang: 'th' },
       { k: 'English name', v: 'Axiom X Co., Ltd.' },
@@ -697,6 +731,7 @@
   book.push(doc('standards', 'Record', 'Standards, by practice', [
     { type: 'h', text: 'Standards, by practice' },
     { type: 'lede', text: 'We design and deliver against these frameworks. This is operational alignment. It is not a claim of ISO certification, unless an independent audit is named.' },
+    { type: 'plate', plate: 'standards' },
     { type: 'groups', groups: [
       { title: 'Foundations', items: [
         { text: 'ISO/IEC 30173:2023 — digital twin concepts', href: 'https://www.iso.org/standard/44290.html' },
@@ -738,6 +773,7 @@
   book.push(doc('ledger', 'Record', 'The record', [
     { type: 'h', text: 'The record' },
     { type: 'lede', text: 'Every number on this site, stated once. None of them is typed in — they are read from the catalogue, so none of them can drift.' },
+    { type: 'plate', plate: 'ledger' },
     { type: 'defs', rows: [
       { k: 'Systems', v: systems.length + ' entries, all of them listed in the index to your left.' },
       { k: 'Live', v: liveCount + ' are marked Live. The rest are marked Preview, Soon or Dev, and say so on their entry.' },
@@ -753,6 +789,7 @@
   book.push(doc('brief', 'Brief', 'Tell us the decision', [
     { type: 'h', text: 'Tell us the decision' },
     { type: 'lede', text: 'We will show it working in two weeks.' },
+    { type: 'plate', plate: 'brief' },
     { type: 'p', text: 'Write one paragraph: the decision that has to get faster, who makes it, and where the data sits today. You will get a clear yes, a clear no, or one sharper question. No sales deck. No procurement warm-up.' },
     { type: 'steps', items: [
       { t: 'Week 1', d: 'The decision, the people, and the data, agreed on one page.' },
@@ -770,6 +807,7 @@
   book.push(doc('plates', 'Colophon', 'The plates', [
     { type: 'h', text: 'The plates' },
     { type: 'lede', text: 'No screenshots on the system pages. Each one carries a work of art instead.' },
+    { type: 'plate', plate: 'plates' },
     { type: 'p', text: 'On 6 October 2011 the German daily DIE WELT handed a whole edition to the painter Ellsworth Kelly. It ran without a single news photograph; his cycle of colour and form ran from the first page to the last, beside the ordinary columns of type. The edition won gold at the 2012 LeadAwards. It was the second of the paper\u2019s artist editions, after Georg Baselitz in 2010.' },
     { type: 'p', text: 'This book borrows the idea, not the pictures. Kelly\u2019s work is still in copyright, so every plate here is public domain or CC0: Renaissance frescoes, ukiyo-e prints, early abstraction, sculpture, a colour theory, a geometry book. Each sits beside a system because it says something true about it. The screenshots are one click away, behind Open.' },
     { type: 'note', text: 'Pro bono entries keep their own photographs. That work belongs to the institutions it was done for.' },
@@ -783,6 +821,7 @@
 
   book.push(doc('colophon', 'Colophon', 'Colophon', [
     { type: 'h', text: 'Colophon' },
+    { type: 'plate', plate: 'colophon' },
     { type: 'p', text: 'Axiom builds decision systems for cities, governments, and operators, to ISO/IEC digital-twin practice, AI governance, and data-protection frameworks.', lang: 'en' },
     { type: 'p', text: 'Axiom สร้างแดชบอร์ดเมืองอัจฉริยะและระบบข้อมูลเพื่อการตัดสินใจสำหรับเมือง หน่วยงานรัฐ และผู้บริหารทั่วอาเซียน — ระบบที่ใช้งานได้จริงในการปฏิบัติงาน ไม่ใช่เพียงสไลด์นำเสนอ', lang: 'th' },
     { type: 'p', text: 'ก่อตั้งและนำโดย ดร.นน อัครประเสริฐกุล ผู้เชี่ยวชาญอาวุโส ฝ่ายส่งเสริมเมืองอัจฉริยะ สำนักงานส่งเสริมเศรษฐกิจดิจิทัล (depa) — ที่ปรึกษาและวิทยากรด้านเมืองอัจฉริยะ การวิเคราะห์ข้อมูลเมือง และการเปลี่ยนผ่านสู่ดิจิทัลของภาครัฐ', lang: 'th' },
