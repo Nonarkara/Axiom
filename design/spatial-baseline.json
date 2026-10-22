@@ -90,7 +90,10 @@
     "dead|span.field-band__point-num": "the number is a hanging marker in the margin of the paragraph it numbers; the paragraph's own text fills that column, so the space under the marker is the paragraph, not a hole.",
     "dead|div.sys-cell__head": "the space under the card head is the system's own screenshot, always 21:8, so every catalogue card is the same height and a row of cards reads as one row rather than as a staircase.",
     "scattered|div#heroNodeRail": "the four theatre cards are one row of a four-column grid, all four visible at once because they are the same kind of choice — which theatre to watch — and the active one is marked.",
-    "dead|aside#caseStudyList": "the list is a selector, not a column of content: it holds three records and the record's own fifteen fields run far below them, so the rail ends where its records end. The rail is sticky, so it follows the reader down the form."
+    "dead|aside#caseStudyList": "the list is a selector, not a column of content: it holds three records and the record's own fifteen fields run far below them, so the rail ends where its records end. The rail is sticky, so it follows the reader down the form.",
+    "wrap|div.probono-stack": "The shelf lists the technologies each pro bono project was built on — four names in a card 239px wide. The line falls where the names run out of room and the last line holds whatever is left over. A technology name is not an option, an action or a control, so nothing the reader is hunting for is stranded on that line. The layout before this was a two-column grid whose track every chip stretched into: “D1”, twelve pixels of text, sat in a 167px cell at 390px and a 108px cell at 1440 — twelve times its own width. A lone final name is the end of a list; a chip inflated to twelve times its name is a lie about the name.",
+    "wrap|div.stack__items": "The shelf is the full technology stack — 114 names in nine layers. The break falls where the names run out of room and the last line holds what is left. No option or control is stranded: a name is not something the reader is looking for in a particular place, and the layer's own count is in the header above. The alternative that fills every line — a fixed 118px track that each chip stretched into — made “Git”, fifteen pixels of text, sit in a 118px box, nearly seven times its own width, and turned a list of names into a table of identical boxes.",
+    "wrap|div.stack__head": "The header carries three things: the layer's name, the gloss that explains it, and the number of tools under it. The name and the gloss are one phrase and now travel together; the count keeps the right-hand edge because nine counts in one column is worth aligning. Where the head is 288px the three need 298px, and the count takes a second line rather than the layer's name being broken in half — it is a figure, not an action, and it stays in the same right-hand column as every other layer's count. Before this the gloss was pushed to the far right of a 1018px track and landed under the count, 900px from the name it describes."
   },
   "exempt": [],
   "routes": {
@@ -132,6 +135,24 @@
             "sel": "div.sys-cell__head",
             "metric": 125,
             "detail": "124.9375px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 12,
+            "detail": "div.stack__items breaks into 12 rows and leaves span alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__head",
+            "metric": 2,
+            "detail": "div.stack__head breaks into 2 rows and leaves span.stack__count alone on the last one"
           }
         ],
         "firstAction": {
@@ -151,26 +172,26 @@
           {
             "kind": "dead",
             "sel": "div#mapMode",
-            "metric": 1233,
-            "detail": "div#mapMode leaves 1233px empty beneath it in a 1285px row"
+            "metric": 1218,
+            "detail": "div#mapMode leaves 1218px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div#satHud",
-            "metric": 1228,
-            "detail": "div#satHud leaves 1228px empty beneath it in a 1285px row"
+            "metric": 1213,
+            "detail": "div#satHud leaves 1213px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div.hero-map-space",
-            "metric": 1040,
-            "detail": "div.hero-map-space leaves 1040px empty beneath it in a 1285px row"
+            "metric": 1025,
+            "detail": "div.hero-map-space leaves 1025px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div.hero-proof",
-            "metric": 95,
-            "detail": "div.hero-proof leaves 95px empty beneath it in a 1285px row"
+            "metric": 80,
+            "detail": "div.hero-proof leaves 80px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
@@ -183,6 +204,12 @@
             "sel": "div.sys-cell__head",
             "metric": 163,
             "detail": "162.65625px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 7,
+            "detail": "div.stack__items breaks into 7 rows and leaves span alone on the last one"
           }
         ],
         "firstAction": {
@@ -202,26 +229,26 @@
           {
             "kind": "dead",
             "sel": "div#mapMode",
-            "metric": 1233,
-            "detail": "div#mapMode leaves 1233px empty beneath it in a 1285px row"
+            "metric": 1218,
+            "detail": "div#mapMode leaves 1218px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div#satHud",
-            "metric": 1228,
-            "detail": "div#satHud leaves 1228px empty beneath it in a 1285px row"
+            "metric": 1213,
+            "detail": "div#satHud leaves 1213px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div.hero-map-space",
-            "metric": 1040,
-            "detail": "div.hero-map-space leaves 1040px empty beneath it in a 1285px row"
+            "metric": 1025,
+            "detail": "div.hero-map-space leaves 1025px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div.hero-proof",
-            "metric": 95,
-            "detail": "div.hero-proof leaves 95px empty beneath it in a 1285px row"
+            "metric": 80,
+            "detail": "div.hero-proof leaves 80px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
@@ -234,6 +261,12 @@
             "sel": "div.sys-cell__head",
             "metric": 163.046875,
             "detail": "163.046875px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 7,
+            "detail": "div.stack__items breaks into 7 rows and leaves span alone on the last one"
           }
         ],
         "firstAction": {
@@ -253,26 +286,26 @@
           {
             "kind": "dead",
             "sel": "div#mapMode",
-            "metric": 1233,
-            "detail": "div#mapMode leaves 1233px empty beneath it in a 1285px row"
+            "metric": 1218,
+            "detail": "div#mapMode leaves 1218px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div#satHud",
-            "metric": 1228,
-            "detail": "div#satHud leaves 1228px empty beneath it in a 1285px row"
+            "metric": 1213,
+            "detail": "div#satHud leaves 1213px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div.hero-map-space",
-            "metric": 1040,
-            "detail": "div.hero-map-space leaves 1040px empty beneath it in a 1285px row"
+            "metric": 1025,
+            "detail": "div.hero-map-space leaves 1025px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div.hero-proof",
-            "metric": 95,
-            "detail": "div.hero-proof leaves 95px empty beneath it in a 1285px row"
+            "metric": 80,
+            "detail": "div.hero-proof leaves 80px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
@@ -285,6 +318,12 @@
             "sel": "div.sys-cell__head",
             "metric": 163.421875,
             "detail": "163.421875px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 7,
+            "detail": "div.stack__items breaks into 7 rows and leaves span alone on the last one"
           }
         ],
         "firstAction": {
@@ -304,26 +343,26 @@
           {
             "kind": "dead",
             "sel": "div#mapMode",
-            "metric": 1233,
-            "detail": "div#mapMode leaves 1233px empty beneath it in a 1285px row"
+            "metric": 1218,
+            "detail": "div#mapMode leaves 1218px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div#satHud",
-            "metric": 1228,
-            "detail": "div#satHud leaves 1228px empty beneath it in a 1285px row"
+            "metric": 1213,
+            "detail": "div#satHud leaves 1213px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div.hero-map-space",
-            "metric": 1040,
-            "detail": "div.hero-map-space leaves 1040px empty beneath it in a 1285px row"
+            "metric": 1025,
+            "detail": "div.hero-map-space leaves 1025px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div.hero-proof",
-            "metric": 95,
-            "detail": "div.hero-proof leaves 95px empty beneath it in a 1285px row"
+            "metric": 80,
+            "detail": "div.hero-proof leaves 80px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
@@ -336,6 +375,18 @@
             "sel": "div.sys-cell__head",
             "metric": 170,
             "detail": "169.890625px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__head",
+            "metric": 2,
+            "detail": "div.stack__head breaks into 2 rows and leaves span.stack__count alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 6,
+            "detail": "div.stack__items breaks into 6 rows and leaves a alone on the last one"
           }
         ],
         "firstAction": {
@@ -355,26 +406,26 @@
           {
             "kind": "dead",
             "sel": "div#mapMode",
-            "metric": 1233,
-            "detail": "div#mapMode leaves 1233px empty beneath it in a 1285px row"
+            "metric": 1218,
+            "detail": "div#mapMode leaves 1218px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div#satHud",
-            "metric": 1228,
-            "detail": "div#satHud leaves 1228px empty beneath it in a 1285px row"
+            "metric": 1213,
+            "detail": "div#satHud leaves 1213px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div.hero-map-space",
-            "metric": 1040,
-            "detail": "div.hero-map-space leaves 1040px empty beneath it in a 1285px row"
+            "metric": 1025,
+            "detail": "div.hero-map-space leaves 1025px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
             "sel": "div.hero-proof",
-            "metric": 95,
-            "detail": "div.hero-proof leaves 95px empty beneath it in a 1285px row"
+            "metric": 80,
+            "detail": "div.hero-proof leaves 80px empty beneath it in a 1270px row"
           },
           {
             "kind": "dead",
@@ -387,6 +438,18 @@
             "sel": "div.sys-cell__head",
             "metric": 170.28125,
             "detail": "170.28125px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__head",
+            "metric": 2,
+            "detail": "div.stack__head breaks into 2 rows and leaves span.stack__count alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 6,
+            "detail": "div.stack__items breaks into 6 rows and leaves a alone on the last one"
           }
         ],
         "firstAction": {
@@ -438,6 +501,18 @@
             "sel": "div.sys-cell__head",
             "metric": 171,
             "detail": "170.65625px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__head",
+            "metric": 2,
+            "detail": "div.stack__head breaks into 2 rows and leaves span.stack__count alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 6,
+            "detail": "div.stack__items breaks into 6 rows and leaves a alone on the last one"
           }
         ],
         "firstAction": {
@@ -489,6 +564,18 @@
             "sel": "div.sys-cell__head",
             "metric": 171.046875,
             "detail": "171.046875px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__head",
+            "metric": 2,
+            "detail": "div.stack__head breaks into 2 rows and leaves span.stack__count alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 6,
+            "detail": "div.stack__items breaks into 6 rows and leaves a alone on the last one"
           }
         ],
         "firstAction": {
@@ -540,6 +627,12 @@
             "sel": "div.sys-cell__head",
             "metric": 186,
             "detail": "185.515625px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 6,
+            "detail": "div.stack__items breaks into 6 rows and leaves span alone on the last one"
           }
         ],
         "firstAction": {
@@ -591,6 +684,18 @@
             "sel": "div.sys-cell__head",
             "metric": 186,
             "detail": "185.890625px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 6,
+            "detail": "div.stack__items breaks into 6 rows and leaves span alone on the last one"
           }
         ],
         "firstAction": {
@@ -642,6 +747,18 @@
             "sel": "div.sys-cell__head",
             "metric": 186.28125,
             "detail": "186.28125px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 6,
+            "detail": "div.stack__items breaks into 6 rows and leaves span alone on the last one"
           }
         ],
         "firstAction": {
@@ -687,6 +804,18 @@
             "sel": "div.sys-cell__head",
             "metric": 201,
             "detail": "200.75px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
           }
         ],
         "firstAction": {
@@ -732,6 +861,18 @@
             "sel": "div.sys-cell__head",
             "metric": 201.140625,
             "detail": "201.140625px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
           }
         ],
         "firstAction": {
@@ -777,6 +918,18 @@
             "sel": "div.sys-cell__head",
             "metric": 202,
             "detail": "201.515625px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
           }
         ],
         "firstAction": {
@@ -822,6 +975,18 @@
             "sel": "div.sys-cell__head",
             "metric": 216,
             "detail": "216px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 4,
+            "detail": "div.stack__items breaks into 4 rows and leaves span alone on the last one"
           }
         ],
         "firstAction": {
@@ -867,6 +1032,18 @@
             "sel": "div.sys-cell__head",
             "metric": 216.375,
             "detail": "216.375px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 4,
+            "detail": "div.stack__items breaks into 4 rows and leaves span alone on the last one"
           }
         ],
         "firstAction": {
@@ -906,6 +1083,18 @@
             "sel": "div.sys-cell__head",
             "metric": 217,
             "detail": "216.75px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 4,
+            "detail": "div.stack__items breaks into 4 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",
@@ -953,6 +1142,18 @@
             "detail": "217.140625px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 4,
+            "detail": "div.stack__items breaks into 4 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -998,6 +1199,18 @@
             "detail": "231.234375px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 4,
+            "detail": "div.stack__items breaks into 4 rows and leaves a alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -1021,26 +1234,38 @@
           {
             "kind": "dead",
             "sel": "div#heroCityLabel",
-            "metric": 1131,
-            "detail": "div#heroCityLabel leaves 1131px empty beneath it in a 1159px row"
+            "metric": 1118,
+            "detail": "div#heroCityLabel leaves 1118px empty beneath it in a 1146px row"
           },
           {
             "kind": "dead",
             "sel": "div#mapMode",
-            "metric": 1095,
-            "detail": "div#mapMode leaves 1095px empty beneath it in a 1159px row"
+            "metric": 1082,
+            "detail": "div#mapMode leaves 1082px empty beneath it in a 1146px row"
           },
           {
             "kind": "dead",
             "sel": "div#satHud",
-            "metric": 1071,
-            "detail": "div#satHud leaves 1071px empty beneath it in a 1159px row"
+            "metric": 1058,
+            "detail": "div#satHud leaves 1058px empty beneath it in a 1146px row"
           },
           {
             "kind": "dead",
             "sel": "div.sys-cell__head",
             "metric": 232,
             "detail": "231.609375px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 4,
+            "detail": "div.stack__items breaks into 4 rows and leaves a alone on the last one"
           },
           {
             "kind": "scattered",
@@ -1066,26 +1291,38 @@
           {
             "kind": "dead",
             "sel": "div#heroCityLabel",
-            "metric": 1131,
-            "detail": "div#heroCityLabel leaves 1131px empty beneath it in a 1159px row"
+            "metric": 1118,
+            "detail": "div#heroCityLabel leaves 1118px empty beneath it in a 1146px row"
           },
           {
             "kind": "dead",
             "sel": "div#mapMode",
-            "metric": 1095,
-            "detail": "div#mapMode leaves 1095px empty beneath it in a 1159px row"
+            "metric": 1082,
+            "detail": "div#mapMode leaves 1082px empty beneath it in a 1146px row"
           },
           {
             "kind": "dead",
             "sel": "div#satHud",
-            "metric": 1071,
-            "detail": "div#satHud leaves 1071px empty beneath it in a 1159px row"
+            "metric": 1058,
+            "detail": "div#satHud leaves 1058px empty beneath it in a 1146px row"
           },
           {
             "kind": "dead",
             "sel": "div.sys-cell__head",
             "metric": 232,
             "detail": "232px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 4,
+            "detail": "div.stack__items breaks into 4 rows and leaves a alone on the last one"
           },
           {
             "kind": "scattered",
@@ -1133,6 +1370,18 @@
             "detail": "254.09375px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 4,
+            "detail": "div.stack__items breaks into 4 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -1176,6 +1425,18 @@
             "sel": "div.sys-cell__head",
             "metric": 254.46875,
             "detail": "254.46875px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 4,
+            "detail": "div.stack__items breaks into 4 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",
@@ -1223,6 +1484,18 @@
             "detail": "254.84375px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 4,
+            "detail": "div.stack__items breaks into 4 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -1266,6 +1539,18 @@
             "sel": "div.sys-cell__head",
             "metric": 262,
             "detail": "261.703125px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",
@@ -1313,6 +1598,18 @@
             "detail": "262.09375px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -1356,6 +1653,18 @@
             "sel": "div.sys-cell__head",
             "metric": 262.46875,
             "detail": "262.46875px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",
@@ -1403,6 +1712,18 @@
             "detail": "276.5625px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -1446,6 +1767,18 @@
             "sel": "div.sys-cell__head",
             "metric": 277,
             "detail": "276.9375px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",
@@ -1493,6 +1826,18 @@
             "detail": "92.1875px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -1536,6 +1881,18 @@
             "sel": "div.sys-cell__head",
             "metric": 92.3125,
             "detail": "92.3125px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",
@@ -1583,6 +1940,18 @@
             "detail": "93.0625px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -1626,6 +1995,18 @@
             "sel": "div.sys-cell__head",
             "metric": 93.203125,
             "detail": "93.203125px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",
@@ -1673,6 +2054,18 @@
             "detail": "93.328125px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -1716,6 +2109,18 @@
             "sel": "div.sys-cell__head",
             "metric": 97.140625,
             "detail": "97.140625px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",
@@ -1763,6 +2168,18 @@
             "detail": "97.265625px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -1806,6 +2223,18 @@
             "sel": "div.sys-cell__head",
             "metric": 97.390625,
             "detail": "97.390625px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",
@@ -1853,6 +2282,18 @@
             "detail": "104.75px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves a alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -1896,6 +2337,18 @@
             "sel": "div.sys-cell__head",
             "metric": 105,
             "detail": "104.875px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves a alone on the last one"
           },
           {
             "kind": "scattered",
@@ -1943,6 +2396,18 @@
             "detail": "105.015625px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves a alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -1986,6 +2451,18 @@
             "sel": "div.sys-cell__head",
             "metric": 107.296875,
             "detail": "107.296875px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves a alone on the last one"
           },
           {
             "kind": "scattered",
@@ -2033,6 +2510,18 @@
             "detail": "107.421875px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves a alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -2076,6 +2565,18 @@
             "sel": "div.sys-cell__head",
             "metric": 108,
             "detail": "107.546875px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 3,
+            "detail": "div.stack__items breaks into 3 rows and leaves a alone on the last one"
           },
           {
             "kind": "scattered",
@@ -2123,6 +2624,18 @@
             "detail": "109.828125px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 2,
+            "detail": "div.stack__items breaks into 2 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -2168,6 +2681,18 @@
             "detail": "109.953125px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 2,
+            "detail": "div.stack__items breaks into 2 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -2191,26 +2716,38 @@
           {
             "kind": "dead",
             "sel": "div#heroCityLabel",
-            "metric": 701,
-            "detail": "div#heroCityLabel leaves 701px empty beneath it in a 724px row"
+            "metric": 686,
+            "detail": "div#heroCityLabel leaves 686px empty beneath it in a 709px row"
           },
           {
             "kind": "dead",
             "sel": "div#mapMode",
-            "metric": 660,
-            "detail": "div#mapMode leaves 660px empty beneath it in a 724px row"
+            "metric": 645,
+            "detail": "div#mapMode leaves 645px empty beneath it in a 709px row"
           },
           {
             "kind": "dead",
             "sel": "div#satHud",
-            "metric": 635,
-            "detail": "div#satHud leaves 635px empty beneath it in a 724px row"
+            "metric": 620,
+            "detail": "div#satHud leaves 620px empty beneath it in a 709px row"
           },
           {
             "kind": "dead",
             "sel": "div.sys-cell__head",
             "metric": 110.09375,
             "detail": "110.09375px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 2,
+            "detail": "div.stack__items breaks into 2 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",
@@ -2236,26 +2773,38 @@
           {
             "kind": "dead",
             "sel": "div#heroCityLabel",
-            "metric": 701,
-            "detail": "div#heroCityLabel leaves 701px empty beneath it in a 724px row"
+            "metric": 686,
+            "detail": "div#heroCityLabel leaves 686px empty beneath it in a 709px row"
           },
           {
             "kind": "dead",
             "sel": "div#mapMode",
-            "metric": 660,
-            "detail": "div#mapMode leaves 660px empty beneath it in a 724px row"
+            "metric": 645,
+            "detail": "div#mapMode leaves 645px empty beneath it in a 709px row"
           },
           {
             "kind": "dead",
             "sel": "div#satHud",
-            "metric": 635,
-            "detail": "div#satHud leaves 635px empty beneath it in a 724px row"
+            "metric": 620,
+            "detail": "div#satHud leaves 620px empty beneath it in a 709px row"
           },
           {
             "kind": "dead",
             "sel": "div.sys-cell__head",
             "metric": 110.21875,
             "detail": "110.21875px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 2,
+            "detail": "div.stack__items breaks into 2 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",
@@ -2303,6 +2852,12 @@
             "detail": "122.53125px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -2346,6 +2901,12 @@
             "sel": "div.sys-cell__head",
             "metric": 123,
             "detail": "122.65625px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
           },
           {
             "kind": "scattered",
@@ -2393,6 +2954,12 @@
             "detail": "122.78125px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -2436,6 +3003,12 @@
             "sel": "div.sys-cell__head",
             "metric": 125.453125,
             "detail": "125.453125px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
           },
           {
             "kind": "scattered",
@@ -2483,6 +3056,12 @@
             "detail": "125.578125px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -2526,6 +3105,12 @@
             "sel": "div.sys-cell__head",
             "metric": 126,
             "detail": "125.703125px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
           },
           {
             "kind": "scattered",
@@ -2573,6 +3158,12 @@
             "detail": "147.796875px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -2616,6 +3207,12 @@
             "sel": "div.sys-cell__head",
             "metric": 148,
             "detail": "147.921875px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
           },
           {
             "kind": "scattered",
@@ -2663,6 +3260,12 @@
             "detail": "148.0625px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -2706,6 +3309,12 @@
             "sel": "div.sys-cell__head",
             "metric": 148.1875,
             "detail": "148.1875px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
           },
           {
             "kind": "scattered",
@@ -2753,6 +3362,18 @@
             "detail": "152.125px of empty space under div.sys-cell__head"
           },
           {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 2,
+            "detail": "div.stack__items breaks into 2 rows and leaves span alone on the last one"
+          },
+          {
             "kind": "scattered",
             "sel": "div#heroNodeRail",
             "metric": 76,
@@ -2796,6 +3417,18 @@
             "sel": "div.sys-cell__head",
             "metric": 152.125,
             "detail": "152.125px of empty space under div.sys-cell__head"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.probono-stack",
+            "metric": 3,
+            "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+          },
+          {
+            "kind": "wrap",
+            "sel": "div.stack__items",
+            "metric": 2,
+            "detail": "div.stack__items breaks into 2 rows and leaves span alone on the last one"
           },
           {
             "kind": "scattered",

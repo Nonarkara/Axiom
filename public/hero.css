@@ -1080,6 +1080,13 @@
 }
 
 /* ----- Hero stats ----- */
+/* A ruled strip: three marks, each with an accent bar, each sized to its
+   own text. The tiles were three equal 1fr tracks of a 684px column, so
+   "5" — twelve pixels of text — sat in a 208px box, seventeen times its
+   own width, and 139px of gap opened up between the marks because the
+   grid divided the column, not the reading. The tiles now take their
+   text's width. The space that frees up goes to the map, which is what
+   is behind them. */
 .hero-stats {
   grid-area: stats;
   position: relative;
@@ -1087,13 +1094,15 @@
   align-self: end;
   margin-top: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, max-content));
+  justify-content: start;
   gap: 12px;
 }
 
 .hero-stat {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 2px;
   border-left: 2px solid var(--accent);
   padding-left: 10px;

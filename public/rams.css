@@ -1897,24 +1897,26 @@ summary:focus-visible {
 
 /* === pro bono stack (visible tech list) === */
 /* The stack is a label and a shelf of technologies. The label sits on its
-   own line and the shelf below it is a grid, so the shelf never leaves one
-   chip alone on a line of its own.
-   The shelf is TWO columns at every width. `auto-fill` was tried and
-   rejected: it handed the shelf three columns at 360px, one at 768px and
-   two at 1440px, so the same five cards showed three different shelves.
-   A technology name may be two words, so it breaks inside its own cell
+   own line and the shelf below it holds the chips.
+   The shelf is a wrapping row of CONTENT-SIZED chips, not a grid of equal
+   tracks. Two equal tracks put "D1" — twelve pixels of text — in a
+   167px cell at 390px and a 108px cell at 1440: a chip stretched twelve
+   times wider than its own name. A chip has no comparison to make against
+   the chip beside it, so nothing earns the track. The shelf now packs the
+   chips to their own width and wraps where the card runs out of room.
+   A technology name may be two words, so it breaks inside its own chip
    rather than reaching outside it. */
 .probono-stack {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 4px;
   padding: var(--box-pad) 10px;
   border-top: 1px solid var(--line);
   background: var(--panel);
 }
 
-.probono-stack__lbl { grid-column: 1 / -1; }
+.probono-stack__lbl { flex: 0 0 100%; }
 
 .probono-stack__chip {
   display: block;
@@ -2006,21 +2008,26 @@ summary:focus-visible {
 }
 .stack__icon svg { width: 26px; height: 26px; display: block; }
 .stack__main { padding: 14px 16px 16px; min-width: 0; }
-/* The layer's name and its role on the left, the count on the right, both
-   rows of the same grid. Before, the count was pushed to the far edge and
-   wrapped onto a line of its own on a phone. */
+/* The layer's name and its role are one thought — the role glosses the name
+   — so they travel together in one label. Before, the role was pushed to
+   the far right of a 1018px track and landed UNDER the count, 900px from
+   the name it describes: a reader had to re-find it. The count keeps the
+   far edge because nine counts in one column is the thing worth aligning.
+   The label is ONE flex item, so when the row is too narrow the head
+   breaks between the label and the count — the count never falls to a
+   line of its own. */
 .stack__head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 2px 10px;
+  gap: 2px 12px;
   margin-bottom: 11px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
 }
+.stack__label { min-width: 0; }
 .stack__name { font-size: var(--t-micro); font-weight: 700; letter-spacing: var(--tr-label); text-transform: uppercase; }
 .stack__role {
-  margin-left: auto;
   font-size: var(--t-label);
   font-weight: 600;
   letter-spacing: var(--tr-label);
@@ -2028,14 +2035,15 @@ summary:focus-visible {
   color: var(--ink-3);
   white-space: nowrap;
 }
-.stack__count { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: var(--t-micro); font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
-/* A shelf of technology names, in a grid with a decided number of columns.
-   The chips keep their own width; the grid only decides where the breaks
-   fall. */
+.stack__count { margin-left: auto; font-size: var(--t-micro); font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+/* A shelf of technology names. Each chip is as wide as its own name: the
+   old track was `minmax(118px, max-content)`, so the 118px floor made
+   "Git" — fifteen pixels of text — sit in a 118px box, nearly seven times
+   its own width. These names are a list, not a comparison, so nothing
+   earns a shared track: the chips pack to their content and wrap. */
 .stack__items {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(118px, max-content));
-  justify-content: start;
+  display: flex;
+  flex-wrap: wrap;
   gap: 6px;
 }
 .stack__items span,

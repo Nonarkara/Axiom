@@ -5,7 +5,7 @@
     "file": "docs/design/evidence/axiom-390x844.png",
     "vw": 390,
     "vh": 844,
-    "docH": 31074,
+    "docH": 30957,
     "headerH": 50,
     "topH": 0,
     "bottomH": 0,
@@ -19,8 +19,8 @@
     "h1": {
       "text": "Innovation\n          as a Service",
       "size": 36,
-      "y": 357,
-      "bottom": 435
+      "y": 337,
+      "bottom": 414
     },
     "overflowX": 0,
     "voice": [
@@ -29,21 +29,21 @@
         "text": "Innovation\n          as a Service",
         "size": 36,
         "weight": "800",
-        "y": 357
+        "y": 337
       },
       {
         "tag": "H3.field-band__title",
         "text": "The flood arrives at 2 a.m. The da",
         "size": 24,
         "weight": "700",
-        "y": 4280
+        "y": 4245
       },
       {
         "tag": "H2.t-big",
         "text": "The flood arrives at 2 a.m. The da",
         "size": 19,
         "weight": "600",
-        "y": 1444
+        "y": 1409
       }
     ],
     "errors": []
@@ -54,7 +54,7 @@
     "file": "docs/design/evidence/axiom-1024x900.png",
     "vw": 1024,
     "vh": 900,
-    "docH": 13296,
+    "docH": 13260,
     "headerH": 50,
     "topH": 0,
     "bottomH": 0,
@@ -103,7 +103,7 @@
     "file": "docs/design/evidence/axiom-1440x900.png",
     "vw": 1440,
     "vh": 900,
-    "docH": 13257,
+    "docH": 13218,
     "headerH": 58,
     "topH": 0,
     "bottomH": 0,
