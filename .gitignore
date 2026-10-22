@@ -28,3 +28,5 @@ nw-shot.mjs
 .worktiles/
 
 # scratch probes from interactive sessions
+.shots/
+.shots-*.mjs

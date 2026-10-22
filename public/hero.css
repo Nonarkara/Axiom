@@ -13,7 +13,6 @@
      z=5  .hero-featured-badge (the FEATURED panel)
      z=6  .hero-content (badge, title, subtitle, actions,
           node strip, stats)
-     z=7  .hero-scroll-indicator
 
    Variables are inherited from :root in rams.css.
    ============================================================ */
@@ -124,7 +123,6 @@
 .sat-project-pin { display: flex; justify-content: center; align-items: flex-start; }
 .sat-project-pin .sat-signal-label { display: none; }
 .sat-project-pin.has-label .sat-signal-label,
-.sat-project-pin.is-context .sat-signal-label,
 .sat-project-pin:hover .sat-signal-label,
 .sat-project-pin:focus-visible .sat-signal-label { display: block; }
 .sat-project-pin.is-active .sat-signal-dot { background: var(--paper); border: 2px solid var(--ocher); }
@@ -144,6 +142,15 @@
   text-transform: uppercase;
   white-space: nowrap;
   pointer-events: none;
+}
+
+/* Context pins name their place on a wide map, where there is room for the
+   caption. On a phone they did not: six caption boxes on a 390px map
+   overlapped each other and the pins in twelve places, and the map stopped
+   being readable as a map. Below 901px a context pin is a pin — the
+   active pin, hover and focus still name it. */
+@media (min-width: 901px) {
+  .sat-project-pin.is-context .sat-signal-label { display: block; }
 }
 
 /* ----- Telemetry axes (purged sci-fi slop) ----- */
@@ -209,6 +216,11 @@
   top: auto;
   left: auto;
   align-self: start;
+  /* The bar holds "AUTO TOUR" and a pause button — about 132px of content.
+     It sat in the 684px 'mode' grid track and stretched to fill it, so the
+     map carried a 684px black slab that was 80% empty. A grid item stretches
+     by default; the bar is sized to its content, not to the column. */
+  justify-self: start;
   display: inline-flex;
   align-items: stretch;
   background: rgba(10, 12, 16, 0.90);
@@ -461,24 +473,40 @@
   border: 1px solid rgba(255, 255, 255, 0.16);
   font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
   color: var(--paper);
-  min-width: 280px;
+  /* Same reason as .map-mode: the panel was 280px minimum inside a 480px
+     column and stretched to the column, so three short lines sat in a slab
+     four times their width. It docks to the right edge at its own width. */
+  min-width: 0;
   max-width: min(560px, 90vw);
+  justify-self: end;
   pointer-events: none;
 }
 
-.hero-node-strip-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
-.hero-node-strip-head .hero-node-strip-label { margin: 0; opacity: 1; }
+.hero-node-strip-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 10px; margin-bottom: 8px; }
+.hero-node-strip-head .hero-node-strip-label { margin: 0; opacity: 1; min-width: 0; }
 .hero-project-select {
-  width: min(320px, 65%);
+  /* The control holds one place name. It claimed 320px of the row so a
+     three-letter word sat alone inside a large empty field. It takes the
+     width of its content and stops there. */
+  width: auto;
+  field-sizing: content;
+  max-width: min(320px, 55%);
+  flex: 0 1 auto;
   min-width: 0;
   min-height: 44px;
-  padding: 8px;
+  padding: 8px 10px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0;
   color: var(--paper);
   background: #171a1e;
-  font-family: inherit;
-  font-size: 13px;
+  /* The label beside it is set in the HUD's mono at 10px. A 13px sans in a
+     44px field beside a 10px caption read as two unrelated objects; in the
+     same voice they read as one control and its name. */
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   pointer-events: auto;
   color-scheme: dark;
 }
@@ -653,7 +681,6 @@
   min-height: 44px;
   background: transparent;
   border: 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--paper);
   opacity: 0.65;
   font-family: inherit;
@@ -665,10 +692,9 @@
   transition: opacity 120ms ease, background 120ms ease, color 120ms ease;
 }
 
-.hero-console__tab:last-child {
-  border-right: 0;
-}
-
+/* The four views are one instrument, not four boxes: the row's own hairline
+   separates it from the panel below, and the filled cell says which view is
+   open. A rule between every cell made four small framed things. */
 .hero-console__tab:hover {
   opacity: 0.95;
   background: rgba(255, 255, 255, 0.04);
@@ -1093,32 +1119,15 @@
   opacity: 0.6;
 }
 
-/* ----- Scroll indicator ----- */
-.hero-scroll-indicator {
-  position: absolute;
-  z-index: 5;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 32px;
-  pointer-events: none;
-}
-
-.hero-scroll-line {
-  width: 1px;
-  height: 100%;
-  background: var(--paper);
-  opacity: 0.6;
-  animation: hero-scroll-down 1.8s ease-in-out infinite;
-}
-
-@keyframes hero-scroll-down {
-  0%   { transform: scaleY(0); transform-origin: top; }
-  50%  { transform: scaleY(1); transform-origin: top; }
-  51%  { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
-}
+/* ----- Scroll indicator -----
+   Removed. It was a 1px x 32px hairline at the viewport's horizontal
+   centre, at the bottom of the hero, with no arrowhead and no label —
+   a mark with nothing to point at. At 1024px it landed in the 11px
+   gutter between the copy column and the console with nothing around
+   it, which read as a rendering artifact rather than a cue. It was
+   already hidden below 700px, so it never carried the phone. The hero
+   ends on a rule and the next section starts immediately; the cue said
+   nothing the page did not. */
 
 /* ----- Responsive ----- */
 @media (max-width: 1199px) {
@@ -1154,7 +1163,10 @@
 @media (max-width: 600px) {
   #hero {
     --hero-display: 36px;
-    grid-template-columns: 132px minmax(0, 1fr);
+    /* The AUTO TOUR bar sizes to its own content now, so the first column
+       has to be allowed to be as wide as that content — a fixed 132px track
+       wrapped "AUTO TOUR" onto two lines. */
+    grid-template-columns: max-content minmax(0, 1fr);
     grid-template-areas: 'mode status' 'map map' 'copy copy' 'nodes nodes' 'brief brief' 'stats stats';
     gap: 8px 12px;
     padding-block: 12px 24px;
@@ -1162,6 +1174,13 @@
   .hero-copy { gap: 8px; }
   .hero-map-space { display: block; grid-area: map; min-height: 180px; pointer-events: none; }
   .hero-subtitle { font-size: 15px; line-height: 1.45; }
+  /* One band, one height: the scope readout runs its three lines side by
+     side instead of stacking, so it stands the same height as the tour bar
+     beside it rather than 25px taller. The coverage/currency line goes with
+     them — the same call the tile-source and provider lines already make on
+     a phone: the theatre and the count are the facts a phone reader needs. */
+  .sat-hud { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 2px 12px; }
+  .sat-hud-signals { display: none; }
   .hero-node-strip-scroller {
     /* All four theatres are visible at once. A sideways strip put the
        fourth card behind a scroll the reader had no reason to know about,
@@ -1208,7 +1227,6 @@
   .sat-pulse-marker,
   .map-mode-dot,
   .sat-hud-live-dot,
-  .hero-scroll-line,
   .map-mode-btn-pulse {
     animation: none !important;
   }

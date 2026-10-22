@@ -5376,7 +5376,7 @@ function initFlooddashCarousel() {
     });
     coverageLayer.clearLayers();
     (footprint.coverage[theatre.key] || []).forEach(bounds => {
-      L.rectangle(bounds, { color: '#d4b96e', weight: 1, dashArray: '5 5', fill: false, interactive: false }).addTo(coverageLayer);
+      L.rectangle(bounds, { color: '#e2b540', weight: 1, dashArray: '5 5', fill: false, interactive: false }).addTo(coverageLayer);
     });
   }
 
