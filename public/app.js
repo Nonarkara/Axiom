@@ -4989,6 +4989,12 @@ function renderStaticCopy() {
       el.textContent = String(catalogLinks);
     }
   }
+  const liveBadges = document.querySelectorAll('.sys-cell[data-arch] .dot').length;
+  if (liveBadges) {
+    for (const el of document.querySelectorAll('[data-count="live"]')) {
+      el.textContent = String(liveBadges);
+    }
+  }
   // Every locale (including regional ko/ja/vi) falls back to English on a missing key,
   // so switching zh → ko never leaves Chinese text on a node whose Korean value is absent.
   const lookup = (key) => {
