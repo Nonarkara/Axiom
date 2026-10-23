@@ -4989,10 +4989,14 @@ function renderStaticCopy() {
       el.textContent = String(catalogLinks);
     }
   }
-  const liveBadges = document.querySelectorAll('.sys-cell[data-arch] .dot').length;
-  if (liveBadges) {
+  // Live count: count the cells the page itself labels Live, not the blinking
+  // dots. A dot is a decoration; a label is a claim, and a claim is the thing a
+  // reader can check against the catalogue. The status strip further down
+  // already counts this way — two live figures on one page must be one number.
+  const liveSystems = document.querySelectorAll('[data-i18n="sysStatus.live"]').length;
+  if (liveSystems) {
     for (const el of document.querySelectorAll('[data-count="live"]')) {
-      el.textContent = String(liveBadges);
+      el.textContent = String(liveSystems);
     }
   }
   // Every locale (including regional ko/ja/vi) falls back to English on a missing key,

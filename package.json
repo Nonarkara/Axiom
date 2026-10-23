@@ -14,6 +14,7 @@
     "qa:links": "node .qa/release-audit.mjs",
     "qa:visual": "node .qa/visual-qa.mjs",
     "qa:thumbs": "node .qa/catalogue-thumbs.mjs",
+    "qa:counts": "node .qa/count-check.mjs",
     "qa:journeys": "node .qa/axiomx-journeys.mjs",
     "qa:plates": "node .qa/axiomx-plates.mjs",
     "qa:spatial": "node scripts/spatial/spatial-check.mjs",
