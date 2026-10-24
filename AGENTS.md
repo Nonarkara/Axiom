@@ -173,6 +173,8 @@ The Pages project is **`axiomx`**, whose `*.pages.dev` host is **`axiomx-1d4.pag
 
 **`axiomx.pages.dev` is a decoy, not a typo you can shrug off.** It resolves and returns **HTTP 200** — it is a real, older, unrelated **Next.js** project ("Axiom: The Universal Calculator"). Every axiomx asset 404s there: `reader.js`, `catalog.js`, and `style.css` all serve the same 13,596-byte Next.js 404 page. Pointing the CNAME at it would leave the canonical host resolving, with a working TLS cert, serving the wrong site with no broken assets to notice — the reading room would simply never load. Always `axiomx-1d4.pages.dev`.
 
+**Resolved 2026-10-24: the record exists.** `axiomx.nonarkara.org` resolves and serves this project, and the full journey suite passes against the canonical host (191 PASS, 0 FAIL). The account of why an agent could not create it is kept below because the next missing record will fail the same way.
+
 **`axiomx.nonarkara.org` needs a DNS record that an agent cannot create.** The domain is attached to the project on the Cloudflare side, but wrangler's OAuth token is **Pages-scoped only** — `GET /zones/{id}/dns_records` returns **403** — and `wrangler login --scopes-list` offers only `zone:read`, with no DNS-write scope grantable at any scope level. Cloudflare auto-creates the CNAME only when a domain is attached *with zone authority*, so attaching via API leaves it stuck at `pending` / `CNAME record not set` indefinitely. Dr Non adds this record by hand in the dashboard:
 
 ```
