@@ -4,7 +4,32 @@
 
 // ── i18n ──────────────────────────────────────────────────────────
 
+// The language the reader chose. A switch that forgets itself on reload is
+// not a switch, so the choice is remembered. A link can also carry a
+// language with ?lang=, and that wins for this visit only — a link somebody
+// sent you should not quietly change your own preference.
+const LOCALE_STORAGE_KEY = 'axiom:locale';
 let activeLocale = 'en';
+
+function readLocalePreference() {
+  let fromUrl = null;
+  try {
+    fromUrl = new URLSearchParams(window.location.search).get('lang');
+  } catch (e) { /* no search, or a URL the browser will not parse */ }
+  if (fromUrl && uiCopy[fromUrl]) return fromUrl;
+  let saved = null;
+  try {
+    saved = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+  } catch (e) { /* storage can be refused; the switch still works without it */ }
+  if (saved && uiCopy[saved]) return saved;
+  return 'en';
+}
+
+function rememberLocale(locale) {
+  try {
+    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+  } catch (e) { /* storage can be refused; the switch still works without it */ }
+}
 
 // Lightweight media-query helper (pre-existing axiomMedia was referenced
 // but never defined; recreate it here so the satellite hero and data
@@ -1023,7 +1048,7 @@ const uiCopy = {
       kicker: 'ใช้งานจริงอยู่ตอนนี้',
       title: 'ระบบจริง <em>เมืองจริง</em> รันอยู่วันนี้',
       lede: 'หลักฐาน ไม่ใช่คำสัญญา ทุกระบบด้านล่างเริ่มจากการตัดสินใจหนึ่งเรื่องที่มีคนทำได้ไม่ทันการณ์ และทุกระบบใช้งานได้จริงวันนี้ — เปิดเข้าไป ลองใช้ แล้วตัดสินผลงานด้วยตัวคุณเอง',
-      sandboxKicker: 'Sandbox // Live',
+      sandboxKicker: 'Sandbox // สด',
       sandboxNote: 'ไม่ใช่ demo — ทุกระบบรันใน sandbox จริง สร้างให้ scale ได้ ไม่ใช่สร้างมาโชว์ การ deploy จริงของลูกค้าอยู่ภายใต้ NDA ใหญ่กว่าและซับซ้อนกว่า สิ่งที่รันที่นี่ทำงานแบบเดียวกัน โมดูลขั้นสูงถูกถอดออกเพราะ NDA ไม่ใช่เพราะของปลอม',
     },
     stageSect: {
@@ -1291,7 +1316,7 @@ const uiCopy = {
       kicker: '正在生产中运行',
       title: '真实系统 <em>真实城市</em> 今天就在跑',
       lede: '用证据说话，而不是承诺。下面每个系统都始于一个“做得不够快”的决策。每一个今天都在线运行——打开它、使用它、自己评判。',
-      sandboxKicker: 'Sandbox // Live',
+      sandboxKicker: '沙盒 // 在线',
       sandboxNote: '不是演示稿——是运行在沙盒里的可用系统。按可扩展的方式搭建，不是为了好看。客户生产部署在保密协议下规模更大；这里运行的逻辑与之一致，敏感模块不对外展示，不是因为它们是假的。',
     },
     stageSect: {
@@ -4733,10 +4758,14 @@ const i18nPitch = {
     },
     heroConsole: {
       title: 'DECISION_SYSTEMS_CONSOLE',
-      tabSystems: 'systems.domains()',
-      tabImpact: 'impact.citizens()',
+      // The four view names have to fit inside a quarter of the console on a
+      // phone. The long ones did not: "systems.domains()" is wider than the
+      // column it sat in, and the column clipped it — the reader saw
+      // "04 ACTIVE.DOSSIE" and a fourth view they could not name.
+      tabSystems: 'systems()',
+      tabImpact: 'impact()',
       tabTrends: 'tech.dna()',
-      tabDossier: 'active.dossier()',
+      tabDossier: 'dossier()',
       systemsLabel: 'systems.inProduction',
       problemsLabel: 'criticalDomains.served',
       slideDecksLabel: 'slideDecks.shipped',
@@ -4976,6 +5005,10 @@ function renderStaticCopy() {
   const copy = uiCopy[activeLocale] || uiCopy.en;
   const LOCALE_HTML_LANG = { en: 'en', th: 'th', zh: 'zh-Hans', ko: 'ko', ja: 'ja', vi: 'vi', ts: 'en' };
   document.documentElement.lang = LOCALE_HTML_LANG[activeLocale] || activeLocale;
+  // The source view is English rendered as code, so lang="en" cannot tell
+  // it apart from English. The stylesheet needs to know which view it is
+  // writing: an identifier is a different kind of word from a sentence.
+  document.documentElement.dataset.locale = activeLocale;
   // The browser tab is part of the page a reader is holding. Leaving it English
   // in every locale is the one piece of copy that escapes the page entirely.
   if (DOC_TITLES[activeLocale]) document.title = DOC_TITLES[activeLocale];
@@ -5039,6 +5072,9 @@ function renderStaticCopy() {
 
 function setPageLocale(locale, options = {}) {
   activeLocale = uiCopy[locale] ? locale : 'en';
+  // Changing the language is a decision the reader made, so it is kept —
+  // except on the first render, which is reading a choice, not making one.
+  if (options.persist !== false) rememberLocale(activeLocale);
   renderStaticCopy();
   if (!options.silent) {
     window.dispatchEvent(new CustomEvent('axiom:localechange', {
@@ -5060,7 +5096,13 @@ function bindLocaleSwitch() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  setPageLocale(activeLocale, { silent: true });
+  // The first render is a language change too, and it says so out loud.
+  // The tour's node names, the HUD, the canvas labels and the rotating
+  // headline are written from the active locale by the localechange
+  // listener; if the first render is silent they stay in English until the
+  // tour first moves — nine seconds of a Thai page wearing English names,
+  // and then the node strip jumps as the labels reflow.
+  setPageLocale(readLocalePreference(), { persist: false });
   bindLocaleSwitch();
   initFlooddashCarousel();
   injectSystemVersions();

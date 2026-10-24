@@ -15,6 +15,7 @@
     "qa:visual": "node .qa/visual-qa.mjs",
     "qa:thumbs": "node .qa/catalogue-thumbs.mjs",
     "qa:counts": "node .qa/count-check.mjs",
+    "qa:i18n": "node .qa/i18n-check.mjs",
     "qa:journeys": "node .qa/axiomx-journeys.mjs",
     "qa:plates": "node .qa/axiomx-plates.mjs",
     "qa:spatial": "node scripts/spatial/spatial-check.mjs",

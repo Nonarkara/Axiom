@@ -225,6 +225,11 @@
   white-space: normal;
   overflow: visible;
   text-overflow: clip;
+  /* ...but only where there is a break to break at. The source view writes
+     "Tomorrow.City.shanghai.2026·ZhangjiangScienceHall·appearance(4th)" —
+     one token, 69 characters — and a token with no space in it does not
+     wrap, it runs past the edge of the page. */
+  overflow-wrap: anywhere;
 }
 
 .cx-bar__claim {

@@ -125,6 +125,8 @@ If a future agent has re-broken it, the recovery is `git show 8bdf126:public/ind
 | `npm run qa:spatial` | Spatial gate (`scripts/spatial/spatial-check.mjs`) — measures holes, orphans, scattered pairs, wrapping and dead space against the baseline |
 | `npm run qa:spatial:falsify` | Proves the spatial gate bites — injects known defects and asserts each one is caught |
 | `npm run qa:sweep` | Chunked spatial sweep (`.qa/spatial-sweep.mjs`) — for route sets too large for one browser run |
+| `npm run qa:counts` | Count gate (`.qa/count-check.mjs`) — every figure on the page must equal what the page can be counted for. Run against the live URL to prove it there. |
+| `npm run qa:i18n` | Language gate (`.qa/i18n-check.mjs`) — every locale's keys, the switcher's function, phone reachability, persistence, `?lang=` and the `lang` attribute. A string a language keeps in English **on purpose** is written down in `design/i18n-allowlist.json` with its reason; a stale decision fails the gate. |
 | `node .qa/msh-evidence.mjs` | **The evidence MSH.md requires** — measures chrome cost, task visibility, geometry, hierarchy and preservation at 390/1024/1440 and writes the screenshots to `docs/design/evidence/` |
 | `npm run security:headers` | Regenerate `public/_headers` from `lib/security.mjs` — **run after any change to an inline script** |
 | `npm test` | Unit tests (`node --test tests/*.test.mjs`) — footprint, catalogue, circuit, security. Run before pushing a change to `public/` or `axiomx/`. |
@@ -275,7 +277,7 @@ The gate is mechanical, because an eye cannot see a 158px void beside an 18px la
 | `spatial-probe.js` | **The measuring instrument. Do not edit — not one byte.** It is what makes the numbers comparable across runs and across agents. |
 | `spatial-check.mjs` | The Node-side driver. **Project-owned policy: fix it when it is wrong.** |
 | `spatial-falsify.mjs` | Injects known defects and asserts each one is caught. |
-| `design/spatial-baseline.json` | 73 routes, the decisions already made, and **the reason for each one**. |
+| `design/spatial-baseline.json` | 79 routes, the decisions already made, and **the reason for each one**. |
 
 **Keep `scripts/spatial/` byte-identical to the `spatial-law` package** (`~/.minimax/skills/spatial-law/bin/`). A local edit to the instrument makes a number mean something different from every other project that uses it, and the next agent cannot tell which numbers are comparable. When the package changes, copy it in, re-measure the baseline, and read the diff — the measurement code changed, so the numbers did too.
 
@@ -311,6 +313,14 @@ node .qa/spatial-sweep.mjs --base http://127.0.0.1:5311/ \
 **The gate must settle before it measures.** A page that is still laying out gives wrong numbers, so the driver waits for the DOM fingerprint to be stable across two polls. A JS-fitted label (the reading room's plate captions) is measured *after* it settles.
 
 **Reading-room routes are path routes** — `/flood-ami`, `/iaas` — not `#hash` fragments. `.qa/serve.mjs` serves the shell and sets `location.hash` from the path, so the sweep's `--routes` list is the real URL space. The 71 ids come from `window.AXIOM_SYSTEMS` in `axiomx/catalog.js`.
+
+### The seven languages are six more routes
+
+The catalogue is translated, and a translation is a **different layout** — longer labels, wider words, a taller stack. The footer's eleven links are one row only while one row holds all eleven, and a row's width is the sum of its labels, so the band where the row holds differs per language. Measuring only the English route measures only the English layout: Vietnamese needs 1011px of links where English needs 840px, and the source view's identifiers need 992px.
+
+So the main site carries **six language routes** — `/?lang=th`, `/?lang=zh`, `/?lang=ko`, `/?lang=ja`, `/?lang=vi`, `/?lang=ts` — and the sweep visits all of them. The `?lang=` parameter is the page's own: it sets the language for that visit **without** overwriting the reader's stored preference, which is what lets a link carry a language and still lets the switcher's choice stick.
+
+**A language that keeps a string in English on purpose writes the reason down.** `design/i18n-allowlist.json` holds those decisions — a loanword, a product's own name, a registered address — each with its reason, and `npm run qa:i18n` fails when a decision no longer applies. An allowlist that only grows is a place to hide, so a stale decision is a failure too.
 
 ### What the gate caught that an eye did not
 

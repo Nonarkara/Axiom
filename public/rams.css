@@ -223,6 +223,18 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* The source view — the `</>` button — writes identifiers instead of words:
+   "floodDash.basinTelemetry(thaiWater,HII)" is 39 characters with no space
+   in it, and the footer writes "// governedBy: laws(KingdomOfThailand);
+   jurisdiction: courts(Bangkok).exclusive" — 74 of them. An identifier does
+   not wrap, so every box that carries one has to be told to break it, or
+   the page grows sideways on a phone. The property is inherited, so one
+   declaration covers the whole page, and it applies to no other view: in
+   prose a word that fits is never broken. */
+html[data-locale='ts'] body {
+  overflow-wrap: anywhere;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -1489,6 +1501,30 @@ summary:focus-visible {
 @media (max-width: 480px) {
   .foot__row .nav {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* The one row above holds eleven links only while one row still holds all
+   eleven, and a row's width is the sum of its labels. The labels are
+   translated, so the band is not one band: measured across the seven
+   locales the row needs 595px (Chinese, Korean) to 1011px (Vietnamese),
+   and the source view's identifiers need 992px. English fits from 881px
+   with 9px to spare; Vietnamese does not fit until 1043px, so between
+   881px and 1042px its row broke — and a broken row leaves one link alone
+   in the corner, which is the accident this rule exists to prevent.
+   Vietnamese and the source view are the only two label sets that cannot
+   hold eleven in one row there, so those two, and only those two, put the
+   links into two deliberate rows of six and five. Eleven divides into six
+   and five, so no link is ever left alone. The band stops 24px before the
+   row fits, so a wider fallback font on another machine cannot strand one
+   either. */
+@media (min-width: 881px) and (max-width: 1066px) {
+  html[data-locale='vi'] .foot__row .nav,
+  html[data-locale='ts'] .foot__row .nav {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, max-content));
+    justify-content: start;
+    gap: 6px 16px;
   }
 }
 

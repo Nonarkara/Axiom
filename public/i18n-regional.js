@@ -22,8 +22,8 @@
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
       "statSystems": "운영 중인 시스템",
-      "statMonitoring": "Live Monitoring",
-      "statCountries": "Countries",
+      "statMonitoring": "실시간 모니터링",
+      "statCountries": "국가",
       "signalLabels": {
         "FLOOD": "홍수", "CAMPUS": "캠퍼스", "URBAN": "도시", "ATLAS": "지도",
         "COASTAL": "해안", "TRANSIT": "대중교통", "AIR": "대기",
@@ -1019,8 +1019,8 @@
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
       "statSystems": "本番稼働中のシステム",
-      "statMonitoring": "Live Monitoring",
-      "statCountries": "Countries",
+      "statMonitoring": "リアルタイム監視",
+      "statCountries": "対象国",
       "signalLabels": {
         "FLOOD": "洪水", "CAMPUS": "キャンパス", "URBAN": "都市", "ATLAS": "地図",
         "COASTAL": "沿岸", "TRANSIT": "交通", "AIR": "大気",
@@ -2010,8 +2010,8 @@
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
       "statSystems": "Hệ thống đang vận hành",
-      "statMonitoring": "Live Monitoring",
-      "statCountries": "Countries",
+      "statMonitoring": "Giám sát trực tiếp",
+      "statCountries": "Quốc gia",
       "signalLabels": {
         "FLOOD": "Lũ", "CAMPUS": "Khuôn viên", "URBAN": "Đô thị", "ATLAS": "Bản đồ",
         "COASTAL": "Ven biển", "TRANSIT": "Giao thông", "AIR": "Không khí",

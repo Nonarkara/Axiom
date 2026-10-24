@@ -132,11 +132,18 @@ if (merged && merged.reasons) {
     if (stillThere) merged.reasons[k] = v;
   }
 }
+// The declared width list must be the widths the baseline actually holds.
+// Copying the previous list forward left the record claiming 59 widths
+// while 66 were measured — and the gate's completeness check reads that
+// list, so a stale one hides a sweep that did not cover everything.
+const measuredWidths = [...new Set(
+  Object.values(routesOut).flatMap((ws) => Object.keys(ws).map(Number)),
+)].sort((a, b) => a - b);
 const out = {
   version: 2,
   tool: 'spatial-law',
   widths: merged?.widths || WIDTHS || [],
-  measuredWidths: merged?.measuredWidths || WIDTHS || [],
+  measuredWidths: WIDTHS ? WIDTHS : measuredWidths,
   limits: merged?.limits || {},
   reasons: merged?.reasons || {},
   exempt: merged?.exempt || [],
