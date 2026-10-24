@@ -214,3 +214,24 @@ test('every copy key a card asks for exists, and no two cards share one', () => 
   }
   assert.ok(used.size > 0, 'expected the cards to reference copy keys');
 });
+
+// ---------------------------------------------------------------------------
+// The reading room's index prints a group header whenever the cluster changes
+// from one entry to the next. Entries appended to the end of the array in the
+// order they were built (simcity, miaoshen, tdv, techhunt, ...) put City
+// Dashboards under its header four separate times and Lab twice, each header
+// restating a count — the index spent its first screen saying the same thing.
+// Nothing threw, every id and number was right, and every other test passed.
+// ---------------------------------------------------------------------------
+test('the reading-room catalogue is grouped, so each cluster header prints once', () => {
+  const seen = new Set();
+  let previous = null;
+  for (const system of systems) {
+    if (system.cluster !== previous) {
+      assert.ok(!seen.has(system.cluster),
+        `${system.id} reopens the ${system.cluster} group — move it next to the rest of its cluster`);
+      seen.add(system.cluster);
+      previous = system.cluster;
+    }
+  }
+});

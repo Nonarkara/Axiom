@@ -485,6 +485,18 @@
       "lede": "The verified technology stockmarket for Thai cities: 125 verified startups across 7 smart-city domains, ranked by live signal strength for procurement officers and urban planners. A collaborative initiative by depa, SLIC, and UWN.",
       "cta": "Open TechHunt"
     },
+    "bangkok-ioc": {
+      "name": "Bangkok IOC",
+      "cat": "Place Fit",
+      "lede": "The Governor's operations centre for Bangkok now carries a place-fit pilot: pick a BTS station area, test it against your own rent and travel limits, and read what is reported around it — civic complaints, public places, the real walk to the platform. Desk research, not a property listing.",
+      "cta": "Open Bangkok IOC"
+    },
+    "life": {
+      "name": "Life",
+      "cat": "Life Simulation",
+      "lede": "A world grows around you: a fictional life in an isometric Thai town, played at 2× to 20×. At every turn in the path you choose, and every choice has a cost. Saved in your browser. A placeholder host for now; it moves to life.nonarkara.org.",
+      "cta": "Open Life"
+    },
     "podcast-20min": {
       "name": "20 Minutes with Dr Non",
       "cat": "Podcast",
@@ -912,6 +924,18 @@
       "cat": "โครงการระดับชาติ",
       "lede": "ตลาดเทคโนโลยีที่ผ่านการตรวจสอบสำหรับเมืองไทย: 125 สตาร์ทอัพที่ผ่านการยืนยันใน 7 ด้านเมืองอัจฉริยะ จัดอันดับตามความแรงของสัญญาณสดสำหรับเจ้าหน้าที่จัดซื้อจัดจ้างและนักวางผังเมือง ความร่วมมือโดย depa, SLIC และ บพข. (UWN)",
       "cta": "เปิด TechHunt"
+    },
+    "bangkok-ioc": {
+      "name": "Bangkok IOC",
+      "cat": "ความเหมาะสมของย่าน",
+      "lede": "ศูนย์ปฏิบัติการของผู้ว่าราชการกรุงเทพมหานครมีโครงการนำร่องวัดความเหมาะสมของย่านอยู่อาศัย: เลือกย่านรอบสถานี BTS ทดสอบกับค่าเช่าและเวลาเดินทางที่ตนรับได้ แล้วอ่านสิ่งที่มีรายงานรอบพื้นที่ — เรื่องร้องเรียน พื้นที่สาธารณะ และระยะเดินจริงถึงชานชาลา เป็นการค้นคว้าเบื้องต้น ไม่ใช่ประกาศขายหรือให้เช่าอสังหาริมทรัพย์",
+      "cta": "เปิด Bangkok IOC"
+    },
+    "life": {
+      "name": "Life",
+      "cat": "แบบจำลองชีวิต",
+      "lede": "โลกที่เติบโตรอบตัวคุณ: ชีวิตสมมติในเมืองไทยมุมมองไอโซเมตริก เล่นที่ความเร็ว 2× ถึง 20× ทุกทางแยกบนเส้นทางต้องเลือก และทุกทางเลือกมีราคา บันทึกไว้ในเบราว์เซอร์ ตอนนี้ใช้โฮสต์ชั่วคราว แล้วจะย้ายไป life.nonarkara.org",
+      "cta": "เปิด Life"
     },
     "podcast-20min": {
       "name": "20 นาทีกับ ดร.นน",
@@ -1341,6 +1365,18 @@
       "lede": "面向泰国城市的已验证技术市场：覆盖 7 大智慧城市领域的 125 家已认证初创企业，按实时信号强度排序，专为采购官员和城市规划者打造。由 depa、SLIC 与 UWN 联合发起。",
       "cta": "打开 TechHunt"
     },
+    "bangkok-ioc": {
+      "name": "Bangkok IOC",
+      "cat": "选址匹配",
+      "lede": "曼谷市长办公室运营中心新增一项选址试点：选一个 BTS 站点周边，对照自己的租金与通勤上限，再读周边的公开记录——市民投诉、公共场所，以及从住处走到站台的真实步行路线。这是案头研究，不是房源列表。",
+      "cta": "打开 Bangkok IOC"
+    },
+    "life": {
+      "name": "Life",
+      "cat": "人生模拟",
+      "lede": "一个在你身边生长的世界：在等距视角的泰国小镇里度过一段虚构人生，速度可调 2× 至 20×。每个岔路口都要做选择，每个选择都有代价。进度保存在浏览器中。目前使用临时域名，之后迁往 life.nonarkara.org。",
+      "cta": "打开 Life"
+    },
     "podcast-20min": {
       "name": "与阿南博士的二十分钟",
       "cat": "播客",
@@ -1768,6 +1804,18 @@
       "cat": "국가 프로그램",
       "lede": "태국 도시를 위한 검증된 기술 시장: 조달 담당관과 도시 계획가를 위해 7개 스마트시티 도메인에 걸쳐 라이브 신호 강도로 순위를 매긴 125개 검증된 스타트업. depa, SLIC, UWN의 공동 이니셔티브.",
       "cta": "TechHunt 열기"
+    },
+    "bangkok-ioc": {
+      "name": "Bangkok IOC",
+      "cat": "입지 적합성",
+      "lede": "방콕 시장 직속 운영센터에 입지 적합성 시범 서비스가 생겼습니다. BTS 역세권을 고르고 자신의 월세·이동 한도에 맞춰 본 뒤, 주변에 보고된 시민 민원, 공공 장소, 승강장까지의 실제 도보 경로를 읽습니다. 부동산 매물 목록이 아닌 책상 조사입니다.",
+      "cta": "Bangkok IOC 열기"
+    },
+    "life": {
+      "name": "Life",
+      "cat": "인생 시뮬레이션",
+      "lede": "당신 주변에서 자라나는 세계: 아이소메트릭 태국 마을에서 2배에서 20배 속도로 보내는 가상의 삶입니다. 갈림길마다 선택해야 하고 모든 선택에는 대가가 따릅니다. 브라우저에 저장됩니다. 지금은 임시 주소이며 life.nonarkara.org로 옮길 예정입니다.",
+      "cta": "Life 열기"
     },
     "podcast-20min": {
       "name": "20분 with 닥터 논",
@@ -2197,6 +2245,18 @@
       "lede": "タイの都市のための検証済み技術市場：調達担当官と都市計画家のために、7つのスマートシティ領域にわたりライブ信号強度で順位付けされた125の検証済みスタートアップ。depa、SLIC、UWNの共同イニシアチブ。",
       "cta": "TechHuntを開く"
     },
+    "bangkok-ioc": {
+      "name": "Bangkok IOC",
+      "cat": "立地の相性",
+      "lede": "バンコク知事の運営センターに、立地適合のパイロットが加わりました。BTS駅周辺を選び、自分の家賃と移動の上限に照らし、周辺で報告されている市民の苦情、公共の場所、ホームまでの実際の徒歩ルートを読みます。机上調査であり、物件リストではありません。",
+      "cta": "Bangkok IOCを開く"
+    },
+    "life": {
+      "name": "Life",
+      "cat": "人生シミュレーション",
+      "lede": "あなたのまわりに育つ世界：アイソメトリックなタイの町で送る架空の人生を、2倍から20倍の速さで。分かれ道ごとに選び、どの選択にも代償があります。進行はブラウザに保存。いまは仮のホストで、life.nonarkara.org へ移行予定です。",
+      "cta": "Lifeを開く"
+    },
     "podcast-20min": {
       "name": "Dr Nonとの20分",
       "cat": "ポッドキャスト",
@@ -2624,6 +2684,18 @@
       "cat": "Chương trình quốc gia",
       "lede": "Thị trường công nghệ đã được xác minh cho các thành phố Thái Lan: 125 công ty khởi nghiệp được chứng nhận trên 7 lĩnh vực thành phố thông minh, xếp hạng theo cường độ tín hiệu trực tiếp cho cán bộ mua sắm và quy hoạch đô thị. Sáng kiến hợp tác giữa depa, SLIC và UWN.",
       "cta": "Mở TechHunt"
+    },
+    "bangkok-ioc": {
+      "name": "Bangkok IOC",
+      "cat": "Độ phù hợp khu vực",
+      "lede": "Trung tâm điều hành của Thống đốc Bangkok có thêm một thí điểm đánh giá độ phù hợp nơi ở: chọn khu vực quanh ga BTS, đối chiếu với giới hạn tiền thuê và đi lại của bạn, rồi đọc những gì được ghi nhận xung quanh — phản ánh của người dân, địa điểm công cộng, quãng đi bộ thực tế tới sân ga. Đây là nghiên cứu tại bàn, không phải danh sách bất động sản.",
+      "cta": "Mở Bangkok IOC"
+    },
+    "life": {
+      "name": "Life",
+      "cat": "Mô phỏng cuộc đời",
+      "lede": "Một thế giới lớn dần quanh bạn: một cuộc đời hư cấu trong thị trấn Thái Lan theo góc nhìn đẳng cự, chơi ở tốc độ 2× đến 20×. Mỗi ngã rẽ đều phải chọn và mỗi lựa chọn đều có cái giá. Lưu trong trình duyệt. Hiện dùng địa chỉ tạm, sẽ chuyển sang life.nonarkara.org.",
+      "cta": "Mở Life"
     },
     "podcast-20min": {
       "name": "20 phút với Dr Non",

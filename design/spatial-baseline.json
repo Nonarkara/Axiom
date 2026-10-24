@@ -46602,6 +46602,598 @@
           "share": 0.05
         }
       }
+    },
+    "/bangkok-ioc": {
+      "360": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "480": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "559": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "560": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "561": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "759": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "760": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "761": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "768": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "859": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "860": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "861": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "899": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "900": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "901": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1024": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 30.72,
+          "largest": 17,
+          "ratio": 1.81,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1029": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 30.87,
+          "largest": 17,
+          "ratio": 1.82,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1030": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 30.9,
+          "largest": 17,
+          "ratio": 1.82,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1031": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 30.93,
+          "largest": 17,
+          "ratio": 1.82,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1440": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 40,
+          "largest": 17,
+          "ratio": 2.35,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1920": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 40,
+          "largest": 17,
+          "ratio": 2.35,
+          "peers": 0,
+          "share": 0
+        }
+      }
+    },
+    "/life": {
+      "360": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "480": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "559": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "560": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "561": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "759": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "760": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "761": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "768": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "859": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "860": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "861": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "899": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "900": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "901": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1024": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 30.72,
+          "largest": 17,
+          "ratio": 1.81,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1029": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 30.87,
+          "largest": 17,
+          "ratio": 1.82,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1030": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 30.9,
+          "largest": 17,
+          "ratio": 1.82,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1031": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 30.93,
+          "largest": 17,
+          "ratio": 1.82,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1440": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 40,
+          "largest": 17,
+          "ratio": 2.35,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1920": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 40,
+          "largest": 17,
+          "ratio": 2.35,
+          "peers": 0,
+          "share": 0
+        }
+      }
     }
   }
 }

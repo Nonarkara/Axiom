@@ -183,7 +183,7 @@ Proxied matches every other subdomain in the zone. There is **no wildcard** on `
 
 ### What it is
 
-A **book**, not a landing page. A two-pane reader: an index pane of clustered entries on the left, and a "plate" pane on the right that renders one long-form argument at a time. 113 entries across 18 groups (Index, Method, Practice, Catalogue, the system clusters, Pro bono, Stages, Field notes, Founders, Press, Brand, Record, Brief, Colophon).
+A **book**, not a landing page. A two-pane reader: an index pane of clustered entries on the left, and a "plate" pane on the right that renders one long-form argument at a time. 119 entries across 18 groups (Index, Method, Practice, Catalogue, the system clusters, Pro bono, Stages, Field notes, Founders, Press, Brand, Record, Brief, Colophon).
 
 Its opening argument is the **opposite** of the main site's. The main site pitches *one screen, live, click it*. axiomx opens with:
 
@@ -196,7 +196,7 @@ It is the long-form case for the work — the argument you make to a governor, n
 | File | Role |
 |---|---|
 | `axiomx/index.html` | Shell — index pane + plate pane. Static. |
-| `axiomx/catalog.js` | `window.AXIOM_SYSTEMS` — 67 systems, 20 fields each. One line, generated. |
+| `axiomx/catalog.js` | `window.AXIOM_SYSTEMS` — 73 systems, 13 fields each. One line, generated, and kept grouped by `cluster` — the index prints a group header whenever the cluster changes, so an entry appended out of its cluster repeats the header (City Dashboards printed four times before this was caught). |
 | `axiomx/reader.js` | All the prose (`book[]`) and all rendering. The content lives here, not in HTML. |
 | `axiomx/plates.js` + `axiomx/art/` | `window.AXIOM_PLATES` — one artwork per system (artist, title, year, collection, source, licence, why). Rendered in place of the screenshot, after DIE WELT's 2011 Ellsworth Kelly edition. Pro bono entries keep their photos. Credits list: `#plates`. |
 | `axiomx/style.css` | Navy `#00247d` + red `#a51931` on paper `#faf9f7`. **Not** the main site's Lyons blue + ocher. Light and dark. |
@@ -230,13 +230,13 @@ It is the long-form case for the work — the argument you make to a governor, n
 `AXIOMX_URL` overrides the base, so the **same journeys** run against a deployment:
 `AXIOMX_URL=https://axiomx.nonarkara.org/ node .qa/axiomx-journeys.mjs`. Always run them against the canonical host, not the `pages.dev` alias — the alias cannot catch a broken domain or a stale zone.
 
-Covers: land and read the pitch, open a system, deep links, `/` search, Escape-clears, arrow-key navigation, history back/forward, dark mode + persistence, phone at 390px, every system has a credited PD/CC0 plate, FloodDash carries the field video studio and Innovation-as-a-Service carries its own, the index hover affordance in both themes with its AA contrast read off the painted pixel, no latched hover state on touch, keyboard focus kept distinct from hover, the stack plate does not scroll sideways, 44px tap targets, the video studio layout across five widths, that all 117 entries render without error, and that **every plate label fits inside the plate it names** — the label is fitted in JS because a portrait plate is height-capped and CSS cannot measure it, so the check waits for the caption to settle before judging it. Run it before claiming axiomx works. Expected: **191 PASS, 0 FAIL**.
+Covers: land and read the pitch, open a system, deep links, `/` search, Escape-clears, arrow-key navigation, history back/forward, dark mode + persistence, phone at 390px, every system has a credited PD/CC0 plate, FloodDash carries the field video studio and Innovation-as-a-Service carries its own, the index hover affordance in both themes with its AA contrast read off the painted pixel, no latched hover state on touch, keyboard focus kept distinct from hover, the stack plate does not scroll sideways, 44px tap targets, the video studio layout across five widths, that all 119 entries render without error, and that **every plate label fits inside the plate it names** — the label is fitted in JS because a portrait plate is height-capped and CSS cannot measure it, so the check waits for the caption to settle before judging it. Run it before claiming axiomx works. Expected: **191 PASS, 0 FAIL**.
 
 The pass count moves as checks are added, so read the number off the output rather than trusting this line — and update it in the same commit that changes the count. It said 51 while the suite ran 115, which is exactly the kind of drift this suite exists to catch, in the one file that tells the next agent what to expect.
 
 ### One catalogue, two renderings
 
-`axiom.nonarkara.org` and `axiomx.nonarkara.org` are two sites presenting **one catalogue**. `axiomx/catalog.js` holds it as data; `public/index.html` renders it as cards. They are the same 70 systems, and they must agree on every one of them.
+`axiom.nonarkara.org` and `axiomx.nonarkara.org` are two sites presenting **one catalogue**. `axiomx/catalog.js` holds it as data; `public/index.html` renders it as cards. They are the same 73 systems, and they must agree on every one of them.
 
 They did not, for a long time, and every test on either site was green the whole time:
 
@@ -303,7 +303,7 @@ A breakpoint is a cliff, and a layout is a different layout on either side of it
 # the main catalogue and the admin
 node scripts/spatial/spatial-check.mjs --base http://127.0.0.1:5312/ --routes "/,/admin/"
 
-# the reading room — 71 routes, too many for one browser run
+# the reading room — 73 routes, too many for one browser run
 node .qa/spatial-sweep.mjs --base http://127.0.0.1:5311/ \
   --routes "$(cat /tmp/rr-routes.txt)" --chunk 4 --baseline design/spatial-baseline.json
 ```
@@ -312,7 +312,7 @@ node .qa/spatial-sweep.mjs --base http://127.0.0.1:5311/ \
 
 **The gate must settle before it measures.** A page that is still laying out gives wrong numbers, so the driver waits for the DOM fingerprint to be stable across two polls. A JS-fitted label (the reading room's plate captions) is measured *after* it settles.
 
-**Reading-room routes are path routes** — `/flood-ami`, `/iaas` — not `#hash` fragments. `.qa/serve.mjs` serves the shell and sets `location.hash` from the path, so the sweep's `--routes` list is the real URL space. The 71 ids come from `window.AXIOM_SYSTEMS` in `axiomx/catalog.js`.
+**Reading-room routes are path routes** — `/flood-ami`, `/iaas` — not `#hash` fragments. `.qa/serve.mjs` serves the shell and sets `location.hash` from the path, so the sweep's `--routes` list is the real URL space. The 73 ids come from `window.AXIOM_SYSTEMS` in `axiomx/catalog.js`.
 
 ### The seven languages are six more routes
 

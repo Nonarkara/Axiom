@@ -26,7 +26,7 @@ async function newPage(w = 1440, h = 900) {
   const p = await newPage();
   await p.goto(BASE, { waitUntil: 'networkidle' });
   check('lands on the pitch', (await p.textContent('.poster')).includes('flood arrives'));
-  check('71 systems shown', (await p.textContent('.fig b')) === '71', `got "${await p.textContent('.fig b')}"`);
+  check('73 systems shown', (await p.textContent('.fig b')) === '73', `got "${await p.textContent('.fig b')}"`);
   const kicker = await p.textContent('.bar-kicker');
   check('bar kicker populated', kicker.trim().length > 0, `"${kicker}"`);
   // click through the index to a live system
