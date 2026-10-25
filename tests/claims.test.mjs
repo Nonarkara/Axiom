@@ -92,6 +92,7 @@ test('all seven console editions separate reach, catalogue status and outcomes',
   assert.equal(en.systemsLabel, 'Labelled Live');
   assert.equal(en.problemsLabel, 'Domains shown');
   assert.equal(en.slideDecksLabel, 'Other statuses');
+  assert.equal(en.footerLabel, 'Reference data');
   assert.match(en.socialDesc, /not a count of users or people protected/);
   assert.match(en.feedsDesc, /not a feed-health monitor/);
   assert.match(en.speedDesc, /proposed proof/);
@@ -126,5 +127,5 @@ test('the phone HUD keeps its count on its own row, and obsolete rail declaratio
   assert.doesNotMatch(heroCss, /\}\s*scroll-snap-type:\s*x proximity;\s*\}/);
   assert.doesNotMatch(heroCss, /backdrop-filter:\s*blur/);
   assert.doesNotMatch(html, /class="hero-gradient"/);
-  assert.match(html, /hero\.css\?v=20261025a/);
+  assert.match(html, /hero\.css\?v=\d{8}[a-z0-9]+/);
 });

@@ -989,6 +989,7 @@
 .hero-actions .btn--ghost {
   /* Pick up the global .btn base; override surfaces for legibility on map */
   min-height: 44px;
+  letter-spacing: 0;
   background: var(--accent);
   border-color: var(--accent);
   color: var(--paper);

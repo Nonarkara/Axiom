@@ -35,6 +35,11 @@ Blue, ocher, paper and operational colour roles are unchanged.
 - The already-hidden drag hint stays hidden explicitly, rather than relying
   on that parse error. Primary actions retain their 44px target on desktop
   as well as phone; repairing CSS scope must not shrink a working target.
+- At 901px the restored desktop tracking made the action pair wrap, notably
+  in Vietnamese. Zero tracking and the accurate destination label "View
+  systems" keep the pair on one row in all seven editions without reducing
+  the text size or targets. The footer uses the compact tier "Reference data";
+  the provenance card still states that this is not a feed-health monitor.
 - The console's backdrop blur and the redundant behind-map wash are removed.
   The map container retains its own dark fallback background. Neither change
   removes data, imagery, an interaction, or a visible geographic layer.
@@ -92,6 +97,8 @@ This pass does not declare the full presentation impeccable.
   sample-data hit must be judged against the explicit fictional-data notice,
   not fixed by removing an honest qualification. No whole-site style pass
   or human usability result is claimed.
+- The historical five-country claim still needs an attributed engagement
+  list; a locale-consistency test does not establish the fact itself.
 - The reading room is unchanged in this pass; its argument and full journey
   suite have not been re-certified by changes to the main hero.
 - A real phone or iOS simulator, an uninstructed reader and fluent-language

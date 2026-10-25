@@ -9,7 +9,8 @@
 //   node .qa/count-check.mjs                      # the live site
 //   node .qa/count-check.mjs http://127.0.0.1:5312/   # a local server
 //
-// Exit code 0 = every figure agrees with what the page can be counted for.
+// Exit code 0 = the catalogue and footprint figures agree with their sources.
+// Outcome claims, follower totals and deployment age need separate evidence.
 
 import { chromium } from 'playwright';
 
@@ -116,7 +117,7 @@ for (const claim of m.statedCounts) {
 }
 for (const [key, label] of Object.entries({
   catalogue: 'Catalogue systems', live: 'Labelled Live',
-  consoleLive: 'Labelled Live', footer: 'Catalogue · not uptime telemetry',
+  consoleLive: 'Labelled Live', footer: 'Reference data',
 })) {
   ok(`meaning ${key}`, m.heroLabels[key] === label, `expected "${label}", found "${m.heroLabels[key]}"`);
 }
@@ -129,4 +130,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`\nPASS — every figure agrees with what the page can be counted for (${liveLabelled} live of ${m.cells}).`);
+console.log(`\nPASS — catalogue and footprint figures agree with their sources (${liveLabelled} labelled Live of ${m.cells}).`);
