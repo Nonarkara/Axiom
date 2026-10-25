@@ -71,18 +71,6 @@
   pointer-events: none;
 }
 
-/* ----- Hero flat dark wash (for legibility) ----- */
-.hero-gradient {
-  position: absolute;
-  inset: 0;
-  height: 100%;
-  z-index: 0;
-  background: rgba(10, 10, 12, 0.45);
-  /* The map's filter:brightness already darkens tiles; this overlay
-     sits BEHIND the map (z=0) so it does not stack on top. It is
-     here as a fallback for when JS fails to mount the map. */
-}
-
 /* ----- Signal constellation markers (Leaflet divIcon) ----- */
 .sat-pulse-marker,
 .sat-signal-marker {
@@ -618,7 +606,7 @@
   gap: 12px;
 }
 
-.hero-proof .map-explore-hint { align-self: flex-start; }
+.hero-proof .map-explore-hint { display: none; }
 
 /* ============================================================
    HERO DECISION CONSOLE
@@ -632,8 +620,6 @@
   color: var(--paper);
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 
 .hero-console__head {
@@ -1002,6 +988,7 @@
 .hero-actions .btn--primary,
 .hero-actions .btn--ghost {
   /* Pick up the global .btn base; override surfaces for legibility on map */
+  min-height: 44px;
   background: var(--accent);
   border-color: var(--accent);
   color: var(--paper);
@@ -1195,12 +1182,12 @@
   .hero-copy { gap: 8px; }
   .hero-map-space { display: block; grid-area: map; min-height: 180px; pointer-events: none; }
   .hero-subtitle { font-size: 15px; line-height: 1.45; }
-  /* One band, one height: the scope readout runs its three lines side by
-     side instead of stacking, so it stands the same height as the tour bar
-     beside it rather than 25px taller. The coverage/currency line goes with
-     them — the same call the tile-source and provider lines already make on
-     a phone: the theatre and the count are the facts a phone reader needs. */
-  .sat-hud { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 2px 12px; }
+  /* The place and system count keep their own rows: a tour stop must not
+     push the primary action down when its name reaches the wrap boundary. */
+  .sat-hud { flex-direction: column; align-items: stretch; gap: 2px; }
+  .sat-hud-row:first-child { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .sat-hud-theatre { margin-left: 0; }
+  .sat-hud-row:has(.sat-hud-signals) { display: none; }
   .sat-hud-signals { display: none; }
   .hero-node-strip-scroller {
     /* All four theatres are visible at once. A sideways strip put the
@@ -1208,8 +1195,6 @@
        and the theatre it named was a decision they could not make. */
     grid-template-columns: repeat(2, minmax(0, 1fr));
     overflow-x: visible;
-  }
-    scroll-snap-type: x proximity;
   }
   /* Cap the rotating second line so longer non-EN phrases never wrap
      to 2 lines on a phone — keeps the hero h1 height stable across
@@ -1226,7 +1211,6 @@
     min-width: 0;
     text-align: center;
   }
-  .hero-proof .map-explore-hint { display: none; }
   .sat-hud { font-size: 10px; padding: 6px 8px; min-width: 0; }
   .sat-hud-row { gap: 8px; flex-wrap: wrap; }
   /* .hero-city-label is canvas-rendered (pretext overlay); the DOM stays

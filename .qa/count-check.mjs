@@ -17,8 +17,8 @@ const BASE = process.argv[2] || 'https://axiom.nonarkara.org/';
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-await page.goto(BASE, { waitUntil: 'networkidle' });
-await page.waitForTimeout(2500);
+await page.goto(BASE, { waitUntil: 'domcontentloaded' });
+await page.waitForFunction(() => document.documentElement.dataset.locale && window.AXIOM_FOOTPRINT);
 
 const m = await page.evaluate(() => {
   const cells = [...document.querySelectorAll('.sys-cell[data-arch]')];
@@ -53,6 +53,19 @@ const m = await page.evaluate(() => {
     heroCatalog: text('.hero-stat-value'),
     evidenceSystems: text('#evidenceSystems'),
     evidenceLive: text('#evidenceLive'),
+    statedCounts: [...document.querySelectorAll('[data-count]')].map(el => ({
+      key: el.dataset.count, value: el.textContent.trim(),
+    })),
+    domains: document.querySelectorAll('#panelSystems .hero-console__item').length,
+    mappedSystems: new Set(window.AXIOM_FOOTPRINT.projects.map(project => project.key)).size,
+    tourStops: window.AXIOM_FOOTPRINT.stops.length,
+    currencies: new Set(window.AXIOM_FOOTPRINT.stops.flatMap(stop => stop.currency.split(' · ')).filter(currency => /^[A-Z]{3}$/.test(currency))).size,
+    heroLabels: {
+      catalogue: text('[data-i18n="hero.statSystems"]'),
+      live: text('[data-i18n="hero.statMonitoring"]'),
+      consoleLive: text('[data-i18n="heroConsole.systemsLabel"]'),
+      footer: text('[data-i18n="heroConsole.footerLabel"]'),
+    },
   };
 });
 
@@ -85,6 +98,30 @@ ok('strip live figure', num(m.evidenceLive) === liveLabelled, `strip says ${m.ev
 // 4. The catalogue figure must equal the number of cards.
 ok('hero catalogue figure', num(m.heroCatalog) === m.cells, `hero says ${m.heroCatalog}, page has ${m.cells} cards`);
 ok('strip systems figure', num(m.evidenceSystems) === m.cells, `strip says ${m.evidenceSystems}, page has ${m.cells} cards`);
+
+// A correct numeral with a different meaning is still a false claim. These
+// are catalogue states and geographic references, not uptime or outcomes.
+const sources = {
+  catalog: m.cells, live: labelledLive, domains: m.domains,
+  'other-statuses': m.cells - labelledLive,
+  'mapped-systems': m.mappedSystems, 'tour-stops': m.tourStops,
+  currencies: m.currencies,
+};
+for (const key of Object.keys(sources)) {
+  ok(`missing count ${key}`, m.statedCounts.some(claim => claim.key === key), `no figure is bound to ${key}`);
+}
+for (const claim of m.statedCounts) {
+  ok(`count ${claim.key}`, claim.key in sources && num(claim.value) === sources[claim.key],
+    `page says ${claim.value}, source says ${sources[claim.key]}`);
+}
+for (const [key, label] of Object.entries({
+  catalogue: 'Catalogue systems', live: 'Labelled Live',
+  consoleLive: 'Labelled Live', footer: 'Catalogue · not uptime telemetry',
+})) {
+  ok(`meaning ${key}`, m.heroLabels[key] === label, `expected "${label}", found "${m.heroLabels[key]}"`);
+}
+console.log(`mapped footprint     ${m.mappedSystems} systems / ${m.tourStops} stops / ${m.currencies} named currencies`);
+console.log(`displayed domains    ${m.domains}`);
 
 if (failures.length) {
   console.error(`\nFAIL — ${failures.length} count problem(s):`);

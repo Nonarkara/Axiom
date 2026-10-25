@@ -10,7 +10,7 @@
       "cta": "Work With Us"
     },
     "hero": {
-      "badge": "모든 시스템 온라인",
+      "badge": "공개 프로젝트 목록",
       "titleLine1": "혁신",
       "subtitle": "도시는 데이터를 갖고 있지만, 중요한 순간에 아무도 보지 못합니다. 가장 어려운 결정을 위해 그것을 하나의 실시간 화면에 올립니다 — 2주 안에 작동합니다.",
       "cta": "2주 검증 시작하기",
@@ -21,8 +21,8 @@
       "hudWatching": "감시 중인 시스템",
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
-      "statSystems": "운영 중인 시스템",
-      "statMonitoring": "실시간 모니터링",
+      "statSystems": "목록의 시스템",
+      "statMonitoring": "Live로 표시",
       "statCountries": "국가",
       "signalLabels": {
         "FLOOD": "홍수", "CAMPUS": "캠퍼스", "URBAN": "도시", "ATLAS": "지도",
@@ -209,7 +209,7 @@
       "sub": "대부분의 \"스마트시티\" 사업은 슬라이드에서 끝납니다. 우리 것은 운영 중입니다. 첫 주에 문제를 매핑합니다. 발표 전에 작동하는 것을 만듭니다. 모든 결정은 첫날부터 기록됩니다.",
       "cta1": "지금 FloodDash 사용",
       "cta2": "브리프 시작",
-      "stat1lbl": "운영 중인 시스템",
+      "stat1lbl": "목록의 시스템",
       "stat2lbl": "운영 국가",
       "stat3lbl": "색인된 도시",
       "stat4lbl": "FloodDash · LEAP East",
@@ -1007,7 +1007,7 @@
       "cta": "Work With Us"
     },
     "hero": {
-      "badge": "全システム稼働中",
+      "badge": "公開プロジェクト目録",
       "titleLine1": "革新",
       "subtitle": "データはあるのに、肝心なときに誰にも見えない。最も難しい意思決定のために、それをひとつのライブ画面にまとめます——2週間で稼働します。",
       "cta": "2週間の実証を始める",
@@ -1018,8 +1018,8 @@
       "hudWatching": "監視中のシステム",
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
-      "statSystems": "本番稼働中のシステム",
-      "statMonitoring": "リアルタイム監視",
+      "statSystems": "目録のシステム",
+      "statMonitoring": "Live 表示",
       "statCountries": "対象国",
       "signalLabels": {
         "FLOOD": "洪水", "CAMPUS": "キャンパス", "URBAN": "都市", "ATLAS": "地図",
@@ -1206,7 +1206,7 @@
       "sub": "多くの「スマートシティ」案件はスライドで終わります。当社のものは本番稼働中です。初週に課題を可視化します。プレゼン前に動くものをお届けします。すべての判断を初日から記録します。",
       "cta1": "今すぐ FloodDash を使う",
       "cta2": "ブリーフを送る",
-      "stat1lbl": "本番稼働システム",
+      "stat1lbl": "目録のシステム",
       "stat2lbl": "稼働国",
       "stat3lbl": "指数化都市",
       "stat4lbl": "FloodDash · LEAP East",
@@ -1998,7 +1998,7 @@
       "cta": "Work With Us"
     },
     "hero": {
-      "badge": "Tất cả hệ thống trực tuyến",
+      "badge": "Danh mục dự án công khai",
       "titleLine1": "Đổi mới",
       "subtitle": "Thành phố của bạn có dữ liệu, nhưng lúc quan trọng không ai nhìn thấy. Chúng tôi đưa nó lên một màn hình trực tiếp cho quyết định khó nhất của bạn — chạy được trong hai tuần.",
       "cta": "Bắt đầu thử nghiệm hai tuần",
@@ -2009,8 +2009,8 @@
       "hudWatching": "HỆ THỐNG ĐANG THEO",
       "modeTour": "AUTO TOUR",
       "modeHold": "HOLD",
-      "statSystems": "Hệ thống đang vận hành",
-      "statMonitoring": "Giám sát trực tiếp",
+      "statSystems": "Hệ thống trong danh mục",
+      "statMonitoring": "Gắn nhãn Live",
       "statCountries": "Quốc gia",
       "signalLabels": {
         "FLOOD": "Lũ", "CAMPUS": "Khuôn viên", "URBAN": "Đô thị", "ATLAS": "Bản đồ",
@@ -2197,7 +2197,7 @@
       "sub": "Phần lớn dự án \"thành phố thông minh\" dừng lại ở slide. Hệ thống của chúng tôi đang chạy thực tế. Tuần đầu tiên lập bản đồ áp lực. Có thứ hoạt động trước mọi buổi trình bày. Mọi quyết định được ghi nhận từ ngày đầu.",
       "cta1": "Dùng FloodDash ngay",
       "cta2": "Gửi brief",
-      "stat1lbl": "Hệ thống đang vận hành",
+      "stat1lbl": "Hệ thống trong danh mục",
       "stat2lbl": "Quốc gia triển khai",
       "stat3lbl": "Thành phố được lập chỉ số",
       "stat4lbl": "FloodDash · LEAP East",

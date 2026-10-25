@@ -29,6 +29,8 @@ test('every mapped project belongs to a real tour stop and a catalog destination
   }
   for (const stop of stops) {
     assert.ok(stop.zoom >= 3 && stop.zoom <= 16, stop.key);
+    assert.equal(typeof stop.currency, 'string', `${stop.key}: named currency context is required`);
+    assert.match(stop.currency, /^(?:multi|[A-Z]{3}(?: · [A-Z]{3})*)$/, `${stop.key}: invalid currency context`);
     for (const key of stop.projects) assert.ok(projects.some(project => project.key === key), key);
   }
 });
