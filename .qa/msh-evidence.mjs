@@ -105,6 +105,20 @@ const MEASURE = () => {
   // The subject of the page: the h1, and where it sits.
   const h1 = document.querySelector('h1');
   const h1r = h1 ? h1.getBoundingClientRect() : null;
+  const primaryActions = [...document.querySelectorAll('#hero .hero-actions a, #heroProjectSelect, main#content a[href], main#content button')]
+    .map(el => {
+      const r = el.getBoundingClientRect();
+      const style = getComputedStyle(el);
+      return {
+        label: (el.getAttribute('aria-label') || el.labels?.[0]?.textContent || el.textContent || '').trim().slice(0, 70),
+        selector: el.id ? '#' + CSS.escape(el.id) : el.tagName.toLowerCase() + Array.from(el.classList, name => '.' + CSS.escape(name)).join(''),
+        x: Math.round(r.x), y: Math.round(r.y), width: Math.round(r.width), height: Math.round(r.height),
+        visible: style.visibility !== 'hidden' && Number(style.opacity) > 0 && r.width > 0 && r.height > 0 && r.top >= 0 && r.left >= 0 && r.right <= vw && r.bottom <= vh,
+      };
+    });
+  const assets = [...document.querySelectorAll('script[src], link[rel="stylesheet"]')]
+    .map(el => el.src || el.href)
+    .filter(url => new URL(url).origin === location.origin);
 
   // ── geometry failures ──────────────────────────────────────────────────
   const overflowX = doc.scrollWidth - doc.clientWidth;
@@ -135,6 +149,8 @@ const MEASURE = () => {
     chromeH,
     chromePct: +((chromeH / vh) * 100).toFixed(1),
     firstAction,
+    primaryActions,
+    assets,
     h1: h1r ? { text: (h1.textContent || '').trim().slice(0, 46), size: Math.round(parseFloat(getComputedStyle(h1).fontSize)), y: Math.round(h1r.top), bottom: Math.round(h1r.bottom) } : null,
     overflowX,
     voice,
@@ -154,7 +170,11 @@ for (const s of surfaces) {
     page.on('pageerror', (e) => errors.push('JS ERROR: ' + e.message));
     page.on('console', (m) => { if (m.type() === 'error') errors.push('CONSOLE: ' + m.text().slice(0, 160)); });
 
-    await page.goto(s.url + s.hash, { waitUntil: 'load' });
+    await page.goto(s.url + s.hash, { waitUntil: 'domcontentloaded' });
+    await page.waitForFunction(surface => surface === 'axiom'
+      ? document.documentElement.dataset.locale && document.querySelector('#heroMap .leaflet-tile-loaded')
+      : document.querySelector('main#content h1'), s.name);
+    await page.evaluate(() => document.fonts.ready.then(() => undefined));
     await page.waitForTimeout(2500);
     const m = await page.evaluate(MEASURE);
     const file = `${OUT}/${s.name}-${vp.label}.png`;

@@ -47,8 +47,13 @@ const errors = [];
 page.on('pageerror', (e) => errors.push(String(e)));
 page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
 
-await page.goto(BASE, { waitUntil: 'networkidle' });
-await page.waitForTimeout(2500);
+async function waitForCopy(target) {
+  await target.waitForFunction(() => document.documentElement.dataset.locale && typeof window.setAxiomLocale === 'function');
+  await target.evaluate(() => document.fonts.ready.then(() => undefined));
+}
+
+await page.goto(BASE, { waitUntil: 'domcontentloaded' });
+await waitForCopy(page);
 
 // ---- what the page asks for, and what each locale holds ------------------
 const data = await page.evaluate(async (locales) => {
@@ -186,8 +191,8 @@ if (switchReport.hasMobile) {
 // The switch has to be reachable on a phone, where most of the readers are.
 // A switch that exists in the markup but cannot be tapped is not a switch.
 const phone = await browser.newPage({ viewport: { width: 390, height: 844 } });
-await phone.goto(BASE, { waitUntil: 'networkidle' });
-await phone.waitForTimeout(1800);
+await phone.goto(BASE, { waitUntil: 'domcontentloaded' });
+await waitForCopy(phone);
 const phoneSwitch = await phone.evaluate(() => {
   const sw = document.getElementById('localeSwitch');
   if (!sw) return { missing: true };
@@ -214,13 +219,24 @@ else {
   if (tiny.length) failures.push(`the language switch has buttons too small to read on a phone: ${tiny.join(', ')}`);
   console.log(`phone switch            : ${phoneSwitch.buttons.length} buttons, all visible: ${phoneSwitch.buttons.every((b) => b.visible)}`);
 }
+await phone.setViewportSize({ width: 360, height: 844 });
+await phone.locator('#localeSwitch [data-locale="ts"]').click();
+const sourceCounters = await phone.evaluate(() => [...document.querySelectorAll('.hero-stat-label')].map(el => {
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  return { key: el.dataset.i18n, lines: new Set([...range.getClientRects()].map(r => Math.round(r.y))).size };
+}));
+if (sourceCounters.length !== 3) failures.push('the source view must retain all three hero counters');
+for (const counter of sourceCounters) {
+  if (counter.lines !== 1) failures.push(`source view at 360px: ${counter.key} occupies ${counter.lines} lines`);
+}
 await phone.close();
 
 // The choice has to survive a reload, and a link has to be able to carry a
 // language. Both are checked in a second page so the storage is not warm.
 const page2 = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-await page2.goto(BASE, { waitUntil: 'networkidle' });
-await page2.waitForTimeout(1500);
+await page2.goto(BASE, { waitUntil: 'domcontentloaded' });
+await waitForCopy(page2);
 await page2.evaluate(() => {
   const btn = document.querySelector('#localeSwitch [data-locale="th"]');
   if (btn) btn.click();
@@ -229,8 +245,8 @@ await page2.waitForTimeout(500);
 const stored = await page2.evaluate(() => {
   try { return window.localStorage.getItem('axiom:locale'); } catch (e) { return null; }
 });
-await page2.reload({ waitUntil: 'networkidle' });
-await page2.waitForTimeout(1500);
+await page2.reload({ waitUntil: 'domcontentloaded' });
+await waitForCopy(page2);
 const afterReload = await page2.evaluate(() => ({
   lang: document.documentElement.lang,
   stored: (() => { try { return window.localStorage.getItem('axiom:locale'); } catch (e) { return null; } })(),
@@ -240,8 +256,8 @@ if (afterReload.lang !== 'th') failures.push(`the chosen language did not surviv
 await page2.close();
 
 const page3 = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-await page3.goto(`${BASE}${BASE.includes('?') ? '&' : '?'}lang=ja`, { waitUntil: 'networkidle' });
-await page3.waitForTimeout(1500);
+await page3.goto(`${BASE}${BASE.includes('?') ? '&' : '?'}lang=ja`, { waitUntil: 'domcontentloaded' });
+await waitForCopy(page3);
 const viaUrl = await page3.evaluate(() => ({
   lang: document.documentElement.lang,
   stored: (() => { try { return window.localStorage.getItem('axiom:locale'); } catch (e) { return null; } })(),
