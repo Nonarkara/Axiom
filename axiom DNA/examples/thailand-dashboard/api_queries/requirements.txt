@@ -12,7 +12,7 @@ urllib3>=2.8.0
 gtfs-realtime-bindings>=3.0.0
 
 # Data processing
-pandas>=3.0.6
+pandas>=3.1.0
 numpy>=2.5.4
 
 # Geospatial
