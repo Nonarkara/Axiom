@@ -155,7 +155,7 @@ services:
   # ============================================================================
 
   kong:
-    image: kong:3.9.3
+    image: kong:3.9.4
     container_name: axiom-kong
     <<: *restart-policy
     <<: *default-network
@@ -245,7 +245,7 @@ services:
       start_period: 60s
 
   metabase:
-    image: metabase/metabase:v0.64.2.7
+    image: metabase/metabase:v0.64.3.3
     container_name: axiom-metabase
     <<: *restart-policy
     <<: *default-network
