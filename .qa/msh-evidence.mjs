@@ -105,7 +105,7 @@ const MEASURE = () => {
   // The subject of the page: the h1, and where it sits.
   const h1 = document.querySelector('h1');
   const h1r = h1 ? h1.getBoundingClientRect() : null;
-  const primaryActions = [...document.querySelectorAll('#hero .hero-actions a, #heroProjectSelect, main#content a[href], main#content button')]
+  const primaryActions = [...document.querySelectorAll('#hero .hero-actions a, #heroProjectSelect, #plate .actions a, #plate button')]
     .map(el => {
       const r = el.getBoundingClientRect();
       const style = getComputedStyle(el);
@@ -173,7 +173,7 @@ for (const s of surfaces) {
     await page.goto(s.url + s.hash, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(surface => surface === 'axiom'
       ? document.documentElement.dataset.locale && document.querySelector('#heroMap .leaflet-tile-loaded')
-      : document.querySelector('main#content h1'), s.name);
+      : document.querySelector('#plate h1'), s.name);
     await page.evaluate(() => document.fonts.ready.then(() => undefined));
     await page.waitForTimeout(2500);
     const m = await page.evaluate(MEASURE);
