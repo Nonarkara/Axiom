@@ -21,6 +21,8 @@
     "qa:ebooks": "node .qa/axiomx-ebooks.mjs",
     "qa:plates": "node .qa/axiomx-plates.mjs",
     "qa:spatial": "node scripts/spatial/spatial-check.mjs",
+    "qa:compact": "node .qa/compact-layout.mjs",
+    "qa:compact:falsify": "node .qa/compact-layout.mjs --mode falsify",
     "qa:spatial:falsify": "node scripts/spatial/spatial-falsify.mjs",
     "qa:sweep": "node .qa/spatial-sweep.mjs"
   }

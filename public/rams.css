@@ -530,7 +530,7 @@ summary:focus-visible {
   gap: 16px;
   border-bottom: 1px solid var(--ink);
   padding-bottom: 7px;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
 .s-head__title {
@@ -573,28 +573,27 @@ summary:focus-visible {
 
 .field-band--video {
   display: grid;
-  grid-template-columns: minmax(320px, 480px) 1fr;
+  grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
+  grid-template-areas: 'intro intro' 'media points';
   align-items: start;
-  gap: 36px;
-  margin: 0 0 40px;
-  padding: 32px 0 28px;
+  gap: 16px 24px;
+  margin: 0 0 20px;
+  padding: 16px 0;
   border-bottom: 1px solid var(--ocher);
 }
 
 .field-band__media {
+  grid-area: media;
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
 }
 
-/* The poster is a picture beside the analysis column. When the column
-   narrowed, the three points grew taller than the poster and left 358px of
-   nothing under it — a photo stranded beside an empty area. Below 1200px
-   the band stacks, so the poster is the banner it is and the points read
-   under it. */
-@media (max-width: 1200px) {
-  .field-band--video { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+/* The introduction spans the band; the video and its actions stay together,
+   beside the supporting points rather than below a tall prose column. */
+@media (max-width: 900px) {
+  .field-band--video { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'intro' 'media' 'points'; gap: 16px; }
   .field-band--video .field-band__media { max-width: 640px; }
 }
 
@@ -632,6 +631,7 @@ summary:focus-visible {
 }
 
 .field-band__play-btn {
+  min-height: 44px;
   position: absolute;
   inset: auto auto 14px 14px;
   display: inline-flex;
@@ -696,10 +696,11 @@ summary:focus-visible {
 }
 
 .field-band__points {
+  grid-area: points;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin: 18px 0 22px;
+  gap: 10px;
+  margin: 0;
 }
 
 .field-band__point {
@@ -735,13 +736,14 @@ summary:focus-visible {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin-top: 14px;
+  gap: 8px;
+  margin-top: 0;
 }
 
 .field-band__actions .btn {
   min-height: 44px;
-  padding: 10px 18px;
+  padding: 8px 10px;
+  letter-spacing: 0;
 }
 
 .field-band__clip {
@@ -754,8 +756,10 @@ summary:focus-visible {
 }
 
 .field-band__cap {
+  grid-area: intro;
   flex: 1 1 auto;
   min-width: 0;
+  overflow-wrap: anywhere;
   padding-top: var(--box-pad-tight);
 }
 
@@ -792,8 +796,8 @@ summary:focus-visible {
   .field-band { flex-direction: column; gap: 14px; padding-bottom: 18px; }
   .field-band--video {
     grid-template-columns: 1fr;
-    gap: 20px;
-    padding-bottom: 24px;
+    gap: 12px;
+    padding-bottom: 16px;
   }
   .field-band__clip { height: 260px; max-width: none; }
   .field-band__line { font-size: 16px; }
@@ -859,7 +863,7 @@ summary:focus-visible {
   justify-content: start;
   align-items: center;
   gap: 0;
-  margin: 0 0 28px;
+  margin: 0 0 12px;
   border: 1px solid var(--line-2);
   border-top: 2px solid var(--ocher);
   background: var(--panel);
@@ -1412,7 +1416,14 @@ summary:focus-visible {
    ============================================================ */
 
 .contact {
-  padding: 48px 0;
+  padding: 18px 0;
+}
+
+.contact .btn { min-height: 44px; }
+
+@media (max-width: 759px) {
+  .contact .btn-row { grid-template-columns: repeat(2, minmax(0, max-content)); gap: 8px; }
+  .contact .btn-row > .btn:first-child { grid-column: 1 / -1; justify-self: start; }
 }
 
 .field {
@@ -1453,7 +1464,7 @@ summary:focus-visible {
 
 .foot {
   border-top: 1px solid var(--line-2);
-  padding: 24px 0 40px;
+  padding: 16px 0 20px;
 }
 
 .foot__row {
@@ -2157,6 +2168,32 @@ summary:focus-visible {
   gap: 14px;
   padding: 12px 0;
   border-bottom: 1px solid var(--line);
+}
+
+.pitch-steps, .pitch-faq { margin: 6px 0 12px; }
+#why .numbered { padding: 8px 0; gap: 10px; }
+#why .numbered__body { max-width: 65ch; }
+.pitch-faq__group { min-width: 0; }
+#why .numbered__title { overflow-wrap: anywhere; }
+.pitch-faq .btn-row { margin-top: 12px; }
+.pitch-faq .btn { min-height: 44px; }
+
+@media (min-width: 760px) {
+  .pitch-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; }
+  .pitch-steps .numbered { border-bottom: 0; }
+  .pitch-faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+  .field-band__cap .field-band__title { margin: 4px 0 0; }
+}
+
+@media (max-width: 759px) {
+  .pitch-results > .cell { display: grid; grid-template-columns: minmax(76px, max-content) minmax(0, 1fr); gap: 4px 10px; align-items: start; }
+  .pitch-results .stat__val { grid-row: 1 / 3; margin-top: 0; }
+  .pitch-results .stat__lbl { margin-top: 0 !important; }
+  .pitch-results p { margin-top: 0 !important; }
+  .field-band__point { grid-template-columns: max-content minmax(0, 1fr); gap: 2px 10px; }
+  .field-band__point-body { display: contents; }
+  .field-band__point-body strong { grid-column: 2; margin-bottom: 0; }
+  .field-band__point-body p { grid-column: 1 / -1; }
 }
 
 .numbered:last-child {
@@ -2884,6 +2921,12 @@ html:not([lang="th"]) .foot-th-only { display: none; }
 .fold-row__summary:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: -2px;
+}
+
+.section summary.t-ctrl {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .fold-row__body {

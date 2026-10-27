@@ -52,8 +52,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=optional"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20261024a">
-  <link rel="stylesheet" href="hero.css?v=20261025b">
+  <link rel="stylesheet" href="rams.css?v=20261027a">
+  <link rel="stylesheet" href="hero.css?v=20261027a">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
   <script src="i18n-regional.js?v=20261025b"></script>
@@ -312,12 +312,8 @@
           <span data-i18n="hero.exploreHint">Drag map &middot; Tap a theatre</span>
         </div>
 
-        <div class="hero-console" id="heroConsole" aria-label="Axiom Decision Systems Console">
+        <div class="hero-console" id="heroConsole" role="region" aria-labelledby="heroConsoleTitle">
           <div class="hero-console__head">
-            <div class="hero-console__title-wrap">
-              <span class="hero-console__pulse" aria-hidden="true"></span>
-              <span class="hero-console__title" data-i18n="heroConsole.title">DECISION SYSTEMS CONSOLE</span>
-            </div>
             <nav class="hero-console__nav" role="tablist" aria-label="Console Views">
               <button class="hero-console__tab is-active" type="button" role="tab" id="tabBtnSystems" aria-selected="true" aria-controls="panelSystems" data-tab="systems">
                 <span class="hero-console__tab-num">01</span>
@@ -485,9 +481,14 @@
           </div>
 
           <div class="hero-console__foot">
-            <span class="hero-console__status-dot" aria-hidden="true"></span>
-            <span class="hero-console__foot-scope" id="consoleFootScope">ACTIVE THEATRE: THAILAND WATCH</span>
-            <span class="hero-console__foot-time" data-i18n="heroConsole.footerLabel">Reference data</span>
+            <div class="hero-console__title-wrap">
+              <span class="hero-console__title" id="heroConsoleTitle" data-i18n="heroConsole.title">DECISION SYSTEMS CONSOLE</span>
+            </div>
+            <div class="hero-console__reference">
+              <span class="hero-console__status-dot" aria-hidden="true"></span>
+              <span class="hero-console__foot-scope" id="consoleFootScope">ACTIVE THEATRE: THAILAND WATCH</span>
+              <span class="hero-console__foot-time" data-i18n="heroConsole.footerLabel">Reference data</span>
+            </div>
           </div>
         </div>
 
@@ -512,10 +513,10 @@
           <div class="s-head__meta" data-i18n="pitch.meta">For governors · mayors · agency heads · operators</div>
         </div>
         <h2 class="t-big" data-i18n-html="pitch.title">The flood arrives at 2 a.m. <em>The dashboard arrives next fiscal year.</em></h2>
-        <p class="t-body-2" data-i18n="pitch.lede" style="max-width:64ch;margin:12px 0 24px;">Rain, traffic, air, complaints, satellites — scattered across a dozen agencies. Crisis hits, you have no picture. We build the picture. One screen. One decision. Two weeks.</p>
+        <p class="t-body-2" data-i18n="pitch.lede" style="max-width:64ch;margin:10px 0 16px;">Rain, traffic, air, complaints, satellites — scattered across a dozen agencies. Crisis hits, you have no picture. We build the picture. One screen. One decision. Two weeks.</p>
 
         <div class="t-label" data-i18n="pitch.painLabel">Sound familiar?</div>
-        <div class="grid grid--3" style="margin:10px 0 28px;">
+        <div class="grid grid--3" style="margin:8px 0 16px;">
           <div class="cell">
             <div class="stat__lbl">01</div>
             <p class="t-body-2" data-i18n="pitch.pain1" style="margin:6px 0 0;">The data exists, but it is split across agencies, PDFs and spreadsheets. Nobody sees the whole city on one screen.</p>
@@ -541,10 +542,10 @@
             <p class="t-body-2" data-i18n="pitch.vsUs" style="margin:6px 0 0;">The people you meet are the people who build. No salespeople. No hand-offs. You judge a working system, not a promise.</p>
           </div>
         </div>
-        <p class="t-body-2" data-i18n="pitch.serviceLine" style="max-width:64ch;margin:0 0 28px;">Bring the problem. We design, build, run it.</p>
+        <p class="t-body-2" data-i18n="pitch.serviceLine" style="max-width:64ch;margin:0 0 16px;">Bring the problem. We design, build, run it.</p>
 
         <div class="t-label" data-i18n="pitch.howLabel">How it works · three steps</div>
-        <div style="margin:6px 0 28px;">
+        <div class="pitch-steps">
           <div class="numbered"><span class="numbered__n">01</span>
             <div>
               <div class="numbered__title" data-i18n="pitch.step1title">Week 1 — Name the decision.</div>
@@ -566,7 +567,7 @@
         </div>
 
         <div class="t-label" data-i18n="pitch.resultLabel">What changes · measured on live systems, not promised</div>
-        <div class="grid grid--4" style="margin:10px 0 12px;">
+        <div class="grid grid--4 pitch-results" style="margin:8px 0 10px;">
           <div class="cell">
             <div class="stat__val">30<small data-i18n="pitch.unitSec"> sec</small></div>
             <div class="stat__lbl" data-i18n="pitch.r1lbl" style="margin-top:8px;">Phuket Ops</div>
@@ -588,10 +589,11 @@
             <p class="t-body-2" data-i18n="pitch.r4" style="margin:6px 0 0;">A vendor called it too complex. A working version was in the room fourteen days later.</p>
           </div>
         </div>
-        <p class="t-body-2" data-i18n="pitch.proofLine" style="max-width:64ch;margin:0 0 28px;">75 systems across 5 countries. Open one. Use it. Judge.</p>
+        <p class="t-body-2" data-i18n="pitch.proofLine" style="max-width:64ch;margin:0 0 16px;">75 systems across 5 countries. Open one. Use it. Judge.</p>
 
         <div class="t-label" data-i18n="pitch.faqLabel">Before you ask</div>
-        <div style="margin:6px 0 24px;">
+        <div class="pitch-faq">
+          <div class="pitch-faq__group">
           <div class="numbered"><span class="numbered__n">Q1</span>
             <div>
               <div class="numbered__title" data-i18n="pitch.q1">Is it expensive?</div>
@@ -610,6 +612,8 @@
               <div class="numbered__body" data-i18n="pitch.a3">Yes. The first step uses only public data, so sensitive records never leave your hands. Delivery follows PDPA, GDPR-informed principles and ISO/IEC frameworks — by practice, not certification (see Credentials).</div>
             </div>
           </div>
+          </div>
+          <div class="pitch-faq__group">
           <div class="numbered"><span class="numbered__n">Q4</span>
             <div>
               <div class="numbered__title" data-i18n="pitch.q4">You're a small team. Can you deliver?</div>
@@ -622,11 +626,11 @@
               <div class="numbered__body" data-i18n="pitch.a5">Yes. Most systems on this page have run long past their launch. Each is documented and instrumented so your team can keep it going.</div>
             </div>
           </div>
-        </div>
-
         <div class="btn-row">
           <a href="#contact" class="btn btn--primary"><span data-i18n="pitch.cta">Start a two-week proof</span> <span class="tri">▸</span></a>
           <a href="#systems" class="btn btn--ghost" data-i18n="pitch.cta2">Open a live system first</a>
+        </div>
+          </div>
         </div>
       </div>
     </section>
@@ -659,6 +663,10 @@
 
         <!-- FIELD — the ground condition & canonical briefing video -->
         <section class="field-band field-band--video" id="groundTruth" aria-label="Field Ground Truth and Approach">
+          <div class="field-band__cap">
+            <span class="t-label" data-i18n="field.kicker">In the field · Ground Truth</span>
+            <h3 class="field-band__title" data-i18n="field.title">The flood arrives at 2 a.m. The dashboard arrives next fiscal year.</h3>
+          </div>
           <div class="field-band__media">
             <div class="field-band__video-wrap" id="fieldVideoWrap" data-video-id="0-A3R_i3wrs">
               <picture class="field-band__poster-picture">
@@ -674,12 +682,17 @@
               <span class="field-band__tag" data-i18n="field.videoTag">CANONICAL FIELD BRIEFING · CRISIS GROUND TRUTH</span>
               <span class="field-band__cite">Dr. Non standing in floodwaters · Bangkok Soi Monsoon Peak</span>
             </div>
+            <div class="field-band__actions">
+              <a class="btn btn--primary" href="https://flood.nonarkara.org/" target="_blank" rel="noopener">
+                <span data-i18n="field.cta">See FloodDash live</span> <span class="tri">▸</span>
+              </a>
+              <a class="btn btn--subtle" href="https://bit.ly/flooddashthai" target="_blank" rel="noopener">
+                <span data-i18n="field.ctaBriefings">Daily Briefings (112K Followers)</span> <span class="tri">▸</span>
+              </a>
+            </div>
           </div>
-          <div class="field-band__cap">
-            <span class="t-label" data-i18n="field.kicker">In the field · Ground Truth</span>
-            <h3 class="field-band__title" data-i18n="field.title">The flood arrives at 2 a.m. The dashboard arrives next fiscal year.</h3>
-            <p class="field-band__line" data-i18n="field.line">Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:</p>
             <div class="field-band__points">
+              <p class="field-band__line" data-i18n="field.line">Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:</p>
               <div class="field-band__point">
                 <span class="field-band__point-num">01</span>
                 <div class="field-band__point-body">
@@ -702,15 +715,6 @@
                 </div>
               </div>
             </div>
-            <div class="field-band__actions">
-              <a class="btn btn--primary" href="https://flood.nonarkara.org/" target="_blank" rel="noopener">
-                <span data-i18n="field.cta">See FloodDash live</span> <span class="tri">▸</span>
-              </a>
-              <a class="btn btn--subtle" href="https://bit.ly/flooddashthai" target="_blank" rel="noopener">
-                <span data-i18n="field.ctaBriefings">Daily Briefings (112K Followers)</span> <span class="tri">▸</span>
-              </a>
-            </div>
-          </div>
         </section>
 
         <!-- CITY DASHBOARDS -->
@@ -2685,7 +2689,7 @@
           <div class="s-head__meta" data-i18n="ctaSect.meta">Bangkok · SE Asia</div>
         </div>
         <h2 class="t-big" data-i18n-html="ctaSect.title">Tell us the decision. <em>We'll show it working in two weeks.</em></h2>
-        <p class="t-body-2" data-i18n="ctaSect.body" style="max-width:60ch;margin:12px 0 18px;">Write one paragraph: the decision you need to make faster, who makes it, and where the data sits today. You'll get a clear yes, a clear no, or one sharper question back. No sales deck. No procurement warm-up.</p>
+        <p class="t-body-2" data-i18n="ctaSect.body" style="max-width:60ch;margin:10px 0 12px;">Write one paragraph: the decision you need to make faster, who makes it, and where the data sits today. You'll get a clear yes, a clear no, or one sharper question back. No sales deck. No procurement warm-up.</p>
         <div class="btn-row">
           <a class="btn btn--primary"
             href="mailto:non@nonarkara.org?subject=Brief%20%E2%80%94%20Two-Week%20Proof">non@nonarkara.org
@@ -2695,7 +2699,7 @@
           <a class="btn btn--ghost" href="https://www.linkedin.com/showcase/slic-index/" target="_blank"
             rel="noopener">SLIC Index</a>
         </div>
-        <div class="grid grid--3" style="margin-top:24px;">
+        <div class="grid grid--3" style="margin-top:14px;">
           <div class="cell">
             <div class="stat__lbl">01</div>
             <p class="t-body-2" data-i18n="ctaSect.promise1" style="margin:6px 0 0;">Week 1 — the decision, the people and the data agreed on one page.</p>
