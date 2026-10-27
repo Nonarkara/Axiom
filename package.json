@@ -17,6 +17,7 @@
     "qa:counts": "node .qa/count-check.mjs",
     "qa:i18n": "node .qa/i18n-check.mjs",
     "qa:journeys": "node .qa/axiomx-journeys.mjs",
+    "qa:ebooks": "node .qa/axiomx-ebooks.mjs",
     "qa:plates": "node .qa/axiomx-plates.mjs",
     "qa:spatial": "node scripts/spatial/spatial-check.mjs",
     "qa:spatial:falsify": "node scripts/spatial/spatial-falsify.mjs",

@@ -20,7 +20,8 @@ await import('file://' + join(root, 'axiomx/plates.js'));
 const PLATES = global.window.AXIOM_PLATES;
 global.window = {};
 await import('file://' + join(root, 'axiomx/catalog.js'));
-const SYSTEMS = global.window.AXIOM_SYSTEMS;
+await import('file://' + join(root, 'axiomx/ebooks.js'));
+const SYSTEMS = global.window.AXIOM_SYSTEMS.concat(global.window.AXIOM_EBOOKS);
 
 const reader = readFileSync(join(root, 'axiomx/reader.js'), 'utf8');
 

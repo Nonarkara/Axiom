@@ -238,6 +238,15 @@ The pass count moves as checks are added, so read the number off the output rath
 
 ### One catalogue, two renderings
 
+**Reading-room-only publications (27 October 2026).** The owner explicitly added
+Mean, Ninja Innovation, and Slowdown to axiomx only. `axiomx/ebooks.js` exports
+`AXIOM_EBOOKS`, which the reader appends to the shared catalogue under E-books.
+Do not copy these into `public/` or weaken shared-catalogue parity to accommodate
+them. Their numbers follow the shared catalogue automatically. Plate checks and
+journeys include both collections; `tests/ebooks.test.mjs` guards their scope,
+destinations, numbering, and artwork. `npm run qa:ebooks` exercises the three
+entries at 390/1024/1440; `AXIOMX_URL` runs it against the canonical deployment.
+
 `axiom.nonarkara.org` and `axiomx.nonarkara.org` are two sites presenting **one catalogue**. `axiomx/catalog.js` holds it as data; `public/index.html` renders it as cards. They are the same 73 systems, and they must agree on every one of them.
 
 They did not, for a long time, and every test on either site was green the whole time:

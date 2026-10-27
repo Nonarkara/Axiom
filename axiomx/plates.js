@@ -150,4 +150,40 @@ window.AXIOM_PLATES = {"flooddash-fb": ["Louis-Léopold Boilly","The Reading of 
 1102,
 "oil on canvas",
 ],
+"mean": [
+"Unknown maker; photograph by Donald Macbeth",
+"The Rosetta Stone",
+"196 BCE; photograph published 1922",
+"British Museum, London",
+"https://commons.wikimedia.org/wiki/File:The_Rosetta_Stone.jpg",
+"Public domain",
+"One text in two languages and three scripts: meaning recovered through comparison. A personal lexicon likewise asks what a word means across the languages and experiences of its author.",
+1310,
+1600,
+"inscribed granodiorite; photograph"
+],
+"ninja": [
+"Francisco Goya",
+"The Knifegrinder (El Afilador)",
+"1808–1812",
+"Museum of Fine Arts, Budapest",
+"https://commons.wikimedia.org/wiki/File:El_Afilador,_Francisco_de_Goya.jpg",
+"Public domain",
+"A practitioner, a modest tool, a concrete service. Ninja Innovation argues for the same order: understand the person and the problem, then choose the smallest useful means.",
+1179,
+1600,
+"oil on canvas"
+],
+"slowdown": [
+"Jean Siméon Chardin",
+"The House of Cards",
+"probably 1737",
+"National Gallery of Art, Washington",
+"https://commons.wikimedia.org/wiki/File:Jean_Sim%C3%A9on_Chardin,_The_House_of_Cards,_probably_1737,_NGA_97.jpg",
+"CC0",
+"A structure that only holds if each move receives attention. Pausing, looking, and placing carefully are the activity in the picture, and the discipline this book asks its reader to practise.",
+1280,
+1600,
+"oil on canvas"
+],
 };

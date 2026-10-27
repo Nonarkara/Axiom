@@ -26,7 +26,8 @@ async function newPage(w = 1440, h = 900) {
   const p = await newPage();
   await p.goto(BASE, { waitUntil: 'networkidle' });
   check('lands on the pitch', (await p.textContent('.poster')).includes('flood arrives'));
-  check('75 systems shown', (await p.textContent('.fig b')) === '75', `got "${await p.textContent('.fig b')}"`);
+  const catalogueCount = await p.evaluate(() => window.AXIOM_SYSTEMS.length + window.AXIOM_EBOOKS.length);
+  check('catalogue total includes the e-books', Number(await p.textContent('.fig b')) === catalogueCount, `got "${await p.textContent('.fig b')}"`);
   const kicker = await p.textContent('.bar-kicker');
   check('bar kicker populated', kicker.trim().length > 0, `"${kicker}"`);
   // click through the index to a live system
@@ -349,7 +350,7 @@ async function newPage(w = 1440, h = 900) {
   const p = await newPage();
   await p.goto(BASE, { waitUntil: 'networkidle' });
   const r = await p.evaluate(async () => {
-    const sys = (window.AXIOM_SYSTEMS || []).map(s => s.id);
+    const sys = (window.AXIOM_SYSTEMS || []).concat(window.AXIOM_EBOOKS || []).map(s => s.id);
     const plates = window.AXIOM_PLATES || {};
     const missing = sys.filter(id => !plates[id]);
     // Every plate is a museum work: public domain, or CC0 from the holding

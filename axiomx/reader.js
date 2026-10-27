@@ -1,6 +1,7 @@
 (function () {
   const MEDIA = 'https://axiom.nonarkara.org/';
-  const systems = Array.isArray(window.AXIOM_SYSTEMS) ? window.AXIOM_SYSTEMS : [];
+  const systems = (Array.isArray(window.AXIOM_SYSTEMS) ? window.AXIOM_SYSTEMS : [])
+    .concat(Array.isArray(window.AXIOM_EBOOKS) ? window.AXIOM_EBOOKS : []);
   // One public-domain artwork per system, in place of the product screenshot.
   // After DIE WELT's 6 October 2011 edition, in which Ellsworth Kelly replaced
   // every news photograph with his own work. Pro bono entries keep their photos.
@@ -10,7 +11,7 @@
   // Cloudflare serves static assets with a four-hour max-age. A plate whose
   // file changed under the same name keeps serving the old bytes for hours,
   // so every plate is addressed by a versioned path. Bump this when art ships.
-  const ART_V = '20261026a';
+  const ART_V = '20261027a';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
   const I18N = window.AXIOM_I18N || { ui: {}, systems: {}, docs: {} };
 
