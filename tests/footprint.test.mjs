@@ -160,7 +160,7 @@ test('the complete tour keeps pins and scope aligned, and a pin selects its own 
   assert.equal(harness.elements.get('mapModeBtn').attributes['aria-pressed'], 'false');
   const campus = harness.markers.find(marker => marker.getElement().dataset.project === 'kmitl');
   campus.getElement().onkeydown({ key: ' ', preventDefault() {}, stopPropagation() {} });
-  assert.equal(harness.elements.get('heroFeaturedBadge').href, 'https://kmitl-control-tower.pages.dev/');
+  assert.equal(harness.elements.get('heroFeaturedBadge').href, 'https://kmitl.nonarkara.org/');
   assert.equal(harness.select.value, 'kmitl');
   harness.elements.get('mapModeBtn').listeners.click({ stopPropagation() {} });
   assert.equal(harness.intervals.size, 1);

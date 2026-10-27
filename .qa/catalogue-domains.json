@@ -1,0 +1,17 @@
+[
+  { "id": "flood-ami", "from": "https://flood-ami.pages.dev/", "to": "https://flood.nonarkara.org/" },
+  { "id": "lcbcity", "from": "https://lcbcity.pages.dev/dashboard", "to": "https://lcb.nonarkara.org/dashboard" },
+  { "id": "mtt", "from": "https://mtt-super-dashboard-v2.pages.dev/", "to": "https://mtt.nonarkara.org/" },
+  { "id": "chonburi", "from": "https://chonburi-control-tower.pages.dev/", "to": "https://chonburi.nonarkara.org/" },
+  { "id": "kmitl", "from": "https://kmitl-control-tower.pages.dev/", "to": "https://kmitl.nonarkara.org/" },
+  { "id": "yala", "from": "https://yala-control-tower.pages.dev/", "to": "https://yala.nonarkara.org/" },
+  { "id": "bangkok-ioc", "from": "https://bangkok-ioc.pages.dev/places", "to": "https://bangkok.nonarkara.org/places" },
+  { "id": "daytraders", "from": "https://siam-markets.pages.dev/", "to": "https://markets.nonarkara.org/" },
+  { "id": "horizon45", "from": "https://horizon-field-lab.pages.dev/", "to": "https://horizon.nonarkara.org/" },
+  { "id": "ekkasarn", "from": "https://ekkasarn-ai.pages.dev/", "to": "https://ekkasarn.nonarkara.org/" },
+  { "id": "time-pop", "from": "https://watch-1de.pages.dev/", "to": "https://watch.nonarkara.org/" },
+  { "id": "luma-house", "from": "https://luma-house.pages.dev/", "to": "https://designon.nonarkara.org/" },
+  { "id": "o3", "from": "https://otop.pages.dev/", "to": "https://otop.nonarkara.org/" },
+  { "id": "superleague", "from": "https://superleague-xxd.pages.dev/#/lobby", "to": "https://superleague.nonarkara.org/#/lobby" },
+  { "id": "blog", "from": "https://nonarkara-blog.pages.dev/", "to": "https://blog.nonarkara.org/" }
+]

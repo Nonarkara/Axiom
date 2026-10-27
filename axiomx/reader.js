@@ -919,7 +919,7 @@
     { type: 'actions', items: [
       { href: 'https://axiom.nonarkara.org/', label: 'axiom.nonarkara.org' },
       { href: 'https://github.com/Nonarkara/Axiom', label: 'Source' },
-      { href: 'https://nonarkara-blog.pages.dev/', label: 'Blog' },
+      { href: 'https://blog.nonarkara.org/', label: 'Blog' },
       { href: 'https://www.linkedin.com/company/axiomthailand/', label: 'LinkedIn' },
       { href: 'https://www.linkedin.com/showcase/slic-index/', label: 'SLIC Index' }
     ]},

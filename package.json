@@ -12,6 +12,7 @@
     "security:headers": "node scripts/security-headers.mjs",
     "export:evidence": "node scripts/export-evidence-snapshot.mjs",
     "qa:links": "node .qa/release-audit.mjs",
+    "qa:domains": "node .qa/domain-audit.mjs",
     "qa:visual": "node .qa/visual-qa.mjs",
     "qa:thumbs": "node .qa/catalogue-thumbs.mjs",
     "qa:counts": "node .qa/count-check.mjs",

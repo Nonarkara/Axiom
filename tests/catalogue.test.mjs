@@ -100,6 +100,41 @@ test('no two systems share a destination URL', () => {
   }
 });
 
+test('both catalogues link to the same destination, including paths and fragments', () => {
+  for (const match of html.matchAll(/<a\b[^>]*\bdata-arch="([^"]+)"[^>]*>/g)) {
+    const system = systems.find(entry => entry.id === match[1]);
+    if (!system?.href) continue;
+    const href = match[0].match(/\bhref="([^"]+)"/)?.[1];
+    assert.equal(new URL(href, 'https://axiom.nonarkara.org/').href,
+      new URL(system.href).href, system.id);
+  }
+});
+
+test('verified custom-domain migrations preserve the exact destination route', async () => {
+  const migrations = JSON.parse(await readFile(new URL('../.qa/catalogue-domains.json', import.meta.url), 'utf8'));
+  for (const entry of migrations) {
+    const old = new URL(entry.from), current = new URL(entry.to);
+    assert.equal(current.protocol, 'https:');
+    assert.ok(current.hostname.endsWith('.nonarkara.org'));
+    assert.equal(current.pathname + current.search + current.hash, old.pathname + old.search + old.hash, entry.id);
+    if (entry.id !== 'blog') assert.equal(new URL(systems.find(s => s.id === entry.id).href).href, current.href);
+  }
+});
+
+test('active catalogue, hero, map and reading-room links do not regress to provider domains', async () => {
+  const providerHost = value => /\.(?:pages|workers)\.dev$/.test(new URL(value).hostname);
+  assert.equal(providerHost('https://flood-ami.pages.dev/'), true);
+  assert.equal(providerHost('https://example.account.workers.dev/path'), true);
+  assert.equal(providerHost('https://flood.nonarkara.org/pages.dev'), false);
+  const files = ['public/index.html', 'public/footprint.js', 'axiomx/catalog.js', 'axiomx/reader.js', 'axiomx/ebooks.js'];
+  for (const file of files) {
+    const source = await readFile(new URL('../' + file, import.meta.url), 'utf8');
+    for (const match of source.matchAll(/https?:\/\/[^\s"'<>`)]+/g)) {
+      assert.equal(providerHost(match[0]), false, `${file}: ${match[0]}`);
+    }
+  }
+});
+
 test('axiom states the true size of every cluster', () => {
   for (const [label] of CLUSTERS) {
     const actual = clusterCards(label).length;
