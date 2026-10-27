@@ -50,11 +50,12 @@ DNS-record access with the current Wrangler OAuth credentials returns 403; Pages
 and zone metadata reads work. No record needed changing, so no DNS-write attempt
 or permission expansion was made. Credentials never entered source or evidence.
 
-**Cloudflare metadata warning:** Chonburi's Pages domain endpoint reports its
-binding as `deactivated`, even though `https://chonburi.nonarkara.org/` currently
-serves the correct CTM-01 application, byte-for-byte equal to its Pages alias.
-The functioning DNS/binding was left untouched. Current delivery is verified;
-the provider's binding lifecycle status is not cleared by that HTTP result.
+**Chonburi routing is already configured:** its old Pages domain binding reports
+`deactivated`, but the zone's Workers Routes API confirms the existing route
+`chonburi.nonarkara.org/*` points to `chonburi-proxy`. The custom hostname serves
+the correct CTM-01 application, byte-for-byte equal to its Pages origin. The old
+Pages binding is therefore not the only delivery path. Neither the proxy nor the
+deactivated Pages binding was changed; no replacement CNAME is needed.
 
 `npm run qa:domains` repeats the 15 origin comparisons and requires the exact
 final custom host, path, and query. Add `-- --browser` to verify rendered links in
@@ -78,5 +79,36 @@ was captured at 390x844, 1024x900 and 1440x900 in
 `/tmp/axiom-domains-before-20261027/`. This is a destination-only change, not a
 composition redesign; no geometry baseline was relaxed or re-recorded.
 
-Canonical live deployment and browser results are recorded in the release
-close-out. Chonburi's provider metadata warning remains as described above.
+## Release
+
+Commit `245d4bc` was pushed to main. Both Cloudflare Pages workflows succeeded:
+main site run `40509192996`, reading room run `40509193145`. The project inventory
+confirmed the actual aliases `axiom-9ye.pages.dev` and `axiomx-1d4.pages.dev`.
+Each alias, then each canonical custom host, passed three consecutive SHA-256
+matches for the HTML and changed scripts using disposable probe cache keys.
+
+On the canonical live hosts, `qa:domains -- --browser` passed all 15 origin
+comparisons, all 14 changed catalogue destinations on both sites, six map stop
+destinations, both blog links, and Super League's lobby fragment at the three
+declared widths. The live reading-room suite passed 191 checks with zero failures.
+Evidence is in `/tmp/axiom-domain-audit-live-20261027.json` and its `.browser.json`.
+
+The post-release MSH report is in `/tmp/axiom-domains-after-20261027/`. At all
+three widths, both surfaces retained the same chrome measurements as before:
+main 50/50/58px, reader 44/44/44px. Both had zero horizontal overflow and zero page
+errors. Screenshots were captured; no composition change was intended or claimed.
+
+An additional sweep checked 64 primary catalogue/e-book destinations under
+`nonarkara.org`: all resolved in DNS. Two pre-existing service faults were found,
+not missing custom domains: `cdp.nonarkara.org` returned HTTP 502 twice, and
+`news.nonarkara.org` timed out at 10 seconds and again at 30 seconds. Their links
+and infrastructure were not changed. These endpoints require a separate service
+investigation, not a replacement CNAME. Results are in
+`/tmp/axiom-all-domains-20261027.json`.
+
+A hostname sweep across the deployed HTML, catalogue, map, e-book extension and
+reader found 71 distinct linked `nonarkara.org` hosts, including secondary
+editions and institutional links. All resolved. Its evidence is
+`/tmp/axiom-all-linked-dns-20261027.json`.
+
+No unresolved missing custom domain was found among the 15 migrated links.
