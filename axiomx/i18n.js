@@ -730,6 +730,12 @@
               "cat": "Procedural 3D Canine Studio",
               "lede": "A 3D anatomical and procedural simulation studio modeling the structure, gait, and alert posture of Thailand's native Bangkaew dog breed.",
               "cta": "Open Canine Studio"
+      },
+      "pavilion": {
+              "name": "The Pavilion · Spatial World",
+              "cat": "Spatial Metaverse",
+              "lede": "A sustainable, zero-cost, browser-native spatial metaverse built from scratch with modern architecture materials. An open alternative to hyperscaler virtual platforms, eliminating proprietary data monopolies, gated access, and rent extraction.",
+              "cta": "Enter the Pavilion"
       }
     },
     "th": {
@@ -1206,6 +1212,12 @@
               "cat": "สตูดิโอจำลองสุนัข 3 มิติ",
               "lede": "สตูดิโอจำลองกายวิภาคและพฤติกรรมเชิงกระบวนการแบบ 3 มิติ จำลองโครงสร้าง ท่าทางการเดิน และการตื่นตัวตามสัญชาตญาณของสุนัขพันธุ์ไทยบางแก้ว",
               "cta": "เปิด Canine Studio"
+      },
+      "pavilion": {
+              "name": "The Pavilion · โลกมิติเชิงพื้นที่",
+              "cat": "เมตาเวิร์สเชิงสถาปัตยกรรม",
+              "lede": "เมตาเวิร์สเชิงพื้นที่บนเว็บเบราว์เซอร์ที่สร้างขึ้นเองตั้งแต่ต้นด้วยวัสดุจากสถาปัตยกรรมสมัยใหม่ ยั่งยืน ปลอดภัย และไร้ต้นทุนสำหรับทุกคน ทางเลือกเปิดที่ไม่พึ่งพาแพลตฟอร์มยักษ์ใหญ่ ปราศจากการผูกขาดข้อมูลและการเก็บค่าผ่านทาง",
+              "cta": "เข้าสู่ The Pavilion"
       }
     },
     "zh": {
@@ -1682,6 +1694,12 @@
               "cat": "程序化3D犬类工作室",
               "lede": "三维解剖与程序化模拟工作室，精准刻画泰国本土邦高犬的骨骼结构、步态与警觉姿态。",
               "cta": "打开 Canine Studio"
+      },
+      "pavilion": {
+              "name": "The Pavilion · 空间世界",
+              "cat": "空间元宇宙",
+              "lede": "从零构建、采用现代建筑材料与纯浏览器技术的自主空间元宇宙。完全免费、可持续且高安全性，打破超大规模云巨头对虚拟空间的数据垄断与权限束缚。",
+              "cta": "进入 The Pavilion"
       }
     },
     "ko": {
@@ -2158,6 +2176,12 @@
               "cat": "절차적 3D 개 스튜디오",
               "lede": "태국 토종 방깨우 견종의 해부학적 구조, 걸음걸이, 경계 자세를 정밀하게 모델링하는 3D 절차적 시뮬레이션 스튜디오.",
               "cta": "Canine Studio 열기"
+      },
+      "pavilion": {
+              "name": "The Pavilion · 공간 세계",
+              "cat": "공간 메타버스",
+              "lede": "현대 건축 자재와 순수 웹 기술로 밑바닥부터 구축한 지속 가능하고 비용 없는 브라우저 기반 공간 메타버스. 하이퍼스케일러의 데이터 독점과 접근 통제를 대체하는 독립적인 가상 세계.",
+              "cta": "The Pavilion 입장하기"
       }
     },
     "ja": {
@@ -2634,6 +2658,12 @@
               "cat": "手続き型3D犬スタジオ",
               "lede": "タイ原産バンケーウ犬の解剖構造、歩様、警戒姿勢を精密に再現する3Dプロシージャル・シミュレーションスタジオ。",
               "cta": "Canine Studioを開く"
+      },
+      "pavilion": {
+              "name": "The Pavilion · 空間ワールド",
+              "cat": "空間メタバース",
+              "lede": "現代建築の素材と純粋なWeb技術を用いてスクラッチから構築された、持続可能かつゼロコストの空間メタバース。ハイパースケーラーによるデータ独占やアクセス制限を打破するオープンな仮想世界。",
+              "cta": "The Pavilionに入る"
       }
     },
     "vi": {
@@ -3110,6 +3140,12 @@
               "cat": "Xưởng mô phỏng Chó 3D",
               "lede": "Xưởng mô phỏng thủ tục và giải phẫu 3D tái hiện cấu trúc cơ thể, dáng đi và tư thế cảnh giác của giống chó Bangkaew bản địa Thái Lan.",
               "cta": "Mở Canine Studio"
+      },
+      "pavilion": {
+              "name": "The Pavilion · Thế giới Không gian",
+              "cat": "Metaverse Không gian",
+              "lede": "Thế giới metaverse không gian chạy trực tiếp trên trình duyệt, xây dựng từ con số 0 bằng các vật liệu kiến trúc hiện đại. Bền vững, bảo mật và hoàn toàn miễn phí, phá vỡ thế độc quyền dữ liệu và rào cản truy cập của các tập đoàn công nghệ lớn.",
+              "cta": "Vào The Pavilion"
       }
     }
   },

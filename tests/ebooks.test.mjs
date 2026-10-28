@@ -11,9 +11,9 @@ runInNewContext(source('ebooks.js'), context);
 const ebooks = context.window.AXIOM_EBOOKS;
 const shared = context.window.AXIOM_SYSTEMS;
 
-test('the three requested e-books extend axiomx without changing the shared catalogue', () => {
+test('the requested e-books extend axiomx without changing the shared catalogue', () => {
   assert.equal(JSON.stringify(shared), sharedBefore);
-  assert.equal(ebooks.map(book => book.id).join(','), 'mean,ninja,slowdown');
+  assert.equal(ebooks.map(book => book.id).join(','), 'mean,ninja,slowdown,100days,100');
   const publicHtml = readFileSync(new URL('../public/index.html', import.meta.url), 'utf8');
   for (const book of ebooks) {
     assert.equal(book.cluster, 'E-books');
@@ -32,7 +32,7 @@ test('e-book numbers follow the shared catalogue and all destinations are unique
   assert.equal(new Set(all.filter(system => system.href).map(system => system.href)).size,
     all.filter(system => system.href).length);
   const last = Math.max(...shared.map(system => Number(system.idx)));
-  assert.deepEqual(Array.from(ebooks, book => Number(book.idx)), [last + 1, last + 2, last + 3]);
+  assert.deepEqual(Array.from(ebooks, book => Number(book.idx)), [last + 1, last + 2, last + 3, last + 4, last + 5]);
 });
 
 test('the reading room loads its extension before rendering and every e-book has a plate', () => {

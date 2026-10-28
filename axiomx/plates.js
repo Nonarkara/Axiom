@@ -234,4 +234,40 @@ window.AXIOM_PLATES = {"flooddash-fb": ["Louis-Léopold Boilly","The Reading of 
 1288,
 "oil on canvas"
 ],
+"pavilion": [
+"El Lissitzky",
+"Proun 99",
+"1924–1925",
+"Yale University Art Gallery, New Haven",
+"https://commons.wikimedia.org/wiki/File:El_Lissitzky_-_Proun_99_-_1941.548_-_Yale_University_Art_Gallery.jpg",
+"Public domain",
+"Lissitzky conceived Proun as the station where painting shifts into three-dimensional architecture, constructing weightless spatial forms from fundamental geometric materials without historical baggage. The Pavilion applies this exact modern architectural discipline to the open web: constructing a zero-cost, browser-native spatial world from scratch with steel, travertine, and glass, liberating virtual environments from hyperscaler data silos and proprietary extraction.",
+1600,
+1212,
+"water soluble and metallic paint on wood"
+],
+"100days": [
+"Ni Zan",
+"The Rongxi Studio",
+"1372",
+"National Palace Museum, Taipei",
+"https://commons.wikimedia.org/wiki/File:Ni_Zan._The_Rongxi_Studio.1372._74,7x35,3._National_Palace_Museum,_Taipei.jpg",
+"Public domain",
+"Ni Zan depicts an empty pavilion by quiet water, stripped of ornament, surrounded by sparse trees and distant hills. 'Rongxi' means a room barely large enough to hold one's knees: the quintessential statement of deliberate quiet, wandering, and a small life carefully lived in solitude.",
+1600,
+779,
+"hanging scroll, ink on paper"
+],
+"100": [
+"Édouard Manet",
+"A Bar at the Folies-Bergère",
+"1881–1882",
+"The Courtauld Gallery, London",
+"https://commons.wikimedia.org/wiki/File:Edouard_Manet,_A_Bar_at_the_Folies-Berg%C3%A8re.jpg",
+"Public domain",
+"One layer is recorded, one layer is invented. Manet divides reality between the figure facing us in front of the counter and her impossible reflection in the glass behind her, where an observer approaches her from another angle. Two Layers operates on that exact threshold: a Bangkok architect in 2026 suspecting his world is rendered, and an archivist in 3026 re-entering the simulation to sit near him.",
+1195,
+1600,
+"oil on canvas"
+],
 };

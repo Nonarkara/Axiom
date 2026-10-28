@@ -25,6 +25,20 @@
       cat: 'Essays and Art',
       lede: 'Ten movements on attention, solitude, making, and the discipline of doing less. Short essays, aphorisms, and public-domain art by Dr Non, to read in any order and at your own pace.',
       href: 'https://slowdown.nonarkara.org/'
+    },
+    {
+      id: '100days',
+      name: '100 Days of Solitude',
+      cat: 'Memoir and Essays',
+      lede: 'One hundred movements on solitude, memory, wanderings, and deliberate living by Dr Non. Short essays, reflections, and field notes written across Shanghai, Bangkok, and along the river.',
+      href: 'https://100days.nonarkara.org/'
+    },
+    {
+      id: '100',
+      name: 'Two Layers · 100 Days of Non',
+      cat: 'Speculative Fiction',
+      lede: 'One layer is recorded, one layer is invented. A 44-year-old Bangkok architect in 2026 begins to suspect his world is rendered, while an archivist in 3026 re-enters the simulation to sit near him.',
+      href: 'https://100.nonarkara.org/'
     }
   ].map(function (book, index) {
     return Object.assign({
