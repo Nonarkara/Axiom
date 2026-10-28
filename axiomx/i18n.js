@@ -706,6 +706,30 @@
         "cat": "Model Training",
         "lede": "A field lab for training small, organization-specific language models on private corporate data. From raw tokens to a portable model file you can hold and run anywhere.",
         "cta": "Open LLM Lab"
+      },
+      "dhaka": {
+              "name": "DHKx 3D Atlas · Dhaka",
+              "cat": "Metropolitan 3D Atlas",
+              "lede": "Block-by-block 3D spatial intelligence for Dhaka, Bangladesh. Reads building height, terrain slope, monsoon flood dynamics, and high-density urban morphology across 129 wards.",
+              "cta": "Open Dhaka Atlas"
+      },
+      "tsunami": {
+              "name": "Soonami · Tsunami Defense",
+              "cat": "Disaster Preparedness",
+              "lede": "Coastal tsunami defense and early warning intelligence platform for the Andaman rim. Live buoy telemetry, seismic sensor networks, run-up modeling, and coastal evacuation vectors.",
+              "cta": "Open Soonami"
+      },
+      "universe-69": {
+              "name": "Universe 69: Beta",
+              "cat": "Autonomous Simulation",
+              "lede": "Two sealed procedural worlds observed continuously, governed by deterministic mechanics and emergent agent behavior — observed, never helped.",
+              "cta": "Observe Universe 69"
+      },
+      "dog": {
+              "name": "CANINE // Bangkaew",
+              "cat": "Procedural 3D Canine Studio",
+              "lede": "A 3D anatomical and procedural simulation studio modeling the structure, gait, and alert posture of Thailand's native Bangkaew dog breed.",
+              "cta": "Open Canine Studio"
       }
     },
     "th": {
@@ -1158,6 +1182,30 @@
         "cat": "การฝึกโมเดลภาษา",
         "lede": "ห้องปฏิบัติการภาคสนามสำหรับการฝึกโมเดลภาษาขนาดเล็กเฉพาะองค์กรด้วยข้อมูลส่วนตัวขององค์กร จากโทเคนดิบสู่ไฟล์โมเดลที่พกพาและรันได้ทุกที่",
         "cta": "เปิด LLM Lab"
+      },
+      "dhaka": {
+              "name": "DHKx 3D Atlas · ธากา",
+              "cat": "แผนที่ 3 มิติระดับมหานคร",
+              "lede": "ระบบภูมิสารสนเทศ 3 มิติระดับบล็อกสำหรับกรุงธากา ประเทศบังกลาเทศ อ่านความสูงอาคาร ความลาดชันของภูมิประเทศ พลวัตน้ำท่วมมรสุม และสัณฐานวิทยาเมืองหนาแน่นสูงครอบคลุม 129 วอร์ด",
+              "cta": "เปิดแผนที่ธากา"
+      },
+      "tsunami": {
+              "name": "Soonami · ป้องกันสึนามิ",
+              "cat": "การเตรียมพร้อมรับภัยพิบัติ",
+              "lede": "แพลตฟอร์มข่าวกรองป้องกันและเตือนภัยล่วงหน้าสึนามิชายฝั่งสำหรับแนวขอบทะเลอันดามัน โทรมาตรทุ่นลอยแบบเรียลไทม์ เครือข่ายเซนเซอร์แผ่นดินไหว แบบจำลองการซัดท่วม และเวกเตอร์อพยพชายฝั่ง",
+              "cta": "เปิด Soonami"
+      },
+      "universe-69": {
+              "name": "Universe 69: Beta",
+              "cat": "การจำลองโลกอัตโนมัติ",
+              "lede": "โลกจำลองเชิงกระบวนการแบบปิดสองใบที่สังเกตการณ์อย่างต่อเนื่อง ขับเคลื่อนด้วยกลไกกำหนดแน่นอนและพฤติกรรมอุบัติขึ้นของเอเจนต์ — เฝ้าดูโดยไม่แทรกแซง",
+              "cta": "สังเกตการณ์ Universe 69"
+      },
+      "dog": {
+              "name": "CANINE // บางแก้ว",
+              "cat": "สตูดิโอจำลองสุนัข 3 มิติ",
+              "lede": "สตูดิโอจำลองกายวิภาคและพฤติกรรมเชิงกระบวนการแบบ 3 มิติ จำลองโครงสร้าง ท่าทางการเดิน และการตื่นตัวตามสัญชาตญาณของสุนัขพันธุ์ไทยบางแก้ว",
+              "cta": "เปิด Canine Studio"
       }
     },
     "zh": {
@@ -1610,6 +1658,30 @@
         "cat": "模型训练",
         "lede": "基于企业自有私域数据训练轻量专用语言模型的实战实验室。从原始数据标记到可随身携带、在任意环境独立运行的模型文件。",
         "cta": "打开 LLM Lab"
+      },
+      "dhaka": {
+              "name": "DHKx 3D Atlas · 达卡",
+              "cat": "大都市3D地图集",
+              "lede": "孟加拉国达卡街区级三维空间智能系统。覆盖129个选区，实时读取建筑高度、地形坡度、季风洪水动态及高密度城市形态。",
+              "cta": "打开达卡三维地图"
+      },
+      "tsunami": {
+              "name": "Soonami · 海啸防御",
+              "cat": "防灾减灾",
+              "lede": "安达曼海沿岸海啸防御与早期预警智能平台。汇聚实时浮标遥测、地震传感器网络、涌波爬升模型与沿海撤离路径。",
+              "cta": "打开 Soonami"
+      },
+      "universe-69": {
+              "name": "Universe 69: Beta",
+              "cat": "自主模拟世界",
+              "lede": "持续观测的两个封闭程序化世界，由确定性力学与突发智能体行为驱动——全程观测，从不干预。",
+              "cta": "观测 Universe 69"
+      },
+      "dog": {
+              "name": "CANINE // 泰国邦高犬",
+              "cat": "程序化3D犬类工作室",
+              "lede": "三维解剖与程序化模拟工作室，精准刻画泰国本土邦高犬的骨骼结构、步态与警觉姿态。",
+              "cta": "打开 Canine Studio"
       }
     },
     "ko": {
@@ -2062,6 +2134,30 @@
         "cat": "모델 훈련",
         "lede": "기업의 자체 비공개 데이터로 소형 맞춤형 언어 모델을 훈련하는 현장 랩. 원시 토큰에서 직접 소유하고 어디서나 실행할 수 있는 모델 파일까지.",
         "cta": "LLM Lab 열기"
+      },
+      "dhaka": {
+              "name": "DHKx 3D Atlas · 다카",
+              "cat": "대도시 3D 아틀라스",
+              "lede": "방글라데시 다카의 블록 단위 3D 공간 인텔리전스. 129개 워드 전역의 건물 높이, 지형 경사, 몬순 홍수 역학 및 고밀도 도시 형태 분석.",
+              "cta": "다카 아틀라스 열기"
+      },
+      "tsunami": {
+              "name": "Soonami · 쓰나미 방어",
+              "cat": "재난 대비",
+              "lede": "안다만 해안 쓰나미 방어 및 조기 경보 인텔리전스 플랫폼. 실시간 부표 원격 측정, 지진 센서 네트워크, 소상 모델링 및 해안 대피 벡터 제공.",
+              "cta": "Soonami 열기"
+      },
+      "universe-69": {
+              "name": "Universe 69: Beta",
+              "cat": "자율 시뮬레이션",
+              "lede": "결정론적 메커니즘과 창발적 에이전트 행동으로 제어되며 지속적으로 관찰되는 두 개의 밀폐된 절차적 세계 — 관찰할 뿐 개입하지 않음.",
+              "cta": "Universe 69 관찰하기"
+      },
+      "dog": {
+              "name": "CANINE // 방깨우",
+              "cat": "절차적 3D 개 스튜디오",
+              "lede": "태국 토종 방깨우 견종의 해부학적 구조, 걸음걸이, 경계 자세를 정밀하게 모델링하는 3D 절차적 시뮬레이션 스튜디오.",
+              "cta": "Canine Studio 열기"
       }
     },
     "ja": {
@@ -2514,6 +2610,30 @@
         "cat": "モデル訓練",
         "lede": "自社のプライベートデータを用いて組織特化型の小型言語モデルを訓練する実践ラボ。生のトークンから手元で保持しどこでも動かせるモデルファイルまで。",
         "cta": "LLM Labを開く"
+      },
+      "dhaka": {
+              "name": "DHKx 3D Atlas · ダッカ",
+              "cat": "大都市3Dアトラス",
+              "lede": "バングラデシュ・ダッカの街区レベル3D空間インテリジェンス。129行政区にわたる建物高、地形勾配、モンスーン浸水動態、高密度都市形態を把握。",
+              "cta": "ダッカ・アトラスを開く"
+      },
+      "tsunami": {
+              "name": "Soonami · 津波防護",
+              "cat": "防災対策",
+              "lede": "アンダマン沿岸津波防護・早期警戒インテリジェンスプラットフォーム。海洋ブイ観測、地震センサー網、遡上シミュレーション、沿岸避難ベクトルを統合。",
+              "cta": "Soonamiを開く"
+      },
+      "universe-69": {
+              "name": "Universe 69: Beta",
+              "cat": "自律シミュレーション",
+              "lede": "決定論的力学と創発的エージェント行動によって駆動される、継続的に観測される2つの閉鎖手続き型世界——観察し、介入せず。",
+              "cta": "Universe 69を観測"
+      },
+      "dog": {
+              "name": "CANINE // バンケーウ",
+              "cat": "手続き型3D犬スタジオ",
+              "lede": "タイ原産バンケーウ犬の解剖構造、歩様、警戒姿勢を精密に再現する3Dプロシージャル・シミュレーションスタジオ。",
+              "cta": "Canine Studioを開く"
       }
     },
     "vi": {
@@ -2966,6 +3086,30 @@
         "cat": "Huấn luyện mô hình",
         "lede": "Phòng thí nghiệm thực địa để huấn luyện các mô hình ngôn ngữ nhỏ đặc thù cho tổ chức trên dữ liệu nội bộ. Từ token thô đến tệp mô hình có thể mang theo và chạy ở mọi nơi.",
         "cta": "Mở LLM Lab"
+      },
+      "dhaka": {
+              "name": "DHKx 3D Atlas · Dhaka",
+              "cat": "Bản đồ 3D Đô thị",
+              "lede": "Hệ thống thông tin không gian 3D cấp ô phố cho Dhaka, Bangladesh. Đọc chiều cao công trình, độ dốc địa hình, động lực lũ mùa gió mùa và hình thái đô thị mật độ cao trên 129 phường.",
+              "cta": "Mở bản đồ Dhaka"
+      },
+      "tsunami": {
+              "name": "Soonami · Phòng thủ Sóng thần",
+              "cat": "Ứng phó Thảm họa",
+              "lede": "Nền tảng tình báo phòng thủ và cảnh báo sớm sóng thần ven biển cho vành đai Andaman. Đo xa phao thực tế, mạng lưới cảm biến địa chấn, mô hình dòng triều dâng và hướng sơ tán ven biển.",
+              "cta": "Mở Soonami"
+      },
+      "universe-69": {
+              "name": "Universe 69: Beta",
+              "cat": "Mô phỏng Tự trị",
+              "lede": "Hai thế giới thủ tục khép kín được quan sát liên tục, vận hành bởi cơ học tiền định và hành vi tác tử mới nổi — chỉ quan sát, không can thiệp.",
+              "cta": "Quan sát Universe 69"
+      },
+      "dog": {
+              "name": "CANINE // Bangkaew",
+              "cat": "Xưởng mô phỏng Chó 3D",
+              "lede": "Xưởng mô phỏng thủ tục và giải phẫu 3D tái hiện cấu trúc cơ thể, dáng đi và tư thế cảnh giác của giống chó Bangkaew bản địa Thái Lan.",
+              "cta": "Mở Canine Studio"
       }
     }
   },

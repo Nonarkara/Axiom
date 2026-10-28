@@ -186,4 +186,52 @@ window.AXIOM_PLATES = {"flooddash-fb": ["Louis-Léopold Boilly","The Reading of 
 1600,
 "oil on canvas"
 ],
+"dhaka": [
+"Sir Charles D'Oyly",
+"Part of the Interior of the City of Dacca",
+"1814",
+"British Library, London",
+"https://commons.wikimedia.org/wiki/File:Part_of_the_Interior_of_the_City_of_Dacca_Plate_3_(1814)_Charles_D%27Oyly_BL_WD4288.jpg",
+"Public domain",
+"A nineteenth-century view of Dhaka centering on the Purana Qila and the water gate built to monitor and withstand monsoon inundation. DHKx records Dhaka block by block with modern 3D topography to read urban density and water flows where memory and water meet.",
+497,
+712,
+"aquatint etching with hand colouring"
+],
+"tsunami": [
+"Winslow Homer",
+"The Life Line",
+"1884",
+"Philadelphia Museum of Art",
+"https://commons.wikimedia.org/wiki/File:Winslow_Homer_-_The_Life_Line_-_Google_Art_Project.jpg",
+"Public domain",
+"A breeches buoy suspends a rescue between drowning waves and shore safety, the operator hidden behind drenched oilskins while the apparatus performs its mechanical duty. Soonami operates as that lifeline along the Andaman rim, giving coastal emergency teams the critical seconds before the surge arrives.",
+1023,
+1600,
+"oil on canvas"
+],
+"universe-69": [
+"Hieronymus Bosch",
+"The Creation of the World (The Garden of Earthly Delights exterior shutters)",
+"c. 1490–1500",
+"Museo del Prado, Madrid",
+"https://commons.wikimedia.org/wiki/File:Hieronymus_Bosch_-_The_Garden_of_Earthly_Delights_-_The_exterior_(shutters).jpg",
+"Public domain",
+"Bosch renders the world as a fragile, translucent sphere floating in silent space, an intact biosphere observed from the exterior by its creator without active interference. Universe 69 operates on the exact same premise: two sealed procedural worlds observed continuously, governed by deterministic mechanics, and never helped.",
+950,
+876,
+"oil on oak panels"
+],
+"dog": [
+"George Stubbs",
+"White Poodle in a Punt",
+"c. 1780",
+"National Gallery of Art, Washington",
+"https://commons.wikimedia.org/wiki/File:George_Stubbs_-_White_Poodle_in_a_Punt.jpg",
+"CC0",
+"Stubbs observed animal anatomy and character with scientific rigor, depicting a dog poised attentively aboard a small river craft. CANINE applies procedural 3D modeling and biological proportioning to capture the form, gait, and alert posture of Thailand's native Bangkaew.",
+1600,
+1288,
+"oil on canvas"
+],
 };

@@ -935,17 +935,17 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "75개 시스템 · 5개국",
+      "sysMeta": "79개 시스템 · 5개국",
       "command": "도시 대시보드",
-      "commandMeta": "실시간 도시 운영실 및 환경 관측 · 20",
+      "commandMeta": "실시간 도시 운영실 및 환경 관측 · 24",
       "intelligence": "인텔리전스",
       "intelligenceMeta": "신호 및 분석 · 8",
       "civic": "시민",
-      "civicMeta": "국가 플랫폼 및 시민 인프라 · 8",
+      "civicMeta": "국가 플랫폼 및 시민 인프라 · 9",
       "emerging": "신규",
-      "emergingMeta": "연구급 및 새 운영 모델 · 11",
+      "emergingMeta": "연구급 및 새 운영 모델 · 12",
       "lab": "랩",
-      "labMeta": "보조 도구 · 공개 진행 · 24"
+      "labMeta": "보조 도구 · 공개 진행 · 25"
     },
     "sysStatus": {
       "live": "라이브",
@@ -1926,17 +1926,17 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "73システム · 5か国",
+      "sysMeta": "79システム · 5か国",
       "command": "シティダッシュボード",
-      "commandMeta": "リアルタイム都市運用室と環境観測 · 20",
+      "commandMeta": "リアルタイム都市運用室と環境観測 · 24",
       "intelligence": "インテリジェンス",
       "intelligenceMeta": "シグナルと分析 · 8",
       "civic": "シビック",
-      "civicMeta": "国家プラットフォームと市民インフラ · 8",
+      "civicMeta": "国家プラットフォームと市民インフラ · 9",
       "emerging": "新興",
-      "emergingMeta": "研究グレードと新運用モデル · 11",
+      "emergingMeta": "研究グレードと新運用モデル · 12",
       "lab": "ラボ",
-      "labMeta": "補助ツール · 公開中 · 24"
+      "labMeta": "補助ツール · 公開中 · 25"
     },
     "sysStatus": {
       "live": "稼働中",
@@ -2917,17 +2917,17 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "75 hệ thống · 5 quốc gia",
+      "sysMeta": "79 hệ thống · 5 quốc gia",
       "command": "Bảng điều khiển thành phố",
-      "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 20",
+      "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 24",
       "intelligence": "Tình báo",
       "intelligenceMeta": "Tín hiệu và phân tích · 8",
       "civic": "Công dân",
-      "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 8",
+      "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 9",
       "emerging": "Mới nổi",
-      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 11",
+      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 12",
       "lab": "Lab",
-      "labMeta": "Công cụ phụ · mở công khai · 24"
+      "labMeta": "Công cụ phụ · mở công khai · 25"
     },
     "sysStatus": {
       "live": "Trực tiếp",
