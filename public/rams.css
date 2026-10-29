@@ -2073,12 +2073,13 @@ summary:focus-visible {
    the far right of a 1018px track and landed UNDER the count, 900px from
    the name it describes: a reader had to re-find it. The count keeps the
    far edge because nine counts in one column is the thing worth aligning.
-   The label is ONE flex item, so when the row is too narrow the head
-   breaks between the label and the count — the count never falls to a
-   line of its own. */
+   flex-wrap is off so the wrap point can't shift between a fresh load and a
+   resized page — Thai text breaks within words (overflow-wrap: anywhere) so
+   the name never overflows. When the label wraps internally it grows taller
+   and a little space sits beneath the count and role: that's the cost of
+   keeping count and label on one line, recorded in the baseline. */
 .stack__head {
   display: flex;
-  flex-wrap: wrap;
   align-items: baseline;
   gap: 2px 12px;
   margin-bottom: 11px;
@@ -2086,7 +2087,21 @@ summary:focus-visible {
   border-bottom: 1px solid var(--line);
 }
 .stack__label { min-width: 0; }
-.stack__name { font-size: var(--t-micro); font-weight: 700; letter-spacing: var(--tr-label); text-transform: uppercase; }
+.stack__name {
+  font-size: var(--t-micro);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.stack__role {
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+  overflow-wrap: anywhere;
+}
 .stack__role {
   font-size: var(--t-label);
   font-weight: 600;
