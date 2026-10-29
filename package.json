@@ -1,20 +1,31 @@
 {
-  "name": "axiom-landing",
-  "version": "2.7.0",
-  "description": "Axiom AI - Landing Page",
-  "engines": {
-    "node": ">=22.13.0"
-  },
+  "name": "axiom-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.13.0" },
   "scripts": {
+    "dev": "node server.mjs",
     "start": "node server.mjs",
-    "dev": "PORT=3000 node server.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "security:headers": "node scripts/security-headers.mjs",
     "export:evidence": "node scripts/export-evidence-snapshot.mjs",
     "qa:links": "node .qa/release-audit.mjs",
+    "qa:domains": "node .qa/domain-audit.mjs",
     "qa:visual": "node .qa/visual-qa.mjs",
-    "check": "node --check server.mjs && node --check public/app.js && node --check public/admin/app.js && node --check scripts/export-evidence-snapshot.mjs && node --check .qa/release-audit.mjs && node --check .qa/visual-qa.mjs"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.61.1",
-    "playwright": "^1.61.1"
+    "qa:thumbs": "node .qa/catalogue-thumbs.mjs",
+    "qa:counts": "node .qa/count-check.mjs",
+    "qa:i18n": "node .qa/i18n-check.mjs",
+    "qa:journeys": "node .qa/axiomx-journeys.mjs",
+    "qa:ebooks": "node .qa/axiomx-ebooks.mjs",
+    "qa:plates": "node .qa/axiomx-plates.mjs",
+    "qa:spatial": "node scripts/spatial/spatial-check.mjs",
+    "qa:compact": "node .qa/compact-layout.mjs",
+    "qa:compact:falsify": "node .qa/compact-layout.mjs --mode falsify",
+    "qa:spatial:falsify": "node scripts/spatial/spatial-falsify.mjs",
+    "qa:sweep": "node .qa/spatial-sweep.mjs",
+    "catalogue:build": "node scripts/catalogue/build.mjs",
+    "catalogue:check": "node scripts/catalogue/check.mjs"
   }
 }

@@ -717,8 +717,7 @@ function siteAssetUrl(assetPath) {
 }
 
 function isStaticDeployment() {
-  const firstPathSegment = window.location.pathname.split('/').filter(Boolean)[0]?.toLowerCase();
-  return window.location.hostname.endsWith('github.io') || firstPathSegment === 'axiom';
+  return !['localhost', '127.0.0.1', '::1', '[::1]'].includes(window.location.hostname);
 }
 
 function apiUrl(apiPath) {
@@ -1012,7 +1011,10 @@ function renderCaseForm() {
   const values = locale === 'en' ? draft : (draft.translations[locale] || {});
 
   refs.caseLocaleFields.innerHTML = caseLocaleFields.map((field) => {
-    const fieldType = ['summary', 'note', 'decisionSurface', 'outcome'].includes(field) ? 'textarea' : 'input';
+    // A field that holds a sentence gets a text area. A single-line input
+    // 360px wide cannot show a 57-character headline, and an operator who
+    // cannot read the value cannot check the value.
+    const fieldType = ['title', 'stakeholder', 'deploymentWindow', 'summary', 'note', 'decisionSurface', 'outcome'].includes(field) ? 'textarea' : 'input';
     const label = copy.case.labels[field];
     const value = values[field] || '';
 
@@ -1062,7 +1064,7 @@ function renderHistoryForm() {
   const values = locale === 'en' ? draft : (draft.translations[locale] || {});
 
   refs.historyLocaleFields.innerHTML = historyLocaleFields.map((field) => {
-    const fieldType = field === 'summary' || field === 'proofNote' ? 'textarea' : 'input';
+    const fieldType = ['title', 'summary', 'proofNote'].includes(field) ? 'textarea' : 'input';
     const label = copy.history.labels[field];
     const value = values[field] || '';
 

@@ -1,0 +1,23 @@
+# The reading room is a public surface, so it carries the same security
+# headers as the main catalogue: a content security policy that names every
+# origin the room is allowed to load from, a frame policy so the book cannot
+# be framed, a transport policy so a first visit is already HTTPS, and a
+# permissions policy that denies the camera, the microphone and the location.
+#
+# The room loads one inline script — a JSON-LD block, which is data and not
+# code — so no script hash is needed. Everything else is same-origin, except
+# the Google Fonts stylesheet, the field-video frame (youtube-nocookie, never
+# youtube.com) and the mark, which is served from the catalogue's host.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://img.youtube.com https://axiom.nonarkara.org; connect-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000
+
+# The plates are named by system, not hashed, so keep the lifetime short enough
+# that a swapped plate shows up the same day, and long enough that a second
+# visit does not revalidate sixty-seven images over a phone connection.
+/art/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400

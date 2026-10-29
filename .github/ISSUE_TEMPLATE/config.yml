@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/Nonarkara/Axiom/blob/main/SECURITY.md
+    about: Do not open a public issue for a live vulnerability — email non@nonarkara.org instead.
+  - name: Axiom X — the studio site
+    url: https://axiom.nonarkara.org
+    about: The deployed main site. Worth checking before reporting anything about the pitch.
+  - name: axiomx — the reading room
+    url: https://github.com/Nonarkara/Axiom/blob/main/AGENTS.md#8-axiomx--the-reading-room-a-different-site
+    about: The second site lives in axiomx/. Its brief, file map, and non-obvious rules are in AGENTS.md §8.

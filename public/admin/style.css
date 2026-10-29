@@ -217,10 +217,14 @@ body.is-read-only .workspace-panel {
   padding: 24px;
 }
 
+/* The copy and the four figures were two columns, and the copy was a third
+   of the panel's height — which left 210px of nothing under it. The panel
+   now reads as one band: what this is, then the four numbers, four across.
+   Every column in the panel is the same height, because there is one row. */
 .overview-panel {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
   align-items: start;
 }
 
@@ -232,7 +236,7 @@ body.is-read-only .workspace-panel {
 
 .overview-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -296,17 +300,33 @@ body.is-read-only .workspace-panel {
 }
 
 .panel-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  align-items: flex-start;
+  /* The action sits on the kicker's line. Beside a three-line title block
+     it left 73px of nothing under itself; on its own line it is the
+     panel's first act, and the title and the sentence read underneath. */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px 16px;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-.panel-head > div {
-  display: grid;
-  gap: 10px;
-  max-width: 720px;
+.panel-head > .section-kicker {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.panel-head > .panel-btn {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.panel-head > h2 {
+  grid-column: 1 / -1;
+}
+
+.panel-head > p {
+  grid-column: 1 / -1;
 }
 
 .panel-head h2 {
@@ -332,7 +352,9 @@ body.is-read-only .workspace-panel {
 
 .editor-grid {
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
+  /* The list is a selector for three records; the form beside it holds
+     fifteen fields. The panel belongs to the form. */
+  grid-template-columns: 220px minmax(0, 1fr);
   gap: 20px;
 }
 
@@ -345,6 +367,11 @@ body.is-read-only .workspace-panel {
   gap: 10px;
   align-content: start;
   max-height: 900px;
+  /* The rail holds three records; the form beside it holds fifteen fields
+     and runs 2,600px. The rail follows the reader down the form, so
+     switching record never means scrolling back up. */
+  position: sticky;
+  top: 16px;
   overflow: auto;
 }
 
@@ -381,6 +408,16 @@ body.is-read-only .workspace-panel {
   justify-content: space-between;
   gap: 12px;
   align-items: center;
+}
+
+/* The list is 220px wide. A title and its badge side by side leave each of
+   them about 100px, so both wrap and the badge ends a line short of the
+   title. Stacked, each gets the whole column and neither wraps. */
+.record-title-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
+  gap: 4px;
 }
 
 .record-title {
@@ -420,6 +457,20 @@ body.is-read-only .workspace-panel {
 
 .form-grid-four {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* The editor column sits beside a 280px record list, so it is about 330px
+   wide. Three and four fields across it gave each field about 100px, and a
+   field that cannot show its own value is a defect, not a decision — the
+   operator could not read what they were about to overwrite. Fields are now
+   sized by what they hold: an enumeration shares a row, a long value takes
+   the whole row. */
+.form-grid-fields {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.field--wide {
+  grid-column: 1 / -1;
 }
 
 .field {
@@ -627,8 +678,17 @@ body.is-read-only .workspace-panel {
   margin-top: 24px;
 }
 
+/* Seven columns of sales data cannot be squeezed into a phone without the
+   page scrolling sideways. The table keeps a legible width and scrolls
+   inside its own frame, so the document never gains a horizontal scroll. */
+#pipelineTableWrap {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
 .pipeline-table {
   width: 100%;
+  min-width: 660px;
   border-collapse: collapse;
   font-size: 13px;
 }

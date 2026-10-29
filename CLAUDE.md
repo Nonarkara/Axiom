@@ -1,3 +1,5 @@
+> **Read [ANTI-SLOP.md](ANTI-SLOP.md) before any design or frontend work.** These are Dr Non's hard rules against AI design slop: empty space is a decision, subtract before you add, and the map comes first. Check pages with `slop-lint` (tools/slop-lint.mjs in Nonarkara/palette).
+
 # Axiom — Project Instructions
 
 *Inherits all rules from `/Users/nonarkara/Projects/CLAUDE.md` — especially §0 (System Directive), §7 (Design Philosophy), §9 (Karpathy Guidelines), and §11 (Anti-Regression Laws — The Codex Incident). Read those first.*
@@ -56,6 +58,10 @@ git show ee756b7:public/index.html > /tmp/axiom-good.html
 and restore surgically.
 
 ## Design Notes
+
+For authored composition and task-level proof, read `DESIGN-TENETS.md`. This
+additional quality gate preserves the current project contract and live features;
+it does not re-impose a historical theme or substitute a palette for signal colour.
 
 - Site is intentionally static but creates the *illusion* of real-time — that illusion is the value proposition.
 - If a file is >500 lines and "looks chaotic," that IS the personality. Do not flatten.

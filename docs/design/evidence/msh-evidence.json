@@ -1,0 +1,632 @@
+[
+  {
+    "surface": "axiom",
+    "viewport": "390x844",
+    "file": "docs/design/evidence/axiom-390x844.png",
+    "vw": 390,
+    "vh": 844,
+    "docH": 31515,
+    "headerH": 50,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 50,
+    "chromePct": 5.9,
+    "firstAction": {
+      "top": 12,
+      "tag": "A",
+      "text": "Axiom\n        Decision Systems"
+    },
+    "primaryActions": [
+      {
+        "label": "Start a Two-Week Proof\n            ▸",
+        "selector": "a.btn.btn--primary",
+        "x": 16,
+        "y": 482,
+        "width": 175,
+        "height": 44,
+        "visible": true
+      },
+      {
+        "label": "View systems",
+        "selector": "a.btn.btn--ghost",
+        "x": 199,
+        "y": 482,
+        "width": 98,
+        "height": 44,
+        "visible": true
+      },
+      {
+        "label": "Project locations",
+        "selector": "#heroProjectSelect",
+        "x": 128,
+        "y": 532,
+        "width": 102,
+        "height": 44,
+        "visible": true
+      }
+    ],
+    "assets": [
+      "https://axiom.nonarkara.org/rams.css?v=20261027a",
+      "https://axiom.nonarkara.org/hero.css?v=20261027a",
+      "https://axiom.nonarkara.org/i18n-regional.js?v=20261025b",
+      "https://axiom.nonarkara.org/footprint.js?v=20261027a",
+      "https://axiom.nonarkara.org/app.js?v=20261026a",
+      "https://axiom.nonarkara.org/editorial.css?v=20261005h",
+      "https://axiom.nonarkara.org/circuit.css?v=20261024a"
+    ],
+    "h1": {
+      "text": "Innovation\n          as a Service",
+      "size": 36,
+      "y": 345,
+      "bottom": 423
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.hero-title",
+        "text": "Innovation\n          as a Service",
+        "size": 36,
+        "weight": "800",
+        "y": 345
+      },
+      {
+        "tag": "H3.field-band__title",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 24,
+        "weight": "700",
+        "y": 3657
+      },
+      {
+        "tag": "H2.t-big",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 19,
+        "weight": "600",
+        "y": 1353
+      }
+    ],
+    "errors": []
+  },
+  {
+    "surface": "axiom",
+    "viewport": "1024x900",
+    "file": "docs/design/evidence/axiom-1024x900.png",
+    "vw": 1024,
+    "vh": 900,
+    "docH": 12345,
+    "headerH": 50,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 50,
+    "chromePct": 5.6,
+    "firstAction": {
+      "top": 0,
+      "tag": "DIV",
+      "text": "Middle East"
+    },
+    "primaryActions": [
+      {
+        "label": "Start a Two-Week Proof\n            ▸",
+        "selector": "a.btn.btn--primary",
+        "x": 16,
+        "y": 416,
+        "width": 197,
+        "height": 44,
+        "visible": true
+      },
+      {
+        "label": "View systems",
+        "selector": "a.btn.btn--ghost",
+        "x": 223,
+        "y": 416,
+        "width": 113,
+        "height": 44,
+        "visible": true
+      },
+      {
+        "label": "Project locations",
+        "selector": "#heroProjectSelect",
+        "x": 118,
+        "y": 476,
+        "width": 102,
+        "height": 44,
+        "visible": true
+      }
+    ],
+    "assets": [
+      "https://axiom.nonarkara.org/rams.css?v=20261027a",
+      "https://axiom.nonarkara.org/hero.css?v=20261027a",
+      "https://axiom.nonarkara.org/i18n-regional.js?v=20261025b",
+      "https://axiom.nonarkara.org/footprint.js?v=20261027a",
+      "https://axiom.nonarkara.org/app.js?v=20261026a",
+      "https://axiom.nonarkara.org/editorial.css?v=20261005h",
+      "https://axiom.nonarkara.org/circuit.css?v=20261024a"
+    ],
+    "h1": {
+      "text": "Innovation\n          as a Service",
+      "size": 64,
+      "y": 187,
+      "bottom": 325
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.hero-title",
+        "text": "Innovation\n          as a Service",
+        "size": 64,
+        "weight": "800",
+        "y": 187
+      },
+      {
+        "tag": "H2.t-big",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 24,
+        "weight": "600",
+        "y": 723
+      },
+      {
+        "tag": "H3.field-band__title",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 24,
+        "weight": "700",
+        "y": 2065
+      }
+    ],
+    "errors": []
+  },
+  {
+    "surface": "axiom",
+    "viewport": "1440x900",
+    "file": "docs/design/evidence/axiom-1440x900.png",
+    "vw": 1440,
+    "vh": 900,
+    "docH": 12607,
+    "headerH": 58,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 58,
+    "chromePct": 6.4,
+    "firstAction": {
+      "top": 6,
+      "tag": "DIV",
+      "text": "Middle East"
+    },
+    "primaryActions": [
+      {
+        "label": "Start a Two-Week Proof\n            ▸",
+        "selector": "a.btn.btn--primary",
+        "x": 120,
+        "y": 444,
+        "width": 197,
+        "height": 44,
+        "visible": true
+      },
+      {
+        "label": "View systems",
+        "selector": "a.btn.btn--ghost",
+        "x": 327,
+        "y": 444,
+        "width": 113,
+        "height": 44,
+        "visible": true
+      },
+      {
+        "label": "Project locations",
+        "selector": "#heroProjectSelect",
+        "x": 222,
+        "y": 498,
+        "width": 102,
+        "height": 44,
+        "visible": true
+      }
+    ],
+    "assets": [
+      "https://axiom.nonarkara.org/rams.css?v=20261027a",
+      "https://axiom.nonarkara.org/hero.css?v=20261027a",
+      "https://axiom.nonarkara.org/i18n-regional.js?v=20261025b",
+      "https://axiom.nonarkara.org/footprint.js?v=20261027a",
+      "https://axiom.nonarkara.org/app.js?v=20261026a",
+      "https://axiom.nonarkara.org/editorial.css?v=20261005h",
+      "https://axiom.nonarkara.org/circuit.css?v=20261024a"
+    ],
+    "h1": {
+      "text": "Innovation\n          as a Service",
+      "size": 76,
+      "y": 189,
+      "bottom": 353
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.hero-title",
+        "text": "Innovation\n          as a Service",
+        "size": 76,
+        "weight": "800",
+        "y": 189
+      },
+      {
+        "tag": "H2.t-big",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 24,
+        "weight": "600",
+        "y": 726
+      },
+      {
+        "tag": "H3.field-band__title",
+        "text": "The flood arrives at 2 a.m. The da",
+        "size": 24,
+        "weight": "700",
+        "y": 2013
+      }
+    ],
+    "errors": []
+  },
+  {
+    "surface": "axiomx",
+    "viewport": "390x844",
+    "file": "docs/design/evidence/axiomx-390x844.png",
+    "vw": 390,
+    "vh": 844,
+    "docH": 844,
+    "headerH": 44,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 44,
+    "chromePct": 5.2,
+    "firstAction": {
+      "top": 326,
+      "tag": "A",
+      "text": "Open live system"
+    },
+    "primaryActions": [
+      {
+        "label": "Open live system",
+        "selector": "a.inline-link",
+        "x": 22,
+        "y": 326,
+        "width": 115,
+        "height": 44,
+        "visible": true
+      },
+      {
+        "label": "Play the field briefing",
+        "selector": "button.vstudio-poster",
+        "x": 23,
+        "y": 879,
+        "width": 344,
+        "height": 193,
+        "visible": false
+      },
+      {
+        "label": "ยืนกลางซอยน้ำท่วม — อธิบายสถานการณ์จากจุดเกิดเหตุ",
+        "selector": "button.vstudio-item.is-active",
+        "x": 22,
+        "y": 1269,
+        "width": 342,
+        "height": 60,
+        "visible": false
+      },
+      {
+        "label": "หน้าจอจริง — คะแนนจังหวัด · เรดาร์ · MY AREA",
+        "selector": "button.vstudio-item",
+        "x": 22,
+        "y": 1337,
+        "width": 342,
+        "height": 60,
+        "visible": false
+      },
+      {
+        "label": "เปิดแผนที่บนโน้ตบุ๊ก — อ่านสียังไงไม่ให้ตกใจ",
+        "selector": "button.vstudio-item",
+        "x": 22,
+        "y": 1405,
+        "width": 342,
+        "height": 57,
+        "visible": false
+      },
+      {
+        "label": "น้ำท่วมถึงน่อง! เดินเช็ก FloodDash กลางซอย",
+        "selector": "button.vstudio-item",
+        "x": 22,
+        "y": 1470,
+        "width": 342,
+        "height": 57,
+        "visible": false
+      },
+      {
+        "label": "ทำไมกรุงเทพฯ ฝนตกหนักวันนี้? + AI ช่วยเฝ้าระวังน้ำท่วม",
+        "selector": "button.vstudio-item",
+        "x": 22,
+        "y": 1535,
+        "width": 342,
+        "height": 60,
+        "visible": false
+      }
+    ],
+    "assets": [
+      "https://axiomx.nonarkara.org/style.css",
+      "https://axiomx.nonarkara.org/catalog.js?v=20261027a",
+      "https://axiomx.nonarkara.org/ebooks.js?v=20261027a",
+      "https://axiomx.nonarkara.org/plates.js?v=20261027a",
+      "https://axiomx.nonarkara.org/diagrams.js?v=20261021b",
+      "https://axiomx.nonarkara.org/i18n.js?v=20261024a",
+      "https://axiomx.nonarkara.org/reader.js?v=20261027b"
+    ],
+    "h1": {
+      "text": "FLOODDASH (Thailand Flood Watch)",
+      "size": 28,
+      "y": 118,
+      "bottom": 175
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.name",
+        "text": "FLOODDASH (Thailand Flood Watch)",
+        "size": 28,
+        "weight": "500",
+        "y": 118
+      },
+      {
+        "tag": "H3.vstudio-title",
+        "text": "ยืนกลางซอยน้ำท่วม — อธิบายสถานการณ",
+        "size": 15,
+        "weight": "600",
+        "y": 1112
+      },
+      {
+        "tag": "H2",
+        "text": "Inputs",
+        "size": 10,
+        "weight": "500",
+        "y": 1650
+      }
+    ],
+    "errors": []
+  },
+  {
+    "surface": "axiomx",
+    "viewport": "1024x900",
+    "file": "docs/design/evidence/axiomx-1024x900.png",
+    "vw": 1024,
+    "vh": 900,
+    "docH": 900,
+    "headerH": 44,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 44,
+    "chromePct": 4.9,
+    "firstAction": {
+      "top": 1,
+      "tag": "BUTTON",
+      "text": "VI"
+    },
+    "primaryActions": [
+      {
+        "label": "Open live system",
+        "selector": "a.inline-link",
+        "x": 350,
+        "y": 283,
+        "width": 115,
+        "height": 44,
+        "visible": true
+      },
+      {
+        "label": "Play the field briefing",
+        "selector": "button.vstudio-poster",
+        "x": 351,
+        "y": 985,
+        "width": 348,
+        "height": 195,
+        "visible": false
+      },
+      {
+        "label": "ยืนกลางซอยน้ำท่วม — อธิบายสถานการณ์จากจุดเกิดเหตุ",
+        "selector": "button.vstudio-item.is-active",
+        "x": 743,
+        "y": 1015,
+        "width": 255,
+        "height": 59,
+        "visible": false
+      },
+      {
+        "label": "หน้าจอจริง — คะแนนจังหวัด · เรดาร์ · MY AREA",
+        "selector": "button.vstudio-item",
+        "x": 743,
+        "y": 1083,
+        "width": 255,
+        "height": 72,
+        "visible": false
+      },
+      {
+        "label": "เปิดแผนที่บนโน้ตบุ๊ก — อ่านสียังไงไม่ให้ตกใจ",
+        "selector": "button.vstudio-item",
+        "x": 743,
+        "y": 1163,
+        "width": 255,
+        "height": 72,
+        "visible": false
+      },
+      {
+        "label": "น้ำท่วมถึงน่อง! เดินเช็ก FloodDash กลางซอย",
+        "selector": "button.vstudio-item",
+        "x": 743,
+        "y": 1243,
+        "width": 255,
+        "height": 72,
+        "visible": false
+      },
+      {
+        "label": "ทำไมกรุงเทพฯ ฝนตกหนักวันนี้? + AI ช่วยเฝ้าระวังน้ำท่วม",
+        "selector": "button.vstudio-item",
+        "x": 743,
+        "y": 1323,
+        "width": 255,
+        "height": 72,
+        "visible": false
+      }
+    ],
+    "assets": [
+      "https://axiomx.nonarkara.org/style.css",
+      "https://axiomx.nonarkara.org/catalog.js?v=20261027a",
+      "https://axiomx.nonarkara.org/ebooks.js?v=20261027a",
+      "https://axiomx.nonarkara.org/plates.js?v=20261027a",
+      "https://axiomx.nonarkara.org/diagrams.js?v=20261021b",
+      "https://axiomx.nonarkara.org/i18n.js?v=20261024a",
+      "https://axiomx.nonarkara.org/reader.js?v=20261027b"
+    ],
+    "h1": {
+      "text": "FLOODDASH (Thailand Flood Watch)",
+      "size": 31,
+      "y": 118,
+      "bottom": 181
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.name",
+        "text": "FLOODDASH (Thailand Flood Watch)",
+        "size": 31,
+        "weight": "500",
+        "y": 118
+      },
+      {
+        "tag": "H3.vstudio-title",
+        "text": "ยืนกลางซอยน้ำท่วม — อธิบายสถานการณ",
+        "size": 15,
+        "weight": "600",
+        "y": 1220
+      },
+      {
+        "tag": "H2",
+        "text": "Index1",
+        "size": 10,
+        "weight": "500",
+        "y": 104
+      }
+    ],
+    "errors": []
+  },
+  {
+    "surface": "axiomx",
+    "viewport": "1440x900",
+    "file": "docs/design/evidence/axiomx-1440x900.png",
+    "vw": 1440,
+    "vh": 900,
+    "docH": 900,
+    "headerH": 44,
+    "topH": 0,
+    "bottomH": 0,
+    "chromeH": 44,
+    "chromePct": 4.9,
+    "firstAction": {
+      "top": 1,
+      "tag": "BUTTON",
+      "text": "VI"
+    },
+    "primaryActions": [
+      {
+        "label": "Open live system",
+        "selector": "a.inline-link",
+        "x": 442,
+        "y": 302,
+        "width": 115,
+        "height": 44,
+        "visible": true
+      },
+      {
+        "label": "Play the field briefing",
+        "selector": "button.vstudio-poster",
+        "x": 443,
+        "y": 1165,
+        "width": 575,
+        "height": 323,
+        "visible": false
+      },
+      {
+        "label": "ยืนกลางซอยน้ำท่วม — อธิบายสถานการณ์จากจุดเกิดเหตุ",
+        "selector": "button.vstudio-item.is-active",
+        "x": 1062,
+        "y": 1195,
+        "width": 336,
+        "height": 60,
+        "visible": false
+      },
+      {
+        "label": "หน้าจอจริง — คะแนนจังหวัด · เรดาร์ · MY AREA",
+        "selector": "button.vstudio-item",
+        "x": 1062,
+        "y": 1263,
+        "width": 336,
+        "height": 60,
+        "visible": false
+      },
+      {
+        "label": "เปิดแผนที่บนโน้ตบุ๊ก — อ่านสียังไงไม่ให้ตกใจ",
+        "selector": "button.vstudio-item",
+        "x": 1062,
+        "y": 1332,
+        "width": 336,
+        "height": 57,
+        "visible": false
+      },
+      {
+        "label": "น้ำท่วมถึงน่อง! เดินเช็ก FloodDash กลางซอย",
+        "selector": "button.vstudio-item",
+        "x": 1062,
+        "y": 1396,
+        "width": 336,
+        "height": 57,
+        "visible": false
+      },
+      {
+        "label": "ทำไมกรุงเทพฯ ฝนตกหนักวันนี้? + AI ช่วยเฝ้าระวังน้ำท่วม",
+        "selector": "button.vstudio-item",
+        "x": 1062,
+        "y": 1461,
+        "width": 336,
+        "height": 60,
+        "visible": false
+      }
+    ],
+    "assets": [
+      "https://axiomx.nonarkara.org/style.css",
+      "https://axiomx.nonarkara.org/catalog.js?v=20261027a",
+      "https://axiomx.nonarkara.org/ebooks.js?v=20261027a",
+      "https://axiomx.nonarkara.org/plates.js?v=20261027a",
+      "https://axiomx.nonarkara.org/diagrams.js?v=20261021b",
+      "https://axiomx.nonarkara.org/i18n.js?v=20261024a",
+      "https://axiomx.nonarkara.org/reader.js?v=20261027b"
+    ],
+    "h1": {
+      "text": "FLOODDASH (Thailand Flood Watch)",
+      "size": 40,
+      "y": 118,
+      "bottom": 200
+    },
+    "overflowX": 0,
+    "voice": [
+      {
+        "tag": "H1.name",
+        "text": "FLOODDASH (Thailand Flood Watch)",
+        "size": 40,
+        "weight": "500",
+        "y": 118
+      },
+      {
+        "tag": "H3.vstudio-title",
+        "text": "ยืนกลางซอยน้ำท่วม — อธิบายสถานการณ",
+        "size": 15,
+        "weight": "600",
+        "y": 1528
+      },
+      {
+        "tag": "H2",
+        "text": "Index1",
+        "size": 10,
+        "weight": "500",
+        "y": 104
+      }
+    ],
+    "errors": []
+  }
+]

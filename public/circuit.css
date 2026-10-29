@@ -1,0 +1,395 @@
+/* ============================================================
+   AXIOM — SPEAKING CIRCUIT
+   ------------------------------------------------------------
+   Five bars, in date order, in the flow of the page.
+
+   WHAT THIS WAS, AND WHY IT IS NOT THAT ANY MORE. The keynote
+   records began as four full-height <article> blocks — roughly a
+   viewport each, so every new invitation pushed the page down and
+   nothing below the fold was readable on a phone. That was fixed
+   by replacing them with a horizontal rail plus a six-row ledger
+   table. The bleed stopped, but it stopped in the wrong register:
+   a sideways-scrolling carousel and a spreadsheet of five talks
+   read as an artefact of the medium, and the cities ended up
+   listed in rows rather than said out loud.
+
+   So: the bars came back into the page, stacked vertically, and
+   the table is gone. Each stop is one fixed-height bar carrying
+   its date, its place, its claim and three numbers. The prose
+   above names the cities in order, so the sequence is read as a
+   sentence before it is read as data.
+
+   FIXED FOOTPRINT, STILL. Bar height is one token. A sixth stop
+   adds one bar; it never adds a viewport of prose.
+
+   Design law, inherited from rams.css: hairlines only, no radius,
+   no gradient, no shadow. Numbers tabular and mono. Labels small,
+   uppercase, grey. And §0 there — a box is never much taller than
+   the text it holds.
+   ============================================================ */
+
+:root {
+  --cx-bar-h: 106px;
+}
+
+.cx-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: 10px;
+}
+
+.cx-head__kicker {
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.cx-head__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, max-content));
+  justify-content: start;
+  /* The four labels are nowrap on purpose — "Stage shots" must not break across
+     lines under its own number. That makes the row intrinsically ~410px wide, so
+     below roughly 480px it cannot fit and pushes the whole page sideways. Let
+     the row wrap instead: each stat stays intact and moves down a line. The
+     breakpoints that used to swallow it (320, 360, 390, 414) all fit after. */
+  gap: 0;
+  row-gap: 4px;
+}
+
+.cx-head__stat {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 0 12px;
+  border-right: 1px solid var(--line);
+}
+
+.cx-head__stat:first-child {
+  padding-left: 0;
+}
+
+/* Once the row wraps, the last divider on a line dangles and reads as a stray
+   mark. Below the width where all four fit on one row, separate them with
+   space instead — the accent numerals already carry the rhythm. */
+@media (max-width: 479px) {
+  .cx-head__stat {
+    border-right: 0;
+    padding-right: 16px;
+  }
+  .cx-head__stat:last-child { padding-right: 0; }
+}
+
+.cx-head__stat:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+
+.cx-head__num {
+  font-family: var(--mono, "IBM Plex Mono", ui-monospace, monospace);
+  font-size: var(--t-lede);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tr-display);
+  color: var(--accent);
+  line-height: 1;
+}
+
+.cx-head__lbl {
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+/* The lede names every city in order, so the sequence is read as
+   a sentence before it is read as data. It runs wide on purpose:
+   this is prose, not a caption, and a 60ch measure would strand it. */
+.cx-lede {
+  margin: 0 0 14px;
+  max-width: 96ch;
+  font-size: var(--t-body);
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.cx-lede b {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------
+   THE BARS
+   One row per stop. Hairline grid, no gaps between rows, so the
+   stack reads as a single instrument rather than as five cards.
+   ------------------------------------------------------------ */
+
+.cx-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+}
+
+.cx-bar {
+  display: grid;
+  grid-template-columns: 56px 112px 138px minmax(0, 1fr) 288px;
+  align-items: center;
+  gap: 0 14px;
+  min-height: var(--cx-bar-h);
+  border-bottom: 1px solid var(--line);
+}
+
+/* The photograph is the point of a speaking circuit. It is the only
+   evidence the reader gets that a person stood on that stage, so it
+   is not an ornament and it is not optional per-stop. */
+.cx-bar__shot {
+  position: relative;
+  align-self: stretch;
+  overflow: hidden;
+  background: var(--panel);
+  min-height: 0;
+}
+
+.cx-bar__shot picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.cx-bar__shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+}
+
+.cx-bar__date {
+  font-family: var(--mono, "IBM Plex Mono", ui-monospace, monospace);
+  font-size: var(--t-label);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tr-title);
+  color: var(--ink-3);
+}
+
+.cx-bar__where {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.cx-bar__flag {
+  font-size: var(--t-body);
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+.cx-bar__city {
+  font-size: var(--t-body);
+  font-weight: 600;
+  letter-spacing: var(--tr-micro);
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cx-bar__what {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.cx-bar__venue {
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--ink-2);
+  /* The name of the place is the address. It was cut at 167px, which is
+     the same as saying nothing. It wraps instead. */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  /* ...but only where there is a break to break at. The source view writes
+     "Tomorrow.City.shanghai.2026·ZhangjiangScienceHall·appearance(4th)" —
+     one token, 69 characters — and a token with no space in it does not
+     wrap, it runs past the edge of the page. */
+  overflow-wrap: anywhere;
+}
+
+.cx-bar__claim {
+  font-size: var(--t-micro);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-2);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* his own words, one line, in italic — the voice is the credential */
+.cx-bar__quote {
+  font-size: var(--t-micro);
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--ink-3);
+  overflow: hidden;
+  /* A quote is a sentence someone actually said. Clamping it to one
+     line cut it mid-word — "budget for, a…" — which is worse than
+     saying nothing. Two lines, then stop; never an ellipsis. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* three numbers, hairline-separated, right-aligned — the axis
+   numbers are the point of the bar and must not compete with
+   the claim for attention */
+.cx-bar__figs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  align-self: stretch;
+  border-left: 1px solid var(--line);
+}
+
+.cx-bar__figs > span {
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  padding: 0 7px;
+  min-width: 0;
+}
+
+.cx-bar__figs b {
+  font-family: var(--mono, "IBM Plex Mono", ui-monospace, monospace);
+  font-size: var(--t-lede);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tr-display);
+  color: var(--accent);
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cx-bar__figs b i {
+  font-style: normal;
+  font-size: var(--t-label);
+  letter-spacing: 0;
+}
+
+/* Not every figure is a figure. "Orbital" is a stage name and "Full"
+   is a status — styled as numerals they read as measurements the page
+   did not make, which is worse than showing no number at all. A word
+   value is set as a word: label case, ink, no mono. */
+.cx-bar__figs .is-word b {
+  font-family: inherit;
+  font-size: var(--t-lede);
+  font-weight: 600;
+  letter-spacing: var(--tr-body);
+  font-style: italic;
+  color: var(--ink-2);
+  text-transform: none;
+}
+
+.cx-bar__figs > span > i {
+  font-style: normal;
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: var(--tr-micro);
+  text-transform: uppercase;
+  color: var(--ink-3);
+  /* A figure label that truncates is a lie about the number beside it —
+     "DATA SOU…" tells the reader the metric is narrower than it is.
+     Two lines are allowed; an ellipsis is not. Scoped to the direct-child
+     label so the inline unit suffix inside <b> ("4TH") never wraps. */
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.cx-foot {
+  margin: 8px 0 0;
+  font-size: var(--t-label);
+  color: var(--ink-3);
+  max-width: 88ch;
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE — phone first. The bar folds to three lines rather
+   than scrolling sideways, and the figures drop below the claim
+   where there is width for them.
+   ------------------------------------------------------------ */
+
+@media (max-width: 860px) {
+  .cx-bar {
+    grid-template-columns: 58px minmax(0, 1fr);
+    grid-template-areas:
+      "date where"
+      "shot shot"
+      "what what"
+      "figs figs";
+    row-gap: 3px;
+    padding: 10px 0 11px;
+    min-height: 0;
+  }
+
+  .cx-bar__date { grid-area: date; align-self: start; padding-top: 2px; }
+  .cx-bar__where { grid-area: where; }
+  .cx-bar__shot {
+    grid-area: shot;
+    /* must stay a containing block — the <picture> inside is absolutely
+       positioned against it. `static` here lets every photo on the phone
+       escape to the nearest positioned ancestor and paint as a void. */
+    position: relative;
+    aspect-ratio: 16 / 7;
+    margin: 5px 0 7px;
+  }
+  .cx-bar__what { grid-area: what; }
+  .cx-bar__figs {
+    grid-area: figs;
+    margin-top: 7px;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  /* The phone stack already carries a photograph per stop, so the
+     claim runs to its full length here. A description that stops at
+     "proof that…" tells the reader nothing; two honest lines do. */
+  .cx-bar__claim { -webkit-line-clamp: unset; display: block; }
+  .cx-bar__quote { white-space: normal; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; }
+  .cx-head__stats { width: 100%; padding-top: 6px; }
+  /* Four stats, two to a row on a narrow column. A row of three and an
+     orphan is not a shape anyone chose. */
+  .cx-head__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cx-bar__claim {
+    -webkit-line-clamp: 2;
+  }
+}

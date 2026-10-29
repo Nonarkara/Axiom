@@ -10,15 +10,68 @@
       "cta": "Work With Us"
     },
     "hero": {
-      "badge": "All Systems Online",
-      "titleLine1": "Innovation",
-      "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
-      "cta": "Start With the Pressure Map",
-      "ctaSecondary": "See Live Systems",
-      "nodeLabel": "Tap a live system",
-      "statSystems": "Live Systems",
-      "statMonitoring": "Live Monitoring",
-      "statCountries": "Countries"
+      "badge": "공개 프로젝트 목록",
+      "titleLine1": "혁신",
+      "subtitle": "도시는 데이터를 갖고 있지만, 중요한 순간에 아무도 보지 못합니다. 가장 어려운 결정을 위해 그것을 하나의 실시간 화면에 올립니다 — 2주 안에 작동합니다.",
+      "cta": "2주 검증 시작하기",
+      "ctaSecondary": "시스템 보기",
+      "nodeLabel": "전장을 탭하세요",
+      "exploreHint": "지도 드래그 · 전장 탭",
+      "hudLive": "전장",
+      "hudWatching": "감시 중인 시스템",
+      "modeTour": "AUTO TOUR",
+      "modeHold": "HOLD",
+      "statSystems": "목록의 시스템",
+      "statMonitoring": "Live로 표시",
+      "statCountries": "국가",
+      "signalLabels": {
+        "FLOOD": "홍수", "CAMPUS": "캠퍼스", "URBAN": "도시", "ATLAS": "지도",
+        "COASTAL": "해안", "TRANSIT": "대중교통", "AIR": "대기",
+        "CONFLICT": "분쟁", "GLOBAL": "글로벌",
+        "BORDER": "국경", "INDEX": "지수", "SCALE": "규모"
+      },
+      "rotatingPhrases": [
+        "서비스로",
+        "2주 만에",
+        "동작하는",
+        "도시를 위한",
+        "결정을 위한",
+        "눈에 보이는"
+      ],
+      "featured": {
+        "kicker": "전장 브리프",
+        "cta": "라이브 시스템 열기"
+      },
+      "theatres": {
+        "bangkok": {
+          "name": "방콕",
+          "meta": "홍수 · 캠퍼스 · 도시",
+          "event": "EVENT_ID: BANGKOK_WATCH",
+          "featuredName": "FloodDash",
+          "sitrep": "홍수, 캠퍼스, 도시 지도 — 방콕 시스템들이 같은 압력 지도를 본다."
+        },
+        "phuket": {
+          "name": "푸켓",
+          "meta": "해안 · 교통 · 대기",
+          "event": "EVENT_ID: PHUKET_WATCH",
+          "featuredName": "Phuket Ops",
+          "sitrep": "섬 작전실, 승객 교통, 대기 감시 — 해안 압력을 한 전장에."
+        },
+        "middle-east": {
+          "name": "중동",
+          "meta": "분쟁 · 오픈 인텔",
+          "event": "EVENT_ID: ME_WATCH",
+          "featuredName": "Middle East Monitor",
+          "sitrep": "공개 분쟁 표면과 계층형 글로벌 모니터 — 뉴스 사이클 이전의 신호."
+        },
+        "southeast-asia": {
+          "name": "동남아시아",
+          "meta": "국경 · 지수 · 스케일",
+          "event": "EVENT_ID: SEA_WATCH",
+          "featuredName": "Geopolitical Watch",
+          "sitrep": "삼국경 감시, 도시 지수, 메트로 스케일 — 아세안 압력을 한 지도에."
+        }
+      }
     },
     "engagement": {
       "tag": "Operating Model",
@@ -142,6 +195,7 @@
       "successDesc": "We'll get back to you soon."
     },
     "navCurrent": {
+      "why": "작동 방식",
       "systems": "시스템",
       "stages": "무대",
       "team": "팀",
@@ -155,7 +209,7 @@
       "sub": "대부분의 \"스마트시티\" 사업은 슬라이드에서 끝납니다. 우리 것은 운영 중입니다. 첫 주에 문제를 매핑합니다. 발표 전에 작동하는 것을 만듭니다. 모든 결정은 첫날부터 기록됩니다.",
       "cta1": "지금 FloodDash 사용",
       "cta2": "브리프 시작",
-      "stat1lbl": "운영 중인 시스템",
+      "stat1lbl": "목록의 시스템",
       "stat2lbl": "운영 국가",
       "stat3lbl": "색인된 도시",
       "stat4lbl": "FloodDash · LEAP East",
@@ -170,282 +224,619 @@
     "sysSect": {
       "kicker": "운영 중",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
-      "lede": "각각은 날카로운 질문에서 시작해 작동하는 화면으로 출시되었고, 런칭 뉴스 사이클이 끝난 뒤에도 유용합니다. 클릭해서 사용하세요 — 모두 라이브입니다.",
+      "lede": "약속이 아니라 증거입니다. 아래의 모든 시스템은 누군가 충분히 빨리 내리지 못한 하나의 결정에서 시작했습니다. 모두 오늘 작동 중입니다 — 열어 보고, 써 보고, 직접 판단하십시오.",
       "sandboxKicker": "샌드박스 // 라이브",
       "sandboxNote": "데모가 아닙니다 — 샌드박스에서 작동하는 시스템입니다. 인상이 아니라 확장을 위해 구축했습니다. 고객 NDA 하의 프로덕션 배포는 더 크지만, 여기서 실행되는 것은 동일하게 동작하며 고급 모듈만 제외됩니다."
     },
     "stageSect": {
-      "kicker": "세 무대, 하나의 호",
-      "title": "정부는 <em>슬라이드를 기다리는 데 지쳤습니다.</em>",
-      "lede": "Q1은 타이베이에서 열렸습니다. Q2는 싱가포르 GITEX 메인 스테이지. 3부작은 LEAP East — 아시아 최대 무대 — 에서 FloodDash가 현장에 살아 있는 채로 닫힙니다. 매번 같은 논지: 다음 예산 사이클이 아니라 지금 만들라."
-    },
-    "flooddashSect": {
-      "kicker": "Q1–Q2 · Act III",
-      "meta": "GITEX → LEAP East → FloodDash",
-      "title": "지금 <em>FloodDash</em>를 쓰세요.",
-      "lede": "태국 홍수 감시 — 9개 공개 소스의 24/7 실시간 지리공간 데이터, 3–60분마다 갱신. LEAP East 아시아 최대 무대에서 출시. 태국에서 홍수를 모니터링하는 모두가 오늘 이 화면을 써야 합니다.",
-      "live": "LIVE",
-      "m1": "공개 소스 9개",
-      "m2": "3–60분 갱신",
-      "m3": "77개 도",
-      "slide1": "전국 개요 — 모든 도를 한 화면에",
-      "slide2": "핫야이 지역 — 남부 홍수 회랑",
-      "slide3": "뜨랏 상세 — 경보와 유역 판독",
-      "cta": "FloodDash 라이브 열기",
-      "cta2": "LEAP East 출시"
+      "kicker": "다섯 개 무대 · 2026",
+      "title": "한 번 만들어 <em>공개 검증</em>",
+      "lede": "2026년 아시아의 다섯 무대. 매번 방 안에는 실제로 작동하는 시스템이 돌아갔다 — 타이베이의 SLIC Index, 싱가포르·상하이·홍콩의 FloodDash, 오사카의 DEPA. 아래는 전부 공개 기록입니다. 다음 무대는 함께 정합니다."
+    ,
+        "meta": "2026 · 오사카 · 상하이 · 홍콩 · 싱가포르 · 타이베이",},
+    "cx": {
+      "stops": "정차", "cities": "도시", "shots": "무대 사진", "thesis": "작동하는 시스템",
+      "osaka": {
+        "city": "오사카",
+        "venue": "오사카 시립대학교 · 모리노미야 캠퍼스",
+        "venueShort": "오사카 시립대학교",
+        "format": "기조연사 · 사례 · 패널",
+        "note": "DEPA 홍수 모니터링과 도시 운영 대시보드, 실제 운영 중. 제약은 기술이 아니라 제도다.",
+        "quote": "\"45분 만에 한 대의 컴퓨터에서 만들어진 시스템도 도시가 법적으로 채택하고 예산을 세워 계속 돌릴 수 있는 것으로 바뀌어야 합니다.\"",
+        "cite": "오사카 아시아 라운드테이블 2026",
+        "s1": "세션", "s2": "무대 시간", "s3": "대표단",
+      },
+      "leap": {
+        "v1": "오빗럴",
+        "city": "홍콩",
+        "venue": "LEAP East 2026 · Orbital 스테이지 · 훙콩 회의전시장",
+        "venueShort": "LEAP East · Orbital",
+        "format": "패널 · 출시",
+        "note": "Q1–Q2를 FloodDash 현장 출시로 닫았다. 태국 홍수 관측, 24/7, 아홉 개 공개 데이터 원천.",
+        "quote": "\"태국 홍수를 관측하는 사람은 누구나 오늘 바로 FloodDash를 써야 합니다. 다음 분기가 아니라 오늘.\"",
+        "cite": "LEAP East 패널",
+        "s1": "무대 등급", "s2": "발언자", "s3": "실시간 원천",
+      },
+      "sg": {
+        "v3": "만석",
+        "city": "싱가포르",
+        "venue": "GITEX AI Asia · 마리나 베이 샌드스 · 메인 스테이지",
+        "venueShort": "GITEX AI Asia · MBS",
+        "format": "기조연사 · 마감 워크숍",
+        "note": "메인 스테이지 기조연사와 워크숍. Government Innovation as a Service가 실제로 돌았다.",
+        "quote": "\"그건 박수가 아닙니다. 수요 신호입니다. 정부는 작동하는 시스템을 원합니다.\"",
+        "cite": "기조연사 후 · GITEX",
+        "s1": "메인 스테이지", "s2": "참석자", "s3": "워크숍",
+      },
+      "tpe": {
+        "city": "타이베이",
+        "venue": "스마트시티 서밋 & 엑스포 · City Vision 스테이지",
+        "venueShort": "SCSE · City Vision",
+        "format": "기조연사 · SLIC V2 출시",
+        "note": "SLIC Index V2가 강연 도중 공개. 174개 도시, 53개국, 조정 가능한 순위.",
+        "quote": "\"우리는 선반에 두는 지수가 아니라 거리용 지휘 체계를 만들었습니다.\"",
+        "cite": "타이베이 기조연사",
+        "s1": "도시", "s2": "국가", "s3": "제작 시간",
+      },
+      "sh": {
+        "city": "상하이",
+        "venue": "Tomorrow.City 상하이 2026 · 장자잉 과학회관 · 네 번째 출전",
+        "venueShort": "Tomorrow.City · 메인",
+        "format": "기조연사 · 실시간 데모 · 패널",
+        "note": "디지털 트윈이 아니라 God Mode. 큐브 화면에서 홍수 계산을 실시간으로.",
+        "quote": "\"물이 어느 속도로 움직인다는 센서는 시장에게 알려주지 않는다. 그 기본 계산이 곧 제품이다.\"",
+        "cite": "Tomorrow.City 상하이",
+        "s1": "출전 횟수", "s2": "데이터 원천", "s3": "요점",
+      },
+      "l": {
+        "date": "날짜", "city": "도시", "where": "장소", "fmt": "형식",
+        "note": "모든 정차는 주최 측의 공식 일정이나 프로그램에서 가져온 날짜를 가진다. 이 레일에는 그 근거 없는 주장이 없다.",
+        "updated": "2026.10 갱신",
+      },
     },
     "teamSect": {
       "foldLine": "팀 · Dr Non & Dr Poon · 창업자 2명 · 임무별 네트워크",
       "kicker": "누가 만드는가",
+      "meta": "방콕",
       "title": "두 명의 창업자. <em>중간 관리자 없음.</em>",
       "lede": "코드를 쓰고 아키텍처를 결정하는 사람과 직접 이야기합니다. UAV 운영자, 교통 엔지니어, 정책 번역가가 필요할 때만 그 임무를 위해 불러옵니다 — 상설 인력으로 두지 않습니다."
     },
     "ctaSect": {
       "kicker": "함께하기",
-      "title": "브리프를 보내주세요. <em>압력을 매핑하겠습니다.</em>",
-      "body": "문제가 실제이고 결정이 중요하다면, 2주 안에 증명 가능한 것을 보여드립니다. 조달 사이클 워밍업 없음. 무드보드 없음.",
-      "promise1": "첫 주에 압력 매핑. 결정, 사용자, 테이블 위의 데이터.",
-      "promise2": "슬라이드 다듬기 전에 작동하는 파일럿. 무료·기존 데이터 우선; 새 인프라는 정당화될 때만.",
-      "promise3": "첫날부터 데이터 트레일. 페이지뷰, 콘텐츠, 결정 로그 — 다음 빌드가 읽을 수 있게.",
+      "meta": "방콕 · 동남아시아",
+      "title": "결정을 알려 주세요. <em>2주 안에 작동하는 모습을 보여드립니다.</em>",
+      "body": "한 문단이면 됩니다: 더 빨리 내려야 할 결정, 누가 결정하는지, 지금 데이터가 어디 있는지. 명확한 예, 명확한 아니오, 또는 더 날카로운 질문 하나로 답하겠습니다. 영업 자료도, 조달 워밍업도 없습니다.",
+      "promise1": "1주 차 — 결정, 사람, 데이터를 한 페이지로 합의합니다.",
+      "promise2": "2주 차 — 기존 데이터와 무료 공공 데이터로 작동하는 파일럿. 시작에 새 하드웨어는 필요 없습니다.",
+      "promise3": "첫날부터 — 모든 사용과 결정을 기록해, 검증된 것만 확장합니다.",
       "alt": "Or find us on"
     },
     "panels": {
-      "p01": {
-        "title": "A governor's <em>situation room</em>, in a browser tab.",
-        "lede": "푸켓의 교통, 공공 안전, 환경 신호를 한 화면에 통합해 도지사가 30초 안에 읽을 수 있습니다. 수개월이 아니라 수주 만에 구축했습니다.",
-        "w1lbl": "Why it's special",
-        "w1": "Most government dashboards are read-only PDFs disguised as software. Phuket is a working operations room: transit, safety, and environment fused on one screen, refreshed every 42ms. The governor reads it directly — no analyst translation layer.",
-        "w2lbl": "What it replaced",
-        "w2": "Three siloed agency reports, an SMS escalation chain, and a Tuesday-morning briefing slot.",
-        "w3lbl": "Earned on day one",
-        "w3": "Built on existing IoT infrastructure — no new hardware procurement.",
-        "cta": "라이브 시스템 열기"
+        "p48": {
+          "name": "FLOODDASH (태국 홍수 감시)",
+          "lede": "태국 모든 주가 공식 공공 데이터로 동일한 상황도를 읽을 수 있도록 만든 실시간 오픈소스 홍수 감시 시스템. 3-60분마다 9개 공공 소스에서 수집.",
+          "cta": "라이브 시스템 열기"
+        },
+        "p65": {
+          "lede": "FloodDash의 공개 채널 — Facebook 팔로워 112K, 좋아요 37K. SLIC · depa · RCAD와 함께 매일 태국어로 홍수 브리핑. 데이터 투데이. 세이프 투모로우.",
+          "cta": "Facebook에서 팔로우",
+          "name": "FloodDash Community"
+        },
+        "p49": {
+          "name": "시키오 시 운영",
+          "lede": "시키오 시자치단체를 추적하는 실시간 지휘 화면 — 대기질, 기상, 교통 패턴, 도시 실시간 데이터를 통합해 시정 의사결정을 지원.",
+          "cta": "라이브 시스템 열기"
+        },
+        "p50": {
+          "lede": "나콘시탐마랏 시자치단체를 위한 실시간 시민 정보 — 3D 도시, 위성, 홍수 감시, 카오루앙·팍파낭 분지. 30개 이상의 실시간 데이터 소스.",
+          "cta": "라이브 시스템 열기",
+          "name": "NST-01 · Nakhon Si Thammarat"
+        },
+        "p51": {
+          "name": "램차방 운영",
+          "lede": "램차방 시의 트럭 교통과 규정 준수를 모니터링하는 실시간 지휘 화면. 항만 교통을 조정하고 정체를 줄이며 도시 안전을 보장하도록 설계.",
+          "cta": "라이브 시스템 열기"
+        },
+        "p01": {
+          "title": "A governor's <em>situation room</em>, in a browser tab.",
+          "lede": "푸켓의 교통, 공공 안전, 환경 신호를 한 화면에 통합해 도지사가 30초 안에 읽을 수 있습니다. 수개월이 아니라 수주 만에 구축했습니다.",
+          "w1lbl": "Why it's special",
+          "w1": "Most government dashboards are read-only PDFs disguised as software. Phuket is a working operations room: transit, safety, and environment fused on one screen, refreshed every 42ms. The governor reads it directly — no analyst translation layer.",
+          "w2lbl": "What it replaced",
+          "w2": "Three siloed agency reports, an SMS escalation chain, and a Tuesday-morning briefing slot.",
+          "w3lbl": "Earned on day one",
+          "w3": "Built on existing IoT infrastructure — no new hardware procurement.",
+          "cta": "라이브 시스템 열기",
+          "name": "Phuket Ops"
+        },
+        "p21": {
+          "lede": "호찌민시를 위한 대규모 지휘 화면. 실시간 교통, 홍수 모니터링, 대기질, 동적 경로를 고성능 지도 하나에 통합합니다.",
+          "cta": "라이브 시스템 열기",
+          "name": "HCMCx Super Dashboard"
+        },
+        "p62": {
+          "lede": "롭부리 작전실 — 실시간 FloodDash 유역 텔레메트리(ThaiWater/HII), 빠삭 촐라싯 저수지 상태, 소셜 리스닝, CCTV 슬롯 그리드, 위성 레이어를 롭부리 주의 한 화면에. 한 화면, 네 가지 데이터 흐름, 파견 가능한 읽기.",
+          "cta": "작전실 열기",
+          "name": "Lopburi Operations"
+        },
+        "p33": {
+          "lede": "Muang Thong Thani 지휘 화면 — IMPACT Arena, Challenger 홀, 홍수 감시, 교통, AQI, 행사 부하를 하나의 3D 지구 지도에. 태국에서 가장 밀집한 복합단지 운영자를 위해 만들었습니다.",
+          "cta": "라이브 시스템 열기",
+          "name": "MTT Super Dashboard"
+        },
+        "p05": {
+          "title": "Greater Kuching, <em>one command surface.</em>",
+          "lede": "사라왁 대쿠칭을 위한 전 스펙트럼 IOC. 환율, 항공편, 위성 영상, 환경 신호를 동남아에서 가장 빠르게 성장하는 스마트시티 운영자를 위해 통합합니다.",
+          "w1lbl": "Why it's special",
+          "w1": "Most IOCs are single-domain. Kuching fuses cross-domain signals in one view — currency pressure, flight arrivals, Sentinel-2 sweeps, environmental reads. The operator never switches tabs to see the full picture.",
+          "w2lbl": "Who uses it",
+          "w2": "Greater Kuching city operators and planners. Built for real-time situational awareness — not a demo room, for daily use.",
+          "w3lbl": "Why it matters",
+          "w3": "Same information density a Bloomberg terminal gives a trading desk — but for a city, at a fraction of the cost.",
+          "cta": "라이브 시스템 열기",
+          "name": "Kuching IOC"
+        },
+        "p63": {
+          "lede": "말레이시아 · 신 모드. 모든 유역의 JPS 수위, MET 말레이시아 경보, 버스와 기차, 선박과 항공기, 공기와 화재, 그리고 도움에서 멀리 사는 시민을 보여주는 시민 지수. 한 지도, EN · BM · 中文.",
+          "cta": "실시간 지도 열기",
+          "name": "Malaysia · God Mode"
+        },
+        "p13": {
+          "title": "47 feeds. <em>7 lenses. One campus.</em>",
+          "lede": "Chula Control Tower는 줄랄롱콘 대학의 실시간 운영 대시보드 — 방콕 시암·사먄 지역 교통, 사건, 대기질, 위성, 셔틀, 뉴스, 비상 이벤트 47개 라이브 피드.",
+          "w1lbl": "Why it's special",
+          "w1": "Most university dashboards show one feed at a time. <b>CCT puts 47 live sources on a single 3D map</b> — traffic, air quality, shuttle positions, incident reports, satellite layers, and underground utilities — so the campus president has one surface for every decision.",
+          "w2lbl": "What it replaced",
+          "w2": "Separate siloed systems for traffic, security, and environmental data. Manual incident reports. No unified view of the campus at any given moment.",
+          "w3lbl": "Decision power",
+          "w3": "Seven operational lenses — from day-to-day campus management to presidential strategic view — let each role see exactly what they need. 3D buildings and underground utility layers turn planning from guesswork into evidence.",
+          "w4lbl": "Live access",
+          "w4": "Deployed at Chulalongkorn University, Bangkok's Siam–Samyan district. Open access — no account required.",
+          "cta": "라이브 시스템 열기",
+          "name": "Chula Control Tower"
+        },
+        "p16": {
+          "title": "A coastal province, <em>rendered as a control tower.</em>",
+          "lede": "Chonburi Control Tower는 동부 해안을 위한 3D 지휘 화면: 42개 라이브 소스, 해안 날씨·해양 상태, 시장·관광 신호, 시장 사건, EEC 트렌드, 건물 규모 오버레이.",
+          "w1lbl": "Why it's special",
+          "w1": "Most provincial dashboards flatten the city into cards and charts. <b>Chonburi Control Tower renders the province as an operating environment</b> — 20,877 3D buildings, source health, weather, marine risk, EEC news, CCTV/AIS/AQ/WX toggles, and a mayor's desk on one surface.",
+          "w2lbl": "What it replaced",
+          "w2": "Separate weather sites, marine dashboards, market tickers, tourism spreadsheets, news tabs, and static GIS layers that never told the same story at the same time.",
+          "w3lbl": "Decision power",
+          "w3": "Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.",
+          "w4lbl": "Live access",
+          "w4": "Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.",
+          "cta": "관제탑 열기",
+          "name": "Chonburi Control Tower"
+        },
+        "p18": {
+          "lede": "KMITL Control Tower는 라드크라방 왕립공과대학의 실시간 운영 대시보드 — 교통, 사건, 대기질, 위성, 셔틀, 뉴스, 비상 이벤트 56개 라이브 피드.",
+          "cta": "라이브 시스템 열기",
+          "name": "KMITL Control Tower"
+        },
+        "p19": {
+          "lede": "Yala Control Tower는 태국 남부 깊은 지역 얄라시의 실시간 시민 인텔리전스. 3D 도시 모델, 위성 레이어, 홍수 감시, 보안 사건, 30개 이상 라이브 피드.",
+          "cta": "라이브 시스템 열기",
+          "name": "Yala Control Tower"
+        },
+        "p15": {
+          "title": "Name the city. <em>We'll build its brain.</em>",
+          "lede": "City Hub는 재사용 가능한 도시 인텔리전스 플랫폼 — 도시 이름을 주면 위성·베이스 레이어로 매핑하고 기존 데이터를 연결해 합성을 시작합니다. v.5, 5개 도시 라이브.",
+          "w1lbl": "Why it's special",
+          "w1": "Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what's already there.",
+          "w2lbl": "What it replaced",
+          "w2": "Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.",
+          "w3lbl": "Decision power",
+          "w3": "The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don't), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city's last day of data.",
+          "w4lbl": "Live access",
+          "w4": "Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.",
+          "cta": "라이브 플랫폼 열기",
+          "name": "City Hub"
+        },
+        "p27": {
+          "lede": "AirDash는 24/7 태국 대기질·미세먼지 모니터링입니다 — 도별 순위, 3일 CAMS-강우 예보, AT 위험·PM2.5 상위 5개 도, 강우 정화 로직, 전국 패턴 도넛을 한 화면에.",
+          "cta": "라이브 시스템 열기",
+          "name": "AirDash"
+        },
+        "p36": {
+          "lede": "방콕 3D 브라우저 아틀라스 — 실제 OSM 건물 432,077채, 지형, 대기질, 비 레이더, 재무부 지가, BTS/MRT, 운하. 블록 단위로 도시를 걷는다.",
+          "cta": "라이브 시스템 열기",
+          "name": "BKKx 3D Atlas"
+        },
+        "p43": {
+          "lede": "방콕의 유산, 블록 단위로 — 왕실 섬에서 방크라차오까지 아홉 구역, 등록 유적 571곳, 문서화된 산책 일곱 코스. atlas.nonarkara.org 운영 트윈과 짝을 이루는 BKKx의 문화 반쪽.",
+          "cta": "라이브 시스템 열기",
+          "name": "BKKx Culture"
+        },
+        "jakarta": {
+          "lede": "자카르타 수도권 3D 도시 지도 및 운영 표면 — 건물 형태, BMKG 기상 속보, CRM 시민 민원 보고, 홍수 위험 데스크를 한 화면에 통합. 인도네시아어 · EN.",
+          "cta": "라이브 시스템 열기",
+          "name": "Jakarta 3D Atlas"
+        },
+        "p67": {
+          "lede": "실제 OpenStreetMap 부지 위에 도시를 건설하고 경제 성장을 관찰하세요. SimCity 2000에서 영감을 받아 2026년 도시 계획 규정을 적용했습니다.",
+          "cta": "데모 열기",
+          "name": "simsmartcity"
+        },
+        "p69": {
+          "lede": "시라차에 위치한 태국 디지털 밸리(TDV)의 전체 캠퍼스 디지털 트윈 — 5개 동, 86,000 m², 공인 건물 정보, 25개 공개 평면도, 애니메이션 치비 방문객 및 IoT 1 CAD.",
+          "cta": "캠퍼스 입장",
+          "name": "TDV · Thailand Digital Valley"
+        },
+        "bangkokIoc": {
+          "lede": "방콕 시장 직속 운영센터에 입지 적합성 시범 서비스가 생겼습니다. BTS 역세권을 고르고 자신의 월세·이동 한도에 맞춰 본 뒤, 주변에 보고된 시민 민원, 공공 장소, 승강장까지의 실제 도보 경로를 읽습니다. 부동산 매물 목록이 아닌 책상 조사입니다.",
+          "cta": "Bangkok IOC 열기",
+          "name": "Bangkok IOC"
+        },
+        "dhaka": {
+          "lede": "방글라데시 다카의 블록 단위 3D 공간 인텔리전스. 129개 워드 전역의 건물 높이, 지형 경사, 몬순 홍수 역학 및 고밀도 도시 형태 분석.",
+          "cta": "다카 아틀라스 열기",
+          "name": "DHKx 3D Atlas · 다카"
+        },
+        "p04": {
+          "title": "A ranking <em>that argues back.</em>",
+          "lede": "SLIC Index는 도시의 가치를 말해주지 않습니다. 다섯 기둥을 보여주고 우선순위를 스스로 시험하게 합니다. 시장이 '살기 좋음'의 의미를 정하면 수학이 따라갑니다.",
+          "w1lbl": "Why it's special",
+          "w1": "Every other livability index hands cities a finished verdict. SLIC hands them the math. Move the pillar weights, watch your ranking change — and your peers' — in real time. The argument becomes the product.",
+          "w2lbl": "What it replaced",
+          "w2": "Static prestige leaderboards. The annual ranking PDF. The conversation that ended with \"we don't agree with the methodology.\"",
+          "w3lbl": "Audience signal",
+          "w3": "Picked up by Mayors of Europe. Live-demo'd at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.",
+          "cta": "SLIC v3 열기",
+          "name": "SLIC Index"
+        },
+        "p22": {
+          "lede": "세 지역(중동, 동남아시아, 태국) 모니터링: 오픈 데이터 기반 궁극의 모니터링 플랫폼, 레이어링으로 인사이트를 드러냅니다.",
+          "cta": "라이브 시스템 열기",
+          "name": "Global Monitor"
+        },
+        "p45": {
+          "lede": "5개 아시아 전장과 5대 전략적 해상 요충지 — 말라카, 호르무즈, 바브엘만데브, 대만 해협, 순다 — 하나의 실시간 지도: 분쟁 전선, 화재, 해공 교통 회랑, 지역 뉴스 및 TV 방송, 공개 데이터 기반.",
+          "cta": "실시간 시스템 열기",
+          "name": "AsiaWatch · 범아시아 센티널"
+        },
+        "p46": {
+          "lede": "하나의 화면에 담긴 지구 전체: 전 세계 실시간 항공기 및 선박, 분쟁 및 산불 위험 지역, 항상 열려 있는 정보 칼럼과 시장 지표. 동일한 공개 데이터 엔진, 글로벌 스케일.",
+          "cta": "실시간 시스템 열기",
+          "name": "World Console"
+        },
+        "p06": {
+          "title": "News <em>before the algorithm decides what's war.</em>",
+          "lede": "MEM은 중동 분쟁 보도를 위한 가장 빠른 오픈소스 뉴스 화면입니다. 실시간 다중 소스, 편집 지연 없음, 필터 버블 없음. 뉴스 사이클 이전의 신호.",
+          "w1lbl": "Why it's special",
+          "w1": "Every major news platform has an editorial layer that slows, filters, frames. MEM removes that layer. The same signals a desk analyst aggregates manually — in one surface, at machine speed.",
+          "w2lbl": "What it replaced",
+          "w2": "Three browser tabs, two Telegram channels, and a Twitter/X list — open simultaneously to triangulate what was actually happening on the ground.",
+          "w3lbl": "Who uses it",
+          "w3": "Journalists, policy analysts, NGO field teams. Anyone who needs ground-level signal faster than the 24-hour news cycle delivers it.",
+          "cta": "라이브 시스템 열기",
+          "name": "Middle East Monitor"
+        },
+        "p14": {
+          "title": "Bloomberg signals. <em>Thai market. Your rules.</em>",
+          "lede": "DayTraders는 SET, MAI, 뮤추얼펀드, RMF, 태국 ESG 상품에 Bloomberg 스타일 신호를 적용한 맞춤형 태국 시장 인텔리전스 플랫폼입니다.",
+          "w1lbl": "Why it's special",
+          "w1": "Thai retail investors get either raw broker data or generic apps that don't apply value-investing logic. <b>DayTraders brings institutional-grade signal analysis to the Thai SET</b> — with Graham margin-of-safety, Buffett moat screens, and Munger mental models built into the feed, not bolted on.",
+          "w2lbl": "What it replaced",
+          "w2": "Broker portals with no analytical framework, LINE group tips, and the assumption that rigorous value investing is only for institutions with Bloomberg terminals.",
+          "w3lbl": "Decision power",
+          "w3": "Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.",
+          "w4lbl": "Live access",
+          "w4": "Live Thai market data. Open platform — no paywall, no broker lock-in.",
+          "cta": "라이브 플랫폼 열기",
+          "name": "DayTraders"
+        },
+        "p41": {
+          "lede": "인상적이기보다 쓸모 있게 만든 시장 인텔리전스. 월드, 렌즈, 맵, FX, 국회, 배당, 플랜 — 모든 화면은 이번 주에 할 수 있는 결정을 하나라도 바꿔야 한다. 연구 프리뷰, 조언 아님. 모든 숫자는 자신의 나이를 달고 있다.",
+          "cta": "라이브 시스템 열기",
+          "name": "DAY 2"
+        },
+        "p70": {
+          "lede": "건축 인텔리전스 — 11개 형태 프로필(직사각형에서 풍차형까지), 9개 형태-성능 지표: 임대료, 면적, 고도 도달, 채광, 형태 차별성. 2006년 MIT 논문과의 20년 만의 재회. 편집할 때마다 실시간 시나리오 재계산. SHDT 영감.",
+          "cta": "형태 설계",
+          "name": "FormHypes · SHDT"
+        },
+        "p42": {
+          "lede": "태국의 미얀마·캄보디아·남부 전선 삼중 국경 지휘 대시보드 — 실시간 작전, 역사 재생, 임원급 인텔리전스 디자인을 한 지도에.",
+          "cta": "라이브 시스템 열기",
+          "name": "Geopolitical Watch"
+        },
+        "p23": {
+          "lede": "태국 공식 스마트시티 지수(SCITI). 7대 스마트시티 기둥에 따라 전국 174개 도시권의 진행 상황과 영향을 평가합니다.",
+          "cta": "라이브 시스템 열기",
+          "name": "Smart City Thailand Index (SCITI)"
+        },
+        "p07": {
+          "title": "The bus, tracked. <em>The rider, informed.</em>",
+          "lede": "푸켓 스마트버스 네트워크의 실시간 GPS 추적과 승객 텔레메트리. 관제실 화면보다 승객의 휴대폰을 먼저 고려했습니다.",
+          "w1lbl": "Why it's special",
+          "w1": "Smart bus systems usually exist for the operator's dashboard. This one exists for the person waiting at the stop. GPS position, next arrival, route clarity — for a tourist who doesn't read Thai and a commuter who doesn't have time to guess.",
+          "w2lbl": "What it replaced",
+          "w2": "Standing at a stop with no information. A bus schedule printed in 2019. The assumption that transit on a tourist island can't be made legible.",
+          "w3lbl": "Built on top of",
+          "w3": "Phuket's existing IoT infrastructure — the same sensor layer that feeds the Governor's operations room. No new hardware.",
+          "cta": "라이브 시스템 열기",
+          "name": "Phuket Smart Bus"
+        },
+        "p08": {
+          "title": "Reports arrive. <em>AI turns them into action.</em>",
+          "lede": "SCTH V2는 Telegram과 LINE의 시민 신고를 흡수하고 AI로 분석하며, 준실시간 위성·지도 레이어를 도시 구축자·개발자·관리자에게 제공하는 Smart City Thailand 데이터 플랫폼입니다.",
+          "w1lbl": "Why it's special",
+          "w1": "Most city complaint systems stop at a ticket number. SCTH V2 turns the report stream into a decision surface. Messenger reports, field photos, SLA risk, and AI pattern detection sit on the same map as precipitation, aerosol, cloud, terrain, and street layers.",
+          "w2lbl": "What it replaced",
+          "w2": "Screenshots in chat groups, manual spreadsheet triage, static map layers, and the delay between \"someone reported it\" and \"someone can act on it.\"",
+          "w3lbl": "Decision power",
+          "w3": "City teams can absorb reports, assign owners, analyze recurring patterns, export sheets or PDFs, and push response tasks while the city context is still live.",
+          "w4lbl": "Live access",
+          "w4": "Proprietary system under continuous daily development. The link runs a live tunnel — if it doesn't resolve, the system is mid-upgrade. Check back in a moment.",
+          "cta": "라이브 시스템 열기",
+          "name": "SCTH City Data Platform"
+        },
+        "p12": {
+          "title": "21 channels. <em>Free. Everywhere.</em>",
+          "lede": "NSP는 태국 국가 스트리밍 플랫폼 — NBTC 허가 21개 디지털 TV 채널, 무료, Full HD, 모든 기기. 실시간 EPG, 시청 텔레메트리, AI 가이드, CAP v1.2 긴급 경보.",
+          "w1lbl": "Why it's special",
+          "w1": "Most national TV portals are afterthoughts. <b>NSP puts all 21 licensed channels in one interface</b> with live EPG, per-channel concurrency, stream health telemetry, and an AI guide that answers \"what's on now?\" across the whole kingdom — without an app install.",
+          "w2lbl": "What it replaced",
+          "w2": "Fragmented broadcaster apps, illegal streams, and the assumption that free-to-air TV can't be made as legible as a subscription platform.",
+          "w3lbl": "Decision power",
+          "w3": "Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.",
+          "w4lbl": "Live access",
+          "w4": "National deployment under NBTC licensing authority. Open to all devices, no account required.",
+          "cta": "라이브 플랫폼 열기",
+          "name": "NSP"
+        },
+        "p64": {
+          "lede": "태국 산림 탄소 — 성을 탭하거나 박스를 그려 위성 기반 탄소 저장량, 산림 흡수와 배출, 산불과 화석 CO₂, 출처와 불확실성을 확인하세요. T-VER 프로젝트 평가 워크벤치 포함. 태국어 · 영어.",
+          "cta": "평가 워크벤치 열기",
+          "name": "Forest Carbon Thailand"
+        },
+        "constitution": {
+          "lede": "2017년 태국 헌법 전 279개 조항을 태국어·영어·중국어로 읽고, 하이라이트하고, 듣고, 연습하세요. 학습 카드, 검색, 오디오, 시민 이해. ไทย · EN · 中文.",
+          "cta": "열람실 열기",
+          "name": "Thai Constitution Reader"
+        },
+        "techhunt": {
+          "lede": "태국 도시를 위한 검증된 기술 시장: 조달 담당관과 도시 계획가를 위해 7개 스마트시티 도메인에 걸쳐 라이브 신호 강도로 순위를 매긴 125개 검증된 스타트업. depa, SLIC, UWN의 공동 이니셔티브.",
+          "cta": "TechHunt 열기",
+          "name": "Smart City Thailand TechHunt"
+        },
+        "burma": {
+          "lede": "상설 공개 대화방과 일일 다이제스트를 갖춘 미얀마어 커뮤니티 플랫폼. GovTech 청년 이니셔티브를 위해 구축된 클래식 Win95 크롬 인터페이스.",
+          "cta": "Pirchchat 열기",
+          "name": "Pirchchat · A-Lin-Ein"
+        },
+        "tsunami": {
+          "lede": "안다만 해안 쓰나미 방어 및 조기 경보 인텔리전스 플랫폼. 실시간 부표 원격 측정, 지진 센서 네트워크, 소상 모델링 및 해안 대피 벡터 제공.",
+          "cta": "Soonami 열기",
+          "name": "Soonami · 쓰나미 방어"
+        },
+        "p52": {
+          "name": "20분 with 닥터 논",
+          "lede": "새로운 팟캐스트 — 아이디어, 에이전트, 지정학, 그리고 다음 20분. Spotify에서 라이브, 더 많은 에피소드 출항 중.",
+          "cta": "Spotify에서 열기"
+        },
+        "p09": {
+          "title": "Eleven voices. <em>One decision.</em>",
+          "lede": "11개 AI 판사가 회문 이름(Tenet, Radar, Otto, Hannah, Ada…)으로 로컬 Mac에서 지속적으로 숙의하는 개인 멀티에이전트 시스템. 월 약 3달러.",
+          "w1lbl": "Why it exists",
+          "w1": "Single models give one answer. Problems worth solving deserve argument. The council runs four operating modes — VERIFY, DECIDE, EXPLORE, DEBATE — and justices use explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS) so every position change is visible and traceable.",
+          "w2lbl": "What it costs",
+          "w2": "Manus-class autonomous-agent capability at $3/month. The council chair runs on Mistral Large 3. The Thai-native skeptic (Ada) runs on ThaiLLM — a government-backed model, free. The executor (Otto) handles OCR, video downloads, email drafts, PDF generation, and Google Drive sync without touching cloud infrastructure.",
+          "w3lbl": "Why no demo",
+          "w3": "The council is trained on Dr Non's personal journals, decisions, meeting notes, and voice. Proprietary by necessity. The protocol stack — ~600 lines of Python — is open. The IP is the coordination methodology, not the weights.",
+          "cta": "GitHub에서 보기",
+          "cta2": "v2 · Agentic + Executor",
+          "name": "Dr Non's AI Council"
+        },
+        "p10": {
+          "title": "HR has been a <em>record system</em> long enough.",
+          "lede": "TKCX는 직원을 파티원, 프로젝트를 퀘스트, 팀 구성을 전략으로 다루는 게임 기반 인재 운영 시스템입니다.",
+          "cta": "GitHub에서 보기",
+          "w1lbl": "The problem",
+          "w1": "Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.",
+          "w2lbl": "The engine",
+          "w2": "Built on Dragon Quest III's party system. Five archetypes map to real workplace roles (captain, tech, sales, ops, scout). A Moneyball budget cap — project budget ÷ 10 = monthly salary ceiling — forces allocation discipline. The readiness formula weighs coverage, quality, chemistry, and morale so the right team is visible before the project starts, not after it fails.",
+          "w3lbl": "What it changes",
+          "w3": "Directors stop hoarding people. Projects stop running on political capital. Skill gaps become visible before they become failures. And HR — renamed Talent Incubation — becomes the most strategic function in the building, not the most avoided one.",
+          "name": "TKCX"
+        },
+        "p11": {
+          "title": "The AI <em>that knows you.</em>",
+          "lede": "Second Brain OS는 MCP로 Obsidian 볼트를 모든 AI 코딩 플랫폼에 동시에 연결합니다. 19개 서버 설정. 페르소나 블루프린트와 목소리를 기억하는 에이전트.",
+          "w1lbl": "The gap it closes",
+          "w1": "Every AI session starts cold. It doesn't know your voice, your values, your past decisions, or the years of journal entries that shaped your thinking. Second Brain OS feeds all of that into every coding platform simultaneously via a single MCP connection — so the AI you work with already knows who it's working with.",
+          "w2lbl": "How it's built",
+          "w2": "Your Obsidian vault is structured like a brain: PrefrontalCortex for strategy, Hippocampus for atomic memories, TemporalLobe for patterns, Cerebellum for skills and procedures. 19 MCP server configurations connect this living knowledge graph to Cursor, Codex, Claude Code, and every other platform in your stack — at once.",
+          "w3lbl": "Why it's open",
+          "w3": "The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model's.",
+          "cta": "GitHub에서 보기",
+          "name": "Second Brain OS"
+        },
+        "p20": {
+          "lede": "Horizon 45는 실제 AI 판단력을 시험하는 현장 도구. 딥페이크 탐지부터 프롬프트 엔지니어링까지, 역량 초상과 학습 로드맵을 남깁니다.",
+          "cta": "라이브 시스템 열기",
+          "name": "Horizon 45"
+        },
+        "p53": {
+          "name": "ASCN 성과 검토 (감독관 컷)",
+          "lede": "134개 프로젝트와 38개 도시에 걸친 ASEAN 스마트 시티 네트워크의 성과를 종합적으로 분석한 대시보드 — 4개 M&E 주기 동안의 포트폴리오 모멘텀과 초점 영역 변화 검토.",
+          "cta": "라이브 시스템 열기"
+        },
+        "p24": {
+          "lede": "새로 단장한 도덕경 읽기 공간. 영어·태국어·중국어 81장, 한자 학습, 그림 노트, Palette의 색채 관계를 담았습니다.",
+          "cta": "라이브 시스템 열기",
+          "original": "이전 버전 읽기",
+          "name": "Dao × Palette"
+        },
+        "ikigai": {
+          "name": "Ikigai Finance Engine",
+          "lede": "중소기업 금융 인텔리전스 — 재무상태표를 신호로, 현금 런웨이, 은행 스코어카드, 복합 금융 지수(Ikigai, Lean, Zero, Default, Solvency). 개발 단계 연구 프로토타입, 스크린샷만 공개 — ABC Company Limited는 가상 시연 데이터이며 아직 공개 배포 없음.",
+          "cta": "연구 저장소 보기"
+        },
+        "p28": {
+          "lede": "FloodDash Blueprint은 태국 홍수 모니터링의 공개 연구 동반자로서 — 센서 네트워크, 배수 로직, AI 홍수 예측, 대응 플레이북, 데이터-의사결정 파이프라인 전체를 모든 도시에 공개합니다.",
+          "cta": "GitHub에서 보기",
+          "name": "FloodDash Blueprint"
+        },
+        "ladder": {
+          "lede": "Ikigai의 벤처 실사 및 스코어카드 동반 엔진. 거래 검토, 재무 실사 체크리스트, 투자 가설 매칭, 포트폴리오 위험 평가를 비공개 공간에서 수행.",
+          "access": "로그인 필요",
+          "cta": "Ladder 열기",
+          "name": "Ladder · Ikigai"
+        },
+        "life": {
+          "lede": "당신 주변에서 자라나는 세계: 아이소메트릭 태국 마을에서 2배에서 20배 속도로 보내는 가상의 삶입니다. 갈림길마다 선택해야 하고 모든 선택에는 대가가 따릅니다. 브라우저에 저장됩니다. 지금은 임시 주소이며 life.nonarkara.org로 옮길 예정입니다.",
+          "access": "로그인 필요",
+          "cta": "Life 열기",
+          "name": "Life"
+        },
+        "universe_69": {
+          "lede": "결정론적 메커니즘과 창발적 에이전트 행동으로 제어되며 지속적으로 관찰되는 두 개의 밀폐된 절차적 세계 — 관찰할 뿐 개입하지 않음.",
+          "cta": "Universe 69 관찰하기",
+          "name": "Universe 69: Beta"
+        },
+        "pavilion": {
+          "lede": "현대 건축 자재와 순수 웹 기술로 밑바닥부터 구축한 지속 가능하고 비용 없는 브라우저 기반 공간 메타버스. 하이퍼스케일러의 데이터 독점과 접근 통제를 대체하는 독립적인 가상 세계.",
+          "cta": "The Pavilion 입장하기",
+          "name": "The Pavilion · 공간 세계"
+        },
+        "p54": {
+          "lede": "모든 카트리지에 두뇌 브리핑이 딸린 16비트 브라우저 아케이드 — 어떤 기술을 훈련시키는지, 한 라운드당 시간이 얼마나 걸리는지, 주장 한계는 어디인지. 광고 없음. 점수는 이 기기에만 보관.",
+          "cta": "라이브 시스템 열기",
+          "name": "OmniArcade"
+        },
+        "p17": {
+          "title": "Thai paperwork, <em>read by the machine.</em>",
+          "lede": "Ekkasarn AI는 태국 세금계산서, 영수증, 원천징수 증명서를 위한 문서 인텔리전스 엔진. 실제 문서 업로드 또는 샘플 선택; OCR·분류·필드 추출.",
+          "w1lbl": "Why it's special",
+          "w1": "Most OCR demos work only on clean, invented forms. <b>Ekkasarn AI reads real Thai paperwork</b> — crumpled receipts, VAT invoices, and withholding certificates — then returns category, confidence, shop, phone, and total as structured output.",
+          "w2lbl": "What it replaced",
+          "w2": "Manual accounting entry, receipt photo backlogs, spreadsheet categorization, and the fragile handoff between Thai paper documents and digital finance workflows.",
+          "w3lbl": "Decision power",
+          "w3": "A finance team can classify documents, verify extracted fields, and route them into downstream accounting logic immediately instead of waiting for human sorting.",
+          "w4lbl": "Live access",
+          "w4": "Public bilingual demo with Thai-first document types. Uploads are processed live and not retained.",
+          "cta": "라이브 시스템 열기",
+          "name": "Ekkasarn AI"
+        },
+        "p29": {
+          "lede": "초안을 붙여넣으세요. The Non-Writer는 프록시와 박스의 사슬을 통해 실행하고, 반대편에서 나오는 것은 Dr Non의 목소리로 당신이 실제로 의미했던 문장입니다. 이제 어떤 레이어가 어떤 단어를 바꿨는지 정확히 볼 수 있는 공개 readout이 함께 제공됩니다.",
+          "cta": "라이브 시스템 열기",
+          "name": "The Non-Writer"
+        },
+        "p30": {
+          "lede": "책상을 숫자로 말하다. AI 최전선의 일일 인텔리전스 브리핑 — 무엇이 실제로 출하되고, 무엇이 허풍인지, 오늘 밤 무엇을 읽을지. 섹터 워치, 수동 픽, 복리로 쌓이는 아카이브.",
+          "cta": "라이브 시스템 열기",
+          "name": "Dr Non's Digests"
+        },
+        "p31": {
+          "lede": "스크래핑을 서비스로 — 코드 없이. URL과 질문을 주세요. 시스템이 나가서 원본 언어로 페이지를 읽고, 당신의 언어로 답과 함께 인용·구조화 JSON을 돌려보냅니다. 다운스트림에 바로 연결할 수 있습니다.",
+          "cta": "라이브 시스템 열기",
+          "name": "Non-Scrape"
+        },
+        "p34": {
+          "lede": "증거 우선의 261개 럭셔리 및 수집용 시계 참고 등록부 — 출처가 명시된 비교 자료, 출처가 기재된 provenance, 크레딧이 표시된 화면 스틸 — 그리고 데이터가 추정을 거부하는 지점을 보여주는 정직 사다리.",
+          "cta": "라이브 시스템 열기",
+          "name": "Time Pop"
+        },
+        "p35": {
+          "lede": "결정으로 집을 설계한다 — 평면을 그리거나 AI로 추적하고, 일조 바닥과 태양열을 실시간으로 본 뒤, 리빙·시스템·비용을 점검하고 나서 이미지를 만든다.",
+          "cta": "라이브 시스템 열기",
+          "name": "Luma/house"
+        },
+        "p40": {
+          "lede": "이 URL을 Claude에게 넘기면 OpenClaw를 안전하게 설치해 줍니다. 에이전트가 실행 가능한 셋업, 깊은 보안 모델, RAM에 맞는 로컬 LLM 선택, 위험 등급 도구 호출. 문서만, 개인 데이터 없음.",
+          "cta": "GitHub에서 보기",
+          "name": "OpenClaw Set-Up"
+        },
+        "p44": {
+          "lede": "방콕에는 약 40만 동의 셰하우스가 있지만 그에 대한 목록조차 없다. 재사용과 내재 탄소(embodied carbon)에 관한 장문의 에세이, 2,311동 현장 조사, 재무부 토지 가격 압력 지도, 그리고 네 가지 색의 답. 하버드 디자인대학원 《Shophouse Metropolis》에 게재.",
+          "cta": "에세이 읽기",
+          "name": "Shophouse Metropolis"
+        },
+        "p47": {
+          "lede": "세계화, 유산 산업, 도시 공간의 경제에 관한 20년 현장 조사. 15장, 76,312단어, 134장 이미지, 5시간 오디오, 475회 인용 — 사이트에서 읽고, 듣고, 볼 수 있다. v3 읽기판, 2026.",
+          "cta": "책 펴기",
+          "name": "Locating Shanghai"
+        },
+        "p55": {
+          "lede": "PDF와 링크를 업로드하세요. 시스템은 매번 문서를 인용하고, 문서가 침묵하면 \"모르겠습니다\"라고 답합니다. 워크스페이스당 100MB 무료, Telegram과 LINE으로 제공. 로컬 임베딩과 로컬 모델, 방콕의 한 대 Mac에서 — 문서는 절대 외부로 나가지 않습니다.",
+          "cta": "워크스페이스 열기",
+          "name": "RAG.NONARKARA"
+        },
+        "champion": {
+          "lede": "태국 축구 국가대표팀 월드컵 본선행을 위한 사이드라인 코칭 콘솔과 전술 실험실. 실시간 전술 플랜, 압박 강도, 포메이션 전환.",
+          "cta": "코칭 데스크 열기",
+          "name": "SCD · 축구 코칭 데스크"
+        },
+        "soccer": {
+          "lede": "NSP 연구 프로토타입의 축구 전술 데스크. 태국 공영 TV 소스와 공식 시청 경로를 모으며, 입장 전에 권리 안내를 제공합니다.",
+          "cta": "연구 데스크 열기",
+          "name": "Soccer · NSP"
+        },
+        "vision": {
+          "lede": "사진이 숫자, 윤곽, 움직임, 추측이 되는 과정. 공공 카메라로 배우고 모델을 훈련하며, 개인 이미지를 업로드하지 않고 브라우저에서 시험합니다.",
+          "cta": "교실 열기",
+          "name": "Vision"
+        },
+        "each": {
+          "lede": "ERP, ACT, CRM, HR을 한곳에 모은 태국어·영어 작업 공간. 재무 화면에서 현금 지속 기간, 비용, 대출 상환을 봅니다. 썸네일은 ABC 회사의 예시 데이터입니다.",
+          "access": "로그인 필요",
+          "cta": "EACH 열기",
+          "name": "EACH"
+        },
+        "p66": {
+          "lede": "348가지 색 조합. 색의 관계를 검색하고, 흑백으로 살펴보고, 색상 값을 복사하세요. 산조 와다에서 영감을 받은 Dr Non의 색채 전시.",
+          "cta": "팔레트 둘러보기",
+          "name": "Palette"
+        },
+        "p56": {
+          "lede": "Axiom 뒤의 운영 표준 — tokens, components, 5줄 DNA, 그리고 모든 AI 에이전트를 위한 AGENTS.md. 기능 우선, 그 다음 빼기. Claude Code, Cursor, Cline, Aider 또는 다른 에이전트에 넣으면 에이전트가 첫 시도부터 올바른 Axiom 스타일 작업물을 만듭니다. MIT 라이선스 — 복제, 포크, 배포.",
+          "cta": "저장소 열기",
+          "name": "Axiom Design Core"
+        },
+        "p57": {
+          "lede": "Dr Non의 복제 등급 인터페이스 표준. 두 계층: 단일 뷰용 Rams 침묵(따뜻한 회색 필드, 가는 그리드, 단일 강조색); 다중 보드 시스템용 NYCTA 안내 계층(닫힌 트렁크 팔레트, 디스크, 역명판, 솔리드 화살표). 모든 AI 에이전트를 위한 AGENTS.md. 원작물에 한해 MIT 라이선스; 재라이선스되지 않는 항목은 NOTICE.md 참조.",
+          "cta": "저장소 열기",
+          "name": "Rams × NYCTA Design Core"
+        },
+        "p58": {
+          "lede": "웹사이트, 시스템, 문서, AI 에이전트를 위한 기능-미니멀리스트 흰색 수하물 태그 원칙. 디자인 토큰(바닥, 잉크, 네 단계, 간격, 모노, 선택적 도메인 색상), 인쇄용 Stock B, ephemera 스킨, 6개 컴포넌트, before/after 예제, 에이전트가 호출 가능한 skill, 그리고 실행 가능한 tag-audit PO gate. MIT 라이선스.",
+          "cta": "저장소 열기",
+          "name": "Luggage Tag Aesthetic"
+        },
+        "p59": {
+          "lede": "열 가지 강제 가능한 레이아웃 법칙, 빌드를 실패시키는 정적 lint와 런타임 audit. 패키지: 숫자 진실의 단일 소스(scale.mjs), ratchet(moma-lint.mjs), 게시된 산술을 증명하는 self-check(self-check.mjs), 그리고 레이아웃 이후에만 존재하는 것을 잡는 브라우저 콘솔(near-miss, ragged-row, orphan-grid). 데모 페이지는 자신의 법칙을 지킵니다.",
+          "cta": "저장소 열기",
+          "name": "MoMA Rules"
+        },
+        "p60": {
+          "lede": "O3 — 세 번째 힘. 태국의 OTOP 등록부를 데이터로 읽기: 77개 주 154,078개 레코드, 모두 출처, 완성도, 시점을 함께 제공합니다. 스크래핑도, AI 환각도 없음: 등록부는 등록부이며, 모든 셀에 출처가 표시됩니다.",
+          "cta": "등록부 열기",
+          "name": "O3"
+        },
+        "p61": {
+          "lede": "결코 출시되지 않은 슈퍼리그. 스물여섯 클럽, 실전 스쿼드, 직선 패스 — 한 번에 한 결정. 턴제 전술 축구, 한 명 또는 패드를 나누는 두 명이 함께 플레이. 시작 버튼을 누르고, 다음 경기가 중요하다고 믿으며, 패스하기 전에 필드를 읽으세요.",
+          "cta": "시작 누르기",
+          "name": "Super League"
+        },
+        "p68": {
+          "lede": "편지 형식으로 작성된 태국어, 영어, 중국어 3일간의 상하이 가이드. 잔잔하게 흐르는 물처럼 — 그 도시에 실제로 서 있는 사람이 읽어내는 도시의 기록.",
+          "cta": "책 열기",
+          "name": "淼燊的上海"
+        },
+        "llm": {
+          "lede": "기업의 자체 비공개 데이터로 소형 맞춤형 언어 모델을 훈련하는 현장 랩. 원시 토큰에서 직접 소유하고 어디서나 실행할 수 있는 모델 파일까지.",
+          "cta": "LLM Lab 열기",
+          "name": "LLM Lab"
+        },
+        "dog": {
+          "lede": "태국 토종 방깨우 견종의 해부학적 구조, 걸음걸이, 경계 자세를 정밀하게 모델링하는 3D 절차적 시뮬레이션 스튜디오.",
+          "cta": "Canine Studio 열기",
+          "name": "CANINE // 방깨우"
+        }
       },
-      "p02": {
-        "title": "Macro signal, <em>before the room starts guessing.</em>",
-        "lede": "DNGWS Monitor는 실시간 에스컬레이션 추적, 경제 파급, 다중 소스 위기 시각화를 한 화면에 모읍니다. 브리핑 문서를 기다릴 수 없는 의사결정자를 위해.",
-        "w1lbl": "Why it's special",
-        "w1": "Bloomberg Terminal costs $25K/seat/year. This runs on open data. Cross-source crisis fusion, escalation deltas, and economic spillover — surfaced fast enough to brief a minister before the cable news cycle catches up.",
-        "w2lbl": "What it replaced",
-        "w2": "Subscription intelligence platforms, ad-hoc analyst PDFs, and the gap between \"something happened\" and \"we have a position.\"",
-        "w3lbl": "Earned on day one",
-        "w3": "Sentinel-2 satellite imagery, OSINT feed fusion, and 53-country NLP brief layer — deployed at the edge for sub-second region switches.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p03": {
-        "title": "Bureaucracy, <em>made legible.</em>",
-        "lede": "We built the public surface for Thailand's national smart city programme with depa. Proposals go in. Progress stays visible. The programme stops disappearing into PDFs.",
-        "w1lbl": "Why it's special",
-        "w1": "National programmes usually live in annual reports nobody reads. This one is online, bilingual, and tied to outcomes — not ceremony. A candidate city's status moves the moment a milestone clears.",
-        "w2lbl": "Who pays for it",
-        "w2": "depa — Thailand's Digital Economy Promotion Agency. Direct-to-government engagement, not a sub-vendor relationship.",
-        "w3lbl": "Why it matters",
-        "w3": "Sets the template for any national smart-city programme that wants to stay legible past the launch press cycle. SLIC integrates as the benchmarking layer.",
-        "cta": "Open live system"
-      },
-      "p04": {
-        "title": "A ranking <em>that argues back.</em>",
-        "lede": "SLIC Index는 도시의 가치를 말해주지 않습니다. 다섯 기둥을 보여주고 우선순위를 스스로 시험하게 합니다. 시장이 '살기 좋음'의 의미를 정하면 수학이 따라갑니다.",
-        "w1lbl": "Why it's special",
-        "w1": "Every other livability index hands cities a finished verdict. SLIC hands them the math. Move the pillar weights, watch your ranking change — and your peers' — in real time. The argument becomes the product.",
-        "w2lbl": "What it replaced",
-        "w2": "Static prestige leaderboards. The annual ranking PDF. The conversation that ended with \"we don't agree with the methodology.\"",
-        "w3lbl": "Audience signal",
-        "w3": "Picked up by Mayors of Europe. Live-demo'd at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.",
-        "cta": "SLIC v3 열기"
-      },
-      "p05": {
-        "title": "Greater Kuching, <em>one command surface.</em>",
-        "lede": "사라왁 대쿠칭을 위한 전 스펙트럼 IOC. 환율, 항공편, 위성 영상, 환경 신호를 동남아에서 가장 빠르게 성장하는 스마트시티 운영자를 위해 통합합니다.",
-        "w1lbl": "Why it's special",
-        "w1": "Most IOCs are single-domain. Kuching fuses cross-domain signals in one view — currency pressure, flight arrivals, Sentinel-2 sweeps, environmental reads. The operator never switches tabs to see the full picture.",
-        "w2lbl": "Who uses it",
-        "w2": "Greater Kuching city operators and planners. Built for real-time situational awareness — not a demo room, for daily use.",
-        "w3lbl": "Why it matters",
-        "w3": "Same information density a Bloomberg terminal gives a trading desk — but for a city, at a fraction of the cost.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p06": {
-        "title": "News <em>before the algorithm decides what's war.</em>",
-        "lede": "MEM은 중동 분쟁 보도를 위한 가장 빠른 오픈소스 뉴스 화면입니다. 실시간 다중 소스, 편집 지연 없음, 필터 버블 없음. 뉴스 사이클 이전의 신호.",
-        "w1lbl": "Why it's special",
-        "w1": "Every major news platform has an editorial layer that slows, filters, frames. MEM removes that layer. The same signals a desk analyst aggregates manually — in one surface, at machine speed.",
-        "w2lbl": "What it replaced",
-        "w2": "Three browser tabs, two Telegram channels, and a Twitter/X list — open simultaneously to triangulate what was actually happening on the ground.",
-        "w3lbl": "Who uses it",
-        "w3": "Journalists, policy analysts, NGO field teams. Anyone who needs ground-level signal faster than the 24-hour news cycle delivers it.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p07": {
-        "title": "The bus, tracked. <em>The rider, informed.</em>",
-        "lede": "푸켓 스마트버스 네트워크의 실시간 GPS 추적과 승객 텔레메트리. 관제실 화면보다 승객의 휴대폰을 먼저 고려했습니다.",
-        "w1lbl": "Why it's special",
-        "w1": "Smart bus systems usually exist for the operator's dashboard. This one exists for the person waiting at the stop. GPS position, next arrival, route clarity — for a tourist who doesn't read Thai and a commuter who doesn't have time to guess.",
-        "w2lbl": "What it replaced",
-        "w2": "Standing at a stop with no information. A bus schedule printed in 2019. The assumption that transit on a tourist island can't be made legible.",
-        "w3lbl": "Built on top of",
-        "w3": "Phuket's existing IoT infrastructure — the same sensor layer that feeds the Governor's operations room. No new hardware.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p08": {
-        "title": "Reports arrive. <em>AI turns them into action.</em>",
-        "lede": "SCTH V2는 Telegram과 LINE의 시민 신고를 흡수하고 AI로 분석하며, 준실시간 위성·지도 레이어를 도시 구축자·개발자·관리자에게 제공하는 Smart City Thailand 데이터 플랫폼입니다.",
-        "w1lbl": "Why it's special",
-        "w1": "Most city complaint systems stop at a ticket number. SCTH V2 turns the report stream into a decision surface. Messenger reports, field photos, SLA risk, and AI pattern detection sit on the same map as precipitation, aerosol, cloud, terrain, and street layers.",
-        "w2lbl": "What it replaced",
-        "w2": "Screenshots in chat groups, manual spreadsheet triage, static map layers, and the delay between \"someone reported it\" and \"someone can act on it.\"",
-        "w3lbl": "Decision power",
-        "w3": "City teams can absorb reports, assign owners, analyze recurring patterns, export sheets or PDFs, and push response tasks while the city context is still live.",
-        "w4lbl": "Live access",
-        "w4": "Proprietary system under continuous daily development. The link runs a live tunnel — if it doesn't resolve, the system is mid-upgrade. Check back in a moment.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p09": {
-        "title": "Eleven voices. <em>One decision.</em>",
-        "lede": "11개 AI 판사가 회문 이름(Tenet, Radar, Otto, Hannah, Ada…)으로 로컬 Mac에서 지속적으로 숙의하는 개인 멀티에이전트 시스템. 월 약 3달러.",
-        "w1lbl": "Why it exists",
-        "w1": "Single models give one answer. Problems worth solving deserve argument. The council runs four operating modes — VERIFY, DECIDE, EXPLORE, DEBATE — and justices use explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS) so every position change is visible and traceable.",
-        "w2lbl": "What it costs",
-        "w2": "Manus-class autonomous-agent capability at $3/month. The council chair runs on Mistral Large 3. The Thai-native skeptic (Ada) runs on ThaiLLM — a government-backed model, free. The executor (Otto) handles OCR, video downloads, email drafts, PDF generation, and Google Drive sync without touching cloud infrastructure.",
-        "w3lbl": "Why no demo",
-        "w3": "The council is trained on Dr Non's personal journals, decisions, meeting notes, and voice. Proprietary by necessity. The protocol stack — ~600 lines of Python — is open. The IP is the coordination methodology, not the weights.",
-        "cta": "GitHub에서 보기",
-        "cta2": "v2 · Agentic + Executor"
-      },
-      "p10": {
-        "title": "HR has been a <em>record system</em> long enough.",
-        "lede": "TKCX는 직원을 파티원, 프로젝트를 퀘스트, 팀 구성을 전략으로 다루는 게임 기반 인재 운영 시스템입니다.",
-        "w1lbl": "The problem",
-        "w1": "Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.",
-        "w2lbl": "The engine",
-        "w2": "Built on Dragon Quest III's party system. Five archetypes map to real workplace roles (captain, tech, sales, ops, scout). A Moneyball budget cap — project budget ÷ 10 = monthly salary ceiling — forces allocation discipline. The readiness formula weighs coverage, quality, chemistry, and morale so the right team is visible before the project starts, not after it fails.",
-        "w3lbl": "What it changes",
-        "w3": "Directors stop hoarding people. Projects stop running on political capital. Skill gaps become visible before they become failures. And HR — renamed Talent Incubation — becomes the most strategic function in the building, not the most avoided one.",
-        "cta": "GitHub에서 보기"
-      },
-      "p11": {
-        "title": "The AI <em>that knows you.</em>",
-        "lede": "Second Brain OS는 MCP로 Obsidian 볼트를 모든 AI 코딩 플랫폼에 동시에 연결합니다. 19개 서버 설정. 페르소나 블루프린트와 목소리를 기억하는 에이전트.",
-        "w1lbl": "The gap it closes",
-        "w1": "Every AI session starts cold. It doesn't know your voice, your values, your past decisions, or the years of journal entries that shaped your thinking. Second Brain OS feeds all of that into every coding platform simultaneously via a single MCP connection — so the AI you work with already knows who it's working with.",
-        "w2lbl": "How it's built",
-        "w2": "Your Obsidian vault is structured like a brain: PrefrontalCortex for strategy, Hippocampus for atomic memories, TemporalLobe for patterns, Cerebellum for skills and procedures. 19 MCP server configurations connect this living knowledge graph to Cursor, Codex, Claude Code, and every other platform in your stack — at once.",
-        "w3lbl": "Why it's open",
-        "w3": "The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model's.",
-        "cta": "GitHub에서 보기"
-      },
-      "p12": {
-        "title": "21 channels. <em>Free. Everywhere.</em>",
-        "lede": "NSP는 태국 국가 스트리밍 플랫폼 — NBTC 허가 21개 디지털 TV 채널, 무료, Full HD, 모든 기기. 실시간 EPG, 시청 텔레메트리, AI 가이드, CAP v1.2 긴급 경보.",
-        "w1lbl": "Why it's special",
-        "w1": "Most national TV portals are afterthoughts. <b>NSP puts all 21 licensed channels in one interface</b> with live EPG, per-channel concurrency, stream health telemetry, and an AI guide that answers \"what's on now?\" across the whole kingdom — without an app install.",
-        "w2lbl": "What it replaced",
-        "w2": "Fragmented broadcaster apps, illegal streams, and the assumption that free-to-air TV can't be made as legible as a subscription platform.",
-        "w3lbl": "Decision power",
-        "w3": "Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.",
-        "w4lbl": "Live access",
-        "w4": "National deployment under NBTC licensing authority. Open to all devices, no account required.",
-        "cta": "라이브 플랫폼 열기"
-      },
-      "p13": {
-        "title": "47 feeds. <em>7 lenses. One campus.</em>",
-        "lede": "Chula Control Tower는 줄랄롱콘 대학의 실시간 운영 대시보드 — 방콕 시암·사먄 지역 교통, 사건, 대기질, 위성, 셔틀, 뉴스, 비상 이벤트 47개 라이브 피드.",
-        "w1lbl": "Why it's special",
-        "w1": "Most university dashboards show one feed at a time. <b>CCT puts 47 live sources on a single 3D map</b> — traffic, air quality, shuttle positions, incident reports, satellite layers, and underground utilities — so the campus president has one surface for every decision.",
-        "w2lbl": "What it replaced",
-        "w2": "Separate siloed systems for traffic, security, and environmental data. Manual incident reports. No unified view of the campus at any given moment.",
-        "w3lbl": "Decision power",
-        "w3": "Seven operational lenses — from day-to-day campus management to presidential strategic view — let each role see exactly what they need. 3D buildings and underground utility layers turn planning from guesswork into evidence.",
-        "w4lbl": "Live access",
-        "w4": "Deployed at Chulalongkorn University, Bangkok's Siam–Samyan district. Open access — no account required.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p14": {
-        "title": "Bloomberg signals. <em>Thai market. Your rules.</em>",
-        "lede": "DayTraders는 SET, MAI, 뮤추얼펀드, RMF, 태국 ESG 상품에 Bloomberg 스타일 신호를 적용한 맞춤형 태국 시장 인텔리전스 플랫폼입니다.",
-        "w1lbl": "Why it's special",
-        "w1": "Thai retail investors get either raw broker data or generic apps that don't apply value-investing logic. <b>DayTraders brings institutional-grade signal analysis to the Thai SET</b> — with Graham margin-of-safety, Buffett moat screens, and Munger mental models built into the feed, not bolted on.",
-        "w2lbl": "What it replaced",
-        "w2": "Broker portals with no analytical framework, LINE group tips, and the assumption that rigorous value investing is only for institutions with Bloomberg terminals.",
-        "w3lbl": "Decision power",
-        "w3": "Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.",
-        "w4lbl": "Live access",
-        "w4": "Live Thai market data. Open platform — no paywall, no broker lock-in.",
-        "cta": "라이브 플랫폼 열기"
-      },
-      "p15": {
-        "title": "Name the city. <em>We'll build its brain.</em>",
-        "lede": "City Hub는 재사용 가능한 도시 인텔리전스 플랫폼 — 도시 이름을 주면 위성·베이스 레이어로 매핑하고 기존 데이터를 연결해 합성을 시작합니다. v.5, 5개 도시 라이브.",
-        "w1lbl": "Why it's special",
-        "w1": "Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what's already there.",
-        "w2lbl": "What it replaced",
-        "w2": "Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.",
-        "w3lbl": "Decision power",
-        "w3": "The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don't), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city's last day of data.",
-        "w4lbl": "Live access",
-        "w4": "Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.",
-        "cta": "라이브 플랫폼 열기"
-      },
-      "p16": {
-        "title": "A coastal province, <em>rendered as a control tower.</em>",
-        "lede": "Chonburi Control Tower는 동부 해안을 위한 3D 지휘 화면: 42개 라이브 소스, 해안 날씨·해양 상태, 시장·관광 신호, 시장 사건, EEC 트렌드, 건물 규모 오버레이.",
-        "w1lbl": "Why it's special",
-        "w1": "Most provincial dashboards flatten the city into cards and charts. <b>Chonburi Control Tower renders the province as an operating environment</b> — 20,877 3D buildings, source health, weather, marine risk, EEC news, CCTV/AIS/AQ/WX toggles, and a mayor's desk on one surface.",
-        "w2lbl": "What it replaced",
-        "w2": "Separate weather sites, marine dashboards, market tickers, tourism spreadsheets, news tabs, and static GIS layers that never told the same story at the same time.",
-        "w3lbl": "Decision power",
-        "w3": "Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.",
-        "w4lbl": "Live access",
-        "w4": "Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.",
-        "cta": "관제탑 열기"
-      },
-      "p17": {
-        "title": "Thai paperwork, <em>read by the machine.</em>",
-        "lede": "Ekkasarn AI는 태국 세금계산서, 영수증, 원천징수 증명서를 위한 문서 인텔리전스 엔진. 실제 문서 업로드 또는 샘플 선택; OCR·분류·필드 추출.",
-        "w1lbl": "Why it's special",
-        "w1": "Most OCR demos work only on clean, invented forms. <b>Ekkasarn AI reads real Thai paperwork</b> — crumpled receipts, VAT invoices, and withholding certificates — then returns category, confidence, shop, phone, and total as structured output.",
-        "w2lbl": "What it replaced",
-        "w2": "Manual accounting entry, receipt photo backlogs, spreadsheet categorization, and the fragile handoff between Thai paper documents and digital finance workflows.",
-        "w3lbl": "Decision power",
-        "w3": "A finance team can classify documents, verify extracted fields, and route them into downstream accounting logic immediately instead of waiting for human sorting.",
-        "w4lbl": "Live access",
-        "w4": "Public bilingual demo with Thai-first document types. Uploads are processed live and not retained.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p18": {
-        "lede": "KMITL Control Tower는 라드크라방 왕립공과대학의 실시간 운영 대시보드 — 교통, 사건, 대기질, 위성, 셔틀, 뉴스, 비상 이벤트 56개 라이브 피드.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p19": {
-        "lede": "Yala Control Tower는 태국 남부 깊은 지역 얄라시의 실시간 시민 인텔리전스. 3D 도시 모델, 위성 레이어, 홍수 감시, 보안 사건, 30개 이상 라이브 피드.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p20": {
-        "lede": "Horizon 45는 실제 AI 판단력을 시험하는 현장 도구. 딥페이크 탐지부터 프롬프트 엔지니어링까지, 역량 초상과 학습 로드맵을 남깁니다.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p21": {
-        "lede": "호찌민시를 위한 대규모 지휘 화면. 실시간 교통, 홍수 모니터링, 대기질, 동적 경로를 고성능 지도 하나에 통합합니다.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p22": {
-        "lede": "세 지역(중동, 동남아시아, 태국) 모니터링: 오픈 데이터 기반 궁극의 모니터링 플랫폼, 레이어링으로 인사이트를 드러냅니다.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p23": {
-        "lede": "태국 공식 스마트시티 지수(SCITI). 7대 스마트시티 기둥에 따라 전국 174개 도시권의 진행 상황과 영향을 평가합니다.",
-        "cta": "라이브 시스템 열기"
-      },
-      "p24": {
-        "lede": "삼언어 도덕경 읽는 방: 채지중 만화, 불교 대응, 심리 노트, 병음, 살아있는 참고 서가.",
-        "cta": "라이브 시스템 열기"
-      },
-      "ikigai": {
-        "name": "Ikigai Finance Engine",
-        "lede": "중소기업 금융 인텔리전스 — 재무상태표를 신호로, 현금 런웨이, 은행 스코어카드, 복합 금융 지수(Ikigai, Lean, Zero, Default, Solvency). 개발 단계 연구 프로토타입, 스크린샷만 공개 — ABC Company Limited는 가상 시연 데이터이며 아직 공개 배포 없음.",
-        "cta": "연구 저장소 보기"
-      }
-    },
     "stagesContent": {
       "taipeiLoc": "<b>타이베이</b> · City Vision Stage · 2026년 3월",
       "taipeiTitle": "라이브 대시보드, 45분 데모.",
@@ -465,6 +856,12 @@
       "sgS2": "총 참석자",
       "sgS3": "참가 국가",
       "sgS4": "워크숍 수용",
+      "shLoc": "<b>Tomorrow.City Shanghai 2026</b> · Main Stage · 2026",
+      "shTitle": "디지털 트윈이라고 부르지 마세요. 신 모드라고 부르세요.",
+      "shLede": "디지털 트윈은 예의 바른 이름입니다. 신 모드 — 도시를 신의 눈으로 바라본 전체 시야 — 가 정직한 이름입니다. 더 잘 관리하기 위한 것이지, 대시보드를 숭배하려는 것이 아닙니다. Dr Non 의 네 번째 이 무대. 장소는 부수적 이야기이고, 아이디어가 제품입니다. 큐브 스크린 위의 FloodDash, 현장에서 실시간 조리.",
+      "shQuote": "\"모든 개념을 4Ps 로 거르세요 — Purpose, Practicality, Proof, People. 그리고 사람을 위해 설계하세요. 물이 어떤 속도로 움직인다고 알려주는 센서는 시장에게 별 도움이 안 됩니다. 세제곱미터로 바꾸세요. 남은 여유고와 비교하세요. 물이 들어가는지 — 넘치는지 알게 됩니다. 그 기본 산수가 제품입니다.\"",
+      "shCite": "— Dr. Non, Tomorrow.City Shanghai 기조 연설",
+      "shS1": "이 무대 횟수", "shS2": "FloodDash · 큐브 스크린", "shS3": "공공 데이터 소스", "shS4": "핵심 takeaways (4Ps)",
       "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 7월 10일",
       "leapTitle": "아시아 최대 무대. FloodDash가 여기서 출시됩니다.",
       "leapLede": "Orbital Stage 패널 — \"From Congestion to Connection: The Tech Powered Future of Transport in Asia.\" DEPA 스마트시티 진흥 수석전문가 Dr. Non Arkara가 Mitchell Price, Richard Chung, Will Peters와 함께 Q1–Q2 호를 FloodDash 라이브 출시로 닫았습니다.",
@@ -480,6 +877,7 @@
       "collectiveTitle": "온콜 집단.",
       "collectiveLede": "연구자, 교통 엔지니어, 인류학자, 금융인, 정책 번역가, 미디어 운영자. 조직도가 아니라 문제로 합류합니다. 필요할 때 필요한 두뇌에 비용을 지불합니다.",
       "probonoTitle": "프보노 · 기관 업무",
+      "probonoMeta": "5개 프로젝트 · 기관 파트너",
       "probonoNote": "모두 라이브 작동 플랫폼입니다 — 슬라이드나 보고서가 아닙니다. 실제 기관 파트너와 함께 만들고 공개 배포했으며 지금도 사용 중입니다.",
       "pb1org": "ASEAN 사무국을 위해",
       "pb1title": "38개 도시. 10개국. <em>하나의</em> 플랫폼.",
@@ -492,11 +890,15 @@
       "pb3for": "호니아라 · 2일 워크숍",
       "pb4org": "태국 depa를 위해",
       "pb4title": "태국 디지털 기관, <em>온라인.</em>",
-      "pb4for": "Smart City Leadership · 이중언어"
+      "pb4for": "Smart City Leadership · 이중언어",
+      "pb5org": "depa · US DOT",
+      "pb5title": "현장에서 소프트웨어로. <em>도시 시스템 툴킷.</em>",
+      "pb5for": "미국-아세안 스마트 시티 파트너십"
     },
     "notesContent": {
       "foldLine": "현장 노트 · 6가지 패턴 · 출시 방식",
       "kicker": "구축 방식",
+      "meta": "현장 노트",
       "title": "실제로 출시하며 배운 것",
       "lede": "열한 개 시스템. 두 사람. 열두 달. 유지된 패턴과 그렇지 않은 패턴. 정부가 필요로 하는 것과 시장이 공급하는 것 사이의 간극은 사람들이 깨달은 것을 나눌 때만 좁아집니다.",
       "n1title": "벤더가 거절했다. 14일 만에 출시했다.",
@@ -514,7 +916,17 @@
       "stackNote": "로컬 우선. 빌드 팀 없음. 벤더 락인 없음. M5 Max가 방콕 한 책상에서 추론, 빌드, 배포를 실행합니다."
     },
     "builtStack": {
-      "meta": "109개 도구 · 9계층",
+        "heading": "기술 스택",
+        "l1name": "클라우드 인프라", "l1role": "운영 환경",
+        "l2name": "프레임워크 및 커넥터", "l2role": "연결",
+        "l3name": "플랫폼 및 빌드 도구", "l3role": "구축 환경",
+        "l4name": "AI 모델 및 엔진", "l4role": "지능",
+        "l5name": "소프트웨어 및 라이브러리", "l5role": "구성 요소",
+        "l6name": "언어", "l6role": "소스 코드",
+        "l7name": "실시간 데이터 소스", "l7role": "입력",
+        "l8name": "채널", "l8role": "출력",
+        "expandHint": "9개 레이어 · 117개 도구 · 방콕의 한 책상에서 구축·운영. 아래 클릭하여 전체 목록 보기",
+      "meta": "114개 도구 · 9계층",
       "expandFull": "전체 기술 스택 보기",
       "l9name": "로컬 런타임",
       "l9role": "작업 데스크",
@@ -529,7 +941,7 @@
       "expandAll": "모든 브랜드 시트 보기"
     },
     "pressSection": {
-      "foldLine": "언론 · 7건 · GovInsider, ASEAN Magazine, YouTube",
+      "foldLine": "언론 · 6건 · GovInsider, ASEAN Magazine, YouTube",
       "kicker": "언론 보도",
       "title": "읽고. 보고. 결정하라.",
       "lede": "작업, 논지, 시스템에 대한 외부 보도."
@@ -613,31 +1025,99 @@
       "p14": "Live · Thai Markets",
       "p15": "Live · 5 cities",
       "p16": "Live · Chonburi EEC",
-      "p17": "Live · Thai docs"
+      "p17": "Live · Thai docs",
+      "p27": "Live · 24/7 대기 모니터링",
+      "p28": "오픈 블루프린트 · GitHub",
+      "p29": "Live · 글쓰기 서비스",
+      "p30": "Live · Daily Digest",
+      "p31": "Live · Scraping",
+      "p33": "Live · 구역 운영",
+      "p34": "Live · 시계 인텔리전스",
+      "p35": "Live · 건축 설계",
+      "p36": "Live · 3D 도시 아틀라스",
+      "p40": "Live · 에이전트 게이트웨이",
+      "p41": "Live · 워킹 인스트루먼트",
+      "p42": "Live · 국경 인텔리전스",
+      "p43": "Live · 유산 아틀라스",
+      "p44": "Live · 도시 연구",
+      "p45": "Live · 아시아 전장",
+      "p46": "Live · 월드 콘솔",
+      "p47": "Live · 현지조사 저서",
+      "p48": "Live · 국가 홍수 감시",
+      "p49": "Live · 도시 펄스",
+      "p50": "Live · 시민 정보",
+      "p51": "Live · 항만 교통",
+      "p52": "Live · 팟캐스트",
+      "p53": "Live · 네트워크 평가",
+      "p54": "Live · 두뇌 훈련",
+      "p55": "출시 예정 · 문서 인텔리전스",
+      "p56": "Live · 오픈 소스 키트",
+      "p57": "Live · 오픈 소스 키트",
+      "p58": "오픈 소스 키트 · GitHub",
+      "p59": "오픈 소스 키트 · GitHub",
+      "p60": "라이브 · 전략 인텔리전스",
+      "p61": "라이브 · 두뇌 훈련",
+      "p62": "라이브 · 도시 운영"
     },
     "cats": {
-      "c01": "지역 운영",
-      "c02": "전략 인텔리전스",
-      "c03": "국가 프로그램",
-      "c04": "도시 벤치마킹",
-      "c05": "지능형 운영",
-      "c06": "오픈 인텔리전스",
-      "c07": "교통 인텔리전스",
-      "c08": "시민 인텔리전스",
-      "c09": "에이전틱 인텔리전스",
-      "c10": "인재 인텔리전스",
-      "c11": "지식 인텔리전스",
-      "c12": "국가 방송",
-      "c13": "캠퍼스 인텔리전스",
-      "c14": "시장 인텔리전스",
-      "c15": "도시 인텔리전스",
-      "c16": "해안 인텔리전스",
-      "c17": "문서 인텔리전스",
-      "c18": "대도시 운영",
-      "c20": "역량 랩",
-      "c23": "디지털 휴머니티",
-      "c25": "금융 인텔리전스"
-    },
+        "c03": "국가 프로그램",
+        "c06": "오픈 인텔리전스",
+        "c40": "도시 펄스",
+        "c41": "교통 규제",
+        "c01": "지역 운영",
+        "c18": "대도시 운영",
+        "c05": "지능형 운영",
+        "c42": "구 운영",
+        "c13": "캠퍼스 인텔리전스",
+        "c16": "해안 인텔리전스",
+        "c08": "시민 인텔리전스",
+        "c15": "도시 인텔리전스",
+        "c19": "환경 모니터링",
+        "c32": "3D 도시 아틀라스",
+        "c36": "유산 아틀라스",
+        "c47": "도시 경제",
+        "c50": "입지 적합성",
+        "c51": "대도시 3D 아틀라스",
+        "c04": "도시 벤치마킹",
+        "c02": "전략 인텔리전스",
+        "c14": "시장 인텔리전스",
+        "c34": "워킹 인스트루먼트",
+        "c35": "국경 인텔리전스",
+        "c07": "교통 인텔리전스",
+        "c12": "국가 방송",
+        "c52": "커뮤니티 플랫폼",
+        "c53": "재난 대비",
+        "c43": "팟캐스트",
+        "c09": "에이전틱 인텔리전스",
+        "c10": "인재 인텔리전스",
+        "c11": "지식 인텔리전스",
+        "c20": "역량 랩",
+        "c44": "네트워크 평가",
+        "c23": "디지털 휴머니티",
+        "c25": "금융 인텔리전스",
+        "c26": "오픈 청사진",
+        "c54": "인생 시뮬레이션",
+        "c55": "자율 시뮬레이션",
+        "c56": "공간 메타버스",
+        "c45": "두뇌 훈련",
+        "c17": "문서 인텔리전스",
+        "c27": "글쓰기 인텔리전스",
+        "c28": "뉴스 인텔리전스",
+        "c29": "스크래핑 서비스",
+        "c30": "시계 인텔리전스",
+        "c31": "건축 인텔리전스",
+        "c33": "에이전트 게이트웨이",
+        "c37": "도시 연구",
+        "c38": "현지조사 저서",
+        "c57": "축구 전술 시뮬레이션",
+        "c58": "축구 연구",
+        "c59": "컴퓨터 비전 교실",
+        "c60": "비즈니스 운영",
+        "c61": "색채 전시",
+        "c46": "오픈 소스 키트",
+        "c62": "모델 훈련",
+        "c63": "절차적 3D 개 스튜디오"
+      },
     "bioCommon": {
       "cvBtn": "이력서 보기",
       "education": "학력"
@@ -690,27 +1170,56 @@
       "fwTwin": "디지털 트윈 및 상호운용성 — ISO/IEC 30173, ISO 23247, NIST",
       "fwAi": "AI 거버넌스 및 리스크 — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles",
       "fwPrivacy": "프라이버시 및 신뢰 — PDPA, GDPR 원칙; 관할 준수는 프로젝트별",
-      "copyright": "방콕 · 동남아시아. © 2026 Axiom X Co., Ltd. Axiom은 본 사이트와 서비스를 제공하는 등록 상호입니다. 여기에 인용된 가동 시간, 응답 시간, 성과 지표는 사례별 관찰이며 미래 성과를 보장하지 않습니다."
+      "legalLabel": "약관 · 프라이버시 · 책임 · 법률",
+      "terms": "본 사이트를 사용하면 합법적으로 사용하며 스크린샷, 대시보드, 모델 출력, 시스템 내부를 서면 허가 없이 재배포하지 않는 데 동의합니다. Axiom, Axiom 명칭, 표시된 시스템 명칭은 Axiom X Co., Ltd.의 상호입니다.",
+      "privacy": "Cloudflare가 집계 트래픽 분석을 제공합니다. 이 사이트는 광고 쿠키를 설정하거나 방문자 데이터를 판매하지 않습니다. 호스팅 및 분석 제공업체는 요청 메타데이터를 처리할 수 있습니다. 연결된 시스템에는 별도의 개인정보 정책이 있으니 먼저 읽어 주세요.",
+      "dataAttribution": "샌드박스 시스템에 표시되는 실시간 데이터는 TMD, GISTDA, JICA, NBTC, 미세먼지정책과, OpenStreetMap 기여자, TomTom 및 시스템 내에 출처가 명시된 기타 공개·개방형 라이선스 출처에서 가져옵니다. 상업적 출처(예: Air4Thai o61, 33V, 34T, Naver CFT)가 혼합된 경우 시스템 화면에 출처가 표시됩니다.",
+      "liability": "본 사이트의 샌드박스 및 데모 시스템은 작동하지만 보장하지 않습니다. 모든 지표는 힌트이며 판정이 아닙니다. 실제 결정은 원본 관할 기관을 통해 검증해야 합니다. Axiom은 샌드박스 데이터에 근거한 결정에 대해 책임을 지지 않습니다.",
+      "governingLaw": "본 약관은 태국 왕국의 법률에 따릅니다. 분쟁은 방콕 법원의 전속 관할에 따릅니다. 영문 텍스트와 번역본이 충돌할 경우 영문 텍스트가 우선합니다.",
+      "hosting": "Cloudflare Pages에서 호스팅 · 방콕에서 구축 및 운영 · 본 사이트 소스: github.com/Nonarkara/Axiom (공개 사이트만, 고객 시스템은 비공개).",
+      "copyright": "방콕 · 동남아시아. © 2026 Axiom X Co., Ltd. 여기에 인용된 가동 시간, 응답 시간, 성과 지표는 사례별 관찰이며 미래 성과를 보장하지 않습니다."
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"
     },
+    "HOW_IT_WORKS": "작동 방식",
+    "archTag": "아키텍처",
+    "stackLbl": "스택",
+    "pb1in1": "38개 도시", "pb1in2": "134개 프로젝트", "pb1in3": "11개국", "pb1in4": "M&E 제출",
+    "pb1cm": "다중 테넌트 도시 벤치마킹",
+    "pb1out1": "점수표", "pb1out2": "공개 대시보드", "pb1out3": "시장 인사이트",
+    "pb2in1": "주민 112,000명", "pb2in2": "시 공무원", "pb2in3": "UNDP + UN-Habitat", "pb2in4": "현장 증거",
+    "pb2cm": "시민 우선 12챕터 플레이북",
+    "pb2out1": "정책 플레이북", "pb2out2": "워크숍 툴킷", "pb2out3": "현장 사례",
+    "pb3in1": "8개 부처", "pb3in2": "UN DESA 팀", "pb3in3": "2일 워크숍", "pb3in4": "호니아라 현장",
+    "pb3cm": "전 정부 디지털 전환",
+    "pb3out1": "디지털 로드맵", "pb3out2": "실행 일정", "pb3out3": "역량 강화 계획",
+    "pb4in1": "태국 depa", "pb4in2": "174개 도시", "pb4in3": "리더십 코호트", "pb4in4": "커리큘럼 데이터",
+    "pb4cm": "스마트 시티 임원 프로그램",
+    "pb4out1": "이중언어 포털", "pb4out2": "임원 명부", "pb4out3": "프로그램 일정",
+    "pb5in1": "태국 depa", "pb5in2": "US DOT Volpe", "pb5in3": "현장 연구", "pb5in4": "조사 데이터",
+    "pb5cm": "기관 역량 강화",
+    "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-      "sysMeta": "22개 시스템 · 5개국",
-      "command": "지휘",
-      "commandMeta": "실시간 운영실 · 10",
-      "intelligence": "인텔리전스",
-      "intelligenceMeta": "신호 및 분석 · 5",
-      "civic": "시민",
-      "civicMeta": "국가 플랫폼 및 시민 인프라 · 5",
-      "emerging": "신규",
-      "emergingMeta": "연구급 및 새 운영 모델 · 6"
-    },
+        "sysMeta": "80개 시스템 · 5개국",
+        "command": "도시 대시보드",
+        "commandMeta": "실시간 도시 운영실 및 환경 관측 · 24",
+        "intelligence": "인텔리전스",
+        "intelligenceMeta": "신호 및 분석 · 9",
+        "civic": "시민",
+        "civicMeta": "국가 플랫폼 및 시민 인프라 · 9",
+        "emerging": "신규",
+        "emergingMeta": "연구급 및 새 운영 모델 · 13",
+        "lab": "랩",
+        "labMeta": "보조 도구 · 공개 진행 · 25"
+      },
     "sysStatus": {
-      "live": "라이브",
-      "preview": "미리보기",
-      "dev": "개발 중"
-    },
+        "live": "라이브",
+        "preview": "미리보기",
+        "soon": "출시 예정",
+        "dev": "개발 중",
+        "emerging": "테어나는 중"
+      },
     "metaKeys": {
       "AI": "AI",
       "Access": "Access",
@@ -765,15 +1274,68 @@
       "cta": "Work With Us"
     },
     "hero": {
-      "badge": "All Systems Online",
-      "titleLine1": "Innovation",
-      "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
-      "cta": "Start With the Pressure Map",
-      "ctaSecondary": "See Live Systems",
-      "nodeLabel": "Tap a live system",
-      "statSystems": "Live Systems",
-      "statMonitoring": "Live Monitoring",
-      "statCountries": "Countries"
+      "badge": "公開プロジェクト目録",
+      "titleLine1": "革新",
+      "subtitle": "データはあるのに、肝心なときに誰にも見えない。最も難しい意思決定のために、それをひとつのライブ画面にまとめます——2週間で稼働します。",
+      "cta": "2週間の実証を始める",
+      "ctaSecondary": "システムを見る",
+      "nodeLabel": "戦域をタップ",
+      "exploreHint": "地図をドラッグ · 戦域をタップ",
+      "hudLive": "戦域",
+      "hudWatching": "監視中のシステム",
+      "modeTour": "AUTO TOUR",
+      "modeHold": "HOLD",
+      "statSystems": "目録のシステム",
+      "statMonitoring": "Live 表示",
+      "statCountries": "対象国",
+      "signalLabels": {
+        "FLOOD": "洪水", "CAMPUS": "キャンパス", "URBAN": "都市", "ATLAS": "地図",
+        "COASTAL": "沿岸", "TRANSIT": "交通", "AIR": "大気",
+        "CONFLICT": "紛争", "GLOBAL": "世界",
+        "BORDER": "国境", "INDEX": "指数", "SCALE": "規模"
+      },
+      "rotatingPhrases": [
+        "サービスとして",
+        "2週間で",
+        "動く",
+        "都市のために",
+        "意思決定のために",
+        "見える"
+      ],
+      "featured": {
+        "kicker": "戦域ブリーフ",
+        "cta": "ライブシステムを開く"
+      },
+      "theatres": {
+        "bangkok": {
+          "name": "バンコク",
+          "meta": "洪水 · キャンパス · 都市",
+          "event": "EVENT_ID: BANGKOK_WATCH",
+          "featuredName": "FloodDash",
+          "sitrep": "洪水、キャンパス、都市地図 — バンコクのシステムが同じ圧力マップを見る。"
+        },
+        "phuket": {
+          "name": "プーケット",
+          "meta": "沿岸 · 交通 · 大気",
+          "event": "EVENT_ID: PHUKET_WATCH",
+          "featuredName": "Phuket Ops",
+          "sitrep": "島の作戦室、乗客交通、大気監視 — 沿岸の圧力を一つの戦域に。"
+        },
+        "middle-east": {
+          "name": "中東",
+          "meta": "紛争 · オープンインテル",
+          "event": "EVENT_ID: ME_WATCH",
+          "featuredName": "Middle East Monitor",
+          "sitrep": "オープンな紛争面と層状のグローバルモニター — ニュースサイクル前の信号。"
+        },
+        "southeast-asia": {
+          "name": "東南アジア",
+          "meta": "国境 · 指数 · スケール",
+          "event": "EVENT_ID: SEA_WATCH",
+          "featuredName": "Geopolitical Watch",
+          "sitrep": "三国境監視、都市指数、メトロスケール — ASEANの圧力を一枚の地図に。"
+        }
+      }
     },
     "engagement": {
       "tag": "Operating Model",
@@ -897,6 +1459,7 @@
       "successDesc": "We'll get back to you soon."
     },
     "navCurrent": {
+      "why": "進め方",
       "systems": "システム",
       "stages": "ステージ",
       "team": "チーム",
@@ -910,7 +1473,7 @@
       "sub": "多くの「スマートシティ」案件はスライドで終わります。当社のものは本番稼働中です。初週に課題を可視化します。プレゼン前に動くものをお届けします。すべての判断を初日から記録します。",
       "cta1": "今すぐ FloodDash を使う",
       "cta2": "ブリーフを送る",
-      "stat1lbl": "本番稼働システム",
+      "stat1lbl": "目録のシステム",
       "stat2lbl": "稼働国",
       "stat3lbl": "指数化都市",
       "stat4lbl": "FloodDash · LEAP East",
@@ -925,282 +1488,619 @@
     "sysSect": {
       "kicker": "本番稼働中",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
-      "lede": "それぞれが鋭い問いから始まり、稼働する画面としてリリースされ、ローンチ後の報道サイクルが終わっても有用であり続けます。クリックしてご利用ください — すべてライブです。",
+      "lede": "約束ではなく証拠を。下のシステムはどれも、誰かが十分な速さで下せなかったひとつの決定から始まりました。どれも今日稼働中です——開いて、使って、ご自身で判断してください。",
       "sandboxKicker": "サンドボックス // ライブ",
       "sandboxNote": "デモではありません — サンドボックスで稼働する実システムです。見せるためではなく、スケールするために構築しています。クライアント NDA 下の本番展開はより大規模ですが、ここで動くものは同じ挙動をし、高度なモジュールのみ非公開です。"
     },
     "stageSect": {
-      "kicker": "3つのステージ、1本の弧",
-      "title": "政府は<em>スライドを待つのに疲れました。</em>",
-      "lede": "Q1は台北で開幕。Q2はシンガポール GITEX メインステージ。三部作は LEAP East — アジア最大のステージ — で FloodDash が現場に生きたまま閉じます。毎回同じ論点：次の予算サイクルではなく、今すぐ構築せよ。"
-    },
-    "flooddashSect": {
-      "kicker": "Q1–Q2 · Act III",
-      "meta": "GITEX → LEAP East → FloodDash",
-      "title": "今すぐ <em>FloodDash</em> を使ってください。",
-      "lede": "タイ洪水監視 — 9の公開ソースから 24/7 ライブ地理空間データ、3–60分ごとに更新。LEAP East アジア最大ステージからローンチ。タイで洪水を監視する全員が、今日この画面を使うべきです。",
-      "live": "LIVE",
-      "m1": "公開ソース 9",
-      "m2": "3–60分更新",
-      "m3": "77県",
-      "slide1": "全国概観 — すべての県を一画面に",
-      "slide2": "ハートヤイ地域 — 南部洪水回廊",
-      "slide3": "トラート詳細 — 警報と流域リードアウト",
-      "cta": "FloodDash ライブを開く",
-      "cta2": "LEAP East ローンチ"
+      "kicker": "五つのステージ · 2026",
+      "title": "一度作って <em>公開検証</em>",
+      "lede": "2026年、アジアの五つのステージ。毎回、部屋の中で実際に動くシステムが走っていた——台北の SLIC Index、シンガポール・上海・香港の FloodDash、大阪の DEPA。以下はすべて公開記録。次のステージは一緒に決めます。"
+    ,
+        "meta": "2026 · 大阪 · 上海 · 香港 · シンガポール · 台北",},
+    "cx": {
+      "stops": "停留所", "cities": "都市", "shots": "ステージ写真", "thesis": "稼働中のシステム",
+      "osaka": {
+        "city": "大阪",
+        "venue": "大阪市立大学 · 森之宮キャンパス",
+        "venueShort": "大阪市立大学",
+        "format": "基調講演 · 国別ケース · パネル",
+        "note": "DEPAの洪水監視と都市運用ダッシュボードを稼働中。制約は技術ではなく制度。",
+        "quote": "\"45分で一台のマシン上に作られたシステムは、都市が法的に採用し、予算を振り、動かし続けられるものでなければならない。\"",
+        "cite": "大阪アジアラウンドテーブル 2026",
+        "s1": "セッション", "s2": "登壇時間", "s3": "代表団",
+      },
+      "leap": {
+        "v1": "Orbital",
+        "city": "香港",
+        "venue": "LEAP East 2026 · Orbital ステージ · 香港会議展示中心",
+        "venueShort": "LEAP East · Orbital",
+        "format": "パネル · 製品ローンチ",
+        "note": "Q1–Q2をFloodDashのライブローンチで閉じた。タイの洪水監視、24/7、九つの公開データソース。",
+        "quote": "\"タイの洪水を監視している人は、今日 바로 FloodDashを使うべきだ。来四半期ではなく、今日だ。\"",
+        "cite": "LEAP East パネル",
+        "s1": "ステージ階", "s2": "登壇者", "s3": "ライブソース",
+      },
+      "sg": {
+        "v3": "満員",
+        "city": "シンガポール",
+        "venue": "GITEX AI Asia · マリーナベイサンズ · メインステージ",
+        "venueShort": "GITEX AI Asia · MBS",
+        "format": "基調講演 · 満席ワークショップ",
+        "note": "メインステージの基調講演とワークショップ。Government Innovation as a Service が実際に動いた。",
+        "quote": "\"それは拍手ではない。需要のシグナルだ。政府は実際に動くシステムを求めている。\"",
+        "cite": "講演後 · GITEX",
+        "s1": "メインステージ", "s2": "参加者", "s3": "ワークショップ",
+      },
+      "tpe": {
+        "city": "台北",
+        "venue": "スマートシティ・サミット＆エクスポ · City Vision ステージ",
+        "venueShort": "SCSE · City Vision",
+        "format": "基調講演 · SLIC V2 ローンチ",
+        "note": "SLIC Index V2が講演中に公開。174都市、53カ国、調整可能なランキング。",
+        "quote": "\"私たちは本棚に置くインデックスではなく、街のための指揮システムを作った。\"",
+        "cite": "台北基調講演",
+        "s1": "都市", "s2": "カ国", "s3": "構築時間",
+      },
+      "sh": {
+        "city": "上海",
+        "venue": "Tomorrow.City 上海 2026 · 張江科学会堂 · 4度目",
+        "venueShort": "Tomorrow.City · メイン",
+        "format": "基調講演 · ライブデモ · パネル",
+        "note": "デジタルツインではなく God Mode。洪水計算をキューブ画面でライブ調理。",
+        "quote": "\"水がどの速さで動いていると告げるセンサーは、市長に何も伝えない。その基礎計算こそが製品だ。\"",
+        "cite": "Tomorrow.City 上海",
+        "s1": "登場回数", "s2": "データソース", "s3": "要点",
+      },
+      "l": {
+        "date": "日付", "city": "都市", "where": "会場", "fmt": "形式",
+        "note": "すべての停留所には主催側の公式日程またはプログラムから得た日付がある。このレールに裏付けのない主張はない。",
+        "updated": "2026.10 更新",
+      },
     },
     "teamSect": {
       "foldLine": "チーム · Dr Non & Dr Poon · 創業者2名 · ミッション別ネットワーク",
       "kicker": "誰が構築するか",
+      "meta": "バンコク",
       "title": "創業者2名。<em>中間管理なし。</em>",
       "lede": "コードを書き、アーキテクチャを決める人と直接お話しいただけます。UAVオペレーター、交通エンジニア、政策通訳が必要なときだけ、そのミッションのために招集します — 常設チームにはしません。"
     },
     "ctaSect": {
       "kicker": "ご相談",
-      "title": "ブリーフをお送りください。<em>プレッシャーを可視化します。</em>",
-      "body": "課題が現実的で、判断が重要であれば、2週間以内に証明可能なものをお見せします。調達サイクルのウォームアップはありません。ムードボードもありません。",
-      "promise1": "初週にプレッシャーを可視化。判断、ユーザー、テーブル上のデータ。",
-      "promise2": "スライドの磨き込みより先に稼働するパイロット。無償・既存データを優先し、新インフラは正当化されたときのみ。",
-      "promise3": "初日からデータトレイル。ページビュー、コンテンツ、判断ログ — 次のビルドが読み取れるように。",
+      "meta": "バンコク · 東南アジア",
+      "title": "その意思決定を教えてください。<em>2週間で動く姿をお見せします。</em>",
+      "body": "一段落で十分です：より速く下したい決定、誰が決めるのか、データが今どこにあるのか。明確なイエス、明確なノー、あるいはより鋭い質問をひとつ返します。営業資料も、調達のための前置きもありません。",
+      "promise1": "第1週——決定、関係者、データを1ページで合意。",
+      "promise2": "第2週——既存データと無料の公共データで動くパイロット。開始時に新しいハードウェアは不要。",
+      "promise3": "初日から——すべての利用と決定を記録し、実証されたものだけを拡張。",
       "alt": "Or find us on"
     },
     "panels": {
-      "p01": {
-        "title": "A governor's <em>situation room</em>, in a browser tab.",
-        "lede": "Phuketの交通、公共安全、環境シグナルを1画面に統合し、知事が30秒で読み取れるようにしました。調達サイクルではなく、数週間で構築しました。",
-        "w1lbl": "Why it's special",
-        "w1": "Most government dashboards are read-only PDFs disguised as software. Phuket is a working operations room: transit, safety, and environment fused on one screen, refreshed every 42ms. The governor reads it directly — no analyst translation layer.",
-        "w2lbl": "What it replaced",
-        "w2": "Three siloed agency reports, an SMS escalation chain, and a Tuesday-morning briefing slot.",
-        "w3lbl": "Earned on day one",
-        "w3": "Built on existing IoT infrastructure — no new hardware procurement.",
-        "cta": "稼働中のシステムを開く"
+        "p48": {
+          "name": "FLOODDASH（タイ洪水監視）",
+          "lede": "タイの全県が公式公開データから同じ状況像を読めるよう設計された、リアルタイム・オープンソースの洪水監視システム。9つの公共ソースから3〜60分ごとに取得。",
+          "cta": "ライブシステムを開く"
+        },
+        "p65": {
+          "lede": "FloodDash の公開チャンネル — Facebook フォロワー 112K、いいね 37K。SLIC · depa · RCAD と共に毎日タイ語で洪水ブリーフィング。データ・トゥデイ。セーファー・トゥモロー。",
+          "cta": "Facebook でフォロー",
+          "name": "FloodDash Community"
+        },
+        "p49": {
+          "name": "シーキオ市運用",
+          "lede": "シーキオ市政府を追跡するライブ指揮画面 — 大気質・気象・交通パターン・都市ライブデータを統合し、市政意思決定を支援。",
+          "cta": "ライブシステムを開く"
+        },
+        "p50": {
+          "lede": "ナコーンシータンマラート市のためのリアルタイム市民インテリジェンス — 3D都市・衛星・洪水監視・カオルアン・パクパナン流域。30以上のライブデータソース。",
+          "cta": "ライブシステムを開く",
+          "name": "NST-01 · Nakhon Si Thammarat"
+        },
+        "p51": {
+          "name": "レームチャバン運用",
+          "lede": "レームチャバン市のトラック交通と規制遵守を監視するライブ指揮画面。港湾交通を調整し、混雑を緩和し、都市の安全を保つよう設計。",
+          "cta": "ライブシステムを開く"
+        },
+        "p01": {
+          "title": "A governor's <em>situation room</em>, in a browser tab.",
+          "lede": "Phuketの交通、公共安全、環境シグナルを1画面に統合し、知事が30秒で読み取れるようにしました。調達サイクルではなく、数週間で構築しました。",
+          "w1lbl": "Why it's special",
+          "w1": "Most government dashboards are read-only PDFs disguised as software. Phuket is a working operations room: transit, safety, and environment fused on one screen, refreshed every 42ms. The governor reads it directly — no analyst translation layer.",
+          "w2lbl": "What it replaced",
+          "w2": "Three siloed agency reports, an SMS escalation chain, and a Tuesday-morning briefing slot.",
+          "w3lbl": "Earned on day one",
+          "w3": "Built on existing IoT infrastructure — no new hardware procurement.",
+          "cta": "稼働中のシステムを開く",
+          "name": "Phuket Ops"
+        },
+        "p21": {
+          "lede": "ホーチミン市向け大規模指揮画面。リアルタイム交通、洪水モニタリング、大気質、動的ルーティングを高性能マップ1枚に統合します。",
+          "cta": "稼働中のシステムを開く",
+          "name": "HCMCx Super Dashboard"
+        },
+        "p62": {
+          "lede": "ロッブリ作戦室 — リアルタイム FloodDash 流域テレメトリ(ThaiWater/HII)、パーサックチョーラシット貯水池のステータス、ソーシャルリスニング、CCTV スロットグリッド、衛星レイヤーをロッブリ県の一画面に。一画面、四つのデータの流れ、出動可能な読み取り。",
+          "cta": "作戦室を開く",
+          "name": "Lopburi Operations"
+        },
+        "p33": {
+          "lede": "Muang Thong Thaniの指揮画面 — IMPACT Arena、Challengerホール、洪水監視、交通、AQI、イベント負荷を1枚の3D地区マップに。タイで最も密な複合施設の運用者向け。",
+          "cta": "稼働中のシステムを開く",
+          "name": "MTT Super Dashboard"
+        },
+        "p05": {
+          "title": "Greater Kuching, <em>one command surface.</em>",
+          "lede": "サラワク州グレーター・クーチンのフルスペクトラムIOC。為替、フライト、衛星画像、環境シグナルを、東南アジアで最も急成長するスマートシティを運営するオペレーターのために統合します。",
+          "w1lbl": "Why it's special",
+          "w1": "Most IOCs are single-domain. Kuching fuses cross-domain signals in one view — currency pressure, flight arrivals, Sentinel-2 sweeps, environmental reads. The operator never switches tabs to see the full picture.",
+          "w2lbl": "Who uses it",
+          "w2": "Greater Kuching city operators and planners. Built for real-time situational awareness — not a demo room, for daily use.",
+          "w3lbl": "Why it matters",
+          "w3": "Same information density a Bloomberg terminal gives a trading desk — but for a city, at a fraction of the cost.",
+          "cta": "稼働中のシステムを開く",
+          "name": "Kuching IOC"
+        },
+        "p63": {
+          "lede": "マレーシア · ゴッドモード。全流域の JPS 水位、MET マレーシア警報、バスと鉄道、船舶と航空機、空気と火災、そして支援から遠い住民を示す市民指数。一つの地図、EN · BM · 中文。",
+          "cta": "ライブマップを開く",
+          "name": "Malaysia · God Mode"
+        },
+        "p13": {
+          "title": "47 feeds. <em>7 lenses. One campus.</em>",
+          "lede": "Chula Control Towerはチュラロンコン大学のリアルタイム運用ダッシュボード — BangkokのSiam–Samyan地区向けに、交通、インシデント、大気質、衛星、シャトル、ニュース、緊急事態の47ライブフィード。",
+          "w1lbl": "Why it's special",
+          "w1": "Most university dashboards show one feed at a time. <b>CCT puts 47 live sources on a single 3D map</b> — traffic, air quality, shuttle positions, incident reports, satellite layers, and underground utilities — so the campus president has one surface for every decision.",
+          "w2lbl": "What it replaced",
+          "w2": "Separate siloed systems for traffic, security, and environmental data. Manual incident reports. No unified view of the campus at any given moment.",
+          "w3lbl": "Decision power",
+          "w3": "Seven operational lenses — from day-to-day campus management to presidential strategic view — let each role see exactly what they need. 3D buildings and underground utility layers turn planning from guesswork into evidence.",
+          "w4lbl": "Live access",
+          "w4": "Deployed at Chulalongkorn University, Bangkok's Siam–Samyan district. Open access — no account required.",
+          "cta": "稼働中のシステムを開く",
+          "name": "Chula Control Tower"
+        },
+        "p16": {
+          "title": "A coastal province, <em>rendered as a control tower.</em>",
+          "lede": "Chonburi Control Towerは東部沿岸向け3D指揮画面：42ライブソース、沿岸気象・海況、市場・観光シグナル、市長インシデント、EECトレンド、建物スケールオーバーレイ。",
+          "w1lbl": "Why it's special",
+          "w1": "Most provincial dashboards flatten the city into cards and charts. <b>Chonburi Control Tower renders the province as an operating environment</b> — 20,877 3D buildings, source health, weather, marine risk, EEC news, CCTV/AIS/AQ/WX toggles, and a mayor's desk on one surface.",
+          "w2lbl": "What it replaced",
+          "w2": "Separate weather sites, marine dashboards, market tickers, tourism spreadsheets, news tabs, and static GIS layers that never told the same story at the same time.",
+          "w3lbl": "Decision power",
+          "w3": "Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.",
+          "w4lbl": "Live access",
+          "w4": "Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.",
+          "cta": "コントロールタワーを開く",
+          "name": "Chonburi Control Tower"
+        },
+        "p18": {
+          "lede": "KMITL Control Towerはラートクラバン国王工科大学のリアルタイム運用ダッシュボード — 交通、インシデント、大気質、衛星、キャンパスシャトル、ニュース、緊急事態の56ライブフィード。",
+          "cta": "稼働中のシステムを開く",
+          "name": "KMITL Control Tower"
+        },
+        "p19": {
+          "lede": "Yala Control Towerはタイ南部ディープサウス、ヤラー市のリアルタイムシビックインテリジェンス。3D都市モデル、衛星レイヤー、洪水監視、セキュリティインシデント、30以上のライブフィード。",
+          "cta": "稼働中のシステムを開く",
+          "name": "Yala Control Tower"
+        },
+        "p15": {
+          "title": "Name the city. <em>We'll build its brain.</em>",
+          "lede": "City Hubは再利用可能な都市インテリジェンスプラットフォーム — 都市名を入力すれば衛星・ベースレイヤーでマッピングし、既存データを接続して合成を開始します。v.5、5都市が稼働中。",
+          "w1lbl": "Why it's special",
+          "w1": "Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what's already there.",
+          "w2lbl": "What it replaced",
+          "w2": "Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.",
+          "w3lbl": "Decision power",
+          "w3": "The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don't), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city's last day of data.",
+          "w4lbl": "Live access",
+          "w4": "Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.",
+          "cta": "稼働中のプラットフォームを開く",
+          "name": "City Hub"
+        },
+        "p27": {
+          "lede": "AirDashは24/7タイ大気質・ダスト監視です — 州別ランキング、3日CAMS-降雨予測、ATリスク・PM2.5上位5州、ウォッシュアウトロジック、全国パターンドーナツを1画面に。",
+          "cta": "ライブシステムを開く",
+          "name": "AirDash"
+        },
+        "p36": {
+          "lede": "バンコクの3Dブラウザ地図 — 実OSM建物432,077棟、地形、大気質、雨レーダー、財務省地価、BTS/MRT、運河。街区ごとに街を歩く。",
+          "cta": "ライブシステムを開く",
+          "name": "BKKx 3D Atlas"
+        },
+        "p43": {
+          "lede": "バンコクの遺産を街区ごとに — 王宮の島からバンカチャオまで九つの地区、登録史跡571、記録された七本の散歩。atlas.nonarkara.orgの運用ツインと対をなすBKKxの文化側。",
+          "cta": "ライブシステムを開く",
+          "name": "BKKx Culture"
+        },
+        "jakarta": {
+          "lede": "ジャカルタ特別州の3D都市アトラスと運用環境 — 建物形状、BMKG気象速報、CRM市民サービス通報、洪水リスクデスクを1つの画面に統合。インドネシア語 · EN。",
+          "cta": "本番システムを開く",
+          "name": "Jakarta 3D Atlas"
+        },
+        "p67": {
+          "lede": "実際のOpenStreetMap敷地の上に都市を構築し、その経済成長をシミュレート。SimCity 2000に着想を得た2026年の都市計画ルール。",
+          "cta": "デモを開く",
+          "name": "simsmartcity"
+        },
+        "p69": {
+          "lede": "シラチャのタイ・デジタル・バレー（TDV）全キャンパスのデジタルツイン — 5棟の建物、86,000 m²、公認建築情報、25の公開フロアプラン、アニメーションちび来訪者、IoT 1 CAD。",
+          "cta": "キャンパスに入る",
+          "name": "TDV · Thailand Digital Valley"
+        },
+        "bangkokIoc": {
+          "lede": "バンコク知事の運営センターに、立地適合のパイロットが加わりました。BTS駅周辺を選び、自分の家賃と移動の上限に照らし、周辺で報告されている市民の苦情、公共の場所、ホームまでの実際の徒歩ルートを読みます。机上調査であり、物件リストではありません。",
+          "cta": "Bangkok IOCを開く",
+          "name": "Bangkok IOC"
+        },
+        "dhaka": {
+          "lede": "バングラデシュ・ダッカの街区レベル3D空間インテリジェンス。129行政区にわたる建物高、地形勾配、モンスーン浸水動態、高密度都市形態を把握。",
+          "cta": "ダッカ・アトラスを開く",
+          "name": "DHKx 3D Atlas · ダッカ"
+        },
+        "p04": {
+          "title": "A ranking <em>that argues back.</em>",
+          "lede": "SLIC Indexは都市の価値を教えません。5つの柱を示し、自らの優先順位を検証させます。市長が「住みやすさ」の意味を決め、数学がそれに従います。",
+          "w1lbl": "Why it's special",
+          "w1": "Every other livability index hands cities a finished verdict. SLIC hands them the math. Move the pillar weights, watch your ranking change — and your peers' — in real time. The argument becomes the product.",
+          "w2lbl": "What it replaced",
+          "w2": "Static prestige leaderboards. The annual ranking PDF. The conversation that ended with \"we don't agree with the methodology.\"",
+          "w3lbl": "Audience signal",
+          "w3": "Picked up by Mayors of Europe. Live-demo'd at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.",
+          "cta": "SLIC v3 を開く",
+          "name": "SLIC Index"
+        },
+        "p22": {
+          "lede": "3地域（中東、東南アジア、タイ）をモニタリング：オープンデータに基づく究極のモニタリングプラットフォーム。レイヤリングでインサイトを可視化します。",
+          "cta": "稼働中のシステムを開く",
+          "name": "Global Monitor"
+        },
+        "p45": {
+          "lede": "5つのアジア戦域と5大戦略的海峡要衝 — マラッカ、ホルムズ、バブ・エル・マンデブ、台湾海峡、スンダ — を1つのリアルタイム地図に集約。紛争前線、火情、海空交通回廊、地域ニュースおよびテレビ放送。",
+          "cta": "ライブシステムを開く",
+          "name": "AsiaWatch · 汎アジア・センティネル"
+        },
+        "p46": {
+          "lede": "地球全体を1つの画面に：世界中の航空機・船舶のリアルタイム追跡、紛争・火災ホットスポット、常時ドッキングされた情報コラムと市場ストリップ。同一のオープンデータエンジン、世界規模。",
+          "cta": "ライブシステムを開く",
+          "name": "World Console"
+        },
+        "p06": {
+          "title": "News <em>before the algorithm decides what's war.</em>",
+          "lede": "MEMは中東紛争報道向けの最速のオープンソースニュース画面です。ライブ多ソース、編集遅延なし、フィルターバブルなし。ニュースサイクルより前のシグナル。",
+          "w1lbl": "Why it's special",
+          "w1": "Every major news platform has an editorial layer that slows, filters, frames. MEM removes that layer. The same signals a desk analyst aggregates manually — in one surface, at machine speed.",
+          "w2lbl": "What it replaced",
+          "w2": "Three browser tabs, two Telegram channels, and a Twitter/X list — open simultaneously to triangulate what was actually happening on the ground.",
+          "w3lbl": "Who uses it",
+          "w3": "Journalists, policy analysts, NGO field teams. Anyone who needs ground-level signal faster than the 24-hour news cycle delivers it.",
+          "cta": "稼働中のシステムを開く",
+          "name": "Middle East Monitor"
+        },
+        "p14": {
+          "title": "Bloomberg signals. <em>Thai market. Your rules.</em>",
+          "lede": "DayTradersは、SET、MAI、投資信託、RMF、タイESG商品にBloombergスタイルのシグナルを適用したパーソナライズ型タイ市場インテリジェンスプラットフォームです。",
+          "w1lbl": "Why it's special",
+          "w1": "Thai retail investors get either raw broker data or generic apps that don't apply value-investing logic. <b>DayTraders brings institutional-grade signal analysis to the Thai SET</b> — with Graham margin-of-safety, Buffett moat screens, and Munger mental models built into the feed, not bolted on.",
+          "w2lbl": "What it replaced",
+          "w2": "Broker portals with no analytical framework, LINE group tips, and the assumption that rigorous value investing is only for institutions with Bloomberg terminals.",
+          "w3lbl": "Decision power",
+          "w3": "Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.",
+          "w4lbl": "Live access",
+          "w4": "Live Thai market data. Open platform — no paywall, no broker lock-in.",
+          "cta": "稼働中のプラットフォームを開く",
+          "name": "DayTraders"
+        },
+        "p41": {
+          "lede": "印象ではなく役に立つために作った市場インテリジェンス。ワールド、レンズ、マップ、FX、国会、オッズ、プラン——各画面は今週できる判断を一つでも変えなければならない。研究プレビューであり、助言ではない。すべての数字は自分の年齢を持つ。",
+          "cta": "ライブシステムを開く",
+          "name": "DAY 2"
+        },
+        "p70": {
+          "lede": "建築インテリジェンス — 11の形状プロファイル（矩形から風車型まで）、9つの形態・性能指標：賃料、面積、天空達成、日光、形状識別度。2006年MIT修士論文との20年ぶりの再会。編集ごとにリアルタイムでシナリオ再計算。SHDTに着想。",
+          "cta": "形態を設計",
+          "name": "FormHypes · SHDT"
+        },
+        "p42": {
+          "lede": "タイのミャンマー・カンボジア・南部戦域の三国境指揮ダッシュボード — ライブ作戦、歴史再生、幹部級インテリジェンス設計を一枚の地図に。",
+          "cta": "ライブシステムを開く",
+          "name": "Geopolitical Watch"
+        },
+        "p23": {
+          "lede": "タイ公式スマートシティ指数（SCITI）。7つのスマートシティ基準に基づき、全国174の都市圏の進捗と影響を評価します。",
+          "cta": "ライブシステムを開く",
+          "name": "Smart City Thailand Index (SCITI)"
+        },
+        "p07": {
+          "title": "The bus, tracked. <em>The rider, informed.</em>",
+          "lede": "PhuketスマートバスネットワークのリアルタイムGPS追跡と乗客テレメトリ。管制室画面より乗客のスマートフォンを優先して設計しました。",
+          "w1lbl": "Why it's special",
+          "w1": "Smart bus systems usually exist for the operator's dashboard. This one exists for the person waiting at the stop. GPS position, next arrival, route clarity — for a tourist who doesn't read Thai and a commuter who doesn't have time to guess.",
+          "w2lbl": "What it replaced",
+          "w2": "Standing at a stop with no information. A bus schedule printed in 2019. The assumption that transit on a tourist island can't be made legible.",
+          "w3lbl": "Built on top of",
+          "w3": "Phuket's existing IoT infrastructure — the same sensor layer that feeds the Governor's operations room. No new hardware.",
+          "cta": "稼働中のシステムを開く",
+          "name": "Phuket Smart Bus"
+        },
+        "p08": {
+          "title": "Reports arrive. <em>AI turns them into action.</em>",
+          "lede": "SCTH V2は、TelegramとLINEから市民報告を取り込み、AIで分析し、準リアルタイムの衛星・地図レイヤーを都市構築者、開発者、管理者に提供するSmart City Thailandデータプラットフォームです。",
+          "w1lbl": "Why it's special",
+          "w1": "Most city complaint systems stop at a ticket number. SCTH V2 turns the report stream into a decision surface. Messenger reports, field photos, SLA risk, and AI pattern detection sit on the same map as precipitation, aerosol, cloud, terrain, and street layers.",
+          "w2lbl": "What it replaced",
+          "w2": "Screenshots in chat groups, manual spreadsheet triage, static map layers, and the delay between \"someone reported it\" and \"someone can act on it.\"",
+          "w3lbl": "Decision power",
+          "w3": "City teams can absorb reports, assign owners, analyze recurring patterns, export sheets or PDFs, and push response tasks while the city context is still live.",
+          "w4lbl": "Live access",
+          "w4": "Proprietary system under continuous daily development. The link runs a live tunnel — if it doesn't resolve, the system is mid-upgrade. Check back in a moment.",
+          "cta": "稼働中のシステムを開く",
+          "name": "SCTH City Data Platform"
+        },
+        "p12": {
+          "title": "21 channels. <em>Free. Everywhere.</em>",
+          "lede": "NSPはタイ国家ストリーミングプラットフォーム — NBTC認可21デジタルTVチャンネル、無料、フルHD、あらゆるデバイス対応。ライブEPG、視聴テレメトリ、AIコンテンツガイド、CAP v1.2緊急警報。",
+          "w1lbl": "Why it's special",
+          "w1": "Most national TV portals are afterthoughts. <b>NSP puts all 21 licensed channels in one interface</b> with live EPG, per-channel concurrency, stream health telemetry, and an AI guide that answers \"what's on now?\" across the whole kingdom — without an app install.",
+          "w2lbl": "What it replaced",
+          "w2": "Fragmented broadcaster apps, illegal streams, and the assumption that free-to-air TV can't be made as legible as a subscription platform.",
+          "w3lbl": "Decision power",
+          "w3": "Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.",
+          "w4lbl": "Live access",
+          "w4": "National deployment under NBTC licensing authority. Open to all devices, no account required.",
+          "cta": "稼働中のプラットフォームを開く",
+          "name": "NSP"
+        },
+        "p64": {
+          "lede": "タイ森林炭素 — 州をタップまたはボックスを描き、衛星ベースの炭素ストック、森林吸収と排出、山火事と化石 CO₂、源泉と不確実性を確認。T-VER プロジェクト評価ワークベンチ付き。タイ語 · 英語。",
+          "cta": "評価ワークベンチを開く",
+          "name": "Forest Carbon Thailand"
+        },
+        "constitution": {
+          "lede": "2017年タイ憲法の全279条をタイ語・英語・中国語で読み、ハイライトし、聴き、学ぶ。学習カード、検索、音声、市民理解。タイ語 · 英語 · 中国語。",
+          "cta": "読書室を開く",
+          "name": "Thai Constitution Reader"
+        },
+        "techhunt": {
+          "lede": "タイの都市のための検証済み技術市場：調達担当官と都市計画家のために、7つのスマートシティ領域にわたりライブ信号強度で順位付けされた125の検証済みスタートアップ。depa、SLIC、UWNの共同イニシアチブ。",
+          "cta": "TechHuntを開く",
+          "name": "Smart City Thailand TechHunt"
+        },
+        "burma": {
+          "lede": "常設の公開ルームと毎日のダイジェストを備えたビルマ語コミュニティプラットフォーム。GovTechユースイニシアチブのために構築されたクラシックなWin95風UI。",
+          "cta": "Pirchchatを開く",
+          "name": "Pirchchat · A-Lin-Ein"
+        },
+        "tsunami": {
+          "lede": "アンダマン沿岸津波防護・早期警戒インテリジェンスプラットフォーム。海洋ブイ観測、地震センサー網、遡上シミュレーション、沿岸避難ベクトルを統合。",
+          "cta": "Soonamiを開く",
+          "name": "Soonami · 津波防護"
+        },
+        "p52": {
+          "name": "Dr Nonとの20分",
+          "lede": "新しいポッドキャスト — アイデア、エージェント、地政学、そして次の20分。Spotifyでライブ配信中、エピソード順次公開中。",
+          "cta": "Spotifyで開く"
+        },
+        "p09": {
+          "title": "Eleven voices. <em>One decision.</em>",
+          "lede": "Dr. NonのAI Councilは個人向けマルチエージェント審議システムです。回文名の11名のAI裁判官（Tenet、Radar、Otto、Hannah、Ada…）がローカルMac上で継続稼働し、月約3ドルで運用します。",
+          "w1lbl": "Why it exists",
+          "w1": "Single models give one answer. Problems worth solving deserve argument. The council runs four operating modes — VERIFY, DECIDE, EXPLORE, DEBATE — and justices use explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS) so every position change is visible and traceable.",
+          "w2lbl": "What it costs",
+          "w2": "Manus-class autonomous-agent capability at $3/month. The council chair runs on Mistral Large 3. The Thai-native skeptic (Ada) runs on ThaiLLM — a government-backed model, free. The executor (Otto) handles OCR, video downloads, email drafts, PDF generation, and Google Drive sync without touching cloud infrastructure.",
+          "w3lbl": "Why no demo",
+          "w3": "The council is trained on Dr Non's personal journals, decisions, meeting notes, and voice. Proprietary by necessity. The protocol stack — ~600 lines of Python — is open. The IP is the coordination methodology, not the weights.",
+          "cta": "GitHubで見る",
+          "cta2": "v2 · Agentic + Executor",
+          "name": "Dr Non's AI Council"
+        },
+        "p10": {
+          "title": "HR has been a <em>record system</em> long enough.",
+          "lede": "TKCXは、従業員をパーティーメンバー、プロジェクトをクエスト、チーム編成を戦略として扱うゲームベースのタレント運用システムです。",
+          "cta": "GitHubで見る",
+          "w1lbl": "The problem",
+          "w1": "Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.",
+          "w2lbl": "The engine",
+          "w2": "Built on Dragon Quest III's party system. Five archetypes map to real workplace roles (captain, tech, sales, ops, scout). A Moneyball budget cap — project budget ÷ 10 = monthly salary ceiling — forces allocation discipline. The readiness formula weighs coverage, quality, chemistry, and morale so the right team is visible before the project starts, not after it fails.",
+          "w3lbl": "What it changes",
+          "w3": "Directors stop hoarding people. Projects stop running on political capital. Skill gaps become visible before they become failures. And HR — renamed Talent Incubation — becomes the most strategic function in the building, not the most avoided one.",
+          "name": "TKCX"
+        },
+        "p11": {
+          "title": "The AI <em>that knows you.</em>",
+          "lede": "Second Brain OSはMCP経由でObsidianボルトをすべてのAIコーディングプラットフォームに同時接続します。19サーバー設定。ペルソナ設計図と声を記憶するエージェント。",
+          "w1lbl": "The gap it closes",
+          "w1": "Every AI session starts cold. It doesn't know your voice, your values, your past decisions, or the years of journal entries that shaped your thinking. Second Brain OS feeds all of that into every coding platform simultaneously via a single MCP connection — so the AI you work with already knows who it's working with.",
+          "w2lbl": "How it's built",
+          "w2": "Your Obsidian vault is structured like a brain: PrefrontalCortex for strategy, Hippocampus for atomic memories, TemporalLobe for patterns, Cerebellum for skills and procedures. 19 MCP server configurations connect this living knowledge graph to Cursor, Codex, Claude Code, and every other platform in your stack — at once.",
+          "w3lbl": "Why it's open",
+          "w3": "The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model's.",
+          "cta": "GitHubで見る",
+          "name": "Second Brain OS"
+        },
+        "p20": {
+          "lede": "Horizon 45は実際のAI判断力を検証するフィールドツールです。ディープフェイク検出からプロンプトエンジニアリングまで、ケイパビリティポートレートと学習ロードマップを残します。",
+          "cta": "稼働中のシステムを開く",
+          "name": "Horizon 45"
+        },
+        "p53": {
+          "name": "ASCNパフォーマンスレビュー（ディレクターズカット）",
+          "lede": "134プロジェクトと38都市にわたるASEANスマートシティネットワークの業績を包括的に洞察するダッシュボード — 4つのM&Eサイクルにわたるポートフォリオの勢いと重点領域のシフトを検討。",
+          "cta": "ライブシステムを開く"
+        },
+        "p24": {
+          "lede": "刷新した道徳経の読書室。英語・タイ語・中国語の81章、漢字学習、挿絵ノート、Paletteの色彩関係を収録。",
+          "cta": "稼働中のシステムを開く",
+          "original": "旧版を読む",
+          "name": "Dao × Palette"
+        },
+        "ikigai": {
+          "name": "Ikigai Finance Engine",
+          "lede": "中小企業向け金融インテリジェンス — 貸借対照表をシグナルとして、キャッシュランウェイ、銀行スコアカード、複合金融指数（Ikigai、Lean、Zero、Default、Solvency）。開発段階の研究プロトタイプ、スクリーンショットのみ — ABC Company Limited は架空のデモデータ、公開デプロイは未実施。",
+          "cta": "研究リポジトリを見る"
+        },
+        "p28": {
+          "lede": "FloodDash Blueprintはタイ洪水監視のオープン研究コンパニオンです — センサーネットワーク、排水ロジック、AI洪水予測、対応プレイブック、データから意思決定までのパイプライン全体をすべての都市に開放。",
+          "cta": "GitHubで見る",
+          "name": "FloodDash Blueprint"
+        },
+        "ladder": {
+          "lede": "Ikigaiのベンチャーデューデリジェンスおよびスコアカード連携エンジン。ディール精査、財務デューデリリスト、投資仮説照合、ポートフォリオのリスク評価を専用空間で。",
+          "access": "ログインが必要",
+          "cta": "Ladderを開く",
+          "name": "Ladder · Ikigai"
+        },
+        "life": {
+          "lede": "あなたのまわりに育つ世界：アイソメトリックなタイの町で送る架空の人生を、2倍から20倍の速さで。分かれ道ごとに選び、どの選択にも代償があります。進行はブラウザに保存。いまは仮のホストで、life.nonarkara.org へ移行予定です。",
+          "access": "ログインが必要",
+          "cta": "Lifeを開く",
+          "name": "Life"
+        },
+        "universe_69": {
+          "lede": "決定論的力学と創発的エージェント行動によって駆動される、継続的に観測される2つの閉鎖手続き型世界——観察し、介入せず。",
+          "cta": "Universe 69を観測",
+          "name": "Universe 69: Beta"
+        },
+        "pavilion": {
+          "lede": "現代建築の素材と純粋なWeb技術を用いてスクラッチから構築された、持続可能かつゼロコストの空間メタバース。ハイパースケーラーによるデータ独占やアクセス制限を打破するオープンな仮想世界。",
+          "cta": "The Pavilionに入る",
+          "name": "The Pavilion · 空間ワールド"
+        },
+        "p54": {
+          "lede": "全カートリッジにブレイン・ブリーフィング付きの16ビット・ブラウザアーケード — 何を訓練するか、1ラウンド何分か、主張の限界はどこか。広告なし。スコアはこの端末にのみ保存。",
+          "cta": "ライブシステムを開く",
+          "name": "OmniArcade"
+        },
+        "p17": {
+          "title": "Thai paperwork, <em>read by the machine.</em>",
+          "lede": "Ekkasarn AIは、タイの税務インボイス、領収書、源泉徴収証明書向けドキュメントインテリジェンスエンジンです。実文書をアップロードするかサンプルを選択 — OCR、分類、フィールド抽出を実行します。",
+          "w1lbl": "Why it's special",
+          "w1": "Most OCR demos work only on clean, invented forms. <b>Ekkasarn AI reads real Thai paperwork</b> — crumpled receipts, VAT invoices, and withholding certificates — then returns category, confidence, shop, phone, and total as structured output.",
+          "w2lbl": "What it replaced",
+          "w2": "Manual accounting entry, receipt photo backlogs, spreadsheet categorization, and the fragile handoff between Thai paper documents and digital finance workflows.",
+          "w3lbl": "Decision power",
+          "w3": "A finance team can classify documents, verify extracted fields, and route them into downstream accounting logic immediately instead of waiting for human sorting.",
+          "w4lbl": "Live access",
+          "w4": "Public bilingual demo with Thai-first document types. Uploads are processed live and not retained.",
+          "cta": "稼働中のシステムを開く",
+          "name": "Ekkasarn AI"
+        },
+        "p29": {
+          "lede": "下書きを貼り付け。The Non-Writerはプロキシとボックスの連鎖を通して実行し、反対側から出てくるのはDr Nonの声であなたが実際に意味した文です。今では、どのレイヤーがどの単語を動かしたかを正確に見られる公開readoutも付属。",
+          "cta": "ライブシステムを開く",
+          "name": "The Non-Writer"
+        },
+        "p30": {
+          "lede": "机を数字で語る。AI最前線の日次インテリジェンスブリーフ — 本当に何が出荷されているのか、何がハットエアーか、今夜何を読むか。セクターウォッチ、手動ピック、複利で積み上がるアーカイブ。",
+          "cta": "ライブシステムを開く",
+          "name": "Dr Non's Digests"
+        },
+        "p31": {
+          "lede": "スクレイピングをサービスとして — コード不要。URLと質問を投げれば、システムが外に出て原文言語でページを読み、あなたの言語で答えと引用・構造化JSONを返します。下流にすぐ接続可能。",
+          "cta": "ライブシステムを開く",
+          "name": "Non-Scrape"
+        },
+        "p34": {
+          "lede": "証拠優先の 261 点のラグジュアリー & コレクタブル腕時計リファレンス。引用比較、出典、出所クレジット付き静止画、そしてデータが見積もりを拒否する箇所を示す誠実な梯子。",
+          "cta": "ライブシステムを開く",
+          "name": "Time Pop"
+        },
+        "p35": {
+          "lede": "決断で家を設計する — 平面を描くかAIでトレースし、日照床面積と日射熱をライブで見てから、住環境・システム・コストを回し、最後に絵を出す。",
+          "cta": "ライブシステムを開く",
+          "name": "Luma/house"
+        },
+        "p40": {
+          "lede": "このURLをClaudeに渡すと、OpenClawを安全にセットアップしてくれます。エージェント実行可能な手順、深いセキュリティモデル、RAMに合うローカルLLM選定、リスク階層のツール呼び出し。ドキュメントのみ、個人データなし。",
+          "cta": "GitHubで見る",
+          "name": "OpenClaw Set-Up"
+        },
+        "p44": {
+          "lede": "バンコクには約40万件のショップハウスがあるのに、その目録は存在しない。再利用とエンボディド・カーボンに関する長文エッセイ、2,311棟のサーベイ、タイ財務省の地価圧力マップ、そして四色の答え。ハーバードデザイン大学院『Shophouse Metropolis』所収。",
+          "cta": "エッセイを読む",
+          "name": "Shophouse Metropolis"
+        },
+        "p47": {
+          "lede": "グローバル化、ヘリテージ産業、都市空間の経済に関する20年のフィールドワーク。15章、76,312語、134枚の写真、5時間の音声、475件の引用——サイトで読み、聴き、眺める。v3リーディング版、2026年。",
+          "cta": "本を開く",
+          "name": "Locating Shanghai"
+        },
+        "p55": {
+          "lede": "PDFとリンクをアップロード。文書出典を毎回明示し、文書が黙っていれば「わかりません」と答えます。ワークスペースごとに100MB無料、TelegramとLINEで配信。ローカルの埋め込みとローカルのモデル、バンコクの一台のMacで——あなたの文書はどこにも送りません。",
+          "cta": "ワークスペースを開く",
+          "name": "RAG.NONARKARA"
+        },
+        "champion": {
+          "lede": "タイ代表ワールドカップ挑戦のためのタッチライン・コーチングコンソール＆戦術ラボ。プラン選択、プレス強度、陣形をリアルタイム調整。",
+          "cta": "コーチングデスクを開く",
+          "name": "SCD · サッカーコーチングデスク"
+        },
+        "soccer": {
+          "lede": "NSP研究プロトタイプ内のサッカー戦術デスク。タイの公共テレビと公式視聴先を集め、入場前に権利の注意事項を表示します。",
+          "cta": "研究デスクを開く",
+          "name": "Soccer · NSP"
+        },
+        "vision": {
+          "lede": "画像が数字、輪郭、動き、推測に変わる過程。公共カメラで学び、モデルを訓練し、自分の画像をアップロードせずブラウザーで試します。",
+          "cta": "教室を開く",
+          "name": "Vision"
+        },
+        "each": {
+          "lede": "ERP・ACT・CRM・HRをまとめたタイ語・英語のワークスペース。財務画面で資金の継続期間、費用、ローン返済を確認。サムネイルはABC社のサンプルデータです。",
+          "access": "ログインが必要",
+          "cta": "EACHを開く",
+          "name": "EACH"
+        },
+        "p66": {
+          "lede": "348の配色。色の関係を検索し、グレースケールで確かめ、色の値をコピー。和田三造に着想を得た Dr Non の色彩展示。",
+          "cta": "配色を見る",
+          "name": "Palette"
+        },
+        "p56": {
+          "lede": "Axiom を支える運用基準 — トークン、コンポーネント、5行DNA、あらゆるAIエージェント向けAGENTS.md。機能を先に、その後に削る。Claude Code、Cursor、Cline、Aider、または他のエージェントに投入すれば、エージェントは初手で正しいAxiomスタイルの成果物を作ります。MITライセンス — クローン、フォーク、出荷。",
+          "cta": "リポジトリを開く",
+          "name": "Axiom Design Core"
+        },
+        "p57": {
+          "lede": "Dr Non の再現グレードインターフェース基準。2層構成：単一ビュー用 Rams の静寂（暖灰フィールド、ヘアライングリッド、単一アクセント色）、マルチボードシステム用 NYCTA ウェイファインディング層（閉じた路線パレット、ディスク、駅名板、ソリッド矢印）。あらゆるAIエージェント用AGENTS.md。オリジナルワークのみMITライセンス。再ライセンス対象外は NOTICE.md 参照。",
+          "cta": "リポジトリを開く",
+          "name": "Rams × NYCTA Design Core"
+        },
+        "p58": {
+          "lede": "ウェブサイト、システム、ドキュメント、AIエージェントのための機能的ミニマリストの白い荷札タグ原則。デザイントークン（グラウンド、インク、4段階、スペーシング、モノ、任意のドメインカラー）、印刷用 Stock B、Ephemera スキン、6 つのコンポーネント、before/after 例、エージェント呼び出し可能な skill、実行可能な tag-audit PO gate。MIT ライセンス。",
+          "cta": "リポジトリを開く",
+          "name": "Luggage Tag Aesthetic"
+        },
+        "p59": {
+          "lede": "強制可能な 10 のレイアウト法則と、ビルドを失敗させる静的 lint とランタイム audit。パッケージ内容：数値の単一ソース（scale.mjs）、ratchet（moma-lint.mjs）、公開済みの算術を証明する self-check（self-check.mjs）、そしてレイアウト後にのみ存在する欠陥を捕捉するブラウザコンソール（near-miss、ragged-row、orphan-grid）。デモページは自身の法則に従います。",
+          "cta": "リポジトリを開く",
+          "name": "MoMA Rules"
+        },
+        "p60": {
+          "lede": "O3 — 三乗の力。タイの OTOP レジストリをデータとして読む：77 県 154,078 件、すべてのレコードに出所、完全性、年代が伴います。スクレイピングも AI の幻覚もなし：レジストリはレジストリであり、すべてのセルに出所が付きます。",
+          "cta": "レジストリを開く",
+          "name": "O3"
+        },
+        "p61": {
+          "lede": "ついに始まらなかったスーパーリーグ。二十六のクラブ、実在の選手、直線のパス — 一手ずつ決める。ターン制タクティカルサッカー、一人でもパッドを分けて二人でも。スタートを押して、次の試合が大切なものだと信じ、パスする前にピッチを読め。",
+          "cta": "スタートを押す",
+          "name": "Super League"
+        },
+        "p68": {
+          "lede": "タイ語・英語・中国語で手紙として綴られた3日間の上海ガイド。静水流深 — その街に実際に立つ者の視点から読み解く都市。",
+          "cta": "本を開く",
+          "name": "淼燊的上海"
+        },
+        "llm": {
+          "lede": "自社のプライベートデータを用いて組織特化型の小型言語モデルを訓練する実践ラボ。生のトークンから手元で保持しどこでも動かせるモデルファイルまで。",
+          "cta": "LLM Labを開く",
+          "name": "LLM Lab"
+        },
+        "dog": {
+          "lede": "タイ原産バンケーウ犬の解剖構造、歩様、警戒姿勢を精密に再現する3Dプロシージャル・シミュレーションスタジオ。",
+          "cta": "Canine Studioを開く",
+          "name": "CANINE // バンケーウ"
+        }
       },
-      "p02": {
-        "title": "Macro signal, <em>before the room starts guessing.</em>",
-        "lede": "DNGWS Monitorは、ライブのエスカレーション追跡、経済波及、多ソース危機の可視化を1画面に集約します。ブリーフィング資料を待てない意思決定者のために。",
-        "w1lbl": "Why it's special",
-        "w1": "Bloomberg Terminal costs $25K/seat/year. This runs on open data. Cross-source crisis fusion, escalation deltas, and economic spillover — surfaced fast enough to brief a minister before the cable news cycle catches up.",
-        "w2lbl": "What it replaced",
-        "w2": "Subscription intelligence platforms, ad-hoc analyst PDFs, and the gap between \"something happened\" and \"we have a position.\"",
-        "w3lbl": "Earned on day one",
-        "w3": "Sentinel-2 satellite imagery, OSINT feed fusion, and 53-country NLP brief layer — deployed at the edge for sub-second region switches.",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p03": {
-        "title": "Bureaucracy, <em>made legible.</em>",
-        "lede": "We built the public surface for Thailand's national smart city programme with depa. Proposals go in. Progress stays visible. The programme stops disappearing into PDFs.",
-        "w1lbl": "Why it's special",
-        "w1": "National programmes usually live in annual reports nobody reads. This one is online, bilingual, and tied to outcomes — not ceremony. A candidate city's status moves the moment a milestone clears.",
-        "w2lbl": "Who pays for it",
-        "w2": "depa — Thailand's Digital Economy Promotion Agency. Direct-to-government engagement, not a sub-vendor relationship.",
-        "w3lbl": "Why it matters",
-        "w3": "Sets the template for any national smart-city programme that wants to stay legible past the launch press cycle. SLIC integrates as the benchmarking layer.",
-        "cta": "Open live system"
-      },
-      "p04": {
-        "title": "A ranking <em>that argues back.</em>",
-        "lede": "SLIC Indexは都市の価値を教えません。5つの柱を示し、自らの優先順位を検証させます。市長が「住みやすさ」の意味を決め、数学がそれに従います。",
-        "w1lbl": "Why it's special",
-        "w1": "Every other livability index hands cities a finished verdict. SLIC hands them the math. Move the pillar weights, watch your ranking change — and your peers' — in real time. The argument becomes the product.",
-        "w2lbl": "What it replaced",
-        "w2": "Static prestige leaderboards. The annual ranking PDF. The conversation that ended with \"we don't agree with the methodology.\"",
-        "w3lbl": "Audience signal",
-        "w3": "Picked up by Mayors of Europe. Live-demo'd at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.",
-        "cta": "SLIC v3 を開く"
-      },
-      "p05": {
-        "title": "Greater Kuching, <em>one command surface.</em>",
-        "lede": "サラワク州グレーター・クーチンのフルスペクトラムIOC。為替、フライト、衛星画像、環境シグナルを、東南アジアで最も急成長するスマートシティを運営するオペレーターのために統合します。",
-        "w1lbl": "Why it's special",
-        "w1": "Most IOCs are single-domain. Kuching fuses cross-domain signals in one view — currency pressure, flight arrivals, Sentinel-2 sweeps, environmental reads. The operator never switches tabs to see the full picture.",
-        "w2lbl": "Who uses it",
-        "w2": "Greater Kuching city operators and planners. Built for real-time situational awareness — not a demo room, for daily use.",
-        "w3lbl": "Why it matters",
-        "w3": "Same information density a Bloomberg terminal gives a trading desk — but for a city, at a fraction of the cost.",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p06": {
-        "title": "News <em>before the algorithm decides what's war.</em>",
-        "lede": "MEMは中東紛争報道向けの最速のオープンソースニュース画面です。ライブ多ソース、編集遅延なし、フィルターバブルなし。ニュースサイクルより前のシグナル。",
-        "w1lbl": "Why it's special",
-        "w1": "Every major news platform has an editorial layer that slows, filters, frames. MEM removes that layer. The same signals a desk analyst aggregates manually — in one surface, at machine speed.",
-        "w2lbl": "What it replaced",
-        "w2": "Three browser tabs, two Telegram channels, and a Twitter/X list — open simultaneously to triangulate what was actually happening on the ground.",
-        "w3lbl": "Who uses it",
-        "w3": "Journalists, policy analysts, NGO field teams. Anyone who needs ground-level signal faster than the 24-hour news cycle delivers it.",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p07": {
-        "title": "The bus, tracked. <em>The rider, informed.</em>",
-        "lede": "PhuketスマートバスネットワークのリアルタイムGPS追跡と乗客テレメトリ。管制室画面より乗客のスマートフォンを優先して設計しました。",
-        "w1lbl": "Why it's special",
-        "w1": "Smart bus systems usually exist for the operator's dashboard. This one exists for the person waiting at the stop. GPS position, next arrival, route clarity — for a tourist who doesn't read Thai and a commuter who doesn't have time to guess.",
-        "w2lbl": "What it replaced",
-        "w2": "Standing at a stop with no information. A bus schedule printed in 2019. The assumption that transit on a tourist island can't be made legible.",
-        "w3lbl": "Built on top of",
-        "w3": "Phuket's existing IoT infrastructure — the same sensor layer that feeds the Governor's operations room. No new hardware.",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p08": {
-        "title": "Reports arrive. <em>AI turns them into action.</em>",
-        "lede": "SCTH V2は、TelegramとLINEから市民報告を取り込み、AIで分析し、準リアルタイムの衛星・地図レイヤーを都市構築者、開発者、管理者に提供するSmart City Thailandデータプラットフォームです。",
-        "w1lbl": "Why it's special",
-        "w1": "Most city complaint systems stop at a ticket number. SCTH V2 turns the report stream into a decision surface. Messenger reports, field photos, SLA risk, and AI pattern detection sit on the same map as precipitation, aerosol, cloud, terrain, and street layers.",
-        "w2lbl": "What it replaced",
-        "w2": "Screenshots in chat groups, manual spreadsheet triage, static map layers, and the delay between \"someone reported it\" and \"someone can act on it.\"",
-        "w3lbl": "Decision power",
-        "w3": "City teams can absorb reports, assign owners, analyze recurring patterns, export sheets or PDFs, and push response tasks while the city context is still live.",
-        "w4lbl": "Live access",
-        "w4": "Proprietary system under continuous daily development. The link runs a live tunnel — if it doesn't resolve, the system is mid-upgrade. Check back in a moment.",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p09": {
-        "title": "Eleven voices. <em>One decision.</em>",
-        "lede": "Dr. NonのAI Councilは個人向けマルチエージェント審議システムです。回文名の11名のAI裁判官（Tenet、Radar、Otto、Hannah、Ada…）がローカルMac上で継続稼働し、月約3ドルで運用します。",
-        "w1lbl": "Why it exists",
-        "w1": "Single models give one answer. Problems worth solving deserve argument. The council runs four operating modes — VERIFY, DECIDE, EXPLORE, DEBATE — and justices use explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS) so every position change is visible and traceable.",
-        "w2lbl": "What it costs",
-        "w2": "Manus-class autonomous-agent capability at $3/month. The council chair runs on Mistral Large 3. The Thai-native skeptic (Ada) runs on ThaiLLM — a government-backed model, free. The executor (Otto) handles OCR, video downloads, email drafts, PDF generation, and Google Drive sync without touching cloud infrastructure.",
-        "w3lbl": "Why no demo",
-        "w3": "The council is trained on Dr Non's personal journals, decisions, meeting notes, and voice. Proprietary by necessity. The protocol stack — ~600 lines of Python — is open. The IP is the coordination methodology, not the weights.",
-        "cta": "GitHubで見る",
-        "cta2": "v2 · Agentic + Executor"
-      },
-      "p10": {
-        "title": "HR has been a <em>record system</em> long enough.",
-        "lede": "TKCXは、従業員をパーティーメンバー、プロジェクトをクエスト、チーム編成を戦略として扱うゲームベースのタレント運用システムです。",
-        "w1lbl": "The problem",
-        "w1": "Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.",
-        "w2lbl": "The engine",
-        "w2": "Built on Dragon Quest III's party system. Five archetypes map to real workplace roles (captain, tech, sales, ops, scout). A Moneyball budget cap — project budget ÷ 10 = monthly salary ceiling — forces allocation discipline. The readiness formula weighs coverage, quality, chemistry, and morale so the right team is visible before the project starts, not after it fails.",
-        "w3lbl": "What it changes",
-        "w3": "Directors stop hoarding people. Projects stop running on political capital. Skill gaps become visible before they become failures. And HR — renamed Talent Incubation — becomes the most strategic function in the building, not the most avoided one.",
-        "cta": "GitHubで見る"
-      },
-      "p11": {
-        "title": "The AI <em>that knows you.</em>",
-        "lede": "Second Brain OSはMCP経由でObsidianボルトをすべてのAIコーディングプラットフォームに同時接続します。19サーバー設定。ペルソナ設計図と声を記憶するエージェント。",
-        "w1lbl": "The gap it closes",
-        "w1": "Every AI session starts cold. It doesn't know your voice, your values, your past decisions, or the years of journal entries that shaped your thinking. Second Brain OS feeds all of that into every coding platform simultaneously via a single MCP connection — so the AI you work with already knows who it's working with.",
-        "w2lbl": "How it's built",
-        "w2": "Your Obsidian vault is structured like a brain: PrefrontalCortex for strategy, Hippocampus for atomic memories, TemporalLobe for patterns, Cerebellum for skills and procedures. 19 MCP server configurations connect this living knowledge graph to Cursor, Codex, Claude Code, and every other platform in your stack — at once.",
-        "w3lbl": "Why it's open",
-        "w3": "The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model's.",
-        "cta": "GitHubで見る"
-      },
-      "p12": {
-        "title": "21 channels. <em>Free. Everywhere.</em>",
-        "lede": "NSPはタイ国家ストリーミングプラットフォーム — NBTC認可21デジタルTVチャンネル、無料、フルHD、あらゆるデバイス対応。ライブEPG、視聴テレメトリ、AIコンテンツガイド、CAP v1.2緊急警報。",
-        "w1lbl": "Why it's special",
-        "w1": "Most national TV portals are afterthoughts. <b>NSP puts all 21 licensed channels in one interface</b> with live EPG, per-channel concurrency, stream health telemetry, and an AI guide that answers \"what's on now?\" across the whole kingdom — without an app install.",
-        "w2lbl": "What it replaced",
-        "w2": "Fragmented broadcaster apps, illegal streams, and the assumption that free-to-air TV can't be made as legible as a subscription platform.",
-        "w3lbl": "Decision power",
-        "w3": "Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.",
-        "w4lbl": "Live access",
-        "w4": "National deployment under NBTC licensing authority. Open to all devices, no account required.",
-        "cta": "稼働中のプラットフォームを開く"
-      },
-      "p13": {
-        "title": "47 feeds. <em>7 lenses. One campus.</em>",
-        "lede": "Chula Control Towerはチュラロンコン大学のリアルタイム運用ダッシュボード — BangkokのSiam–Samyan地区向けに、交通、インシデント、大気質、衛星、シャトル、ニュース、緊急事態の47ライブフィード。",
-        "w1lbl": "Why it's special",
-        "w1": "Most university dashboards show one feed at a time. <b>CCT puts 47 live sources on a single 3D map</b> — traffic, air quality, shuttle positions, incident reports, satellite layers, and underground utilities — so the campus president has one surface for every decision.",
-        "w2lbl": "What it replaced",
-        "w2": "Separate siloed systems for traffic, security, and environmental data. Manual incident reports. No unified view of the campus at any given moment.",
-        "w3lbl": "Decision power",
-        "w3": "Seven operational lenses — from day-to-day campus management to presidential strategic view — let each role see exactly what they need. 3D buildings and underground utility layers turn planning from guesswork into evidence.",
-        "w4lbl": "Live access",
-        "w4": "Deployed at Chulalongkorn University, Bangkok's Siam–Samyan district. Open access — no account required.",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p14": {
-        "title": "Bloomberg signals. <em>Thai market. Your rules.</em>",
-        "lede": "DayTradersは、SET、MAI、投資信託、RMF、タイESG商品にBloombergスタイルのシグナルを適用したパーソナライズ型タイ市場インテリジェンスプラットフォームです。",
-        "w1lbl": "Why it's special",
-        "w1": "Thai retail investors get either raw broker data or generic apps that don't apply value-investing logic. <b>DayTraders brings institutional-grade signal analysis to the Thai SET</b> — with Graham margin-of-safety, Buffett moat screens, and Munger mental models built into the feed, not bolted on.",
-        "w2lbl": "What it replaced",
-        "w2": "Broker portals with no analytical framework, LINE group tips, and the assumption that rigorous value investing is only for institutions with Bloomberg terminals.",
-        "w3lbl": "Decision power",
-        "w3": "Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.",
-        "w4lbl": "Live access",
-        "w4": "Live Thai market data. Open platform — no paywall, no broker lock-in.",
-        "cta": "稼働中のプラットフォームを開く"
-      },
-      "p15": {
-        "title": "Name the city. <em>We'll build its brain.</em>",
-        "lede": "City Hubは再利用可能な都市インテリジェンスプラットフォーム — 都市名を入力すれば衛星・ベースレイヤーでマッピングし、既存データを接続して合成を開始します。v.5、5都市が稼働中。",
-        "w1lbl": "Why it's special",
-        "w1": "Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what's already there.",
-        "w2lbl": "What it replaced",
-        "w2": "Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.",
-        "w3lbl": "Decision power",
-        "w3": "The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don't), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city's last day of data.",
-        "w4lbl": "Live access",
-        "w4": "Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.",
-        "cta": "稼働中のプラットフォームを開く"
-      },
-      "p16": {
-        "title": "A coastal province, <em>rendered as a control tower.</em>",
-        "lede": "Chonburi Control Towerは東部沿岸向け3D指揮画面：42ライブソース、沿岸気象・海況、市場・観光シグナル、市長インシデント、EECトレンド、建物スケールオーバーレイ。",
-        "w1lbl": "Why it's special",
-        "w1": "Most provincial dashboards flatten the city into cards and charts. <b>Chonburi Control Tower renders the province as an operating environment</b> — 20,877 3D buildings, source health, weather, marine risk, EEC news, CCTV/AIS/AQ/WX toggles, and a mayor's desk on one surface.",
-        "w2lbl": "What it replaced",
-        "w2": "Separate weather sites, marine dashboards, market tickers, tourism spreadsheets, news tabs, and static GIS layers that never told the same story at the same time.",
-        "w3lbl": "Decision power",
-        "w3": "Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.",
-        "w4lbl": "Live access",
-        "w4": "Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.",
-        "cta": "コントロールタワーを開く"
-      },
-      "p17": {
-        "title": "Thai paperwork, <em>read by the machine.</em>",
-        "lede": "Ekkasarn AIは、タイの税務インボイス、領収書、源泉徴収証明書向けドキュメントインテリジェンスエンジンです。実文書をアップロードするかサンプルを選択 — OCR、分類、フィールド抽出を実行します。",
-        "w1lbl": "Why it's special",
-        "w1": "Most OCR demos work only on clean, invented forms. <b>Ekkasarn AI reads real Thai paperwork</b> — crumpled receipts, VAT invoices, and withholding certificates — then returns category, confidence, shop, phone, and total as structured output.",
-        "w2lbl": "What it replaced",
-        "w2": "Manual accounting entry, receipt photo backlogs, spreadsheet categorization, and the fragile handoff between Thai paper documents and digital finance workflows.",
-        "w3lbl": "Decision power",
-        "w3": "A finance team can classify documents, verify extracted fields, and route them into downstream accounting logic immediately instead of waiting for human sorting.",
-        "w4lbl": "Live access",
-        "w4": "Public bilingual demo with Thai-first document types. Uploads are processed live and not retained.",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p18": {
-        "lede": "KMITL Control Towerはラートクラバン国王工科大学のリアルタイム運用ダッシュボード — 交通、インシデント、大気質、衛星、キャンパスシャトル、ニュース、緊急事態の56ライブフィード。",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p19": {
-        "lede": "Yala Control Towerはタイ南部ディープサウス、ヤラー市のリアルタイムシビックインテリジェンス。3D都市モデル、衛星レイヤー、洪水監視、セキュリティインシデント、30以上のライブフィード。",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p20": {
-        "lede": "Horizon 45は実際のAI判断力を検証するフィールドツールです。ディープフェイク検出からプロンプトエンジニアリングまで、ケイパビリティポートレートと学習ロードマップを残します。",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p21": {
-        "lede": "ホーチミン市向け大規模指揮画面。リアルタイム交通、洪水モニタリング、大気質、動的ルーティングを高性能マップ1枚に統合します。",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p22": {
-        "lede": "3地域（中東、東南アジア、タイ）をモニタリング：オープンデータに基づく究極のモニタリングプラットフォーム。レイヤリングでインサイトを可視化します。",
-        "cta": "稼働中のシステムを開く"
-      },
-      "p23": {
-        "lede": "タイ公式スマートシティ指数（SCITI）。7つのスマートシティ基準に基づき、全国174の都市圏の進捗と影響を評価します。",
-        "cta": "ライブシステムを開く"
-      },
-      "p24": {
-        "lede": "三言語『道德經』読書室 — 蔡志忠コミック、仏教対照、心理学ノート、ピンイン、ライブ参考書棚。",
-        "cta": "稼働中のシステムを開く"
-      },
-      "ikigai": {
-        "name": "Ikigai Finance Engine",
-        "lede": "中小企業向け金融インテリジェンス — 貸借対照表をシグナルとして、キャッシュランウェイ、銀行スコアカード、複合金融指数（Ikigai、Lean、Zero、Default、Solvency）。開発段階の研究プロトタイプ、スクリーンショットのみ — ABC Company Limited は架空のデモデータ、公開デプロイは未実施。",
-        "cta": "研究リポジトリを見る"
-      }
-    },
     "stagesContent": {
       "taipeiLoc": "<b>台北</b> · City Vision Stage · 2026年3月",
       "taipeiTitle": "ライブダッシュボード、45分デモ。",
@@ -1220,6 +2120,12 @@
       "sgS2": "総参加者",
       "sgS3": "参加国",
       "sgS4": "ワークショップ定員",
+      "shLoc": "<b>Tomorrow.City Shanghai 2026</b> · Main Stage · 2026",
+      "shTitle": "デジタルツインと呼ぶな。ゴッドモードと呼べ。",
+      "shLede": "デジタルツインは丁寧すぎる呼び名。ゴッドモードこそが正直な呼び方 — 神の視点であなたの街をまるごと見る、管理しやすくするためであって、ダッシュボードを崇拝するためではない。Dr Non はこのステージ 4 回目。会場は脇役、アイデアが主役 — キューブスクリーン上の FloodDash、現場でリアルタイム調理。",
+      "shQuote": "\"すべての概念を 4Ps（Purpose、Practicality、Proof、People）で濾す。そして人向けに設計する。水が速度 x で動いていると示すセンサーは市長に何も伝えない。立方メートルへ変換し、ダムの残り freeboard と比べる。そうして水が収まるか溢れるかが分かる。その基礎算数が製品だ。\"",
+      "shCite": "— Dr. Non、Tomorrow.City Shanghai キーノート",
+      "shS1": "登壇回数", "shS2": "FloodDash on キューブ", "shS3": "公開データソース", "shS4": "takeaways（4Ps 枠組み）",
       "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 7月10日",
       "leapTitle": "アジア最大のステージ。FloodDash はここでローンチ。",
       "leapLede": "Orbital Stage パネル — 「From Congestion to Connection: The Tech Powered Future of Transport in Asia」。DEPA スマートシティ推進シニアエキスパート Dr. Non Arkara が Mitchell Price、Richard Chung、Will Peters と共に、FloodDash ライブローンチで Q1–Q2 の弧を閉じました。",
@@ -1235,6 +2141,7 @@
       "collectiveTitle": "オンコールのコレクティブ。",
       "collectiveLede": "研究者、交通エンジニア、人類学者、金融専門家、政策通訳、メディアオペレーター。組織図ではなく課題で参加します。必要なとき、必要な頭脳に対価を支払います。",
       "probonoTitle": "プロボノ · 機関業務",
+      "probonoMeta": "5プロジェクト · 機関パートナー",
       "probonoNote": "すべて稼働中のライブプラットフォーム — スライドや報告書ではありません。実際の機関パートナーと共に構築し、公開配布し、現在も使用中です。",
       "pb1org": "ASEAN事務局のために",
       "pb1title": "38都市。10カ国。<em>1</em>プラットフォーム。",
@@ -1247,11 +2154,15 @@
       "pb3for": "ホニアラ · 2日ワークショップ",
       "pb4org": "タイ depa のために",
       "pb4title": "タイのデジタル機関、<em>オンライン。</em>",
-      "pb4for": "Smart City Leadership · 二言語"
+      "pb4for": "Smart City Leadership · 二言語",
+      "pb5org": "depa · US DOT",
+      "pb5title": "フィールドワークからソフトウェアへ。<em>都市システムツールキット。</em>",
+      "pb5for": "米国・ASEANスマートシティ・パートナーシップ"
     },
     "notesContent": {
       "foldLine": "フィールドノート · 6パターン · 出荷の仕方",
       "kicker": "構築の方法",
+      "meta": "フィールドノート",
       "title": "実際にリリースして学んだこと",
       "lede": "11システム。2名。12か月。維持されたパターンとそうでないパターン。政府が必要とするものと市場が供給するもののギャップは、人々が学びを共有したときだけ狭まります。",
       "n1title": "ベンダーは断った。14日でリリースした。",
@@ -1269,7 +2180,17 @@
       "stackNote": "ローカルファースト。ビルドチームなし。ベンダーロックインなし。M5 MaxがBangkokの1つのデスクから推論、ビルド、デプロイを実行します。"
     },
     "builtStack": {
-      "meta": "109ツール · 9層",
+        "heading": "技術スタック",
+        "l1name": "クラウドインフラ", "l1role": "実行環境",
+        "l2name": "フレームワークとコネクタ", "l2role": "配線",
+        "l3name": "プラットフォームとビルドツール", "l3role": "構築環境",
+        "l4name": "AIモデルとエンジン", "l4role": "知能",
+        "l5name": "ソフトウェアとライブラリ", "l5role": "構成要素",
+        "l6name": "言語", "l6role": "ソース",
+        "l7name": "リアルタイムデータソース", "l7role": "入力",
+        "l8name": "チャネル", "l8role": "出力",
+        "expandHint": "9レイヤー · 117ツール · バンコクの一つの机から構築・運用. 全リストを見るには下をクリック",
+      "meta": "114ツール · 9層",
       "expandFull": "技術スタック全体を見る",
       "l9name": "ローカルランタイム",
       "l9role": "作業机",
@@ -1284,7 +2205,7 @@
       "expandAll": "すべてのブランドシートを見る"
     },
     "pressSection": {
-      "foldLine": "報道 · 7件 · GovInsider、ASEAN Magazine、YouTube",
+      "foldLine": "報道 · 6件 · GovInsider、ASEAN Magazine、YouTube",
       "kicker": "メディア報道",
       "title": "読む。見る。判断する。",
       "lede": "業務、論点、システムに関する外部報道。"
@@ -1368,31 +2289,92 @@
       "p14": "Live · Thai Markets",
       "p15": "Live · 5 cities",
       "p16": "Live · Chonburi EEC",
-      "p17": "Live · Thai docs"
+      "p17": "Live · Thai docs",
+      "p27": "ライブ · 24/7 大気観測",
+      "p28": "オープンブループリント · GitHub",
+      "p29": "ライブ · 執筆サービス",
+      "p30": "ライブ · デイリーダイジェスト",
+      "p31": "ライブ · スクレイピング",
+      "p33": "ライブ · 地区オペレーション",
+      "p34": "ライブ · ウォッチインテリジェンス",
+      "p35": "ライブ · 建築設計",
+      "p36": "ライブ · 3D都市地図",
+      "p40": "ライブ · エージェントゲートウェイ",
+      "p41": "ライブ · 実用ツール",
+      "p42": "ライブ · 国境インテリジェンス",
+      "p43": "ライブ · ヘリテージアトラス",
+      "p44": "ライブ · 都市研究",
+      "p45": "ライブ · アジア戦域",
+      "p46": "ライブ · ワールドコンソール",
+      "p47": "ライブ · フィールド記録書",
+      "p55": "近日公開 · 文書インテリジェンス",
+      "p56": "ライブ · オープンソースキット",
+      "p57": "ライブ · オープンソースキット",
+      "p58": "オープンソースキット · GitHub",
+      "p59": "オープンソースキット · GitHub",
+      "p60": "ライブ · 戦略インテリジェンス",
+      "p61": "ライブ · 脳トレ",
+      "p62": "ライブ · 都市オペ"
     },
     "cats": {
-      "c01": "地域オペレーション",
-      "c02": "戦略インテリジェンス",
-      "c03": "国家プログラム",
-      "c04": "都市ベンチマーク",
-      "c05": "インテリジェントオペレーション",
-      "c06": "オープンインテリジェンス",
-      "c07": "交通インテリジェンス",
-      "c08": "シビックインテリジェンス",
-      "c09": "エージェンティックインテリジェンス",
-      "c10": "タレントインテリジェンス",
-      "c11": "ナレッジインテリジェンス",
-      "c12": "国家放送",
-      "c13": "キャンパスインテリジェンス",
-      "c14": "マーケットインテリジェンス",
-      "c15": "シティインテリジェンス",
-      "c16": "沿岸インテリジェンス",
-      "c17": "ドキュメントインテリジェンス",
-      "c18": "大都市オペレーション",
-      "c20": "ケイパビリティラボ",
-      "c23": "デジタルヒューマニティーズ",
-      "c25": "金融インテリジェンス"
-    },
+        "c03": "国家プログラム",
+        "c06": "オープンインテリジェンス",
+        "c40": "都市パルス",
+        "c41": "交通規制",
+        "c01": "地域オペレーション",
+        "c18": "大都市オペレーション",
+        "c05": "インテリジェントオペレーション",
+        "c42": "地区運営",
+        "c13": "キャンパスインテリジェンス",
+        "c16": "沿岸インテリジェンス",
+        "c08": "シビックインテリジェンス",
+        "c15": "シティインテリジェンス",
+        "c19": "環境モニタリング",
+        "c32": "3D都市アトラス",
+        "c36": "遺産アトラス",
+        "c47": "都市経済",
+        "c50": "立地の相性",
+        "c51": "大都市3Dアトラス",
+        "c04": "都市ベンチマーク",
+        "c02": "戦略インテリジェンス",
+        "c14": "マーケットインテリジェンス",
+        "c34": "ワーキングインストゥルメント",
+        "c35": "国境インテリジェンス",
+        "c07": "交通インテリジェンス",
+        "c12": "国家放送",
+        "c52": "コミュニティプラットフォーム",
+        "c53": "防災対策",
+        "c43": "ポッドキャスト",
+        "c09": "エージェンティックインテリジェンス",
+        "c10": "タレントインテリジェンス",
+        "c11": "ナレッジインテリジェンス",
+        "c20": "ケイパビリティラボ",
+        "c44": "ネットワーク評価",
+        "c23": "デジタルヒューマニティーズ",
+        "c25": "金融インテリジェンス",
+        "c26": "オープンブループリント",
+        "c54": "人生シミュレーション",
+        "c55": "自律シミュレーション",
+        "c56": "空間メタバース",
+        "c45": "脳力練習",
+        "c17": "ドキュメントインテリジェンス",
+        "c27": "ライティングインテリジェンス",
+        "c28": "ニュースインテリジェンス",
+        "c29": "スクレイピングサービス",
+        "c30": "時計インテリジェンス",
+        "c31": "建築インテリジェンス",
+        "c33": "エージェントゲートウェイ",
+        "c37": "都市研究",
+        "c38": "フィールドワーク本",
+        "c57": "サッカー戦術シミュレーション",
+        "c58": "サッカー研究",
+        "c59": "コンピュータービジョン教室",
+        "c60": "業務管理",
+        "c61": "色彩展示",
+        "c46": "オープンソースキット",
+        "c62": "モデル訓練",
+        "c63": "手続き型3D犬スタジオ"
+      },
     "bioCommon": {
       "cvBtn": "履歴書を見る",
       "education": "学歴"
@@ -1445,27 +2427,56 @@
       "fwTwin": "デジタルツインと相互運用性 — ISO/IEC 30173、ISO 23247、NIST",
       "fwAi": "AIガバナンスとリスク — ISO/IEC 42001、ISO/IEC 23894、NIST AI RMF、OECD AI Principles",
       "fwPrivacy": "プライバシーと信頼 — PDPA、GDPR原則；管轄遵守は案件ごと",
-      "copyright": "Bangkok · 東南アジア。© 2026 Axiom X Co., Ltd. Axiom は本サイトおよびサービスを提供する登録商号です。ここに引用される稼働時間、応答時間、成果指標は事例ごとの観測値であり、将来のパフォーマンスを保証するものではありません。"
+      "legalLabel": "規約 · プライバシー · 責任 · 法律",
+      "terms": "本サイトを利用することで、合法的に利用し、書面による許可なくスクリーンショット、ダッシュボード、モデル出力、システム内部を再公開しないことに同意したものと見なします。Axiom、Axiomの名称、および表示されるシステム名は Axiom X Co., Ltd. の商号です。",
+      "privacy": "Cloudflareが集計アクセス解析を提供します。本サイトは広告Cookieを設定せず、訪問者データを販売しません。ホスティング・解析事業者はリクエストのメタデータを処理する場合があります。リンク先には独自のプライバシーポリシーがあります。先にお読みください。",
+      "dataAttribution": "サンドボックスシステムに表示されるライブデータは、TMD、GISTDA、JICA、NBTC、汚染管理局、OpenStreetMap コントリビューター、TomTom、およびシステム内にクレジット表示されるその他の公開・オープンライセンスのフィードから取得しています。商用フィード（例: Air4Thai o61、33V、34T、Naver CFT）が混在している場合、ソースはシステム画面に表示されます。",
+      "liability": "本サイトのサンドボックスおよびデモシステムは動作しますが、保証するものではありません。すべての指標はヒントであり、判定ではありません。実際の意思決定は、元の所管当局との検証が必要です。Axiom はサンドボックスデータに基づく決定について責任を負いません。",
+      "governingLaw": "本規約はタイ王国の法律に準拠します。紛争はバンコクの裁判所の専属管轄に服します。英文テキストと翻訳が矛盾する場合、英文テキストが優先します。",
+      "hosting": "Cloudflare Pages でホスティング · バンコクで構築・運用 · 本サイトのソース: github.com/Nonarkara/Axiom (公開サイトのみ、クライアントシステムは非公開)。",
+      "copyright": "Bangkok · 東南アジア。© 2026 Axiom X Co., Ltd. ここに引用される稼働時間、応答時間、成果指標は事例ごとの観測値であり、将来のパフォーマンスを保証するものではありません。"
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"
     },
+    "HOW_IT_WORKS": "仕組み",
+    "archTag": "アーキテクチャ",
+    "stackLbl": "スタック",
+    "pb1in1": "38都市", "pb1in2": "134プロジェクト", "pb1in3": "11か国", "pb1in4": "M&E提出",
+    "pb1cm": "マルチテナント都市ベンチマーク",
+    "pb1out1": "スコアカード", "pb1out2": "公開ダッシュボード", "pb1out3": "市長向けインサイト",
+    "pb2in1": "住民112,000人", "pb2in2": "市職員", "pb2in3": "UNDP+UN-Habitat", "pb2in4": "現場エビデンス",
+    "pb2cm": "市民優先 12章プレイブック",
+    "pb2out1": "政策プレイブック", "pb2out2": "ワークショップツールキット", "pb2out3": "現場事例",
+    "pb3in1": "8省庁", "pb3in2": "UN DESAチーム", "pb3in3": "2日間ワークショップ", "pb3in4": "ホニアラ現場",
+    "pb3cm": "全政府デジタル変革",
+    "pb3out1": "デジタルロードマップ", "pb3out2": "実施タイムライン", "pb3out3": "能力構築計画",
+    "pb4in1": "タイ depa", "pb4in2": "174都市", "pb4in3": "リーダーシップコホート", "pb4in4": "カリキュラムデータ",
+    "pb4cm": "スマートシティエグゼクティブプログラム",
+    "pb4out1": "二言語ポータル", "pb4out2": "エグゼクティブディレクトリ", "pb4out3": "プログラム日程",
+    "pb5in1": "タイdepa", "pb5in2": "US DOT Volpe", "pb5in3": "フィールド研究", "pb5in4": "調査データ",
+    "pb5cm": "組織能力構築",
+    "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-      "sysMeta": "22システム · 5か国",
-      "command": "コマンド",
-      "commandMeta": "リアルタイム運用室 · 10",
-      "intelligence": "インテリジェンス",
-      "intelligenceMeta": "シグナルと分析 · 5",
-      "civic": "シビック",
-      "civicMeta": "国家プラットフォームと市民インフラ · 5",
-      "emerging": "新興",
-      "emergingMeta": "研究グレードと新運用モデル · 6"
-    },
+        "sysMeta": "80システム · 5か国",
+        "command": "シティダッシュボード",
+        "commandMeta": "リアルタイム都市運用室と環境観測 · 24",
+        "intelligence": "インテリジェンス",
+        "intelligenceMeta": "シグナルと分析 · 9",
+        "civic": "シビック",
+        "civicMeta": "国家プラットフォームと市民インフラ · 9",
+        "emerging": "新興",
+        "emergingMeta": "研究グレードと新運用モデル · 13",
+        "lab": "ラボ",
+        "labMeta": "補助ツール · 公開中 · 25"
+      },
     "sysStatus": {
-      "live": "稼働中",
-      "preview": "プレビュー",
-      "dev": "開発中"
-    },
+        "live": "稼働中",
+        "preview": "プレビュー",
+        "soon": "近日公開",
+        "dev": "開発中",
+        "emerging": "誕生途中"
+      },
     "metaKeys": {
       "AI": "AI",
       "Access": "Access",
@@ -1520,15 +2531,68 @@
       "cta": "Work With Us"
     },
     "hero": {
-      "badge": "All Systems Online",
-      "titleLine1": "Innovation",
-      "subtitle": "You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.",
-      "cta": "Start With the Pressure Map",
-      "ctaSecondary": "See Live Systems",
-      "nodeLabel": "Tap a live system",
-      "statSystems": "Live Systems",
-      "statMonitoring": "Live Monitoring",
-      "statCountries": "Countries"
+      "badge": "Danh mục dự án công khai",
+      "titleLine1": "Đổi mới",
+      "subtitle": "Thành phố của bạn có dữ liệu, nhưng lúc quan trọng không ai nhìn thấy. Chúng tôi đưa nó lên một màn hình trực tiếp cho quyết định khó nhất của bạn — chạy được trong hai tuần.",
+      "cta": "Bắt đầu thử nghiệm hai tuần",
+      "ctaSecondary": "Xem hệ thống",
+      "nodeLabel": "Chạm chọn chiến trường",
+      "exploreHint": "Kéo bản đồ · Chạm chiến trường",
+      "hudLive": "CHIẾN TRƯỜNG",
+      "hudWatching": "HỆ THỐNG ĐANG THEO",
+      "modeTour": "AUTO TOUR",
+      "modeHold": "HOLD",
+      "statSystems": "Hệ thống trong danh mục",
+      "statMonitoring": "Gắn nhãn Live",
+      "statCountries": "Quốc gia",
+      "signalLabels": {
+        "FLOOD": "Lũ", "CAMPUS": "Khuôn viên", "URBAN": "Đô thị", "ATLAS": "Bản đồ",
+        "COASTAL": "Ven biển", "TRANSIT": "Giao thông", "AIR": "Không khí",
+        "CONFLICT": "Xung đột", "GLOBAL": "Toàn cầu",
+        "BORDER": "Biên giới", "INDEX": "Chỉ số", "SCALE": "Quy mô"
+      },
+      "rotatingPhrases": [
+        "dưới dạng dịch vụ",
+        "trong hai tuần",
+        "vận hành",
+        "cho thành phố",
+        "cho quyết định",
+        "nhìn thấy được"
+      ],
+      "featured": {
+        "kicker": "TÓM TẮT CHIẾN TRƯỜNG",
+        "cta": "Mở hệ thống trực tiếp"
+      },
+      "theatres": {
+        "bangkok": {
+          "name": "Bangkok",
+          "meta": "Lũ · campus · đô thị",
+          "event": "EVENT_ID: BANGKOK_WATCH",
+          "featuredName": "FloodDash",
+          "sitrep": "Lũ, campus, bản đồ đô thị — các hệ thống Bangkok cùng một bản đồ áp lực."
+        },
+        "phuket": {
+          "name": "Phuket",
+          "meta": "Ven biển · giao thông · không khí",
+          "event": "EVENT_ID: PHUKET_WATCH",
+          "featuredName": "Phuket Ops",
+          "sitrep": "Phòng tác chiến đảo, giao thông hành khách và giám sát không khí — áp lực ven biển trong một chiến trường."
+        },
+        "middle-east": {
+          "name": "Trung Đông",
+          "meta": "Xung đột · tình báo mở",
+          "event": "EVENT_ID: ME_WATCH",
+          "featuredName": "Middle East Monitor",
+          "sitrep": "Bề mặt xung đột mở và màn hình toàn cầu nhiều lớp — tín hiệu trước chu kỳ tin."
+        },
+        "southeast-asia": {
+          "name": "Đông Nam Á",
+          "meta": "Biên giới · chỉ số · quy mô",
+          "event": "EVENT_ID: SEA_WATCH",
+          "featuredName": "Geopolitical Watch",
+          "sitrep": "Giám sát ba biên giới, chỉ số thành phố và quy mô đô thị lớn — áp lực ASEAN trên một bản đồ."
+        }
+      }
     },
     "engagement": {
       "tag": "Operating Model",
@@ -1652,6 +2716,7 @@
       "successDesc": "We'll get back to you soon."
     },
     "navCurrent": {
+      "why": "Cách làm việc",
       "systems": "Hệ thống",
       "stages": "Sân khấu",
       "team": "Đội ngũ",
@@ -1665,7 +2730,7 @@
       "sub": "Phần lớn dự án \"thành phố thông minh\" dừng lại ở slide. Hệ thống của chúng tôi đang chạy thực tế. Tuần đầu tiên lập bản đồ áp lực. Có thứ hoạt động trước mọi buổi trình bày. Mọi quyết định được ghi nhận từ ngày đầu.",
       "cta1": "Dùng FloodDash ngay",
       "cta2": "Gửi brief",
-      "stat1lbl": "Hệ thống đang vận hành",
+      "stat1lbl": "Hệ thống trong danh mục",
       "stat2lbl": "Quốc gia triển khai",
       "stat3lbl": "Thành phố được lập chỉ số",
       "stat4lbl": "FloodDash · LEAP East",
@@ -1680,282 +2745,619 @@
     "sysSect": {
       "kicker": "Đang chạy thực tế",
       "title": "Real systems. <em>Real cities.</em> Operating today.",
-      "lede": "Mỗi hệ thống bắt đầu từ một câu hỏi sắc bén, được triển khai thành giao diện hoạt động và vẫn hữu ích lâu sau khi chu kỳ báo chí ra mắt kết thúc. Nhấp vào và sử dụng — tất cả đều đang live.",
+      "lede": "Bằng chứng, không phải lời hứa. Mỗi hệ thống dưới đây bắt đầu từ một quyết định mà ai đó chưa đưa ra đủ nhanh. Tất cả đều đang chạy hôm nay — hãy mở, dùng thử và tự đánh giá.",
       "sandboxKicker": "Sandbox // Trực tiếp",
       "sandboxNote": "Đây không phải bản demo — là hệ thống đang chạy trong sandbox. Xây để mở rộng, không phải để gây ấn tượng. Triển khai production dưới NDA của khách hàng lớn hơn; những gì chạy ở đây hoạt động tương tự, chỉ giữ lại các module nâng cao."
     },
     "stageSect": {
-      "kicker": "Ba sân khấu, một vòng cung",
-      "title": "Chính phủ đã mệt mỏi <em>chờ đợi slide.</em>",
-      "lede": "Q1 mở tại Đài Bắc. Q2 lên sân khấu chính GITEX Singapore. Bộ ba khép lại tại LEAP East — sân khấu lớn nhất châu Á — với FloodDash sống ngay trong phòng. Cùng một luận điểm mỗi lần: xây ngay, đừng chờ chu kỳ ngân sách tiếp theo."
-    },
-    "flooddashSect": {
-      "kicker": "Q1–Q2 · Act III",
-      "meta": "GITEX → LEAP East → FloodDash",
-      "title": "Dùng <em>FloodDash</em> ngay.",
-      "lede": "Theo dõi lũ Thái Lan — dữ liệu địa không gian live 24/7 từ chín nguồn công khai, làm mới mỗi 3–60 phút. Ra mắt từ sân khấu lớn nhất châu Á tại LEAP East. Ai đang theo dõi lũ ở Thái Lan đều nên dùng bề mặt này hôm nay.",
-      "live": "LIVE",
-      "m1": "9 nguồn công khai",
-      "m2": "Làm mới 3–60 phút",
-      "m3": "77 tỉnh",
-      "slide1": "Tổng quan quốc gia — mọi tỉnh trên một bề mặt",
-      "slide2": "Vùng Hat Yai — hành lang lũ miền Nam",
-      "slide3": "Chi tiết Trat — cảnh báo và đọc lưu vực",
-      "cta": "Mở FloodDash live",
-      "cta2": "Ra mắt LEAP East"
+      "kicker": "Năm sân khấu · 2026",
+      "title": "Xây một lần. <em>Kiểm chứng công khai.</em>",
+      "lede": "Năm sân khấu khắp châu Á trong 2026, mỗi lần đều có hệ thống chạy thật trong phòng — SLIC Index ở Đài Bắc, FloodDash ở Singapore, Thượng Hải và Hong Kong, DEPA ở Osaka. Tất cả dưới đây đều là hồ sơ công khai. Lần tiếp theo là của chúng ta."
+    ,
+        "meta": "2026 · Osaka · Thượng Hải · Hồng Kông · Singapore · Đài Bắc",},
+    "cx": {
+      "stops": "Chặng", "cities": "Thành phố", "shots": "Ảnh sân khấu", "thesis": "Hệ thống đang chạy",
+      "osaka": {
+        "city": "Osaka",
+        "venue": "Đại học Đô thị Osaka · Khuôn viên Morinomiya",
+        "venueShort": "Đại học Đô thị Osaka",
+        "format": "Điều phim · Case · Bàn tròn",
+        "note": "Giám sát lũ DEPA và bảng điều khiển vận hành đô thị, chạy thật. Ràng buộc nằm ở thể chế, không phải công nghệ.",
+        "quote": "\"Một hệ thống dựng trong 45 phút trên một máy vẫn phải trở thành thứ mà thành phố có thể tiếp nhận hợp pháp, cấp ngân sách và duy trì.\"",
+        "cite": "Osaka Asia Roundtable 2026",
+        "s1": "Phiên", "s2": "Trên sân khấu", "s3": "Phái đoàn",
+      },
+      "leap": {
+        "v1": "Orbital",
+        "city": "Hồng Kông",
+        "venue": "LEAP East 2026 · Sân khấu Orbital · Trung tâm Hội chợ Triển lãm Hồng Kông",
+        "venueShort": "LEAP East · Orbital",
+        "format": "Bàn tròn · Ra mắt sản phẩm",
+        "note": "Khép lại Q1–Q2 bằng ra mắt FloodDash trực tiếp. Giám sát lũ Thái, 24/7, chín nguồn công khai.",
+        "quote": "\"Ai theo dõi lũ ở Thái thì hôm nay phải dùng FloodDash. Không phải quý sau. Hôm nay.\"",
+        "cite": "Bàn tròn LEAP East",
+        "s1": "Cấp sân khấu", "s2": "Diễn giả", "s3": "Nguồn trực tiếp",
+      },
+      "sg": {
+        "v3": "Hết chỗ",
+        "city": "Singapore",
+        "venue": "GITEX AI Asia · Marina Bay Sands · Sân khấu chính",
+        "venueShort": "GITEX AI Asia · MBS",
+        "format": "Điều phim · Hội thảo hết chỗ",
+        "note": "Diễn đàn sân khấu chính và hội thảo, Government Innovation as a Service chạy thật.",
+        "quote": "\"Đó không phải tiếng vỗ tay. Đó là tín hiệu cầu. Chính phủ muốn hệ thống chạy được.\"",
+        "cite": "Sau điều phim · GITEX",
+        "s1": "Sân khấu chính", "s2": "Người tham dự", "s3": "Hội thảo",
+      },
+      "tpe": {
+        "city": "Đài Bắc",
+        "venue": "Hội chợ Đô thị Thông minh · Sân khấu City Vision",
+        "venueShort": "SCSE · City Vision",
+        "format": "Điều phim · Ra mắt SLIC V2",
+        "note": "SLIC Index V2 ra mắt giữa buổi nói: 174 thành phố, 53 quốc gia, xếp hạng điều chỉnh được.",
+        "quote": "\"Chúng tôi không dựng chỉ số để đặt lên kệ. Chúng tôi dựng hệ thống chỉ huy cho con đường.\"",
+        "cite": "Điều phim Đài Bắc",
+        "s1": "Thành phố", "s2": "Quốc gia", "s3": "Thời gian dựng",
+      },
+      "sh": {
+        "city": "Thượng Hải",
+        "venue": "Tomorrow.City Thượng Hải 2026 · Nhà hội nghịa khoa Trương Giang · Lần thứ 4",
+        "venueShort": "Tomorrow.City · Chính",
+        "format": "Điều phim · Demo trực tiếp · Bàn tròn",
+        "note": "Không phải digital twin — mà là God Mode. Tính toán lũ trực tiếp trên màn hình lập phương.",
+        "quote": "\"Cảm biến bảo nước đang chảy bao nhiêu chẳng nói được gì với một thị trưởng. Phép toán cơ bản đó chính là sản phẩm.\"",
+        "cite": "Tomorrow.City Thượng Hải",
+        "s1": "Số lần lên sân khấu", "s2": "Nguồn dữ liệu", "s3": "Bài học",
+      },
+      "l": {
+        "date": "Ngày", "city": "Thành phố", "where": "Địa điểm", "fmt": "Hình thức",
+        "note": "Mỗi chặng đều có ngày lấy từ chương trình hoặc agenda chính thức của ban tổ chức. Không có tuyên bố nào trên thanh ray này thiếu căn cứ.",
+        "updated": "Cập nhật 2026.10",
+      },
     },
     "teamSect": {
       "foldLine": "Đội ngũ · Dr Non & Dr Poon · hai nhà sáng lập · mạng lưới theo nhiệm vụ",
       "kicker": "Ai xây dựng",
+      "meta": "Bangkok",
       "title": "Hai nhà sáng lập. <em>Không có lớp trung gian.</em>",
       "lede": "Quý vị trao đổi trực tiếp với người viết mã và quyết định kiến trúc. Khi cần điều hành viên UAV, kỹ sư giao thông hoặc chuyên gia chuyển ngữ chính sách, chúng tôi triệu tập họ cho nhiệm vụ đó — không duy trì đội ngũ cố định."
     },
     "ctaSect": {
       "kicker": "Hợp tác",
-      "title": "Gửi brief. <em>Chúng tôi sẽ lập bản đồ áp lực.</em>",
-      "body": "Nếu vấn đề là thực tế và quyết định quan trọng, chúng tôi sẽ cho thấy điều có thể chứng minh trong hai tuần. Không khởi động chu kỳ đấu thầu. Không moodboard.",
-      "promise1": "Lập bản đồ áp lực trong tuần đầu. Quyết định, người dùng, dữ liệu trên bàn.",
-      "promise2": "Pilot hoạt động trước khi chỉnh slide. Dữ liệu miễn phí và sẵn có trước; hạ tầng mới chỉ khi được biện minh.",
-      "promise3": "Dấu vết dữ liệu từ ngày đầu. Lượt xem, nội dung, nhật ký quyết định — để lần xây dựng tiếp theo đọc được.",
+      "meta": "Bangkok · Đông Nam Á",
+      "title": "Hãy cho chúng tôi biết quyết định đó. <em>Chúng tôi sẽ cho bạn thấy nó chạy trong hai tuần.</em>",
+      "body": "Viết một đoạn: quyết định bạn cần đưa ra nhanh hơn, ai là người quyết định, và dữ liệu hiện nằm ở đâu. Bạn sẽ nhận lại một câu “có” rõ ràng, một câu “không” rõ ràng, hoặc một câu hỏi sắc hơn. Không có slide bán hàng. Không có màn khởi động mua sắm.",
+      "promise1": "Tuần 1 — thống nhất quyết định, con người và dữ liệu trên một trang.",
+      "promise2": "Tuần 2 — một bản thử nghiệm chạy được trên dữ liệu sẵn có và dữ liệu công khai miễn phí. Không cần phần cứng mới để bắt đầu.",
+      "promise3": "Từ ngày đầu — ghi lại mọi lượt dùng và mọi quyết định, để chỉ mở rộng những gì đã được chứng minh.",
       "alt": "Or find us on"
     },
     "panels": {
-      "p01": {
-        "title": "A governor's <em>situation room</em>, in a browser tab.",
-        "lede": "Tín hiệu giao thông, an toàn công cộng và môi trường của Phuket, hợp nhất trên một giao diện mà tỉnh trưởng đọc được trong 30 giây. Xây dựng trong vài tuần, không phải chu kỳ đấu thầu.",
-        "w1lbl": "Why it's special",
-        "w1": "Most government dashboards are read-only PDFs disguised as software. Phuket is a working operations room: transit, safety, and environment fused on one screen, refreshed every 42ms. The governor reads it directly — no analyst translation layer.",
-        "w2lbl": "What it replaced",
-        "w2": "Three siloed agency reports, an SMS escalation chain, and a Tuesday-morning briefing slot.",
-        "w3lbl": "Earned on day one",
-        "w3": "Built on existing IoT infrastructure — no new hardware procurement.",
-        "cta": "Mở hệ thống đang chạy"
+        "p48": {
+          "name": "FLOODDASH (Giám sát lũ Thái Lan)",
+          "lede": "Hệ thống giám sát lũ thời gian thực, mã nguồn mở, để mọi tỉnh của Thái Lan đọc cùng một bức tranh tình hình từ dữ liệu công khai chính thức. Kéo từ 9 nguồn công cộng mỗi 3–60 phút.",
+          "cta": "Mở hệ thống trực tiếp"
+        },
+        "p65": {
+          "lede": "Kênh công khai của FloodDash — 112K người theo dõi, 37K lượt thích trên Facebook. Bản tin lũ hàng ngày bằng tiếng Thái, với SLIC · depa · RCAD. Dữ liệu hôm nay. An toàn hơn ngày mai.",
+          "cta": "Theo dõi trên Facebook",
+          "name": "FloodDash Community"
+        },
+        "p49": {
+          "name": "Vận hành thị trấn Sikhio",
+          "lede": "Mặt chỉ huy trực tiếp theo dõi Chính quyền thị trấn Sikhio — tích hợp AQI, thời tiết, mô hình giao thông và dữ liệu đô thị trực tiếp để hỗ trợ quyết định của thành phố.",
+          "cta": "Mở hệ thống trực tiếp"
+        },
+        "p50": {
+          "lede": "Tình báo công dân thời gian thực cho Chính quyền thành phố Nakhon Si Thammarat — thành phố 3D, vệ tinh, giám sát lũ, lưu vực Khao Luang & Pak Phanang. Hơn 30 nguồn dữ liệu trực tiếp.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "NST-01 · Nakhon Si Thammarat"
+        },
+        "p51": {
+          "name": "Vận hành Laem Chabang",
+          "lede": "Mặt chỉ huy trực tiếp giám sát giao thông xe tải và tuân thủ quy định trên toàn thành phố Laem Chabang. Được thiết kế để điều phối giao thông cảng, giảm ùn tắc và đảm bảo an toàn đô thị.",
+          "cta": "Mở hệ thống trực tiếp"
+        },
+        "p01": {
+          "title": "A governor's <em>situation room</em>, in a browser tab.",
+          "lede": "Tín hiệu giao thông, an toàn công cộng và môi trường của Phuket, hợp nhất trên một giao diện mà tỉnh trưởng đọc được trong 30 giây. Xây dựng trong vài tuần, không phải chu kỳ đấu thầu.",
+          "w1lbl": "Why it's special",
+          "w1": "Most government dashboards are read-only PDFs disguised as software. Phuket is a working operations room: transit, safety, and environment fused on one screen, refreshed every 42ms. The governor reads it directly — no analyst translation layer.",
+          "w2lbl": "What it replaced",
+          "w2": "Three siloed agency reports, an SMS escalation chain, and a Tuesday-morning briefing slot.",
+          "w3lbl": "Earned on day one",
+          "w3": "Built on existing IoT infrastructure — no new hardware procurement.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "Phuket Ops"
+        },
+        "p21": {
+          "lede": "Giao diện chỉ huy quy mô lớn cho Thành phố Hồ Chí Minh. Hợp nhất giao thông trực tiếp, giám sát lũ, chất lượng không khí và định tuyến động trên một bản đồ hiệu năng cao.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "HCMCx Super Dashboard"
+        },
+        "p62": {
+          "lede": "Phòng tác chiến Lop Buri — viễn trắc lưu vực FloodDash thời gian thực (ThaiWater/HII), trạng thái hồ chứa Pa Sak Jolasid, nghe xã hội, lưới ô CCTV và các lớp vệ tinh cho tỉnh Lop Buri, trên một màn hình. Một màn hình, bốn dòng dữ liệu, cách đọc có thể điều phối.",
+          "cta": "Mở phòng tác chiến",
+          "name": "Lopburi Operations"
+        },
+        "p33": {
+          "lede": "Giao diện chỉ huy Muang Thong Thani — IMPACT Arena, hội trường Challenger, theo dõi lũ, giao thông, AQI và tải sự kiện trên một bản đồ khu vực 3D. Xây cho người vận hành tổ hợp hỗn hợp dày đặc nhất Thái Lan.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "MTT Super Dashboard"
+        },
+        "p05": {
+          "title": "Greater Kuching, <em>one command surface.</em>",
+          "lede": "IOC toàn phổ cho Greater Kuching, Sarawak. Tỷ giá, chuyến bay, ảnh vệ tinh và tín hiệu môi trường — hợp nhất cho đơn vị vận hành thành phố thông minh tăng trưởng nhanh nhất Đông Nam Á.",
+          "w1lbl": "Why it's special",
+          "w1": "Most IOCs are single-domain. Kuching fuses cross-domain signals in one view — currency pressure, flight arrivals, Sentinel-2 sweeps, environmental reads. The operator never switches tabs to see the full picture.",
+          "w2lbl": "Who uses it",
+          "w2": "Greater Kuching city operators and planners. Built for real-time situational awareness — not a demo room, for daily use.",
+          "w3lbl": "Why it matters",
+          "w3": "Same information density a Bloomberg terminal gives a trading desk — but for a city, at a fraction of the cost.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "Kuching IOC"
+        },
+        "p63": {
+          "lede": "Malaysia · Chế độ Thần. Mực nước sông JPS trên mọi lưu vực, cảnh báo MET Malaysia, xe buýt và tàu hỏa, tàu biển và máy bay, không khí và cháy, cùng chỉ số công dân cho biết ai sống xa sự trợ giúp. Một bản đồ, EN · BM · 中文.",
+          "cta": "Mở bản đồ trực tiếp",
+          "name": "Malaysia · God Mode"
+        },
+        "p13": {
+          "title": "47 feeds. <em>7 lenses. One campus.</em>",
+          "lede": "Chula Control Tower là bảng điều khiển vận hành thời gian thực cho Đại học Chulalongkorn — 47 luồng dữ liệu trực tiếp về giao thông, sự cố, chất lượng không khí, vệ tinh, shuttle, tin tức và sự kiện khẩn cấp tại quận Siam–Samyan, Bangkok.",
+          "w1lbl": "Why it's special",
+          "w1": "Most university dashboards show one feed at a time. <b>CCT puts 47 live sources on a single 3D map</b> — traffic, air quality, shuttle positions, incident reports, satellite layers, and underground utilities — so the campus president has one surface for every decision.",
+          "w2lbl": "What it replaced",
+          "w2": "Separate siloed systems for traffic, security, and environmental data. Manual incident reports. No unified view of the campus at any given moment.",
+          "w3lbl": "Decision power",
+          "w3": "Seven operational lenses — from day-to-day campus management to presidential strategic view — let each role see exactly what they need. 3D buildings and underground utility layers turn planning from guesswork into evidence.",
+          "w4lbl": "Live access",
+          "w4": "Deployed at Chulalongkorn University, Bangkok's Siam–Samyan district. Open access — no account required.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "Chula Control Tower"
+        },
+        "p16": {
+          "title": "A coastal province, <em>rendered as a control tower.</em>",
+          "lede": "Chonburi Control Tower là giao diện chỉ huy 3D cho bờ biển phía Đông: 42 nguồn trực tiếp, thời tiết ven biển và trạng thái biển, tín hiệu thị trường và du lịch, sự cố thị trưởng, xu hướng EEC, lớp phủ quy mô tòa nhà.",
+          "w1lbl": "Why it's special",
+          "w1": "Most provincial dashboards flatten the city into cards and charts. <b>Chonburi Control Tower renders the province as an operating environment</b> — 20,877 3D buildings, source health, weather, marine risk, EEC news, CCTV/AIS/AQ/WX toggles, and a mayor's desk on one surface.",
+          "w2lbl": "What it replaced",
+          "w2": "Separate weather sites, marine dashboards, market tickers, tourism spreadsheets, news tabs, and static GIS layers that never told the same story at the same time.",
+          "w3lbl": "Decision power",
+          "w3": "Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.",
+          "w4lbl": "Live access",
+          "w4": "Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.",
+          "cta": "Mở tháp điều hành",
+          "name": "Chonburi Control Tower"
+        },
+        "p18": {
+          "lede": "KMITL Control Tower là bảng điều khiển vận hành thời gian thực cho Viện Công nghệ Vua Mongkut Ladkrabang — 56 luồng dữ liệu trực tiếp về giao thông, sự cố, chất lượng không khí, vệ tinh, shuttle campus, tin tức và sự kiện khẩn cấp.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "KMITL Control Tower"
+        },
+        "p19": {
+          "lede": "Yala Control Tower cung cấp tình báo công dân thời gian thực cho thành phố Yala ở Deep South Thái Lan. Mô hình 3D, lớp vệ tinh, theo dõi lũ, sự cố an ninh và hơn 30 luồng trực tiếp.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "Yala Control Tower"
+        },
+        "p15": {
+          "title": "Name the city. <em>We'll build its brain.</em>",
+          "lede": "City Hub là nền tảng tình báo đô thị tái sử dụng — cho tên thành phố, nó lập bản đồ bằng lớp vệ tinh và nền, kết nối dữ liệu sẵn có và bắt đầu tổng hợp. v.5, năm thành phố đang chạy.",
+          "w1lbl": "Why it's special",
+          "w1": "Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what's already there.",
+          "w2lbl": "What it replaced",
+          "w2": "Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.",
+          "w3lbl": "Decision power",
+          "w3": "The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don't), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city's last day of data.",
+          "w4lbl": "Live access",
+          "w4": "Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.",
+          "cta": "Mở nền tảng đang chạy",
+          "name": "City Hub"
+        },
+        "p27": {
+          "lede": "AirDash là hệ thống giám sát chất lượng không khí và bụi 24/7 của Thái Lan — xếp hạng tỉnh, dự báo CAMS trừ mưa 3 ngày, top 5 tỉnh AT-risk và PM2.5, logic washout, donut mẫu quốc gia trên một mặt.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "AirDash"
+        },
+        "p36": {
+          "lede": "Bản đồ 3D Bangkok trên trình duyệt — 432.077 tòa nhà OSM thật, địa hình, chất lượng không khí, radar mưa, giá đất Bộ Tài chính, BTS/MRT và kênh. Đi từng khối phố.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "BKKx 3D Atlas"
+        },
+        "p43": {
+          "lede": "Di sản Bangkok, từng khối phố — chín khu từ đảo hoàng gia đến Bang Krachao, 571 di tích đăng ký, bảy tuyến đi bộ có ghi chép. Nửa văn hóa của cặp BKKx, cạnh bản song sinh vận hành tại atlas.nonarkara.org.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "BKKx Culture"
+        },
+        "jakarta": {
+          "lede": "Bản đồ đô thị 3D và bàn vận hành cho DKI Jakarta — khối công trình, bản tin thời tiết BMKG, báo cáo CRM dịch vụ công dân và rủi ro ngập lụt trên một màn hình tương tác. Tiếng Indonesia · EN.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "Jakarta 3D Atlas"
+        },
+        "p67": {
+          "lede": "Xây dựng thành phố trên địa điểm OpenStreetMap thực tế và theo dõi nền kinh tế phát triển. Lấy cảm hứng từ SimCity 2000 cùng các quy tắc quy hoạch đô thị năm 2026.",
+          "cta": "Mở bản thử nghiệm",
+          "name": "simsmartcity"
+        },
+        "p69": {
+          "lede": "Bản sao kỹ thuật số toàn khuôn viên của Thailand Digital Valley tại Si Racha — 5 tòa nhà, 86.000 m², thông tin công trình chính thức, 25 sơ đồ tầng đã công bố, khách tham quan chibi hoạt hình và IoT 1 CAD.",
+          "cta": "Vào khuôn viên",
+          "name": "TDV · Thailand Digital Valley"
+        },
+        "bangkokIoc": {
+          "lede": "Trung tâm điều hành của Thống đốc Bangkok có thêm một thí điểm đánh giá độ phù hợp nơi ở: chọn khu vực quanh ga BTS, đối chiếu với giới hạn tiền thuê và đi lại của bạn, rồi đọc những gì được ghi nhận xung quanh — phản ánh của người dân, địa điểm công cộng, quãng đi bộ thực tế tới sân ga. Đây là nghiên cứu tại bàn, không phải danh sách bất động sản.",
+          "cta": "Mở Bangkok IOC",
+          "name": "Bangkok IOC"
+        },
+        "dhaka": {
+          "lede": "Hệ thống thông tin không gian 3D cấp ô phố cho Dhaka, Bangladesh. Đọc chiều cao công trình, độ dốc địa hình, động lực lũ mùa gió mùa và hình thái đô thị mật độ cao trên 129 phường.",
+          "cta": "Mở bản đồ Dhaka",
+          "name": "DHKx 3D Atlas · Đaka"
+        },
+        "p04": {
+          "title": "A ranking <em>that argues back.</em>",
+          "lede": "SLIC Index không nói thành phố đáng giá bao nhiêu. Nó cho thấy năm trụ cột và để họ tự kiểm tra ưu tiên. Thị trưởng quyết định \"sống được\" nghĩa là gì — và phép toán đi theo.",
+          "w1lbl": "Why it's special",
+          "w1": "Every other livability index hands cities a finished verdict. SLIC hands them the math. Move the pillar weights, watch your ranking change — and your peers' — in real time. The argument becomes the product.",
+          "w2lbl": "What it replaced",
+          "w2": "Static prestige leaderboards. The annual ranking PDF. The conversation that ended with \"we don't agree with the methodology.\"",
+          "w3lbl": "Audience signal",
+          "w3": "Picked up by Mayors of Europe. Live-demo'd at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.",
+          "cta": "Mở SLIC v3",
+          "name": "SLIC Index"
+        },
+        "p22": {
+          "lede": "Giám sát ba vùng (Trung Đông, Đông Nam Á, Thái Lan): nền tảng giám sát tối ưu dựa trên dữ liệu mở, phơi bày insight qua lớp chồng.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "Global Monitor"
+        },
+        "p45": {
+          "lede": "Năm chiến trường châu Á và 5 điểm nghẽn chiến lược hàng hải — Malacca, Hormuz, Bab-el-Mandeb, Đài Loan, Sunda — trên một bản đồ trực tiếp: mặt trận xung đột, điểm cháy, hành lang hàng không và hàng hải, tin tức và truyền hình khu vực.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "AsiaWatch · Lính gác Liên Á"
+        },
+        "p46": {
+          "lede": "Toàn bộ hành tinh trên một màn hình: theo dõi máy bay và tàu thuyền trực tiếp trên toàn cầu, các điểm nóng xung đột và hỏa hoạn, cột tình báo và dải thị trường luôn mở. Cùng một động cơ dữ liệu mở, quy mô toàn cầu.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "World Console"
+        },
+        "p06": {
+          "title": "News <em>before the algorithm decides what's war.</em>",
+          "lede": "MEM là giao diện tin tức mã nguồn mở nhanh nhất cho đưa tin xung đột Trung Đông. Đa nguồn trực tiếp, không trễ biên tập, không bong bóng lọc. Tín hiệu trước chu kỳ tin tức.",
+          "w1lbl": "Why it's special",
+          "w1": "Every major news platform has an editorial layer that slows, filters, frames. MEM removes that layer. The same signals a desk analyst aggregates manually — in one surface, at machine speed.",
+          "w2lbl": "What it replaced",
+          "w2": "Three browser tabs, two Telegram channels, and a Twitter/X list — open simultaneously to triangulate what was actually happening on the ground.",
+          "w3lbl": "Who uses it",
+          "w3": "Journalists, policy analysts, NGO field teams. Anyone who needs ground-level signal faster than the 24-hour news cycle delivers it.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "Middle East Monitor"
+        },
+        "p14": {
+          "title": "Bloomberg signals. <em>Thai market. Your rules.</em>",
+          "lede": "DayTraders là nền tảng tình báo thị trường Thái Lan cá nhân hóa — tín hiệu kiểu Bloomberg cho SET, MAI, quỹ tương hỗ, RMF và công cụ ESG Thái Lan.",
+          "w1lbl": "Why it's special",
+          "w1": "Thai retail investors get either raw broker data or generic apps that don't apply value-investing logic. <b>DayTraders brings institutional-grade signal analysis to the Thai SET</b> — with Graham margin-of-safety, Buffett moat screens, and Munger mental models built into the feed, not bolted on.",
+          "w2lbl": "What it replaced",
+          "w2": "Broker portals with no analytical framework, LINE group tips, and the assumption that rigorous value investing is only for institutions with Bloomberg terminals.",
+          "w3lbl": "Decision power",
+          "w3": "Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.",
+          "w4lbl": "Live access",
+          "w4": "Live Thai market data. Open platform — no paywall, no broker lock-in.",
+          "cta": "Mở nền tảng đang chạy",
+          "name": "DayTraders"
+        },
+        "p41": {
+          "lede": "Tình báo thị trường dựng để hữu ích, không để gây ấn tượng. Thế giới, ống kính, bản đồ, FX, quốc hội, tỷ lệ cược và kế hoạch — mọi màn hình phải đổi ít nhất một quyết định bạn có thể làm tuần này. Bản xem trước nghiên cứu, không phải lời khuyên. Mỗi con số mang tuổi của nó.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "DAY 2"
+        },
+        "p70": {
+          "lede": "Trí tuệ kiến trúc — 11 hồ sơ hình khối (từ thẳng đứng đến cối xay gió), 9 chỉ số hiệu suất hình khối: tiền thuê, diện tích, tầm vươn trời, ánh sáng tự nhiên, độ đặc trưng hình khối. Cuộc hội ngộ sau 20 năm với luận văn MIT năm 2006. Tính toán lại kịch bản trực tiếp sau mỗi chỉnh sửa. Lấy cảm hứng từ SHDT.",
+          "cta": "Thiết kế hình khối",
+          "name": "FormHypes · SHDT"
+        },
+        "p42": {
+          "lede": "Bảng điều khiển chỉ huy ba biên giới của Thái Lan — Myanmar, Campuchia và chiến trường phía nam — hoạt động trực tiếp, phát lại lịch sử và thiết kế tình báo cấp điều hành trên một bản đồ.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "Geopolitical Watch"
+        },
+        "p23": {
+          "lede": "Chỉ số Thành phố Thông minh Thái Lan chính thức (SCITI) đánh giá tiến độ và tác động của 174 khu đô thị trên cả nước theo 7 trụ cột thành phố thông minh.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "Smart City Thailand Index (SCITI)"
+        },
+        "p07": {
+          "title": "The bus, tracked. <em>The rider, informed.</em>",
+          "lede": "Theo dõi GPS thời gian thực và telemetry hành khách cho mạng xe buýt thông minh Phuket. Thiết kế cho điện thoại người đi trước — không phải màn hình phòng điều hành.",
+          "w1lbl": "Why it's special",
+          "w1": "Smart bus systems usually exist for the operator's dashboard. This one exists for the person waiting at the stop. GPS position, next arrival, route clarity — for a tourist who doesn't read Thai and a commuter who doesn't have time to guess.",
+          "w2lbl": "What it replaced",
+          "w2": "Standing at a stop with no information. A bus schedule printed in 2019. The assumption that transit on a tourist island can't be made legible.",
+          "w3lbl": "Built on top of",
+          "w3": "Phuket's existing IoT infrastructure — the same sensor layer that feeds the Governor's operations room. No new hardware.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "Phuket Smart Bus"
+        },
+        "p08": {
+          "title": "Reports arrive. <em>AI turns them into action.</em>",
+          "lede": "SCTH V2 là nền tảng dữ liệu đô thị Smart City Thailand: thu nhận báo cáo công dân từ Telegram và LINE, phân tích bằng AI, và phủ lớp vệ tinh và bản đồ gần thời gian thực cho nhà xây dựng, nhà phát triển và quản lý thành phố.",
+          "w1lbl": "Why it's special",
+          "w1": "Most city complaint systems stop at a ticket number. SCTH V2 turns the report stream into a decision surface. Messenger reports, field photos, SLA risk, and AI pattern detection sit on the same map as precipitation, aerosol, cloud, terrain, and street layers.",
+          "w2lbl": "What it replaced",
+          "w2": "Screenshots in chat groups, manual spreadsheet triage, static map layers, and the delay between \"someone reported it\" and \"someone can act on it.\"",
+          "w3lbl": "Decision power",
+          "w3": "City teams can absorb reports, assign owners, analyze recurring patterns, export sheets or PDFs, and push response tasks while the city context is still live.",
+          "w4lbl": "Live access",
+          "w4": "Proprietary system under continuous daily development. The link runs a live tunnel — if it doesn't resolve, the system is mid-upgrade. Check back in a moment.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "SCTH City Data Platform"
+        },
+        "p12": {
+          "title": "21 channels. <em>Free. Everywhere.</em>",
+          "lede": "NSP là nền tảng streaming quốc gia Thái Lan — 21 kênh TV số được NBTC cấp phép, miễn phí, Full HD, mọi thiết bị. EPG trực tiếp, telemetry lượt xem, hướng dẫn nội dung AI, cảnh báo khẩn CAP v1.2.",
+          "w1lbl": "Why it's special",
+          "w1": "Most national TV portals are afterthoughts. <b>NSP puts all 21 licensed channels in one interface</b> with live EPG, per-channel concurrency, stream health telemetry, and an AI guide that answers \"what's on now?\" across the whole kingdom — without an app install.",
+          "w2lbl": "What it replaced",
+          "w2": "Fragmented broadcaster apps, illegal streams, and the assumption that free-to-air TV can't be made as legible as a subscription platform.",
+          "w3lbl": "Decision power",
+          "w3": "Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.",
+          "w4lbl": "Live access",
+          "w4": "National deployment under NBTC licensing authority. Open to all devices, no account required.",
+          "cta": "Mở nền tảng đang chạy",
+          "name": "NSP"
+        },
+        "p64": {
+          "lede": "Carbon rừng Thái Lan — chạm một tỉnh hoặc kéo một ô để xem trữ lượng carbon dựa trên vệ tinh, hấp thụ và phát thải rừng, cháy rừng và CO₂ hóa thạch, kèm nguồn và độ bất định. Có bàn đánh giá dự án T-VER. Tiếng Thái · Tiếng Anh.",
+          "cta": "Mở bàn đánh giá",
+          "name": "Forest Carbon Thailand"
+        },
+        "constitution": {
+          "lede": "Đọc, đánh dấu, nghe và thực hành Hiến pháp Thái Lan 2017 với đầy đủ 279 điều bằng tiếng Thái, Anh và Trung. Thẻ học tập, tìm kiếm, âm thanh và hiểu biết công dân. Thái · EN · Trung.",
+          "cta": "Mở phòng đọc",
+          "name": "Thai Constitution Reader"
+        },
+        "techhunt": {
+          "lede": "Thị trường công nghệ đã được xác minh cho các thành phố Thái Lan: 125 công ty khởi nghiệp được chứng nhận trên 7 lĩnh vực thành phố thông minh, xếp hạng theo cường độ tín hiệu trực tiếp cho cán bộ mua sắm và quy hoạch đô thị. Sáng kiến hợp tác giữa depa, SLIC và UWN.",
+          "cta": "Mở TechHunt",
+          "name": "Smart City Thailand TechHunt"
+        },
+        "burma": {
+          "lede": "Nền tảng cộng đồng tiếng Miến Điện với các phòng trò chuyện công khai cố định và bản tin tóm tắt hàng ngày. Giao diện Win95 cổ điển, xây dựng cho Sáng kiến Thanh niên GovTech.",
+          "cta": "Mở Pirchchat",
+          "name": "Pirchchat · A-Lin-Ein"
+        },
+        "tsunami": {
+          "lede": "Nền tảng tình báo phòng thủ và cảnh báo sớm sóng thần ven biển cho vành đai Andaman. Đo xa phao thực tế, mạng lưới cảm biến địa chấn, mô hình dòng triều dâng và hướng sơ tán ven biển.",
+          "cta": "Mở Soonami",
+          "name": "Soonami · Phòng thủ Sóng thần"
+        },
+        "p52": {
+          "name": "20 phút với Dr Non",
+          "lede": "Podcast mới — ý tưởng, tác nhân, địa chính trị, và hai mươi phút tiếp theo. Đang phát trực tiếp trên Spotify, thêm tập đang ra.",
+          "cta": "Mở trên Spotify"
+        },
+        "p09": {
+          "title": "Eleven voices. <em>One decision.</em>",
+          "lede": "AI Council của Dr. Non là hệ thống thảo luận đa tác tử cá nhân: 11 thẩm phán AI với tên đối xứng (Tenet, Radar, Otto, Hannah, Ada…) chạy liên tục trên Mac cục bộ, khoảng 3 USD/tháng.",
+          "w1lbl": "Why it exists",
+          "w1": "Single models give one answer. Problems worth solving deserve argument. The council runs four operating modes — VERIFY, DECIDE, EXPLORE, DEBATE — and justices use explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS) so every position change is visible and traceable.",
+          "w2lbl": "What it costs",
+          "w2": "Manus-class autonomous-agent capability at $3/month. The council chair runs on Mistral Large 3. The Thai-native skeptic (Ada) runs on ThaiLLM — a government-backed model, free. The executor (Otto) handles OCR, video downloads, email drafts, PDF generation, and Google Drive sync without touching cloud infrastructure.",
+          "w3lbl": "Why no demo",
+          "w3": "The council is trained on Dr Non's personal journals, decisions, meeting notes, and voice. Proprietary by necessity. The protocol stack — ~600 lines of Python — is open. The IP is the coordination methodology, not the weights.",
+          "cta": "Xem trên GitHub",
+          "cta2": "v2 · Agentic + Executor",
+          "name": "Dr Non's AI Council"
+        },
+        "p10": {
+          "title": "HR has been a <em>record system</em> long enough.",
+          "lede": "TKCX là hệ thống vận hành nhân tài dựa trên game: nhân viên là thành viên đội, dự án là nhiệm vụ, lắp đội là chiến lược.",
+          "cta": "Xem trên GitHub",
+          "w1lbl": "The problem",
+          "w1": "Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.",
+          "w2lbl": "The engine",
+          "w2": "Built on Dragon Quest III's party system. Five archetypes map to real workplace roles (captain, tech, sales, ops, scout). A Moneyball budget cap — project budget ÷ 10 = monthly salary ceiling — forces allocation discipline. The readiness formula weighs coverage, quality, chemistry, and morale so the right team is visible before the project starts, not after it fails.",
+          "w3lbl": "What it changes",
+          "w3": "Directors stop hoarding people. Projects stop running on political capital. Skill gaps become visible before they become failures. And HR — renamed Talent Incubation — becomes the most strategic function in the building, not the most avoided one.",
+          "name": "TKCX"
+        },
+        "p11": {
+          "title": "The AI <em>that knows you.</em>",
+          "lede": "Second Brain OS kết nối vault Obsidian với mọi nền tảng lập trình AI đồng thời qua MCP. 19 cấu hình máy chủ. Tác tử nhớ bản thiết kế persona và giọng văn.",
+          "w1lbl": "The gap it closes",
+          "w1": "Every AI session starts cold. It doesn't know your voice, your values, your past decisions, or the years of journal entries that shaped your thinking. Second Brain OS feeds all of that into every coding platform simultaneously via a single MCP connection — so the AI you work with already knows who it's working with.",
+          "w2lbl": "How it's built",
+          "w2": "Your Obsidian vault is structured like a brain: PrefrontalCortex for strategy, Hippocampus for atomic memories, TemporalLobe for patterns, Cerebellum for skills and procedures. 19 MCP server configurations connect this living knowledge graph to Cursor, Codex, Claude Code, and every other platform in your stack — at once.",
+          "w3lbl": "Why it's open",
+          "w3": "The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model's.",
+          "cta": "Xem trên GitHub",
+          "name": "Second Brain OS"
+        },
+        "p20": {
+          "lede": "Horizon 45 là công cụ thực địa để kiểm tra phán đoán AI thực tế. Từ phát hiện deepfake đến prompt engineering, người dùng rời đi với chân dung năng lực và lộ trình học.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "Horizon 45"
+        },
+        "p53": {
+          "name": "Đánh giá hiệu quả ASCN (Bản giám đốc)",
+          "lede": "Một bảng điều khiển thông tin toàn diện về hiệu quả của Mạng lưới thành phố thông minh ASEAN qua 134 dự án và 38 thành phố — xem xét đà phát triển danh mục và sự thay đổi trọng tâm qua bốn chu kỳ M&E.",
+          "cta": "Mở hệ thống trực tiếp"
+        },
+        "p24": {
+          "lede": "Phòng đọc Đạo Đức Kinh được cập nhật: 81 chương bằng tiếng Anh, Thái và Trung, học chữ, ghi chú minh họa và quan hệ màu của Palette.",
+          "cta": "Mở hệ thống đang chạy",
+          "original": "Đọc phiên bản gốc",
+          "name": "Dao × Palette"
+        },
+        "ikigai": {
+          "name": "Ikigai Finance Engine",
+          "lede": "Tình báo tài chính cho SME — bảng cân đối kế toán như tín hiệu, đường băng tiền mặt, thẻ điểm ngân hàng và các chỉ số tài chính tổng hợp (Ikigai, Lean, Zero, Default, Solvency). Nguyên mẫu nghiên cứu đang phát triển, chỉ có ảnh chụp màn hình — ABC Company Limited là dữ liệu demo giả định, chưa triển khai công khai.",
+          "cta": "Xem kho nghiên cứu"
+        },
+        "p28": {
+          "lede": "FloodDash Blueprint là bạn đồng hành nghiên cứu mở của hệ thống giám sát lũ lụt Thái Lan — mạng cảm biến, logic thoát nước, dự báo lũ AI, playbook ứng phó, toàn bộ pipeline dữ liệu-đến-quyết định, mở cho mọi thành phố.",
+          "cta": "Xem trên GitHub",
+          "name": "FloodDash Blueprint"
+        },
+        "ladder": {
+          "lede": "Công cụ thẩm định đầu tư mạo hiểm và bảng điểm đồng hành cùng Ikigai. Đánh giá thương vụ, danh mục thẩm định tài chính, khớp luận điểm và thẩm định rủi ro danh mục trong không gian riêng.",
+          "access": "Cần đăng nhập",
+          "cta": "Mở Ladder",
+          "name": "Ladder · Ikigai"
+        },
+        "life": {
+          "lede": "Một thế giới lớn dần quanh bạn: một cuộc đời hư cấu trong thị trấn Thái Lan theo góc nhìn đẳng cự, chơi ở tốc độ 2× đến 20×. Mỗi ngã rẽ đều phải chọn và mỗi lựa chọn đều có cái giá. Lưu trong trình duyệt. Hiện dùng địa chỉ tạm, sẽ chuyển sang life.nonarkara.org.",
+          "access": "Cần đăng nhập",
+          "cta": "Mở Life",
+          "name": "Life"
+        },
+        "universe_69": {
+          "lede": "Hai thế giới thủ tục khép kín được quan sát liên tục, vận hành bởi cơ học tiền định và hành vi tác tử mới nổi — chỉ quan sát, không can thiệp.",
+          "cta": "Quan sát Universe 69",
+          "name": "Universe 69: Beta"
+        },
+        "pavilion": {
+          "lede": "Thế giới metaverse không gian chạy trực tiếp trên trình duyệt, xây dựng từ con số 0 bằng các vật liệu kiến trúc hiện đại. Bền vững, bảo mật và hoàn toàn miễn phí, phá vỡ thế độc quyền dữ liệu và rào cản truy cập của các tập đoàn công nghệ lớn.",
+          "cta": "Vào The Pavilion",
+          "name": "The Pavilion · Thế giới Không gian"
+        },
+        "p54": {
+          "lede": "Một trò chơi điện tử 16-bit trên trình duyệt, mỗi hộp cartridge đều có Bản tóm tắt Bộ não — kỹ năng nào được rèn luyện, mỗi vòng chơi mất bao lâu, và giới hạn của khẳng định. Không quảng cáo. Điểm chỉ lưu trên thiết bị này.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "OmniArcade"
+        },
+        "p17": {
+          "title": "Thai paperwork, <em>read by the machine.</em>",
+          "lede": "Ekkasarn AI là công cụ tình báo tài liệu cho hóa đơn thuế, biên lai và chứng từ khấu trừ thuế Thái Lan. Tải tài liệu thật hoặc chọn mẫu; OCR, phân loại và trích xuất trường.",
+          "w1lbl": "Why it's special",
+          "w1": "Most OCR demos work only on clean, invented forms. <b>Ekkasarn AI reads real Thai paperwork</b> — crumpled receipts, VAT invoices, and withholding certificates — then returns category, confidence, shop, phone, and total as structured output.",
+          "w2lbl": "What it replaced",
+          "w2": "Manual accounting entry, receipt photo backlogs, spreadsheet categorization, and the fragile handoff between Thai paper documents and digital finance workflows.",
+          "w3lbl": "Decision power",
+          "w3": "A finance team can classify documents, verify extracted fields, and route them into downstream accounting logic immediately instead of waiting for human sorting.",
+          "w4lbl": "Live access",
+          "w4": "Public bilingual demo with Thai-first document types. Uploads are processed live and not retained.",
+          "cta": "Mở hệ thống đang chạy",
+          "name": "Ekkasarn AI"
+        },
+        "p29": {
+          "lede": "Dán một bản thảo. The Non-Writer chạy nó qua chuỗi proxy và box, và phía bên kia là câu bạn thực sự muốn nói — bằng giọng Dr Non. Bây giờ có kèm readout công khai để bạn thấy chính xác layer nào đã dịch chuyển từ nào.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "The Non-Writer"
+        },
+        "p30": {
+          "lede": "Cái bàn, bằng con số. Bản tóm tắt tình báo hằng ngày về ranh giới AI — cái gì thực sự xuất xưởng, cái gì phét, tối nay đọc gì. Theo dõi ngành, chọn thủ công, kho lưu trữ cộng dồn.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "Dr Non's Digests"
+        },
+        "p31": {
+          "lede": "Scraping như một dịch vụ — không cần code. Đưa URL và câu hỏi; hệ thống ra ngoài, đọc trang bằng ngôn ngữ gốc, rồi quay lại với câu trả lời bằng ngôn ngữ của bạn, kèm trích dẫn và JSON có cấu trúc để đẩy xuống hạ nguồn.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "Non-Scrape"
+        },
+        "p34": {
+          "lede": "Một sổ đăng ký dựa trên bằng chứng, miễn phí, gồm 261 tham chiếu đồng hồ xa xỉ và sưu tầm — so sánh có trích dẫn, nguồn gốc có ghi công, ảnh tĩnh màn hình có ghi công — và thang đo trung thực cho biết dữ liệu từ chối ước lượng ở đâu.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "Time Pop"
+        },
+        "p35": {
+          "lede": "Thiết kế nhà bằng chuỗi quyết định — vẽ hoặc AI lần theo mặt bằng, xem sàn nắng và nhiệt mặt trời trực tiếp, rồi chạy kiểm living, hệ thống và chi phí trước khi tạo hình ảnh.",
+          "cta": "Mở hệ thống trực tiếp",
+          "name": "Luma/house"
+        },
+        "p40": {
+          "lede": "Đưa URL này cho Claude và nó sẽ cài OpenClaw an toàn cho bạn. Setup agent chạy được, mô hình bảo mật sâu, chọn LLM local theo RAM, và lệnh tool theo tầng rủi ro. Chỉ tài liệu, không dữ liệu riêng.",
+          "cta": "Xem trên GitHub",
+          "name": "OpenClaw Set-Up"
+        },
+        "p44": {
+          "lede": "Bangkok có khoảng 400.000 nhà cổ shophouse nhưng không hề có một bản kiểm kê nào. Một bài tiểu luận dài về tái sử dụng và carbon ẩn, kèm khảo sát 2.311 tòa nhà, bản đồ áp lực giá đất của Bộ Tài chính, và câu trả lời bốn màu. Đăng trong Shophouse Metropolis, Harvard GSD.",
+          "cta": "Đọc tiểu luận",
+          "name": "Shophouse Metropolis"
+        },
+        "p47": {
+          "lede": "Hai mươi năm nghiên cứu thực địa về toàn cầu hóa, ngành di sản và kinh tế không gian đô thị. 15 chương, 76.312 từ, 134 hình ảnh, 5 giờ âm thanh, 475 trích dẫn — đọc, nghe và xem ngay trên trang. Ấn bản đọc v3, 2026.",
+          "cta": "Mở sách",
+          "name": "Locating Shanghai"
+        },
+        "p55": {
+          "lede": "Tải lên PDF và liên kết. Hệ thống trích dẫn tài liệu mỗi lần — và khi các tài liệu im lặng, bot nói \"tôi không biết\". 100 MB miễn phí mỗi không gian làm việc, phân phối qua Telegram và LINE. Mô hình nhúng cục bộ, mô hình ngôn ngữ cục bộ, trên một chiếc Mac ở Bangkok — tài liệu của bạn không bao giờ rời khỏi máy.",
+          "cta": "Mở không gian làm việc",
+          "name": "RAG.NONARKARA"
+        },
+        "champion": {
+          "lede": "Bàn huấn luyện đường biên và phòng thí nghiệm chiến thuật đưa ĐT Thái Lan tới World Cup. Điều chỉnh lối chơi, cường độ pressing và đổi đội hình theo thời gian thực.",
+          "cta": "Mở bàn huấn luyện",
+          "name": "SCD · Bàn huấn luyện bóng đá"
+        },
+        "soccer": {
+          "lede": "Bàn chiến thuật bóng đá trong nguyên mẫu nghiên cứu NSP. Nguồn truyền hình công cộng Thái Lan và nơi xem chính thức, có thông báo quyền trước khi vào.",
+          "cta": "Mở bàn nghiên cứu",
+          "name": "Soccer · NSP"
+        },
+        "vision": {
+          "lede": "Ảnh trở thành số, đường biên, chuyển động và phỏng đoán thế nào. Học với camera công cộng, huấn luyện mô hình và thử trong trình duyệt mà không tải ảnh riêng lên.",
+          "cta": "Mở lớp học",
+          "name": "Vision"
+        },
+        "each": {
+          "lede": "ERP, ACT, CRM và HR trong một không gian làm việc tiếng Thái/Anh. Màn hình tài chính hiển thị thời gian tiền mặt đủ dùng, chi phí và trả góp. Hình thu nhỏ dùng dữ liệu mẫu của công ty ABC.",
+          "access": "Cần đăng nhập",
+          "cta": "Mở EACH",
+          "name": "EACH"
+        },
+        "p66": {
+          "lede": "348 tổ hợp màu. Tìm mối quan hệ giữa các màu, xem ở thang xám, sao chép mã màu. Triển lãm màu của Dr Non, lấy cảm hứng từ Sanzo Wada.",
+          "cta": "Khám phá bảng màu",
+          "name": "Palette"
+        },
+        "p56": {
+          "lede": "Tiêu chuẩn vận hành đằng sau Axiom — tokens, components, DNA 5 dòng, và AGENTS.md cho mọi AI agent. Chức năng trước, rồi mới trừ. Thả vào Claude Code, Cursor, Cline, Aider, hoặc bất kỳ agent nào và agent sẽ tạo ra tác phẩm đúng phong cách Axiom ngay từ lần đầu. Cấp phép MIT — clone, fork, phát hành.",
+          "cta": "Mở kho",
+          "name": "Axiom Design Core"
+        },
+        "p57": {
+          "lede": "Tiêu chuẩn giao diện cấp tái sản xuất của Dr Non. Hai lớp: sự im lặng Rams (trường xám ấm, lưới tóc, một điểm nhấn) cho chế độ xem đơn; lớp NYCTA wayfinding (bảng màu thân khép kín, đĩa, biển ga, mũi tên đặc) cho hệ thống nhiều bảng. AGENTS.md cho mọi AI agent. Cấp phép MIT cho tác phẩm gốc; xem NOTICE.md cho những gì không được cấp lại.",
+          "cta": "Mở kho",
+          "name": "Rams × NYCTA Design Core"
+        },
+        "p58": {
+          "lede": "Nguyên tắc thẻ hành lý trắng tối giản-chức năng cho website, hệ thống, tài liệu và AI agent. Design tokens (nền, mực, bốn cấp, khoảng cách, monospace, màu miền tùy chọn), Stock B cho in, lớp ephemera, sáu component, ví dụ before/after, skill có thể được agent gọi, và tag-audit PO gate có thể chạy. Cấp phép MIT.",
+          "cta": "Mở kho",
+          "name": "Luggage Tag Aesthetic"
+        },
+        "p59": {
+          "lede": "Mười quy tắc bố cục có thể thi hành, với lint tĩnh và audit thời gian chạy khiến build thất bại. Gói gồm: một nguồn số duy nhất (scale.mjs), ratchet (moma-lint.mjs), self-check chứng minh số học đã công bố (self-check.mjs), và bảng điều khiển trình duyệt bắt những gì chỉ tồn tại sau khi layout (near-miss, ragged-row, orphan-grid). Trang minh họa tuân theo luật của chính nó.",
+          "cta": "Mở kho",
+          "name": "MoMA Rules"
+        },
+        "p60": {
+          "lede": "O3 — sức mạnh thứ ba. Sổ đăng ký OTOP của Thái Lan, đọc như dữ liệu: 154.078 bản ghi trên 77 tỉnh, mỗi bản ghi mang nguồn, mức độ đầy đủ và thời điểm. Không scraping, không AI bịa: sổ đăng ký là sổ đăng ký, có nguồn gốc trên từng ô.",
+          "cta": "Mở sổ đăng ký",
+          "name": "O3"
+        },
+        "p61": {
+          "lede": "Giải Super League chưa bao giờ ra mắt. Hai mươi sáu câu lạc bộ, đội hình thật, chuyền thẳng — mỗi lần một quyết định. Bóng đá chiến thuật theo lượt, cho một người hoặc hai người chung tay cầm. Nhấn start, tin rằng trận sau quan trọng, và đọc sân trước khi chuyền.",
+          "cta": "Nhấn start",
+          "name": "Super League"
+        },
+        "p68": {
+          "lede": "Cẩm nang Thượng Hải 3 ngày bằng tiếng Thái, tiếng Anh và tiếng Trung, được viết dưới dạng những bức thư. Nước lặng chảy sâu — thành phố được đọc bởi người đang đứng ngay tại đó.",
+          "cta": "Mở sách",
+          "name": "淼燊的上海"
+        },
+        "llm": {
+          "lede": "Phòng thí nghiệm thực địa để huấn luyện các mô hình ngôn ngữ nhỏ đặc thù cho tổ chức trên dữ liệu nội bộ. Từ token thô đến tệp mô hình có thể mang theo và chạy ở mọi nơi.",
+          "cta": "Mở LLM Lab",
+          "name": "LLM Lab"
+        },
+        "dog": {
+          "lede": "Xưởng mô phỏng thủ tục và giải phẫu 3D tái hiện cấu trúc cơ thể, dáng đi và tư thế cảnh giác của giống chó Bangkaew bản địa Thái Lan.",
+          "cta": "Mở Canine Studio",
+          "name": "CANINE // Bang Kẹo"
+        }
       },
-      "p02": {
-        "title": "Macro signal, <em>before the room starts guessing.</em>",
-        "lede": "DNGWS Monitor gom theo dõi leo thang trực tiếp, lan truyền kinh tế và trực quan hóa khủng hoảng đa nguồn trên một giao diện. Dành cho người ra quyết định không thể chờ bản briefing.",
-        "w1lbl": "Why it's special",
-        "w1": "Bloomberg Terminal costs $25K/seat/year. This runs on open data. Cross-source crisis fusion, escalation deltas, and economic spillover — surfaced fast enough to brief a minister before the cable news cycle catches up.",
-        "w2lbl": "What it replaced",
-        "w2": "Subscription intelligence platforms, ad-hoc analyst PDFs, and the gap between \"something happened\" and \"we have a position.\"",
-        "w3lbl": "Earned on day one",
-        "w3": "Sentinel-2 satellite imagery, OSINT feed fusion, and 53-country NLP brief layer — deployed at the edge for sub-second region switches.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p03": {
-        "title": "Bureaucracy, <em>made legible.</em>",
-        "lede": "We built the public surface for Thailand's national smart city programme with depa. Proposals go in. Progress stays visible. The programme stops disappearing into PDFs.",
-        "w1lbl": "Why it's special",
-        "w1": "National programmes usually live in annual reports nobody reads. This one is online, bilingual, and tied to outcomes — not ceremony. A candidate city's status moves the moment a milestone clears.",
-        "w2lbl": "Who pays for it",
-        "w2": "depa — Thailand's Digital Economy Promotion Agency. Direct-to-government engagement, not a sub-vendor relationship.",
-        "w3lbl": "Why it matters",
-        "w3": "Sets the template for any national smart-city programme that wants to stay legible past the launch press cycle. SLIC integrates as the benchmarking layer.",
-        "cta": "Open live system"
-      },
-      "p04": {
-        "title": "A ranking <em>that argues back.</em>",
-        "lede": "SLIC Index không nói thành phố đáng giá bao nhiêu. Nó cho thấy năm trụ cột và để họ tự kiểm tra ưu tiên. Thị trưởng quyết định \"sống được\" nghĩa là gì — và phép toán đi theo.",
-        "w1lbl": "Why it's special",
-        "w1": "Every other livability index hands cities a finished verdict. SLIC hands them the math. Move the pillar weights, watch your ranking change — and your peers' — in real time. The argument becomes the product.",
-        "w2lbl": "What it replaced",
-        "w2": "Static prestige leaderboards. The annual ranking PDF. The conversation that ended with \"we don't agree with the methodology.\"",
-        "w3lbl": "Audience signal",
-        "w3": "Picked up by Mayors of Europe. Live-demo'd at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.",
-        "cta": "Mở SLIC v3"
-      },
-      "p05": {
-        "title": "Greater Kuching, <em>one command surface.</em>",
-        "lede": "IOC toàn phổ cho Greater Kuching, Sarawak. Tỷ giá, chuyến bay, ảnh vệ tinh và tín hiệu môi trường — hợp nhất cho đơn vị vận hành thành phố thông minh tăng trưởng nhanh nhất Đông Nam Á.",
-        "w1lbl": "Why it's special",
-        "w1": "Most IOCs are single-domain. Kuching fuses cross-domain signals in one view — currency pressure, flight arrivals, Sentinel-2 sweeps, environmental reads. The operator never switches tabs to see the full picture.",
-        "w2lbl": "Who uses it",
-        "w2": "Greater Kuching city operators and planners. Built for real-time situational awareness — not a demo room, for daily use.",
-        "w3lbl": "Why it matters",
-        "w3": "Same information density a Bloomberg terminal gives a trading desk — but for a city, at a fraction of the cost.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p06": {
-        "title": "News <em>before the algorithm decides what's war.</em>",
-        "lede": "MEM là giao diện tin tức mã nguồn mở nhanh nhất cho đưa tin xung đột Trung Đông. Đa nguồn trực tiếp, không trễ biên tập, không bong bóng lọc. Tín hiệu trước chu kỳ tin tức.",
-        "w1lbl": "Why it's special",
-        "w1": "Every major news platform has an editorial layer that slows, filters, frames. MEM removes that layer. The same signals a desk analyst aggregates manually — in one surface, at machine speed.",
-        "w2lbl": "What it replaced",
-        "w2": "Three browser tabs, two Telegram channels, and a Twitter/X list — open simultaneously to triangulate what was actually happening on the ground.",
-        "w3lbl": "Who uses it",
-        "w3": "Journalists, policy analysts, NGO field teams. Anyone who needs ground-level signal faster than the 24-hour news cycle delivers it.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p07": {
-        "title": "The bus, tracked. <em>The rider, informed.</em>",
-        "lede": "Theo dõi GPS thời gian thực và telemetry hành khách cho mạng xe buýt thông minh Phuket. Thiết kế cho điện thoại người đi trước — không phải màn hình phòng điều hành.",
-        "w1lbl": "Why it's special",
-        "w1": "Smart bus systems usually exist for the operator's dashboard. This one exists for the person waiting at the stop. GPS position, next arrival, route clarity — for a tourist who doesn't read Thai and a commuter who doesn't have time to guess.",
-        "w2lbl": "What it replaced",
-        "w2": "Standing at a stop with no information. A bus schedule printed in 2019. The assumption that transit on a tourist island can't be made legible.",
-        "w3lbl": "Built on top of",
-        "w3": "Phuket's existing IoT infrastructure — the same sensor layer that feeds the Governor's operations room. No new hardware.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p08": {
-        "title": "Reports arrive. <em>AI turns them into action.</em>",
-        "lede": "SCTH V2 là nền tảng dữ liệu đô thị Smart City Thailand: thu nhận báo cáo công dân từ Telegram và LINE, phân tích bằng AI, và phủ lớp vệ tinh và bản đồ gần thời gian thực cho nhà xây dựng, nhà phát triển và quản lý thành phố.",
-        "w1lbl": "Why it's special",
-        "w1": "Most city complaint systems stop at a ticket number. SCTH V2 turns the report stream into a decision surface. Messenger reports, field photos, SLA risk, and AI pattern detection sit on the same map as precipitation, aerosol, cloud, terrain, and street layers.",
-        "w2lbl": "What it replaced",
-        "w2": "Screenshots in chat groups, manual spreadsheet triage, static map layers, and the delay between \"someone reported it\" and \"someone can act on it.\"",
-        "w3lbl": "Decision power",
-        "w3": "City teams can absorb reports, assign owners, analyze recurring patterns, export sheets or PDFs, and push response tasks while the city context is still live.",
-        "w4lbl": "Live access",
-        "w4": "Proprietary system under continuous daily development. The link runs a live tunnel — if it doesn't resolve, the system is mid-upgrade. Check back in a moment.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p09": {
-        "title": "Eleven voices. <em>One decision.</em>",
-        "lede": "AI Council của Dr. Non là hệ thống thảo luận đa tác tử cá nhân: 11 thẩm phán AI với tên đối xứng (Tenet, Radar, Otto, Hannah, Ada…) chạy liên tục trên Mac cục bộ, khoảng 3 USD/tháng.",
-        "w1lbl": "Why it exists",
-        "w1": "Single models give one answer. Problems worth solving deserve argument. The council runs four operating modes — VERIFY, DECIDE, EXPLORE, DEBATE — and justices use explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS) so every position change is visible and traceable.",
-        "w2lbl": "What it costs",
-        "w2": "Manus-class autonomous-agent capability at $3/month. The council chair runs on Mistral Large 3. The Thai-native skeptic (Ada) runs on ThaiLLM — a government-backed model, free. The executor (Otto) handles OCR, video downloads, email drafts, PDF generation, and Google Drive sync without touching cloud infrastructure.",
-        "w3lbl": "Why no demo",
-        "w3": "The council is trained on Dr Non's personal journals, decisions, meeting notes, and voice. Proprietary by necessity. The protocol stack — ~600 lines of Python — is open. The IP is the coordination methodology, not the weights.",
-        "cta": "Xem trên GitHub",
-        "cta2": "v2 · Agentic + Executor"
-      },
-      "p10": {
-        "title": "HR has been a <em>record system</em> long enough.",
-        "lede": "TKCX là hệ thống vận hành nhân tài dựa trên game: nhân viên là thành viên đội, dự án là nhiệm vụ, lắp đội là chiến lược.",
-        "w1lbl": "The problem",
-        "w1": "Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.",
-        "w2lbl": "The engine",
-        "w2": "Built on Dragon Quest III's party system. Five archetypes map to real workplace roles (captain, tech, sales, ops, scout). A Moneyball budget cap — project budget ÷ 10 = monthly salary ceiling — forces allocation discipline. The readiness formula weighs coverage, quality, chemistry, and morale so the right team is visible before the project starts, not after it fails.",
-        "w3lbl": "What it changes",
-        "w3": "Directors stop hoarding people. Projects stop running on political capital. Skill gaps become visible before they become failures. And HR — renamed Talent Incubation — becomes the most strategic function in the building, not the most avoided one.",
-        "cta": "Xem trên GitHub"
-      },
-      "p11": {
-        "title": "The AI <em>that knows you.</em>",
-        "lede": "Second Brain OS kết nối vault Obsidian với mọi nền tảng lập trình AI đồng thời qua MCP. 19 cấu hình máy chủ. Tác tử nhớ bản thiết kế persona và giọng văn.",
-        "w1lbl": "The gap it closes",
-        "w1": "Every AI session starts cold. It doesn't know your voice, your values, your past decisions, or the years of journal entries that shaped your thinking. Second Brain OS feeds all of that into every coding platform simultaneously via a single MCP connection — so the AI you work with already knows who it's working with.",
-        "w2lbl": "How it's built",
-        "w2": "Your Obsidian vault is structured like a brain: PrefrontalCortex for strategy, Hippocampus for atomic memories, TemporalLobe for patterns, Cerebellum for skills and procedures. 19 MCP server configurations connect this living knowledge graph to Cursor, Codex, Claude Code, and every other platform in your stack — at once.",
-        "w3lbl": "Why it's open",
-        "w3": "The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model's.",
-        "cta": "Xem trên GitHub"
-      },
-      "p12": {
-        "title": "21 channels. <em>Free. Everywhere.</em>",
-        "lede": "NSP là nền tảng streaming quốc gia Thái Lan — 21 kênh TV số được NBTC cấp phép, miễn phí, Full HD, mọi thiết bị. EPG trực tiếp, telemetry lượt xem, hướng dẫn nội dung AI, cảnh báo khẩn CAP v1.2.",
-        "w1lbl": "Why it's special",
-        "w1": "Most national TV portals are afterthoughts. <b>NSP puts all 21 licensed channels in one interface</b> with live EPG, per-channel concurrency, stream health telemetry, and an AI guide that answers \"what's on now?\" across the whole kingdom — without an app install.",
-        "w2lbl": "What it replaced",
-        "w2": "Fragmented broadcaster apps, illegal streams, and the assumption that free-to-air TV can't be made as legible as a subscription platform.",
-        "w3lbl": "Decision power",
-        "w3": "Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.",
-        "w4lbl": "Live access",
-        "w4": "National deployment under NBTC licensing authority. Open to all devices, no account required.",
-        "cta": "Mở nền tảng đang chạy"
-      },
-      "p13": {
-        "title": "47 feeds. <em>7 lenses. One campus.</em>",
-        "lede": "Chula Control Tower là bảng điều khiển vận hành thời gian thực cho Đại học Chulalongkorn — 47 luồng dữ liệu trực tiếp về giao thông, sự cố, chất lượng không khí, vệ tinh, shuttle, tin tức và sự kiện khẩn cấp tại quận Siam–Samyan, Bangkok.",
-        "w1lbl": "Why it's special",
-        "w1": "Most university dashboards show one feed at a time. <b>CCT puts 47 live sources on a single 3D map</b> — traffic, air quality, shuttle positions, incident reports, satellite layers, and underground utilities — so the campus president has one surface for every decision.",
-        "w2lbl": "What it replaced",
-        "w2": "Separate siloed systems for traffic, security, and environmental data. Manual incident reports. No unified view of the campus at any given moment.",
-        "w3lbl": "Decision power",
-        "w3": "Seven operational lenses — from day-to-day campus management to presidential strategic view — let each role see exactly what they need. 3D buildings and underground utility layers turn planning from guesswork into evidence.",
-        "w4lbl": "Live access",
-        "w4": "Deployed at Chulalongkorn University, Bangkok's Siam–Samyan district. Open access — no account required.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p14": {
-        "title": "Bloomberg signals. <em>Thai market. Your rules.</em>",
-        "lede": "DayTraders là nền tảng tình báo thị trường Thái Lan cá nhân hóa — tín hiệu kiểu Bloomberg cho SET, MAI, quỹ tương hỗ, RMF và công cụ ESG Thái Lan.",
-        "w1lbl": "Why it's special",
-        "w1": "Thai retail investors get either raw broker data or generic apps that don't apply value-investing logic. <b>DayTraders brings institutional-grade signal analysis to the Thai SET</b> — with Graham margin-of-safety, Buffett moat screens, and Munger mental models built into the feed, not bolted on.",
-        "w2lbl": "What it replaced",
-        "w2": "Broker portals with no analytical framework, LINE group tips, and the assumption that rigorous value investing is only for institutions with Bloomberg terminals.",
-        "w3lbl": "Decision power",
-        "w3": "Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.",
-        "w4lbl": "Live access",
-        "w4": "Live Thai market data. Open platform — no paywall, no broker lock-in.",
-        "cta": "Mở nền tảng đang chạy"
-      },
-      "p15": {
-        "title": "Name the city. <em>We'll build its brain.</em>",
-        "lede": "City Hub là nền tảng tình báo đô thị tái sử dụng — cho tên thành phố, nó lập bản đồ bằng lớp vệ tinh và nền, kết nối dữ liệu sẵn có và bắt đầu tổng hợp. v.5, năm thành phố đang chạy.",
-        "w1lbl": "Why it's special",
-        "w1": "Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what's already there.",
-        "w2lbl": "What it replaced",
-        "w2": "Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.",
-        "w3lbl": "Decision power",
-        "w3": "The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don't), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city's last day of data.",
-        "w4lbl": "Live access",
-        "w4": "Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.",
-        "cta": "Mở nền tảng đang chạy"
-      },
-      "p16": {
-        "title": "A coastal province, <em>rendered as a control tower.</em>",
-        "lede": "Chonburi Control Tower là giao diện chỉ huy 3D cho bờ biển phía Đông: 42 nguồn trực tiếp, thời tiết ven biển và trạng thái biển, tín hiệu thị trường và du lịch, sự cố thị trưởng, xu hướng EEC, lớp phủ quy mô tòa nhà.",
-        "w1lbl": "Why it's special",
-        "w1": "Most provincial dashboards flatten the city into cards and charts. <b>Chonburi Control Tower renders the province as an operating environment</b> — 20,877 3D buildings, source health, weather, marine risk, EEC news, CCTV/AIS/AQ/WX toggles, and a mayor's desk on one surface.",
-        "w2lbl": "What it replaced",
-        "w2": "Separate weather sites, marine dashboards, market tickers, tourism spreadsheets, news tabs, and static GIS layers that never told the same story at the same time.",
-        "w3lbl": "Decision power",
-        "w3": "Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.",
-        "w4lbl": "Live access",
-        "w4": "Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.",
-        "cta": "Mở tháp điều hành"
-      },
-      "p17": {
-        "title": "Thai paperwork, <em>read by the machine.</em>",
-        "lede": "Ekkasarn AI là công cụ tình báo tài liệu cho hóa đơn thuế, biên lai và chứng từ khấu trừ thuế Thái Lan. Tải tài liệu thật hoặc chọn mẫu; OCR, phân loại và trích xuất trường.",
-        "w1lbl": "Why it's special",
-        "w1": "Most OCR demos work only on clean, invented forms. <b>Ekkasarn AI reads real Thai paperwork</b> — crumpled receipts, VAT invoices, and withholding certificates — then returns category, confidence, shop, phone, and total as structured output.",
-        "w2lbl": "What it replaced",
-        "w2": "Manual accounting entry, receipt photo backlogs, spreadsheet categorization, and the fragile handoff between Thai paper documents and digital finance workflows.",
-        "w3lbl": "Decision power",
-        "w3": "A finance team can classify documents, verify extracted fields, and route them into downstream accounting logic immediately instead of waiting for human sorting.",
-        "w4lbl": "Live access",
-        "w4": "Public bilingual demo with Thai-first document types. Uploads are processed live and not retained.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p18": {
-        "lede": "KMITL Control Tower là bảng điều khiển vận hành thời gian thực cho Viện Công nghệ Vua Mongkut Ladkrabang — 56 luồng dữ liệu trực tiếp về giao thông, sự cố, chất lượng không khí, vệ tinh, shuttle campus, tin tức và sự kiện khẩn cấp.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p19": {
-        "lede": "Yala Control Tower cung cấp tình báo công dân thời gian thực cho thành phố Yala ở Deep South Thái Lan. Mô hình 3D, lớp vệ tinh, theo dõi lũ, sự cố an ninh và hơn 30 luồng trực tiếp.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p20": {
-        "lede": "Horizon 45 là công cụ thực địa để kiểm tra phán đoán AI thực tế. Từ phát hiện deepfake đến prompt engineering, người dùng rời đi với chân dung năng lực và lộ trình học.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p21": {
-        "lede": "Giao diện chỉ huy quy mô lớn cho Thành phố Hồ Chí Minh. Hợp nhất giao thông trực tiếp, giám sát lũ, chất lượng không khí và định tuyến động trên một bản đồ hiệu năng cao.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p22": {
-        "lede": "Giám sát ba vùng (Trung Đông, Đông Nam Á, Thái Lan): nền tảng giám sát tối ưu dựa trên dữ liệu mở, phơi bày insight qua lớp chồng.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "p23": {
-        "lede": "Chỉ số Thành phố Thông minh Thái Lan chính thức (SCITI) đánh giá tiến độ và tác động của 174 khu đô thị trên cả nước theo 7 trụ cột thành phố thông minh.",
-        "cta": "Mở hệ thống trực tiếp"
-      },
-      "p24": {
-        "lede": "Phòng đọc Đạo Đức Kinh ba ngôn ngữ — truyện tranh Tsai, đối chiếu Phật giáo, ghi chú tâm lý, pinyin và kệ sách tham khảo sống.",
-        "cta": "Mở hệ thống đang chạy"
-      },
-      "ikigai": {
-        "name": "Ikigai Finance Engine",
-        "lede": "Tình báo tài chính cho SME — bảng cân đối kế toán như tín hiệu, đường băng tiền mặt, thẻ điểm ngân hàng và các chỉ số tài chính tổng hợp (Ikigai, Lean, Zero, Default, Solvency). Nguyên mẫu nghiên cứu đang phát triển, chỉ có ảnh chụp màn hình — ABC Company Limited là dữ liệu demo giả định, chưa triển khai công khai.",
-        "cta": "Xem kho nghiên cứu"
-      }
-    },
     "stagesContent": {
       "taipeiLoc": "<b>Đài Bắc</b> · City Vision Stage · tháng 3/2026",
       "taipeiTitle": "Dashboard trực tiếp, demo 45 phút.",
@@ -1975,6 +3377,12 @@
       "sgS2": "Tổng số người tham dự",
       "sgS3": "Quốc gia tham dự",
       "sgS4": "Sức chứa workshop",
+      "shLoc": "<b>Tomorrow.City Shanghai 2026</b> · Main Stage · 2026",
+      "shTitle": "Đừng gọi nó là digital twin. Hãy gọi là God Mode.",
+      "shLede": "Digital twin là cái tên lịch sự. God Mode mới là tên thật — cái nhìn toàn cảnh như thần nhìn vào thành phố bạn, để bạn quản lý tốt hơn, chứ không phải để thờ phượng dashboard. Dr Non lần thứ tư trên sân khấu này; địa điểm là câu chuyện phụ, ý tưởng mới là sản phẩm — FloodDash trên màn hình khối, nấu trực tiếp tại sảnh.",
+      "shQuote": "\"Lọc mọi khái niệm qua 4Ps — Purpose, Practicality, Proof, People. Rồi thiết kế cho con người. Cảm biến nói nước chảy với vận tốc x thì chẳng giúp ích gì cho thị trưởng. Đổi ra mét khối. So với freeboard còn lại của hồ chứa. Rồi bạn sẽ biết nước vừa hay tràn. Toán cơ bản đó chính là sản phẩm.\"",
+      "shCite": "— Dr. Non, Tomorrow.City Shanghai keynote",
+      "shS1": "Số lần trên sân khấu", "shS2": "FloodDash trên khối", "shS3": "Nguồn dữ liệu công", "shS4": "takeaways (khung 4Ps)",
       "leapLoc": "<b>LEAP East 2026</b> · Orbital Stage · 10 thg 7",
       "leapTitle": "Sân khấu lớn nhất châu Á. FloodDash ra mắt tại đây.",
       "leapLede": "Panel trên Orbital Stage — \"From Congestion to Connection: The Tech Powered Future of Transport in Asia.\" Dr. Non Arkara, Senior Expert Smart City Promotion tại DEPA, cùng Mitchell Price, Richard Chung và Will Peters khép vòng cung Q1–Q2 bằng buổi ra mắt FloodDash live.",
@@ -1990,6 +3398,7 @@
       "collectiveTitle": "Tập thể sẵn sàng triệu tập.",
       "collectiveLede": "Nhà nghiên cứu, kỹ sư giao thông, nhà nhân học, chuyên gia tài chính, chuyên gia chuyển ngữ chính sách và vận hành truyền thông. Tham gia theo vấn đề, không theo sơ đồ tổ chức. Trả cho đúng bộ não cần thiết, đúng lúc cần.",
       "probonoTitle": "Pro bono · Công việc tổ chức",
+      "probonoMeta": "5 dự án · đối tác tổ chức",
       "probonoNote": "Tất cả là nền tảng đang chạy thực tế — không phải slide hay báo cáo. Xây cùng đối tác tổ chức thực, phát hành công khai và vẫn đang được sử dụng.",
       "pb1org": "Cho Ban Thư ký ASEAN",
       "pb1title": "38 thành phố. 10 quốc gia. <em>Một</em> nền tảng.",
@@ -2002,11 +3411,15 @@
       "pb3for": "Honiara · Workshop 2 ngày",
       "pb4org": "Cho depa Thái Lan",
       "pb4title": "Cơ quan số Thái Lan, <em>trực tuyến.</em>",
-      "pb4for": "Smart City Leadership · Song ngữ"
+      "pb4for": "Smart City Leadership · Song ngữ",
+      "pb5org": "depa · US DOT",
+      "pb5title": "Từ thực địa đến phần mềm. <em>Bộ công cụ hệ thống đô thị.</em>",
+      "pb5for": "Đối tác Thành phố Thông minh Mỹ - ASEAN"
     },
     "notesContent": {
       "foldLine": "Ghi chú hiện trường · 6 mẫu · cách chúng tôi giao hàng",
       "kicker": "Cách chúng tôi xây",
+      "meta": "Ghi chú hiện trường",
       "title": "Những gì học được khi thực sự ra mắt",
       "lede": "Mười một hệ thống. Hai người. Mười hai tháng. Mẫu được giữ và mẫu không. Khoảng cách giữa điều chính phủ cần và thị trường cung chỉ thu hẹp khi mọi người chia sẻ bài học.",
       "n1title": "Nhà cung cấp từ chối. Chúng tôi ra mắt trong 14 ngày.",
@@ -2024,7 +3437,17 @@
       "stackNote": "Local-first. Không đội build. Không vendor lock-in. M5 Max chạy suy luận, build và deploy từ một bàn làm việc tại Bangkok."
     },
     "builtStack": {
-      "meta": "109 công cụ · 9 tầng",
+        "heading": "Tech stack",
+        "l1name": "Hạ tầng đám mây", "l1role": "nơi vận hành",
+        "l2name": "Framework & Connector", "l2role": "kết nối",
+        "l3name": "Nền tảng & Công cụ build", "l3role": "nơi xây dựng",
+        "l4name": "Mô hình & Engine AI", "l4role": "trí tuệ",
+        "l5name": "Phần mềm & Thư viện", "l5role": "thành phần",
+        "l6name": "Ngôn ngữ", "l6role": "mã nguồn",
+        "l7name": "Nguồn dữ liệu trực tiếp", "l7role": "đầu vào",
+        "l8name": "Kênh", "l8role": "đầu ra",
+        "expandHint": "9 lớp · 117 công cụ · xây dựng và vận hành từ một bàn làm việc ở Bangkok. Nhấp bên dưới để xem toàn bộ",
+      "meta": "114 công cụ · 9 tầng",
       "expandFull": "Xem toàn bộ technology stack",
       "l9name": "Runtime cục bộ",
       "l9role": "bàn làm việc",
@@ -2039,7 +3462,7 @@
       "expandAll": "Xem tất cả brand sheet"
     },
     "pressSection": {
-      "foldLine": "Báo chí · 7 bài · GovInsider, ASEAN Magazine, YouTube",
+      "foldLine": "Báo chí · 6 bài · GovInsider, ASEAN Magazine, YouTube",
       "kicker": "Báo chí",
       "title": "Đọc. Xem. Quyết định.",
       "lede": "Đưa tin bên ngoài về công việc, luận điểm và hệ thống."
@@ -2123,31 +3546,92 @@
       "p14": "Live · Thai Markets",
       "p15": "Live · 5 cities",
       "p16": "Live · Chonburi EEC",
-      "p17": "Live · Thai docs"
+      "p17": "Live · Thai docs",
+      "p27": "Trực tiếp · Giám sát không khí 24/7",
+      "p28": "Bản thiết kế mở · GitHub",
+      "p29": "Trực tiếp · Dịch vụ viết",
+      "p30": "Trực tiếp · Điểm tin hàng ngày",
+      "p31": "Trực tiếp · Trích xuất dữ liệu",
+      "p33": "Trực tiếp · Vận hành quận",
+      "p34": "Trực tiếp · Tình báo đồng hồ",
+      "p35": "Trực tiếp · Thiết kế kiến trúc",
+      "p36": "Trực tiếp · Bản đồ đô thị 3D",
+      "p40": "Trực tiếp · Cổng tác tử",
+      "p41": "Trực tiếp · Công cụ hoạt động",
+      "p42": "Trực tiếp · Tình báo biên giới",
+      "p43": "Trực tiếp · Bản đồ di sản",
+      "p44": "Trực tiếp · Nghiên cứu đô thị",
+      "p45": "Trực tiếp · Chiến trường châu Á",
+      "p46": "Trực tiếp · Bàn điều khiển toàn cầu",
+      "p47": "Trực tiếp · Sách thực địa",
+      "p55": "Sắp ra mắt · Trí tuệ tài liệu",
+      "p56": "Trực tiếp · Bộ công cụ mã nguồn mở",
+      "p57": "Trực tiếp · Bộ công cụ mã nguồn mở",
+      "p58": "Bộ công cụ mã nguồn mở · GitHub",
+      "p59": "Bộ công cụ mã nguồn mở · GitHub",
+      "p60": "Trực tiếp · Tình báo chiến lược",
+      "p61": "Trực tiếp · Rèn não",
+      "p62": "Trực tiếp · Vận hành đô thị"
     },
     "cats": {
-      "c01": "Vận hành khu vực",
-      "c02": "Tình báo chiến lược",
-      "c03": "Chương trình quốc gia",
-      "c04": "Đối sánh thành phố",
-      "c05": "Vận hành thông minh",
-      "c06": "Tình báo mở",
-      "c07": "Tình báo giao thông",
-      "c08": "Tình báo công dân",
-      "c09": "Tình báo tác tử",
-      "c10": "Tình báo nhân tài",
-      "c11": "Tình báo tri thức",
-      "c12": "Phát sóng quốc gia",
-      "c13": "Tình báo campus",
-      "c14": "Tình báo thị trường",
-      "c15": "Tình báo đô thị",
-      "c16": "Tình báo ven biển",
-      "c17": "Tình báo tài liệu",
-      "c18": "Vận hành đô thị lớn",
-      "c20": "Phòng thí nghiệm năng lực",
-      "c23": "Nhân văn số",
-      "c25": "Tình báo tài chính"
-    },
+        "c03": "Chương trình quốc gia",
+        "c06": "Tình báo mở",
+        "c40": "Nhịp đô thị",
+        "c41": "Điều tiết giao thông",
+        "c01": "Vận hành khu vực",
+        "c18": "Vận hành đô thị lớn",
+        "c05": "Vận hành thông minh",
+        "c42": "Vận hành quận",
+        "c13": "Tình báo campus",
+        "c16": "Tình báo ven biển",
+        "c08": "Tình báo công dân",
+        "c15": "Tình báo đô thị",
+        "c19": "Giám sát môi trường",
+        "c32": "Bản đồ đô thị 3D",
+        "c36": "Bản đồ di sản",
+        "c47": "Kinh tế đô thị",
+        "c50": "Độ phù hợp khu vực",
+        "c51": "Bản đồ đô thị 3D",
+        "c04": "Đối sánh thành phố",
+        "c02": "Tình báo chiến lược",
+        "c14": "Tình báo thị trường",
+        "c34": "Công cụ làm việc",
+        "c35": "Tình báo biên giới",
+        "c07": "Tình báo giao thông",
+        "c12": "Phát sóng quốc gia",
+        "c52": "Nền tảng cộng đồng",
+        "c53": "Ứng phó thảm họa",
+        "c43": "Podcast",
+        "c09": "Tình báo tác tử",
+        "c10": "Tình báo nhân tài",
+        "c11": "Tình báo tri thức",
+        "c20": "Phòng thí nghiệm năng lực",
+        "c44": "Đánh giá mạng lưới",
+        "c23": "Nhân văn số",
+        "c25": "Tình báo tài chính",
+        "c26": "Bản thiết kế mở",
+        "c54": "Mô phỏng cuộc đời",
+        "c55": "Mô phỏng tự trị",
+        "c56": "Metaverse Không gian",
+        "c45": "Luyện trí não",
+        "c17": "Tình báo tài liệu",
+        "c27": "Trí tuệ viết",
+        "c28": "Tình báo tin tức",
+        "c29": "Dịch vụ scraping",
+        "c30": "Tình báo đồng hồ",
+        "c31": "Tình báo kiến trúc",
+        "c33": "Cổng agent",
+        "c37": "Nghiên cứu đô thị",
+        "c38": "Sách thực địa",
+        "c57": "Mô phỏng chiến thuật",
+        "c58": "Nghiên cứu bóng đá",
+        "c59": "Lớp thị giác máy tính",
+        "c60": "Vận hành doanh nghiệp",
+        "c61": "Triển lãm màu sắc",
+        "c46": "Bộ công cụ mã nguồn mở",
+        "c62": "Huấn luyện mô hình",
+        "c63": "Xưởng mô phỏng chó 3D"
+      },
     "bioCommon": {
       "cvBtn": "Xem CV",
       "education": "Học vấn"
@@ -2200,27 +3684,56 @@
       "fwTwin": "Digital twin và khả năng tương tác — ISO/IEC 30173, ISO 23247, NIST",
       "fwAi": "Quản trị và rủi ro AI — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles",
       "fwPrivacy": "Quyền riêng tư và tin cậy — PDPA, nguyên tắc theo GDPR; tuân thủ pháp lý theo từng dự án",
-      "copyright": "Bangkok · Đông Nam Á. © 2026 Axiom X Co., Ltd. Axiom là tên thương mại mà trang web và dịch vụ được trình bày. Thời gian hoạt động, phản hồi và chỉ số kết quả được trích dẫn ở đây là quan sát theo từng trường hợp, không phải cam kết về hiệu suất tương lai."
+      "legalLabel": "Điều khoản · Quyền riêng tư · Trách nhiệm · Luật",
+      "terms": "Bằng việc sử dụng trang này, bạn đồng ý sử dụng hợp pháp và không tái xuất bản ảnh chụp màn hình, bảng điều khiển, đầu ra mô hình hoặc hệ thống nội bộ khi chưa có văn bản cho phép. Axiom, tên gọi Axiom và tên các hệ thống hiển thị là tên thương mại của Axiom X Co., Ltd.",
+      "privacy": "Cloudflare cung cấp phân tích lưu lượng tổng hợp. Trang này không đặt cookie quảng cáo hoặc bán dữ liệu khách truy cập. Nhà cung cấp lưu trữ và phân tích có thể xử lý siêu dữ liệu yêu cầu. Các hệ thống liên kết có chính sách riêng tư riêng — hãy đọc trước khi sử dụng.",
+      "dataAttribution": "Dữ liệu trực tiếp hiển thị trong hệ thống sandbox đến từ các nguồn công khai bao gồm TMD, GISTDA, JICA, NBTC, Cục Kiểm soát Ô nhiễm, cộng tác viên OpenStreetMap, TomTom và các nguồn cấp dữ liệu công khai hoặc cấp phép mở khác được ghi công trong hệ thống. Khi nguồn thương mại được trộn vào (ví dụ: Air4Thai o61, 33V, 34T, Naver CFT), nguồn sẽ được nêu trong giao diện hệ thống.",
+      "liability": "Các hệ thống sandbox và trình diễn trên trang này hoạt động nhưng không được bảo đảm. Hãy coi mọi chỉ số là gợi ý, không phải phán quyết. Quyết định thực sự cần xác minh với cơ quan có thẩm quyền gốc. Axiom không chịu trách nhiệm cho các quyết định dựa trên dữ liệu sandbox.",
+      "governingLaw": "Các điều khoản này tuân theo pháp luật Vương quốc Thái Lan. Tranh chấp thuộc thẩm quyền riêng của các tòa án Bangkok. Khi văn bản tiếng Anh xung đột với bất kỳ bản dịch nào, văn bản tiếng Anh sẽ được ưu tiên.",
+      "hosting": "Lưu trữ trên Cloudflare Pages · Xây dựng và vận hành tại Bangkok · Mã nguồn trang: github.com/Nonarkara/Axiom (chỉ trang công khai; hệ thống khách hàng là riêng tư).",
+      "copyright": "Bangkok · Đông Nam Á. © 2026 Axiom X Co., Ltd. Thời gian hoạt động, phản hồi và chỉ số kết quả được trích dẫn ở đây là quan sát theo từng trường hợp, không phải cam kết về hiệu suất tương lai."
     },
     "misc": {
       "swipeHint": "4 groups · 17 systems — swipe"
     },
+    "HOW_IT_WORKS": "Cách hoạt động",
+    "archTag": "Kiến trúc",
+    "stackLbl": "Ngăn xếp",
+    "pb1in1": "38 thành phố", "pb1in2": "134 dự án", "pb1in3": "11 quốc gia", "pb1in4": "Nộp M&E",
+    "pb1cm": "Đo lường chuẩn đa người thuê",
+    "pb1out1": "Bảng điểm", "pb1out2": "Bảng điều khiển công khai", "pb1out3": "Thông tin cho thị trưởng",
+    "pb2in1": "112.000 cư dân", "pb2in2": "Cán bộ thành phố", "pb2in3": "UNDP + UN-Habitat", "pb2in4": "Bằng chứng thực địa",
+    "pb2cm": "Cẩm nang 12 chương lấy người dân làm trung tâm",
+    "pb2out1": "Cẩm nang chính sách", "pb2out2": "Bộ công cụ hội thảo", "pb2out3": "Trường hợp thực địa",
+    "pb3in1": "8 bộ", "pb3in2": "Đội UN DESA", "pb3in3": "Hội thảo 2 ngày", "pb3in4": "Thực địa Honiara",
+    "pb3cm": "Chuyển đổi số toàn chính phủ",
+    "pb3out1": "Lộ trình số", "pb3out2": "Tiến độ triển khai", "pb3out3": "Kế hoạch nâng cao năng lực",
+    "pb4in1": "depa Thái Lan", "pb4in2": "174 thành phố", "pb4in3": "Khóa học lãnh đạo", "pb4in4": "Dữ liệu chương trình",
+    "pb4cm": "chương trình lãnh đạo thành phố thông minh",
+    "pb4out1": "Cổng thông tin song ngữ", "pb4out2": "Danh bạ lãnh đạo", "pb4out3": "Lịch trình chương trình",
+    "pb5in1": "depa Thái Lan", "pb5in2": "US DOT Volpe", "pb5in3": "Nghiên cứu thực địa", "pb5in4": "Dữ liệu khảo sát",
+    "pb5cm": "Xây dựng năng lực thể chế",
+    "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-      "sysMeta": "22 hệ thống · 5 quốc gia",
-      "command": "Chỉ huy",
-      "commandMeta": "Phòng vận hành thời gian thực · 10",
-      "intelligence": "Tình báo",
-      "intelligenceMeta": "Tín hiệu và phân tích · 5",
-      "civic": "Công dân",
-      "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 5",
-      "emerging": "Mới nổi",
-      "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 6"
-    },
+        "sysMeta": "80 hệ thống · 5 quốc gia",
+        "command": "Bảng điều khiển thành phố",
+        "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 24",
+        "intelligence": "Tình báo",
+        "intelligenceMeta": "Tín hiệu và phân tích · 9",
+        "civic": "Công dân",
+        "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 9",
+        "emerging": "Mới nổi",
+        "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 13",
+        "lab": "Lab",
+        "labMeta": "Công cụ phụ · mở công khai · 25"
+      },
     "sysStatus": {
-      "live": "Trực tiếp",
-      "preview": "Xem trước",
-      "dev": "Đang phát triển"
-    },
+        "live": "Trực tiếp",
+        "preview": "Xem trước",
+        "soon": "Sắp ra mắt",
+        "dev": "Đang phát triển",
+        "emerging": "Đang nổi lên"
+      },
     "metaKeys": {
       "AI": "AI",
       "Access": "Access",

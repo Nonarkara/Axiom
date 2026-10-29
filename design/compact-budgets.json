@@ -1,0 +1,10 @@
+{
+  "beforeCommit": "9773ae5f01a4fd8ac4e852b1411484c53b877e6b",
+  "purpose": "Bring the argument, field evidence and its next action together without shrinking type or removing content. Keep the 180px phone map window, full-width live map, canvas, all four console views and native 44px controls.",
+  "widths": {
+    "390": { "maxHeights": { "hero": 1240, "why": 1980, "field": 1050, "contact": 550, "footer": 1137 }, "minMapHeight": 180 },
+    "1024": { "maxHeights": { "hero": 640, "why": 1180, "field": 700, "contact": 310, "footer": 505 }, "minMapHeight": 500 },
+    "1280": { "maxHeights": { "hero": 610, "why": 1120, "field": 550, "contact": 310, "footer": 496 }, "minMapHeight": 500 },
+    "1440": { "maxHeights": { "hero": 620, "why": 1120, "field": 550, "contact": 310, "footer": 496 }, "minMapHeight": 500 }
+  }
+}

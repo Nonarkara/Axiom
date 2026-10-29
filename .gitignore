@@ -1,7 +1,10 @@
 .DS_Store
 .vercel
-node_modules/
+# no trailing slash: a symlink named node_modules is a file, and node_modules/ would not match it
+node_modules
 .env
+.env.*
+!.env.example
 .next/
 dist/
 build/
@@ -13,3 +16,17 @@ data/*.sqlite-wal
 public/admin/schema.js
 public/admin/schema.js.map
 tsconfig.tsbuildinfo
+.worktrees/
+shot-*.mjs
+debug-*.mjs
+grab-*.mjs
+preview.mjs
+retry-*.mjs
+nw-shot.mjs
+
+# circuit-rail worktrees (the typo directory is real, it is in use)
+.worktiles/
+
+# scratch probes from interactive sessions
+.shots/
+.shots-*.mjs

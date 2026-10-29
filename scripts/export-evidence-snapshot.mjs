@@ -7,8 +7,8 @@ import { DatabaseSync } from 'node:sqlite';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.join(__dirname, '..');
-const dbPath = path.join(rootDir, 'data', 'axiom.sqlite');
-const outDir = path.join(rootDir, 'public', 'data');
+const dbPath = path.join(process.env.AXIOM_DATA_DIR || path.join(rootDir, 'data'), 'axiom.sqlite');
+const outDir = path.resolve(process.env.AXIOM_EVIDENCE_OUTPUT_DIR || path.join(rootDir, 'public', 'data'));
 const outPath = path.join(outDir, 'evidence-snapshot.json');
 
 if (!existsSync(dbPath)) {
@@ -144,32 +144,16 @@ function getContentHistory() {
   }));
 }
 
-function getPipeline() {
-  return db.prepare(`
-    SELECT
-      id, project_name AS projectName, client_name AS clientName,
-      stage, has_contract AS hasContract, sector, notes,
-      record_type AS recordType, source_type AS sourceType,
-      external_ref AS externalRef, pipeline_order AS pipelineOrder,
-      created_at AS createdAt, updated_at AS updatedAt
-    FROM pipeline
-    ORDER BY pipeline_order ASC, id ASC
-  `).all();
-}
-
 const generatedAt = new Date().toISOString();
-const pipeline = getPipeline();
 const snapshot = {
   generatedAt,
   source: 'static-snapshot',
   analytics: {
     ...getAnalyticsSummary(),
-    pipelineCount: pipeline.length,
     snapshotGeneratedAt: generatedAt,
   },
   caseStudies: getCaseStudyProof(),
   contentHistory: getContentHistory(),
-  pipeline,
 };
 
 await mkdir(outDir, { recursive: true });
@@ -180,6 +164,5 @@ console.log(JSON.stringify({
   outPath,
   caseStudies: snapshot.caseStudies.length,
   contentHistory: snapshot.contentHistory.length,
-  pipeline: pipeline.length,
   generatedAt,
 }, null, 2));

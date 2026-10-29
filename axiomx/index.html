@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axiom — Decision systems</title>
+  <meta name="description" content="Axiom's reading room: decision systems for cities, governments, and operators, alongside e-books by Dr Non Arkaraprasertkul.">
+  <meta name="author" content="Dr Non Arkaraprasertkul · Axiom">
+  <meta name="theme-color" content="#faf9f7">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://axiomx.nonarkara.org/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Axiom — Decision systems">
+  <meta property="og:description" content="Working decision systems for cities and governments. One screen. One decision. Two weeks.">
+  <meta property="og:url" content="https://axiomx.nonarkara.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://axiom.nonarkara.org/assets/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Axiom",
+    "url": "https://axiomx.nonarkara.org",
+    "description": "Decision systems for cities, governments, and operators. Built to run, not to sit in a deck.",
+    "areaServed": ["Thailand", "ASEAN", "Southeast Asia"],
+    "email": "non@nonarkara.org",
+    "founder": [
+      {"@type": "Person", "name": "Dr. Non Arkaraprasertkul"},
+      {"@type": "Person", "name": "Dr. Poon Thiengburanathum"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="shell" id="shell">
+    <aside class="index" id="indexPane">
+      <header class="bar">
+        <a class="mark" href="#axiom">Axiom</a>
+        <div class="locale" role="group" aria-label="Language">
+          <button type="button" class="locale-btn is-active" data-locale="en" aria-current="true" title="English">EN</button>
+          <button type="button" class="locale-btn" data-locale="th" title="ภาษาไทย">TH</button>
+          <button type="button" class="locale-btn" data-locale="zh" title="中文（简体）">ZH</button>
+          <button type="button" class="locale-btn" data-locale="ko" title="한국어">KO</button>
+          <button type="button" class="locale-btn" data-locale="ja" title="日本語">JA</button>
+          <button type="button" class="locale-btn" data-locale="vi" title="Tiếng Việt">VI</button>
+        </div>
+        <button type="button" class="text-btn" id="themeBtn">Dark</button>
+      </header>
+      <div class="find">
+        <label class="sr" for="q">Find in the index</label>
+        <input id="q" type="search" placeholder="Find" autocomplete="off" spellcheck="false" enterkeyhint="search">
+        <span class="find-count" id="findCount" hidden></span>
+      </div>
+      <nav class="index-scroll" id="nav" aria-label="Contents"></nav>
+    </aside>
+    <main class="plate" id="platePane">
+      <header class="bar">
+        <button type="button" class="text-btn back" id="backBtn">Index</button>
+        <p class="bar-kicker" id="barKicker"></p>
+        <a class="text-btn bar-open" id="barOpen" hidden target="_blank" rel="noopener">Open</a>
+        <button type="button" class="text-btn theme-mobile" id="themeBtn2">Dark</button>
+      </header>
+      <div class="locator" id="locator">
+        <span id="locatorNum"></span>
+        <span id="locatorMeta"></span>
+      </div>
+      <article class="plate-scroll" id="plate" tabindex="-1"></article>
+    </main>
+  </div>
+  <script src="catalog.js?v=20261027a"></script>
+  <script src="ebooks.js?v=20261027a"></script>
+  <script src="plates.js?v=20261027a"></script>
+  <script src="diagrams.js?v=20261021b"></script>
+  <script src="i18n.js?v=20261024a"></script>
+  <script src="reader.js?v=20261027b"></script>
+</body>
+</html>

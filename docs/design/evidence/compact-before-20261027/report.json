@@ -1,0 +1,1380 @@
+{
+  "base": "http://127.0.0.1:5312/",
+  "mode": "falsify",
+  "report": [
+    {
+      "viewport": 390,
+      "page": 32101,
+      "hero": {
+        "width": 390,
+        "height": 1301.1875,
+        "top": 50,
+        "bottom": 1351.1875
+      },
+      "why": {
+        "width": 390,
+        "height": 2194.09375,
+        "top": 1351.1875,
+        "bottom": 3545.28125
+      },
+      "field": {
+        "width": 358,
+        "height": 1162.578125,
+        "top": 3915.765625,
+        "bottom": 5078.34375
+      },
+      "contact": {
+        "width": 390,
+        "height": 615.78125,
+        "top": 30323.34375,
+        "bottom": 30939.125
+      },
+      "footer": {
+        "width": 390,
+        "height": 1161.484375,
+        "top": 30939.125,
+        "bottom": 32100.609375
+      },
+      "map": {
+        "width": 390,
+        "height": 1300.1875,
+        "top": 50,
+        "bottom": 1350.1875
+      },
+      "mapWindow": {
+        "width": 358,
+        "height": 180,
+        "top": 128.5625,
+        "bottom": 308.5625
+      },
+      "chrome": {
+        "width": 390,
+        "height": 50,
+        "top": 0,
+        "bottom": 50
+      },
+      "title": {
+        "width": 358,
+        "height": 77.75,
+        "top": 350.75,
+        "bottom": 428.5
+      },
+      "actions": {
+        "width": 358,
+        "height": 44,
+        "top": 488,
+        "bottom": 532
+      },
+      "console": {
+        "width": 358,
+        "height": 488.953125,
+        "top": 736,
+        "bottom": 1224.953125
+      },
+      "nodes": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "consoleName": {
+        "width": 356,
+        "height": 31.1875,
+        "top": 737,
+        "bottom": 768.1875
+      },
+      "fieldVideo": {
+        "width": 358,
+        "height": 201.375,
+        "top": 3947.765625,
+        "bottom": 4149.140625
+      },
+      "fieldActions": {
+        "width": 358,
+        "height": 100,
+        "top": 4953.34375,
+        "bottom": 5053.34375
+      },
+      "fieldLead": {
+        "width": 358,
+        "height": 144,
+        "top": 4358.84375,
+        "bottom": 4502.84375
+      },
+      "firstPoint": {
+        "width": 358,
+        "height": 147.75,
+        "top": 4520.84375,
+        "bottom": 4668.59375
+      },
+      "proofs": [
+        103.1875,
+        103.1875,
+        103.1875,
+        103.1875
+      ],
+      "faq": [
+        97.03125,
+        79.984375,
+        78.984375,
+        79.984375,
+        97.03125,
+        114.078125,
+        97.03125,
+        96.03125
+      ],
+      "systems": 75,
+      "pins": 20,
+      "canvas": {
+        "width": 390,
+        "height": 1300,
+        "painted": true
+      },
+      "copy": [
+        "The problem we solve",
+        "For governors · mayors · agency heads · operators",
+        "Rain, traffic, air, complaints, satellites — scattered across a dozen agencies. Crisis hits, you have no picture. We build the picture. One screen. One decision. Two weeks.",
+        "Sound familiar?",
+        "The data exists, but it is split across agencies, PDFs and spreadsheets. Nobody sees the whole city on one screen.",
+        "The vendor quote takes a year and a budget cycle — and delivers a slide deck, not a working system.",
+        "When something goes wrong, the first hour goes to phone calls about what is happening, not decisions about what to do.",
+        "Boutique vs big firm.",
+        "The big firm",
+        "A senior partner sells you the project. A junior team you never met builds it. You get slides, delays, and a vendor to manage.",
+        "Axiom",
+        "The people you meet are the people who build. No salespeople. No hand-offs. You judge a working system, not a promise.",
+        "Bring the problem. We design, build, run it.",
+        "How it works · three steps",
+        "Week 1 — Name the decision.",
+        "We sit with the person who decides — a governor, a flood desk, a port authority — and agree on one decision to speed up, who owns it, and what data exists.",
+        "Week 2 — Put a working screen in the room.",
+        "Built on the data you already have plus free public sources. No new hardware. You judge a live system, not a mock-up.",
+        "From day one — Measure, then scale.",
+        "Every screen logs who uses it, and for which decision. You scale only what is proven to be used.",
+        "What changes · measured on live systems, not promised",
+        "sec",
+        "Phuket Ops",
+        "Transit, safety and environment on one screen a governor reads in 30 seconds.",
+        "FloodDash",
+        "Every Thai province on one flood picture — 9 public sources, refreshed every 3–60 minutes.",
+        "min",
+        "SLIC Index · Taipei",
+        "157 cities ranked live — shown working on stage within a 45-minute keynote.",
+        "days",
+        "Field note 01",
+        "A vendor called it too complex. A working version was in the room fourteen days later.",
+        "75 systems across 5 countries. Open one. Use it. Judge.",
+        "Before you ask",
+        "Is it expensive?",
+        "No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.",
+        "Will it work with our data?",
+        "Yes. Every system on this page already runs on Thai public data — TMD, GISTDA, the Pollution Control Department, OpenStreetMap. Messy data is normal; it is where we start.",
+        "Is our data safe?",
+        "Yes. The first step uses only public data, so sensitive records never leave your hands. Delivery follows PDPA, GDPR-informed principles and ISO/IEC frameworks — by practice, not certification (see Credentials).",
+        "You're a small team. Can you deliver?",
+        "Yes. You deal directly with the builders — Dr Non Arkaraprasertkul and Dr Poon Thiengburanathum. Specialists join per mission.",
+        "Will it still run after launch?",
+        "Yes. Most systems on this page have run long past their launch. Each is documented and instrumented so your team can keep it going.",
+        "Start a two-week proof",
+        "Open a live system first",
+        "CANONICAL FIELD BRIEFING · CRISIS GROUND TRUTH",
+        "In the field · Ground Truth",
+        "The flood arrives at 2 a.m. The dashboard arrives next fiscal year.",
+        "Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:",
+        "Zero-Latency Ingestion Beats Fiscal-Year Inertia",
+        "Official vendor quotes take a budget year and deliver static PDFs. We stream 9 public agencies (C-band rain radar, water telemetry, river basin gauges) every 3–60 minutes directly into client-side browser memory.",
+        "Calibrated Against Physical Ground Reality",
+        "Thresholds and alerts are tested in the flooded soi with operators and residents. Decisions happen in seconds without phone trees or bureaucratic lag.",
+        "Radical Public Inclusion Without License Tolls",
+        "112,000+ daily citizens, governors, and emergency responders read the exact same unified situation picture simultaneously — breaking information asymmetry with $0 proprietary licensing fees.",
+        "See FloodDash live",
+        "Daily Briefings (112K Followers)",
+        "Work With Us",
+        "Bangkok · SE Asia",
+        "Write one paragraph: the decision you need to make faster, who makes it, and where the data sits today. You'll get a clear yes, a clear no, or one sharper question back. No sales deck. No procurement warm-up.",
+        "Week 1 — the decision, the people and the data agreed on one page.",
+        "Week 2 — a working pilot on your existing and free public data. No new hardware to start.",
+        "From day one — every use and decision logged, so you scale only what is proven."
+      ],
+      "font": "13px",
+      "targets": [
+        {
+          "text": "",
+          "height": 38
+        },
+        {
+          "text": "Start a Two-Week Proof\n            ▸",
+          "height": 44
+        },
+        {
+          "text": "View systems",
+          "height": 44
+        },
+        {
+          "text": "Bangkok\n              City operations · THB",
+          "height": 64
+        },
+        {
+          "text": "Phuket\n              City operations · THB",
+          "height": 64
+        },
+        {
+          "text": "Middle East\n              Regional crisis watch · Multiple currencies",
+          "height": 64
+        },
+        {
+          "text": "Southeast Asia\n              Cross-border systems · THB · MYR · VND",
+          "height": 64
+        },
+        {
+          "text": "01\n                Systems & Problems",
+          "height": 44
+        },
+        {
+          "text": "02\n                Project reach",
+          "height": 44
+        },
+        {
+          "text": "03\n                Tech DNA & Trends",
+          "height": 44
+        },
+        {
+          "text": "04\n                Active Brief",
+          "height": 44
+        },
+        {
+          "text": "Start a two-week proof ▸",
+          "height": 25.609375
+        },
+        {
+          "text": "Open a live system first",
+          "height": 25.609375
+        },
+        {
+          "text": "▶\n                PLAY FIELD BRIEFING · 01:42",
+          "height": 31
+        },
+        {
+          "text": "See FloodDash live ▸",
+          "height": 44
+        },
+        {
+          "text": "Daily Briefings (112K Followers) ▸",
+          "height": 44
+        },
+        {
+          "text": "non@nonarkara.org\n            ▸",
+          "height": 25.609375
+        },
+        {
+          "text": "LinkedIn",
+          "height": 25.609375
+        },
+        {
+          "text": "SLIC Index",
+          "height": 25.609375
+        }
+      ],
+      "overflow": 0,
+      "locale": "en",
+      "errors": [],
+      "violations": [
+        "hero 1301 > 1240",
+        "why 2194 > 1980",
+        "field 1163 > 1050",
+        "contact 616 > 550",
+        "footer 1161 > 1137",
+        "video and its next action are separated beyond the first field screen",
+        "video action too far from its evidence",
+        "an affected control is below 44px"
+      ],
+      "expanded": {
+        "page": 37882,
+        "overflow": 0,
+        "folds": 5,
+        "disclosures": [
+          {
+            "text": "Field notes · 6 patterns · how we ship",
+            "height": 44
+          },
+          {
+            "text": "Full technology stack",
+            "height": 44
+          },
+          {
+            "text": "Team · Dr Non & Dr Poon · two founders, collective on call",
+            "height": 57.90625
+          },
+          {
+            "text": "View CV ▾",
+            "height": 32
+          },
+          {
+            "text": "View CV ▾",
+            "height": 32
+          },
+          {
+            "text": "Press · 6 outlets · GovInsider, ASEAN, YouTube",
+            "height": 44
+          },
+          {
+            "text": "Brand Kit · 8 sheets · download available",
+            "height": 44
+          },
+          {
+            "text": "View all brand sheets",
+            "height": 44
+          },
+          {
+            "text": "Axiom X Co., Ltd. · Reg. 0105569099335 · Thailand · DBD registered",
+            "height": 57.90625
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 1024,
+      "page": 13270,
+      "hero": {
+        "width": 1024,
+        "height": 693.390625,
+        "top": 50,
+        "bottom": 743.390625
+      },
+      "why": {
+        "width": 1024,
+        "height": 1343.359375,
+        "top": 743.390625,
+        "bottom": 2086.75
+      },
+      "field": {
+        "width": 992,
+        "height": 966.296875,
+        "top": 2398.8125,
+        "bottom": 3365.109375
+      },
+      "contact": {
+        "width": 1024,
+        "height": 369.296875,
+        "top": 12370.875,
+        "bottom": 12740.171875
+      },
+      "footer": {
+        "width": 1024,
+        "height": 529.359375,
+        "top": 12740.171875,
+        "bottom": 13269.53125
+      },
+      "map": {
+        "width": 1024,
+        "height": 692.390625,
+        "top": 50,
+        "bottom": 742.390625
+      },
+      "mapWindow": {
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "chrome": {
+        "width": 1024,
+        "height": 50,
+        "top": 0,
+        "bottom": 50
+      },
+      "title": {
+        "width": 488,
+        "height": 138.21875,
+        "top": 208.75,
+        "bottom": 346.96875
+      },
+      "actions": {
+        "width": 320.375,
+        "height": 44,
+        "top": 437.65625,
+        "bottom": 481.65625
+      },
+      "console": {
+        "width": 480,
+        "height": 488.953125,
+        "top": 166.5625,
+        "bottom": 655.515625
+      },
+      "nodes": [
+        86,
+        86,
+        86,
+        86
+      ],
+      "consoleName": {
+        "width": 478,
+        "height": 31.1875,
+        "top": 167.5625,
+        "bottom": 198.75
+      },
+      "fieldVideo": {
+        "width": 640,
+        "height": 360,
+        "top": 2430.8125,
+        "bottom": 2790.8125
+      },
+      "fieldActions": {
+        "width": 992,
+        "height": 44,
+        "top": 3292.109375,
+        "bottom": 3336.109375
+      },
+      "fieldLead": {
+        "width": 586.015625,
+        "height": 102,
+        "top": 2927.484375,
+        "bottom": 3029.484375
+      },
+      "firstPoint": {
+        "width": 992,
+        "height": 64.875,
+        "top": 3047.484375,
+        "bottom": 3112.359375
+      },
+      "proofs": [
+        128.6875,
+        128.6875,
+        128.6875,
+        128.6875
+      ],
+      "faq": [
+        62.9375,
+        62.9375,
+        61.9375,
+        62.9375,
+        62.9375,
+        79.984375,
+        62.9375,
+        61.9375
+      ],
+      "systems": 75,
+      "pins": 20,
+      "canvas": {
+        "width": 1024,
+        "height": 692,
+        "painted": true
+      },
+      "copy": [
+        "The problem we solve",
+        "For governors · mayors · agency heads · operators",
+        "Rain, traffic, air, complaints, satellites — scattered across a dozen agencies. Crisis hits, you have no picture. We build the picture. One screen. One decision. Two weeks.",
+        "Sound familiar?",
+        "The data exists, but it is split across agencies, PDFs and spreadsheets. Nobody sees the whole city on one screen.",
+        "The vendor quote takes a year and a budget cycle — and delivers a slide deck, not a working system.",
+        "When something goes wrong, the first hour goes to phone calls about what is happening, not decisions about what to do.",
+        "Boutique vs big firm.",
+        "The big firm",
+        "A senior partner sells you the project. A junior team you never met builds it. You get slides, delays, and a vendor to manage.",
+        "Axiom",
+        "The people you meet are the people who build. No salespeople. No hand-offs. You judge a working system, not a promise.",
+        "Bring the problem. We design, build, run it.",
+        "How it works · three steps",
+        "Week 1 — Name the decision.",
+        "We sit with the person who decides — a governor, a flood desk, a port authority — and agree on one decision to speed up, who owns it, and what data exists.",
+        "Week 2 — Put a working screen in the room.",
+        "Built on the data you already have plus free public sources. No new hardware. You judge a live system, not a mock-up.",
+        "From day one — Measure, then scale.",
+        "Every screen logs who uses it, and for which decision. You scale only what is proven to be used.",
+        "What changes · measured on live systems, not promised",
+        "sec",
+        "Phuket Ops",
+        "Transit, safety and environment on one screen a governor reads in 30 seconds.",
+        "FloodDash",
+        "Every Thai province on one flood picture — 9 public sources, refreshed every 3–60 minutes.",
+        "min",
+        "SLIC Index · Taipei",
+        "157 cities ranked live — shown working on stage within a 45-minute keynote.",
+        "days",
+        "Field note 01",
+        "A vendor called it too complex. A working version was in the room fourteen days later.",
+        "75 systems across 5 countries. Open one. Use it. Judge.",
+        "Before you ask",
+        "Is it expensive?",
+        "No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.",
+        "Will it work with our data?",
+        "Yes. Every system on this page already runs on Thai public data — TMD, GISTDA, the Pollution Control Department, OpenStreetMap. Messy data is normal; it is where we start.",
+        "Is our data safe?",
+        "Yes. The first step uses only public data, so sensitive records never leave your hands. Delivery follows PDPA, GDPR-informed principles and ISO/IEC frameworks — by practice, not certification (see Credentials).",
+        "You're a small team. Can you deliver?",
+        "Yes. You deal directly with the builders — Dr Non Arkaraprasertkul and Dr Poon Thiengburanathum. Specialists join per mission.",
+        "Will it still run after launch?",
+        "Yes. Most systems on this page have run long past their launch. Each is documented and instrumented so your team can keep it going.",
+        "Start a two-week proof",
+        "Open a live system first",
+        "CANONICAL FIELD BRIEFING · CRISIS GROUND TRUTH",
+        "In the field · Ground Truth",
+        "The flood arrives at 2 a.m. The dashboard arrives next fiscal year.",
+        "Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:",
+        "Zero-Latency Ingestion Beats Fiscal-Year Inertia",
+        "Official vendor quotes take a budget year and deliver static PDFs. We stream 9 public agencies (C-band rain radar, water telemetry, river basin gauges) every 3–60 minutes directly into client-side browser memory.",
+        "Calibrated Against Physical Ground Reality",
+        "Thresholds and alerts are tested in the flooded soi with operators and residents. Decisions happen in seconds without phone trees or bureaucratic lag.",
+        "Radical Public Inclusion Without License Tolls",
+        "112,000+ daily citizens, governors, and emergency responders read the exact same unified situation picture simultaneously — breaking information asymmetry with $0 proprietary licensing fees.",
+        "See FloodDash live",
+        "Daily Briefings (112K Followers)",
+        "Work With Us",
+        "Bangkok · SE Asia",
+        "Write one paragraph: the decision you need to make faster, who makes it, and where the data sits today. You'll get a clear yes, a clear no, or one sharper question back. No sales deck. No procurement warm-up.",
+        "Week 1 — the decision, the people and the data agreed on one page.",
+        "Week 2 — a working pilot on your existing and free public data. No new hardware to start.",
+        "From day one — every use and decision logged, so you scale only what is proven."
+      ],
+      "font": "13px",
+      "targets": [
+        {
+          "text": "",
+          "height": 38
+        },
+        {
+          "text": "Start a Two-Week Proof\n            ▸",
+          "height": 44
+        },
+        {
+          "text": "View systems",
+          "height": 44
+        },
+        {
+          "text": "Bangkok\n              City operations · THB",
+          "height": 86
+        },
+        {
+          "text": "Phuket\n              City operations · THB",
+          "height": 86
+        },
+        {
+          "text": "Middle East\n              Regional crisis watch · Multiple currencies",
+          "height": 86
+        },
+        {
+          "text": "Southeast Asia\n              Cross-border systems · THB · MYR · VND",
+          "height": 86
+        },
+        {
+          "text": "01\n                Systems & Problems",
+          "height": 44
+        },
+        {
+          "text": "02\n                Project reach",
+          "height": 44
+        },
+        {
+          "text": "03\n                Tech DNA & Trends",
+          "height": 44
+        },
+        {
+          "text": "04\n                Active Brief",
+          "height": 44
+        },
+        {
+          "text": "Start a two-week proof ▸",
+          "height": 25.609375
+        },
+        {
+          "text": "Open a live system first",
+          "height": 25.609375
+        },
+        {
+          "text": "▶\n                PLAY FIELD BRIEFING · 01:42",
+          "height": 31
+        },
+        {
+          "text": "See FloodDash live ▸",
+          "height": 44
+        },
+        {
+          "text": "Daily Briefings (112K Followers) ▸",
+          "height": 44
+        },
+        {
+          "text": "non@nonarkara.org\n            ▸",
+          "height": 25.609375
+        },
+        {
+          "text": "LinkedIn",
+          "height": 25.609375
+        },
+        {
+          "text": "SLIC Index",
+          "height": 25.609375
+        }
+      ],
+      "overflow": 0,
+      "locale": "en",
+      "errors": [],
+      "violations": [
+        "hero 693 > 640",
+        "why 1343 > 1180",
+        "field 966 > 700",
+        "contact 369 > 310",
+        "footer 529 > 505",
+        "video and its next action are separated beyond the first field screen",
+        "video action too far from its evidence",
+        "an affected control is below 44px"
+      ],
+      "expanded": {
+        "page": 17017,
+        "overflow": 0,
+        "folds": 5,
+        "disclosures": [
+          {
+            "text": "Field notes · 6 patterns · how we ship",
+            "height": 44
+          },
+          {
+            "text": "Full technology stack",
+            "height": 44
+          },
+          {
+            "text": "Team · Dr Non & Dr Poon · two founders, collective on call",
+            "height": 44
+          },
+          {
+            "text": "View CV ▾",
+            "height": 32
+          },
+          {
+            "text": "View CV ▾",
+            "height": 32
+          },
+          {
+            "text": "Press · 6 outlets · GovInsider, ASEAN, YouTube",
+            "height": 44
+          },
+          {
+            "text": "Brand Kit · 8 sheets · download available",
+            "height": 44
+          },
+          {
+            "text": "View all brand sheets",
+            "height": 44
+          },
+          {
+            "text": "Axiom X Co., Ltd. · Reg. 0105569099335 · Thailand · DBD registered",
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 1280,
+      "page": 13210,
+      "hero": {
+        "width": 1280,
+        "height": 655.703125,
+        "top": 58,
+        "bottom": 713.703125
+      },
+      "why": {
+        "width": 1280,
+        "height": 1287.3125,
+        "top": 713.703125,
+        "bottom": 2001.015625
+      },
+      "field": {
+        "width": 1200,
+        "height": 610.078125,
+        "top": 2313.078125,
+        "bottom": 2923.15625
+      },
+      "contact": {
+        "width": 1280,
+        "height": 369.296875,
+        "top": 12320.359375,
+        "bottom": 12689.65625
+      },
+      "footer": {
+        "width": 1280,
+        "height": 520.796875,
+        "top": 12689.65625,
+        "bottom": 13210.453125
+      },
+      "map": {
+        "width": 1280,
+        "height": 654.703125,
+        "top": 58,
+        "bottom": 712.703125
+      },
+      "mapWindow": {
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "chrome": {
+        "width": 1280,
+        "height": 58,
+        "top": 0,
+        "bottom": 58
+      },
+      "title": {
+        "width": 684,
+        "height": 146.53125,
+        "top": 208.75,
+        "bottom": 355.28125
+      },
+      "actions": {
+        "width": 320.375,
+        "height": 44,
+        "top": 445.96875,
+        "bottom": 489.96875
+      },
+      "console": {
+        "width": 480,
+        "height": 488.953125,
+        "top": 166.5625,
+        "bottom": 655.515625
+      },
+      "nodes": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "consoleName": {
+        "width": 478,
+        "height": 31.1875,
+        "top": 167.5625,
+        "bottom": 198.75
+      },
+      "fieldVideo": {
+        "width": 480,
+        "height": 270,
+        "top": 2345.078125,
+        "bottom": 2615.078125
+      },
+      "fieldActions": {
+        "width": 684,
+        "height": 44,
+        "top": 2850.15625,
+        "bottom": 2894.15625
+      },
+      "fieldLead": {
+        "width": 586.015625,
+        "height": 102,
+        "top": 2443.53125,
+        "bottom": 2545.53125
+      },
+      "firstPoint": {
+        "width": 684,
+        "height": 85.875,
+        "top": 2563.53125,
+        "bottom": 2649.40625
+      },
+      "proofs": [
+        109.1875,
+        109.1875,
+        109.1875,
+        109.1875
+      ],
+      "faq": [
+        62.9375,
+        62.9375,
+        61.9375,
+        62.9375,
+        62.9375,
+        62.9375,
+        62.9375,
+        61.9375
+      ],
+      "systems": 75,
+      "pins": 20,
+      "canvas": {
+        "width": 1280,
+        "height": 655,
+        "painted": true
+      },
+      "copy": [
+        "The problem we solve",
+        "For governors · mayors · agency heads · operators",
+        "Rain, traffic, air, complaints, satellites — scattered across a dozen agencies. Crisis hits, you have no picture. We build the picture. One screen. One decision. Two weeks.",
+        "Sound familiar?",
+        "The data exists, but it is split across agencies, PDFs and spreadsheets. Nobody sees the whole city on one screen.",
+        "The vendor quote takes a year and a budget cycle — and delivers a slide deck, not a working system.",
+        "When something goes wrong, the first hour goes to phone calls about what is happening, not decisions about what to do.",
+        "Boutique vs big firm.",
+        "The big firm",
+        "A senior partner sells you the project. A junior team you never met builds it. You get slides, delays, and a vendor to manage.",
+        "Axiom",
+        "The people you meet are the people who build. No salespeople. No hand-offs. You judge a working system, not a promise.",
+        "Bring the problem. We design, build, run it.",
+        "How it works · three steps",
+        "Week 1 — Name the decision.",
+        "We sit with the person who decides — a governor, a flood desk, a port authority — and agree on one decision to speed up, who owns it, and what data exists.",
+        "Week 2 — Put a working screen in the room.",
+        "Built on the data you already have plus free public sources. No new hardware. You judge a live system, not a mock-up.",
+        "From day one — Measure, then scale.",
+        "Every screen logs who uses it, and for which decision. You scale only what is proven to be used.",
+        "What changes · measured on live systems, not promised",
+        "sec",
+        "Phuket Ops",
+        "Transit, safety and environment on one screen a governor reads in 30 seconds.",
+        "FloodDash",
+        "Every Thai province on one flood picture — 9 public sources, refreshed every 3–60 minutes.",
+        "min",
+        "SLIC Index · Taipei",
+        "157 cities ranked live — shown working on stage within a 45-minute keynote.",
+        "days",
+        "Field note 01",
+        "A vendor called it too complex. A working version was in the room fourteen days later.",
+        "75 systems across 5 countries. Open one. Use it. Judge.",
+        "Before you ask",
+        "Is it expensive?",
+        "No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.",
+        "Will it work with our data?",
+        "Yes. Every system on this page already runs on Thai public data — TMD, GISTDA, the Pollution Control Department, OpenStreetMap. Messy data is normal; it is where we start.",
+        "Is our data safe?",
+        "Yes. The first step uses only public data, so sensitive records never leave your hands. Delivery follows PDPA, GDPR-informed principles and ISO/IEC frameworks — by practice, not certification (see Credentials).",
+        "You're a small team. Can you deliver?",
+        "Yes. You deal directly with the builders — Dr Non Arkaraprasertkul and Dr Poon Thiengburanathum. Specialists join per mission.",
+        "Will it still run after launch?",
+        "Yes. Most systems on this page have run long past their launch. Each is documented and instrumented so your team can keep it going.",
+        "Start a two-week proof",
+        "Open a live system first",
+        "CANONICAL FIELD BRIEFING · CRISIS GROUND TRUTH",
+        "In the field · Ground Truth",
+        "The flood arrives at 2 a.m. The dashboard arrives next fiscal year.",
+        "Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:",
+        "Zero-Latency Ingestion Beats Fiscal-Year Inertia",
+        "Official vendor quotes take a budget year and deliver static PDFs. We stream 9 public agencies (C-band rain radar, water telemetry, river basin gauges) every 3–60 minutes directly into client-side browser memory.",
+        "Calibrated Against Physical Ground Reality",
+        "Thresholds and alerts are tested in the flooded soi with operators and residents. Decisions happen in seconds without phone trees or bureaucratic lag.",
+        "Radical Public Inclusion Without License Tolls",
+        "112,000+ daily citizens, governors, and emergency responders read the exact same unified situation picture simultaneously — breaking information asymmetry with $0 proprietary licensing fees.",
+        "See FloodDash live",
+        "Daily Briefings (112K Followers)",
+        "Work With Us",
+        "Bangkok · SE Asia",
+        "Write one paragraph: the decision you need to make faster, who makes it, and where the data sits today. You'll get a clear yes, a clear no, or one sharper question back. No sales deck. No procurement warm-up.",
+        "Week 1 — the decision, the people and the data agreed on one page.",
+        "Week 2 — a working pilot on your existing and free public data. No new hardware to start.",
+        "From day one — every use and decision logged, so you scale only what is proven."
+      ],
+      "font": "13px",
+      "targets": [
+        {
+          "text": "",
+          "height": 38
+        },
+        {
+          "text": "Start a Two-Week Proof\n            ▸",
+          "height": 44
+        },
+        {
+          "text": "View systems",
+          "height": 44
+        },
+        {
+          "text": "Bangkok\n              City operations · THB",
+          "height": 64
+        },
+        {
+          "text": "Phuket\n              City operations · THB",
+          "height": 64
+        },
+        {
+          "text": "Middle East\n              Regional crisis watch · Multiple currencies",
+          "height": 64
+        },
+        {
+          "text": "Southeast Asia\n              Cross-border systems · THB · MYR · VND",
+          "height": 64
+        },
+        {
+          "text": "01\n                Systems & Problems",
+          "height": 44
+        },
+        {
+          "text": "02\n                Project reach",
+          "height": 44
+        },
+        {
+          "text": "03\n                Tech DNA & Trends",
+          "height": 44
+        },
+        {
+          "text": "04\n                Active Brief",
+          "height": 44
+        },
+        {
+          "text": "Start a two-week proof ▸",
+          "height": 25.609375
+        },
+        {
+          "text": "Open a live system first",
+          "height": 25.609375
+        },
+        {
+          "text": "▶\n                PLAY FIELD BRIEFING · 01:42",
+          "height": 31
+        },
+        {
+          "text": "See FloodDash live ▸",
+          "height": 44
+        },
+        {
+          "text": "Daily Briefings (112K Followers) ▸",
+          "height": 44
+        },
+        {
+          "text": "non@nonarkara.org\n            ▸",
+          "height": 25.609375
+        },
+        {
+          "text": "LinkedIn",
+          "height": 25.609375
+        },
+        {
+          "text": "SLIC Index",
+          "height": 25.609375
+        }
+      ],
+      "overflow": 0,
+      "locale": "en",
+      "errors": [],
+      "violations": [
+        "hero 656 > 610",
+        "why 1287 > 1120",
+        "field 610 > 550",
+        "contact 369 > 310",
+        "footer 521 > 496",
+        "video action too far from its evidence",
+        "an affected control is below 44px"
+      ],
+      "expanded": {
+        "page": 16908,
+        "overflow": 0,
+        "folds": 5,
+        "disclosures": [
+          {
+            "text": "Field notes · 6 patterns · how we ship",
+            "height": 44
+          },
+          {
+            "text": "Full technology stack",
+            "height": 44
+          },
+          {
+            "text": "Team · Dr Non & Dr Poon · two founders, collective on call",
+            "height": 44
+          },
+          {
+            "text": "View CV ▾",
+            "height": 32
+          },
+          {
+            "text": "View CV ▾",
+            "height": 32
+          },
+          {
+            "text": "Press · 6 outlets · GovInsider, ASEAN, YouTube",
+            "height": 44
+          },
+          {
+            "text": "Brand Kit · 8 sheets · download available",
+            "height": 44
+          },
+          {
+            "text": "View all brand sheets",
+            "height": 44
+          },
+          {
+            "text": "Axiom X Co., Ltd. · Reg. 0105569099335 · Thailand · DBD registered",
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "viewport": 1440,
+      "page": 13228,
+      "hero": {
+        "width": 1440,
+        "height": 673.328125,
+        "top": 58,
+        "bottom": 731.328125
+      },
+      "why": {
+        "width": 1440,
+        "height": 1287.3125,
+        "top": 731.328125,
+        "bottom": 2018.640625
+      },
+      "field": {
+        "width": 1200,
+        "height": 610.078125,
+        "top": 2330.703125,
+        "bottom": 2940.78125
+      },
+      "contact": {
+        "width": 1440,
+        "height": 369.296875,
+        "top": 12337.984375,
+        "bottom": 12707.28125
+      },
+      "footer": {
+        "width": 1440,
+        "height": 520.796875,
+        "top": 12707.28125,
+        "bottom": 13228.078125
+      },
+      "map": {
+        "width": 1440,
+        "height": 672.328125,
+        "top": 58,
+        "bottom": 730.328125
+      },
+      "mapWindow": {
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "chrome": {
+        "width": 1440,
+        "height": 58,
+        "top": 0,
+        "bottom": 58
+      },
+      "title": {
+        "width": 684,
+        "height": 164.15625,
+        "top": 208.75,
+        "bottom": 372.90625
+      },
+      "actions": {
+        "width": 320.375,
+        "height": 44,
+        "top": 463.59375,
+        "bottom": 507.59375
+      },
+      "console": {
+        "width": 480,
+        "height": 488.953125,
+        "top": 166.5625,
+        "bottom": 655.515625
+      },
+      "nodes": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "consoleName": {
+        "width": 478,
+        "height": 31.1875,
+        "top": 167.5625,
+        "bottom": 198.75
+      },
+      "fieldVideo": {
+        "width": 480,
+        "height": 270,
+        "top": 2362.703125,
+        "bottom": 2632.703125
+      },
+      "fieldActions": {
+        "width": 684,
+        "height": 44,
+        "top": 2867.78125,
+        "bottom": 2911.78125
+      },
+      "fieldLead": {
+        "width": 586.015625,
+        "height": 102,
+        "top": 2461.15625,
+        "bottom": 2563.15625
+      },
+      "firstPoint": {
+        "width": 684,
+        "height": 85.875,
+        "top": 2581.15625,
+        "bottom": 2667.03125
+      },
+      "proofs": [
+        109.1875,
+        109.1875,
+        109.1875,
+        109.1875
+      ],
+      "faq": [
+        62.9375,
+        62.9375,
+        61.9375,
+        62.9375,
+        62.9375,
+        62.9375,
+        62.9375,
+        61.9375
+      ],
+      "systems": 75,
+      "pins": 20,
+      "canvas": {
+        "width": 1440,
+        "height": 672,
+        "painted": true
+      },
+      "copy": [
+        "The problem we solve",
+        "For governors · mayors · agency heads · operators",
+        "Rain, traffic, air, complaints, satellites — scattered across a dozen agencies. Crisis hits, you have no picture. We build the picture. One screen. One decision. Two weeks.",
+        "Sound familiar?",
+        "The data exists, but it is split across agencies, PDFs and spreadsheets. Nobody sees the whole city on one screen.",
+        "The vendor quote takes a year and a budget cycle — and delivers a slide deck, not a working system.",
+        "When something goes wrong, the first hour goes to phone calls about what is happening, not decisions about what to do.",
+        "Boutique vs big firm.",
+        "The big firm",
+        "A senior partner sells you the project. A junior team you never met builds it. You get slides, delays, and a vendor to manage.",
+        "Axiom",
+        "The people you meet are the people who build. No salespeople. No hand-offs. You judge a working system, not a promise.",
+        "Bring the problem. We design, build, run it.",
+        "How it works · three steps",
+        "Week 1 — Name the decision.",
+        "We sit with the person who decides — a governor, a flood desk, a port authority — and agree on one decision to speed up, who owns it, and what data exists.",
+        "Week 2 — Put a working screen in the room.",
+        "Built on the data you already have plus free public sources. No new hardware. You judge a live system, not a mock-up.",
+        "From day one — Measure, then scale.",
+        "Every screen logs who uses it, and for which decision. You scale only what is proven to be used.",
+        "What changes · measured on live systems, not promised",
+        "sec",
+        "Phuket Ops",
+        "Transit, safety and environment on one screen a governor reads in 30 seconds.",
+        "FloodDash",
+        "Every Thai province on one flood picture — 9 public sources, refreshed every 3–60 minutes.",
+        "min",
+        "SLIC Index · Taipei",
+        "157 cities ranked live — shown working on stage within a 45-minute keynote.",
+        "days",
+        "Field note 01",
+        "A vendor called it too complex. A working version was in the room fourteen days later.",
+        "75 systems across 5 countries. Open one. Use it. Judge.",
+        "Before you ask",
+        "Is it expensive?",
+        "No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.",
+        "Will it work with our data?",
+        "Yes. Every system on this page already runs on Thai public data — TMD, GISTDA, the Pollution Control Department, OpenStreetMap. Messy data is normal; it is where we start.",
+        "Is our data safe?",
+        "Yes. The first step uses only public data, so sensitive records never leave your hands. Delivery follows PDPA, GDPR-informed principles and ISO/IEC frameworks — by practice, not certification (see Credentials).",
+        "You're a small team. Can you deliver?",
+        "Yes. You deal directly with the builders — Dr Non Arkaraprasertkul and Dr Poon Thiengburanathum. Specialists join per mission.",
+        "Will it still run after launch?",
+        "Yes. Most systems on this page have run long past their launch. Each is documented and instrumented so your team can keep it going.",
+        "Start a two-week proof",
+        "Open a live system first",
+        "CANONICAL FIELD BRIEFING · CRISIS GROUND TRUTH",
+        "In the field · Ground Truth",
+        "The flood arrives at 2 a.m. The dashboard arrives next fiscal year.",
+        "Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:",
+        "Zero-Latency Ingestion Beats Fiscal-Year Inertia",
+        "Official vendor quotes take a budget year and deliver static PDFs. We stream 9 public agencies (C-band rain radar, water telemetry, river basin gauges) every 3–60 minutes directly into client-side browser memory.",
+        "Calibrated Against Physical Ground Reality",
+        "Thresholds and alerts are tested in the flooded soi with operators and residents. Decisions happen in seconds without phone trees or bureaucratic lag.",
+        "Radical Public Inclusion Without License Tolls",
+        "112,000+ daily citizens, governors, and emergency responders read the exact same unified situation picture simultaneously — breaking information asymmetry with $0 proprietary licensing fees.",
+        "See FloodDash live",
+        "Daily Briefings (112K Followers)",
+        "Work With Us",
+        "Bangkok · SE Asia",
+        "Write one paragraph: the decision you need to make faster, who makes it, and where the data sits today. You'll get a clear yes, a clear no, or one sharper question back. No sales deck. No procurement warm-up.",
+        "Week 1 — the decision, the people and the data agreed on one page.",
+        "Week 2 — a working pilot on your existing and free public data. No new hardware to start.",
+        "From day one — every use and decision logged, so you scale only what is proven."
+      ],
+      "font": "13px",
+      "targets": [
+        {
+          "text": "",
+          "height": 38
+        },
+        {
+          "text": "Start a Two-Week Proof\n            ▸",
+          "height": 44
+        },
+        {
+          "text": "View systems",
+          "height": 44
+        },
+        {
+          "text": "Bangkok\n              City operations · THB",
+          "height": 64
+        },
+        {
+          "text": "Phuket\n              City operations · THB",
+          "height": 64
+        },
+        {
+          "text": "Middle East\n              Regional crisis watch · Multiple currencies",
+          "height": 64
+        },
+        {
+          "text": "Southeast Asia\n              Cross-border systems · THB · MYR · VND",
+          "height": 64
+        },
+        {
+          "text": "01\n                Systems & Problems",
+          "height": 44
+        },
+        {
+          "text": "02\n                Project reach",
+          "height": 44
+        },
+        {
+          "text": "03\n                Tech DNA & Trends",
+          "height": 44
+        },
+        {
+          "text": "04\n                Active Brief",
+          "height": 44
+        },
+        {
+          "text": "Start a two-week proof ▸",
+          "height": 25.609375
+        },
+        {
+          "text": "Open a live system first",
+          "height": 25.609375
+        },
+        {
+          "text": "▶\n                PLAY FIELD BRIEFING · 01:42",
+          "height": 31
+        },
+        {
+          "text": "See FloodDash live ▸",
+          "height": 44
+        },
+        {
+          "text": "Daily Briefings (112K Followers) ▸",
+          "height": 44
+        },
+        {
+          "text": "non@nonarkara.org\n            ▸",
+          "height": 25.609375
+        },
+        {
+          "text": "LinkedIn",
+          "height": 25.609375
+        },
+        {
+          "text": "SLIC Index",
+          "height": 25.609375
+        }
+      ],
+      "overflow": 0,
+      "locale": "en",
+      "errors": [],
+      "violations": [
+        "hero 673 > 620",
+        "why 1287 > 1120",
+        "field 610 > 550",
+        "contact 369 > 310",
+        "footer 521 > 496",
+        "video action too far from its evidence",
+        "an affected control is below 44px"
+      ],
+      "expanded": {
+        "page": 16926,
+        "overflow": 0,
+        "folds": 5,
+        "disclosures": [
+          {
+            "text": "Field notes · 6 patterns · how we ship",
+            "height": 44
+          },
+          {
+            "text": "Full technology stack",
+            "height": 44
+          },
+          {
+            "text": "Team · Dr Non & Dr Poon · two founders, collective on call",
+            "height": 44
+          },
+          {
+            "text": "View CV ▾",
+            "height": 32
+          },
+          {
+            "text": "View CV ▾",
+            "height": 32
+          },
+          {
+            "text": "Press · 6 outlets · GovInsider, ASEAN, YouTube",
+            "height": 44
+          },
+          {
+            "text": "Brand Kit · 8 sheets · download available",
+            "height": 44
+          },
+          {
+            "text": "View all brand sheets",
+            "height": 44
+          },
+          {
+            "text": "Axiom X Co., Ltd. · Reg. 0105569099335 · Thailand · DBD registered",
+            "height": 44
+          }
+        ]
+      }
+    }
+  ],
+  "failures": [
+    {
+      "width": 390,
+      "locale": "en",
+      "violations": [
+        "hero 1301 > 1240",
+        "why 2194 > 1980",
+        "field 1163 > 1050",
+        "contact 616 > 550",
+        "footer 1161 > 1137",
+        "video and its next action are separated beyond the first field screen",
+        "video action too far from its evidence",
+        "an affected control is below 44px"
+      ]
+    },
+    {
+      "width": 1024,
+      "locale": "en",
+      "violations": [
+        "hero 693 > 640",
+        "why 1343 > 1180",
+        "field 966 > 700",
+        "contact 369 > 310",
+        "footer 529 > 505",
+        "video and its next action are separated beyond the first field screen",
+        "video action too far from its evidence",
+        "an affected control is below 44px"
+      ]
+    },
+    {
+      "width": 1280,
+      "locale": "en",
+      "violations": [
+        "hero 656 > 610",
+        "why 1287 > 1120",
+        "field 610 > 550",
+        "contact 369 > 310",
+        "footer 521 > 496",
+        "video action too far from its evidence",
+        "an affected control is below 44px"
+      ]
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "violations": [
+        "hero 673 > 620",
+        "why 1287 > 1120",
+        "field 610 > 550",
+        "contact 369 > 310",
+        "footer 521 > 496",
+        "video action too far from its evidence",
+        "an affected control is below 44px"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Axiom</title>
+  <meta name="description" content="This address does not exist on axiom.nonarkara.org.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#faf9f7">
+  <link rel="icon" href="/assets/axiom-logo.png" type="image/png">
+  <style>
+    :root {
+      --paper: #faf9f7;
+      --panel: #fcfbf9;
+      --ink: #191712;
+      --ink-2: #4a463e;
+      --ink-3: #6f6a60;
+      --line: #e7e5dd;
+      --line-2: #d6d3c8;
+      --accent: #1c4286;
+      --mono: ui-monospace, "JetBrains Mono", "IBM Plex Mono", Menlo, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Helvetica Neue', Helvetica, Arial, 'IBM Plex Sans Thai', 'Noto Sans KR', 'Noto Sans JP', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .notfound {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 96px 24px 120px;
+    }
+
+    .notfound__flag {
+      height: 4px;
+      background: var(--ink);
+      margin-bottom: 40px;
+    }
+
+    .notfound__code {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin: 0 0 18px;
+    }
+
+    .notfound__title {
+      font-size: 40px;
+      line-height: 1.12;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin: 0 0 20px;
+    }
+
+    .notfound__lede {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--ink-2);
+      max-width: 56ch;
+      margin: 0 0 36px;
+    }
+
+    .notfound__rule {
+      height: 1px;
+      background: var(--line-2);
+      margin: 0 0 28px;
+    }
+
+    .notfound__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .notfound__links a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-2);
+      padding-bottom: 3px;
+    }
+
+    .notfound__links a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    @media (max-width: 560px) {
+      .notfound {
+        padding: 64px 18px 96px;
+      }
+
+      .notfound__title {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="notfound">
+    <div class="notfound__flag" aria-hidden="true"></div>
+    <p class="notfound__code">Error 404 · No such coordinate</p>
+    <h1 class="notfound__title">This address is not on the map.</h1>
+    <p class="notfound__lede">The page you asked for does not exist on this site. Nothing was
+      published here. The systems, the catalogue and the reading room are all still where they
+      were.</p>
+    <div class="notfound__rule" aria-hidden="true"></div>
+    <nav class="notfound__links" aria-label="Where to go instead">
+      <a href="/">Back to the catalogue</a>
+      <a href="/#systems">The systems</a>
+      <a href="https://axiomx.nonarkara.org/">The reading room</a>
+    </nav>
+  </main>
+</body>
+
+</html>

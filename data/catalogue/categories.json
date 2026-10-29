@@ -1,0 +1,515 @@
+{
+  "c03": {
+    "en": "National Programme",
+    "th": "โครงการระดับชาติ",
+    "zh": "国家级项目",
+    "ko": "국가 프로그램",
+    "ja": "国家プログラム",
+    "vi": "Chương trình quốc gia",
+    "ts": "NationalProgramme"
+  },
+  "c06": {
+    "en": "Open Intelligence",
+    "th": "ข่าวกรองแบบเปิด",
+    "zh": "开放情报",
+    "ko": "오픈 인텔리전스",
+    "ja": "オープンインテリジェンス",
+    "vi": "Tình báo mở",
+    "ts": "OpenIntel"
+  },
+  "c40": {
+    "en": "City Pulse",
+    "th": "ชีพจรเมือง",
+    "zh": "城市脉搏",
+    "ko": "도시 펄스",
+    "ja": "都市パルス",
+    "vi": "Nhịp đô thị",
+    "ts": "CityPulse"
+  },
+  "c41": {
+    "en": "Traffic Regulation",
+    "th": "ควบคุมจราจร",
+    "zh": "交通管制",
+    "ko": "교통 규제",
+    "ja": "交通規制",
+    "vi": "Điều tiết giao thông",
+    "ts": "TrafficRegulation"
+  },
+  "c01": {
+    "en": "Regional Operations",
+    "th": "ปฏิบัติการระดับภูมิภาค",
+    "zh": "区域运营",
+    "ko": "지역 운영",
+    "ja": "地域オペレーション",
+    "vi": "Vận hành khu vực",
+    "ts": "RegionalOps"
+  },
+  "c18": {
+    "en": "Metropolitan Operations",
+    "th": "ปฏิบัติการมหานคร",
+    "zh": "都会运营",
+    "ko": "대도시 운영",
+    "ja": "大都市オペレーション",
+    "vi": "Vận hành đô thị lớn",
+    "ts": "MetroOps"
+  },
+  "c05": {
+    "en": "Intelligent Operations",
+    "th": "ปฏิบัติการอัจฉริยะ",
+    "zh": "智能运营",
+    "ko": "지능형 운영",
+    "ja": "インテリジェントオペレーション",
+    "vi": "Vận hành thông minh",
+    "ts": "IntelligentOps"
+  },
+  "c42": {
+    "en": "District Operations",
+    "th": "ปฏิบัติการเขต",
+    "zh": "区域运营",
+    "ko": "구 운영",
+    "ja": "地区運営",
+    "vi": "Vận hành quận",
+    "ts": "DistrictOperations"
+  },
+  "c13": {
+    "en": "Campus Intelligence",
+    "th": "ข่าวกรองวิทยาเขต",
+    "zh": "校园智能",
+    "ko": "캠퍼스 인텔리전스",
+    "ja": "キャンパスインテリジェンス",
+    "vi": "Tình báo campus",
+    "ts": "CampusIntel"
+  },
+  "c16": {
+    "en": "Coastal Intelligence",
+    "th": "ข่าวกรองชายฝั่ง",
+    "zh": "海岸智能",
+    "ko": "해안 인텔리전스",
+    "ja": "沿岸インテリジェンス",
+    "vi": "Tình báo ven biển",
+    "ts": "CoastalIntel"
+  },
+  "c08": {
+    "en": "Civic Intelligence",
+    "th": "ข่าวกรองพลเมือง",
+    "zh": "公民智能",
+    "ko": "시민 인텔리전스",
+    "ja": "シビックインテリジェンス",
+    "vi": "Tình báo công dân",
+    "ts": "CivicIntel"
+  },
+  "c15": {
+    "en": "City Intelligence",
+    "th": "ข่าวกรองเมือง",
+    "zh": "城市智能",
+    "ko": "도시 인텔리전스",
+    "ja": "シティインテリジェンス",
+    "vi": "Tình báo đô thị",
+    "ts": "CityIntel"
+  },
+  "c19": {
+    "en": "Environmental Watch",
+    "th": "เฝ้าสิ่งแวดล้อม",
+    "zh": "环境监测",
+    "ko": "환경 모니터링",
+    "ja": "環境モニタリング",
+    "vi": "Giám sát môi trường",
+    "ts": "EnvWatch"
+  },
+  "c32": {
+    "en": "3D Urban Atlas",
+    "th": "แผนที่เมือง 3D",
+    "zh": "三维城市地图",
+    "ko": "3D 도시 아틀라스",
+    "ja": "3D都市アトラス",
+    "vi": "Bản đồ đô thị 3D",
+    "ts": "UrbanAtlas3D"
+  },
+  "c36": {
+    "en": "Heritage Atlas",
+    "th": "แผนที่มรดก",
+    "zh": "遗产地图",
+    "ko": "유산 아틀라스",
+    "ja": "遺産アトラス",
+    "vi": "Bản đồ di sản",
+    "ts": "HeritageAtlas"
+  },
+  "c47": {
+    "en": "City Economics",
+    "th": "เศรษฐศาสตร์เมือง",
+    "zh": "城市经济",
+    "ko": "도시 경제",
+    "ja": "都市経済",
+    "vi": "Kinh tế đô thị",
+    "ts": "CityEconomics"
+  },
+  "c50": {
+    "en": "Place Fit",
+    "th": "ความเหมาะสมของย่าน",
+    "zh": "选址匹配",
+    "ko": "입지 적합성",
+    "ja": "立地の相性",
+    "vi": "Độ phù hợp khu vực",
+    "ts": "PlaceFit"
+  },
+  "c51": {
+    "en": "Metropolitan 3D Atlas",
+    "th": "แผนที่เมือง 3D",
+    "zh": "大都市3D地图集",
+    "ko": "대도시 3D 아틀라스",
+    "ja": "大都市3Dアトラス",
+    "vi": "Bản đồ đô thị 3D",
+    "ts": "UrbanAtlas3D"
+  },
+  "c04": {
+    "en": "City Benchmarking",
+    "th": "การจัดอันดับเมือง",
+    "zh": "城市基准评分",
+    "ko": "도시 벤치마킹",
+    "ja": "都市ベンチマーク",
+    "vi": "Đối sánh thành phố",
+    "ts": "CityBenchmark"
+  },
+  "c02": {
+    "en": "Strategic Intelligence",
+    "th": "ข่าวกรองเชิงกลยุทธ์",
+    "zh": "战略情报",
+    "ko": "전략 인텔리전스",
+    "ja": "戦略インテリジェンス",
+    "vi": "Tình báo chiến lược",
+    "ts": "StrategicIntel"
+  },
+  "c14": {
+    "en": "Market Intelligence",
+    "th": "ข่าวกรองตลาด",
+    "zh": "市场智能",
+    "ko": "시장 인텔리전스",
+    "ja": "マーケットインテリジェンス",
+    "vi": "Tình báo thị trường",
+    "ts": "MarketIntel"
+  },
+  "c34": {
+    "en": "Working Instrument",
+    "th": "เครื่องมือใช้งานจริง",
+    "zh": "可用工具",
+    "ko": "워킹 인스트루먼트",
+    "ja": "ワーキングインストゥルメント",
+    "vi": "Công cụ làm việc",
+    "ts": "WorkingInstrument"
+  },
+  "c35": {
+    "en": "Border Intelligence",
+    "th": "ข่าวกรองชายแดน",
+    "zh": "边境情报",
+    "ko": "국경 인텔리전스",
+    "ja": "国境インテリジェンス",
+    "vi": "Tình báo biên giới",
+    "ts": "BorderIntel"
+  },
+  "c07": {
+    "en": "Transit Intelligence",
+    "th": "ระบบขนส่งอัจฉริยะ",
+    "zh": "交通智能",
+    "ko": "교통 인텔리전스",
+    "ja": "交通インテリジェンス",
+    "vi": "Tình báo giao thông",
+    "ts": "TransitIntel"
+  },
+  "c12": {
+    "en": "National Broadcast",
+    "th": "กระจายเสียงแห่งชาติ",
+    "zh": "国家广播",
+    "ko": "국가 방송",
+    "ja": "国家放送",
+    "vi": "Phát sóng quốc gia",
+    "ts": "NationalBroadcast"
+  },
+  "c52": {
+    "en": "Community Platform",
+    "th": "แพลตฟอร์มชุมชน",
+    "zh": "社区平台",
+    "ko": "커뮤니티 플랫폼",
+    "ja": "コミュニティプラットフォーム",
+    "vi": "Nền tảng cộng đồng",
+    "ts": "CommunityPlatform"
+  },
+  "c53": {
+    "en": "Disaster Preparedness",
+    "th": "การเตรียมพร้อมรับภัยพิบัติ",
+    "zh": "防灾减灾",
+    "ko": "재난 대비",
+    "ja": "防災対策",
+    "vi": "Ứng phó thảm họa",
+    "ts": "DisasterPreparedness"
+  },
+  "c43": {
+    "en": "Podcast",
+    "th": "พอดแคสต์",
+    "zh": "播客",
+    "ko": "팟캐스트",
+    "ja": "ポッドキャスト",
+    "vi": "Podcast",
+    "ts": "Podcast"
+  },
+  "c09": {
+    "en": "Agentic Intelligence",
+    "th": "ข่าวกรอง Agentic",
+    "zh": "智能体情报",
+    "ko": "에이전틱 인텔리전스",
+    "ja": "エージェンティックインテリジェンス",
+    "vi": "Tình báo tác tử",
+    "ts": "AgenticIntel"
+  },
+  "c10": {
+    "en": "Talent Intelligence",
+    "th": "ข่าวกรองบุคลากร",
+    "zh": "人才智能",
+    "ko": "인재 인텔리전스",
+    "ja": "タレントインテリジェンス",
+    "vi": "Tình báo nhân tài",
+    "ts": "TalentIntel"
+  },
+  "c11": {
+    "en": "Knowledge Intelligence",
+    "th": "ข่าวกรองความรู้",
+    "zh": "知识智能",
+    "ko": "지식 인텔리전스",
+    "ja": "ナレッジインテリジェンス",
+    "vi": "Tình báo tri thức",
+    "ts": "KnowledgeIntel"
+  },
+  "c20": {
+    "en": "Capability Lab",
+    "th": "ห้องทดลองความสามารถ",
+    "zh": "能力实验室",
+    "ko": "역량 랩",
+    "ja": "ケイパビリティラボ",
+    "vi": "Phòng thí nghiệm năng lực",
+    "ts": "CapabilityLab"
+  },
+  "c44": {
+    "en": "Network Evaluation",
+    "th": "ประเมินเครือข่าย",
+    "zh": "网络评估",
+    "ko": "네트워크 평가",
+    "ja": "ネットワーク評価",
+    "vi": "Đánh giá mạng lưới",
+    "ts": "NetworkEvaluation"
+  },
+  "c23": {
+    "en": "Digital Humanities",
+    "th": "มนุษยศาสตร์ดิจิทัล",
+    "zh": "数字人文",
+    "ko": "디지털 휴머니티",
+    "ja": "デジタルヒューマニティーズ",
+    "vi": "Nhân văn số",
+    "ts": "DigitalHumanities"
+  },
+  "c25": {
+    "en": "Finance Intelligence",
+    "th": "ข่าวกรองการเงิน",
+    "zh": "金融情报",
+    "ko": "금융 인텔리전스",
+    "ja": "金融インテリジェンス",
+    "vi": "Tình báo tài chính",
+    "ts": "FinanceIntel"
+  },
+  "c26": {
+    "en": "Open Blueprint",
+    "th": "Blueprint เปิด",
+    "zh": "开放蓝图",
+    "ko": "오픈 청사진",
+    "ja": "オープンブループリント",
+    "vi": "Bản thiết kế mở",
+    "ts": "OpenBlueprint"
+  },
+  "c54": {
+    "en": "Life Simulation",
+    "th": "แบบจำลองชีวิต",
+    "zh": "人生模拟",
+    "ko": "인생 시뮬레이션",
+    "ja": "人生シミュレーション",
+    "vi": "Mô phỏng cuộc đời",
+    "ts": "LifeSimulation"
+  },
+  "c55": {
+    "en": "Autonomous Simulation",
+    "th": "การจำลองโลกอัตโนมัติ",
+    "zh": "自主模拟世界",
+    "ko": "자율 시뮬레이션",
+    "ja": "自律シミュレーション",
+    "vi": "Mô phỏng tự trị",
+    "ts": "AutonomousSimulation"
+  },
+  "c56": {
+    "en": "Spatial Metaverse",
+    "th": "เมตาเวิร์สเชิงสถาปัตยกรรม",
+    "zh": "空间元宇宙",
+    "ko": "공간 메타버스",
+    "ja": "空間メタバース",
+    "vi": "Metaverse Không gian",
+    "ts": "SpatialMetaverse"
+  },
+  "c45": {
+    "en": "Brain Practice",
+    "th": "ฝึกสมอง",
+    "zh": "脑力练习",
+    "ko": "두뇌 훈련",
+    "ja": "脳力練習",
+    "vi": "Luyện trí não",
+    "ts": "BrainPractice"
+  },
+  "c17": {
+    "en": "Document Intelligence",
+    "th": "ข่าวกรองเอกสาร",
+    "zh": "文档智能",
+    "ko": "문서 인텔리전스",
+    "ja": "ドキュメントインテリジェンス",
+    "vi": "Tình báo tài liệu",
+    "ts": "DocumentIntel"
+  },
+  "c27": {
+    "en": "Writing Intelligence",
+    "th": "ข่าวกรองการเขียน",
+    "zh": "写作智能",
+    "ko": "글쓰기 인텔리전스",
+    "ja": "ライティングインテリジェンス",
+    "vi": "Trí tuệ viết",
+    "ts": "WritingIntel"
+  },
+  "c28": {
+    "en": "News Intelligence",
+    "th": "ข่าวกรองข่าว",
+    "zh": "新闻情报",
+    "ko": "뉴스 인텔리전스",
+    "ja": "ニュースインテリジェンス",
+    "vi": "Tình báo tin tức",
+    "ts": "NewsIntel"
+  },
+  "c29": {
+    "en": "Scraping Service",
+    "th": "บริการดูดข้อมูล",
+    "zh": "抓取服务",
+    "ko": "스크래핑 서비스",
+    "ja": "スクレイピングサービス",
+    "vi": "Dịch vụ scraping",
+    "ts": "ScrapingService"
+  },
+  "c30": {
+    "en": "Watch Intelligence",
+    "th": "ข่าวกรองนาฬิกา",
+    "zh": "腕表情报",
+    "ko": "시계 인텔리전스",
+    "ja": "時計インテリジェンス",
+    "vi": "Tình báo đồng hồ",
+    "ts": "WatchIntel"
+  },
+  "c31": {
+    "en": "Architectural Intelligence",
+    "th": "ข่าวกรองสถาปัตย์",
+    "zh": "建筑智能",
+    "ko": "건축 인텔리전스",
+    "ja": "建築インテリジェンス",
+    "vi": "Tình báo kiến trúc",
+    "ts": "ArchIntel"
+  },
+  "c33": {
+    "en": "Agent Gateway",
+    "th": "เกตเวย์เอเจนต์",
+    "zh": "智能体网关",
+    "ko": "에이전트 게이트웨이",
+    "ja": "エージェントゲートウェイ",
+    "vi": "Cổng agent",
+    "ts": "AgentGateway"
+  },
+  "c37": {
+    "en": "Urban Research",
+    "th": "งานวิจัยเมือง",
+    "zh": "城市研究",
+    "ko": "도시 연구",
+    "ja": "都市研究",
+    "vi": "Nghiên cứu đô thị",
+    "ts": "UrbanResearch"
+  },
+  "c38": {
+    "en": "Fieldwork Book",
+    "th": "หนังสือภาคสนาม",
+    "zh": "田野志",
+    "ko": "현지조사 저서",
+    "ja": "フィールドワーク本",
+    "vi": "Sách thực địa",
+    "ts": "FieldworkBook"
+  },
+  "c57": {
+    "en": "Tactical Simulation",
+    "th": "จำลองแท็กติกฟุตบอล",
+    "zh": "足球战术模拟",
+    "ko": "축구 전술 시뮬레이션",
+    "ja": "サッカー戦術シミュレーション",
+    "vi": "Mô phỏng chiến thuật",
+    "ts": "TacticalSimulation"
+  },
+  "c58": {
+    "en": "Football Research",
+    "th": "งานวิจัยฟุตบอล",
+    "zh": "足球研究",
+    "ko": "축구 연구",
+    "ja": "サッカー研究",
+    "vi": "Nghiên cứu bóng đá",
+    "ts": "FootballResearch"
+  },
+  "c59": {
+    "en": "Computer-Vision Classroom",
+    "th": "ห้องเรียนคอมพิวเตอร์วิทัศน์",
+    "zh": "计算机视觉课堂",
+    "ko": "컴퓨터 비전 교실",
+    "ja": "コンピュータービジョン教室",
+    "vi": "Lớp thị giác máy tính",
+    "ts": "ComputerVisionClassroom"
+  },
+  "c60": {
+    "en": "Business Operations",
+    "th": "ระบบบริหารธุรกิจ",
+    "zh": "企业运营",
+    "ko": "비즈니스 운영",
+    "ja": "業務管理",
+    "vi": "Vận hành doanh nghiệp",
+    "ts": "BusinessOperations"
+  },
+  "c61": {
+    "en": "Colour Exhibition",
+    "th": "นิทรรศการสี",
+    "zh": "色彩展览",
+    "ko": "색채 전시",
+    "ja": "色彩展示",
+    "vi": "Triển lãm màu sắc",
+    "ts": "ColourExhibition"
+  },
+  "c46": {
+    "en": "Open Source Kit",
+    "th": "ชุดโอเพนซอร์ส",
+    "zh": "开源工具包",
+    "ko": "오픈 소스 키트",
+    "ja": "オープンソースキット",
+    "vi": "Bộ công cụ mã nguồn mở",
+    "ts": "OpenSourceKit"
+  },
+  "c62": {
+    "en": "Model Training",
+    "th": "การฝึกโมเดลภาษา",
+    "zh": "模型训练",
+    "ko": "모델 훈련",
+    "ja": "モデル訓練",
+    "vi": "Huấn luyện mô hình",
+    "ts": "ModelTraining"
+  },
+  "c63": {
+    "en": "Procedural 3D Canine Studio",
+    "th": "สตูดิโอจำลองสุนัข 3 มิติ",
+    "zh": "程序化3D犬类工作室",
+    "ko": "절차적 3D 개 스튜디오",
+    "ja": "手続き型3D犬スタジオ",
+    "vi": "Xưởng mô phỏng chó 3D",
+    "ts": "Procedural3DStudio"
+  }
+}

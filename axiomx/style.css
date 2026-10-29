@@ -1,0 +1,1261 @@
+:root {
+  --paper: #faf9f7;
+  --ink: #191712;
+  --muted: #5c564e;
+  --line: #e4e0d6;
+  --navy: #00247d;
+  --red: #a51931;
+  --hover-wash: rgba(0, 36, 125, 0.035);
+  --pad: 22px;
+  --sans: "Helvetica Neue", Helvetica, Arial, "IBM Plex Sans Thai", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --paper: #111110;
+  --ink: #f3f0e8;
+  --muted: #a39c92;
+  --line: #2c2a26;
+  --navy: #9ebcf0;
+  --red: #ef7d88;
+  /* The wash has to be light in the dark. A navy one would darken the row and
+     take contrast away from type that is already near-white on near-black. */
+  --hover-wash: rgba(158, 188, 240, 0.07);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.45;
+  text-rendering: optimizeLegibility;
+}
+
+button, input { font: inherit; color: inherit; }
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+::selection { background: var(--ink); color: var(--paper); }
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.shell {
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: clamp(300px, 32vw, 420px) minmax(0, 1fr);
+}
+
+.index, .plate {
+  min-width: 0;
+  min-height: 0;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.index { border-right: 1px solid var(--line); }
+
+.bar {
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 var(--pad);
+  border-bottom: 1px solid var(--line);
+}
+
+.mark {
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* Locale control. Mirrors the main site's segmented EN/TH/ZH/... switch, in
+   axiomx's own palette. The book is English-only by design, so the other five
+   are graded Soon rather than hidden: present, marked, and honest. A locale
+   that does not exist yet is not a dead button -- it routes to the "How to
+   read this" entry, which is where this vocabulary is defined. */
+.locale {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: stretch;
+  height: 44px;
+  border: 1px solid var(--line);
+}
+
+.locale-btn {
+  min-width: 30px;
+  min-height: 44px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.locale-btn:first-child { border-left: 0; }
+.locale-btn:hover { color: var(--navy); }
+
+.locale-btn.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.locale-btn.is-active:hover { color: var(--paper); }
+
+/* Soon: dotted rule under the code, held back from full ink. Same grade the
+   systems entries use, so the book does not grade itself one way and its own
+   chrome another. */
+.locale-btn[data-soon] {
+  opacity: 0.6;
+  box-shadow: inset 0 -1px 0 var(--muted);
+}
+
+.locale-btn:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: -2px;
+}
+
+.bar-kicker {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-btn {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.text-btn:hover { color: var(--navy); }
+.text-btn { min-width: 44px; justify-content: center; }
+
+.back, .theme-mobile { display: none; }
+
+.bar-open[hidden] { display: none; }
+
+.find {
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 var(--pad);
+  border-bottom: 1px solid var(--line);
+}
+
+.find input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  outline: none;
+  font-size: 16px;
+}
+
+.find input::placeholder { color: var(--muted); }
+
+.find-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.locator {
+  height: 40px;
+  flex: 0 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 22px;
+  padding: 0 var(--pad);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.index-scroll, .plate-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.index-scroll {
+  padding: 8px 0 44px;
+  /* A hovered row's label grows 7% out of its column and into the row's own
+     right padding -- space that is there to be used. Without this the vertical
+     scroller counts that as sideways overflow and grows a scrollbar. Clipped,
+     not hidden: hidden would make this a scroll container on the cross axis. */
+  overflow-x: clip;
+}
+
+.group { margin-top: 18px; }
+.group:first-child { margin-top: 8px; }
+
+.group h2 {
+  margin: 0;
+  padding: 0 var(--pad) 4px calc(var(--pad) + 52px);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.group h2 span {
+  letter-spacing: 0;
+  text-transform: none;
+  font-family: var(--mono);
+  font-weight: 400;
+  margin-left: 8px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  column-gap: 8px;
+  align-items: baseline;
+  align-content: center;
+  width: 100%;
+  /* 111 rows at 27px was under a comfortable touch target. The row grows;
+     the type does not. */
+  min-height: 44px;
+  text-align: left;
+  padding: 6px var(--pad);
+  font-size: 14px;
+  line-height: 1.35;
+  letter-spacing: -0.011em;
+  color: var(--ink);
+}
+
+.item .num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.item .lb { transform-origin: left center; }
+
+/* The index is 113 rows of near-identical 14px lines, about 20 of which fit on
+   a screen, so the row under the cursor has to answer for itself. Three
+   signals, each doing a different job.
+
+   The wash is the one that matters. The clickable row is 419x44 but the title
+   inks only about 200px of it, so a text-only response swells a hand's width
+   away from a reader parked in the empty right-hand side of the row. The wash
+   spans the whole target, so the answer lands under the cursor wherever the
+   cursor is.
+
+   It is a wash and not a rule on the row's edge because the index is 18 groups
+   long: a third of the rows sit directly against a group heading, and there a
+   rule reads as a section divider rather than as a selection.
+
+   The label grows 7% from its left edge and the number brightens with it.
+   Growth is a transform and not a font-size, because a font-size bump would
+   re-wrap a long title and shove every row below it down the page -- the
+   affordance would cost more than it gives.
+
+   All of it sits behind (hover: hover). These states latch after a tap on a
+   touch screen and then stay latched, which is worse than no response at all. */
+@media (hover: hover) {
+  .item:hover {
+    color: var(--navy);
+    background: var(--hover-wash);
+  }
+  .item:hover .lb { transform: scale(1.07); }
+  .item:hover .num { color: var(--navy); }
+}
+
+/* The growth is an affordance, not an animation -- it still happens for a
+   reader who has asked for no motion, it just arrives without the travel. */
+@media (prefers-reduced-motion: no-preference) {
+  .item .lb { transition: transform 130ms cubic-bezier(0.2, 0, 0, 1); }
+}
+
+.item[aria-current="true"] {
+  font-weight: 500;
+  box-shadow: inset 2px 0 0 var(--ink);
+}
+
+.item[aria-current="true"] .num { color: var(--ink); }
+
+.item:focus-visible,
+.text-btn:focus-visible,
+.find input:focus-visible,
+.plate-scroll:focus-visible {
+  outline: 1px solid var(--navy);
+  outline-offset: -1px;
+}
+
+.empty {
+  margin: 0;
+  padding: 14px var(--pad);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.plate-scroll { padding-bottom: 48px; }
+
+.poster {
+  width: min(18em, calc(100% - (var(--pad) * 2)));
+  margin: 28px var(--pad) 0;
+  font-size: clamp(40px, 4.8vw, 68px);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.038em;
+}
+
+.poster em {
+  display: block;
+  margin-top: 0.12em;
+  font-style: normal;
+  color: var(--navy);
+}
+
+.block { margin: 22px var(--pad) 0; }
+.measure > .block:first-child,
+.plate-scroll > .measure { margin-top: 28px; }
+
+.kicker {
+  margin: 28px var(--pad) 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1.name {
+  width: min(16em, calc(100% - (var(--pad) * 2)));
+  margin: 28px var(--pad) 0;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.lede, .prose, .note {
+  max-width: 66ch;
+  margin: 12px 0 0;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.prose + .prose { margin-top: 10px; }
+
+.prose--ai { font-size: 14px; line-height: 1.5; }
+
+.note {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 68ch;
+}
+
+/* The document column. Declared AFTER the type rules on purpose: those use a
+   `margin` shorthand that would otherwise reset the inset back to zero. */
+.inset {
+  margin-left: var(--pad);
+  margin-right: var(--pad);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 16px var(--pad) 0;
+}
+/* On a narrow column the actions are a list, one per line. A row that
+   breaks wherever it runs out of room leaves the last action alone. */
+@media (max-width: 560px) {
+  .actions { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+.actions a, .inline-link {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  font-size: 15px;
+}
+
+/* Primary calls to action are standalone, not inline in a sentence, so they
+   carry the full target rather than the inline exemption. */
+.actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.shot-link {
+  display: block;
+  margin-top: 22px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.shot-link img, .shot {
+  display: block;
+  width: min(960px, calc(100% - (var(--pad) * 2)));
+  height: auto;
+  margin: 22px var(--pad) 0;
+}
+.plate-scroll > .shot:first-child { margin-top: 0; }
+
+/* A looping clip is portrait, so it must NOT inherit .shot's 960px measure --
+   that would scale 480x860 up to roughly 1720px tall and the plate would read
+   as a billboard. The frame is capped by height and the caption takes the rest
+   of the line. */
+.clip {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  margin: 22px var(--pad) 0;
+  /* The figure sizes to its own parts instead of claiming the 960px measure.
+     A 234px frame parked in a 960px box leaves one 726px hole beside it, and a
+     hole that big reads as a mistake, not as margin. Sized to its contents the
+     frame and its label are one object, and the space to their right is the
+     same space the plate credit above already leaves. */
+  width: fit-content;
+  max-width: 100%;
+}
+
+.clip video {
+  flex: 0 0 auto;
+  display: block;
+  width: auto;
+  height: 420px;
+  max-width: none;
+  background: var(--ink);
+}
+
+/* 64ch is the mono advance, not a typed pixel, so the label survives a change
+   of font size. Measured: 64ch holds this caption on two lines with no orphan
+   word. The basis shrinks when the figure is capped instead of overflowing. */
+.clip figcaption {
+  flex: 0 1 64ch;
+  min-width: 0;
+  padding-top: 2px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+/* Narrower than this the column cannot hold a 234px frame and a 64ch label at
+   once -- the label shrinks to four stranded lines beside the frame. Measured:
+   the available width drops past the 666px the pair needs between a 1000px and
+   a 950px viewport, so the label goes under the frame instead. */
+@media (max-width: 1030px) {
+  .clip { display: block; width: auto; }
+  .clip figcaption { margin-top: 9px; max-width: 62ch; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   VIDEO STUDIO — In-the-field briefings & video player deck
+   ═══════════════════════════════════════════════════════════════════════════ */
+.vstudio {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  gap: 22px;
+  width: min(960px, calc(100% - (var(--pad) * 2)));
+  margin: 22px var(--pad) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0 20px;
+}
+
+.vstudio-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.vstudio-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--line);
+}
+
+.vstudio-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* The poster. The same frame the film opens on, and the same play mark the
+   catalogue uses, so one gesture means the same thing on both sites. */
+.vstudio-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--ink);
+  cursor: pointer;
+  overflow: hidden;
+  display: block;
+}
+
+.vstudio-poster-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+.vstudio-poster:hover .vstudio-poster-img {
+  transform: scale(1.02);
+  filter: brightness(0.9);
+}
+
+.vstudio-poster-play {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  background: var(--navy);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.vstudio-poster:hover .vstudio-poster-play {
+  transform: translateY(-2px);
+}
+
+.vstudio-info {
+  margin-top: 12px;
+  padding: 0 2px;
+}
+
+.vstudio-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  margin-bottom: 4px;
+}
+
+.vstudio-title {
+  margin: 2px 0 6px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.vstudio-desc {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.vstudio-list {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--line);
+  padding-left: 20px;
+  min-width: 0;
+}
+
+.vstudio-list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 8px;
+}
+
+.vstudio-list-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.vstudio-list-count {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.vstudio-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.vstudio-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px;
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  min-height: 54px;
+}
+
+.vstudio-item:hover {
+  background: var(--hover-wash);
+  border-color: var(--line);
+}
+
+.vstudio-item.is-active {
+  background: var(--hover-wash);
+  border-color: var(--navy);
+}
+
+.vstudio-thumb {
+  position: relative;
+  flex: 0 0 76px;
+  aspect-ratio: 16 / 9;
+  background: #111;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.vstudio-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vstudio-idx {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  font-family: var(--mono);
+  font-size: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 1px 3px;
+  line-height: 1;
+}
+
+.vstudio-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.vstudio-item-meta {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.vstudio-item-title {
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--ink);
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .vstudio {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .vstudio-list {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+  .vstudio-items {
+    max-height: none;
+  }
+}
+
+.caption {
+  margin: 8px var(--pad) 0;
+  max-width: 68ch;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.arch {
+  display: grid;
+  width: max-content;
+  max-width: calc(100% - (var(--pad) * 2));
+  margin: 22px var(--pad) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.arch[data-cols="1"] { grid-template-columns: max-content; }
+.arch[data-cols="2"] { grid-template-columns: max-content max-content; }
+.arch[data-cols="3"] { grid-template-columns: max-content max-content max-content; }
+
+.arch section { padding: 11px 28px 13px 0; }
+.arch section + section {
+  padding-left: 28px;
+  border-left: 1px solid var(--line);
+}
+
+.arch h2 {
+  margin: 0 0 8px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.arch ul { margin: 0; padding: 0; list-style: none; }
+.arch li { font-size: 13px; line-height: 1.45; }
+
+.rule-list { width: min(920px, calc(100% - (var(--pad) * 2))); margin: 18px var(--pad) 0; }
+
+/* Numbered prose rows are paragraphs, not spec-sheet columns. Their rules
+   must stop at the measure the text actually fills. */
+.rule-list--prose { width: min(66ch, calc(100% - (var(--pad) * 2))); }
+
+.fig, .def, .row, .layer {
+  display: grid;
+  align-items: baseline;
+  border-top: 1px solid var(--line);
+  padding: 9px 0;
+}
+
+.fig:last-child, .def:last-child, .row:last-child, .layer:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.fig { grid-template-columns: 6.5rem minmax(8rem, 12rem) minmax(0, 1fr); gap: 12px; }
+.fig--pair { grid-template-columns: 6.5rem minmax(0, 1fr); }
+.fig b {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+.fig i { font-style: normal; font-size: 14px; }
+.fig span { font-size: 15px; line-height: 1.4; }
+
+.def { grid-template-columns: 11.5rem minmax(0, 1fr); gap: 16px; font-size: 15px; }
+.def > :first-child { color: var(--muted); }
+
+.row {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  text-decoration: none;
+  color: inherit;
+}
+.row b { font-weight: 500; font-size: 15px; display: block; }
+.row__arrow { color: var(--muted); font-weight: 400; margin-left: 6px; }
+.row i { font-style: normal; color: var(--muted); font-size: 13px; }
+.row:hover b { color: var(--navy); }
+
+.numbered { margin: 0; padding: 12px 0; border-top: 1px solid var(--line); }
+.numbered:last-child { border-bottom: 1px solid var(--line); }
+.numbered .n {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.numbered h2 { margin: 2px 0 0; font-size: 17px; font-weight: 500; letter-spacing: -0.015em; }
+.numbered p { margin: 4px 0 0; font-size: 15px; line-height: 1.45; }
+
+.stack-line, .roles {
+  margin: 12px var(--pad) 0;
+  max-width: 72ch;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* The layer name is a heading for the shelf under it, not a label in a
+   column beside it. A 13rem label cell next to a 240px shelf left 200px of
+   nothing under the name, and the eye had to travel the width of the page
+   to read the tools it was labelling. */
+.layer { grid-template-columns: minmax(0, 1fr); gap: 6px 12px; }
+.layer__head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 14px; }
+.layer h2 { margin: 0; font-size: 14px; font-weight: 500; }
+.layer p { margin: 2px 0 0; font-size: 12px; color: var(--muted); }
+/* The renderer appends tools as adjacent inline boxes with no whitespace
+   between them, so there was no legal break point: 114 names ran as one
+   unbreakable line and pushed the plate sideways (+996px desktop, +1406px
+   phone). A wrapping flex row breaks between names; each name stays whole. */
+/* The tool shelf is a grid, not a row that breaks wherever it runs out of
+   room. A grid has a decided number of columns at every width, so the last
+   row is part of the shape instead of an accident. */
+.tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  justify-items: start;
+  align-items: baseline;
+  column-gap: 12px;
+  row-gap: 2px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.tool { white-space: nowrap; }
+.tool.is-fav { font-weight: 500; }
+.tool i {
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-left: 4px;
+}
+
+.group-block { margin-top: 22px; }
+.group-block h2 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.group-block ul { margin: 0; padding: 0; list-style: none; }
+.group-block li { font-size: 15px; line-height: 1.45; padding: 3px 0; }
+.group-block a { color: var(--navy); text-underline-offset: 3px; }
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  margin: 28px var(--pad) 0;
+  padding-top: 11px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+.pager a {
+  max-width: 46%;
+  /* A destination the reader cannot read is not a destination. The label
+     wraps to a second line rather than being cut, so nothing is hidden. */
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  color: inherit;
+  text-decoration: none;
+}
+.pager a:last-child { margin-left: auto; text-align: right; }
+.pager a:hover { color: var(--navy); }
+/* Touch: the previous/next links were 22px tall. line-height rather than
+   flex so the ellipsis still truncates. */
+@media (max-width: 760px), (pointer: coarse) {
+  /* On a phone the two labels are stacked, not squeezed. Squeezing them
+     into half a row each is what put a name out of reach. */
+  .pager { flex-direction: column; gap: 0; }
+  .pager a { display: flex; align-items: center; min-width: 44px; min-height: 44px; line-height: 1.4; padding: 10px 0; max-width: 100%; }
+  .pager a:last-child { margin-left: 0; text-align: left; }
+  a.tool { display: inline-flex; align-items: center; min-height: 44px; }
+}
+.is-live { color: var(--red); }
+.pager span { color: var(--muted); }
+
+.th { font-family: var(--sans); }
+
+@media (max-width: 860px) {
+  .shell { grid-template-columns: 1fr; }
+  .index { border-right: 0; }
+  .plate { display: none; }
+  .shell.is-open .index { display: none; }
+  .shell.is-open .plate { display: flex; }
+  .back, .theme-mobile { display: inline-flex; }
+  .poster { font-size: 36px; margin-top: 22px; }
+  /* the bar carries the mark, six locale codes and Dark; at 390px the codes
+     are what give. Height stays 44px so the tap target does not. */
+  .locale-btn { min-width: 24px; padding: 0 4px; font-size: 9px; }
+  .clip video { height: 360px; }
+  .clip figcaption { font-size: 10px; }
+  .fig, .fig--pair, .def, .layer, .arch[data-cols] {
+    width: auto;
+    max-width: none;
+    grid-template-columns: 1fr;
+  }
+  .arch section + section { padding-left: 0; border-left: 0; padding-top: 11px; border-top: 1px solid var(--line); }
+  .fig b { font-size: 20px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE RECEIVER — shape abstracted from a portable field radio
+   ═══════════════════════════════════════════════════════════════════════════
+
+   Not the object. The FORM, and only the form:
+
+     carry bracket   →  the rails that cap both zones
+     two-zone face   →  grille at one side, instrument dial at the other
+     perforated grille → the index, a surface you listen into rather than read
+     recessed dial   → the locator: light panel, ticks, numerals, red index line
+     knurled control →  the two switches, textured rather than turned
+
+   Nothing here is rounded. The radio is round; the book is not. A circle is
+   the one form this design will not borrow, because Axiom's law is square
+   corners and a cylinder reads as decoration. What transfers is proportion,
+   division, and the texture of a surface being tuned rather than read.
+
+   Every rule below is additive. No layout, no type size, and no 44px target
+   changes — the receiver is drawn on top of the book, never in place of it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Perforated grille. A 7px dot screen in ink at 4.5% — flat, no gradient
+   function involved. Dark mode inverts it so the holes stay holes. */
+.index {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7'%3E%3Ccircle cx='1.5' cy='1.5' r='1' fill='%23191712' fill-opacity='0.045'/%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .index {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7'%3E%3Ccircle cx='1.5' cy='1.5' r='1' fill='%23f3f0e8' fill-opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* The carry bracket. A radio's handle is a flat strap of metal standing above
+   the body, so the rails get a heavier rule on top and the index rail gets
+   its outer uprights — the two places the bracket would land on the case. */
+.bar {
+  box-shadow: inset 0 2px 0 var(--line);
+}
+
+.index > .bar {
+  border-left: 2px solid var(--ink);
+  border-right: 2px solid var(--ink);
+}
+
+/* The dial face. Light panel, a scale of ticks, and the red index line — the
+   single coloured rule the whole receiver is read against. The red is the
+   bottom edge rather than a line struck through the numerals: identical
+   signal, and the text stays legible. */
+.locator {
+  height: 46px;
+  flex: 0 0 46px;
+  position: relative;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--red);
+}
+
+/* The scale. Ticks every 8px with a full-height mark every fifth, drawn as
+   SVG so no gradient function is involved and the weights stay even. */
+.locator::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 7px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='7'%3E%3Cg fill='%23191712' fill-opacity='0.2'%3E%3Crect x='0' y='0' width='1' height='7'/%3E%3Crect x='8' y='4' width='1' height='3'/%3E%3Crect x='16' y='2' width='1' height='5'/%3E%3Crect x='24' y='4' width='1' height='3'/%3E%3Crect x='32' y='0' width='1' height='7'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .locator::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='7'%3E%3Cg fill='%23f3f0e8' fill-opacity='0.22'%3E%3Crect x='0' y='0' width='1' height='7'/%3E%3Crect x='8' y='4' width='1' height='3'/%3E%3Crect x='16' y='2' width='1' height='5'/%3E%3Crect x='24' y='4' width='1' height='3'/%3E%3Crect x='32' y='0' width='1' height='7'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* The numerals sit clear of the tick rail rather than on it. */
+#locatorNum, #locatorMeta { transform: translateY(-3px); }
+
+/* Knurling, abstracted. The radio's knobs are cylinders; this keeps the
+   grain and drops the circle. Three-pixel hairlines under the label, the
+   way a thumb reads a milled edge. */
+#themeBtn, #themeBtn2, .bar-open, .back {
+  position: relative;
+  padding-bottom: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='3'%3E%3Crect width='1' height='3' fill='%23191712' fill-opacity='0.24'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+}
+
+[data-theme="dark"] #themeBtn,
+[data-theme="dark"] #themeBtn2,
+[data-theme="dark"] .bar-open,
+[data-theme="dark"] .back {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='3'%3E%3Crect width='1' height='3' fill='%23f3f0e8' fill-opacity='0.28'/%3E%3C/svg%3E");
+}
+
+#themeBtn:hover, #themeBtn2:hover, .bar-open:hover, .back:hover { background-image: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}
+
+/* Plates — after DIE WELT's 2011 Ellsworth Kelly edition: art where the
+   photograph would be, set on the same measure as the type it sits beside.
+   A hairline frame, a museum label in mono, no shadow, no rounding. */
+.plate-art {
+  margin: 22px var(--pad) 0;
+  max-width: 960px;
+}
+.plate-img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(68vh, 640px);
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.plate-art.is-real-screen .plate-img {
+  outline: 1px solid var(--accent);
+}
+.plate-art figcaption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  margin-top: 11px;
+  padding-top: 9px;
+  border-top: 1px solid var(--line);
+  max-width: 66ch;
+}
+.plate-art figcaption p { margin: 0; }
+
+/* ── HERO ─────────────────────────────────────────────────────────────────
+   The poster is one sentence long. The picture under it has to run the
+   length of that sentence rather than sit beside it like a stamp, so the
+   plate goes edge to edge and only the label takes a measure. The label
+   is the same museum label every other plate in this book carries:
+   artist, title, year, collection, source, licence, and one line on why
+   this work stands here. The audit trail is not a nicety; it is the
+   reason the picture can be trusted to carry the sentence.
+   ─────────────────────────────────────────────────────────────────────── */
+.hero-art { margin: 24px 0 0; }
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 58vh;
+  object-fit: cover;
+  object-position: center 42%;
+  border-bottom: 1px solid var(--line);
+  background: var(--line);
+}
+.hero-art figcaption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  margin: 11px var(--pad) 0;
+  padding-top: 9px;
+  border-top: 1px solid var(--line);
+  max-width: 66ch;
+}
+.hero-art figcaption p { margin: 0; }
+
+/* A step that carries a plate puts the picture under its own paragraph, in
+   the prose column, not at the 960px plate measure. A wide image under a
+   short paragraph reads as a second page. */
+.numbered .plate-art {
+  margin: 16px 0 0;
+  max-width: 520px;
+}
+.numbered .plate-img { max-height: 380px; }
+.numbered .plate-label { font-size: 10px; }
+.numbered .plate-why { font-size: 13px; line-height: 1.45; }
+
+.plate-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.55;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.plate-label b { color: var(--ink); font-weight: 500; margin-right: 0.6em; }
+.plate-label i { font-style: italic; }
+.plate-why {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.plate-why::before { content: ""; display: inline-block; width: 9px; height: 9px; margin-right: 8px; background: var(--red); vertical-align: 0.05em; }
+.plate-src {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.plate-src a { color: var(--navy); font-size: inherit; }
+@media (max-width: 760px) {
+  .plate-img { max-height: 56vh; }
+}
+
+/* ── DUO ──────────────────────────────────────────────────────────────────
+   A field note is a title, a paragraph, and then a hole in the page. The hole
+   is the tell: the note makes a claim about a way of working, and a claim
+   about a way of working is not a claim you can read, it is one you can look
+   at. So under the prose, two objects at once -- the artwork that stands for
+   the claim, and a drawing of the claim itself.
+
+   Rams, as method rather than as mood: the diagram earns its place by carrying
+   the argument the paragraph is making, and it is drawn the way an equipment
+   manual draws a thing -- one weight of line, no shading, no decoration, no
+   curve that is not doing work. Square corners, hairline rules, mono labels,
+   and exactly two accent colours carrying meaning rather than emphasis: navy
+   is the path that works, red is the one that does not.
+
+   The artwork keeps the museum label it has everywhere else. Same credit, same
+   source, same licence. It is not decoration here; it is the other half of the
+   argument. ─────────────────────────────────────────────────────────────── */
+.duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+  margin: 26px var(--pad) 0;
+  max-width: 960px;
+}
+.duo > * { min-width: 0; }
+
+/* The plate half inherits the plate's own rules but never its 640px cap: in a
+   column that is half the measure, a portrait frame would reintroduce exactly
+   the imbalance the column exists to remove. */
+.duo .plate-art { margin: 0; max-width: none; }
+.duo .plate-img { max-height: 300px; }
+.duo .plate-art figcaption { margin-top: 9px; padding-top: 8px; }
+.duo .plate-label { font-size: 10px; }
+.duo .plate-why { font-size: 13px; line-height: 1.45; }
+.duo .plate-src { font-size: 9px; }
+
+.duo-fig { margin: 0; }
+.duo-fig figcaption {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+/* The drawing. Geometry only: boxes, rules, arrows, and type. */
+.dg { display: block; width: 100%; height: auto; overflow: visible; }
+.dg-box { fill: none; stroke: var(--ink); stroke-width: 1; }
+.dg-box--key { stroke: var(--navy); }
+.dg-box--anti { stroke: var(--red); }
+.dg-box--fill { fill: var(--line); }
+.dg-rule { stroke: var(--line); stroke-width: 1; }
+.dg-rule--key { stroke: var(--navy); }
+.dg-rule--anti { stroke: var(--red); }
+.dg-wire { fill: none; stroke: var(--ink); stroke-width: 1; }
+.dg-wire--key { stroke: var(--navy); }
+.dg-wire--anti { stroke: var(--red); }
+.dg-wire--ghost { stroke: var(--muted); stroke-dasharray: 2 3; }
+.dg-dot { fill: var(--ink); }
+.dg-dot--key { fill: var(--navy); }
+.dg-dot--anti { fill: var(--red); }
+.dg-t {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  fill: var(--muted);
+}
+.dg-t--ink { fill: var(--ink); }
+.dg-t--key { fill: var(--navy); }
+.dg-t--anti { fill: var(--red); }
+.dg-k {
+  font-family: var(--sans);
+  font-size: 11px;
+  fill: var(--ink);
+}
+.dg-k--sm { font-size: 9.5px; }
+.dg-n {
+  font-family: var(--mono);
+  font-size: 9px;
+  fill: var(--navy);
+}
+.dg-strike { stroke: var(--red); stroke-width: 1; }
+
+@media (max-width: 860px) {
+  .duo { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .duo .plate-img { max-height: 46vh; }
+}

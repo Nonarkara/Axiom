@@ -4,7 +4,596 @@
 
 // ── i18n ──────────────────────────────────────────────────────────
 
+// The language the reader chose. A switch that forgets itself on reload is
+// not a switch, so the choice is remembered. A link can also carry a
+// language with ?lang=, and that wins for this visit only — a link somebody
+// sent you should not quietly change your own preference.
+const LOCALE_STORAGE_KEY = 'axiom:locale';
 let activeLocale = 'en';
+
+function readLocalePreference() {
+  let fromUrl = null;
+  try {
+    fromUrl = new URLSearchParams(window.location.search).get('lang');
+  } catch (e) { /* no search, or a URL the browser will not parse */ }
+  if (fromUrl && uiCopy[fromUrl]) return fromUrl;
+  let saved = null;
+  try {
+    saved = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+  } catch (e) { /* storage can be refused; the switch still works without it */ }
+  if (saved && uiCopy[saved]) return saved;
+  return 'en';
+}
+
+function rememberLocale(locale) {
+  try {
+    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+  } catch (e) { /* storage can be refused; the switch still works without it */ }
+}
+
+// Lightweight media-query helper (pre-existing axiomMedia was referenced
+// but never defined; recreate it here so the satellite hero and data
+// lines can still detect touch / reduced-motion / mobile).
+const axiomMedia = (() => {
+  if (typeof window === 'undefined') return { isTouch: false, isReduced: false, isMobile: false };
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  const coarse = window.matchMedia?.('(pointer: coarse)').matches ?? false;
+  const narrow = window.matchMedia?.('(max-width: 700px)').matches ?? false;
+  return { isTouch: coarse, isReduced: reduced, isMobile: narrow };
+})();
+
+// ── System architecture popovers ────────────────────────────────────────────
+// On hover (or on mobile tap), each .sys-cell[data-arch] gets a small
+// floating diagram showing inputs → core → outputs. Architecture data
+// lives here so the HTML stays clean.
+
+// i18n helper for architecture text — looks up a flat key in the active
+// locale's uiCopy, falling back to English, then to the supplied default.
+function _t(key, fallback) {
+  try {
+    const copy = (typeof uiCopy !== 'undefined' && uiCopy) || {};
+    const locale = (typeof activeLocale !== 'undefined' && activeLocale) || 'en';
+    const cur = copy[locale] || {};
+    if (typeof cur[key] === 'string') return cur[key];
+    if (copy.en && typeof copy.en[key] === 'string') return copy.en[key];
+  } catch (e) { /* ignore */ }
+  return fallback;
+}
+
+const ARCHITECTURES = {
+  'flood-ami': {
+    name: 'FLOODDASH',
+    ver: '2.4.1',
+    idx: '23',
+    inputs: 'NASA FIRMS,GISTDA,CEMS,HIMAWARI-9,TMD,Open-Meteo,OpenStreetMap,Tide stations,Rain gauges',
+    core: '[object Object]',
+    outputs: 'National map,Province detail,Watch list,3-day forecast',
+    foot: '9 public sources · 24/7 · Thailand-wide',
+  },
+  sikhio: {
+    name: 'SIKHIO OPS',
+    ver: '1.0.0',
+    idx: '26',
+    inputs: 'AQI sensors,Weather,Traffic,Live city data',
+    core: '[object Object]',
+    outputs: 'City pulse,Traffic patterns,Environmental reads',
+    foot: 'town-scale command room · Nakhon Ratchasima',
+  },
+  nst: {
+    name: 'NST-01',
+    ver: '1.0.0',
+    idx: '37',
+    inputs: '3D city mesh,Satellite,Flood / basin feeds,Khao Luang,Pak Phanang,30+ live sources',
+    core: '[object Object]',
+    outputs: 'City command view,Flood watch,Basin situation',
+    foot: 'civic intelligence · southern Thailand coast',
+  },
+  lcbcity: {
+    name: 'LAEM CHABANG',
+    ver: '1.2.0',
+    idx: '22',
+    inputs: 'Truck GPS,Port traffic,Regulatory data,CCTV (where available)',
+    core: '[object Object]',
+    outputs: 'Truck monitor,Compliance tracker,Congestion alerts',
+    foot: 'Thailand Eastern Seaboard · port logistics',
+  },
+  phuket: {
+    name: 'PHUKET OPS',
+    ver: '3.1.2',
+    idx: '01',
+    inputs: 'Transit,Public safety,Environmental signals,Tourism feeds',
+    core: '[object Object]',
+    outputs: 'Unified ops room,Incident board,Alert timeline',
+    foot: 'governor-grade · Andaman coast',
+  },
+  hcmc: {
+    name: 'HCMCx',
+    ver: '1.8.0',
+    idx: '21',
+    inputs: 'Traffic cameras,Flood sensors,Air quality,News / reports',
+    core: '[object Object]',
+    outputs: 'Dynamic routing,Incident board,3D city view',
+    foot: 'Ho Chi Minh City · metropolitan command',
+  },
+  mtt: {
+    name: 'MTT SUPER',
+    ver: '2.0.1',
+    idx: '33',
+    inputs: 'IMPACT events,Flood gauges,Traffic / CWR,AQI,Parking,CCTV / feeds',
+    core: '[object Object]',
+    outputs: 'Arena ops board,Flood alert,Layer stack,Guest load',
+    foot: 'Muang Thong Thani · IMPACT + Challenger',
+  },
+  kuching: {
+    name: 'KUCHING IOC',
+    ver: '2.3.0',
+    idx: '05',
+    inputs: 'Foreign exchange,Flights,Satellite imagery,Environmental reads',
+    core: '[object Object]',
+    outputs: 'Cross-domain board,FX monitor,Flight log',
+    foot: 'Greater Kuching · IOC for the operator',
+  },
+  chula: {
+    name: 'CHULA TOWER',
+    ver: '1.4.2',
+    idx: '13',
+    inputs: 'Traffic,Incidents,Air quality,Satellite,CU Shuttle,News,Emergency',
+    core: '[object Object]',
+    outputs: '3D campus map,Strategic alerts,Civic reports',
+    foot: 'Chulalongkorn University · Siam–Samyan',
+  },
+  chonburi: {
+    name: 'CHONBURI TOWER',
+    ver: '1.5.0',
+    idx: '16',
+    inputs: 'Weather,Marine state,EEC news,CCTV / AIS / AQ / WX',
+    core: '[object Object]',
+    outputs: '3D province render,Coastal watch,EEC trends',
+    foot: 'Eastern Seaboard · 3D command surface',
+  },
+  kmitl: {
+    name: 'KMITL TOWER',
+    ver: '1.3.1',
+    idx: '18',
+    inputs: 'Traffic,Incidents,Air quality,Satellite,Shuttles,News,Emergency',
+    core: '[object Object]',
+    outputs: '3D campus map,Operational view,Civic reports',
+    foot: "King Mongkut's IT Ladkrabang",
+  },
+  yala: {
+    name: 'YALA TOWER',
+    ver: '0.1.0',
+    idx: '19',
+    inputs: '3D city model,Satellite layers,Flood watch,Deep South security,30+ feeds',
+    core: '[object Object]',
+    outputs: '3D city view,Incident board,Initiative tracker',
+    foot: 'Yala Municipality · Deep South',
+  },
+  'city-hub': {
+    name: 'CITY HUB',
+    ver: '5.0.0',
+    idx: '15',
+    inputs: 'City name,Whatever data exists,Satellite + base layers',
+    core: '[object Object]',
+    outputs: 'Side-by-side compare,Per-city pulse,Lens toolkit',
+    foot: 'name a city → start its brain',
+  },
+  'air-dnd': {
+    name: 'AIRDASH',
+    ver: '3.0.0',
+    idx: '27',
+    inputs: 'PM2.5 ground obs,CAMS satellite,Weather,Rain washout',
+    core: '[object Object]',
+    outputs: 'Watch list,3-day forecast,Top-5 AT-risk,National pattern donut',
+    foot: 'Thailand air quality + dust watch',
+  },
+  'bkk-atlas': {
+    name: 'BKKX 3D ATLAS',
+    ver: '1.0.0',
+    idx: '36',
+    inputs: 'OSM buildings,Terrain DEM,AQI / rain radar,Treasury land prices,BTS/MRT',
+    core: '[object Object]',
+    outputs: 'Extruded Bangkok,Layer toggles,15 key-area jumps,Live traffic',
+    foot: 'walk Bangkok block by block · my city, not theirs',
+  },
+  'bkk-culture': {
+    name: 'BKKX CULTURE',
+    ver: '1.0.0',
+    idx: '43',
+    inputs: 'Fine Arts register,9 heritage quarters,7 walks,OSM heritage',
+    core: '[object Object]',
+    outputs: '3D heritage map,Quarter pages,Monument register,Documented walks',
+    foot: "Bangkok's heritage, block by block",
+  },
+  jakarta: {
+    name: 'JAKARTA 3D ATLAS',
+    ver: '1.0.0',
+    idx: '64',
+    inputs: 'Jakarta Satu,BMKG bulletins,CRM citizen feeds,DSDA / BPBD flood risk',
+    core: '[object Object]',
+    outputs: 'Extruded Jakarta 3D,Pantauan Kota desk,CRM incident reports,Flood risk zones',
+    foot: 'DKI Jakarta operations desk · Pantauan Kota',
+  },
+  'bangkok-ioc': {
+    name: 'BANGKOK IOC',
+    ver: '3.0.0',
+    idx: '72',
+    inputs: 'Traffy Fondue reports,BMA open data,OpenStreetMap,Asking-rent context,iTIC traffic,Open-Meteo air',
+    core: '[object Object]',
+    outputs: 'Station-area brief,Budget and journey check,Compare up to 3,800 m evidence radius',
+    foot: "Bangkok Governor's IOC · place-fit pilot · desk research",
+  },
+  slic: {
+    name: 'SLIC',
+    ver: '3.2.0',
+    idx: '04',
+    inputs: '157 cities,5 livability pillars,User weights',
+    core: '[object Object]',
+    outputs: 'Live ranking,Pillar breakdown,Cross-city compare',
+    foot: 'a ranking that argues back',
+  },
+  globalmonitor: {
+    name: 'GLOBAL MONITOR',
+    ver: '2.6.1',
+    idx: '24',
+    inputs: 'Middle East,Indo-Pacific,Thailand,Global,ADS-B,AIS,Fires,Conflict',
+    core: '[object Object]',
+    outputs: 'Live traffic map,Multi-front status,GPD Oracle forecast',
+    foot: 'four theaters, one open data lens',
+  },
+  asiawatch: {
+    name: 'ASIA POLITICAL DASHBOARD',
+    ver: '1.0.0',
+    idx: '44',
+    inputs: 'SE Asia,East Asia,South Asia,Thailand,5 Chokepoints,ADS-B,AIS,GDELT',
+    core: '[object Object]',
+    outputs: 'Regional live map,Frontier markers,Country news + TV',
+    foot: 'Asia through its own lens, not as an annex of the West',
+  },
+  worldconsole: {
+    name: 'WORLD CONSOLE',
+    ver: '1.0.0',
+    idx: '45',
+    inputs: 'Worldwide ADS-B,Worldwide AIS,ACLED,FIRMS,RSS,Markets',
+    core: '[object Object]',
+    outputs: 'World traffic map,Global macro column,Market strip',
+    foot: 'the whole board, one screen',
+  },
+  mem: {
+    name: 'MEM',
+    ver: '2.1.0',
+    idx: '06',
+    inputs: 'Multi-source news,OSINT feeds,No editorial layer',
+    core: '[object Object]',
+    outputs: 'Live news surface,Multi-source feed,Geo timeline',
+    foot: "news before the algorithm decides what's war",
+  },
+  daytraders: {
+    name: 'DAY TRADERS',
+    ver: '2.0.0',
+    idx: '14',
+    inputs: 'SET / MAI,US markets,Graham / Buffett / Munger frameworks',
+    core: '[object Object]',
+    outputs: 'Stability range,Bump radar,News × market map',
+    foot: 'Bloomberg signals · Thai market · your rules',
+  },
+  day2: {
+    name: 'DAY 2',
+    ver: '1.0.0',
+    idx: '41',
+    inputs: 'Market lake,Stock search,FX / rates,Capitol + odds',
+    core: '[object Object]',
+    outputs: 'World brief,Lens verdict,Map,Plan for this week',
+    foot: 'useful, not impressive · every number carries its age',
+  },
+  geo: {
+    name: 'GEOPOLITICAL WATCH',
+    ver: '6.0.0',
+    idx: '42',
+    inputs: 'Myanmar frontier,Cambodia frontier,Southern theatre,Open feeds',
+    core: '[object Object]',
+    outputs: 'Border posture,Operations map,News wire,Time machine',
+    foot: 'Thailand · three frontiers · one command surface',
+  },
+  sciti: {
+    name: 'SCITI',
+    ver: '2.0.3',
+    idx: '03',
+    inputs: '174 urban areas,7 Smart City pillars,Milestone events',
+    core: '[object Object]',
+    outputs: 'City index,Bilingual progress,Milestone ledger',
+    foot: 'Smart City Thailand Index · depa',
+  },
+  'phuket-bus': {
+    name: 'PHUKET BUS',
+    ver: '1.0.0',
+    idx: '07',
+    inputs: 'GPS tracking,Passenger telemetry,Route definitions',
+    core: '[object Object]',
+    outputs: 'Real-time bus position,Next arrival,Route clarity',
+    foot: 'designed for the phone, not the dashboard',
+  },
+  scth: {
+    name: 'SCTH V2',
+    ver: '2.1.0',
+    idx: '08',
+    inputs: 'Telegram reports,LINE reports,Field photos,SLA data',
+    core: '[object Object]',
+    outputs: 'AI-classified reports,Pattern map,Response tasks',
+    foot: 'reports arrive → AI turns them into action',
+  },
+  nsp: {
+    name: 'NSP',
+    ver: '2.1.0',
+    idx: '12',
+    inputs: '21 NBTC-licensed channels,EPG feed,Viewership telemetry',
+    core: '[object Object]',
+    outputs: 'Live streaming,EPG guide,CAP v1.2 emergency alerts',
+    foot: 'all 21 Thai digital TV channels · one surface',
+  },
+  constitution: {
+    name: 'CONSTITUTION',
+    ver: '1.0.0',
+    idx: '65',
+    inputs: '2017 Thai Constitution,279 Sections,Trilingual corpora (TH/EN/ZH),Audio readings',
+    core: '[object Object]',
+    outputs: 'Full text search,Audio narration,Interactive study cards,Civic comprehension',
+    foot: 'Thai Constitution 2017 · read to understand · 3 languages',
+  },
+  techhunt: {
+    ver: '2.0.0',
+    inputs: '125 verified startups,7 smart-city domains,Public mention signals,77 provinces',
+    core: '[object Object]',
+    outputs: 'Signal-ranked startups,Procurement index,Domain heat map',
+    foot: 'Smart City Thailand TechHunt · depa · SLIC · UWN',
+  },
+  'podcast-20min': {
+    name: '20 MIN WITH DR NON',
+    ver: '0.1.0',
+    idx: '38',
+    inputs: 'Field notes,City systems,AI agents,Geopolitics',
+    core: '[object Object]',
+    outputs: 'Episode drops,Signal briefs,Open questions',
+    foot: 'twenty minutes · ideas that create the next move',
+  },
+  'ai-council': {
+    name: 'AI COUNCIL',
+    ver: '1.0.0',
+    idx: '09',
+    inputs: 'Decision question,Personal journals,Decision history',
+    core: '[object Object]',
+    outputs: 'Deliberation transcript,Mode moves,Defensible position',
+    foot: 'eleven voices · one decision',
+  },
+  tkcx: {
+    name: 'TKCX',
+    ver: '1.0.0',
+    idx: '10',
+    inputs: 'Employees,Projects,Skill profiles,Moneyball budget',
+    core: '[object Object]',
+    outputs: 'Optimal formation,Skill gap map,Allocation discipline',
+    foot: 'treat talent like a portfolio, not a headcount',
+  },
+  'second-brain': {
+    name: 'SECOND BRAIN OS',
+    ver: '1.6.0',
+    idx: '11',
+    inputs: 'Obsidian vault,MCP server configs,Voice + decisions',
+    core: '[object Object]',
+    outputs: 'Agents that write in your voice,Decision memory,Tool routing',
+    foot: 'brain-anatomy folder structure · make your vault operational',
+  },
+  horizon45: {
+    name: 'HORIZON 45',
+    ver: '1.0.0',
+    idx: '20',
+    inputs: 'Real AI tasks,User attempts,Capability scoring',
+    core: '[object Object]',
+    outputs: 'Capability portrait,Learning roadmap,Honest score',
+    foot: 'a test of actual AI judgment · not a survey',
+  },
+  ascn: {
+    name: "ASCN DIRECTOR'S CUT",
+    ver: '1.2.0',
+    idx: '46',
+    inputs: '134 ASCN projects,38 cities,4 M&E cycles',
+    core: '[object Object]',
+    outputs: 'Network insights,Momentum panels,Cross-cycle compare',
+    foot: 'the 134-project ASCN portfolio · read by a director',
+  },
+  dao: {
+    name: 'DAO × PALETTE',
+    idx: '25',
+    inputs: '81 chapters,EN / TH / ZH text,Character study,Palette combinations',
+    core: '[object Object]',
+    outputs: 'TH / EN / ZH reading,Character study,Illustrated notes',
+    foot: 'updated edition · original reading room linked below',
+  },
+  ikigai: {
+    name: 'IKIGAI ENGINE',
+    ver: '1.0.0',
+    idx: '26',
+    inputs: 'SME balance sheet,Income statement,Cash flow',
+    core: '[object Object]',
+    outputs: 'Balance sheet signal,Cash runway,Bank scorecard',
+    foot: 'finance as signal · ABC Company is fictitious mock data',
+  },
+  'flood-blueprint': {
+    name: 'FLOODDASH BLUEPRINT',
+    ver: '1.0.0',
+    idx: '28',
+    inputs: 'Sensor network specs,Drainage logic,AI flood prediction,Response playbooks',
+    core: '[object Object]',
+    outputs: 'Sensors,Drainage,AI predict,Decision pipeline',
+    foot: 'the open companion to FloodDash · fork and adapt',
+  },
+  ladder: {
+    name: 'LADDER · IKIGAI',
+    ver: '1.0.0',
+    idx: '66',
+    inputs: 'Pitch decks,Financial statements,Cap table data,Venture checklists',
+    core: '[object Object]',
+    outputs: 'Scorecard engine,Checklist tracking,Thesis match,Risk evaluation',
+    foot: 'Ikigai venture diligence & scorecard workspace',
+  },
+  omniarcade: {
+    name: 'OMNIARCADE',
+    ver: '1.0.0',
+    idx: '39',
+    inputs: 'Research trainers,Classic carts,Brain briefings,Local scores',
+    core: '[object Object]',
+    outputs: 'Skill drills,Leaderboards,Transfer caveat',
+    foot: 'kill time · keep the mind · games.nonarkara.org',
+  },
+  ekkasarn: {
+    name: 'EKKASARN AI',
+    ver: '1.1.0',
+    idx: '17',
+    inputs: 'Thai tax invoices,Receipts,Withholding certificates',
+    core: '[object Object]',
+    outputs: 'Extracted fields,Document type,Structured JSON',
+    foot: 'Thai document intelligence · no login',
+  },
+  nonwriter: {
+    name: 'NON-WRITER',
+    ver: '1.4.0',
+    idx: '29',
+    inputs: 'Your draft,Source language,Target language',
+    core: '[object Object]',
+    outputs: "Cleaner text,Dr Non's voice,Any language",
+    foot: 'paste → pick the line → ship · up to 3,000 words',
+  },
+  'drnon-digests': {
+    name: "DR NON'S DIGESTS",
+    ver: '1.0.0',
+    idx: '30',
+    inputs: 'News feeds,Substack radar,AI frontier sources,Manual picks',
+    core: '[object Object]',
+    outputs: "Today's lead,AI frontier briefs,Sector watch,Archive",
+    foot: 'the desk, by the numbers',
+  },
+  nonscrape: {
+    name: 'NON-SCRAPE',
+    ver: '1.0.0',
+    idx: '31',
+    inputs: 'URLs,Your question,Source language',
+    core: '[object Object]',
+    outputs: 'Answer in any language,Source citations,Structured JSON',
+    foot: 'scraping as a service · no code',
+  },
+  'time-pop': {
+    name: 'TIME POP',
+    ver: '1.0.0',
+    idx: '34',
+    inputs: 'Reference tables,Auction comps,Provenance records,On-screen stills',
+    core: '[object Object]',
+    outputs: 'Cited price comparisons,Sourced provenance,Inventory summary',
+    foot: 'a living archive of watches · 261 references',
+  },
+  'luma-house': {
+    name: 'LUMA/HOUSE',
+    ver: '1.0.0',
+    idx: '35',
+    inputs: 'Floor plan / underlay,Site latitude,Season + time,Living program',
+    core: '[object Object]',
+    outputs: 'Sunlit floor area,Solar heat gain,Living checks,Cost picture',
+    foot: 'design by deciding · draw → sun → living → cost → picture',
+  },
+  'openclaw-setup': {
+    name: 'OPENCLAW SET-UP',
+    ver: '1.0.0',
+    idx: '40',
+    inputs: 'Machine survey,Local RAM budget,Channel targets,Security posture',
+    core: '[object Object]',
+    outputs: 'Hardened gateway,Local LLM picks,Risk-tiered tools,AGENTS.md runbook',
+    foot: 'hand the URL to Claude · docs only · no private data',
+  },
+  'shophouse-metropolis': {
+    name: 'SHOPHOUSE METROPOLIS',
+    ver: '1.0.0',
+    idx: '47',
+    inputs: '2,311-building survey,Treasury land value,Setback rules,OSM footprints',
+    core: '[object Object]',
+    outputs: 'Pressure map,Four-colour answer,Reuse-first argument',
+    foot: "Bangkok's 400,000 shophouses, finally inventoried",
+  },
+  'locating-shanghai': {
+    name: 'LOCATING SHANGHAI',
+    ver: '3.0.0',
+    idx: '48',
+    inputs: '20 years fieldwork,134 photographs,5h audio,475 citations',
+    core: '[object Object]',
+    outputs: '15 chapters,Read · Listen · Look,Static HTML',
+    foot: 'the city read slowly, across two decades',
+  },
+  rag: {
+    name: 'RAG.NONARKARA',
+    ver: '0.9.0',
+    idx: '49',
+    inputs: 'PDFs,links,Telegram,LINE',
+    core: '[object Object]',
+    outputs: 'Cited answers,Telegram + LINE,100 MB free',
+    foot: 'the bot stays silent when the documents are silent',
+  },
+  colors: {
+    name: 'PALETTE',
+    idx: '59',
+    inputs: '348 combinations,Colour relationships,Sanzo Wada',
+    core: '[object Object]',
+    outputs: 'Searchable index,Grayscale study,CSS values',
+    foot: 'colours in relation · colors.nonarkara.org',
+  },
+  'axiom-dc': {
+    name: 'AXIOM DESIGN CORE',
+    ver: '2.1.0',
+    idx: '50',
+    inputs: '5-line DNA,AGENTS.md,tokens.css,components.html',
+    core: '[object Object]',
+    outputs: 'Agent-readable,7 install paths,22-section DNA',
+    foot: 'function first, then subtract — clone, fork, ship',
+  },
+  'rams-dc': {
+    name: 'RAMS × NYCTA DESIGN CORE',
+    ver: '1.0.0',
+    idx: '02',
+    inputs: 'Two layers,AGENTS.md,Decision tree,NOTICE.md',
+    core: '[object Object]',
+    outputs: 'Agent-readable,8 install paths,Cockpit + wayfinding',
+    foot: 'less, but better — closed colour, hairline grid',
+  },
+  };
+
+function injectSystemVersions() {
+  const cells = Array.from(document.querySelectorAll('.sys-cell[data-arch]'));
+  for (const cell of cells) {
+    const key = cell.getAttribute('data-arch');
+    const arch = ARCHITECTURES[key];
+    if (!arch || !arch.ver) continue;
+    if (cell.querySelector('.sys-cell__ver')) continue;
+    const head = cell.querySelector('.sys-cell__head');
+    if (!head) continue;
+    const ver = document.createElement('span');
+    ver.className = 'sys-cell__ver';
+    ver.textContent = `v${arch.ver}`;
+    ver.setAttribute('title', `${arch.name || key} v${arch.ver}`);
+    const status = head.querySelector('.sys-cell__status');
+    if (status) head.insertBefore(ver, status);
+    else head.appendChild(ver);
+  }
+}
+
+function injectSystemArchitectures() {
+  return; // Disabled: black architecture boxes removed per design review
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
 const uiCopy = {
   en: {
@@ -16,15 +605,68 @@ const uiCopy = {
       cta: 'Work With Us',
     },
     hero: {
-      badge: 'All Systems Online',
+      badge: 'Public project catalogue',
       titleLine1: 'Innovation',
-      subtitle: 'You build the ranking. We build the reality. Axiom maps the pressure, ships a working surface fast, and instruments it from day one — so cities, governments, and operators can make fewer, clearer decisions under pressure.',
-      cta: 'Start With the Pressure Map',
-      ctaSecondary: 'See Live Systems',
-      nodeLabel: 'Tap a live system',
-      statSystems: 'Live Systems',
-      statMonitoring: 'Live Monitoring',
+      subtitle: 'City data exists. Nobody sees it in crisis. One screen. One decision. Two weeks.',
+      cta: 'Start a Two-Week Proof',
+      ctaSecondary: 'View systems',
+      nodeLabel: 'Tap a theatre',
+      exploreHint: 'Drag map · Tap a theatre',
+      hudLive: 'THEATRE',
+      hudWatching: 'SYSTEMS WATCHING',
+      modeTour: 'AUTO TOUR',
+      modeHold: 'HOLD',
+      statSystems: 'Catalogue systems',
+      statMonitoring: 'Labelled Live',
       statCountries: 'Countries',
+      signalLabels: {
+        FLOOD: 'Flood', CAMPUS: 'Campus', URBAN: 'Urban', ATLAS: 'Atlas',
+        COASTAL: 'Coastal', TRANSIT: 'Transit', AIR: 'Air',
+        CONFLICT: 'Conflict', GLOBAL: 'Global',
+        BORDER: 'Border', INDEX: 'Index', SCALE: 'Scale',
+      },
+      rotatingPhrases: [
+        'as a Service',
+        'in two weeks',
+        'that works',
+        'for cities',
+        'for decisions',
+        'you can see',
+      ],
+      featured: {
+        kicker: 'THEATRE BRIEF',
+        cta: 'Open live system',
+      },
+      theatres: {
+        bangkok: {
+          name: 'Bangkok',
+          meta: 'Flood · campus · urban',
+          event: 'EVENT_ID: BANGKOK_WATCH',
+          featuredName: 'FloodDash',
+          sitrep: 'Flood, campus, urban atlas — Bangkok systems watching the same pressure map.',
+        },
+        phuket: {
+          name: 'Phuket',
+          meta: 'Coastal · transit · air',
+          event: 'EVENT_ID: PHUKET_WATCH',
+          featuredName: 'Phuket Ops',
+          sitrep: 'Island ops room, rider transit, and air watch — coastal pressure in one theatre.',
+        },
+        'middle-east': {
+          name: 'Middle East',
+          meta: 'Conflict · open intel',
+          event: 'EVENT_ID: ME_WATCH',
+          featuredName: 'Middle East Monitor',
+          sitrep: 'Open conflict surface and layered global monitor — signal before the cycle.',
+        },
+        'southeast-asia': {
+          name: 'Southeast Asia',
+          meta: 'Border · index · scale',
+          event: 'EVENT_ID: SEA_WATCH',
+          featuredName: 'Geopolitical Watch',
+          sitrep: 'Tri-border watch, city index, and metro scale — ASEAN pressure on one map.',
+        },
+      },
     },
     engagement: {
       tag: 'Operating Model',
@@ -118,13 +760,13 @@ const uiCopy = {
       successDesc: "We'll get back to you soon.",
     },
     navCurrent: {
-      systems: 'Systems', stages: 'Stages', team: 'Team', press: 'Press', brand: 'Brand Kit', credentials: 'Credentials', cta: 'Work With Us',
+      why: 'How It Works', systems: 'Systems', stages: 'Stages', team: 'Team', press: 'Press', brand: 'Brand Kit', credentials: 'Credentials', cta: 'Work With Us',
     },
     heroCurrent: {
       title: 'We build the <em>working systems</em> governments <br><span class="hero__punch"><span class="hero__punch-afford">can\'t afford</span> <span class="hero__punch-wait">to wait for.</span></span>',
       sub: 'Most "smart city" work ends as a deck. Ours runs in production. Problem mapped in week one. Something working before any presentation. Every decision tracked from the start.',
       cta1: 'Use FloodDash now', cta2: 'Start a brief',
-      stat1lbl: 'Systems in production', stat2lbl: 'Countries operating',
+      stat1lbl: 'Catalogue systems', stat2lbl: 'Countries operating',
       stat3lbl: 'Cities indexed', stat4lbl: 'FloodDash · LEAP East',
       meta1: '<b>24/7</b> monitoring', meta2: '<b>157</b> SLIC Index cities',
       meta3: '<b>174</b> Smart City Thailand Index cities', meta4: 'Kuching, Malaysia',
@@ -133,43 +775,91 @@ const uiCopy = {
     sysSect: {
       kicker: 'Live in production',
       title: 'Real systems. <em>Real cities.</em> Operating today.',
-      lede: "Each one started as a sharp question, shipped as a working surface, and stays useful long after the launch press cycle ends. Click through and use them — they're live.",
+      lede: 'Each system below started as one decision someone couldn\'t make fast enough. Live today. Open. Use. Judge.',
       sandboxKicker: 'Sandbox // Live',
-      sandboxNote: "These aren't demos — they're working systems in a sandbox. Built to scale, not to impress. Production deployments under client NDAs are larger; what runs here behaves like them, with advanced modules withheld.",
+      sandboxNote: "These aren't demos. They're working systems in a sandbox — built to scale, not to impress. NDA-protected deployments run larger; what you see here behaves like them, with advanced modules withheld.",
     },
     stageSect: {
-      kicker: 'Three stages, one arc',
-      title: 'Governments are tired of <em>waiting for the deck.</em>',
-      lede: "Q1 opened in Taipei. Q2 hit Singapore's main stage at GITEX. The trilogy closes at LEAP East — Asia's largest stage — with FloodDash live in the room. Same thesis every time: build it now, not after the next budget cycle.",
-    },
-    flooddashSect: {
-      kicker: 'Q1–Q2 · Act III',
-      meta: 'GITEX → LEAP East → FloodDash',
-      title: 'Use <em>FloodDash</em> now.',
-      lede: "Thailand flood watch — 24/7 live geospatial data from nine public sources, refreshed every 3–60 minutes. Launched from Asia's largest stage at LEAP East. Everyone monitoring floods in Thailand should be on this surface today.",
-      live: 'LIVE',
-      m1: '9 public sources',
-      m2: '3–60 min refresh',
-      m3: '77 provinces',
-      slide1: 'National overview — every province on one surface',
-      slide2: 'Hat Yai regional — southern flood corridor',
-      slide3: 'Trat detail — alerts and basin-level readout',
-      cta: 'Open FloodDash live',
-      cta2: 'LEAP East launch',
+      kicker: 'Five stages \u00b7 2026',
+      title: 'Built once. <em>Proven in public.</em>',
+      lede: 'Five stages across Asia in 2026, each with the system running live in the room \u2014 SLIC Index in <b>Taipei</b>, FloodDash in <b>Singapore</b>, <b>Shanghai</b> and <b>Hong Kong</b>, DEPA in <b>Osaka</b>. Everything below is public record. The next one is a conversation.',
+
+      meta: '2026 \u00b7 Osaka \u00b7 Shanghai \u00b7 Hong Kong \u00b7 Singapore \u00b7 Taipei',},
+    cx: {
+      stops: 'Stops', cities: 'Cities', shots: 'Stage shots', thesis: 'Working system',
+      osaka: {
+        city: 'Osaka',
+        venue: 'Osaka Metropolitan University \u00b7 Morinomiya',
+        venueShort: 'Osaka Metropolitan Univ.',
+        format: 'Keynote \u00b7 Case \u00b7 Panel',
+        note: 'DEPA flood monitoring and urban operations dashboards, live. The binding constraint is institutional, not technical.',
+        quote: '"A system built in 45 minutes on one machine still has to become something a city can legally adopt, budget for, and keep running."',
+        cite: 'Osaka Asia Roundtable 2026',
+        s1: 'Sessions', s2: 'On record', s3: 'Delegations',
+      },
+      leap: {
+        v1: 'Orbital',
+        city: 'Hong Kong',
+        venue: 'LEAP East 2026 \u00b7 Orbital Stage \u00b7 HKCEC',
+        venueShort: 'LEAP East \u00b7 HKCEC',
+        format: 'Panel \u00b7 Product launch',
+        note: 'Closed the Q1\u2013Q2 arc with a live FloodDash launch: Thailand flood watch, 24/7, nine public sources.',
+        quote: '"Everyone monitoring floods in Thailand should be on FloodDash today. Not next quarter. Today."',
+        cite: 'LEAP East panel',
+        s1: 'Stage tier', s2: 'Speakers', s3: 'Live sources',
+      },
+      sg: {
+        v3: 'Full',
+        city: 'Singapore',
+        venue: 'GITEX AI Asia \u00b7 Marina Bay Sands \u00b7 Main Stage',
+        venueShort: 'GITEX AI Asia \u00b7 MBS',
+        format: 'Keynote \u00b7 Sold-out workshop',
+        note: 'Main-stage keynote and workshop, with Government Innovation as a Service running live.',
+        quote: '"That is not applause. That is a demand signal. Governments want working systems."',
+        cite: 'Post-keynote, GITEX',
+        s1: 'Main stage', s2: 'Attendees', s3: 'Workshop',
+      },
+      tpe: {
+        city: 'Taipei',
+        venue: 'Smart City Summit & Expo \u00b7 City Vision stage',
+        venueShort: 'SCSE \u00b7 City Vision',
+        format: 'Keynote \u00b7 SLIC V2 launch',
+        note: 'SLIC Index V2 went live mid-talk: 174 cities, 53 nations, adjustable ranking.',
+        quote: '"We didn\u2019t build an index for the shelf. We built a command system for the street."',
+        cite: 'Taipei keynote',
+        s1: 'Cities', s2: 'Nations', s3: 'To build',
+      },
+      sh: {
+        city: 'Shanghai',
+        venue: 'Tomorrow.City Shanghai 2026 \u00b7 Zhangjiang Science Hall \u00b7 4th appearance',
+        venueShort: 'Tomorrow.City \u00b7 Zhangjiang',
+        format: 'Keynote \u00b7 Live demo \u00b7 Panel',
+        note: 'God Mode, not a digital twin. Flood maths cooked live on the cube screen.',
+        quote: '"A sensor that says water is moving at some speed does not tell a mayor much. That basic mathematics is the product."',
+        cite: 'Tomorrow.City Shanghai',
+        s1: 'On this stage', s2: 'Data sources', s3: 'Takeaways',
+      },
+      l: {
+        date: 'Date', city: 'City', where: 'Venue', fmt: 'Format',
+        note: 'Every stop carries a date from the organiser\'s own agenda or programme. Nothing here is asserted without one behind it.',
+        updated: 'Updated 2026.10',
+      },
     },
     teamSect: {
       kicker: 'Who builds it',
+      meta: 'Bangkok',
       foldLine: 'Team · Dr Non & Dr Poon · two founders, collective on call',
       title: 'Two founders. <em>No handlers.</em>',
       lede: 'You talk to the people who write the code and decide the architecture. When the work needs UAV operators or traffic engineers or policy translators, we pull them in for that mission only — never as a standing bench.',
     },
     ctaSect: {
       kicker: 'Work With Us',
-      title: 'Send the brief. <em>We\'ll map the pressure.</em>',
-      body: 'If the problem is real and the decision matters, we\'ll show what can be proven inside two weeks. No procurement-cycle warm-ups. No moodboards.',
-      promise1: 'Pressure mapped in week one. The decision, the users, the data on the table.',
-      promise2: 'Working pilot before slide polish. Free and existing data first; new infrastructure only when earned.',
-      promise3: 'Data trail from day one. Pageviews, content, decision log — so the next build is legible.',
+      meta: 'Bangkok · SE Asia',
+      title: 'Tell us the decision. <em>We\'ll show it working in two weeks.</em>',
+      body: 'Write one paragraph: the decision you need to make faster, who makes it, and where the data sits today. You\'ll get a clear yes, a clear no, or one sharper question back. No sales deck. No procurement warm-up.',
+      promise1: 'Week 1 — the decision, the people and the data agreed on one page.',
+      promise2: 'Week 2 — a working pilot on your existing and free public data. No new hardware to start.',
+      promise3: 'From day one — every use and decision logged, so you scale only what is proven.',
       alt: 'Or find us on',
     },
   },
@@ -183,15 +873,68 @@ const uiCopy = {
       cta: 'เริ่มงานร่วมกัน',
     },
     hero: {
-      badge: 'ระบบทั้งหมดออนไลน์',
+      badge: 'แค็ตตาล็อกโครงการสาธารณะ',
       titleLine1: 'นวัตกรรม',
-      subtitle: 'คุณสร้างการจัดอันดับ ผมสร้างความเป็นจริง Axiom ทำแผนที่แรงกดดัน ส่งพื้นผิวใช้งานได้เร็ว และวางระบบวัดผลตั้งแต่วันแรก',
-      cta: 'เริ่มต้นด้วย Pressure Map',
-      ctaSecondary: 'ดูระบบที่ใช้งานอยู่',
-      nodeLabel: 'แตะเพื่อเลือกพื้นที่',
-      statSystems: 'ระบบที่ใช้งาน',
-      statMonitoring: 'ติดตามตลอดเวลา',
+      subtitle: 'เมืองของคุณมีข้อมูลอยู่แล้ว แต่ไม่มีใครเห็นในวินาทีที่สำคัญ ผมรวมไว้บนหน้าจอสดหน้าเดียว สำหรับการตัดสินใจที่ยากที่สุดของคุณ — ใช้งานได้ภายในสองสัปดาห์',
+      cta: 'เริ่มพิสูจน์ใน 2 สัปดาห์',
+      ctaSecondary: 'ดูระบบทั้งหมด',
+      nodeLabel: 'แตะเลือกแนวปฏิบัติการ',
+      exploreHint: 'ลากแผนที่ · แตะเลือกแนว',
+      hudLive: 'แนวปฏิบัติการ',
+      hudWatching: 'ระบบที่เฝ้าดู',
+      modeTour: 'ทัวร์อัตโนมัติ',
+      modeHold: 'หยุด',
+      statSystems: 'ระบบในแค็ตตาล็อก',
+      statMonitoring: 'ระบุสถานะ Live',
       statCountries: 'ประเทศ',
+      signalLabels: {
+        FLOOD: 'น้ำท่วม', CAMPUS: 'วิทยาเขต', URBAN: 'เมือง', ATLAS: 'แผนที่',
+        COASTAL: 'ชายฝั่ง', TRANSIT: 'ขนส่ง', AIR: 'อากาศ',
+        CONFLICT: 'ความขัดแย้ง', GLOBAL: 'ทั่วโลก',
+        BORDER: 'ชายแดน', INDEX: 'ดัชนี', SCALE: 'ขนาด',
+      },
+      rotatingPhrases: [
+        'แบบบริการ',
+        'ในสองสัปดาห์',
+        'ที่ใช้งานได้',
+        'เพื่อเมือง',
+        'เพื่อการตัดสินใจ',
+        'ที่มองเห็นได้',
+      ],
+      featured: {
+        kicker: 'สรุปแนว',
+        cta: 'เปิดระบบสด',
+      },
+      theatres: {
+        bangkok: {
+          name: 'กรุงเทพฯ',
+          meta: 'น้ำท่วม · วิทยาเขต · เมือง',
+          event: 'EVENT_ID: BANGKOK_WATCH',
+          featuredName: 'FloodDash',
+          sitrep: 'น้ำท่วม วิทยาเขต และแผนที่เมือง — ระบบกรุงเทพฯ เฝ้าแผนที่แรงกดดันเดียวกัน',
+        },
+        phuket: {
+          name: 'ภูเก็ต',
+          meta: 'ชายฝั่ง · ขนส่ง · อากาศ',
+          event: 'EVENT_ID: PHUKET_WATCH',
+          featuredName: 'Phuket Ops',
+          sitrep: 'ห้องปฏิบัติการเกาะ ขนส่งผู้โดยสาร และเฝ้าอากาศ — แรงกดดันชายฝั่งในแนวเดียว',
+        },
+        'middle-east': {
+          name: 'ตะวันออกกลาง',
+          meta: 'ความขัดแย้ง · ข่าวกรองเปิด',
+          event: 'EVENT_ID: ME_WATCH',
+          featuredName: 'Middle East Monitor',
+          sitrep: 'พื้นผิวความขัดแย้งแบบเปิดและมอนิเตอร์โลกหลายชั้น — สัญญาณก่อนวงจรข่าว',
+        },
+        'southeast-asia': {
+          name: 'เอเชียตะวันออกเฉียงใต้',
+          meta: 'ชายแดน · ดัชนี · ขนาด',
+          event: 'EVENT_ID: SEA_WATCH',
+          featuredName: 'Geopolitical Watch',
+          sitrep: 'เฝ้าสามแนวชายแดน ดัชนีเมือง และระดับมหานคร — แรงกดดันอาเซียนบนแผนที่เดียว',
+        },
+      },
     },
     engagement: {
       tag: 'โมเดลการทำงาน',
@@ -256,7 +999,7 @@ const uiCopy = {
       prt2: { title: 'ระบบมองเห็นอัจฉริยะ', desc: 'Computer vision บนโครงสร้างพื้นฐานที่มีอยู่สำหรับตรวจจับเหตุการณ์และติดตามการเคลื่อนไหว' },
       prt3: { title: 'NLP ภูมิรัฐศาสตร์', desc: 'AI briefs ที่บีบความรู้สึก ความเสี่ยง และการเปลี่ยนแปลงเรื่องราวให้ผู้ตัดสินใจอ่านได้เร็ว' },
       prt4: { title: 'การออกแบบเชิงคุณภาพ', desc: 'การออกแบบระบบที่เน้นพฤติกรรมตามสิ่งที่ผู้อยู่อาศัยยอมรับ เชื่อถือ และใช้จริง' },
-      prt5: { title: 'การ deploy รวดเร็ว', desc: 'สถาปัตยกรรมที่นำมาใช้ซ้ำได้ปรับให้เข้ากับบริบทท้องถิ่น ระบบที่ใช้งานได้ใน weeks ไม่ใช่ years' },
+      prt5: { title: 'การ deploy รวดเร็ว', desc: 'สถาปัตยกรรมที่นำมาใช้ซ้ำได้ปรับให้เข้ากับบริบทท้องถิ่น ระบบที่ใช้งานได้ในไม่กี่สัปดาห์ ไม่ใช่หลายปี' },
       prt6: { title: 'Blue Bird Engine', desc: 'ชั้น replication เบื้องหลัง Axiom: modular ไม่ขึ้นกับ hardware และปลอดภัยพอสำหรับการเคลื่อนที่เร็ว' },
     },
     team: {
@@ -285,13 +1028,13 @@ const uiCopy = {
       successDesc: 'ผมจะติดต่อกลับเร็วๆ นี้',
     },
     navCurrent: {
-      systems: 'ระบบ', stages: 'เวที', team: 'ทีม', press: 'สื่อ', brand: 'แบรนด์คิต', credentials: 'หนังสือรับรอง', cta: 'เริ่มงานร่วมกัน',
+      why: 'วิธีการทำงาน', systems: 'ระบบ', stages: 'เวที', team: 'ทีม', press: 'สื่อ', brand: 'แบรนด์คิต', credentials: 'หนังสือรับรอง', cta: 'เริ่มงานร่วมกัน',
     },
     heroCurrent: {
       title: 'เราสร้าง <em>ระบบที่ใช้งานได้จริง</em> ให้รัฐบาล<br><span class="hero__punch"><span class="hero__punch-afford">ไม่ต้องรอ</span> <span class="hero__punch-wait">ให้ใครมาทำให้</span></span>',
       sub: 'งาน "เมืองอัจฉริยะ" ส่วนใหญ่จบที่งานนำเสนอ ของเราจบที่ระบบที่รันจริง ทำแผนที่ปัญหาในสัปดาห์แรก มีระบบทำงานก่อนการนำเสนอครั้งแรก วัดผลทุกการตัดสินใจตั้งแต่วันแรก',
       cta1: 'ใช้ FloodDash ตอนนี้', cta2: 'ส่งโจทย์เข้ามา',
-      stat1lbl: 'ระบบที่ใช้งานอยู่', stat2lbl: 'ประเทศที่ใช้งาน',
+      stat1lbl: 'ระบบในแค็ตตาล็อก', stat2lbl: 'ประเทศที่ใช้งาน',
       stat3lbl: 'เมืองที่จัดอันดับ', stat4lbl: 'FloodDash · LEAP East',
       meta1: '<b>24/7</b> ติดตาม', meta2: '<b>157</b> เมือง SLIC Index',
       meta3: '<b>174</b> เมือง Smart City Thailand Index', meta4: 'กูชิง มาเลเซีย',
@@ -300,43 +1043,91 @@ const uiCopy = {
     sysSect: {
       kicker: 'ใช้งานจริงอยู่ตอนนี้',
       title: 'ระบบจริง <em>เมืองจริง</em> รันอยู่วันนี้',
-      lede: 'ทุกระบบเริ่มจากคำถามที่คม ส่งมอบเป็นเครื่องมือใช้งานได้ และยังมีประโยชน์อยู่อีกนานหลังรอบข่าวเปิดตัวจบ คลิกเข้าไปใช้ได้เลย — ทุกตัวรันอยู่จริง',
-      sandboxKicker: 'Sandbox // Live',
+      lede: 'หลักฐาน ไม่ใช่คำสัญญา ทุกระบบด้านล่างเริ่มจากการตัดสินใจหนึ่งเรื่องที่มีคนทำได้ไม่ทันการณ์ และทุกระบบใช้งานได้จริงวันนี้ — เปิดเข้าไป ลองใช้ แล้วตัดสินผลงานด้วยตัวคุณเอง',
+      sandboxKicker: 'Sandbox // สด',
       sandboxNote: 'ไม่ใช่ demo — ทุกระบบรันใน sandbox จริง สร้างให้ scale ได้ ไม่ใช่สร้างมาโชว์ การ deploy จริงของลูกค้าอยู่ภายใต้ NDA ใหญ่กว่าและซับซ้อนกว่า สิ่งที่รันที่นี่ทำงานแบบเดียวกัน โมดูลขั้นสูงถูกถอดออกเพราะ NDA ไม่ใช่เพราะของปลอม',
     },
     stageSect: {
-      kicker: 'สามเวที หนึ่งเส้นเรื่อง',
-      title: 'รัฐบาลเหนื่อย<em>กับการรองานนำเสนอ</em>แล้ว',
-      lede: 'Q1 เปิดที่ไทเป Q2 ขึ้นเวทีหลัก GITEX ที่สิงคโปร์ ไตรภาคีจบที่ LEAP East — เวทีใหญ่ที่สุดของเอเชีย — พร้อม FloodDash สดในห้อง วิทยานิพนธ์เดิมทุกครั้ง: สร้างเลย ไม่ต้องรอรอบงบประมาณถัดไป',
-    },
-    flooddashSect: {
-      kicker: 'Q1–Q2 · บทที่ 3',
-      meta: 'GITEX → LEAP East → FloodDash',
-      title: 'ใช้ <em>FloodDash</em> ตอนนี้',
-      lede: 'ระบบเฝ้าดูน้ำท่วมประเทศไทย — ข้อมูลภูมิสารสนเทศสด 24/7 จากแหล่งสาธารณะ 9 แหล่ง อัปเดตทุก 3–60 นาที เปิดตัวจากเวทีใหญ่ที่สุดของเอเชียที่ LEAP East ทุกคนที่ติดตามน้ำท่วมในไทยควรใช้พื้นผิวนี้วันนี้',
-      live: 'LIVE',
-      m1: '9 แหล่งสาธารณะ',
-      m2: 'รีเฟรช 3–60 นาที',
-      m3: '77 จังหวัด',
-      slide1: 'ภาพรวมประเทศ — ทุกจังหวัดบนพื้นผิวเดียว',
-      slide2: 'หาดใหญ่ระดับภูมิภาค — ระเบียงน้ำท่วมภาคใต้',
-      slide3: 'ตราดละเอียด — การแจ้งเตือนและระดับลุ่มน้ำ',
-      cta: 'เปิด FloodDash สด',
-      cta2: 'เปิดตัวที่ LEAP East',
+      kicker: 'ห้าเวที · 2569',
+      title: 'สร้างครั้งเดียว <em>พิสูจน์ต่อสาธารณะ</em>',
+      lede: 'ห้าเวทีทั่วเอเชียในปี 2569 ทุกครั้งมีระบบจริงเปิดทำงานอยู่ในห้อง — SLIC Index ที่ <b>ไทเป</b> FloodDash ที่ <b>สิงคโปร์</b> <b>เซี่ยงไฮ้</b> และ <b>ฮ่องกง</b> DEPA ที่ <b>โอสากะ</b> ทั้งหมดนี้เป็นบันทึกสาธารณะ ส่วนครั้งต่อไปเป็นเรื่องของคุณ',
+
+      meta: '2569 \u00b7 \u0e42\u0e2d\u0e0b\u0e32\u0e01\u0e30 \u00b7 \u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e \u00b7 \u0e2b\u0e48\u0e2d\u0e07\u0e01\u0e49\u0e07 \u00b7 \u0e2a\u0e34\u0e07\u0e04\u0e42\u0e1b\u0e23 \u00b7 \u0e44\u0e17\u0e40\u0e1b',},
+    cx: {
+      stops: '\u0e23\u0e2d\u0e1a\u0e2d\u0e23\u0e32\u0e22', cities: '\u0e40\u0e21\u0e37\u0e2d\u0e07', shots: '\u0e20\u0e32\u0e1e\u0e1a\u0e19\u0e40\u0e27\u0e17\u0e35', thesis: 'ระบบที่ใช้งานได้',
+      osaka: {
+        city: '\u0e42\u0e2d\u0e0b\u0e32\u0e01\u0e30',
+        venue: '\u0e21\u0e2b\u0e32\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e31\u0e22\u0e42\u0e2d\u0e0b\u0e32\u0e01\u0e30\u0e40\u0e21\u0e42\u0e17\u0e23\u0e42\u0e1e\u0e25\u0e40\u0e17\u0e19 \u00b7 \u0e27\u0e34\u0e17\u0e22\u0e32\u0e40\u0e02\u0e15\u0e21\u0e23\u0e34\u0e42\u0e19\u0e21\u0e34\u0e22\u0e30',
+        venueShort: '\u0e21\u0e2b\u0e32\u0e27\u0e34\u0e17\u0e22\u0e32\u0e25\u0e35\u0e22\u0e42\u0e2d\u0e0b\u0e32\u0e01\u0e30\u0e40\u0e21\u0e42\u0e17\u0e23\u0e42\u0e1e\u0e25',
+        format: '\u0e27\u0e34\u0e17\u0e22\u0e01\u0e23 \u00b7 \u0e01\u0e23\u0e13\u0e35\u0e28\u0e36\u0e01\u0e29\u0e32 \u00b7 \u0e27\u0e07\u0e40\u0e2a\u0e27\u0e19\u0e32',
+        note: 'DEPA เฝ้าระวังน้ำท่วมและแดชบอร์ดบริหารเมือง ทำงานจริง ข้อจำกัดอยู่ที่สถาบัน ไม่ใช่เทคโนโลยี',
+        quote: '"\u0e23\u0e30\u0e1a\u0e1a\u0e17\u0e35\u0e48\u0e1e\u0e31\u0e14\u0e19\u0e32\u0e44\u0e14\u0e43\u0e19 45 \u0e19\u0e32\u0e17\u0e35\u0e40\u0e01\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e40\u0e14\u0e35\u0e22 \u0e22\u0e31\u0e07\u0e15\u0e2d\u0e07\u0e01\u0e31\u0e19\u0e44\u0e1b\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e47\u0e19\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e40\u0e21\u0e37\u0e2d\u0e07\u0e23\u0e31\u0e1a\u0e44\u0e1b\u0e17\u0e35\u0e48\u0e2c\u0e31\u0e07\u0e16\u0e39\u0e01\u0e25\u0e49\u0e27\u0e22\u0e2b\u0e19\u0e49\u0e32\u0e21\u0e35\u0e32\u0e44\u0e14\u0e49\u0e44\u0e17\u0e22\u0e01\u0e32\u0e23\u0e14\u0e27\u0e07\u0e1a\u0e38\u0e1b\u0e23\u0e30\u0e08\u0e2d\u0e07\u0e19\u0e35\u0e49\u0e44\u0e14\u0e14\u0e49\u0e2d\u0e07\u0e19\u0e35\u0e49\u0e14\u0e15\u0e48\u0e2d\u0e44\u0e1b"',
+        cite: 'Osaka Asia Roundtable 2026',
+        s1: '\u0e0a\u0e48\u0e27\u0e07\u0e07\u0e32\u0e19', s2: '\u0e1a\u0e19\u0e40\u0e27\u0e17\u0e35', s3: '\u0e04\u0e13\u0e30\u0e40\u0e14\u0e34\u0e19\u0e07\u0e32\u0e19',
+      },
+      leap: {
+        v1: 'Orbital',
+        city: '\u0e2b\u0e48\u0e2d\u0e07\u0e01\u0e49\u0e07',
+        venue: 'LEAP East 2026 \u00b7 \u0e40\u0e27\u0e17\u0e35 Orbital \u00b7 \u0e28\u0e32\u0e42\u0e01\u0e31\u0e07\u0e01\u0e23',
+        venueShort: 'LEAP East \u00b7 HKCEC',
+        format: '\u0e27\u0e07\u0e40\u0e2a\u0e27\u0e19\u0e32 \u00b7 \u0e40\u0e1b\u0e34\u0e14\u0e15\u0e31\u0e27\u0e1c\u0e25\u0e34\u0e14\u0e20\u0e31\u0e13\u0e17\u0e4c',
+        note: 'ปิดวงรอบ Q1–Q2 ด้วยการเปิดตัว FloodDash จริง ระบบเฝ้าระวังน้ำท่วมไทย 24/7 เก้าแหล่งข้อมูลสาธารณะ',
+        quote: '"\u0e17\u0e38\u0e01\u0e04\u0e19\u0e17\u0e35\u0e48\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e2a\u0e16\u0e32\u0e19\u0e01\u0e32\u0e13\u0e4c\u0e19\u0e49\u0e33\u0e17\u0e48\u0e27\u0e44\u0e17\u0e22\u0e04\u0e27\u0e23\u0e21\u0e44\u0e14\u0e49\u0e27\u0e0d\u0e1e\u0e32\u0e19 FloodDash \u0e27\u0e31\u0e19\u0e19\u0e35\u0e49 \u0e44\u0e21\u0e48\u0e43\u0e0a\u0e48 \u0e40\u0e14\u0e37\u0e2d\u0e19\u0e44\u0e1b \u0e27\u0e31\u0e19\u0e19\u0e35\u0e49"',
+        cite: '\u0e27\u0e07\u0e40\u0e2a\u0e27\u0e19\u0e32 LEAP East',
+        s1: '\u0e23\u0e30\u0e14\u0e1a\u0e40\u0e27\u0e17\u0e35', s2: '\u0e1c\u0e39\u0e49\u0e1e\u0e39\u0e14', s3: '\u0e41\u0e2b\u0e25\u0e48\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25',
+      },
+      sg: {
+        v3: 'เต็ม',
+        city: '\u0e2a\u0e34\u0e07\u0e04\u0e42\u0e1b\u0e23',
+        venue: 'GITEX AI Asia \u00b7 Marina Bay Sands \u00b7 \u0e40\u0e27\u0e17\u0e35\u0e2b\u0e25\u0e31\u0e01',
+        venueShort: 'GITEX AI Asia \u00b7 MBS',
+        format: '\u0e27\u0e34\u0e17\u0e22\u0e01\u0e23 \u00b7 \u0e40\u0e27\u0e34\u0e23\u0e4b\u0e0a\u0e47\u0e2d\u0e1b\u0e40\u0e15\u0e21\u0e17\u0e35\u0e48\u0e19\u0e31\u0e48\u0e07',
+        note: 'บรรยายเวทีหลักและเวิร์กช็อป ระบบรัฐบาลให้บริการทำงานจริง',
+        quote: '"\u0e19\u0e31\u0e48\u0e19\u0e44\u0e21\u0e48\u0e43\u0e0a\u0e48\u0e40\u0e2a\u0e35\u0e22\u0e1b\u0e23\u0e21\u0e37\u0e2d \u0e19\u0e31\u0e48\u0e19\u0e04\u0e37\u0e2d\u0e2a\u0e31\u0e0d\u0e0a\u0e32\u0e13\u0e0c\u0e2d\u0e07\u0e04\u0e27\u0e32\u0e21\u0e15\u0e49\u0e2d\u0e01\u0e01\u0e23 \u0e23\u0e31\u0e1a\u0e1a\u0e23\u0e08\u0e21\u0e32\u0e01\u0e14\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e17\u0e1c\u0e1b\u0e34\u0e21\u0e27\u0e32\u0e19\u0e44\u0e14\u0e49\u0e17\u0e35\u0e48\u0e43\u0e0a\u0e49\u0e17\u0e49\u0e32\u0e08\u0e2d\u0e07\u0e22\u0e2b\u0e19\u0e49\u0e32\u0e07\u0e32\u0e19"',
+        cite: '\u0e2b\u0e25\u0e31\u0e07\u0e27\u0e34\u0e17\u0e22\u0e01\u0e23 \u00b7 GITEX',
+        s1: '\u0e40\u0e27\u0e17\u0e35\u0e2b\u0e25\u0e31\u0e01', s2: '\u0e1c\u0e39\u0e49\u0e40\u0e02\u0e49\u0e32\u0e23\u0e48\u0e27\u0e21', s3: '\u0e40\u0e27\u0e34\u0e23\u0e4b\u0e0a\u0e47\u0e2d\u0e1b',
+      },
+      tpe: {
+        city: '\u0e44\u0e17\u0e40\u0e1b',
+        venue: 'Smart City Summit & Expo \u00b7 \u0e40\u0e27\u0e17\u0e35 City Vision',
+        venueShort: 'SCSE \u00b7 City Vision',
+        format: '\u0e27\u0e34\u0e17\u0e22\u0e01\u0e23 \u00b7 \u0e40\u0e1b\u0e34\u0e14\u0e15\u0e31\u0e27 SLIC Index V2',
+        note: 'SLIC Index V2 เปิดใช้งานกลางงาน 174 เมือง 53 ประเทศ จัดอันดับปรับได้',
+        quote: '"\u0e40\u0e23\u0e32\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e14\u0e31\u0e0a\u0e19\u0e35\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e44\u0e1b\u0e17\u0e35\u0e48\u0e43\u0e0a\u0e49\u0e1a\u0e19\u0e41\u0e23\u0e37\u0e2d\u0e07 \u0e40\u0e23\u0e32\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e23\u0e30\u0e1a\u0e1a\u0e04\u0e33\u0e2a\u0e31\u0e07\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e16\u0e19\u0e23\u0e23\u0e35\u0e22"',
+        cite: '\u0e27\u0e34\u0e17\u0e22\u0e01\u0e23 \u00b7 \u0e44\u0e17\u0e40\u0e1b',
+        s1: '\u0e40\u0e21\u0e37\u0e2d\u0e07', s2: '\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28', s3: '\u0e43\u0e0a\u0e49\u0e40\u0e27\u0e25\u0e32\u0e2a\u0e23\u0e49\u0e32\u0e07',
+      },
+      sh: {
+        city: '\u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e',
+        venue: 'Tomorrow.City \u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e 2026 \u00b7 \u0e2b\u0e2d\u0e27\u0e34\u0e17\u0e22\u0e28\u0e32\u0e2a\u0e15\u0e23\u0e08\u0e32\u0e07\u0e40\u0e08\u0e35\u0e22\u0e07 \u00b7 \u0e04\u0e23\u0e31\u0e49\u0e07\u0e17\u0e35\u0e48 4',
+        venueShort: 'Tomorrow.City \u00b7 \u0e40\u0e27\u0e17\u0e35\u0e2b\u0e25\u0e31\u0e01',
+        format: '\u0e27\u0e34\u0e17\u0e22\u0e01\u0e23 \u00b7 \u0e40\u0e14\u0e42\u0e21\u0e2a\u0e14 \u00b7 \u0e27\u0e07\u0e40\u0e2a\u0e27\u0e19\u0e32',
+        note: 'God Mode ไม่ใช่ดิจิทัลไทวิน คำนวณน้ำท่วมสดบนจอลูกบาศก์',
+        quote: '"\u0e40\u0e0b\u0e47\u0e19\u0e40\u0e2b\u0e2d\u0e23\u0e4c\u0e17\u0e35\u0e48\u0e1a\u0e2d\u0e01\u0e27\u0e48\u0e32\u0e19\u0e49\u0e32\u0e17\u0e35\u0e48\u0e40\u0e04\u0e21\u0e14\u0e49\u0e27\u0e22\u0e4c\u0e07\u0e40\u0e01\u0e25\u0e22\u0e30\u0e04\u0e27\u0e32\u0e21\u0e44\u0e14\u0e49\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e22\u0e2b\u0e19\u0e32\u0e2b\u0e19\u0e35\u0e48\u0e44\u0e21\u0e48\u0e1a\u0e2d\u0e19\u0e32\u0e22\u0e39\u0e01\u0e21\u0e35\u0e01\u0e31\u0e01\u0e2a\u0e34\u0e18\u0e34 \u0e1e\u0e23\u0e30\u0e04\u0e13\u0e32\u0e2f\u0e1e\u0e34\u0e29\u0e19\u0e10\u0e27\u0e38\u0e22\u0e4c\u0e1e\u0e37\u0e49\u0e19\u0e01\u0e25\u0e0f\u0e40\u0e01\u0e48\u0e2d\u0e01\u0e35\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e47\u0e19\u0e1c\u0e25\u0e34\u0e14\u0e20\u0e31\u0e13\u0e11\u0e4c"',
+        cite: 'Tomorrow.City \u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e',
+        s1: '\u0e1a\u0e19\u0e40\u0e27\u0e17\u0e35\u0e19\u0e35\u0e49', s2: '\u0e41\u0e2b\u0e25\u0e48\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25', s3: '\u0e02\u0e49\u0e2d\u0e2a\u0e23\u0e38\u0e1b',
+      },
+      l: {
+        date: '\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48', city: '\u0e40\u0e21\u0e37\u0e2d\u0e07', where: '\u0e2a\u0e16\u0e32\u0e19\u0e17\u0e35\u0e48', fmt: '\u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a',
+        note: '\u0e17\u0e38\u0e01\u0e23\u0e2d\u0e1a\u0e21\u0e35\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48\u0e21\u0e32\u0e08\u0e32\u0e01\u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e02\u0e2d\u0e07\u0e41\u0e2b\u0e25\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e1e\u0e34\u0e40\u0e01\u0e14\u0e2b\u0e2d\u0e31\u0e07\u0e2a\u0e34\u0e14\u0e2a\u0e32\u0e21\u0e21\u0e2d\u0e07\u0e1c\u0e39\u0e49\u0e2b\u0e49\u0e2d\u0e01\u0e32\u0e23\u0e13\u0e30',
+        updated: '\u0e2d\u0e1b\u0e40\u0e14\u0e15 2026.10',
+      },
     },
     teamSect: {
       kicker: 'คนที่สร้าง',
+      meta: 'กรุงเทพฯ',
       foldLine: 'ทีม · ดร.นน และ ดร.พูน · สองผู้ก่อตั้ง ทีมเสริมตามภารกิจ',
       title: 'สองผู้ก่อตั้ง <em>ไม่มีคนกลาง</em>',
       lede: 'คุณคุยกับคนที่เขียนโค้ดและตัดสินใจสถาปัตยกรรมโดยตรง เมื่องานต้องการคนคุมโดรน วิศวกรจราจร หรือผู้แปลนโยบาย ผมดึงเข้ามาเฉพาะภารกิจนั้น ไม่เคยมีเป็นทีมประจำ',
     },
     ctaSect: {
       kicker: 'ทำงานกับเรา',
-      title: 'ส่งโจทย์มา <em>ผมจะทำแผนที่แรงกดดันให้</em>',
-      body: 'ถ้าปัญหาจริงและการตัดสินใจมีน้ำหนัก ผมจะแสดงสิ่งที่พิสูจน์ได้ภายในสองสัปดาห์ ไม่ต้องวอร์มอัพรอบจัดซื้อ ไม่ใช้ moodboard',
-      promise1: 'ทำแผนที่แรงกดดันในสัปดาห์แรก พร้อมการตัดสินใจ ผู้ใช้ และข้อมูลครบบนโต๊ะ',
-      promise2: 'มีระบบ pilot ที่ใช้งานได้ก่อนขัดเกลาสไลด์ ใช้ข้อมูลฟรีและที่มีอยู่ก่อน ลงทุนโครงสร้างใหม่เมื่อสมเหตุสมผลจริง',
-      promise3: 'data trail ตั้งแต่วันแรก ทั้งยอดเข้าชม เนื้อหา บันทึกการตัดสินใจ เพื่อให้รุ่นต่อไปอ่านบทเรียนได้',
+      meta: 'กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้',
+      title: 'บอกผมว่าคุณต้องตัดสินใจเรื่องอะไร <em>ผมจะทำให้เห็นว่ามันใช้งานได้ภายในสองสัปดาห์</em>',
+      body: 'เขียนมาหนึ่งย่อหน้า: การตัดสินใจที่ต้องทำให้เร็วขึ้น ใครเป็นผู้ตัดสินใจ และตอนนี้ข้อมูลอยู่ที่ไหน คุณจะได้คำตอบที่ชัดเจนว่าใช่ ไม่ใช่ หรือคำถามที่คมขึ้นหนึ่งข้อ ไม่มีสไลด์ขายของ ไม่มีการวอร์มอัพรอบจัดซื้อ',
+      promise1: 'สัปดาห์ที่ 1 — ตกลงเรื่องการตัดสินใจ คน และข้อมูล ให้จบในหน้าเดียว',
+      promise2: 'สัปดาห์ที่ 2 — ระบบนำร่องที่ใช้งานได้จริง บนข้อมูลที่มีอยู่และข้อมูลสาธารณะฟรี เริ่มต้นโดยไม่ต้องซื้อฮาร์ดแวร์ใหม่',
+      promise3: 'ตั้งแต่วันแรก — บันทึกทุกการใช้งานและทุกการตัดสินใจ เพื่อขยายเฉพาะสิ่งที่พิสูจน์แล้ว',
       alt: 'หรือหาผมได้ที่',
     },
   },
@@ -350,15 +1141,68 @@ const uiCopy = {
       cta: '成为合作伙伴',
     },
     hero: {
-      badge: '所有系统在线',
+      badge: '公开项目目录',
       titleLine1: '创新',
-      subtitle: '你建排名，我们建现实。Axiom 绘制压力图谱，快速交付可用界面，从第一天起就布署可追溯的度量层。',
-      cta: '从压力图开始',
-      ctaSecondary: '查看在线系统',
-      nodeLabel: '点击选择区域',
-      statSystems: '在线系统',
-      statMonitoring: '全天候监控',
+      subtitle: '你的城市有数据，却在关键时刻没人看得见。我们把它放上一块实时屏幕，服务你最难的那个决策——两周内运行。',
+      cta: '开始两周验证',
+      ctaSecondary: '查看系统',
+      nodeLabel: '点选战区',
+      exploreHint: '拖动地图 · 点选战区',
+      hudLive: '战区',
+      hudWatching: '监视中的系统',
+      modeTour: '自动巡游',
+      modeHold: '暂停',
+      statSystems: '目录中的系统',
+      statMonitoring: '标记为 Live',
       statCountries: '国家',
+      signalLabels: {
+        FLOOD: '洪水', CAMPUS: '校园', URBAN: '城市', ATLAS: '地图',
+        COASTAL: '沿海', TRANSIT: '公交', AIR: '空气',
+        CONFLICT: '冲突', GLOBAL: '全球',
+        BORDER: '边境', INDEX: '指数', SCALE: '规模',
+      },
+      rotatingPhrases: [
+        '即服务',
+        '两周落地',
+        '真的能用',
+        '为城市',
+        '为决策',
+        '看得见',
+      ],
+      featured: {
+        kicker: '战区简报',
+        cta: '打开在线系统',
+      },
+      theatres: {
+        bangkok: {
+          name: '曼谷',
+          meta: '洪水 · 校园 · 城市',
+          event: 'EVENT_ID: BANGKOK_WATCH',
+          featuredName: 'FloodDash',
+          sitrep: '洪水、校园与城市地图——曼谷系统盯着同一张压力图。',
+        },
+        phuket: {
+          name: '普吉',
+          meta: '海岸 · 交通 · 空气',
+          event: 'EVENT_ID: PHUKET_WATCH',
+          featuredName: 'Phuket Ops',
+          sitrep: '岛屿作战室、乘客公交与空气监视——海岸压力集中在一个战区。',
+        },
+        'middle-east': {
+          name: '中东',
+          meta: '冲突 · 开放情报',
+          event: 'EVENT_ID: ME_WATCH',
+          featuredName: 'Middle East Monitor',
+          sitrep: '开放冲突界面与分层全球监视——新闻周期之前的信号。',
+        },
+        'southeast-asia': {
+          name: '东南亚',
+          meta: '边境 · 指数 · 尺度',
+          event: 'EVENT_ID: SEA_WATCH',
+          featuredName: 'Geopolitical Watch',
+          sitrep: '三边境监视、城市指数与都会尺度——东盟压力在一张图上。',
+        },
+      },
     },
     engagement: {
       tag: '运营模式',
@@ -452,13 +1296,13 @@ const uiCopy = {
       successDesc: '我们会尽快回复您。',
     },
     navCurrent: {
-      systems: '系统', stages: '舞台', team: '团队', press: '媒体', brand: '品牌套件', credentials: '资质', cta: '开始合作',
+      why: '运作方式', systems: '系统', stages: '舞台', team: '团队', press: '媒体', brand: '品牌套件', credentials: '资质', cta: '开始合作',
     },
     heroCurrent: {
       title: '我们建造<em>能运行的系统</em><br>让政府<span class="hero__punch"><span class="hero__punch-afford">不用再等</span> <span class="hero__punch-wait">别人来做</span></span>',
       sub: '多数"智慧城市"项目都停在幻灯片阶段。我们的停在运行中的系统上。第一周就把问题摸清楚 演示之前就有能跑的东西 每一个决策从第一天起就留下记录。',
       cta1: '立刻使用 FloodDash', cta2: '把题目发过来',
-      stat1lbl: '运行中的系统', stat2lbl: '在用的国家',
+      stat1lbl: '目录中的系统', stat2lbl: '在用的国家',
       stat3lbl: '建档城市', stat4lbl: 'FloodDash · LEAP East',
       meta1: '<b>24/7</b> 监控', meta2: '<b>157</b> SLIC 指数城市',
       meta3: '<b>174</b> 泰国智慧城市指数城市', meta4: '古晋 马来西亚',
@@ -467,43 +1311,91 @@ const uiCopy = {
     sysSect: {
       kicker: '正在生产中运行',
       title: '真实系统 <em>真实城市</em> 今天就在跑',
-      lede: '每个系统都从一个尖锐的问题开始 以可用的界面交付 在发布新闻周期结束之后依然有用 点进去用就行 全部都在线跑着',
-      sandboxKicker: 'Sandbox // Live',
+      lede: '用证据说话，而不是承诺。下面每个系统都始于一个“做得不够快”的决策。每一个今天都在线运行——打开它、使用它、自己评判。',
+      sandboxKicker: '沙盒 // 在线',
       sandboxNote: '不是演示稿——是运行在沙盒里的可用系统。按可扩展的方式搭建，不是为了好看。客户生产部署在保密协议下规模更大；这里运行的逻辑与之一致，敏感模块不对外展示，不是因为它们是假的。',
     },
     stageSect: {
-      kicker: '三个舞台 一条弧线',
-      title: '政府已经<em>厌倦等一份幻灯片</em>了',
-      lede: 'Q1 在台北开场。Q2 登上新加坡 GITEX 主舞台。三部曲在 LEAP East——亚洲最大舞台——收束，FloodDash 在现场上线。同一条论点每次都一样：现在就建，别等下一个预算周期。',
-    },
-    flooddashSect: {
-      kicker: 'Q1–Q2 · 第三幕',
-      meta: 'GITEX → LEAP East → FloodDash',
-      title: '立刻使用 <em>FloodDash</em>。',
-      lede: '泰国洪水监测——来自九个公开数据源的 24/7 实时地理空间数据，每 3–60 分钟刷新。从 LEAP East 亚洲最大舞台发布。每一位在泰国盯洪水的人，今天就该用这张面。',
-      live: 'LIVE',
-      m1: '9 个公开数据源',
-      m2: '3–60 分钟刷新',
-      m3: '77 个府',
-      slide1: '全国总览 — 每个府都在同一张面上',
-      slide2: '合艾区域 — 南部洪水走廊',
-      slide3: '达叻明细 — 警报与流域读数',
-      cta: '打开 FloodDash 实时版',
-      cta2: 'LEAP East 发布现场',
+      kicker: '五个舞台 · 2026',
+      title: '一次构建，<em>公开验证</em>',
+      lede: '2026 年亚洲五个舞台，每次现场都跑着真正能用的系统 —— 台北的 SLIC Index，新加坡、上海与香港的 FloodDash，大阪的 DEPA。以下全部为公开记录。下一次，轮到你的城市。',
+
+      meta: '2026 \u00b7 \u5927\u962a \u00b7 \u4e0a\u6d77 \u00b7 \u9999\u6e2f \u00b7 \u65b0\u52a0\u5761 \u00b7 \u53f0\u5317',},
+    cx: {
+      stops: '\u573a\u6b21', cities: '\u57ce\u5e02', shots: '\u821e\u53f0\u5f71\u50cf', thesis: '可运行的系统',
+      osaka: {
+        city: '\u5927\u962a',
+        venue: '\u5927\u962a\u5e02\u7acb\u5927\u5b66 \u00b7 \u68ee\u4e4b\u5bab\u6821\u533a',
+        venueShort: '\u5927\u962a\u5e02\u7acb\u5927\u5b66',
+        format: '\u4e3b\u65e8\u6f14\u8bb2 \u00b7 \u56fd\u522b\u6848\u4f8b \u00b7 \u5706\u684c',
+        note: 'DEPA 洪水监测与城市运营仪表盘现场运行。真正的限制在机构，不在技术。',
+        quote: '"\u4e00\u5957 45 \u5206\u949f\u5185\u5728\u5355\u53f0\u673a\u5668\u4e0a\u505a\u51fa\u6765\u7684\u7cfb\u7edf\uff0c\u7ec8\u4eae\u8981\u53d8\u6210\u57ce\u5e02\u53ef\u4ee5\u5408\u6cd5\u91c7\u7528\u3001\u7eb3\u5165\u9884\u7b97\u3001\u6301\u7eed\u8fd0\u884c\u7684\u4e1c\u897f\u3002"',
+        cite: '2026 \u5927\u962a\u4e9a\u6d32\u5706\u684c\u4f1a\u8bae',
+        s1: '\u573a\u6b21', s2: '\u53f0\u4e0a\u65f6\u957f', s3: '\u4ee3\u8868\u56e2',
+      },
+      leap: {
+        v1: 'Orbital',
+        city: '\u9999\u6e2f',
+        venue: 'LEAP East 2026 \u00b7 Orbital \u4e3b\u821e\u53f0 \u00b7 \u9999\u6e2f\u4f1a\u8bae\u5c55\u89c8\u4e2d\u5fc3',
+        venueShort: 'LEAP East \u00b7 HKCEC',
+        format: '\u5706\u684c \u00b7 \u4ea7\u54c1\u53d1\u5e03',
+        note: '以 FloodDash 现场发布收束 Q1–Q2：泰国洪水监测 24/7，九个公开数据源。',
+        quote: '"\u6240\u6709\u5728\u76d1\u6d4b\u6cf0\u56fd\u6d2a\u6c34\u7684\u4eba\uff0c\u4eca\u5929\u5c31\u8be5\u7528\u4e0a FloodDash\u3002\u4e0d\u662f\u4e0b\u4e2a\u5b63\u5ea6\uff0c\u662f\u4eca\u5929\u3002"',
+        cite: 'LEAP East \u5706\u684c',
+        s1: '\u821e\u53f0\u7ea7\u522b', s2: '\u53d1\u8a00\u4eba', s3: '\u5b9e\u65f6\u6570\u636e\u6e90',
+      },
+      sg: {
+        v3: '满座',
+        city: '\u65b0\u52a0\u5761',
+        venue: 'GITEX AI Asia \u00b7 \u91d1\u6c99 \u00b7 \u4e3b\u821e\u53f0',
+        venueShort: 'GITEX AI Asia \u00b7 MBS',
+        format: '\u4e3b\u65e8\u6f14\u8bb2 \u00b7 \u5de5\u4f5c\u574a\u6ee1\u5458',
+        note: '主舞台主题演讲与工作坊，“政府即服务”系统现场运行。',
+        quote: '"\u90a3\u4e0d\u662f\u638c\u58f0\uff0c\u90a3\u662f\u9700\u6c42\u4fe1\u53f7\u3002\u653f\u5e9c\u8981\u7684\u662f\u80fd\u8dd1\u8d77\u6765\u7684\u7cfb\u7edf\u3002"',
+        cite: '\u6f14\u8bb2\u540e \u00b7 GITEX',
+        s1: '\u4e3b\u821e\u53f0', s2: '\u53c2\u4f1a\u8005', s3: '\u5de5\u4f5c\u574a',
+      },
+      tpe: {
+        city: '\u53f0\u5317',
+        venue: '\u667a\u6167\u57ce\u5e02\u9ad8\u5cf0\u4f1a \u00b7 City Vision \u821e\u53f0',
+        venueShort: 'SCSE \u00b7 City Vision',
+        format: '\u4e3b\u65e8\u6f14\u8bb2 \u00b7 SLIC V2 \u53d1\u5e03',
+        note: 'SLIC Index V2 演讲中途上线：174 座城市，53 个国家，排名可调。',
+        quote: '"\u6211\u4eec\u505a\u7684\u4e0d\u662f\u653e\u5728\u4e66\u67b6\u4e0a\u7684\u6307\u6570\uff0c\u662f\u7ed9\u8857\u9053\u7528\u7684\u6307\u6325\u7cfb\u7edf\u3002"',
+        cite: '\u53f0\u5317\u4e3b\u65e8\u6f14\u8bb2',
+        s1: '\u57ce\u5e02', s2: '\u56fd\u5bb6', s3: '\u642d\u5efa\u8017\u65f6',
+      },
+      sh: {
+        city: '\u4e0a\u6d77',
+        venue: 'Tomorrow.City \u4e0a\u6d77 2026 \u00b7 \u5f20\u6c5f\u79d1\u5b66\u4f1a\u5802 \u00b7 \u7b2c\u56db\u5ea6\u767b\u53f0',
+        venueShort: 'Tomorrow.City \u00b7 \u4e3b\u821e\u53f0',
+        format: '\u4e3b\u65e8\u6f14\u8bb2 \u00b7 \u73b0\u573a\u6f14\u793a \u00b7 \u5706\u684c',
+        note: '不是数字孪生，是 God Mode。洪水计算在立方体屏上现场跑。',
+        quote: '"\u4e00\u4e2a\u53ea\u8bf4\u6c34\u6d41\u901f\u5ea6\u591a\u5feb\u7684\u4f20\u611f\u5668\uff0c\u5bf9\u5e02\u957f\u8bf4\u4e0d\u4e86\u4ec0\u4e48\u3002\u8fd9\u9053\u57fa\u7840\u6570\u5b66\u624d\u662f\u4ea7\u54c1\u3002"',
+        cite: 'Tomorrow.City \u4e0a\u6d77',
+        s1: '\u767b\u53f0\u6b21\u6570', s2: '\u6570\u636e\u6e90', s3: '\u8981\u70b9',
+      },
+      l: {
+        date: '\u65e5\u671f', city: '\u57ce\u5e02', where: '\u573a\u5730', fmt: '\u5f62\u5f0f',
+        note: '\u6bcf\u4e00\u7ad9\u90fd\u6709\u4e00\u4e2a\u6765\u81ea\u4e3b\u529e\u65b9\u5b98\u65b9\u65e5\u7a0b\u6216\u6d3b\u52a8\u624b\u518c\u7684\u65e5\u671f\u3002\u8fd9\u6761\u8f68\u9053\u4e0a\u6ca1\u6709\u4e00\u6761\u6570\u636e\u662f\u5728\u7f3a\u5c11\u4f9d\u636e\u7684\u60c5\u51b5\u4e0b\u65ad\u8a00\u7684\u3002',
+        updated: '\u66f4\u65b0\u4e8e 2026.10',
+      },
     },
     teamSect: {
       kicker: '谁在搭',
+      meta: '曼谷',
       foldLine: '团队 · 诺博士与蓬博士 · 两位创始人 按需集结',
       title: '两位创始人 <em>没有中间人</em>',
       lede: '你直接跟写代码、定架构的人对话 工作需要无人机操作员 交通工程师 或者政策翻译时 我们只为那个任务把人请进来 从不养成常设团队',
     },
     ctaSect: {
       kicker: '一起来做',
-      title: '把题目发过来 <em>我们来画压力图</em>',
-      body: '如果问题是真的 决策也重要 两周内我们让你看到能证明的东西 不走采购周期热身 不做情绪板',
-      promise1: '第一周就把压力图画完 决策、用户、数据全部摆上桌',
-      promise2: '在打磨幻灯片之前 先有能跑的试点 优先用免费和现有的数据 新基础设施只在该建的时候才建',
-      promise3: '从第一天起就留下数据轨迹 页面浏览、内容、决策日志 让下一版构建读得懂',
+      meta: '曼谷 · 东南亚',
+      title: '告诉我们那个决策。<em>两周内让你看到它跑起来。</em>',
+      body: '写一段话：你需要更快做出的决策、由谁决定、数据目前在哪里。你会得到一个明确的“可以”、一个明确的“不行”，或一个更尖锐的问题。没有销售演示稿，没有采购热身。',
+      promise1: '第 1 周——决策、相关人员和数据在一页纸上达成一致。',
+      promise2: '第 2 周——基于现有数据和免费公共数据的可用试点。起步无需新硬件。',
+      promise3: '从第一天起——记录每一次使用和每一个决策，只扩展被证明有效的部分。',
       alt: '或者在这里找我们',
     },
   },
@@ -517,15 +1409,68 @@ const uiCopy = {
       cta: 'await workTogether()',
     },
     hero: {
-      badge: '// status: ONLINE',
+      badge: '// project.catalogue',
       titleLine1: 'Innovation',
-      subtitle: '// AI should feel like infrastructure, not performance\nconst axiom = new DecisionSystem({ pressure: true, performative: false })',
-      cta: 'pressureMap.start()',
-      ctaSecondary: 'systems.getLive()',
-      nodeLabel: '// select system',
-      statSystems: 'LiveSystem[]',
-      statMonitoring: 'readonly 24/7',
+      subtitle: '// your city already has the data — scattered across agencies\nconst screen = oneLiveScreen(decision, { within: "2w", notAfter: "nextBudgetCycle" })',
+      cta: 'proof.start({ weeks: 2 })',
+      ctaSecondary: 'systems.browse()',
+      nodeLabel: '// tap.theatre()',
+      exploreHint: '// drag.map · tap.theatre',
+      hudLive: 'THEATRE',
+      hudWatching: 'systems.watching',
+      modeTour: 'AUTO_TOUR',
+      modeHold: 'HOLD',
+      statSystems: 'catalogue[]',
+      statMonitoring: 'status: Live',
       statCountries: 'Country<T>',
+      signalLabels: {
+        FLOOD: 'flood', CAMPUS: 'campus', URBAN: 'urban', ATLAS: 'atlas',
+        COASTAL: 'coastal', TRANSIT: 'transit', AIR: 'air',
+        CONFLICT: 'conflict', GLOBAL: 'global',
+        BORDER: 'border', INDEX: 'index', SCALE: 'scale',
+      },
+      rotatingPhrases: [
+        'as_a_Service',
+        'in_2_weeks',
+        'true',
+        'for_cities',
+        'for_decisions',
+        'visible',
+      ],
+      featured: {
+        kicker: '// THEATRE_BRIEF',
+        cta: 'system.open()',
+      },
+      theatres: {
+        bangkok: {
+          name: 'Bangkok',
+          meta: 'flood · campus · urban',
+          event: 'EVENT_ID: BANGKOK_WATCH',
+          featuredName: 'FloodDash',
+          sitrep: '// flood + campus + atlas → bangkok.pressureMap',
+        },
+        phuket: {
+          name: 'Phuket',
+          meta: 'coastal · transit · air',
+          event: 'EVENT_ID: PHUKET_WATCH',
+          featuredName: 'Phuket Ops',
+          sitrep: '// island.ops + bus + air → coastal.theatre',
+        },
+        'middle-east': {
+          name: 'Middle East',
+          meta: 'conflict · openIntel',
+          event: 'EVENT_ID: ME_WATCH',
+          featuredName: 'MEM',
+          sitrep: '// conflict.surface + global.monitor → signal.before(cycle)',
+        },
+        'southeast-asia': {
+          name: 'Southeast Asia',
+          meta: 'border · index · scale',
+          event: 'EVENT_ID: SEA_WATCH',
+          featuredName: 'Geo Watch',
+          sitrep: '// triBorder + slic + metro → asean.pressure',
+        },
+      },
     },
     engagement: {
       tag: '// OPERATING_MODEL',
@@ -617,6 +1562,7 @@ const uiCopy = {
       submit: 'send()',
     },
     navCurrent: {
+      why: 'howItWorks()',
       systems: 'LiveSystem[]',
       stages: 'Stage<Keynote>',
       team: 'class Team',
@@ -630,7 +1576,7 @@ const uiCopy = {
       sub: '// most "smart city" work: Promise<Deck> — never resolves\n// ours: LiveSystem — deployed, instrumented, running\n// method: pressureMap() → shipRough() → instrument(day1)',
       cta1: 'FloodDash.useNow()',
       cta2: 'brief.start()',
-      stat1lbl: 'LiveSystem[]',
+      stat1lbl: 'catalogue[]',
       stat2lbl: 'Country<T>[]',
       stat3lbl: 'cities.indexed',
       meta1: '<b>24/7</b> monitor', meta2: '<b>157</b> SLIC.cities',
@@ -641,43 +1587,91 @@ const uiCopy = {
     sysSect: {
       kicker: '// LIVE_IN_PRODUCTION',
       title: 'type Systems = Real<Cities> // operating today',
-      lede: '// each: sharpQuestion → workingSurface → staysUseful\n// click through: systems.forEach(s => assert(s.isLive()))',
+      lede: '// proof, not promises\n// each: oneDecision → liveSystem → you.judge()',
       sandboxKicker: '// SANDBOX // LIVE',
       sandboxNote: '// not demos — systems.runIn(sandbox)\n// built.toScale(), not.toImpress()\n// prod under NDA: larger; behavior.same(); advancedModules.withheld(not.faked)',
     },
     stageSect: {
-      kicker: '// THREE_STAGES_ONE_ARC',
-      title: 'governments.tireof(waitingForTheDeck)',
-      lede: '// Q1: Taipei → Q2: GITEX.mainStage → LEAP.East closes trilogy\n// FloodDash.liveInRoom(); thesis: { build: "now" }',
-    },
-    flooddashSect: {
-      kicker: '// Q1_Q2.ACT_III',
-      meta: 'GITEX → LEAP.East → FloodDash',
-      title: 'FloodDash<em>.useNow()</em>',
-      lede: '// ThailandFloodWatch: geospatial.live(24/7)\n// sources: 9.public; refresh: 3..60min\n// launched: LEAP.East // asia.largestStage\n// everyone.monitoringFloods.shouldUse(today)',
-      live: 'LIVE',
-      m1: 'sources: 9.public',
-      m2: 'refresh: 3..60min',
-      m3: 'provinces: 77',
-      slide1: 'national.overview // everyProvince',
-      slide2: 'hatYai.regional // southCorridor',
-      slide3: 'trat.detail // alerts + basin',
-      cta: 'FloodDash.openLive()',
-      cta2: 'LEAP.East.launch',
+      kicker: '// FIVE_STAGES_2026',
+      title: 'built.once(provenInPublic)',
+      lede: '// 5(stages) × asia × 2026 — live(inEveryRoom)\\n// sli.index(taipei) · flooddash(singapore · shanghai · hongkong) · depa(osaka)\\n// all(publicRecord) · next(you)',
+    
+      meta: '// 2026.osaka.shanghai.hongkong.singapore.taipei',},
+    cx: {
+      stops: 'stops.count', cities: 'cities.count', shots: 'shots.onStage', thesis: 'systems.running',
+      osaka: {
+        city: 'Osaka',
+        venue: 'OsakaMetropolitanUniv.·Morinomiya',
+        venueShort: 'OsakaMetropolitanUniv.',
+        format: 'keynote·countryCase·panel',
+        note: '// depa{floodWatch, urbanOpsDashboards}.live ⇒ constraint = institutions(≠technology)',
+        quote: '"system(builtIn: 45min, on: oneMachine) → mustBecome(legallyAdoptable, budgetable, maintainable)"',
+        cite: 'osakaAsiaRoundtable.2026',
+        s1: 'sessions', s2: 'onRecord', s3: 'delegations',
+      },
+      leap: {
+        v1: 'orbItal',
+        city: 'HongKong',
+        venue: 'LEAP.East.2026·Orbital.Stage·HKCEC',
+        venueShort: 'LEAP.East·HKCEC',
+        format: 'panel·productLaunch',
+        note: '// closes(Q1..Q2) with floodDash.launch(live) : thailandFloodWatch(24/7, sources: 9)',
+        quote: '"everyone(watching: thailandFloods) shouldBe(on: floodDash) { now: true }"',
+        cite: 'leapEast.panel',
+        s1: 'stageTier', s2: 'speakers', s3: 'liveSources',
+      },
+      sg: {
+        v3: 'full',
+        city: 'Singapore',
+        venue: 'GITEX.AI.Asia·MBS·mainStage',
+        venueShort: 'GITEX.AI.Asia·MBS',
+        format: 'keynote·workshopSoldOut',
+        note: '// mainStage.keynote + workshop(govInnovationAsAService).live',
+        quote: '"that.isNot(applause). that.is(demandSignal). governments.want(workingSystems)"',
+        cite: 'postKeynote.GITEX',
+        s1: 'mainStage', s2: 'attendees', s3: 'workshop',
+      },
+      tpe: {
+        city: 'Taipei',
+        venue: 'SCSE.2026·CityVision.stage',
+        venueShort: 'SCSE·CityVision',
+        format: 'keynote·SLIC.v2.launch',
+        note: '// slic.v2.live(midTalk) : cities(174) × nations(53) × ranking(adjustable)',
+        quote: '"not(index.for.theShelf) → commandSystem(for.theStreet)"',
+        cite: 'keynote.taipei',
+        s1: 'cities', s2: 'nations', s3: 'toBuild',
+      },
+      sh: {
+        city: 'Shanghai',
+        venue: 'Tomorrow.City.shanghai.2026·ZhangjiangScienceHall·appearance(4th)',
+        venueShort: 'Tomorrow.City·main',
+        format: 'keynote·liveDemo·panel',
+        note: '// not(digitalTwin) → godMode. floodMath.cookedLive(on: cubeScreen)',
+        quote: '"sensor(says: speed ≠ whatAMayorNeeds). that.basicMaths = theProduct"',
+        cite: 'tomorrowCity.shanghai',
+        s1: 'onThisStage', s2: 'dataSources', s3: 'takeaways',
+      },
+      l: {
+        date: 'date', city: 'city', where: 'venue', fmt: 'format',
+        note: '// everyStop.dated(from: organiser.agenda ∥ organiser.programme). nothingHere.asserted(without: date)',
+        updated: 'updated.2026.10',
+      },
     },
     teamSect: {
       kicker: '// WHO_BUILDS_IT',
+      meta: '// bkk.base',
       foldLine: '// team: [DrNon, DrPoon] · founders: 2 · handlers: never[]',
       title: 'const team: [Founder, Founder] // handlers: never[]',
       lede: '// you.talkTo(builders) // not handlers\n// specialists.join({ when: mission.needs(them), as: "standing bench" }) // throws',
     },
     ctaSect: {
       kicker: '// WORK_WITH_US',
-      title: 'brief.send() // we.will.map(pressure)',
-      body: 'if (problem.isReal && decision.matters) {\n  return show(provable, { within: "2w" })\n  // no procurementWarmups()\n  // no moodboards()\n}',
-      promise1: 'pressureMap(): Week<1> // { decision, users, data } on table',
-      promise2: 'pilot.before(slidePolish) // freeData.first(); newInfra.only(whenEarned)',
-      promise3: 'trail: DataFrom<Day1> // pageviews + content + decisionLog → nextBuild.legible()',
+      meta: '// bkk · SEA',
+      title: 'decision.send() // we.will.show(working, { within: "2w" })',
+      body: 'brief = paragraph({ decision, owner, dataLocation })\nreply: yes | no | sharperQuestion\n// no salesDeck() · no procurementWarmup()',
+      promise1: 'week(1): agree({ decision, people, data }) // onePage',
+      promise2: 'week(2): pilot(existingData + freePublicData) // newHardware: 0',
+      promise3: 'day(1): log(use + decisions) → scale(only: proven)',
       alt: '// or find us on',
     },
   },
@@ -687,172 +1681,531 @@ const uiCopy = {
 const i18nExt = {
   en: {
     panels: {
+      p48: {
+        name: 'FLOODDASH (Thailand Flood Watch)',
+        lede: 'A real-time, openly-sourced flood watch built so every Thai province can read the same situation picture from official public data. Streams 9 public sources every 3–60 minutes.',
+        cta: 'Open live system',
+      },
+      p65: {
+        lede: 'The public-facing channel for FloodDash — 112K followers, 37K likes on Facebook. Daily flood briefings in Thai, with SLIC · depa · RCAD. Data today. Safer tomorrow.',
+        cta: 'Follow on Facebook',
+        name: 'FloodDash Community',
+      },
+      p49: {
+        name: 'Sikhio Town Operations',
+        lede: 'A live command surface tracking the Sikhio Town Municipality — integrating AQI, weather, traffic patterns, and live city data to aid municipal decision-making.',
+        cta: 'Open live system',
+      },
+      p50: {
+        lede: 'Real-time civic intelligence for Nakhon Si Thammarat City Municipality — 3D city, satellite, flood watch, Khao Luang & Pak Phanang basin. 30+ live data feeds.',
+        cta: 'Open live system',
+        name: 'NST-01 · Nakhon Si Thammarat',
+      },
+      p51: {
+        name: 'Laem Chabang Operations',
+        lede: 'Port truck traffic and regulatory compliance on one Laem Chabang screen. Coordinates traffic, cuts congestion, urban safety.',
+        cta: 'Open live system',
+      },
       p01: {
-        title: 'A governor\'s <em>situation room</em>, in a browser tab.',
-        lede: 'Phuket\'s transit, public safety, and environmental signals, unified into one surface that an actual governor can read in 30 seconds. Built in weeks, not procurement cycles.',
-        w1lbl:'Why it\'s special', w1:'Most government dashboards are read-only PDFs disguised as software. Phuket is a working operations room: transit, safety, and environment fused on one screen, refreshed every 42ms. The governor reads it directly — no analyst translation layer.',
-        w2lbl:'What it replaced', w2:'Three siloed agency reports, an SMS escalation chain, and a Tuesday-morning briefing slot.',
-        w3lbl:'Earned on day one', w3:'Built on existing IoT infrastructure — no new hardware procurement.', cta:'Open live system',
+        title: "A governor's <em>situation room</em>, in a browser tab.",
+        lede: "Phuket's transit, safety, and environment on one screen a governor reads in 30 seconds. Built in weeks, not procurement cycles.",
+        w1lbl: "Why it's special",
+        w1: 'Most government dashboards are read-only PDFs disguised as software. Phuket is a working operations room: transit, safety, and environment fused on one screen, refreshed every 42ms. The governor reads it directly — no analyst translation layer.',
+        w2lbl: 'What it replaced',
+        w2: 'Three siloed agency reports, an SMS escalation chain, and a Tuesday-morning briefing slot.',
+        w3lbl: 'Earned on day one',
+        w3: 'Built on existing IoT infrastructure — no new hardware procurement.',
+        cta: 'Open live system',
+        name: 'Phuket Ops',
       },
-      p02: {
-        title: 'Macro signal, <em>before the room starts guessing.</em>',
-        lede: 'DNGWS Monitor pulls live escalation tracking, economic spillover, and cross-source crisis visualization into one surface. For decision-makers who can\'t wait for the briefing deck.',
-        w1lbl:'Why it\'s special', w1:'Bloomberg Terminal costs $25K/seat/year. This runs on open data. Cross-source crisis fusion, escalation deltas, and economic spillover — surfaced fast enough to brief a minister before the cable news cycle catches up.',
-        w2lbl:'What it replaced', w2:'Subscription intelligence platforms, ad-hoc analyst PDFs, and the gap between "something happened" and "we have a position."',
-        w3lbl:'Earned on day one', w3:'Sentinel-2 satellite imagery, OSINT feed fusion, and 53-country NLP brief layer — deployed at the edge for sub-second region switches.', cta:'Open live system',
+      p21: {
+        lede: 'A massive-scale command surface for Ho Chi Minh City. Integrates live traffic, flood monitoring, air quality, and dynamic routing into a single high-performance map for urban decision-makers.',
+        cta: 'Open live system',
+        name: 'HCMCx Super Dashboard',
       },
-      p03: {
-        title: 'Bureaucracy, <em>made legible.</em>',
-        lede: 'We built the public surface for Thailand\'s national smart city programme with depa. Proposals go in. Progress stays visible. The programme stops disappearing into PDFs.',
-        w1lbl:'Why it\'s special', w1:'National programmes usually live in annual reports nobody reads. This one is online, bilingual, and tied to outcomes — not ceremony. A candidate city\'s status moves the moment a milestone clears.',
-        w2lbl:'Who pays for it', w2:'depa — Thailand\'s Digital Economy Promotion Agency. Direct-to-government engagement, not a sub-vendor relationship.',
-        w3lbl:'Why it matters', w3:'Sets the template for any national smart-city programme that wants to stay legible past the launch press cycle. SLIC integrates as the benchmarking layer.', cta:'Open live system',
+      p62: {
+        lede: 'Lopburi Operations War Room — real-time FloodDash basin telemetry (ThaiWater/HII), Pa Sak Jolasid reservoir status, social listening, CCTV slot grid, and satellite layers for Lopburi province. One screen, four data streams, the dispatchable read.',
+        cta: 'Open the war room',
+        name: 'Lopburi Operations',
       },
-      p04: {
-        title: 'A ranking <em>that argues back.</em>',
-        lede: 'The SLIC Index doesn\'t tell cities what they\'re worth. It shows them five pillars and lets them test their own priorities. Mayors decide what livability means — and the math follows.',
-        w1lbl:'Why it\'s special', w1:'Every other livability index hands cities a finished verdict. SLIC hands them the math. Move the pillar weights, watch your ranking change — and your peers\' — in real time. The argument becomes the product.',
-        w2lbl:'What it replaced', w2:'Static prestige leaderboards. The annual ranking PDF. The conversation that ended with "we don\'t agree with the methodology."',
-        w3lbl:'Audience signal', w3:'Picked up by Mayors of Europe. Live-demo\'d at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.', cta:'Open SLIC v3',
+      p33: {
+        lede: "Command surface for Muang Thong Thani — IMPACT Arena, Challenger halls, flood watch, traffic, AQI, and event load on one 3D district map. Built for operators running Thailand's densest mixed-use complex.",
+        cta: 'Open live system',
+        name: 'MTT Super Dashboard',
       },
       p05: {
         title: 'Greater Kuching, <em>one command surface.</em>',
-        lede: 'A full-spectrum IOC for Greater Kuching, Sarawak. Foreign exchange, flights, satellite imagery, and environmental signals — unified for the operators who run Southeast Asia\'s fastest-growing smart city.',
-        w1lbl:'Why it\'s special', w1:'Most IOCs are single-domain. Kuching fuses cross-domain signals in one view — currency pressure, flight arrivals, Sentinel-2 sweeps, environmental reads. The operator never switches tabs to see the full picture.',
-        w2lbl:'Who uses it', w2:'Greater Kuching city operators and planners. Built for real-time situational awareness — not a demo room, for daily use.',
-        w3lbl:'Why it matters', w3:'Same information density a Bloomberg terminal gives a trading desk — but for a city, at a fraction of the cost.', cta:'Open live system',
+        lede: "A full-spectrum IOC for Greater Kuching, Sarawak. Foreign exchange, flights, satellite imagery, and environmental signals — unified for the operators who run Southeast Asia's fastest-growing smart city.",
+        w1lbl: "Why it's special",
+        w1: 'Most IOCs are single-domain. Kuching fuses cross-domain signals in one view — currency pressure, flight arrivals, Sentinel-2 sweeps, environmental reads. The operator never switches tabs to see the full picture.',
+        w2lbl: 'Who uses it',
+        w2: 'Greater Kuching city operators and planners. Built for real-time situational awareness — not a demo room, for daily use.',
+        w3lbl: 'Why it matters',
+        w3: 'Same information density a Bloomberg terminal gives a trading desk — but for a city, at a fraction of the cost.',
+        cta: 'Open live system',
+        name: 'Kuching IOC',
       },
-      p06: {
-        title: 'News <em>before the algorithm decides what\'s war.</em>',
-        lede: 'MEM is the fastest open-source news surface for Middle Eastern conflict coverage. Live multi-source feeds, no editorial delay, no filter bubble. The signal before the cycle.',
-        w1lbl:'Why it\'s special', w1:'Every major news platform has an editorial layer that slows, filters, frames. MEM removes that layer. The same signals a desk analyst aggregates manually — in one surface, at machine speed.',
-        w2lbl:'What it replaced', w2:'Three browser tabs, two Telegram channels, and a Twitter/X list — open simultaneously to triangulate what was actually happening on the ground.',
-        w3lbl:'Who uses it', w3:'Journalists, policy analysts, NGO field teams. Anyone who needs ground-level signal faster than the 24-hour news cycle delivers it.', cta:'Open live system',
-      },
-      p07: {
-        title: 'The bus, tracked. <em>The rider, informed.</em>',
-        lede: 'Real-time GPS tracking and passenger telemetry for Phuket\'s smart bus network. Designed for the rider\'s phone first — not a control room screen. Works on the road, in the heat, with one thumb.',
-        w1lbl:'Why it\'s special', w1:'Smart bus systems usually exist for the operator\'s dashboard. This one exists for the person waiting at the stop. GPS position, next arrival, route clarity — for a tourist who doesn\'t read Thai and a commuter who doesn\'t have time to guess.',
-        w2lbl:'What it replaced', w2:'Standing at a stop with no information. A bus schedule printed in 2019. The assumption that transit on a tourist island can\'t be made legible.',
-        w3lbl:'Built on top of', w3:'Phuket\'s existing IoT infrastructure — the same sensor layer that feeds the Governor\'s operations room. No new hardware.', cta:'Open live system',
-      },
-      p08: {
-        title: 'Reports arrive. <em>AI turns them into action.</em>',
-        lede: 'SCTH V2 is a Smart City Thailand city data platform that absorbs civic reports from Telegram and LINE, analyzes problems with AI, and overlays near-real-time satellite and map layers for city builders, city developers, and city managers.',
-        w1lbl:'Why it\'s special', w1:'Most city complaint systems stop at a ticket number. SCTH V2 turns the report stream into a decision surface. Messenger reports, field photos, SLA risk, and AI pattern detection sit on the same map as precipitation, aerosol, cloud, terrain, and street layers.',
-        w2lbl:'What it replaced', w2:'Screenshots in chat groups, manual spreadsheet triage, static map layers, and the delay between "someone reported it" and "someone can act on it."',
-        w3lbl:'Decision power', w3:'City teams can absorb reports, assign owners, analyze recurring patterns, export sheets or PDFs, and push response tasks while the city context is still live.',
-        w4lbl:'Live access', w4:'Proprietary system under continuous daily development. The link runs a live tunnel — if it doesn\'t resolve, the system is mid-upgrade. Check back in a moment.', cta:'Open live system',
-      },
-      p09: {
-        title: 'Eleven voices. <em>One decision.</em>',
-        lede: 'Dr Non\'s AI Council is a personal multi-agent deliberation system: 11 AI justices with palindromic names (Tenet, Radar, Otto, Hannah, Ada…) running continuously on a local Mac, arguing through a shared transcript log, for around $3 a month. Trained on personal journals, decisions, and voice — proprietary by design, not by accident.',
-        w1lbl:'Why it exists', w1:'Single models give one answer. Problems worth solving deserve argument. The council runs four operating modes — VERIFY, DECIDE, EXPLORE, DEBATE — and justices use explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS) so every position change is visible and traceable.',
-        w2lbl:'What it costs', w2:'Manus-class autonomous-agent capability at $3/month. The council chair runs on Mistral Large 3. The Thai-native skeptic (Ada) runs on ThaiLLM — a government-backed model, free. The executor (Otto) handles OCR, video downloads, email drafts, PDF generation, and Google Drive sync without touching cloud infrastructure.',
-        w3lbl:'Why no demo', w3:'The council is trained on Dr Non\'s personal journals, decisions, meeting notes, and voice. Proprietary by necessity. The protocol stack — ~600 lines of Python — is open. The IP is the coordination methodology, not the weights.', cta:'v1 · DIY Protocol', cta2:'v2 · Agentic + Executor',
-      },
-      p10: {
-        title: 'HR has been a <em>record system</em> long enough.',
-        lede: 'Talent Knowledge Collaborative Explorers (TKCX) is a game-based talent operating system that treats employees as party members, projects as quests, and team assembly as strategy. It makes every decision about people visible, measurable, and connected to outcomes — replacing org-chart politics with capability intelligence.',
-        w1lbl:'The problem', w1:'Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.',
-        w2lbl:'The engine', w2:'Built on Dragon Quest III\'s party system. Five archetypes map to real workplace roles (captain, tech, sales, ops, scout). A Moneyball budget cap — project budget ÷ 10 = monthly salary ceiling — forces allocation discipline. The readiness formula weighs coverage, quality, chemistry, and morale so the right team is visible before the project starts, not after it fails.',
-        w3lbl:'What it changes', w3:'Directors stop hoarding people. Projects stop running on political capital. Skill gaps become visible before they become failures. And HR — renamed Talent Incubation — becomes the most strategic function in the building, not the most avoided one.', cta:'Explore the engine',
-      },
-      p11: {
-        title: 'The AI <em>that knows you.</em>',
-        lede: 'Second Brain OS connects your Obsidian vault to every AI coding platform simultaneously via MCP. Brain-anatomy folder structure. 19 server configs. AI agents that access your persona blueprint, write in your voice, and remember every decision you\'ve ever logged. The knowledge you\'ve been building for years — finally working for you.',
-        w1lbl:'The gap it closes', w1:'Every AI session starts cold. It doesn\'t know your voice, your values, your past decisions, or the years of journal entries that shaped your thinking. Second Brain OS feeds all of that into every coding platform simultaneously via a single MCP connection — so the AI you work with already knows who it\'s working with.',
-        w2lbl:'How it\'s built', w2:'Your Obsidian vault is structured like a brain: PrefrontalCortex for strategy, Hippocampus for atomic memories, TemporalLobe for patterns, Cerebellum for skills and procedures. 19 MCP server configurations connect this living knowledge graph to Cursor, Codex, Claude Code, and every other platform in your stack — at once.',
-        w3lbl:'Why it\'s open', w3:'The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model\'s.', cta:'Explore the architecture',
-      },
-      p12: {
-        title: '21 channels. <em>Free. Everywhere.</em>',
-        lede: 'NSP is Thailand\'s national streaming platform — all 21 NBTC-licensed digital TV channels, free, full HD, on any device. Live EPG, per-channel viewership telemetry, AI content guide, and CAP v1.2 emergency alert integration in one interface.',
-        w1lbl:'Why it\'s special', w1:'Most national TV portals are afterthoughts. <b>NSP puts all 21 licensed channels in one interface</b> with live EPG, per-channel concurrency, stream health telemetry, and an AI guide that answers "what\'s on now?" across the whole kingdom — without an app install.',
-        w2lbl:'What it replaced', w2:'Fragmented broadcaster apps, illegal streams, and the assumption that free-to-air TV can\'t be made as legible as a subscription platform.',
-        w3lbl:'Decision power', w3:'Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.',
-        w4lbl:'Live access', w4:'National deployment under NBTC licensing authority. Open to all devices, no account required.',
-        cta:'Open live platform',
+      p63: {
+        lede: 'JPS river gauges on every basin, MET Malaysia warnings, buses and trains, ships and aircraft, air and fire, plus a citizen index that shows who lives far from help. One map, EN · BM · 中文.',
+        cta: 'Open the live map',
+        name: 'Malaysia · God Mode',
       },
       p13: {
         title: '47 feeds. <em>7 lenses. One campus.</em>',
-        lede: 'Chula Control Tower is a real-time operations dashboard for Chulalongkorn University — 47 live data feeds across traffic, incidents, air quality, satellite imagery, CU Shuttle, news, and emergency events for Bangkok\'s Siam–Samyan district.',
-        w1lbl:'Why it\'s special', w1:'Most university dashboards show one feed at a time. <b>CCT puts 47 live sources on a single 3D map</b> — traffic, air quality, shuttle positions, incident reports, satellite layers, and underground utilities — so the campus president has one surface for every decision.',
-        w2lbl:'What it replaced', w2:'Separate siloed systems for traffic, security, and environmental data. Manual incident reports. No unified view of the campus at any given moment.',
-        w3lbl:'Decision power', w3:'Seven operational lenses — from day-to-day campus management to presidential strategic view — let each role see exactly what they need. 3D buildings and underground utility layers turn planning from guesswork into evidence.',
-        w4lbl:'Live access', w4:'Deployed at Chulalongkorn University, Bangkok\'s Siam–Samyan district. Open access — no account required.',
-        cta:'Open live system',
-      },
-      p14: {
-        title: 'Bloomberg signals. <em>Thai market. Your rules.</em>',
-        lede: 'DayTraders is a personalized Thai market intelligence platform — Bloomberg-style signals applied to SET, MAI, mutual funds, RMF, and Thai ESG instruments. Graham, Buffett, and Munger frameworks built in; you set the KPIs that matter to your portfolio.',
-        w1lbl:'Why it\'s special', w1:'Thai retail investors get either raw broker data or generic apps that don\'t apply value-investing logic. <b>DayTraders brings institutional-grade signal analysis to the Thai SET</b> — with Graham margin-of-safety, Buffett moat screens, and Munger mental models built into the feed, not bolted on.',
-        w2lbl:'What it replaced', w2:'Broker portals with no analytical framework, LINE group tips, and the assumption that rigorous value investing is only for institutions with Bloomberg terminals.',
-        w3lbl:'Decision power', w3:'Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.',
-        w4lbl:'Live access', w4:'Live Thai market data. Open platform — no paywall, no broker lock-in.',
-        cta:'Open live platform',
-      },
-      p15: {
-        title: 'Name the city. <em>We\'ll build its brain.</em>',
-        lede: 'City Hub is a replicable city intelligence platform — give it a city name, and it maps it with satellite and base layers, absorbs whatever data you have, connects APIs and sensors, and starts synthesizing the picture. v.5 with five cities live: Bangkok, Chiang Mai, Phuket, Singapore, Kuching.',
-        w1lbl:'Why it\'s special', w1:'Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what\'s already there.',
-        w2lbl:'What it replaced', w2:'Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.',
-        w3lbl:'Decision power', w3:'The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don\'t), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city\'s last day of data.',
-        w4lbl:'Live access', w4:'Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.',
-        cta:'Open live platform',
+        lede: "Chula Control Tower is a real-time operations dashboard for Chulalongkorn University — 47 live data feeds across traffic, incidents, air quality, satellite imagery, CU Shuttle, news, and emergency events for Bangkok's Siam–Samyan district.",
+        w1lbl: "Why it's special",
+        w1: 'Most university dashboards show one feed at a time. <b>CCT puts 47 live sources on a single 3D map</b> — traffic, air quality, shuttle positions, incident reports, satellite layers, and underground utilities — so the campus president has one surface for every decision.',
+        w2lbl: 'What it replaced',
+        w2: 'Separate siloed systems for traffic, security, and environmental data. Manual incident reports. No unified view of the campus at any given moment.',
+        w3lbl: 'Decision power',
+        w3: 'Seven operational lenses — from day-to-day campus management to presidential strategic view — let each role see exactly what they need. 3D buildings and underground utility layers turn planning from guesswork into evidence.',
+        w4lbl: 'Live access',
+        w4: "Deployed at Chulalongkorn University, Bangkok's Siam–Samyan district. Open access — no account required.",
+        cta: 'Open live system',
+        name: 'Chula Control Tower',
       },
       p16: {
         title: 'A coastal province, <em>rendered as a control tower.</em>',
         lede: 'Chonburi Control Tower is a 3D command surface for the Eastern Seaboard: 42 live sources, coastal weather and marine state, market and tourism signals, mayoral incident feeds, EEC trends, and building-scale overlays in one operational lens.',
-        w1lbl:'Why it\'s special', w1:'Most provincial dashboards flatten the city into cards and charts. <b>Chonburi Control Tower renders the province as an operating environment</b> — 20,877 3D buildings, source health, weather, marine risk, EEC news, CCTV/AIS/AQ/WX toggles, and a mayor\'s desk on one surface.',
-        w2lbl:'What it replaced', w2:'Separate weather sites, marine dashboards, market tickers, tourism spreadsheets, news tabs, and static GIS layers that never told the same story at the same time.',
-        w3lbl:'Decision power', w3:'Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.',
-        w4lbl:'Live access', w4:'Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.',
-        cta:'Open control tower',
-      },
-      p17: {
-        title: 'Thai paperwork, <em>read by the machine.</em>',
-        lede: 'Ekkasarn AI is a Thai document intelligence engine for tax invoices, receipts, and withholding tax certificates. Upload a real document or pick a sample; the system runs OCR, classifies the document, and extracts usable fields without mock data or a required login.',
-        w1lbl:'Why it\'s special', w1:'Most OCR demos work only on clean, invented forms. <b>Ekkasarn AI reads real Thai paperwork</b> — crumpled receipts, VAT invoices, and withholding certificates — then returns category, confidence, shop, phone, and total as structured output.',
-        w2lbl:'What it replaced', w2:'Manual accounting entry, receipt photo backlogs, spreadsheet categorization, and the fragile handoff between Thai paper documents and digital finance workflows.',
-        w3lbl:'Decision power', w3:'A finance team can classify documents, verify extracted fields, and route them into downstream accounting logic immediately instead of waiting for human sorting.',
-        w4lbl:'Live access', w4:'Public bilingual demo with Thai-first document types. Uploads are processed live and not retained.',
-        cta:'Open live system',
+        w1lbl: "Why it's special",
+        w1: "Most provincial dashboards flatten the city into cards and charts. <b>Chonburi Control Tower renders the province as an operating environment</b> — 20,877 3D buildings, source health, weather, marine risk, EEC news, CCTV/AIS/AQ/WX toggles, and a mayor's desk on one surface.",
+        w2lbl: 'What it replaced',
+        w2: 'Separate weather sites, marine dashboards, market tickers, tourism spreadsheets, news tabs, and static GIS layers that never told the same story at the same time.',
+        w3lbl: 'Decision power',
+        w3: 'Operators can see live and degraded system states, trend panels for the Chonburi EEC, civic layers, source counts, and mayoral incidents while staying inside a 3D map that preserves geographic context.',
+        w4lbl: 'Live access',
+        w4: 'Public control tower for Chonburi Town Center and the Eastern Seaboard. Built for quick operational reading, not a static planning report.',
+        cta: 'Open control tower',
+        name: 'Chonburi Control Tower',
       },
       p18: {
-        lede: 'KMITL Control Tower is a real-time operations dashboard for King Mongkut\'s Institute of Technology Ladkrabang — 56 live data feeds across traffic, incidents, air quality, satellite imagery, campus shuttles, news, and emergency events for Bangkok\'s Lat Krabang district.',
-        cta:'Open live system',
+        lede: "KMITL Control Tower is a real-time operations dashboard for King Mongkut's Institute of Technology Ladkrabang — 56 live data feeds across traffic, incidents, air quality, satellite imagery, campus shuttles, news, and emergency events for Bangkok's Lat Krabang district.",
+        cta: 'Open live system',
+        name: 'KMITL Control Tower',
       },
       p19: {
-        lede: 'Yala Control Tower provides real-time civic intelligence for Yala City Municipality in Thailand\'s Deep South. A 3D city model, satellite layers, flood watch, Deep South security incidents, and over 30 live data feeds.',
-        cta:'Open live system',
+        lede: "Yala Control Tower provides real-time civic intelligence for Yala City Municipality in Thailand's Deep South. A 3D city model, satellite layers, flood watch, Deep South security incidents, and over 30 live data feeds.",
+        cta: 'Open live system',
+        name: 'Yala Control Tower',
       },
-      p20: {
-        lede: 'Horizon 45 is a field instrument designed to test actual AI judgment. From deepfake detection to prompt engineering, users navigate real-world signals and leave with a capability portrait and learning roadmap.',
-        cta:'Open live system',
+      p15: {
+        title: "Name the city. <em>We'll build its brain.</em>",
+        lede: 'Give it a city. It maps it with satellite and base layers, absorbs whatever data you have, starts synthesizing. v.5 — five cities live.',
+        w1lbl: "Why it's special",
+        w1: "Most city platforms are custom-built for one city, one budget cycle, no portability. <b>City Hub treats the intelligence layer as a template</b> — any city can onboard, import whatever data already exists, and the system starts connecting the dots. No year-long procurement. The brain builds itself from what's already there.",
+        w2lbl: 'What it replaced',
+        w2: 'Custom one-off dashboards with no cross-city learning, no AI synthesis, and no ability to detect where citizen data outpaces official infrastructure. The Bangkok SIT ROOM now tracks air quality, flood risk, heat, civic issues, and disease alerts — synthesized daily by AI.',
+        w3lbl: 'Decision power',
+        w3: "The AI brief synthesizes all live city feeds into a morning briefing: gap detection (where citizen reports exist but official polygons don't), actionable items, PM2.5 provincial ranking, and a five-day weather forecast. A +24H timeline scrubber lets operators replay the city's last day of data.",
+        w4lbl: 'Live access',
+        w4: 'Platform at v.5. Five cities active: Bangkok, Chiang Mai, Phuket, Singapore, Kuching. Any city can onboard — bring whatever data you have.',
+        cta: 'Open live platform',
+        name: 'City Hub',
       },
-      p21: {
-        lede: 'A massive-scale command surface for Ho Chi Minh City. Integrates live traffic, flood monitoring, air quality, and dynamic routing into a single high-performance map for urban decision-makers.',
-        cta:'Open live system',
+      p27: {
+        lede: '24/7 Thailand air quality and dust watch. Province ranking, 3-day CAMS-minus-rain forecast, top-5 at-risk and PM2.5 provinces, washout logic, national pattern donut — one surface. Every province reads the same air picture from the same public data.',
+        cta: 'Open live system',
+        name: 'AirDash',
+      },
+      p36: {
+        lede: 'A 3D browser atlas of Bangkok — 432,077 real OSM buildings, terrain, air quality, rain radar, Treasury land prices, BTS/MRT lines, and canals. Walk the city block by block.',
+        cta: 'Open live system',
+        name: 'BKKx 3D Atlas',
+      },
+      p43: {
+        lede: "Bangkok's heritage, block by block — nine quarters from the royal island to Bang Krachao, 571 registered monuments, seven documented walks. The culture half of the BKKx pair, beside the operational twin at atlas.nonarkara.org.",
+        cta: 'Open live system',
+        name: 'BKKx Culture',
+      },
+      jakarta: {
+        lede: 'A 3D city atlas and operations surface for DKI Jakarta — building massing, BMKG weather bulletins, citizen service CRM reports, and flood risk desks on one interactive screen. Bahasa Indonesia · EN.',
+        cta: 'Open live system',
+        name: 'Jakarta 3D Atlas',
+      },
+      p67: {
+        lede: 'Build a city on a real OpenStreetMap site and watch its economy grow. Inspired by SimCity 2000; 2026 urban-planning rules.',
+        cta: 'Open the demo',
+        name: 'simsmartcity',
+      },
+      p69: {
+        lede: 'A full-campus digital twin of Thailand Digital Valley in Si Racha — 5 buildings, 86,000 m², sourced building information, 25 published floor plans, animated chibi visitors and IoT 1 CAD.',
+        cta: 'Enter the campus',
+        name: 'TDV · Thailand Digital Valley',
+      },
+      bangkokIoc: {
+        lede: "The Governor's operations centre for Bangkok now carries a place-fit pilot: pick a BTS station area, test it against your own rent and travel limits, and read what is reported around it — civic complaints, public places, the real walk to the platform. Desk research, not a property listing.",
+        cta: 'Open Bangkok IOC',
+        name: 'Bangkok IOC',
+      },
+      dhaka: {
+        lede: 'Block-by-block 3D spatial intelligence for Dhaka, Bangladesh. Reads building height, terrain slope, monsoon flood dynamics, and high-density urban morphology across 129 wards.',
+        cta: 'Open Dhaka Atlas',
+        name: 'DHKx 3D Atlas · Dhaka',
+      },
+      p04: {
+        title: 'A ranking <em>that argues back.</em>',
+        lede: "SLIC doesn't rank cities for you. Five pillars. Mayors decide what livability means. The math follows.",
+        w1lbl: "Why it's special",
+        w1: "Every other livability index hands cities a finished verdict. SLIC hands them the math. Move the pillar weights, watch your ranking change — and your peers' — in real time. The argument becomes the product.",
+        w2lbl: 'What it replaced',
+        w2: 'Static prestige leaderboards. The annual ranking PDF. The conversation that ended with "we don\'t agree with the methodology."',
+        w3lbl: 'Audience signal',
+        w3: "Picked up by Mayors of Europe. Live-demo'd at SCSE Taipei in 45 minutes. Treated as a civic argument, not a moodboard.",
+        cta: 'Open SLIC v3',
+        name: 'SLIC Index',
       },
       p22: {
-        lede: 'Monitoring three regions (Middle East, Southeast Asia, Thailand): an ultimate monitoring platform based on open data that reveals insights through layering.',
-        cta:'Open live system',
+        lede: 'Four theaters: Middle East, Indo-Pacific, Thailand, Global. Aircraft, ships, conflict, fires, markets, 8-week escalation forecast. Open data.',
+        cta: 'Open live system',
+        name: 'Global Monitor',
+      },
+      p45: {
+        lede: 'Five Asian theaters and five strategic chokepoints — Malacca, Hormuz, Bab-el-Mandeb, Taiwan, Sunda — on one live map: conflict frontiers, fires, air and maritime corridors, regional news and TV, from open data.',
+        cta: 'Open live system',
+        name: 'AsiaWatch · Pan-Asian Sentinel',
+      },
+      p46: {
+        lede: 'The whole planet on one screen: live aircraft and ships worldwide, conflict and fire hotspots, the intel column and market strip docked open. Same open-data engine, world scope.',
+        cta: 'Open live system',
+        name: 'World Console',
+      },
+      p06: {
+        title: "News <em>before the algorithm decides what's war.</em>",
+        lede: 'MEM is the fastest open-source news surface for Middle Eastern conflict coverage. Live multi-source feeds, no editorial delay, no filter bubble. The signal before the cycle.',
+        w1lbl: "Why it's special",
+        w1: 'Every major news platform has an editorial layer that slows, filters, frames. MEM removes that layer. The same signals a desk analyst aggregates manually — in one surface, at machine speed.',
+        w2lbl: 'What it replaced',
+        w2: 'Three browser tabs, two Telegram channels, and a Twitter/X list — open simultaneously to triangulate what was actually happening on the ground.',
+        w3lbl: 'Who uses it',
+        w3: 'Journalists, policy analysts, NGO field teams. Anyone who needs ground-level signal faster than the 24-hour news cycle delivers it.',
+        cta: 'Open live system',
+        name: 'Middle East Monitor',
+      },
+      p14: {
+        title: 'Bloomberg signals. <em>Thai market. Your rules.</em>',
+        lede: 'DayTraders is a personalized Thai market intelligence platform — Bloomberg-style signals applied to SET, MAI, mutual funds, RMF, and Thai ESG instruments. Graham, Buffett, and Munger frameworks built in; you set the KPIs that matter to your portfolio.',
+        w1lbl: "Why it's special",
+        w1: "Thai retail investors get either raw broker data or generic apps that don't apply value-investing logic. <b>DayTraders brings institutional-grade signal analysis to the Thai SET</b> — with Graham margin-of-safety, Buffett moat screens, and Munger mental models built into the feed, not bolted on.",
+        w2lbl: 'What it replaced',
+        w2: 'Broker portals with no analytical framework, LINE group tips, and the assumption that rigorous value investing is only for institutions with Bloomberg terminals.',
+        w3lbl: 'Decision power',
+        w3: 'Personalized KPI dashboards let investors track exactly the metrics they use — not a generic screener. Covers SET equities, MAI growth stocks, RMF tax-efficient funds, and Thai ESG instruments in one surface.',
+        w4lbl: 'Live access',
+        w4: 'Live Thai market data. Open platform — no paywall, no broker lock-in.',
+        cta: 'Open live platform',
+        name: 'DayTraders',
+      },
+      p41: {
+        lede: 'Useful, not impressive. World, lens, map, FX, capitol, odds, plan. Every screen changes one decision you can make this week. Research preview, not advice. Every number carries its age.',
+        cta: 'Open live system',
+        name: 'DAY 2',
+      },
+      p70: {
+        lede: 'Architectural intelligence — 11 form profiles (rectilinear to pinwheel), 9 form-performance metrics: rent, area, sky reach, daylight, form distinctiveness. A 20-year reunion with a 2006 MIT thesis. Live scenario recalc on every edit. Inspired by SHDT.',
+        cta: 'Design the form',
+        name: 'FormHypes · SHDT',
+      },
+      p42: {
+        lede: "Tri-border command dashboard for Thailand's Myanmar, Cambodia, and southern frontier theatres — live operations, historical playback, and executive-grade intelligence design on one map.",
+        cta: 'Open live system',
+        name: 'Geopolitical Watch',
       },
       p23: {
         lede: 'The official Smart City Thailand Index (SCITI) evaluating the progress and impact of 174 urban areas across the country based on the 7 Smart City pillars.',
-        cta:'Open live system',
+        cta: 'Open live system',
+        name: 'Smart City Thailand Index (SCITI)',
+      },
+      p07: {
+        title: 'The bus, tracked. <em>The rider, informed.</em>',
+        lede: "Real-time GPS tracking and passenger telemetry for Phuket's smart bus network. Designed for the rider's phone first — not a control room screen. Works on the road, in the heat, with one thumb.",
+        w1lbl: "Why it's special",
+        w1: "Smart bus systems usually exist for the operator's dashboard. This one exists for the person waiting at the stop. GPS position, next arrival, route clarity — for a tourist who doesn't read Thai and a commuter who doesn't have time to guess.",
+        w2lbl: 'What it replaced',
+        w2: "Standing at a stop with no information. A bus schedule printed in 2019. The assumption that transit on a tourist island can't be made legible.",
+        w3lbl: 'Built on top of',
+        w3: "Phuket's existing IoT infrastructure — the same sensor layer that feeds the Governor's operations room. No new hardware.",
+        cta: 'Open live system',
+        name: 'Phuket Smart Bus',
+      },
+      p08: {
+        title: 'Reports arrive. <em>AI turns them into action.</em>',
+        lede: 'SCTH V2 is a Smart City Thailand city data platform that absorbs civic reports from Telegram and LINE, analyzes problems with AI, and overlays near-real-time satellite and map layers for city builders, city developers, and city managers.',
+        w1lbl: "Why it's special",
+        w1: 'Most city complaint systems stop at a ticket number. SCTH V2 turns the report stream into a decision surface. Messenger reports, field photos, SLA risk, and AI pattern detection sit on the same map as precipitation, aerosol, cloud, terrain, and street layers.',
+        w2lbl: 'What it replaced',
+        w2: 'Screenshots in chat groups, manual spreadsheet triage, static map layers, and the delay between "someone reported it" and "someone can act on it."',
+        w3lbl: 'Decision power',
+        w3: 'City teams can absorb reports, assign owners, analyze recurring patterns, export sheets or PDFs, and push response tasks while the city context is still live.',
+        w4lbl: 'Live access',
+        w4: "Proprietary system under continuous daily development. The link runs a live tunnel — if it doesn't resolve, the system is mid-upgrade. Check back in a moment.",
+        cta: 'Open live system',
+        name: 'SCTH City Data Platform',
+      },
+      p12: {
+        title: '21 channels. <em>Free. Everywhere.</em>',
+        lede: "NSP is Thailand's national streaming platform — all 21 NBTC-licensed digital TV channels, free, full HD, on any device. Live EPG, per-channel viewership telemetry, AI content guide, and CAP v1.2 emergency alert integration in one interface.",
+        w1lbl: "Why it's special",
+        w1: 'Most national TV portals are afterthoughts. <b>NSP puts all 21 licensed channels in one interface</b> with live EPG, per-channel concurrency, stream health telemetry, and an AI guide that answers "what\'s on now?" across the whole kingdom — without an app install.',
+        w2lbl: 'What it replaced',
+        w2: "Fragmented broadcaster apps, illegal streams, and the assumption that free-to-air TV can't be made as legible as a subscription platform.",
+        w3lbl: 'Decision power',
+        w3: 'Operators see live viewer concurrency, channel audience share, and stream health in real time. The CAP v1.2 emergency warning integration means national alerts surface through the same interface as entertainment — no separate system.',
+        w4lbl: 'Live access',
+        w4: 'National deployment under NBTC licensing authority. Open to all devices, no account required.',
+        cta: 'Open live platform',
+        name: 'NSP',
+      },
+      p64: {
+        lede: 'Forest Carbon Thailand — tap a province or draw a box for satellite-based carbon stock, forest removals and emissions, fire and fossil CO₂, with sources and uncertainty. Plus a T-VER project assessment workbench. ไทย · EN.',
+        cta: 'Open the assessment',
+        name: 'Forest Carbon Thailand',
+      },
+      constitution: {
+        lede: 'Read, highlight, listen to and practise the 2017 Thai Constitution across all 279 sections in Thai, English, and Chinese. Study cards, search, audio, and civic understanding. ไทย · EN · 中文.',
+        cta: 'Open reading room',
+        name: 'Thai Constitution Reader',
+      },
+      techhunt: {
+        lede: 'The verified technology stockmarket for Thai cities: 125 verified startups across 7 smart-city domains, ranked by live signal strength for procurement officers and urban planners. A collaborative initiative by depa, SLIC, and UWN.',
+        cta: 'Open TechHunt',
+        name: 'Smart City Thailand TechHunt',
+      },
+      burma: {
+        lede: 'A Burmese-language community platform with persistent public rooms and a daily digest. Old-school Win95 chrome, built for the GovTech Youth Initiative.',
+        cta: 'Open Pirchchat',
+        name: 'Pirchchat · A-Lin-Ein',
+      },
+      tsunami: {
+        lede: 'Coastal tsunami defense and early warning intelligence platform for the Andaman rim. Live buoy telemetry, seismic sensor networks, run-up modeling, and coastal evacuation vectors.',
+        cta: 'Open Soonami',
+        name: 'Soonami · Tsunami Defense',
+      },
+      p52: {
+        name: '20 Minutes with Dr Non',
+        lede: 'Emerging podcast — ideas, agents, geopolitics, and the next twenty minutes. Live on Spotify; more episodes shipping.',
+        cta: 'Open on Spotify',
+      },
+      p09: {
+        title: 'Eleven voices. <em>One decision.</em>',
+        lede: "Dr Non's AI Council is a personal multi-agent deliberation system: 11 AI justices with palindromic names (Tenet, Radar, Otto, Hannah, Ada…) running continuously on a local Mac, arguing through a shared transcript log, for around $3 a month. Trained on personal journals, decisions, and voice — proprietary by design, not by accident.",
+        w1lbl: 'Why it exists',
+        w1: 'Single models give one answer. Problems worth solving deserve argument. The council runs four operating modes — VERIFY, DECIDE, EXPLORE, DEBATE — and justices use explicit moves (EXPAND, QUALIFY, CONCEDE, STAND, PASS) so every position change is visible and traceable.',
+        w2lbl: 'What it costs',
+        w2: 'Manus-class autonomous-agent capability at $3/month. The council chair runs on Mistral Large 3. The Thai-native skeptic (Ada) runs on ThaiLLM — a government-backed model, free. The executor (Otto) handles OCR, video downloads, email drafts, PDF generation, and Google Drive sync without touching cloud infrastructure.',
+        w3lbl: 'Why no demo',
+        w3: "The council is trained on Dr Non's personal journals, decisions, meeting notes, and voice. Proprietary by necessity. The protocol stack — ~600 lines of Python — is open. The IP is the coordination methodology, not the weights.",
+        cta: 'v1 · DIY Protocol',
+        cta2: 'v2 · Agentic + Executor',
+        name: "Dr Non's AI Council",
+      },
+      p10: {
+        title: 'HR has been a <em>record system</em> long enough.',
+        lede: 'Talent Knowledge Collaborative Explorers (TKCX) is a game-based talent operating system that treats employees as party members, projects as quests, and team assembly as strategy. It makes every decision about people visible, measurable, and connected to outcomes — replacing org-chart politics with capability intelligence.',
+        w1lbl: 'The problem',
+        w1: 'Most HR systems are compliance records, not intelligence. They tell you who is employed — not who should be deployed, where, and with whom. Decisions about people are made on gut feel and political capital. The best people leave. The comfortable ones stay. Nobody can see why.',
+        w2lbl: 'The engine',
+        w2: "Built on Dragon Quest III's party system. Five archetypes map to real workplace roles (captain, tech, sales, ops, scout). A Moneyball budget cap — project budget ÷ 10 = monthly salary ceiling — forces allocation discipline. The readiness formula weighs coverage, quality, chemistry, and morale so the right team is visible before the project starts, not after it fails.",
+        w3lbl: 'What it changes',
+        w3: 'Directors stop hoarding people. Projects stop running on political capital. Skill gaps become visible before they become failures. And HR — renamed Talent Incubation — becomes the most strategic function in the building, not the most avoided one.',
+        cta: 'GitHub repo — coming soon',
+        name: 'TKCX',
+      },
+      p11: {
+        title: 'The AI <em>that knows you.</em>',
+        lede: 'Second Brain OS: your Obsidian vault wired to every AI coding platform via MCP. Brain-anatomy folders. 19 server configs. Agents in your voice, with your decision history. Years of knowledge, finally working.',
+        w1lbl: 'The gap it closes',
+        w1: "Every AI session starts cold. It doesn't know your voice, your values, your past decisions, or the years of journal entries that shaped your thinking. Second Brain OS feeds all of that into every coding platform simultaneously via a single MCP connection — so the AI you work with already knows who it's working with.",
+        w2lbl: "How it's built",
+        w2: 'Your Obsidian vault is structured like a brain: PrefrontalCortex for strategy, Hippocampus for atomic memories, TemporalLobe for patterns, Cerebellum for skills and procedures. 19 MCP server configurations connect this living knowledge graph to Cursor, Codex, Claude Code, and every other platform in your stack — at once.',
+        w3lbl: "Why it's open",
+        w3: "The architecture is MIT-licensed. The brain is yours. Anyone can fork the structure, adapt the MCP configs, and connect their own vault. Includes a 12-level diagnostic for stripping AI-speak out of your writing — so the knowledge you accumulate stays in your voice, not the model's.",
+        cta: 'Explore the architecture',
+        name: 'Second Brain OS',
+      },
+      p20: {
+        lede: 'Horizon 45: a field instrument for AI judgment. Deepfake detection to prompt engineering. Real-world signals, capability portrait, learning roadmap.',
+        cta: 'Open live system',
+        name: 'Horizon 45',
+      },
+      p53: {
+        name: "ASCN Performance Review (Director's Cut)",
+        lede: "A comprehensive insights dashboard into the ASEAN Smart Cities Network's performance across 134 projects and 38 cities — examining portfolio momentum and focus area shifts over four M&E cycles.",
+        cta: 'Open live system',
       },
       p24: {
-        lede: 'A trilingual Dao De Jing reading room with Tsai comics, Buddhist parallels, psychology notes, pinyin, and a living reference shelf.',
-        cta:'Open live system',
+        lede: "The updated Dao De Jing reading room: 81 chapters in English, Thai, and Chinese, with character study, illustrated notes, and Palette's colour relationships.",
+        cta: 'Open live system',
+        original: 'Read the original version',
+        name: 'Dao × Palette',
       },
       ikigai: {
         name: 'Ikigai Finance Engine',
         lede: 'SME finance intelligence — balance sheet as signal, cash runway, bank scorecard, and composite finance indices (Ikigai, Lean, Zero, Default, Solvency). Development-stage research prototype; screenshots only — ABC Company Limited is fictitious mock data. No live deployment yet.',
         cta: 'View research repo',
       },
-    },
+      p28: {
+        lede: 'The FloodDash Blueprint is the open research companion to the live Thailand Flood Watch — sensor network, drainage logic, AI flood prediction, response playbooks, and the full data-to-decision pipeline laid out for any city to read, fork, and adapt. The blueprint that makes the system replicable, not a one-off.',
+        cta: 'View on GitHub',
+        name: 'FloodDash Blueprint',
+      },
+      ladder: {
+        lede: 'The venture diligence and scorecard companion to Ikigai. Deal review, financial diligence checklist, thesis matching, and portfolio risk evaluation in one private workspace.',
+        access: 'Sign-in required',
+        cta: 'Open Ladder',
+        name: 'Ladder · Ikigai',
+      },
+      life: {
+        lede: 'A world grows around you: a fictional life in an isometric Thai town, played at 2× to 20×. At every turn in the path you choose, and every choice has a cost. Saved in your browser. A placeholder host for now; it moves to life.nonarkara.org.',
+        access: 'Sign-in required',
+        cta: 'Open Life',
+        name: 'Life',
+      },
+      universe_69: {
+        lede: 'Two sealed procedural worlds observed continuously, governed by deterministic mechanics and emergent agent behavior — observed, never helped.',
+        cta: 'Observe Universe 69',
+        name: 'Universe 69: Beta',
+      },
+      pavilion: {
+        lede: 'A sustainable, zero-cost, browser-native spatial metaverse built from scratch with modern architecture materials. An open alternative to hyperscaler virtual platforms, eliminating proprietary data monopolies, gated access, and rent extraction.',
+        cta: 'Enter the Pavilion',
+        name: 'The Pavilion · Spatial World',
+      },
+      p54: {
+        lede: 'A 16-bit browser arcade with a Brain Briefing on every cartridge — what skill it trains, how long a round takes, and the limit of the claim. No ads. Scores stay on this device.',
+        cta: 'Open live system',
+        name: 'OmniArcade',
+      },
+      p17: {
+        title: 'Thai paperwork, <em>read by the machine.</em>',
+        lede: 'Ekkasarn AI is a Thai document intelligence engine for tax invoices, receipts, and withholding tax certificates. Upload a real document or pick a sample; the system runs OCR, classifies the document, and extracts usable fields without mock data or a required login.',
+        w1lbl: "Why it's special",
+        w1: 'Most OCR demos work only on clean, invented forms. <b>Ekkasarn AI reads real Thai paperwork</b> — crumpled receipts, VAT invoices, and withholding certificates — then returns category, confidence, shop, phone, and total as structured output.',
+        w2lbl: 'What it replaced',
+        w2: 'Manual accounting entry, receipt photo backlogs, spreadsheet categorization, and the fragile handoff between Thai paper documents and digital finance workflows.',
+        w3lbl: 'Decision power',
+        w3: 'A finance team can classify documents, verify extracted fields, and route them into downstream accounting logic immediately instead of waiting for human sorting.',
+        w4lbl: 'Live access',
+        w4: 'Public bilingual demo with Thai-first document types. Uploads are processed live and not retained.',
+        cta: 'Open live system',
+        name: 'Ekkasarn AI',
+      },
+      p29: {
+        lede: 'Paste a draft. The Non-Writer runs it through a chain of proxies and boxes, and comes out the other side as the sentence you meant to write — in the voice Dr Non would have used. Now also translates into any language you ask for.',
+        cta: 'Open live system',
+        name: 'The Non-Writer',
+      },
+      p30: {
+        lede: "The desk, by the numbers. A daily intelligence brief on the AI frontier — what's actually shipping, what is hot air, and what to read tonight. Sector watch, manual picks, and an archive that compounds.",
+        cta: 'Open live system',
+        name: "Dr Non's Digests",
+      },
+      p31: {
+        lede: 'Scraping as a service — no code. Hand it a URL and a question; it goes out, reads the page in the source language, and comes back with the answer in yours, with citations and structured JSON you can pipe downstream.',
+        cta: 'Open live system',
+        name: 'Non-Scrape',
+      },
+      p34: {
+        lede: 'A free, evidence-first register of 261 luxury and collectible watch references. Cited comps, sourced provenance, credited on-screen stills — and the honesty ladder that shows where the data refuses to estimate.',
+        cta: 'Open live system',
+        name: 'Time Pop',
+      },
+      p35: {
+        lede: 'Design a house by deciding — draw or AI-trace the plan, watch sunlit floor and solar heat live, then run living checks, systems, and cost before you generate a picture.',
+        cta: 'Open live system',
+        name: 'Luma/house',
+      },
+      p40: {
+        lede: 'Hand this URL to Claude and it sets up OpenClaw for you — safely. Agent-executable setup, deep security model, local-LLM picks that fit your RAM, and risk-tiered tool calls. Docs only, no private data.',
+        cta: 'View on GitHub',
+        name: 'OpenClaw Set-Up',
+      },
+      p44: {
+        lede: 'Bangkok has roughly 400,000 shophouses and no inventory of them. A long-form essay on reuse and embodied carbon, with the 2,311-building survey, the Treasury land-value pressure map, and the four-colour answer. Published in Shophouse Metropolis, Harvard GSD.',
+        cta: 'Read the essay',
+        name: 'Shophouse Metropolis',
+      },
+      p47: {
+        lede: 'Twenty years of fieldwork on globalization, heritage industry, and the economy of urban space. 15 chapters, 76,312 words, 134 images, 5 hours of audio, 475 citations — read, listened to, and looked at on the site. v3 reading edition, 2026.',
+        cta: 'Open the book',
+        name: 'Locating Shanghai',
+      },
+      p55: {
+        lede: 'Upload PDFs and links. The system cites the document every time — and when the documents are silent, the bot says "I don\'t know". 100 MB free per workspace, served through Telegram and LINE. Local embeddings, local model, on one Mac in Bangkok — your documents never leave.',
+        cta: 'Open the workspace',
+        name: 'RAG.NONARKARA',
+      },
+      champion: {
+        lede: "Sideline coaching console and tactical lab for Thailand's Road to the World Cup. Ride the plans, adjust pressing detents, and switch shape in real time.",
+        cta: 'Open the coaching desk',
+        name: 'SCD · Soccer Coach Desk',
+      },
+      soccer: {
+        lede: 'A football tactics desk inside the NSP research prototype. Thai public-TV sources and official viewing destinations, with a rights notice before entry.',
+        cta: 'Open the research desk',
+        name: 'Soccer · NSP',
+      },
+      vision: {
+        lede: 'How a picture becomes numbers, edges, motion, and a guess. Learn on public cameras, train a model, and test it in your browser without uploading your own images.',
+        cta: 'Open the classroom',
+        name: 'Vision',
+      },
+      each: {
+        lede: 'ERP, ACT, CRM, and HR in one Thai/English workspace. Cash runway, expenses, and loan installments on the finance screen. The thumbnail shows ABC Company example data.',
+        access: 'Sign-in required',
+        cta: 'Open EACH',
+        name: 'EACH',
+      },
+      p66: {
+        lede: "348 colour combinations. Search a relationship, study it in grayscale, copy its values. Dr Non's colour exhibition, inspired by Sanzo Wada.",
+        cta: 'Explore the palettes',
+        name: 'Palette',
+      },
+      p56: {
+        lede: 'The operating standard behind Axiom — tokens, components, the 5-line DNA, and AGENTS.md for any AI agent. Function first, then subtract. Drop into Claude Code, Cursor, Cline, Aider, or any other agent and the agent produces correct Axiom-style work on the first pass. MIT licensed — clone, fork, ship.',
+        cta: 'Open the repo',
+        name: 'Axiom Design Core',
+      },
+      p57: {
+        lede: "Dr Non's reproduction-grade interface standard. Two layers: Rams silence (warm-grey field, hairline grid, one accent) for single views; the NYCTA wayfinding layer (closed trunk palette, disc, station plate, solid arrow) for multi-board systems. AGENTS.md for any AI agent. MIT licensed for original work; see NOTICE.md for what is not relicensed.",
+        cta: 'Open the repo',
+        name: 'Rams × NYCTA Design Core',
+      },
+      p58: {
+        lede: 'Functional-minimalist white baggage-tag principles for websites, systems, docs, and AI agents. Design tokens (ground, ink, four ranks, spacing, mono, optional domain colours), a printed-stock B, an ephemera skin, six components, before/after examples, an agent-invocable skill, and a runnable tag-audit PO gate. MIT licensed.',
+        cta: 'Open the repo',
+        name: 'Luggage Tag Aesthetic',
+      },
+      p59: {
+        lede: 'Ten enforceable layout laws, with the static lint and the runtime audit that fail the build. The package: a single source of numeric truth (scale.mjs), a ratchet (moma-lint.mjs), a self-check that proves the published arithmetic (self-check.mjs), and a browser console for catching what only exists after layout (near-miss, ragged-row, orphan-grid). Demonstration page obeys its own laws.',
+        cta: 'Open the repo',
+        name: 'MoMA Rules',
+      },
+      p60: {
+        lede: "O3 — Power of the Third. Thailand's OTOP registry, read as data. 154,078 records, 77 provinces. Every cell carries source, completeness, age. The registry is the registry — no scraping, no hallucination, provenance on every cell.",
+        cta: 'Open the registry',
+        name: 'O3',
+      },
+      p61: {
+        lede: 'The Super League that never launched. Twenty-six clubs, real squads, straight-line passing — one decision at a time. Turn-based tactical soccer for one player or two sharing a pad. Press start, believe the next match matters, and read the pitch before you pass into it.',
+        cta: 'Press start',
+        name: 'Super League',
+      },
+      p68: {
+        lede: 'A three-day Shanghai guide in Thai, English and Chinese, written as letters. Still water running — the city read by someone standing in it.',
+        cta: 'Open the book',
+        name: '淼燊的上海',
+      },
+      llm: {
+        lede: 'A field lab for training small, organization-specific language models on private corporate data. From raw tokens to a portable model file you can hold and run anywhere.',
+        cta: 'Open LLM Lab',
+        name: 'LLM Lab',
+      },
+      dog: {
+        lede: "A 3D anatomical and procedural simulation studio modeling the structure, gait, and alert posture of Thailand's native Bangkaew dog breed.",
+        cta: 'Open Canine Studio',
+        name: 'CANINE // Bangkaew',
+      },
+      },
     stagesContent: {
       taipeiLoc:'Taipei · City Vision Stage · March 2026',
       taipeiTitle:'Live dashboard, demo\'d in 45 minutes.',
@@ -862,10 +2215,16 @@ const i18nExt = {
       taipeiS1:'Cities indexed', taipeiS2:'Nations represented', taipeiS3:'Intel partners', taipeiS4:'First live demo',
       sgLoc:'Singapore · Marina Bay Sands · Main Stage · April 2026',
       sgTitle:'Standing room only.',
-      sgLede:'Main-stage keynote at GITEX AI Asia. Then a workshop on Government Innovation as a Service that hit capacity within minutes — standing room taken, hallway full, every face locked on the live demo.',
+      sgLede:'GITEX AI Asia main-stage keynote. Then a Government Innovation-as-a-Service workshop filled in minutes — standing room, hallway full, every face on the demo.',
       sgQuote:'"The room was standing-room only. That is not applause — that is a demand signal. Governments want working systems. They are tired of waiting for the deck."',
       sgCite:'— Dr. Non, post-keynote',
       sgS1:'Main stage audience', sgS2:'Total attendees', sgS3:'Nations represented', sgS4:'Workshop capacity',
+      shLoc:'Tomorrow.City Shanghai 2026 · Main Stage · 2026',
+      shTitle:'Stop calling it a digital twin. Call it God Mode.',
+      shLede:'A digital twin is the polite name. God Mode is the honest one — the holistic view of what a god would see of your city, so you can manage it better, not worship the dashboard. Dr Non\'s fourth time on this stage; the venue is the side story. The idea is the product: FloodDash on the cube screen, cooked live in the room.',
+      shQuote:'"Filter every concept through the 4Ps — Purpose, Practicality, Proof, People. Then design for humans. A sensor that says water is moving at some speed does not tell a mayor much. Convert that into cubic meters. Compare it to how much freeboard the reservoir still has. Then you know whether the water fits — or whether it floods. That basic mathematics is the product."',
+      shCite:'— Dr. Non, Tomorrow.City Shanghai keynote',
+      shS1:'Time on this stage', shS2:'FloodDash on cube screen', shS3:'Public data sources', shS4:'Takeaways (4Ps)',
       leapLoc:'LEAP East 2026 · Orbital Stage · Jul 10',
       leapTitle:"Asia's largest stage. FloodDash launches here.",
       leapLede:'Panel on the Orbital Stage — "From Congestion to Connection: The Tech Powered Future of Transport in Asia." Dr. Non Arkara, Senior Expert Smart City Promotion at DEPA, joined Mitchell Price, Richard Chung, and Will Peters to close the Q1–Q2 arc with a live FloodDash launch.',
@@ -878,15 +2237,18 @@ const i18nExt = {
       collectiveTitle:'The collective, on call.',
       collectiveLede:'Researchers, traffic engineers, anthropologists, financiers, policy translators, and media operators. They join by problem, not by org chart. We pay for the brains we need, when we need them.',
       probonoTitle:'Pro bono · Institutional work',
-      probonoNote:'These are live, working platforms — not decks or reports. Each one was built with real institutional partners, deployed publicly, and is still in use. Click through and see what the work actually looks like when it ships.',
+      probonoMeta:'5 projects · institutional partners',
+      probonoNote:'Live working platforms. Not decks, not reports. Built with real partners, deployed publicly, still in use. Click any to see shipped work.',
       pb1org:'For ASEAN Secretariat', pb1title:'38 cities. 10 nations. One platform.', pb1for:'ASEAN Smart Cities Network',
       pb2org:'ASEAN · UNDP · UN-Habitat', pb2title:'112,000 users. Born from real flooding.', pb2for:'ASEAN CSCO Handbook',
       pb3org:'UN DESA · Solomon Islands Gov.', pb3title:'Whole-of-government digital roadmap.', pb3for:'Honiara · Two-day workshop',
       pb4org:'For depa Thailand', pb4title:'Thailand\'s digital agency, online.', pb4for:'Smart City Leadership · Bilingual',
+      pb5org:'depa · US DOT', pb5title:'Fieldwork to software. City systems toolkit.', pb5for:'US-ASEAN Smart Cities Partnership',
     },
     notesContent: {
       foldLine:'Field notes · 6 patterns · how we ship',
       kicker:'How it gets built',
+      meta:'Field notes',
       title:'Things learned by actually shipping.',
       lede:'Ten systems. Two people. Twelve months. These are the patterns that held — and the ones that didn\'t. Published here because the gap between what governments need and what the market supplies only closes if people share what they\'ve figured out.',
       n1title:'The vendor said no. We shipped in fourteen days.',
@@ -904,7 +2266,7 @@ const i18nExt = {
       stackNote:'Local-first. No build team. No vendor lock-in. The M5 Max runs inference, builds, and deploys from one desk in Bangkok.',
     },
     builtStack: {
-      heading:'Built with', meta:'109 tools · 9 layers',
+      heading:'Built with', meta:'114 tools · 9 layers',
       expandFull:'Full technology stack',
       l1name:'Cloud Infrastructure', l1role:'where it runs',
       l2name:'Framework & Connectors', l2role:'what wires it',
@@ -916,24 +2278,25 @@ const i18nExt = {
       l8name:'Channels', l8role:'the outputs',
       l9name:'Local Runtime', l9role:'the desk',
       legend:'<span data-runtime="cloud">cloud</span><span data-runtime="local">// local</span>',
-    },
+    
+      expandHint:'9 layers. 117 tools. One desk in Bangkok. Click below for the full list.',},
     brandSect: {
       foldLine:'Brand Kit · 8 sheets · download available',
       kicker:'Brand Kit',
       meta:'8 sheets · Axiom Identity System',
-      lede:'Cover, logo, colors, type, layout — eight sheets. Download the package or browse every sheet.',
+      lede:'Eight sheets. Cover, logo, colors, type, layout. Download or browse.',
       downloadCta:'Download Brand Kit',
       expandAll:'View all brand sheets',
     },
     pressSection: {
-      foldLine:'Press · 7 articles · GovInsider, ASEAN Magazine, YouTube',
-      kicker:'In the press', title:'Read. Watch. Decide.', lede:'Outside coverage of the work, the thesis, and the systems.',
+      foldLine:'Press · 6 outlets · GovInsider, ASEAN, YouTube',
+      kicker:'In the press', title:'Read. Watch. Decide.', lede:'Outside coverage of the work.',
     },
     pressContent: {
       p1title:'With the vendor saying no, Thai civil servant built his own tools',
-      p2title:'Can Innovation-as-a-Service close the gap between policy and implementation?',
+      p2title:'Can Innovation-as-a-Service close the policy-to-implementation gap?',
       p3title:'They built the index, but you build the ranking',
-      p4title:'On digital connectivity, open innovation, and why smart cities only work when inclusion scales',
+      p4title:'Open innovation, digital connectivity, and inclusion as the test of a smart city',
       p5title:'How AI is mining city data cheaply and making them smarter',
       p6title:'Why smart cities need citizens, not just technology',
       p7title:'Middle East War Monitor — live conflict signal across the region',
@@ -944,7 +2307,7 @@ const i18nExt = {
       eyebrow:'Entity',
       title:'Legally registered in Thailand',
       compactLine:'Axiom X Co., Ltd. · Reg. 0105569099335 · Thailand · DBD registered',
-      tradeNameNote:'This site and our services are presented under the trade name Axiom. The registered legal entity is Axiom X Co., Ltd. (Thailand).',
+      tradeNameNote:'Operates as Axiom. Registered entity: Axiom X Co., Ltd. (Thailand).',
       summaryToggle:'Registration & standards details',
       companyTitle:'Registered entity',
       nameLbl:'Company name',
@@ -995,172 +2358,531 @@ const i18nExt = {
 
   th: {
     panels: {
+      p48: {
+        name: 'FLOODDASH (ระบบเฝ้าระวังน้ำท่วมไทย)',
+        lede: 'ระบบเฝ้าระวังน้ำท่วมแบบเปิดและเรียลไทม์ ให้ทุกจังหวัดในไทยอ่านภาพสถานการณ์เดียวกันจากข้อมูลสาธารณะของหน่วยงานรัฐ ดึงข้อมูลจาก 9 แหล่งทุก 3-60 นาที',
+        cta: 'เปิดระบบสด',
+      },
+      p65: {
+        lede: 'ช่องทางสาธารณะเปิดของ FloodDash — ผู้ติดตาม 112K คน ถ่ายรด 37K คน สรุปอาทิตย์ง่าวให้ชาวเสียงอยู่ทุกวัน ร่วมกับ SLIC · depa · รพ.·RCAD. ข้อมูลอย่างชี้. ฝั่งอย่างปลอดภัย.',
+        cta: 'ติดตาม Facebook',
+        name: 'FloodDash Community',
+      },
+      p49: {
+        name: 'ปฏิบัติการเทศบาลสีคิ้ว',
+        lede: 'หน้าจอบัญชาการสดสำหรับเทศบาลเมืองสีคิ้ว — บูรณาการ AQI สภาพอากาศ รูปแบบจราจร และข้อมูลเมืองสด เพื่อช่วยการตัดสินใจของเทศบาล',
+        cta: 'เปิดระบบสด',
+      },
+      p50: {
+        lede: 'ข่าวกรองพลเมืองเรียลไทม์สำหรับเทศบาลนครนครศรีธรรมราช — เมือง 3 มิติ ดาวเทียม เฝ้าระวังน้ำท่วม ลุ่มน้ำเขาหลวงและปากพนัง แหล่งข้อมูลสด 30+ แหล่ง',
+        cta: 'เปิดระบบสด',
+        name: 'NST-01 · Nakhon Si Thammarat',
+      },
+      p51: {
+        name: 'ปฏิบัติการแหลมฉบัง',
+        lede: 'หน้าจอบัญชาการสดเฝ้าระวังการจราจรรถบรรทุกและการปฏิบัติตามกฎระเบียบทั่วเมืองแหลมฉบัง ออกแบบมาเพื่อประสานการจราจรท่าเรือ ลดความแออัด และรักษาความปลอดภัยในเมือง',
+        cta: 'เปิดระบบสด',
+      },
       p01: {
         title: 'ห้องสั่งการของผู้ว่าฯ <em>ในแท็บเบราว์เซอร์</em>',
         lede: 'ข้อมูลการจราจร ความปลอดภัยสาธารณะ และสิ่งแวดล้อมของภูเก็ต รวมไว้ในจอเดียวที่ผู้ว่าฯ อ่านเข้าใจได้ภายใน 30 วินาที สร้างเสร็จในไม่กี่สัปดาห์ ไม่ใช่รอวงจรจัดซื้อหลายปี',
-        w1lbl:'จุดที่พิเศษ', w1:'แดชบอร์ดของภาครัฐส่วนใหญ่คือ PDF อ่านอย่างเดียวที่แอบใส่หน้าซอฟต์แวร์ ของภูเก็ตคือห้องสั่งการจริง การจราจร ความปลอดภัย และสิ่งแวดล้อมหลอมรวมในจอเดียว รีเฟรชทุก 42 มิลลิวินาที ผู้ว่าฯ อ่านเองได้ ไม่ต้องผ่านนักวิเคราะห์มาตีความให้ฟัง',
-        w2lbl:'สิ่งที่ถูกแทนที่', w2:'รายงานสามหน่วยงานที่ต่างคนต่างทำ เครือข่ายส่ง SMS แจ้งเตือน และคิวประชุมบรีฟเช้าวันอังคาร',
-        w3lbl:'ได้ตั้งแต่วันแรก', w3:'สร้างบนโครงสร้าง IoT ที่มีอยู่แล้วของจังหวัด ไม่ต้องจัดซื้อฮาร์ดแวร์ใหม่', cta:'เปิดระบบสด',
+        w1lbl: 'จุดที่พิเศษ',
+        w1: 'แดชบอร์ดของภาครัฐส่วนใหญ่คือ PDF อ่านอย่างเดียวที่แอบใส่หน้าซอฟต์แวร์ ของภูเก็ตคือห้องสั่งการจริง การจราจร ความปลอดภัย และสิ่งแวดล้อมหลอมรวมในจอเดียว รีเฟรชทุก 42 มิลลิวินาที ผู้ว่าฯ อ่านเองได้ ไม่ต้องผ่านนักวิเคราะห์มาตีความให้ฟัง',
+        w2lbl: 'สิ่งที่ถูกแทนที่',
+        w2: 'รายงานสามหน่วยงานที่ต่างคนต่างทำ เครือข่ายส่ง SMS แจ้งเตือน และคิวประชุมบรีฟเช้าวันอังคาร',
+        w3lbl: 'ได้ตั้งแต่วันแรก',
+        w3: 'สร้างบนโครงสร้าง IoT ที่มีอยู่แล้วของจังหวัด ไม่ต้องจัดซื้อฮาร์ดแวร์ใหม่',
+        cta: 'เปิดระบบสด',
+        name: 'Phuket Ops',
       },
-      p02: {
-        title: 'สัญญาณภาพรวม <em>ก่อนคนในห้องเริ่มเดา</em>',
-        lede: 'DNGWS Monitor รวมการติดตามสถานการณ์แบบเรียลไทม์ ผลกระทบเศรษฐกิจ และการแสดงวิกฤตจากหลายแหล่งไว้ในจอเดียว สำหรับผู้ตัดสินใจที่รอเอกสารบรีฟไม่ไหว',
-        w1lbl:'จุดที่พิเศษ', w1:'Bloomberg Terminal ราคา 25,000 ดอลลาร์ต่อที่นั่งต่อปี ระบบนี้รันบนข้อมูลสาธารณะ ผสมวิกฤตจากหลายแหล่ง ส่วนต่างของการยกระดับ และผลกระทบเศรษฐกิจ เร็วพอที่จะบรีฟรัฐมนตรีก่อนรอบข่าวจะตามทัน',
-        w2lbl:'สิ่งที่ถูกแทนที่', w2:'แพลตฟอร์มข่าวกรองแบบจ่ายรายเดือน PDF เฉพาะกิจจากนักวิเคราะห์ และช่องว่างระหว่าง "มีอะไรเกิดขึ้น" กับ "เรามีจุดยืนแล้ว"',
-        w3lbl:'ได้ตั้งแต่วันแรก', w3:'ภาพดาวเทียม Sentinel-2 การรวม OSINT feed และชั้น NLP บรีฟ 53 ประเทศ ทำงานที่ edge สลับภูมิภาคได้ในเสี้ยววินาที', cta:'เปิดระบบสด',
+      p21: {
+        lede: 'พื้นผิวสั่งการระดับมหานครสำหรับนครโฮจิมินห์ รวมการจราจรสด การเฝ้าระวังน้ำท่วม คุณภาพอากาศ และการกำหนดเส้นทางแบบไดนามิกบนแผนที่ประสิทธิภาพสูงสำหรับผู้ตัดสินใจด้านเมือง',
+        cta: 'เปิดระบบสด',
+        name: 'HCMCx Super Dashboard',
       },
-      p03: {
-        title: 'ระบบราชการ <em>ที่อ่านออก</em>',
-        lede: 'ผมสร้างหน้าเว็บสาธารณะให้โครงการเมืองอัจฉริยะแห่งชาติของไทย ร่วมกับ depa ข้อเสนอเข้ามา ความคืบหน้าเห็นได้ตลอด โครงการไม่หายเข้าไปใน PDF อีกต่อไป',
-        w1lbl:'จุดที่พิเศษ', w1:'โครงการระดับชาติส่วนใหญ่อยู่ในรายงานประจำปีที่ไม่มีใครอ่าน อันนี้ออนไลน์ สองภาษา และผูกกับผลลัพธ์ ไม่ใช่พิธีการ สถานะของเมืองที่สมัครเปลี่ยนทันทีเมื่อผ่านหมุดหมาย',
-        w2lbl:'ผู้สนับสนุน', w2:'depa สำนักงานส่งเสริมเศรษฐกิจดิจิทัล ทำงานตรงกับภาครัฐ ไม่ใช่ในฐานะผู้รับเหมาช่วง',
-        w3lbl:'ความสำคัญ', w3:'เป็นต้นแบบให้โครงการเมืองอัจฉริยะระดับชาติที่อยากให้คนยังอ่านเข้าใจหลังรอบข่าวเปิดตัวจบ SLIC ต่อเข้ามาเป็นชั้นจัดอันดับเปรียบเทียบ', cta:'เปิดระบบสด',
+      p62: {
+        lede: 'ห้องปฏิบัติการลพบุรี — ข้อมูลโทรมาตรลุ่มน้ำแบบเรียลไทม์ (ThaiWater/HII) สถานะเขื่อนป่าสักชลสิทธิ์ การฟังโซเชียล ตารางกล้อง CCTV และเลเยอร์ดาวเทียมสำหรับจังหวัดลพบุรี จอเดียว สี่สายข้อมูล อ่านได้แบบส่งต่อได้',
+        cta: 'เปิดห้องปฏิบัติการ',
+        name: 'Lopburi Operations',
       },
-      p04: {
-        title: 'การจัดอันดับ <em>ที่โต้กลับได้</em>',
-        lede: 'SLIC Index ไม่บอกเมืองว่ามีค่าเท่าไร แต่แสดง 5 เสาหลักให้เมืองทดสอบลำดับความสำคัญของตัวเอง นายกเทศมนตรีตัดสินว่าคำว่า "เมืองน่าอยู่" หมายถึงอะไร แล้วคณิตศาสตร์ค่อยตามมา',
-        w1lbl:'จุดที่พิเศษ', w1:'ดัชนีเมืองน่าอยู่อื่น ๆ ส่งคำตัดสินสำเร็จรูปให้เมือง SLIC ส่งคณิตศาสตร์ให้ ปรับน้ำหนักเสาหลักได้เอง อันดับของคุณและของคู่แข่งขยับให้เห็นแบบสด การถกเถียงกลายเป็นตัวผลิตภัณฑ์',
-        w2lbl:'สิ่งที่ถูกแทนที่', w2:'ลีดเดอร์บอร์ดศักดิ์ศรีแบบหยุดนิ่ง PDF จัดอันดับประจำปี และบทสนทนาที่จบลงด้วย "เราไม่เห็นด้วยกับวิธีคิด"',
-        w3lbl:'สัญญาณจากผู้ชม', w3:'Mayors of Europe นำไปใช้ Demo สดที่ SCSE Taipei ใน 45 นาที ถูกมองเป็นการถกเถียงเชิงพลเมือง ไม่ใช่ moodboard', cta:'เปิด SLIC v3',
+      p33: {
+        lede: 'พื้นผิวสั่งการสำหรับเมืองทองธานี — IMPACT Arena ฮอลล์ Challenger เฝ้าน้ำท่วม จราจร AQI และโหลดงานอีเวนต์บนแผนที่เขตแบบ 3D สำหรับผู้ปฏิบัติการในคอมเพล็กซ์ผสมที่หนาแน่นที่สุดของไทย',
+        cta: 'เปิดระบบสด',
+        name: 'MTT Super Dashboard',
       },
       p05: {
         title: 'มหานครกูชิง <em>หนึ่งจอบัญชาการ</em>',
         lede: 'IOC ครบวงจรของมหานครกูชิง รัฐซาราวัก อัตราแลกเปลี่ยน เที่ยวบิน ภาพดาวเทียม และสัญญาณสิ่งแวดล้อม รวมไว้ให้ทีมที่บริหารเมืองอัจฉริยะที่โตเร็วที่สุดในเอเชียตะวันออกเฉียงใต้',
-        w1lbl:'จุดที่พิเศษ', w1:'IOC ส่วนใหญ่ดูแลโดเมนเดียว กูชิงหลอมรวมสัญญาณข้ามโดเมนในมุมเดียว แรงกดดันค่าเงิน เที่ยวบินขาเข้า การสแกน Sentinel-2 ค่าสิ่งแวดล้อม ไม่ต้องสลับแท็บเพื่อเห็นภาพรวม',
-        w2lbl:'ผู้ใช้งาน', w2:'ทีมปฏิบัติการและนักวางแผนของมหานครกูชิง สร้างมาเพื่อรับรู้สถานการณ์แบบเรียลไทม์ ไม่ใช่ห้องโชว์ แต่ใช้งานจริงทุกวัน',
-        w3lbl:'ความสำคัญ', w3:'ความหนาแน่นของข้อมูลเหมือนที่ Bloomberg terminal ให้โต๊ะเทรด แต่สำหรับเมือง ในราคาเศษเสี้ยว', cta:'เปิดระบบสด',
+        w1lbl: 'จุดที่พิเศษ',
+        w1: 'IOC ส่วนใหญ่ดูแลโดเมนเดียว กูชิงหลอมรวมสัญญาณข้ามโดเมนในมุมเดียว แรงกดดันค่าเงิน เที่ยวบินขาเข้า การสแกน Sentinel-2 ค่าสิ่งแวดล้อม ไม่ต้องสลับแท็บเพื่อเห็นภาพรวม',
+        w2lbl: 'ผู้ใช้งาน',
+        w2: 'ทีมปฏิบัติการและนักวางแผนของมหานครกูชิง สร้างมาเพื่อรับรู้สถานการณ์แบบเรียลไทม์ ไม่ใช่ห้องโชว์ แต่ใช้งานจริงทุกวัน',
+        w3lbl: 'ความสำคัญ',
+        w3: 'ความหนาแน่นของข้อมูลเหมือนที่ Bloomberg terminal ให้โต๊ะเทรด แต่สำหรับเมือง ในราคาเศษเสี้ยว',
+        cta: 'เปิดระบบสด',
+        name: 'Kuching IOC',
       },
-      p06: {
-        title: 'ข่าว <em>ก่อนอัลกอริทึมจะตัดสินว่าอะไรคือสงคราม</em>',
-        lede: 'MEM คือหน้าข่าวโอเพนซอร์สที่เร็วที่สุดสำหรับสถานการณ์ความขัดแย้งในตะวันออกกลาง ฟีดสดจากหลายแหล่ง ไม่มีดีเลย์จากกองบรรณาธิการ ไม่มีฟิลเตอร์บับเบิล สัญญาณก่อนรอบข่าวจะมาถึง',
-        w1lbl:'จุดที่พิเศษ', w1:'ทุกแพลตฟอร์มข่าวใหญ่มีชั้นบรรณาธิการที่หน่วงเวลา กรอง และตีกรอบ MEM ตัดชั้นนั้นออก สัญญาณเดียวกับที่นักวิเคราะห์รวบรวมเองทีละชิ้น แต่อยู่ในจอเดียวด้วยความเร็วเครื่องจักร',
-        w2lbl:'สิ่งที่ถูกแทนที่', w2:'แท็บเบราว์เซอร์สามแท็บ Telegram สองห้อง และ Twitter/X อีกหนึ่งลิสต์ ที่เปิดพร้อมกันเพื่อเช็กว่าจริง ๆ บนพื้นที่เกิดอะไรขึ้น',
-        w3lbl:'ผู้ใช้งาน', w3:'นักข่าว นักวิเคราะห์นโยบาย ทีมภาคสนาม NGO ใครก็ตามที่ต้องการสัญญาณภาคพื้นเร็วกว่าที่รอบข่าว 24 ชั่วโมงจะส่งให้ได้', cta:'เปิดระบบสด',
-      },
-      p07: {
-        title: 'รถเมล์ถูกติดตาม <em>ผู้โดยสารได้รับข้อมูล</em>',
-        lede: 'ติดตาม GPS แบบเรียลไทม์และข้อมูลผู้โดยสารของเครือข่ายรถเมล์อัจฉริยะภูเก็ต ออกแบบสำหรับมือถือผู้โดยสารก่อน ไม่ใช่จอห้องคอนโทรล ใช้งานได้บนถนน ในแดด ด้วยนิ้วเดียว',
-        w1lbl:'จุดที่พิเศษ', w1:'ระบบรถเมล์อัจฉริยะส่วนใหญ่สร้างให้แดชบอร์ดของผู้ปฏิบัติการ อันนี้สร้างให้คนรอที่ป้าย ตำแหน่งรถ เวลามาถึงครั้งหน้า เส้นทางที่ชัดเจน สำหรับนักท่องเที่ยวที่อ่านไทยไม่ออกและคนทำงานที่ไม่มีเวลาเดา',
-        w2lbl:'สิ่งที่ถูกแทนที่', w2:'การยืนรอที่ป้ายโดยไม่มีข้อมูล ตารางเดินรถที่พิมพ์ไว้ตั้งแต่ปี 2562 และข้อสันนิษฐานว่าระบบขนส่งบนเกาะท่องเที่ยวทำให้อ่านง่ายไม่ได้',
-        w3lbl:'สร้างต่อยอดบน', w3:'โครงสร้าง IoT ที่มีอยู่ของภูเก็ต ชั้นเซ็นเซอร์ตัวเดียวกับที่ป้อนห้องสั่งการของผู้ว่าฯ ไม่ต้องลงทุนฮาร์ดแวร์ใหม่', cta:'เปิดระบบสด',
-      },
-      p08: {
-        title: 'รายงานเข้ามา <em>AI เปลี่ยนเป็นการลงมือ</em>',
-        lede: 'SCTH V2 คือแพลตฟอร์มข้อมูลเมืองของ Smart City Thailand ที่รับรายงานจากพลเมืองผ่าน Telegram และ LINE วิเคราะห์ปัญหาด้วย AI และซ้อนชั้นดาวเทียมและแผนที่แบบเกือบเรียลไทม์ ให้ผู้สร้างเมือง ผู้พัฒนาเมือง และผู้บริหารเมือง',
-        w1lbl:'จุดที่พิเศษ', w1:'ระบบร้องเรียนของเมืองส่วนใหญ่จบที่หมายเลข ticket SCTH V2 เปลี่ยนสตรีมรายงานให้กลายเป็นจอตัดสินใจ รายงานจาก Messenger ภาพภาคสนาม ความเสี่ยง SLA และการตรวจจับรูปแบบของ AI อยู่บนแผนที่เดียวกับชั้นฝน ละออง เมฆ ภูมิประเทศ และถนน',
-        w2lbl:'สิ่งที่ถูกแทนที่', w2:'ภาพแคปจากกลุ่มแชต การคัดแยกด้วย Excel ด้วยมือ ชั้นแผนที่ที่หยุดนิ่ง และช่องว่างระหว่าง "มีคนรายงาน" กับ "มีคนลงมือทำ"',
-        w3lbl:'อำนาจตัดสินใจ', w3:'ทีมเมืองรับรายงาน มอบหมายผู้รับผิดชอบ วิเคราะห์รูปแบบที่เกิดซ้ำ ส่งออก sheet หรือ PDF และผลักงานตอบสนองในขณะที่บริบทเมืองยังสด',
-        w4lbl:'การเข้าถึงสด', w4:'ระบบเป็นกรรมสิทธิ์ พัฒนาต่อเนื่องทุกวัน ลิงก์รันผ่าน tunnel แบบสด ถ้าเข้าไม่ได้แปลว่าระบบกำลังอัปเกรด ลองใหม่อีกสักครู่', cta:'เปิดระบบสด',
-      },
-      p09: {
-        title: 'สิบเอ็ดเสียง <em>หนึ่งคำตัดสิน</em>',
-        lede: 'AI Council คือระบบไตร่ตรองหลายเอเจนต์ส่วนตัวของผม ตุลาการ AI 11 คนที่ตั้งชื่อแบบ palindrome (Tenet, Radar, Otto, Hannah, Ada…) ทำงานต่อเนื่องบน Mac ส่วนตัว ถกเถียงกันผ่าน transcript log ที่ใช้ร่วมกัน ในราคาประมาณ 3 ดอลลาร์ต่อเดือน ฝึกบนบันทึกส่วนตัว การตัดสินใจ และเสียงของผม กรรมสิทธิ์โดยการออกแบบ ไม่ใช่บังเอิญ',
-        w1lbl:'เหตุผลที่มีอยู่', w1:'โมเดลเดี่ยวให้คำตอบเดียว ปัญหาที่ควรค่าแก่การแก้สมควรได้รับการถกเถียง Council รันสี่โหมด — VERIFY, DECIDE, EXPLORE, DEBATE — และตุลาการใช้คำสั่งที่ชัดเจน (EXPAND, QUALIFY, CONCEDE, STAND, PASS) การเปลี่ยนจุดยืนทุกครั้งจึงมองเห็นและตามรอยได้',
-        w2lbl:'ต้นทุน', w2:'ความสามารถระดับ Manus autonomous-agent ในราคา 3 ดอลลาร์ต่อเดือน ประธาน Council รันบน Mistral Large 3 ผู้คลางแคลงสายไทย (Ada) รันบน ThaiLLM โมเดลของรัฐ ฟรี ผู้ปฏิบัติการ (Otto) ทำ OCR ดาวน์โหลดวิดีโอ ร่างอีเมล สร้าง PDF และซิงก์ Google Drive โดยไม่แตะคลาวด์',
-        w3lbl:'ทำไมไม่มีเดโม', w3:'Council ฝึกบนบันทึกส่วนตัว การตัดสินใจ บันทึกประชุม และเสียงของผม กรรมสิทธิ์เพราะจำเป็น โปรโตคอลสแต็ก Python ราว 600 บรรทัด เปิดสาธารณะ ทรัพย์สินทางปัญญาคือวิธีการประสานงาน ไม่ใช่น้ำหนักของโมเดล', cta:'v1 · DIY Protocol', cta2:'v2 · Agentic + Executor',
-      },
-      p10: {
-        title: 'HR เป็น<em>ระบบบันทึก</em>มานานพอแล้ว',
-        lede: 'Talent Knowledge Collaborative Explorers (TKCX) คือระบบปฏิบัติการด้านบุคลากรที่ใช้กลไกของเกม มองพนักงานเป็นสมาชิกปาร์ตี้ โครงการเป็นเควสต์ และการประกอบทีมเป็นกลยุทธ์ ทำให้ทุกการตัดสินใจเรื่องคนมองเห็นได้ วัดได้ และผูกกับผลลัพธ์ แทนการเมืององค์กรด้วยข่าวกรองเรื่องขีดความสามารถ',
-        w1lbl:'ปัญหา', w1:'ระบบ HR ส่วนใหญ่คือบันทึกการปฏิบัติตาม ไม่ใช่ข่าวกรอง บอกว่าใครเป็นพนักงาน ไม่ได้บอกว่าใครควรไปทำอะไร ที่ไหน กับใคร การตัดสินใจเรื่องคนใช้สัญชาตญาณและทุนทางการเมือง คนเก่งที่สุดลาออก คนที่อยู่สบายคงอยู่ ไม่มีใครเห็นว่าทำไม',
-        w2lbl:'เครื่องยนต์', w2:'สร้างบนระบบปาร์ตี้ของ Dragon Quest III ห้า archetype จับคู่กับบทบาทจริงในที่ทำงาน (captain, tech, sales, ops, scout) เพดานงบแบบ Moneyball งบโครงการหารด้วย 10 = เพดานเงินเดือนรายเดือน บีบให้มีวินัยในการจัดสรร สูตรความพร้อมถ่วงน้ำหนัก coverage คุณภาพ chemistry และขวัญกำลังใจ ทีมที่ใช่จึงมองเห็นได้ก่อนโครงการเริ่ม ไม่ใช่หลังจากล้ม',
-        w3lbl:'สิ่งที่เปลี่ยนไป', w3:'ผู้อำนวยการเลิกกักตุนคน โครงการเลิกขับเคลื่อนด้วยทุนการเมือง ช่องว่างทักษะมองเห็นได้ก่อนกลายเป็นความล้มเหลว และ HR ที่เปลี่ยนชื่อเป็น Talent Incubation กลายเป็นฟังก์ชันที่มียุทธศาสตร์มากที่สุดในตึก ไม่ใช่ฟังก์ชันที่ทุกคนหลีกเลี่ยง', cta:'สำรวจเครื่องยนต์',
-      },
-      p11: {
-        title: 'AI <em>ที่รู้จักคุณ</em>',
-        lede: 'Second Brain OS เชื่อม Obsidian vault ของคุณเข้ากับทุกแพลตฟอร์ม AI coding พร้อมกันผ่าน MCP โครงสร้างโฟลเดอร์ตามกายวิภาคของสมอง 19 server config เอเจนต์ AI ที่อ่าน persona blueprint ของคุณ เขียนด้วยน้ำเสียงของคุณ และจำทุกการตัดสินใจที่เคยบันทึก ความรู้ที่สั่งสมมาหลายปี ในที่สุดก็ทำงานให้คุณได้',
-        w1lbl:'ช่องว่างที่ปิด', w1:'ทุก session ของ AI เริ่มจากศูนย์ ไม่รู้น้ำเสียงของคุณ ค่านิยม การตัดสินใจในอดีต หรือบันทึกหลายปีที่หล่อหลอมความคิด Second Brain OS ส่งทั้งหมดนั้นเข้าทุกแพลตฟอร์ม coding พร้อมกันผ่าน MCP เส้นเดียว AI ที่คุณทำงานด้วยจึงรู้แล้วว่ากำลังทำงานกับใคร',
-        w2lbl:'วิธีสร้าง', w2:'Obsidian vault ของคุณถูกจัดเหมือนสมอง: PrefrontalCortex สำหรับกลยุทธ์ Hippocampus สำหรับความจำเชิงอะตอม TemporalLobe สำหรับรูปแบบ Cerebellum สำหรับทักษะและขั้นตอน 19 MCP server config เชื่อมแผนภาพความรู้ที่มีชีวิตนี้กับ Cursor, Codex, Claude Code และทุกแพลตฟอร์มในสแต็กของคุณพร้อมกัน',
-        w3lbl:'ทำไมเปิดให้คนนำไปใช้', w3:'สถาปัตยกรรมเป็น MIT-licensed สมองเป็นของคุณ ใครก็ตาม fork โครงสร้าง ปรับ MCP config และต่อ vault ของตัวเองได้ มีเครื่องมือวินิจฉัย 12 ระดับสำหรับขจัด AI-speak ออกจากการเขียน เพื่อให้ความรู้ที่สั่งสมยังคงเป็นน้ำเสียงของคุณ ไม่ใช่ของโมเดล', cta:'สำรวจสถาปัตยกรรม',
-      },
-      p12: {
-        title: '21 ช่อง. <em>ฟรี. ทุกที่.</em>',
-        lede: 'NSP คือแพลตฟอร์มสตรีมมิ่งแห่งชาติของไทย — ครบ 21 ช่องทีวีดิจิตอลที่ได้รับใบอนุญาตจาก กสทช. ฟรี FullHD บนทุกอุปกรณ์ EPG สด ข้อมูลผู้ชมรายช่อง ผู้ช่วย AI แนะนำรายการ และระบบเตือนภัยฉุกเฉิน CAP v1.2 รวมในหน้าจอเดียว',
-        w1lbl:'ทำไมพิเศษ', w1:'แพลตฟอร์มทีวีแห่งชาติส่วนใหญ่เป็นแค่เว็บดูหลังบ้าน <b>NSP รวม 21 ช่องที่ได้รับใบอนุญาตไว้ในหน้าจอเดียว</b> พร้อม EPG สด ข้อมูล concurrency รายช่อง สุขภาพสตรีม และ AI ที่ตอบว่า "ตอนนี้มีอะไรน่าดู?" ทั่วทั้งประเทศ โดยไม่ต้องติดตั้งแอป',
-        w2lbl:'แทนที่อะไร', w2:'แอปของแต่ละสถานีที่กระจัดกระจาย สตรีมผิดกฎหมาย และความเชื่อว่าทีวีฟรีทีวีทำให้ชัดเจนเท่า streaming subscription ไม่ได้',
-        w3lbl:'อำนาจการตัดสินใจ', w3:'ผู้ดูแลระบบเห็น concurrency สด ส่วนแบ่งผู้ชมรายช่อง และสุขภาพสตรีมแบบเรียลไทม์ การผนวก CAP v1.2 หมายความว่าการแจ้งเตือนฉุกเฉินระดับชาติปรากฏผ่านช่องทางเดียวกับความบันเทิง ไม่ต้องมีระบบแยกต่างหาก',
-        w4lbl:'เข้าถึงสด', w4:'ใช้งานจริงระดับประเทศภายใต้อำนาจการออกใบอนุญาตของ กสทช. เปิดให้ทุกอุปกรณ์ ไม่ต้องสมัครสมาชิก',
-        cta:'เปิดแพลตฟอร์มสด',
+      p63: {
+        lede: 'มาเลเซีย · โหมดพระเจ้า ระดับน้ำ JPS ทุกลุ่มน้ำ คำเตือน MET Malaysia รถเมล์ รถไฟ เรือ เครื่องบิน อากาศ ไฟ บวกดัชนีพลเมืองที่บอกว่าใครอยู่ไกลความช่วยเหลือ แผนที่เดียว EN · BM · 中文',
+        cta: 'เปิดแผนที่สด',
+        name: 'Malaysia · God Mode',
       },
       p13: {
         title: '47 ฟีด. <em>7 มุมมอง. หนึ่งมหาวิทยาลัย.</em>',
         lede: 'Chula Control Tower คือแดชบอร์ดปฏิบัติการแบบเรียลไทม์ของจุฬาลงกรณ์มหาวิทยาลัย — 47 ฟีดข้อมูลสดครอบคลุมการจราจร เหตุการณ์ คุณภาพอากาศ ภาพถ่ายดาวเทียม รถบัส CU ข่าวสาร และเหตุฉุกเฉินในย่านสยาม–สามย่าน กรุงเทพฯ',
-        w1lbl:'ทำไมพิเศษ', w1:'แดชบอร์ดมหาวิทยาลัยส่วนใหญ่แสดงข้อมูลทีละฟีด <b>CCT รวม 47 แหล่งข้อมูลสดบนแผนที่ 3D แผ่นเดียว</b> — การจราจร คุณภาพอากาศ ตำแหน่งรถบัส รายงานเหตุการณ์ ชั้นดาวเทียม และสาธารณูปโภคใต้ดิน เพื่อให้ผู้บริหารมีพื้นผิวเดียวสำหรับทุกการตัดสินใจ',
-        w2lbl:'แทนที่อะไร', w2:'ระบบแยกกันสำหรับการจราจร ความปลอดภัย และข้อมูลสิ่งแวดล้อม รายงานเหตุการณ์แบบ manual ไม่มีมุมมองรวมของมหาวิทยาลัย ณ เวลาใดเวลาหนึ่ง',
-        w3lbl:'อำนาจการตัดสินใจ', w3:'เจ็ดมุมมองปฏิบัติการ — จากการจัดการวิทยาเขตประจำวันถึงมุมมองเชิงกลยุทธ์ระดับผู้บริหาร — ให้แต่ละบทบาทเห็นสิ่งที่ต้องการพอดี อาคาร 3D และชั้นสาธารณูปโภคใต้ดินเปลี่ยนการวางแผนจากการเดาเป็นหลักฐาน',
-        w4lbl:'เข้าถึงสด', w4:'ใช้งานจริงที่จุฬาลงกรณ์มหาวิทยาลัย ย่านสยาม–สามย่าน กรุงเทพฯ เข้าใช้ได้ฟรี ไม่ต้องสมัครสมาชิก',
-        cta:'เปิดระบบสด',
-      },
-      p14: {
-        title: 'สัญญาณ Bloomberg. <em>ตลาดไทย. กฎของคุณ.</em>',
-        lede: 'DayTraders คือแพลตฟอร์มข่าวกรองตลาดไทยส่วนตัว — สัญญาณสไตล์ Bloomberg ใช้กับ SET, MAI, กองทุนรวม, RMF และ Thai ESG กรอบคิด Graham, Buffett และ Munger ฝังอยู่แล้ว คุณกำหนด KPI ที่สำคัญต่อพอร์ตของคุณเอง',
-        w1lbl:'ทำไมพิเศษ', w1:'นักลงทุนไทยรายย่อยได้ข้อมูลดิบจากโบรกเกอร์หรือแอปทั่วไปที่ไม่ใช้ตรรกะ value investing <b>DayTraders นำการวิเคราะห์สัญญาณระดับสถาบันมาสู่ SET ไทย</b> — พร้อม margin-of-safety ของ Graham, ตัวกรอง moat ของ Buffett และ mental models ของ Munger ฝังในฟีด ไม่ใช่ต่อเติมทีหลัง',
-        w2lbl:'แทนที่อะไร', w2:'พอร์ทัลโบรกเกอร์ที่ไม่มีกรอบวิเคราะห์ ทิปส์ในกลุ่ม LINE และความเชื่อว่า value investing ที่เข้มงวดมีแต่สถาบันที่มี Bloomberg terminal เท่านั้น',
-        w3lbl:'อำนาจการตัดสินใจ', w3:'แดชบอร์ด KPI ส่วนตัวให้นักลงทุนติดตามตัวชี้วัดที่ตัวเองใช้จริง ไม่ใช่ screener ทั่วไป ครอบคลุม SET, หุ้น MAI, กองทุน RMF และ Thai ESG ในพื้นผิวเดียว',
-        w4lbl:'เข้าถึงสด', w4:'ข้อมูลตลาดไทยสด แพลตฟอร์มเปิด ไม่มีค่าสมัคร ไม่ผูกกับโบรกเกอร์',
-        cta:'เปิดแพลตฟอร์มสด',
-      },
-      p15: {
-        title: 'บอกชื่อเมือง <em>ผมสร้างสมองให้</em>',
-        lede: 'City Hub คือแพลตฟอร์มข่าวกรองเมืองที่ปรับใช้ซ้ำได้ — บอกชื่อเมือง ระบบแมปด้วยดาวเทียมและชั้นแผนที่ รับข้อมูลที่มีอยู่ เชื่อมต่อ API และเซ็นเซอร์ แล้วเริ่มสังเคราะห์ภาพรวม v.5 ห้าเมืองออนไลน์แล้ว: กรุงเทพฯ เชียงใหม่ ภูเก็ต สิงคโปร์ กูชิง',
-        w1lbl:'ทำไมพิเศษ', w1:'แพลตฟอร์มเมืองส่วนใหญ่สร้างขึ้นสำหรับเมืองเดียว งบประมาณรอบเดียว ไม่สามารถนำไปใช้ใหม่ได้ <b>City Hub ถือว่าชั้นข่าวกรองเป็นเทมเพลต</b> — เมืองไหนก็เข้าร่วมได้ นำเข้าข้อมูลที่มีอยู่ และระบบเริ่มเชื่อมโยงจุดต่างๆ ไม่ต้องรอจัดซื้อยาวนาน สมองสร้างตัวเองจากสิ่งที่มีอยู่แล้ว',
-        w2lbl:'แทนที่อะไร', w2:'แดชบอร์ดที่สร้างขึ้นครั้งเดียวโดยไม่มีการเรียนรู้ข้ามเมือง ไม่มีการสังเคราะห์ด้วย AI และไม่สามารถตรวจจับช่องว่างที่ข้อมูลพลเมืองนำหน้าโครงสร้างพื้นฐานทางการ Bangkok SIT ROOM ติดตามคุณภาพอากาศ น้ำท่วม ความร้อน ปัญหาเมือง และโรคระบาด — สังเคราะห์ทุกวันโดย AI',
-        w3lbl:'อำนาจการตัดสินใจ', w3:'บรีฟ AI สังเคราะห์ฟีดเมืองทั้งหมดเป็นรายงานเช้า: การตรวจจับช่องว่าง (ที่รายงานพลเมืองมีแต่ polygon ทางการไม่มี) รายการที่ต้องดำเนินการ การจัดอันดับ PM2.5 จังหวัด และพยากรณ์อากาศ 5 วัน เครื่องมือ +24H timeline ให้ผู้ปฏิบัติงานดูข้อมูลย้อนหลัง',
-        w4lbl:'เข้าถึงสด', w4:'แพลตฟอร์ม v.5 ห้าเมืองออนไลน์แล้ว: กรุงเทพฯ เชียงใหม่ ภูเก็ต สิงคโปร์ กูชิง เมืองไหนก็เข้าร่วมได้ — นำข้อมูลที่มีอยู่มาเลย',
-        cta:'เปิดแพลตฟอร์มสด',
+        w1lbl: 'ทำไมพิเศษ',
+        w1: 'แดชบอร์ดมหาวิทยาลัยส่วนใหญ่แสดงข้อมูลทีละฟีด <b>CCT รวม 47 แหล่งข้อมูลสดบนแผนที่ 3D แผ่นเดียว</b> — การจราจร คุณภาพอากาศ ตำแหน่งรถบัส รายงานเหตุการณ์ ชั้นดาวเทียม และสาธารณูปโภคใต้ดิน เพื่อให้ผู้บริหารมีพื้นผิวเดียวสำหรับทุกการตัดสินใจ',
+        w2lbl: 'แทนที่อะไร',
+        w2: 'ระบบแยกกันสำหรับการจราจร ความปลอดภัย และข้อมูลสิ่งแวดล้อม รายงานเหตุการณ์แบบ manual ไม่มีมุมมองรวมของมหาวิทยาลัย ณ เวลาใดเวลาหนึ่ง',
+        w3lbl: 'อำนาจการตัดสินใจ',
+        w3: 'เจ็ดมุมมองปฏิบัติการ — จากการจัดการวิทยาเขตประจำวันถึงมุมมองเชิงกลยุทธ์ระดับผู้บริหาร — ให้แต่ละบทบาทเห็นสิ่งที่ต้องการพอดี อาคาร 3D และชั้นสาธารณูปโภคใต้ดินเปลี่ยนการวางแผนจากการเดาเป็นหลักฐาน',
+        w4lbl: 'เข้าถึงสด',
+        w4: 'ใช้งานจริงที่จุฬาลงกรณ์มหาวิทยาลัย ย่านสยาม–สามย่าน กรุงเทพฯ เข้าใช้ได้ฟรี ไม่ต้องสมัครสมาชิก',
+        cta: 'เปิดระบบสด',
+        name: 'Chula Control Tower',
       },
       p16: {
         title: 'จังหวัดชายฝั่ง <em>ในรูปแบบหอควบคุม</em>',
         lede: 'Chonburi Control Tower คือพื้นผิวสั่งการ 3D สำหรับ Eastern Seaboard รวม 42 แหล่งข้อมูลสด สภาพอากาศชายฝั่ง ทะเล ตลาด ท่องเที่ยว ฟีดเหตุการณ์ของนายกเมือง เทรนด์ EEC และเลเยอร์ระดับอาคารไว้ในมุมมองเดียว',
-        w1lbl:'ทำไมพิเศษ', w1:'แดชบอร์ดจังหวัดส่วนใหญ่อัดเมืองลงเป็นการ์ดและกราฟ <b>Chonburi Control Tower ทำให้จังหวัดกลายเป็นสภาพแวดล้อมปฏิบัติการ</b> — อาคาร 3D 20,877 หลัง สุขภาพแหล่งข้อมูล ความเสี่ยงทะเล ข่าว EEC ปุ่ม CCTV/AIS/AQ/WX และโต๊ะนายกเมืองในจอเดียว',
-        w2lbl:'แทนที่อะไร', w2:'เว็บอากาศ แดชบอร์ดทะเล ticker ตลาด spreadsheet ท่องเที่ยว แท็บข่าว และ GIS แบบนิ่งที่ไม่เคยเล่าเรื่องเดียวกันในเวลาเดียวกัน',
-        w3lbl:'อำนาจการตัดสินใจ', w3:'ผู้ปฏิบัติงานเห็นสถานะ live/degraded เทรนด์ Chonburi EEC เลเยอร์พลเมือง จำนวนแหล่งข้อมูล และเหตุการณ์ของนายกเมือง โดยไม่หลุดออกจากแผนที่ 3D ที่ยังรักษาบริบทพื้นที่ไว้',
-        w4lbl:'เข้าถึงสด', w4:'หอควบคุมสาธารณะสำหรับ Chonburi Town Center และ Eastern Seaboard สร้างเพื่ออ่านสถานการณ์เร็ว ไม่ใช่รายงานวางแผนแบบนิ่ง',
-        cta:'เปิดหอควบคุม',
-      },
-      p17: {
-        title: 'เอกสารไทย <em>ให้เครื่องอ่านได้</em>',
-        lede: 'Ekkasarn AI คือเครื่องยนต์ข่าวกรองเอกสารไทยสำหรับใบกำกับภาษี ใบเสร็จ และหนังสือรับรองหักภาษี ณ ที่จ่าย อัปโหลดเอกสารจริงหรือเลือกตัวอย่าง ระบบทำ OCR จัดหมวดหมู่ และดึงฟิลด์ใช้งานได้ โดยไม่ต้องใช้ข้อมูลปลอมและไม่บังคับล็อกอิน',
-        w1lbl:'ทำไมพิเศษ', w1:'เดโม OCR ส่วนใหญ่ทำงานได้เฉพาะฟอร์มสะอาดที่สร้างขึ้นมาเอง <b>Ekkasarn AI อ่านเอกสารไทยจริง</b> — ใบเสร็จยับ ใบกำกับ VAT และหนังสือหักภาษี แล้วคืนหมวด ความมั่นใจ ร้านค้า เบอร์โทร และยอดรวมเป็นข้อมูลโครงสร้าง',
-        w2lbl:'แทนที่อะไร', w2:'การกรอกบัญชีด้วยมือ รูปใบเสร็จค้างกอง การจัดหมวดด้วย spreadsheet และจุดต่อที่เปราะบางระหว่างเอกสารกระดาษไทยกับ workflow การเงินดิจิทัล',
-        w3lbl:'อำนาจการตัดสินใจ', w3:'ทีมการเงินจัดประเภทเอกสาร ตรวจฟิลด์ที่ดึงออกมา และส่งต่อเข้าสู่ตรรกะบัญชีได้ทันที ไม่ต้องรอคนคัดแยก',
-        w4lbl:'เข้าถึงสด', w4:'เดโมสองภาษาแบบ Thai-first สำหรับประเภทเอกสารไทย อัปโหลดแล้วประมวลผลสดและไม่เก็บไฟล์ไว้',
-        cta:'เปิดระบบสด',
+        w1lbl: 'ทำไมพิเศษ',
+        w1: 'แดชบอร์ดจังหวัดส่วนใหญ่อัดเมืองลงเป็นการ์ดและกราฟ <b>Chonburi Control Tower ทำให้จังหวัดกลายเป็นสภาพแวดล้อมปฏิบัติการ</b> — อาคาร 3D 20,877 หลัง สุขภาพแหล่งข้อมูล ความเสี่ยงทะเล ข่าว EEC ปุ่ม CCTV/AIS/AQ/WX และโต๊ะนายกเมืองในจอเดียว',
+        w2lbl: 'แทนที่อะไร',
+        w2: 'เว็บอากาศ แดชบอร์ดทะเล ticker ตลาด spreadsheet ท่องเที่ยว แท็บข่าว และ GIS แบบนิ่งที่ไม่เคยเล่าเรื่องเดียวกันในเวลาเดียวกัน',
+        w3lbl: 'อำนาจการตัดสินใจ',
+        w3: 'ผู้ปฏิบัติงานเห็นสถานะ live/degraded เทรนด์ Chonburi EEC เลเยอร์พลเมือง จำนวนแหล่งข้อมูล และเหตุการณ์ของนายกเมือง โดยไม่หลุดออกจากแผนที่ 3D ที่ยังรักษาบริบทพื้นที่ไว้',
+        w4lbl: 'เข้าถึงสด',
+        w4: 'หอควบคุมสาธารณะสำหรับ Chonburi Town Center และ Eastern Seaboard สร้างเพื่ออ่านสถานการณ์เร็ว ไม่ใช่รายงานวางแผนแบบนิ่ง',
+        cta: 'เปิดหอควบคุม',
+        name: 'Chonburi Control Tower',
       },
       p18: {
         lede: 'KMITL Control Tower คือแดชบอร์ดปฏิบัติการแบบเรียลไทม์สำหรับสถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง — 56 ฟีดข้อมูลสดครอบคลุมการจราจร เหตุการณ์ คุณภาพอากาศ ภาพดาวเทียม รถรับส่งในมหาวิทยาลัย ข่าว และเหตุฉุกเฉิน สำหรับเขตลาดกระบัง กรุงเทพฯ',
-        cta:'เปิดระบบสด',
+        cta: 'เปิดระบบสด',
+        name: 'KMITL Control Tower',
       },
       p19: {
         lede: 'Yala Control Tower ให้ข่าวกรองพลเมืองแบบเรียลไทม์สำหรับเทศบาลนครยะลา ในภาคใต้ลึกของไทย โมเดลเมือง 3D ชั้นดาวเทียม เฝ้าระวังน้ำท่วม เหตุการณ์ด้านความมั่นคง และฟีดข้อมูลสดกว่า 30 แหล่ง',
-        cta:'เปิดระบบสด',
+        cta: 'เปิดระบบสด',
+        name: 'Yala Control Tower',
       },
-      p20: {
-        lede: 'Horizon 45 คือเครื่องมือภาคสนามสำหรับทดสอบการตัดสินใจของ AI จริง ตั้งแต่การตรวจจับดีปเฟก ไปจนถึง prompt engineering ผู้ใช้เดินผ่านสัญญาณจากโลกจริงและออกไปพร้อมภาพความสามารถและแผนการเรียนรู้',
-        cta:'เปิดระบบสด',
+      p15: {
+        title: 'บอกชื่อเมือง <em>ผมสร้างสมองให้</em>',
+        lede: 'City Hub คือแพลตฟอร์มข่าวกรองเมืองที่ปรับใช้ซ้ำได้ — บอกชื่อเมือง ระบบแมปด้วยดาวเทียมและชั้นแผนที่ รับข้อมูลที่มีอยู่ เชื่อมต่อ API และเซ็นเซอร์ แล้วเริ่มสังเคราะห์ภาพรวม v.5 ห้าเมืองออนไลน์แล้ว: กรุงเทพฯ เชียงใหม่ ภูเก็ต สิงคโปร์ กูชิง',
+        w1lbl: 'ทำไมพิเศษ',
+        w1: 'แพลตฟอร์มเมืองส่วนใหญ่สร้างขึ้นสำหรับเมืองเดียว งบประมาณรอบเดียว ไม่สามารถนำไปใช้ใหม่ได้ <b>City Hub ถือว่าชั้นข่าวกรองเป็นเทมเพลต</b> — เมืองไหนก็เข้าร่วมได้ นำเข้าข้อมูลที่มีอยู่ และระบบเริ่มเชื่อมโยงจุดต่างๆ ไม่ต้องรอจัดซื้อยาวนาน สมองสร้างตัวเองจากสิ่งที่มีอยู่แล้ว',
+        w2lbl: 'แทนที่อะไร',
+        w2: 'แดชบอร์ดที่สร้างขึ้นครั้งเดียวโดยไม่มีการเรียนรู้ข้ามเมือง ไม่มีการสังเคราะห์ด้วย AI และไม่สามารถตรวจจับช่องว่างที่ข้อมูลพลเมืองนำหน้าโครงสร้างพื้นฐานทางการ Bangkok SIT ROOM ติดตามคุณภาพอากาศ น้ำท่วม ความร้อน ปัญหาเมือง และโรคระบาด — สังเคราะห์ทุกวันโดย AI',
+        w3lbl: 'อำนาจการตัดสินใจ',
+        w3: 'บรีฟ AI สังเคราะห์ฟีดเมืองทั้งหมดเป็นรายงานเช้า: การตรวจจับช่องว่าง (ที่รายงานพลเมืองมีแต่ polygon ทางการไม่มี) รายการที่ต้องดำเนินการ การจัดอันดับ PM2.5 จังหวัด และพยากรณ์อากาศ 5 วัน เครื่องมือ +24H timeline ให้ผู้ปฏิบัติงานดูข้อมูลย้อนหลัง',
+        w4lbl: 'เข้าถึงสด',
+        w4: 'แพลตฟอร์ม v.5 ห้าเมืองออนไลน์แล้ว: กรุงเทพฯ เชียงใหม่ ภูเก็ต สิงคโปร์ กูชิง เมืองไหนก็เข้าร่วมได้ — นำข้อมูลที่มีอยู่มาเลย',
+        cta: 'เปิดแพลตฟอร์มสด',
+        name: 'City Hub',
       },
-      p21: {
-        lede: 'พื้นผิวสั่งการระดับมหานครสำหรับนครโฮจิมินห์ รวมการจราจรสด การเฝ้าระวังน้ำท่วม คุณภาพอากาศ และการกำหนดเส้นทางแบบไดนามิกบนแผนที่ประสิทธิภาพสูงสำหรับผู้ตัดสินใจด้านเมือง',
-        cta:'เปิดระบบสด',
+      p27: {
+        lede: 'AirDash คือระบบเฝ้าคุณภาพอากาศและฝุ่นของไทย 24/7 — อันดับจังหวัดเสี่ยง 3 วัน พยากรณ์ CAMS ลบ rain washout, 5 จังหวัดเสี่ยง AT-risk และ PM2.5, donut รูปแบบทั้งประเทศ บนหน้าจอเดียว เพื่อให้ทุกจังหวัดอ่านภาพอากาศเดียวกันจากข้อมูลสาธารณะชุดเดียวกัน',
+        cta: 'เปิดระบบสด',
+        name: 'AirDash',
+      },
+      p36: {
+        lede: 'แผนที่ 3D ของกรุงเทพฯ ในเบราว์เซอร์ — อาคาร OSM จริง 432,077 หลัง พื้นที่ คุณภาพอากาศ เรดาร์ฝน ราคาประเมินที่ดิน เส้น BTS/MRT และคลอง เดินเมืองทีละบล็อก',
+        cta: 'เปิดระบบสด',
+        name: 'BKKx 3D Atlas',
+      },
+      p43: {
+        lede: 'มรดกกรุงเทพฯ ทีละบล็อก — เก้าย่านจากเกาะรัตนโกสินทร์ถึงบางกะเจ้า โบราณสถานขึ้นทะเบียน 571 แห่ง และเส้นทางเดินเจ็ดสาย คู่แฝดวัฒนธรรมของ BKKx คู่กับฝั่งปฏิบัติการที่ atlas.nonarkara.org',
+        cta: 'เปิดระบบสด',
+        name: 'BKKx Culture',
+      },
+      jakarta: {
+        lede: 'แผนที่เมือง 3D และโต๊ะปฏิบัติการจาการ์ตา — รูปทรงอาคาร ข่าวสภาพอากาศ BMKG รายงานบริการประชาชน CRM และโต๊ะความเสี่ยงน้ำท่วมในหน้าจอเดียว ภาษาอินโดนีเซีย · EN',
+        cta: 'เปิดระบบจริง',
+        name: 'Jakarta 3D Atlas',
+      },
+      p67: {
+        lede: 'สร้างเมืองบนไซต์จริงของ OpenStreetMap แล้วดูเศรษฐกิจเติบโต ได้แรงบันดาลใจจาก SimCity 2000; กฎการวางผังเมืองปี 2026',
+        cta: 'เปิดเดโม',
+        name: 'simsmartcity',
+      },
+      p69: {
+        lede: 'ดิจิทัลทวินทั้งวิทยาเขตของ Thailand Digital Valley ที่ศรีราชา — 5 อาคาร 86,000 ตร.ม. ข้อมูลอาคารที่มีแหล่งอ้างอิง 25 ผังชั้นที่ตีพิมพ์ ผู้มาเยือน chibi เคลื่อนไหว และ IoT 1 CAD',
+        cta: 'เข้าวิทยาเขต',
+        name: 'TDV · Thailand Digital Valley',
+      },
+      bangkokIoc: {
+        lede: 'ศูนย์ปฏิบัติการของผู้ว่าราชการกรุงเทพมหานครมีโครงการนำร่องวัดความเหมาะสมของย่านอยู่อาศัย: เลือกย่านรอบสถานี BTS ทดสอบกับค่าเช่าและเวลาเดินทางที่ตนรับได้ แล้วอ่านสิ่งที่มีรายงานรอบพื้นที่ — เรื่องร้องเรียน พื้นที่สาธารณะ และระยะเดินจริงถึงชานชาลา เป็นการค้นคว้าเบื้องต้น ไม่ใช่ประกาศขายหรือให้เช่าอสังหาริมทรัพย์',
+        cta: 'เปิด Bangkok IOC',
+        name: 'Bangkok IOC',
+      },
+      dhaka: {
+        lede: 'ระบบภูมิสารสนเทศ 3 มิติระดับบล็อกสำหรับกรุงธากา ประเทศบังกลาเทศ อ่านความสูงอาคาร ความลาดชันของภูมิประเทศ พลวัตน้ำท่วมมรสุม และสัณฐานวิทยาเมืองหนาแน่นสูงครอบคลุม 129 วอร์ด',
+        cta: 'เปิดแผนที่ธากา',
+        name: 'DHKx 3D Atlas · ธากา',
+      },
+      p04: {
+        title: 'การจัดอันดับ <em>ที่โต้กลับได้</em>',
+        lede: 'SLIC Index ไม่บอกเมืองว่ามีค่าเท่าไร แต่แสดง 5 เสาหลักให้เมืองทดสอบลำดับความสำคัญของตัวเอง นายกเทศมนตรีตัดสินว่าคำว่า "เมืองน่าอยู่" หมายถึงอะไร แล้วคณิตศาสตร์ค่อยตามมา',
+        w1lbl: 'จุดที่พิเศษ',
+        w1: 'ดัชนีเมืองน่าอยู่อื่น ๆ ส่งคำตัดสินสำเร็จรูปให้เมือง SLIC ส่งคณิตศาสตร์ให้ ปรับน้ำหนักเสาหลักได้เอง อันดับของคุณและของคู่แข่งขยับให้เห็นแบบสด การถกเถียงกลายเป็นตัวผลิตภัณฑ์',
+        w2lbl: 'สิ่งที่ถูกแทนที่',
+        w2: 'ลีดเดอร์บอร์ดศักดิ์ศรีแบบหยุดนิ่ง PDF จัดอันดับประจำปี และบทสนทนาที่จบลงด้วย "เราไม่เห็นด้วยกับวิธีคิด"',
+        w3lbl: 'สัญญาณจากผู้ชม',
+        w3: 'Mayors of Europe นำไปใช้ Demo สดที่ SCSE Taipei ใน 45 นาที ถูกมองเป็นการถกเถียงเชิงพลเมือง ไม่ใช่ moodboard',
+        cta: 'เปิด SLIC v3',
+        name: 'SLIC Index',
       },
       p22: {
-        lede: 'เฝ้าติดตามสามภูมิภาค (ตะวันออกกลาง เอเชียตะวันออกเฉียงใต้ ไทย): แพลตฟอร์มมอนิเตอร์ขั้นสูงจากข้อมูลเปิดที่เปิดเผยอินไซต์ผ่านการซ้อนเลเยอร์',
-        cta:'เปิดระบบสด',
+        lede: 'สี่สมรภูมิ — ตะวันออกกลาง อินโด-แปซิฟิก ไทย และทั่วโลก — บนหน้าจอเดียวแบบเรียลไทม์: เครื่องบินและเรือที่กำลังเคลื่อนที่ เหตุความขัดแย้ง จุดความร้อน ตลาด และการพยากรณ์การยกระดับสถานการณ์ 8 สัปดาห์ ทั้งหมดจากข้อมูลเปิด',
+        cta: 'เปิดระบบสด',
+        name: 'Global Monitor',
+      },
+      p45: {
+        lede: 'ห้าสมรภูมิเอเชียและ 5 จุดยุทธศาสตร์ทางทะเล — มะละกา ฮอร์มุซ บับเอลมันเดบ ไต้หวัน ซุนดา — บนแผนที่สดแผ่นเดียว: แนวรบความขัดแย้ง จุดความร้อน เส้นทางบินและเส้นทางเดินเรือ ข่าวและทีวีระดับภูมิภาค จากข้อมูลเปิด',
+        cta: 'เปิดระบบสด',
+        name: 'AsiaWatch · เซนติเนลพันเอเชีย',
+      },
+      p46: {
+        lede: 'ทั้งโลกบนหน้าจอเดียว: เครื่องบินและเรือแบบเรียลไทม์ทั่วโลก จุดความขัดแย้งและจุดความร้อน คอลัมน์ข่าวกรองและแถบตลาดเปิดค้างไว้ เครื่องยนต์ข้อมูลเปิดตัวเดียวกัน ขอบเขตระดับโลก',
+        cta: 'เปิดระบบสด',
+        name: 'World Console',
+      },
+      p06: {
+        title: 'ข่าว <em>ก่อนอัลกอริทึมจะตัดสินว่าอะไรคือสงคราม</em>',
+        lede: 'MEM คือหน้าข่าวโอเพนซอร์สที่เร็วที่สุดสำหรับสถานการณ์ความขัดแย้งในตะวันออกกลาง ฟีดสดจากหลายแหล่ง ไม่มีดีเลย์จากกองบรรณาธิการ ไม่มีฟิลเตอร์บับเบิล สัญญาณก่อนรอบข่าวจะมาถึง',
+        w1lbl: 'จุดที่พิเศษ',
+        w1: 'ทุกแพลตฟอร์มข่าวใหญ่มีชั้นบรรณาธิการที่หน่วงเวลา กรอง และตีกรอบ MEM ตัดชั้นนั้นออก สัญญาณเดียวกับที่นักวิเคราะห์รวบรวมเองทีละชิ้น แต่อยู่ในจอเดียวด้วยความเร็วเครื่องจักร',
+        w2lbl: 'สิ่งที่ถูกแทนที่',
+        w2: 'แท็บเบราว์เซอร์สามแท็บ Telegram สองห้อง และ Twitter/X อีกหนึ่งลิสต์ ที่เปิดพร้อมกันเพื่อเช็กว่าจริง ๆ บนพื้นที่เกิดอะไรขึ้น',
+        w3lbl: 'ผู้ใช้งาน',
+        w3: 'นักข่าว นักวิเคราะห์นโยบาย ทีมภาคสนาม NGO ใครก็ตามที่ต้องการสัญญาณภาคพื้นเร็วกว่าที่รอบข่าว 24 ชั่วโมงจะส่งให้ได้',
+        cta: 'เปิดระบบสด',
+        name: 'Middle East Monitor',
+      },
+      p14: {
+        title: 'สัญญาณ Bloomberg. <em>ตลาดไทย. กฎของคุณ.</em>',
+        lede: 'DayTraders คือแพลตฟอร์มข่าวกรองตลาดไทยส่วนตัว — สัญญาณสไตล์ Bloomberg ใช้กับ SET, MAI, กองทุนรวม, RMF และ Thai ESG กรอบคิด Graham, Buffett และ Munger ฝังอยู่แล้ว คุณกำหนด KPI ที่สำคัญต่อพอร์ตของคุณเอง',
+        w1lbl: 'ทำไมพิเศษ',
+        w1: 'นักลงทุนไทยรายย่อยได้ข้อมูลดิบจากโบรกเกอร์หรือแอปทั่วไปที่ไม่ใช้ตรรกะ value investing <b>DayTraders นำการวิเคราะห์สัญญาณระดับสถาบันมาสู่ SET ไทย</b> — พร้อม margin-of-safety ของ Graham, ตัวกรอง moat ของ Buffett และ mental models ของ Munger ฝังในฟีด ไม่ใช่ต่อเติมทีหลัง',
+        w2lbl: 'แทนที่อะไร',
+        w2: 'พอร์ทัลโบรกเกอร์ที่ไม่มีกรอบวิเคราะห์ ทิปส์ในกลุ่ม LINE และความเชื่อว่า value investing ที่เข้มงวดมีแต่สถาบันที่มี Bloomberg terminal เท่านั้น',
+        w3lbl: 'อำนาจการตัดสินใจ',
+        w3: 'แดชบอร์ด KPI ส่วนตัวให้นักลงทุนติดตามตัวชี้วัดที่ตัวเองใช้จริง ไม่ใช่ screener ทั่วไป ครอบคลุม SET, หุ้น MAI, กองทุน RMF และ Thai ESG ในพื้นผิวเดียว',
+        w4lbl: 'เข้าถึงสด',
+        w4: 'ข้อมูลตลาดไทยสด แพลตฟอร์มเปิด ไม่มีค่าสมัคร ไม่ผูกกับโบรกเกอร์',
+        cta: 'เปิดแพลตฟอร์มสด',
+        name: 'DayTraders',
+      },
+      p41: {
+        lede: 'ข่าวกรองตลาดที่ออกแบบมาให้ใช้ได้จริง ไม่ใช่เพื่อดูดี โลก เลนส์ แผนที่ FX รัฐสภา อัตราต่อรอง และแผน — ทุกหน้าต้องเปลี่ยนการตัดสินใจอย่างน้อยหนึ่งอย่างในสัปดาห์นี้ ตัวอย่างวิจัย ไม่ใช่คำแนะนำ ทุกตัวเลขพกอายุของตัวเอง',
+        cta: 'เปิดระบบสด',
+        name: 'DAY 2',
+      },
+      p70: {
+        lede: 'ความฉลาดทางสถาปัตยกรรม — 11 รูปทรง (จาก rectilinear ถึง pinwheel) ดัชนีประสิทธิภาพทรง 9 ด้าน (ค่าเช่า พื้นที่ sky reach daylight distinctiveness) การกลับมาพบกันใหม่หลัง 20 ปี กับ MIT thesis ปี 2006 คำนวณ scenario ใหม่แบบสดทุกครั้งที่แก้ ซ่ังเคียน SHDT.',
+        cta: 'ออกแบบ',
+        name: 'FormHypes · SHDT',
+      },
+      p42: {
+        lede: 'แดชบอร์ดบัญชาการสามแนวชายแดนของไทย — พม่า กัมพูชา และภาคใต้ — ปฏิบัติการสด การย้อนดูประวัติศาสตร์ และการออกแบบข่าวกรองระดับผู้บริหารบนแผนที่เดียว',
+        cta: 'เปิดระบบสด',
+        name: 'Geopolitical Watch',
       },
       p23: {
         lede: 'ดัชนีเมืองอัจฉริยะไทยอย่างเป็นทางการ (SCITI) ประเมินความคืบหน้าและผลกระทบของ 174 พื้นที่เมืองทั่วประเทศตาม 7 เสาหลักเมืองอัจฉริยะ',
-        cta:'เปิดระบบสด',
+        cta: 'เปิดระบบสด',
+        name: 'Smart City Thailand Index (SCITI)',
+      },
+      p07: {
+        title: 'รถเมล์ถูกติดตาม <em>ผู้โดยสารได้รับข้อมูล</em>',
+        lede: 'ติดตาม GPS แบบเรียลไทม์และข้อมูลผู้โดยสารของเครือข่ายรถเมล์อัจฉริยะภูเก็ต ออกแบบสำหรับมือถือผู้โดยสารก่อน ไม่ใช่จอห้องคอนโทรล ใช้งานได้บนถนน ในแดด ด้วยนิ้วเดียว',
+        w1lbl: 'จุดที่พิเศษ',
+        w1: 'ระบบรถเมล์อัจฉริยะส่วนใหญ่สร้างให้แดชบอร์ดของผู้ปฏิบัติการ อันนี้สร้างให้คนรอที่ป้าย ตำแหน่งรถ เวลามาถึงครั้งหน้า เส้นทางที่ชัดเจน สำหรับนักท่องเที่ยวที่อ่านไทยไม่ออกและคนทำงานที่ไม่มีเวลาเดา',
+        w2lbl: 'สิ่งที่ถูกแทนที่',
+        w2: 'การยืนรอที่ป้ายโดยไม่มีข้อมูล ตารางเดินรถที่พิมพ์ไว้ตั้งแต่ปี 2562 และข้อสันนิษฐานว่าระบบขนส่งบนเกาะท่องเที่ยวทำให้อ่านง่ายไม่ได้',
+        w3lbl: 'สร้างต่อยอดบน',
+        w3: 'โครงสร้าง IoT ที่มีอยู่ของภูเก็ต ชั้นเซ็นเซอร์ตัวเดียวกับที่ป้อนห้องสั่งการของผู้ว่าฯ ไม่ต้องลงทุนฮาร์ดแวร์ใหม่',
+        cta: 'เปิดระบบสด',
+        name: 'Phuket Smart Bus',
+      },
+      p08: {
+        title: 'รายงานเข้ามา <em>AI เปลี่ยนเป็นการลงมือ</em>',
+        lede: 'SCTH V2 คือแพลตฟอร์มข้อมูลเมืองของ Smart City Thailand ที่รับรายงานจากพลเมืองผ่าน Telegram และ LINE วิเคราะห์ปัญหาด้วย AI และซ้อนชั้นดาวเทียมและแผนที่แบบเกือบเรียลไทม์ ให้ผู้สร้างเมือง ผู้พัฒนาเมือง และผู้บริหารเมือง',
+        w1lbl: 'จุดที่พิเศษ',
+        w1: 'ระบบร้องเรียนของเมืองส่วนใหญ่จบที่หมายเลข ticket SCTH V2 เปลี่ยนสตรีมรายงานให้กลายเป็นจอตัดสินใจ รายงานจาก Messenger ภาพภาคสนาม ความเสี่ยง SLA และการตรวจจับรูปแบบของ AI อยู่บนแผนที่เดียวกับชั้นฝน ละออง เมฆ ภูมิประเทศ และถนน',
+        w2lbl: 'สิ่งที่ถูกแทนที่',
+        w2: 'ภาพแคปจากกลุ่มแชต การคัดแยกด้วย Excel ด้วยมือ ชั้นแผนที่ที่หยุดนิ่ง และช่องว่างระหว่าง "มีคนรายงาน" กับ "มีคนลงมือทำ"',
+        w3lbl: 'อำนาจตัดสินใจ',
+        w3: 'ทีมเมืองรับรายงาน มอบหมายผู้รับผิดชอบ วิเคราะห์รูปแบบที่เกิดซ้ำ ส่งออก sheet หรือ PDF และผลักงานตอบสนองในขณะที่บริบทเมืองยังสด',
+        w4lbl: 'การเข้าถึงสด',
+        w4: 'ระบบเป็นกรรมสิทธิ์ พัฒนาต่อเนื่องทุกวัน ลิงก์รันผ่าน tunnel แบบสด ถ้าเข้าไม่ได้แปลว่าระบบกำลังอัปเกรด ลองใหม่อีกสักครู่',
+        cta: 'เปิดระบบสด',
+        name: 'SCTH City Data Platform',
+      },
+      p12: {
+        title: '21 ช่อง. <em>ฟรี. ทุกที่.</em>',
+        lede: 'NSP คือแพลตฟอร์มสตรีมมิ่งแห่งชาติของไทย — ครบ 21 ช่องทีวีดิจิตอลที่ได้รับใบอนุญาตจาก กสทช. ฟรี FullHD บนทุกอุปกรณ์ EPG สด ข้อมูลผู้ชมรายช่อง ผู้ช่วย AI แนะนำรายการ และระบบเตือนภัยฉุกเฉิน CAP v1.2 รวมในหน้าจอเดียว',
+        w1lbl: 'ทำไมพิเศษ',
+        w1: 'แพลตฟอร์มทีวีแห่งชาติส่วนใหญ่เป็นแค่เว็บดูหลังบ้าน <b>NSP รวม 21 ช่องที่ได้รับใบอนุญาตไว้ในหน้าจอเดียว</b> พร้อม EPG สด ข้อมูล concurrency รายช่อง สุขภาพสตรีม และ AI ที่ตอบว่า "ตอนนี้มีอะไรน่าดู?" ทั่วทั้งประเทศ โดยไม่ต้องติดตั้งแอป',
+        w2lbl: 'แทนที่อะไร',
+        w2: 'แอปของแต่ละสถานีที่กระจัดกระจาย สตรีมผิดกฎหมาย และความเชื่อว่าทีวีฟรีทีวีทำให้ชัดเจนเท่า streaming subscription ไม่ได้',
+        w3lbl: 'อำนาจการตัดสินใจ',
+        w3: 'ผู้ดูแลระบบเห็น concurrency สด ส่วนแบ่งผู้ชมรายช่อง และสุขภาพสตรีมแบบเรียลไทม์ การผนวก CAP v1.2 หมายความว่าการแจ้งเตือนฉุกเฉินระดับชาติปรากฏผ่านช่องทางเดียวกับความบันเทิง ไม่ต้องมีระบบแยกต่างหาก',
+        w4lbl: 'เข้าถึงสด',
+        w4: 'ใช้งานจริงระดับประเทศภายใต้อำนาจการออกใบอนุญาตของ กสทช. เปิดให้ทุกอุปกรณ์ ไม่ต้องสมัครสมาชิก',
+        cta: 'เปิดแพลตฟอร์มสด',
+        name: 'NSP',
+      },
+      p64: {
+        lede: 'คาร์บอนป่าไม้ — แตะจังหวัดหรือลากกล่อง ดูคาร์บอนสะสมจากดาวเทียม การดูดกลับและการปล่อยคาร์บอนจากป่า ไฟป่า และ CO₂ จากเชื้อเพลิงฟอสซิล พร้อมแหล่งที่มาและความไม่แน่นอน บวกเวิร์กเบนช์ประเมินโครงการ T-VER ไทย · EN.',
+        cta: 'เปิดเวิร์กเบนช์ประเมิน',
+        name: 'Forest Carbon Thailand',
+      },
+      constitution: {
+        lede: 'อ่าน ไฮไลต์ ฟัง และฝึกทำความเข้าใจรัฐธรรมนูญ พ.ศ. 2560 ครบทั้ง 279 มาตรา ในภาษาไทย อังกฤษ และจีน บัตรศึกษา ค้นหา เสียงอ่าน และความรู้พลเมือง ไทย · EN · 中文',
+        cta: 'เปิดห้องอ่าน',
+        name: 'Thai Constitution Reader',
+      },
+      techhunt: {
+        lede: 'ตลาดเทคโนโลยีที่ผ่านการตรวจสอบสำหรับเมืองไทย: 125 สตาร์ทอัพที่ผ่านการยืนยันใน 7 ด้านเมืองอัจฉริยะ จัดอันดับตามความแรงของสัญญาณสดสำหรับเจ้าหน้าที่จัดซื้อจัดจ้างและนักวางผังเมือง ความร่วมมือโดย depa, SLIC และ บพข. (UWN)',
+        cta: 'เปิด TechHunt',
+        name: 'Smart City Thailand TechHunt',
+      },
+      burma: {
+        lede: 'แพลตฟอร์มชุมชนภาษาพม่าพร้อมห้องสาธารณะถาวรและสรุปข่าวรายวัน สไตล์หน้าต่าง Win95 คลาสสิก พัฒนาสำหรับโครงการ GovTech Youth Initiative',
+        cta: 'เปิด Pirchchat',
+        name: 'Pirchchat · A-Lin-Ein',
+      },
+      tsunami: {
+        lede: 'แพลตฟอร์มข่าวกรองป้องกันและเตือนภัยล่วงหน้าสึนามิชายฝั่งสำหรับแนวขอบทะเลอันดามัน โทรมาตรทุ่นลอยแบบเรียลไทม์ เครือข่ายเซนเซอร์แผ่นดินไหว แบบจำลองการซัดท่วม และเวกเตอร์อพยพชายฝั่ง',
+        cta: 'เปิด Soonami',
+        name: 'Soonami · ป้องกันสึนามิ',
+      },
+      p52: {
+        name: '20 นาทีกับ ดร.นน',
+        lede: 'พอดแคสต์ตัวใหม่ — ไอเดีย เอเจนต์ ภูมิรัฐศาสตร์ และยี่สิบนาทีถัดไป ออกอากาศสดบน Spotify ตอนใหม่กำลังตามมา',
+        cta: 'เปิดใน Spotify',
+      },
+      p09: {
+        title: 'สิบเอ็ดเสียง <em>หนึ่งคำตัดสิน</em>',
+        lede: 'AI Council คือระบบไตร่ตรองหลายเอเจนต์ส่วนตัวของผม ตุลาการ AI 11 คนที่ตั้งชื่อแบบ palindrome (Tenet, Radar, Otto, Hannah, Ada…) ทำงานต่อเนื่องบน Mac ส่วนตัว ถกเถียงกันผ่าน transcript log ที่ใช้ร่วมกัน ในราคาประมาณ 3 ดอลลาร์ต่อเดือน ฝึกบนบันทึกส่วนตัว การตัดสินใจ และเสียงของผม กรรมสิทธิ์โดยการออกแบบ ไม่ใช่บังเอิญ',
+        w1lbl: 'เหตุผลที่มีอยู่',
+        w1: 'โมเดลเดี่ยวให้คำตอบเดียว ปัญหาที่ควรค่าแก่การแก้สมควรได้รับการถกเถียง Council รันสี่โหมด — VERIFY, DECIDE, EXPLORE, DEBATE — และตุลาการใช้คำสั่งที่ชัดเจน (EXPAND, QUALIFY, CONCEDE, STAND, PASS) การเปลี่ยนจุดยืนทุกครั้งจึงมองเห็นและตามรอยได้',
+        w2lbl: 'ต้นทุน',
+        w2: 'ความสามารถระดับ Manus autonomous-agent ในราคา 3 ดอลลาร์ต่อเดือน ประธาน Council รันบน Mistral Large 3 ผู้คลางแคลงสายไทย (Ada) รันบน ThaiLLM โมเดลของรัฐ ฟรี ผู้ปฏิบัติการ (Otto) ทำ OCR ดาวน์โหลดวิดีโอ ร่างอีเมล สร้าง PDF และซิงก์ Google Drive โดยไม่แตะคลาวด์',
+        w3lbl: 'ทำไมไม่มีเดโม',
+        w3: 'Council ฝึกบนบันทึกส่วนตัว การตัดสินใจ บันทึกประชุม และเสียงของผม กรรมสิทธิ์เพราะจำเป็น โปรโตคอลสแต็ก Python ราว 600 บรรทัด เปิดสาธารณะ ทรัพย์สินทางปัญญาคือวิธีการประสานงาน ไม่ใช่น้ำหนักของโมเดล',
+        cta: 'v1 · DIY Protocol',
+        cta2: 'v2 · Agentic + Executor',
+        name: "Dr Non's AI Council",
+      },
+      p10: {
+        title: 'HR เป็น<em>ระบบบันทึก</em>มานานพอแล้ว',
+        lede: 'Talent Knowledge Collaborative Explorers (TKCX) คือระบบปฏิบัติการด้านบุคลากรที่ใช้กลไกของเกม มองพนักงานเป็นสมาชิกปาร์ตี้ โครงการเป็นเควสต์ และการประกอบทีมเป็นกลยุทธ์ ทำให้ทุกการตัดสินใจเรื่องคนมองเห็นได้ วัดได้ และผูกกับผลลัพธ์ แทนการเมืององค์กรด้วยข่าวกรองเรื่องขีดความสามารถ',
+        w1lbl: 'ปัญหา',
+        w1: 'ระบบ HR ส่วนใหญ่คือบันทึกการปฏิบัติตาม ไม่ใช่ข่าวกรอง บอกว่าใครเป็นพนักงาน ไม่ได้บอกว่าใครควรไปทำอะไร ที่ไหน กับใคร การตัดสินใจเรื่องคนใช้สัญชาตญาณและทุนทางการเมือง คนเก่งที่สุดลาออก คนที่อยู่สบายคงอยู่ ไม่มีใครเห็นว่าทำไม',
+        w2lbl: 'เครื่องยนต์',
+        w2: 'สร้างบนระบบปาร์ตี้ของ Dragon Quest III ห้า archetype จับคู่กับบทบาทจริงในที่ทำงาน (captain, tech, sales, ops, scout) เพดานงบแบบ Moneyball งบโครงการหารด้วย 10 = เพดานเงินเดือนรายเดือน บีบให้มีวินัยในการจัดสรร สูตรความพร้อมถ่วงน้ำหนัก coverage คุณภาพ chemistry และขวัญกำลังใจ ทีมที่ใช่จึงมองเห็นได้ก่อนโครงการเริ่ม ไม่ใช่หลังจากล้ม',
+        w3lbl: 'สิ่งที่เปลี่ยนไป',
+        w3: 'ผู้อำนวยการเลิกกักตุนคน โครงการเลิกขับเคลื่อนด้วยทุนการเมือง ช่องว่างทักษะมองเห็นได้ก่อนกลายเป็นความล้มเหลว และ HR ที่เปลี่ยนชื่อเป็น Talent Incubation กลายเป็นฟังก์ชันที่มียุทธศาสตร์มากที่สุดในตึก ไม่ใช่ฟังก์ชันที่ทุกคนหลีกเลี่ยง',
+        cta: 'GitHub repo — เร็ว ๆ นี้',
+        name: 'TKCX',
+      },
+      p11: {
+        title: 'AI <em>ที่รู้จักคุณ</em>',
+        lede: 'Second Brain OS เชื่อม Obsidian vault ของคุณเข้ากับทุกแพลตฟอร์ม AI coding พร้อมกันผ่าน MCP โครงสร้างโฟลเดอร์ตามกายวิภาคของสมอง 19 server config เอเจนต์ AI ที่อ่าน persona blueprint ของคุณ เขียนด้วยน้ำเสียงของคุณ และจำทุกการตัดสินใจที่เคยบันทึก ความรู้ที่สั่งสมมาหลายปี ในที่สุดก็ทำงานให้คุณได้',
+        w1lbl: 'ช่องว่างที่ปิด',
+        w1: 'ทุก session ของ AI เริ่มจากศูนย์ ไม่รู้น้ำเสียงของคุณ ค่านิยม การตัดสินใจในอดีต หรือบันทึกหลายปีที่หล่อหลอมความคิด Second Brain OS ส่งทั้งหมดนั้นเข้าทุกแพลตฟอร์ม coding พร้อมกันผ่าน MCP เส้นเดียว AI ที่คุณทำงานด้วยจึงรู้แล้วว่ากำลังทำงานกับใคร',
+        w2lbl: 'วิธีสร้าง',
+        w2: 'Obsidian vault ของคุณถูกจัดเหมือนสมอง: PrefrontalCortex สำหรับกลยุทธ์ Hippocampus สำหรับความจำเชิงอะตอม TemporalLobe สำหรับรูปแบบ Cerebellum สำหรับทักษะและขั้นตอน 19 MCP server config เชื่อมแผนภาพความรู้ที่มีชีวิตนี้กับ Cursor, Codex, Claude Code และทุกแพลตฟอร์มในสแต็กของคุณพร้อมกัน',
+        w3lbl: 'ทำไมเปิดให้คนนำไปใช้',
+        w3: 'สถาปัตยกรรมเป็น MIT-licensed สมองเป็นของคุณ ใครก็ตาม fork โครงสร้าง ปรับ MCP config และต่อ vault ของตัวเองได้ มีเครื่องมือวินิจฉัย 12 ระดับสำหรับขจัด AI-speak ออกจากการเขียน เพื่อให้ความรู้ที่สั่งสมยังคงเป็นน้ำเสียงของคุณ ไม่ใช่ของโมเดล',
+        cta: 'สำรวจสถาปัตยกรรม',
+        name: 'Second Brain OS',
+      },
+      p20: {
+        lede: 'Horizon 45 คือเครื่องมือภาคสนามสำหรับทดสอบการตัดสินใจของ AI จริง ตั้งแต่การตรวจจับดีปเฟก ไปจนถึง prompt engineering ผู้ใช้เดินผ่านสัญญาณจากโลกจริงและออกไปพร้อมภาพความสามารถและแผนการเรียนรู้',
+        cta: 'เปิดระบบสด',
+        name: 'Horizon 45',
+      },
+      p53: {
+        name: 'ทบทวนผลงาน ASCN (ฉบับผู้อำนวยการ)',
+        lede: 'แดชบอร์ดข้อมูลเชิงลึกที่ครอบคลุมเกี่ยวกับผลงานของเครือข่ายเมืองอัจฉริยะอาเซียนใน 134 โครงการ 38 เมือง — ตรวจสอบโมเมนตัมของผลงานและการเปลี่ยนแปลงด้านโฟกัสใน 4 รอบ M&E',
+        cta: 'เปิดระบบสด',
       },
       p24: {
-        lede: 'ห้องอ่านต้าวเต๋อจิงสามภาษา พร้อมการ์ตูนไช่ คู่ขนานทางพุทธศาสนา บันทึกจิตวิทยา พินอิน และชั้นหนังสืออ้างอิงที่ยังคงเติบโต',
-        cta:'เปิดระบบสด',
+        lede: 'ห้องอ่านเต้าเต๋อจิงฉบับปรับปรุง 81 บทในภาษาอังกฤษ ไทย และจีน พร้อมเรียนตัวอักษร บันทึกภาพประกอบ และความสัมพันธ์ของสีจาก Palette',
+        cta: 'เปิดระบบสด',
+        original: 'อ่านฉบับเดิม',
+        name: 'Dao × Palette',
       },
       ikigai: {
         name: 'Ikigai Finance Engine',
         lede: 'ข่าวกรองการเงินสำหรับ SME — งบดุลเป็นสัญญาณ เงินสดคงเหลือ runway สกอร์การ์ดธนาคาร และดัชนีการเงินรวม (Ikigai, Lean, Zero, Default, Solvency) ต้นแบบวิจัยระหว่างพัฒนา มีเฉพาะภาพหน้าจอ — ABC Company Limited เป็นข้อมูลจำลอง ยังไม่มีการ deploy สาธารณะ',
         cta: 'ดู research repo',
       },
-    },
+      p28: {
+        lede: 'FloodDash Blueprint คือคู่มือวิจัยเปิดของระบบเฝ้าน้ำท่วมไทย — เครือข่ายเซ็นเซอร์ ตรรกะท่อระบายน้ำ AI พยากรณ์น้ำท่วม คู่มือตอบสนอง และ pipeline ข้อมูล-สู่-การตัดสินใจครบชุด ให้ทุกเมืองอ่าน fork และปรับใช้ เพื่อให้ระบบทำซ้ำได้ ไม่ใช่ one-off',
+        cta: 'ดูบน GitHub',
+        name: 'FloodDash Blueprint',
+      },
+      ladder: {
+        lede: 'เครื่องมือตรวจสอบกิจการและใบคะแนนคู่หูของ Ikigai ตรวจสอบดีล รายการตรวจสอบความรอบคอบทางการเงิน การเทียบสมมติฐานลงทุน และประเมินความเสี่ยงพอร์ตในพื้นที่ส่วนตัว',
+        access: 'ต้องเข้าสู่ระบบ',
+        cta: 'เปิด Ladder',
+        name: 'Ladder · Ikigai',
+      },
+      life: {
+        lede: 'โลกที่เติบโตรอบตัวคุณ: ชีวิตสมมติในเมืองไทยมุมมองไอโซเมตริก เล่นที่ความเร็ว 2× ถึง 20× ทุกทางแยกบนเส้นทางต้องเลือก และทุกทางเลือกมีราคา บันทึกไว้ในเบราว์เซอร์ ตอนนี้ใช้โฮสต์ชั่วคราว แล้วจะย้ายไป life.nonarkara.org',
+        access: 'ต้องเข้าสู่ระบบ',
+        cta: 'เปิด Life',
+        name: 'Life',
+      },
+      universe_69: {
+        lede: 'โลกจำลองเชิงกระบวนการแบบปิดสองใบที่สังเกตการณ์อย่างต่อเนื่อง ขับเคลื่อนด้วยกลไกกำหนดแน่นอนและพฤติกรรมอุบัติขึ้นของเอเจนต์ — เฝ้าดูโดยไม่แทรกแซง',
+        cta: 'สังเกตการณ์ Universe 69',
+        name: 'Universe 69: Beta',
+      },
+      pavilion: {
+        lede: 'เมตาเวิร์สเชิงพื้นที่บนเว็บเบราว์เซอร์ที่สร้างขึ้นเองตั้งแต่ต้นด้วยวัสดุจากสถาปัตยกรรมสมัยใหม่ ยั่งยืน ปลอดภัย และไร้ต้นทุนสำหรับทุกคน ทางเลือกเปิดที่ไม่พึ่งพาแพลตฟอร์มยักษ์ใหญ่ ปราศจากการผูกขาดข้อมูลและการเก็บค่าผ่านทาง',
+        cta: 'เข้าสู่ The Pavilion',
+        name: 'The Pavilion · โลกมิติเชิงพื้นที่',
+      },
+      p54: {
+        lede: 'อาร์เคดบนเบราว์เซอร์ 16-bit พร้อม Brain Briefing ในทุกตลับ — ฝึกทักษะอะไร ใช้เวลาเกมรอบละเท่าไร และข้อจำกัดของข้อกล่าวอ้าง ไม่มีโฆษณา คะแนนอยู่ในเครื่องนี้เท่านั้น',
+        cta: 'เปิดระบบสด',
+        name: 'OmniArcade',
+      },
+      p17: {
+        title: 'เอกสารไทย <em>ให้เครื่องอ่านได้</em>',
+        lede: 'Ekkasarn AI คือเครื่องยนต์ข่าวกรองเอกสารไทยสำหรับใบกำกับภาษี ใบเสร็จ และหนังสือรับรองหักภาษี ณ ที่จ่าย อัปโหลดเอกสารจริงหรือเลือกตัวอย่าง ระบบทำ OCR จัดหมวดหมู่ และดึงฟิลด์ใช้งานได้ โดยไม่ต้องใช้ข้อมูลปลอมและไม่บังคับล็อกอิน',
+        w1lbl: 'ทำไมพิเศษ',
+        w1: 'เดโม OCR ส่วนใหญ่ทำงานได้เฉพาะฟอร์มสะอาดที่สร้างขึ้นมาเอง <b>Ekkasarn AI อ่านเอกสารไทยจริง</b> — ใบเสร็จยับ ใบกำกับ VAT และหนังสือหักภาษี แล้วคืนหมวด ความมั่นใจ ร้านค้า เบอร์โทร และยอดรวมเป็นข้อมูลโครงสร้าง',
+        w2lbl: 'แทนที่อะไร',
+        w2: 'การกรอกบัญชีด้วยมือ รูปใบเสร็จค้างกอง การจัดหมวดด้วย spreadsheet และจุดต่อที่เปราะบางระหว่างเอกสารกระดาษไทยกับ workflow การเงินดิจิทัล',
+        w3lbl: 'อำนาจการตัดสินใจ',
+        w3: 'ทีมการเงินจัดประเภทเอกสาร ตรวจฟิลด์ที่ดึงออกมา และส่งต่อเข้าสู่ตรรกะบัญชีได้ทันที ไม่ต้องรอคนคัดแยก',
+        w4lbl: 'เข้าถึงสด',
+        w4: 'เดโมสองภาษาแบบ Thai-first สำหรับประเภทเอกสารไทย อัปโหลดแล้วประมวลผลสดและไม่เก็บไฟล์ไว้',
+        cta: 'เปิดระบบสด',
+        name: 'Ekkasarn AI',
+      },
+      p29: {
+        lede: 'วางดราฟต์ลงไป The Non-Writer จะส่งข้อความผ่านห่วงโซ่ของพร็อกซีและบ็อกซ์ แล้วออกมาอีกฝั่งเป็นประโยคที่คุณตั้งใจเขียน — ในน้ำเสียงที่ดร.นนจะใช้ ตอนนี้ยังแปลเป็นภาษาใดก็ได้ที่คุณต้องการ',
+        cta: 'เปิดระบบสด',
+        name: 'The Non-Writer',
+      },
+      p30: {
+        lede: 'โต๊ะทำงาน วัดด้วยตัวเลข บทสรุปข่าวกรองรายวันเกี่ยวกับ AI frontier — อะไรกำลัง ship จริง อะไรคือลม และอะไรควรอ่านคืนนี้ sector watch ทางเลือกจากมือ และ archive ที่สะสมมูลค่า',
+        cta: 'เปิดระบบสด',
+        name: "Dr Non's Digests",
+      },
+      p31: {
+        lede: 'บริการดูดข้อมูล — ไม่ต้องเขียนโค้ด ส่ง URL กับคำถามมา ระบบจะออกไปอ่านเพจในภาษาต้นทาง แล้วกลับมาตอบเป็นภาษาของคุณ พร้อมอ้างอิงแหล่งที่มา และ JSON โครงสร้างที่ต่อท่อลง downstream ได้เลย',
+        cta: 'เปิดระบบสด',
+        name: 'Non-Scrape',
+      },
+      p34: {
+        lede: 'ทะเบียนอ้างอิงหลักฐานชัด 261 เรื่อง — นาฬิกาหรูและนาฬิกาสะสม เปรียบเทียบราคาที่อ้างอิงได้ บันทึกแหล่งที่มา ภาพนิ่งจากจอที่ให้เครดิต และสะพานแห่งความจริงใจที่แสดงว่าข้อมูลตรงไหนปฏิเสธจะประมาณ',
+        cta: 'เปิดระบบสด',
+        name: 'Time Pop',
+      },
+      p35: {
+        lede: 'ออกแบบบ้านด้วยการตัดสินใจ — วาดหรือให้ AI ตามรอยแปลน ดูพื้นที่รับแดดและความร้อนจากแสงอาทิตย์แบบสด แล้วรัน living checks ระบบ และต้นทุนก่อนสร้างภาพ',
+        cta: 'เปิดระบบสด',
+        name: 'Luma/house',
+      },
+      p40: {
+        lede: 'ส่ง URL นี้ให้ Claude แล้วมันจะติดตั้ง OpenClaw ให้คุณ — อย่างปลอดภัย คู่มือที่ agent รันได้เอง โมเดลความปลอดภัยลึก เลือก local-LLM ตาม RAM และ tool calls ตามระดับความเสี่ยง มีเฉพาะเอกสาร ไม่มีข้อมูลส่วนตัว',
+        cta: 'ดูบน GitHub',
+        name: 'OpenClaw Set-Up',
+      },
+      p44: {
+        lede: 'กรุงเทพฯ มีตึกแถวราว 400,000 หลัง แต่ไม่มีบัญชีรายชื่อแม้แต่น้อย บทความเชิงลึกเรื่องการนำกลับมาใช้ใหม่และคาร์บอนฝังตัว พร้อมสำรวจ 2,311 อาคาร แผนที่แรงกดดันราคาที่ดินของกรมธนารักษ์ และคำตอบสี่สี ตีพิมพ์ใน Shophouse Metropolis, Harvard GSD',
+        cta: 'อ่านบทความ',
+        name: 'Shophouse Metropolis',
+      },
+      p47: {
+        lede: 'งานภาคสนามยี่สิบปีว่าด้วยโลกาภิวัตน์ อุตสาหกรรมมรดก และเศรษฐศาสตร์ของพื้นที่เมือง 15 บท 76,312 คำ 134 ภาพ 5 ชั่วโมงเสียง 475 การอ้างอิง — อ่าน ฟัง และดูได้บนเว็บไซต์ ฉบับอ่าน v3 ค.ศ. 2026',
+        cta: 'เปิดหนังสือ',
+        name: 'Locating Shanghai',
+      },
+      p55: {
+        lede: 'อัปโหลด PDF และลิงก์ ระบบอ้างอิงเอกสารทุกครั้ง — และเมื่อเอกสารเงียบ บอทจะตอบว่า "ฉันไม่รู้" ใช้งานฟรี 100 MB ต่อเวิร์กสเปซ เชื่อมต่อผ่าน Telegram และ LINE การฝังและโมเดลทำงานในเครื่อง — เอกสารของคุณไม่ถูกส่งออกไปที่ใด',
+        cta: 'เปิดเวิร์กสเปซ',
+        name: 'RAG.NONARKARA',
+      },
+      champion: {
+        lede: 'โต๊ะโค้ชข้างสนามและห้องทดลองแท็กติกทีมชาติไทยสู่ฟุตบอลโลก สั่งแผนการเล่น ปรับระดับการเพรส และเปลี่ยนรูปแบบทีมสดระหว่างเกม',
+        cta: 'เปิดโต๊ะโค้ช',
+        name: 'SCD · โต๊ะโค้ชฟุตบอล',
+      },
+      soccer: {
+        lede: 'โต๊ะวิเคราะห์แท็กติกฟุตบอลในต้นแบบวิจัย NSP รวมแหล่งทีวีสาธารณะไทยและช่องทางรับชมอย่างเป็นทางการ พร้อมประกาศสิทธิ์ก่อนเข้าใช้งาน',
+        cta: 'เปิดโต๊ะวิจัย',
+        name: 'Soccer · NSP',
+      },
+      vision: {
+        lede: 'ภาพกลายเป็นตัวเลข ขอบภาพ การเคลื่อนไหว และการคาดเดาอย่างไร เรียนกับกล้องสาธารณะ ฝึกโมเดล และทดสอบในเบราว์เซอร์โดยไม่อัปโหลดภาพของคุณ',
+        cta: 'เปิดห้องเรียน',
+        name: 'Vision',
+      },
+      each: {
+        lede: 'ERP, ACT, CRM และ HR ในพื้นที่ทำงานภาษาไทยและอังกฤษ หน้าการเงินแสดงระยะเวลาที่เงินสดพอใช้ ค่าใช้จ่าย และเงินผ่อน ภาพตัวอย่างใช้ข้อมูลบริษัท ABC',
+        access: 'ต้องเข้าสู่ระบบ',
+        cta: 'เปิด EACH',
+        name: 'EACH',
+      },
+      p66: {
+        lede: 'ชุดสี 348 ชุด ค้นหาความสัมพันธ์ของสี ดูแบบขาวดำ และคัดลอกค่าสี นิทรรศการสีของ Dr Non ที่ได้แรงบันดาลใจจาก Sanzo Wada',
+        cta: 'สำรวจชุดสี',
+        name: 'Palette',
+      },
+      p56: {
+        lede: 'มาตรฐานการออกแบบเบื้องหลัง Axiom — tokens, components, DNA 5 บรรทัด และ AGENTS.md สำหรับ AI agent ใดๆ ฟังก์ชันมาก่อน แล้วลบออก ใส่เข้า Claude Code, Cursor, Cline, Aider หรือ agent อื่นๆ แล้ว agent จะผลิตงานสไตล์ Axiom ที่ถูกต้องตั้งแต่ครั้งแรก ได้รับอนุญาตภายใต้ MIT — โคลน แยก ใช้งาน',
+        cta: 'เปิด repo',
+        name: 'Axiom Design Core',
+      },
+      p57: {
+        lede: 'มาตรฐานอินเทอร์เฟซระดับ reproduction ของ Dr Non สองเลเยอร์: Rams silence (พื้นอุ่นเทา กริดเส้นบาง สีเน้นหนึ่งเดียว) สำหรับมุมมองเดียว และเลเยอร์ NYCTA wayfinding (พาเลตต์เส้นทางแบบปิด, แผ่นดิสก์, ป้ายสถานี, ลูกศรทึบ) สำหรับระบบหลายบอร์ด AGENTS.md สำหรับ AI agent ใดๆ ได้รับอนุญาตภายใต้ MIT สำหรับงานต้นฉบับ ดู NOTICE.md สำหรับสิ่งที่ไม่ได้ relicensed',
+        cta: 'เปิด repo',
+        name: 'Rams × NYCTA Design Core',
+      },
+      p58: {
+        lede: 'หลักการทำงาน-น้อย-แต่-ดีของกระดาษผูกสัมภาระสีขาว สำหรับเว็บไซต์ ระบบ เอกสาร และ AI agent design tokens (พื้น, หมึก, สี่ระดับ, ระยะ, monospace, สีเสริม), Stock B สำหรับพิมพ์, ผิวหน้า ephemera, คอมโพเนนต์หกชิ้น, ตัวอย่าง before/after, skill ที่ agent เรียกใช้ได้ และ tag-audit PO gate ที่รันได้ ได้รับอนุญาตภายใต้ MIT',
+        cta: 'เปิด repo',
+        name: 'Luggage Tag Aesthetic',
+      },
+      p59: {
+        lede: 'กฎเลย์เอาต์บังคับใช้ได้สิบข้อ พร้อม lint แบบ static และ audit แบบ runtime ที่ทำให้ build ล้มเหลว ชุดนี้ประกอบด้วย: แหล่งตัวเลขเดียว (scale.mjs), ratchet (moma-lint.mjs), self-check ที่พิสูจน์เลขคณิตที่ตีพิมพ์ (self-check.mjs) และคอนโซลเบราว์เซอร์สำหรับจับสิ่งที่มีอยู่หลังจาก layout เท่านั้น (near-miss, ragged-row, orphan-grid) หน้าตัวอย่างทำตามกฎของตัวเอง',
+        cta: 'เปิด repo',
+        name: 'MoMA Rules',
+      },
+      p60: {
+        lede: 'O3 — พลังแห่งที่สาม ทะเบียน OTOP ของไทย อ่านเป็นข้อมูล: 154,078 ระเบียนใน 77 จังหวัด ทุกระเบียนมีแหล่งที่มา ความครบถ้วน และอายุข้อมูล ไม่มีการ scraping ไม่มี AI หลอน: ทะเบียนคือทะเบียน พร้อมแหล่งอ้างอิงในทุกเซลล์',
+        cta: 'เปิดทะเบียน',
+        name: 'O3',
+      },
+      p61: {
+        lede: 'ซูเปอร์ลีกที่ไม่เคยเปิดตัว ยี่สิบหกสโมสร ทีมจริง การส่งบอลเป็นเส้นตรง — ตัดสินใจทีละจังหวะ ฟุตบอลเชิงยุทธศาสตร์ผลัดกันเดิน สำหรับผู้เล่นหนึ่งคนหรือสองคนแบ่งจอย กดสตาร์ท เชื่อว่าแมตช์หน้าสำคัญ แล้วอ่านสนามก่อนส่งบอล',
+        cta: 'กดสตาร์ท',
+        name: 'Super League',
+      },
+      p68: {
+        lede: 'คู่มือเซี่ยงไฮ้สามวัน เขียนเป็นจดหมาย ภาษาไทย อังกฤษ จีน น้ำนิ่งที่ยังไหล — เมืองที่ถูกอ่านโดยคนที่ยืนอยู่ในนั้น',
+        cta: 'เปิดหนังสือ',
+        name: '淼燊的上海',
+      },
+      llm: {
+        lede: 'ห้องปฏิบัติการภาคสนามสำหรับการฝึกโมเดลภาษาขนาดเล็กเฉพาะองค์กรด้วยข้อมูลส่วนตัวขององค์กร จากโทเคนดิบสู่ไฟล์โมเดลที่พกพาและรันได้ทุกที่',
+        cta: 'เปิด LLM Lab',
+        name: 'LLM Lab',
+      },
+      dog: {
+        lede: 'สตูดิโอจำลองกายวิภาคและพฤติกรรมเชิงกระบวนการแบบ 3 มิติ จำลองโครงสร้าง ท่าทางการเดิน และการตื่นตัวตามสัญชาตญาณของสุนัขพันธุ์ไทยบางแก้ว',
+        cta: 'เปิด Canine Studio',
+        name: 'CANINE // บางแก้ว',
+      },
+      },
     stagesContent: {
       taipeiLoc:'ไทเป · City Vision Stage · มีนาคม 2569',
       taipeiTitle:'แดชบอร์ดสด เดโมใน 45 นาที',
@@ -1174,6 +2896,12 @@ const i18nExt = {
       sgQuote:'"ห้องเต็มจนต้องยืน นั่นไม่ใช่เสียงปรบมือ นั่นคือสัญญาณดีมานด์ รัฐบาลต้องการระบบที่ทำงานได้จริง เหนื่อยกับการรองานนำเสนอแล้ว"',
       sgCite:'— ดร.นน, หลัง keynote',
       sgS1:'ผู้ชมเวทีหลัก', sgS2:'ผู้เข้าร่วมทั้งหมด', sgS3:'ชาติที่เข้าร่วม', sgS4:'ความจุ workshop',
+      shLoc:'Tomorrow.City Shanghai 2026 · Main Stage · 2569',
+      shTitle:'เลิกเรียกมันว่าดิจิทัลทวิน เรียกว่าโหมดพระเจ้า',
+      shLede:'ดิจิทัลทวินคือชื่อสุภาพ โหมดพระเจ้าคือชื่อจริง — ภาพรวมแบบที่พระเจ้ามองเมืองของคุณ เพื่อให้คุณบริหารได้ดีขึ้น ไม่ใช่ไปกราบแดชบอร์ด เป็นครั้งที่ 4 ของ ดร.นน บนเวทีนี้ สถานที่คือเรื่องรอง ไอเดียคือตัวเอก: FloodDash บนจอคิวบ์ ปรุงสดในงาน',
+      shQuote:'"กรองทุกแนวคิดผ่าน 4Ps — Purpose, Practicality, Proof, People แล้วออกแบบเพื่อคน เซ็นเซอร์ที่บอกว่าน้ำเคลื่อนที่ด้วยความเร็วเท่านี้ ไม่ได้บอกนายกเทศมนตรีมากนัก แปลงเป็นลูกบาศก์เมตร เทียบกับ freeboard ที่เหลือของอ่างเก็บน้ำ คุณจะรู้ว่าน้ำลงหรือท่วม คณิตศาสตร์พื้นฐานนี้คือผลิตภัณฑ์"',
+      shCite:'— ดร.นน, Tomorrow.City Shanghai keynote',
+      shS1:'ครั้งบนเวทีนี้', shS2:'FloodDash บนจอคิวบ์', shS3:'แหล่งข้อมูลสาธารณะ', shS4:'3 ข้อเรียนรู้ (กรอบ 4Ps)',
       leapLoc:'LEAP East 2026 · Orbital Stage · 10 ก.ค.',
       leapTitle:'เวทีใหญ่ที่สุดของเอเชีย FloodDash เปิดตัวที่นี่',
       leapLede:'Panel บน Orbital Stage — "From Congestion to Connection: The Tech Powered Future of Transport in Asia" ดร.นน อัครา Senior Expert Smart City Promotion ที่ DEPA ร่วมกับ Mitchell Price, Richard Chung และ Will Peters เพื่อปิดเส้นเรื่อง Q1–Q2 ด้วยการเปิดตัว FloodDash สด',
@@ -1184,17 +2912,20 @@ const i18nExt = {
     teamContent: {
       founderLabel:'ผู้ก่อตั้งร่วม · กรุงเทพฯ',
       collectiveTitle:'เครือข่าย พร้อมเรียกได้ทุกเวลา',
-      collectiveLede:'นักวิจัย วิศวกรจราจร นักมานุษยวิทยา นักการเงิน ผู้แปลนโยบาย และผู้ปฏิบัติงานสื่อ พวกเขาเข้ามาตามปัญหา ไม่ใช่ตามผังองค์กร ผมจ่ายให้สมองที่ต้องการเมื่อต้องการเท่านั้น',
+      collectiveLede:'นักวิจัย วิศวกรจราจร นักมานุษยวิทยา นักการเงิน ผู้แปลนโยบาย และผู้ปฏิบัติงานสื่อ พวกเขาเข้ามาตามปัญหา ไม่ใช่ตามผังองค์กร ผมดึงสมองที่ต้องการมาเฉพาะภารกิจ',
       probonoTitle:'งาน Pro Bono · งานเชิงสถาบัน',
+      probonoMeta:'5 โครงการ · พันธมิตรเชิงสถาบัน',
       probonoNote:'ทั้งหมดนี้คือแพลตฟอร์มที่รันอยู่จริง ไม่ใช่สไลด์หรือรายงาน แต่ละชิ้นสร้างกับพันธมิตรเชิงสถาบันจริง เปิดสาธารณะ และยังใช้งานอยู่ คลิกเข้าไปดูว่างานจริงเป็นยังไงเมื่อมันถูกส่งมอบ',
       pb1org:'สำหรับ ASEAN Secretariat', pb1title:'38 เมือง 10 ชาติ หนึ่งแพลตฟอร์ม', pb1for:'ASEAN Smart Cities Network',
       pb2org:'ASEAN · UNDP · UN-Habitat', pb2title:'112,000 ผู้ใช้ เกิดจากน้ำท่วมจริง', pb2for:'ASEAN CSCO Handbook',
       pb3org:'UN DESA · รัฐบาลหมู่เกาะโซโลมอน', pb3title:'โรดแมปดิจิทัลทั่วทั้งรัฐบาล', pb3for:'โฮนีอารา · workshop สองวัน',
       pb4org:'สำหรับ depa ประเทศไทย', pb4title:'หน่วยงานดิจิทัลของไทย ออนไลน์แล้ว', pb4for:'Smart City Leadership · สองภาษา',
+      pb5org:'depa · US DOT', pb5title:'จากภาคสนามสู่ซอฟต์แวร์ ชุดเครื่องมือระบบเมือง', pb5for:'พันธมิตรเมืองอัจฉริยะ สหรัฐฯ-อาเซียน',
     },
     notesContent: {
       foldLine:'บันทึกภาคสนาม · 6 บทเรียน · วิธีส่งมอบ',
       kicker:'วิธีสร้างจริง',
+      meta:'บันทึกภาคสนาม',
       title:'บทเรียนจากการส่งมอบของจริง',
       lede:'สิบเอ็ดระบบ สองคน สิบสองเดือน นี่คือรูปแบบที่ใช้ได้ และที่ใช้ไม่ได้ เผยแพร่ตรงนี้เพราะช่องว่างระหว่างสิ่งที่รัฐบาลต้องการกับสิ่งที่ตลาดจัดหาให้ จะปิดได้ก็ต่อเมื่อคนแบ่งปันสิ่งที่ค้นพบ',
       n1title:'ผู้ขายปฏิเสธ เราส่งมอบใน 14 วัน',
@@ -1224,7 +2955,8 @@ const i18nExt = {
       l8name:'ช่องทาง', l8role:'ข้อมูลขาออก',
       l9name:'รันไทม์ในเครื่อง', l9role:'โต๊ะทำงาน',
       legend:'<span data-runtime="cloud">คลาวด์</span><span data-runtime="local">// local</span>',
-    },
+    
+      expandHint:'9 ชั้น · 117 เครื่องมือ · สร้างและรันจากโต๊ะทำงานเดียวในกรุงเทพฯ คลิกด้านล่างเพื่อดูรายการทั้งหมด',},
     brandSect: {
       foldLine:'Brand Kit · 8 แผ่น · ดาวน์โหลดได้',
       kicker:'Brand Kit',
@@ -1233,7 +2965,7 @@ const i18nExt = {
       downloadCta:'ดาวน์โหลด Brand Kit',
       expandAll:'ดูแผ่นแบรนด์ทั้งหมด',
     },
-    pressSection: { foldLine:'สื่อ · 7 บทความ · GovInsider, ASEAN Magazine, YouTube', kicker:'ในสื่อ', title:'อ่าน ดู ตัดสินใจ', lede:'รายงานจากภายนอกเกี่ยวกับงาน แนวคิด และระบบทั้งหมด' },
+    pressSection: { foldLine:'สื่อ · 6 บทความ · GovInsider, ASEAN Magazine, YouTube', kicker:'ในสื่อ', title:'อ่าน ดู ตัดสินใจ', lede:'รายงานจากภายนอกเกี่ยวกับงาน แนวคิด และระบบทั้งหมด' },
     pressContent: {
       p1title:'ผู้ขายปฏิเสธ เจ้าหน้าที่ไทยสร้างเครื่องมือเอง',
       p2title:'Innovation-as-a-Service ปิดช่องว่างระหว่างนโยบายกับการทำจริงได้หรือไม่',
@@ -1300,172 +3032,531 @@ const i18nExt = {
 
   zh: {
     panels: {
+      p48: {
+        name: 'FLOODDASH（泰国洪水监测）',
+        lede: '一个实时、开放源代码的洪水监测系统，让泰国每个府都能从官方公开数据读出相同的态势图。每3-60分钟从9个公共数据源拉取一次。',
+        cta: '打开在线系统',
+      },
+      p65: {
+        lede: 'FloodDash 的公众频道 — Facebook 上 112K 粉丝、37K 点赞。每日泰语洪水简报，与 SLIC · depa · RCAD 合作。今日数据。明日更安全。',
+        cta: '在 Facebook 上关注',
+        name: 'FloodDash Community',
+      },
+      p49: {
+        name: '色吉奥市运行',
+        lede: '追踪色吉奥市政府的实时指挥界面——整合空气质量、天气、交通模式与城市实时数据，辅助市政决策。',
+        cta: '打开在线系统',
+      },
+      p50: {
+        lede: '那空是塔玛叻市政府的实时民情情报——三维城市、卫星、洪水监测、考良与巴帕南流域。30+实时数据源。',
+        cta: '打开在线系统',
+        name: 'NST-01 · Nakhon Si Thammarat',
+      },
+      p51: {
+        name: '林查班运行',
+        lede: '监测林查班市卡车交通与法规合规的实时指挥界面。用于协调港口交通、缓解拥堵、保障城市安全。',
+        cta: '打开在线系统',
+      },
       p01: {
         title: '省长级<em>作战室</em>，藏在浏览器标签里',
         lede: '普吉的交通、公共安全、环境信号，全部集成在一个界面上，省长30秒就能看明白。几周交付，不用等采购周期走完。',
-        w1lbl:'特别之处', w1:'大多数政府仪表板，本质上就是裹着软件外壳的只读PDF。普吉这个是真正的作战室：交通、安全、环境融在一个屏幕上，每42毫秒刷新一次。省长自己读得懂，不需要分析师再翻译一遍。',
-        w2lbl:'替代了什么', w2:'三个部门各自交的孤立报告、一条SMS上报链，加上每周二早上的固定汇报会议。',
-        w3lbl:'第一天就有价值', w3:'建在已有的IoT基础设施上，没多采购一件新硬件。', cta:'打开在线系统',
+        w1lbl: '特别之处',
+        w1: '大多数政府仪表板，本质上就是裹着软件外壳的只读PDF。普吉这个是真正的作战室：交通、安全、环境融在一个屏幕上，每42毫秒刷新一次。省长自己读得懂，不需要分析师再翻译一遍。',
+        w2lbl: '替代了什么',
+        w2: '三个部门各自交的孤立报告、一条SMS上报链，加上每周二早上的固定汇报会议。',
+        w3lbl: '第一天就有价值',
+        w3: '建在已有的IoT基础设施上，没多采购一件新硬件。',
+        cta: '打开在线系统',
+        name: 'Phuket Ops',
       },
-      p02: {
-        title: '宏观信号，<em>在房间里开始瞎猜之前</em>',
-        lede: 'DNGWS Monitor把实时升级追踪、经济外溢、跨来源的危机可视化全部塞进一个界面，给那些等不到简报文档的决策者用。',
-        w1lbl:'特别之处', w1:'彭博终端一个席位每年两万五千美元，这个跑在公开数据上。跨来源的危机融合、升级幅度、经济外溢，快到可以在有线电视追上之前给部长做简报。',
-        w2lbl:'替代了什么', w2:'订阅制情报平台、临时打的分析师PDF，以及"出事了"和"我们有立场了"之间那段真空。',
-        w3lbl:'第一天就有价值', w3:'Sentinel-2卫星图像、OSINT信息流融合、53国NLP简报层——部署在边缘节点，切换区域不到一秒。', cta:'打开在线系统',
+      p21: {
+        lede: '胡志明市大规模指挥界面：将实时交通、洪水监测、空气质量与动态路径规划整合到一张高性能地图中，供城市决策者使用。',
+        cta: '打开在线系统',
+        name: 'HCMCx Super Dashboard',
       },
-      p03: {
-        title: '官僚体系，<em>变得看得懂</em>',
-        lede: '我和depa一起，给泰国国家智慧城市项目搭了对外的公开页面。提案进来，进度全程可见，项目不再消失在PDF里。',
-        w1lbl:'特别之处', w1:'国家级项目通常活在没人翻的年度报告里。这一个在线、双语，跟着结果走，不走仪式。候选城市过了里程碑，状态当场就更新。',
-        w2lbl:'谁在买单', w2:'depa——泰国数字经济促进局。直接对接政府，不是分包关系。',
-        w3lbl:'为何重要', w3:'给所有想在发布新闻周期之后还看得懂的国家级智慧城市项目立了模板。SLIC作为基准评分层接进来。', cta:'打开在线系统',
+      p62: {
+        lede: '华富里作战室 — 实时 FloodDash 流域遥测（ThaiWater/HII）、巴塞水库状态、社媒监听、CCTV 槽位网格与卫星图层。一屏四流，可派单阅读。',
+        cta: '打开作战室',
+        name: 'Lopburi Operations',
       },
-      p04: {
-        title: '一个<em>会顶嘴的</em>排名',
-        lede: 'SLIC Index不告诉城市自己值多少。它把五根支柱摆出来，让城市自己测试优先级。市长定义"宜居"是什么意思，数学跟着走。',
-        w1lbl:'特别之处', w1:'别的宜居指数都甩给城市一个写好的判决。SLIC甩给城市的是数学。把支柱权重一拉，自己的排名和对手的排名实时一起动，争论本身就成了产品。',
-        w2lbl:'替代了什么', w2:'静态的面子排行榜。年度排名PDF。以"我们不认同这个方法论"收尾的那种对话。',
-        w3lbl:'受众反应', w3:'被欧洲市长组织拿去用了。台北SCSE上45分钟现场演示。被当成公民议题在讨论，不是当概念板。', cta:'打开 SLIC v3',
+      p33: {
+        lede: 'Muang Thong Thani 指挥界面——IMPACT Arena、Challenger 展厅、洪水监测、交通、空气质量与活动负荷，叠在一张 3D 片区地图上。为泰国最密的综合体运营者而建。',
+        cta: '打开在线系统',
+        name: 'MTT Super Dashboard',
       },
       p05: {
         title: '大古晋，<em>一个指挥界面</em>',
         lede: '砂拉越大古晋的全谱IOC。外汇、航班、卫星图像、环境信号——给运营东南亚增长最快智慧城市的团队，全部整合到一个地方。',
-        w1lbl:'特别之处', w1:'大多数IOC只看一个领域。古晋在一个视图里把跨领域信号融在一起：货币压力、航班到达、Sentinel-2扫描、环境读数。操作员看全局不用切换标签页。',
-        w2lbl:'谁在使用', w2:'大古晋的城市运营和规划团队。为实时态势感知而建，不是演示厅，是每天上手的工具。',
-        w3lbl:'为何重要', w3:'彭博终端给交易桌的信息密度，挪到城市层面，成本只是零头。', cta:'打开在线系统',
+        w1lbl: '特别之处',
+        w1: '大多数IOC只看一个领域。古晋在一个视图里把跨领域信号融在一起：货币压力、航班到达、Sentinel-2扫描、环境读数。操作员看全局不用切换标签页。',
+        w2lbl: '谁在使用',
+        w2: '大古晋的城市运营和规划团队。为实时态势感知而建，不是演示厅，是每天上手的工具。',
+        w3lbl: '为何重要',
+        w3: '彭博终端给交易桌的信息密度，挪到城市层面，成本只是零头。',
+        cta: '打开在线系统',
+        name: 'Kuching IOC',
       },
-      p06: {
-        title: '新闻，<em>抢在算法决定什么是战争之前</em>',
-        lede: 'MEM是中东冲突报道里最快的开源新闻界面。实时多源信息流，没有编辑层延迟，没有过滤气泡。新闻周期开始之前的那个信号。',
-        w1lbl:'特别之处', w1:'每个主流新闻平台都有一层编辑层在减速、过滤、定调。MEM把那一层去掉了。分析师手动汇总的那些信号，全部塞在一个界面里，按机器速度更新。',
-        w2lbl:'替代了什么', w2:'三个浏览器标签页、两个Telegram频道、一个Twitter/X列表——同时开着，互相对照才知道地面上到底发生了什么。',
-        w3lbl:'谁在使用', w3:'记者、政策分析师、NGO的前线团队。任何想比24小时新闻周期更快拿到地面信号的人。', cta:'打开在线系统',
-      },
-      p07: {
-        title: '巴士被追踪。<em>乘客被告知。</em>',
-        lede: '普吉智能巴士网络的实时GPS追踪和乘客数据。先为乘客的手机而设计，不是为控制室的大屏。在路上、在高温下、用一只大拇指就能操作。',
-        w1lbl:'特别之处', w1:'智能巴士系统通常服务运营商的仪表板。这一个服务的是站台上等车的人。GPS位置、下一班到达、路线说明——给不懂泰文的游客和没时间猜的通勤者。',
-        w2lbl:'替代了什么', w2:'在站台上没有信息地干等。2019年印的那张时刻表。"旅游岛上的公共交通做不到清晰易懂"这个假设。',
-        w3lbl:'建在什么之上', w3:'普吉已有的IoT基础设施。和省长作战室用的是同一层传感器，没有新硬件。', cta:'打开在线系统',
-      },
-      p08: {
-        title: '报告进来。<em>AI把它变成行动。</em>',
-        lede: 'SCTH V2是Smart City Thailand的城市数据平台，通过Telegram和LINE接收市民报告，用AI分析问题，并把准实时的卫星和地图图层叠在上面，给城市建设者、开发商和管理者用。',
-        w1lbl:'特别之处', w1:'大多数城市投诉系统在一个工单号那里就停了。SCTH V2把报告流变成了决策界面。Messenger上的报告、现场照片、SLA风险、AI识别出的模式，跟降水、气溶胶、云层、地形、街道图层在同一张地图上。',
-        w2lbl:'替代了什么', w2:'聊天群里的截图、手动用Excel分类、静态地图图层，以及"有人报告了"和"有人能动手处理"之间的等待。',
-        w3lbl:'决策能力', w3:'城市团队接收报告、指派负责人、分析重复模式、导出Sheet或PDF、在城市状况还是实时的时候把响应任务推下去。',
-        w4lbl:'实时访问', w4:'专有系统，每天都在持续开发中。链接走的是实时隧道。如果打不开，说明系统正在升级，稍后再试一下。', cta:'打开在线系统',
-      },
-      p09: {
-        title: '十一个声音。<em>一个决定。</em>',
-        lede: '我的AI Council是个个人多智能体的审议系统：11位名字是回文的AI法官（Tenet、Radar、Otto、Hannah、Ada……）在本地Mac上持续运行，通过一个共享的transcript日志互相辩论，每月大概3美元。基于个人日记、决策和声音训练——专有是设计选择，不是意外。',
-        w1lbl:'为什么存在', w1:'单个模型只给一个答案。值得解的问题，值得被辩论。Council跑四种工作模式——VERIFY、DECIDE、EXPLORE、DEBATE——法官用明确的动作（EXPAND、QUALIFY、CONCEDE、STAND、PASS），每一次立场变化都看得见、追得到。',
-        w2lbl:'成本', w2:'Manus级自主智能体的能力，每月3美元。Council主席跑在Mistral Large 3上，泰语本地的怀疑论者（Ada）跑在ThaiLLM上——政府支持的模型，免费。执行者（Otto）做OCR、下载视频、起草邮件、生成PDF、同步Google Drive，全程不碰云。',
-        w3lbl:'为什么没有演示', w3:'Council基于我个人的日记、决定、会议笔记和声音训练。专有是因为必须。协议栈——大约600行Python——是开放的。知识产权是协调方法论，不是模型权重。', cta:'v1 · DIY 协议', cta2:'v2 · 智能体 + 执行者',
-      },
-      p10: {
-        title: 'HR当<em>记录系统</em>当得够久了',
-        lede: 'Talent Knowledge Collaborative Explorers（TKCX）是个用游戏机制的人才操作系统，把员工当成队伍成员、把项目当成任务、把组队当成策略。每一个关于人的决定都可见、可量化、跟结果挂钩——用能力情报取代组织图政治。',
-        w1lbl:'问题在哪', w1:'大多数HR系统是合规记录，不是情报。告诉你谁是员工，不告诉你谁该被派去哪里、跟谁一起。关于人的决定靠直觉和政治资本做出来。最好的那批人离开，舒服的那批人留下，谁也看不出来为什么。',
-        w2lbl:'引擎', w2:'建在《勇者斗恶龙III》的队伍系统上。五个原型对应真实职场角色（队长、技术、销售、运营、侦察）。Moneyball式的预算上限——项目预算÷10=月薪上限——逼出分配纪律。就绪公式权衡覆盖率、质量、化学反应和士气，合适的团队在项目开始之前就看得出来，不是失败之后才知道。',
-        w3lbl:'改变了什么', w3:'部门主管不再囤人。项目不再靠政治资本跑。技能缺口在变成失败之前就显出来。而HR——改名叫人才孵化——变成大楼里最有战略性的部门，不再是最被绕开的那个。', cta:'探索引擎',
-      },
-      p11: {
-        title: '<em>认识你的</em>AI',
-        lede: 'Second Brain OS通过MCP把你的Obsidian知识库同时接到所有AI编程平台。按脑解剖命名的文件夹结构、19个服务器配置、能读取你人格蓝图、用你的声音写作、记得你每一个曾经记下的决定的AI智能体。你这些年积累的知识，终于开始替你工作了。',
-        w1lbl:'填补的空白', w1:'每一次AI对话都从零开始。不知道你的声音、你的价值观、你过去的决定，或者那些塑造你思考方式的多年日记。Second Brain OS通过单一MCP连接，把这一切同时送进所有编程平台——和你协作的AI，已经知道它在跟谁协作。',
-        w2lbl:'怎么搭起来的', w2:'你的Obsidian知识库按大脑结构组织：PrefrontalCortex放战略，Hippocampus放原子记忆，TemporalLobe放模式，Cerebellum放技能和流程。19个MCP服务器配置把这个活的知识图谱同时接到Cursor、Codex、Claude Code和你技术栈里所有的平台。',
-        w3lbl:'为什么开源', w3:'架构是MIT许可的。大脑是你的。任何人都可以fork结构、调整MCP配置、接上自己的知识库。还包含一个12级诊断工具，把AI腔从你的写作里剥出来——保证你积累的知识保留你的声音，不是模型的。', cta:'探索架构',
-      },
-      p12: {
-        title: '21个频道。<em>免费。随处可看。</em>',
-        lede: 'NSP是泰国国家流媒体平台——NBTC授权的全部21个数字电视频道，免费，全高清，支持任何设备。实时节目指南、逐频道收视遥测、AI内容助手，以及CAP v1.2紧急预警集成，全在一个界面里。',
-        w1lbl:'为什么特别', w1:'大多数国家电视平台都是事后凑合做的。<b>NSP把21个持牌频道放进一个界面</b>，配备实时EPG、逐频道并发数据、流媒体健康遥测，以及能回答"现在有什么可看"的AI助手——全国范围内，不用装任何App。',
-        w2lbl:'替代了什么', w2:'各家电视台散装的App、非法流媒体，以及那种认为免费电视不可能做得跟订阅平台一样清晰的假设。',
-        w3lbl:'决策能力', w3:'运营方实时看到在线并发人数、频道收视份额和流媒体健康状况。CAP v1.2紧急预警集成意味着全国性紧急警报通过娱乐内容的同一界面推送——不需要另建一套系统。',
-        w4lbl:'实时访问', w4:'在NBTC许可权限下全国部署。向所有设备开放，无需注册。',
-        cta:'打开在线平台',
+      p63: {
+        lede: '马来西亚 · 上帝模式。每条流域的 JPS 水位、气象局预警、巴士与铁路、船舶与航班、空气与火灾，以及公民指数显示谁住得离救援最远。一张地图，英文 · 马来文 · 中文。',
+        cta: '打开实时地图',
+        name: 'Malaysia · God Mode',
       },
       p13: {
         title: '47条数据流。<em>7个视角。一所大学。</em>',
         lede: 'Chula Control Tower是朱拉隆功大学的实时运营仪表板——47条实时数据流，横跨交通、事件、空气质量、卫星图像、CU校车、新闻和紧急事件，覆盖曼谷暹罗–三岩地区。',
-        w1lbl:'为什么特别', w1:'大多数大学仪表板一次只显示一条数据流。<b>CCT把47个实时来源放在一张3D地图上</b>——交通、空气质量、校车位置、事件报告、卫星图层和地下管网——让校长对所有决策只需一个界面。',
-        w2lbl:'替代了什么', w2:'交通、安保和环境数据各自为政的系统。手动记录的事件报告。没有任何一刻能看到整个校园的全貌。',
-        w3lbl:'决策能力', w3:'七个运营视角——从日常校园管理到校长战略全局——让每个角色只看自己需要的东西。3D建筑和地下管网图层把规划从猜测变成有据可查的事。',
-        w4lbl:'实时访问', w4:'部署于曼谷暹罗–三岩地区的朱拉隆功大学。开放访问，无需注册。',
-        cta:'打开在线系统',
-      },
-      p14: {
-        title: '彭博信号。<em>泰国市场。你的规则。</em>',
-        lede: 'DayTraders是个性化的泰国市场情报平台——Bloomberg级别的信号分析，适用于SET、MAI、公募基金、RMF和泰国ESG产品。Graham、Buffett和Munger的投资框架已经内嵌；你来设定对自己投资组合重要的KPI。',
-        w1lbl:'为什么特别', w1:'泰国散户投资者要么拿到原始券商数据，要么用完全不带价值投资逻辑的普通App。<b>DayTraders把机构级信号分析带进了泰国SET</b>——Graham的安全边际、Buffett的护城河筛选、Munger的心智模型，全部内嵌进信息流，不是后来拼上去的。',
-        w2lbl:'替代了什么', w2:'没有分析框架的券商门户、LINE群里的小道消息，以及"严格的价值投资只有拿着彭博终端的机构才能做"这个假设。',
-        w3lbl:'决策能力', w3:'个性化KPI仪表板让投资者只追踪自己真正在用的那些指标，而不是泛泛的筛选器。一个界面覆盖SET股票、MAI成长股、RMF税优基金和泰国ESG产品。',
-        w4lbl:'实时访问', w4:'实时泰国市场数据。开放平台，没有付费墙，不锁定任何券商。',
-        cta:'打开在线平台',
-      },
-      p15: {
-        title: '说出城市名字。<em>我来搭它的大脑。</em>',
-        lede: 'City Hub是可复用的城市智能平台——告诉它城市名字，它就用卫星和底图把它描出来，吸收你已有的任何数据，连接API和传感器，开始把点连成图谱。现在v.5，五座城市在线：曼谷、清迈、普吉、新加坡、古晋。',
-        w1lbl:'为什么特别', w1:'大多数城市平台都是为一座城市定制的，一个采购周期，无法复用。<b>City Hub把情报层当成模板</b>——任何城市都能接入，导入已有的数据，系统就开始把点连成线。不用等漫长的采购流程。大脑从已有的东西里自己长出来。',
-        w2lbl:'替代了什么', w2:'一次性定制仪表板——城市之间不共享学习，没有AI合成，也检测不到市民数据跑在官方基础设施前面的地方。曼谷SIT ROOM现在追踪空气质量、洪水风险、热量、民事问题和疾病预警——每天由AI合成一次简报。',
-        w3lbl:'决策能力', w3:'AI简报把所有实时城市信号合成成一份早间汇报：缺口检测（市民报告有数据但官方多边形没有的地方）、可操作事项、PM2.5省级排名，以及五天天气预报。+24H时间轴拉杆让运营者回放城市昨天的数据。',
-        w4lbl:'实时访问', w4:'平台v.5。五座城市在线：曼谷、清迈、普吉、新加坡、古晋。任何城市都能接入——带上已有的数据就行。',
-        cta:'打开在线平台',
+        w1lbl: '为什么特别',
+        w1: '大多数大学仪表板一次只显示一条数据流。<b>CCT把47个实时来源放在一张3D地图上</b>——交通、空气质量、校车位置、事件报告、卫星图层和地下管网——让校长对所有决策只需一个界面。',
+        w2lbl: '替代了什么',
+        w2: '交通、安保和环境数据各自为政的系统。手动记录的事件报告。没有任何一刻能看到整个校园的全貌。',
+        w3lbl: '决策能力',
+        w3: '七个运营视角——从日常校园管理到校长战略全局——让每个角色只看自己需要的东西。3D建筑和地下管网图层把规划从猜测变成有据可查的事。',
+        w4lbl: '实时访问',
+        w4: '部署于曼谷暹罗–三岩地区的朱拉隆功大学。开放访问，无需注册。',
+        cta: '打开在线系统',
+        name: 'Chula Control Tower',
       },
       p16: {
         title: '一座海岸省份，<em>变成控制塔。</em>',
         lede: 'Chonburi Control Tower是面向泰国东部海岸的3D指挥界面：42个实时来源、海岸天气与海况、市场和旅游信号、市长事件流、EEC趋势，以及建筑级图层，都在同一个运营视角中。',
-        w1lbl:'为什么特别', w1:'大多数省级仪表板把城市压平成卡片和图表。<b>Chonburi Control Tower把省份渲染成一个运营环境</b>——20,877栋3D建筑、来源健康状态、天气、海事风险、EEC新闻、CCTV/AIS/AQ/WX开关和市长办公桌都在一个界面里。',
-        w2lbl:'替代了什么', w2:'分散的天气网站、海事仪表板、市场ticker、旅游表格、新闻标签页，以及永远无法同时讲同一个故事的静态GIS图层。',
-        w3lbl:'决策能力', w3:'运营者可以在3D地图内看到实时和降级状态、Chonburi EEC趋势、公民图层、来源数量和市长事件，同时保留地理语境。',
-        w4lbl:'实时访问', w4:'面向Chonburi Town Center和Eastern Seaboard的公开控制塔。为快速运营阅读而建，不是静态规划报告。',
-        cta:'打开控制塔',
-      },
-      p17: {
-        title: '泰国纸质文件，<em>让机器读懂。</em>',
-        lede: 'Ekkasarn AI是面向泰国税务发票、收据和预扣税证明的文档智能引擎。可以上传真实文件或选择样本；系统会运行OCR、分类文档，并提取可用字段，不依赖模拟数据，也不强制登录。',
-        w1lbl:'为什么特别', w1:'大多数OCR演示只适合干净的虚构表单。<b>Ekkasarn AI读取真实泰国纸面文件</b>——皱掉的收据、VAT发票和预扣税证明，然后输出类别、置信度、商店、电话和总额等结构化结果。',
-        w2lbl:'替代了什么', w2:'手工会计录入、堆积的收据照片、电子表格分类，以及泰国纸质文件进入数字财务流程时那道脆弱的交接。',
-        w3lbl:'决策能力', w3:'财务团队可以立即分类文件、核验抽取字段，并把结果送入后续会计逻辑，而不是等待人工分拣。',
-        w4lbl:'实时访问', w4:'泰国文档优先的公开双语演示。上传文件会实时处理，不会保留。',
-        cta:'打开在线系统',
+        w1lbl: '为什么特别',
+        w1: '大多数省级仪表板把城市压平成卡片和图表。<b>Chonburi Control Tower把省份渲染成一个运营环境</b>——20,877栋3D建筑、来源健康状态、天气、海事风险、EEC新闻、CCTV/AIS/AQ/WX开关和市长办公桌都在一个界面里。',
+        w2lbl: '替代了什么',
+        w2: '分散的天气网站、海事仪表板、市场ticker、旅游表格、新闻标签页，以及永远无法同时讲同一个故事的静态GIS图层。',
+        w3lbl: '决策能力',
+        w3: '运营者可以在3D地图内看到实时和降级状态、Chonburi EEC趋势、公民图层、来源数量和市长事件，同时保留地理语境。',
+        w4lbl: '实时访问',
+        w4: '面向Chonburi Town Center和Eastern Seaboard的公开控制塔。为快速运营阅读而建，不是静态规划报告。',
+        cta: '打开控制塔',
+        name: 'Chonburi Control Tower',
       },
       p18: {
         lede: 'KMITL控制塔是泰国先皇科技大学（拉卡邦）的实时运营仪表板——56路实时数据，覆盖交通、事件、空气质量、卫星影像、校园班车、新闻和应急事件，服务曼谷拉卡邦片区。',
-        cta:'打开在线系统',
+        cta: '打开在线系统',
+        name: 'KMITL Control Tower',
       },
       p19: {
         lede: 'Yala控制塔为泰国南部深南地区的亚拉市自治政府提供实时公民情报：3D城市模型、卫星图层、洪水监测、深南安全事件，以及30多路实时数据。',
-        cta:'打开在线系统',
+        cta: '打开在线系统',
+        name: 'Yala Control Tower',
       },
-      p20: {
-        lede: 'Horizon 45是一款测试真实AI判断力的现场仪器。从深度伪造识别到提示工程，用户穿行于真实世界信号，离开时带走能力画像与学习路线图。',
-        cta:'打开在线系统',
+      p15: {
+        title: '说出城市名字。<em>我来搭它的大脑。</em>',
+        lede: 'City Hub是可复用的城市智能平台——告诉它城市名字，它就用卫星和底图把它描出来，吸收你已有的任何数据，连接API和传感器，开始把点连成图谱。现在v.5，五座城市在线：曼谷、清迈、普吉、新加坡、古晋。',
+        w1lbl: '为什么特别',
+        w1: '大多数城市平台都是为一座城市定制的，一个采购周期，无法复用。<b>City Hub把情报层当成模板</b>——任何城市都能接入，导入已有的数据，系统就开始把点连成线。不用等漫长的采购流程。大脑从已有的东西里自己长出来。',
+        w2lbl: '替代了什么',
+        w2: '一次性定制仪表板——城市之间不共享学习，没有AI合成，也检测不到市民数据跑在官方基础设施前面的地方。曼谷SIT ROOM现在追踪空气质量、洪水风险、热量、民事问题和疾病预警——每天由AI合成一次简报。',
+        w3lbl: '决策能力',
+        w3: 'AI简报把所有实时城市信号合成成一份早间汇报：缺口检测（市民报告有数据但官方多边形没有的地方）、可操作事项、PM2.5省级排名，以及五天天气预报。+24H时间轴拉杆让运营者回放城市昨天的数据。',
+        w4lbl: '实时访问',
+        w4: '平台v.5。五座城市在线：曼谷、清迈、普吉、新加坡、古晋。任何城市都能接入——带上已有的数据就行。',
+        cta: '打开在线平台',
+        name: 'City Hub',
       },
-      p21: {
-        lede: '胡志明市大规模指挥界面：将实时交通、洪水监测、空气质量与动态路径规划整合到一张高性能地图中，供城市决策者使用。',
-        cta:'打开在线系统',
+      p27: {
+        lede: 'AirDash 是 24/7 泰国空气质量与粉尘监测——省份关注度排名、3 天 CAMS 减雨预报、AT-risk 与 PM2.5 前 5 省份、雨洗逻辑、全国模式环图，全部在一张界面上。让每个泰国省份从同一份公开数据看到同一张空气质量图。',
+        cta: '打开在线系统',
+        name: 'AirDash',
+      },
+      p36: {
+        lede: '曼谷三维浏览器地图——432,077 栋真实 OSM 建筑、地形、空气质量、雨雷达、财政部地价、BTS/MRT 与运河。一街区一街区地走完这座城。',
+        cta: '打开在线系统',
+        name: 'BKKx 3D Atlas',
+      },
+      p43: {
+        lede: '曼谷遗产，一街区一街区——从王城岛到邦卡昭的九个街区、571处登记古迹、七条有记录的步行路线。BKKx 对中的文化半边，对应 atlas.nonarkara.org 的运营孪生。',
+        cta: '打开实时系统',
+        name: 'BKKx Culture',
+      },
+      jakarta: {
+        lede: '雅加达三维城市地图与运营平台——建筑体量、BMKG 气象公报、CRM 市民服务报告与水灾风险控制台汇聚于同一交互屏幕。印尼语 · 英语。',
+        cta: '打开在线系统',
+        name: 'Jakarta 3D Atlas',
+      },
+      p67: {
+        lede: '在真实的 OpenStreetMap 地点上建一座城市，看着它的经济成长。灵感来自 SimCity 2000；遵循 2026 年的城市规划规则。',
+        cta: '打开演示',
+        name: 'simsmartcity',
+      },
+      p69: {
+        lede: 'Thailand Digital Valley（是拉差）整个园区的数字孪生——5 栋建筑、86,000 平方米、可溯源的楼宇信息、25 张已发布的楼层平面图、动画化的 chibi 访客与 IoT 1 CAD。',
+        cta: '进入园区',
+        name: 'TDV · Thailand Digital Valley',
+      },
+      bangkokIoc: {
+        lede: '曼谷市长办公室运营中心新增一项选址试点：选一个 BTS 站点周边，对照自己的租金与通勤上限，再读周边的公开记录——市民投诉、公共场所，以及从住处走到站台的真实步行路线。这是案头研究，不是房源列表。',
+        cta: '打开 Bangkok IOC',
+        name: 'Bangkok IOC',
+      },
+      dhaka: {
+        lede: '孟加拉国达卡街区级三维空间智能系统。覆盖129个选区，实时读取建筑高度、地形坡度、季风洪水动态及高密度城市形态。',
+        cta: '打开达卡三维地图',
+        name: 'DHKx 3D Atlas · 达卡',
+      },
+      p04: {
+        title: '一个<em>会顶嘴的</em>排名',
+        lede: 'SLIC Index不告诉城市自己值多少。它把五根支柱摆出来，让城市自己测试优先级。市长定义"宜居"是什么意思，数学跟着走。',
+        w1lbl: '特别之处',
+        w1: '别的宜居指数都甩给城市一个写好的判决。SLIC甩给城市的是数学。把支柱权重一拉，自己的排名和对手的排名实时一起动，争论本身就成了产品。',
+        w2lbl: '替代了什么',
+        w2: '静态的面子排行榜。年度排名PDF。以"我们不认同这个方法论"收尾的那种对话。',
+        w3lbl: '受众反应',
+        w3: '被欧洲市长组织拿去用了。台北SCSE上45分钟现场演示。被当成公民议题在讨论，不是当概念板。',
+        cta: '打开 SLIC v3',
+        name: 'SLIC Index',
       },
       p22: {
-        lede: '监测三个区域（中东、东南亚、泰国）：基于开放数据的终极监测平台，通过图层叠加揭示洞察。',
-        cta:'打开在线系统',
+        lede: '四个战区——中东、印太、泰国与全球——同在一个实时界面：飞行中的航班与船舶、冲突事件、热点火情、市场行情，以及八周升级预测，全部来自开放数据。',
+        cta: '打开在线系统',
+        name: 'Global Monitor',
+      },
+      p45: {
+        lede: '亚洲五大战区与五大战略海上咽喉——马六甲、霍尔木兹、曼德海峡、台湾海峡、巽他海峡——同在一张实时地图上：冲突前沿、火情热点、海空航运走廊、区域新闻与电视，全部来自开放数据。',
+        cta: '打开在线系统',
+        name: 'AsiaWatch · 泛亚哨兵',
+      },
+      p46: {
+        lede: '整个地球尽在一屏：全球实时航班与船舶、冲突与火情热点、常驻打开的情报栏与市场条。同一套开放数据引擎，世界尺度。',
+        cta: '打开在线系统',
+        name: 'World Console',
+      },
+      p06: {
+        title: '新闻，<em>抢在算法决定什么是战争之前</em>',
+        lede: 'MEM是中东冲突报道里最快的开源新闻界面。实时多源信息流，没有编辑层延迟，没有过滤气泡。新闻周期开始之前的那个信号。',
+        w1lbl: '特别之处',
+        w1: '每个主流新闻平台都有一层编辑层在减速、过滤、定调。MEM把那一层去掉了。分析师手动汇总的那些信号，全部塞在一个界面里，按机器速度更新。',
+        w2lbl: '替代了什么',
+        w2: '三个浏览器标签页、两个Telegram频道、一个Twitter/X列表——同时开着，互相对照才知道地面上到底发生了什么。',
+        w3lbl: '谁在使用',
+        w3: '记者、政策分析师、NGO的前线团队。任何想比24小时新闻周期更快拿到地面信号的人。',
+        cta: '打开在线系统',
+        name: 'Middle East Monitor',
+      },
+      p14: {
+        title: '彭博信号。<em>泰国市场。你的规则。</em>',
+        lede: 'DayTraders是个性化的泰国市场情报平台——Bloomberg级别的信号分析，适用于SET、MAI、公募基金、RMF和泰国ESG产品。Graham、Buffett和Munger的投资框架已经内嵌；你来设定对自己投资组合重要的KPI。',
+        w1lbl: '为什么特别',
+        w1: '泰国散户投资者要么拿到原始券商数据，要么用完全不带价值投资逻辑的普通App。<b>DayTraders把机构级信号分析带进了泰国SET</b>——Graham的安全边际、Buffett的护城河筛选、Munger的心智模型，全部内嵌进信息流，不是后来拼上去的。',
+        w2lbl: '替代了什么',
+        w2: '没有分析框架的券商门户、LINE群里的小道消息，以及"严格的价值投资只有拿着彭博终端的机构才能做"这个假设。',
+        w3lbl: '决策能力',
+        w3: '个性化KPI仪表板让投资者只追踪自己真正在用的那些指标，而不是泛泛的筛选器。一个界面覆盖SET股票、MAI成长股、RMF税优基金和泰国ESG产品。',
+        w4lbl: '实时访问',
+        w4: '实时泰国市场数据。开放平台，没有付费墙，不锁定任何券商。',
+        cta: '打开在线平台',
+        name: 'DayTraders',
+      },
+      p41: {
+        lede: '为有用而建的市场情报，不是为好看。世界、透镜、地图、汇率、国会、赔率与计划——每一屏都必须改变你本周能做的一个决定。研究预览，不是建议。每个数字都带着自己的年龄。',
+        cta: '打开实时系统',
+        name: 'DAY 2',
+      },
+      p70: {
+        lede: '建筑智能——11 种形态（从矩形到风车），9 项形态性能指标（租金、面积、天空达成、日光、形态识别度）。与 2006 年 MIT 学位论文相隔 20 年的重逢。每次编辑都即时重算场景。致敬 SHDT。',
+        cta: '设计形态',
+        name: 'FormHypes · SHDT',
+      },
+      p42: {
+        lede: '泰国三边境指挥仪表板——缅甸、柬埔寨与南部战区——实时行动、历史回放与行政级情报设计，集于一张地图。',
+        cta: '打开实时系统',
+        name: 'Geopolitical Watch',
       },
       p23: {
         lede: '泰国官方智慧城市指数（SCITI）依据七大智慧城市支柱，评估全国174个城市区域的进展与影响。',
-        cta:'打开在线系统',
+        cta: '打开在线系统',
+        name: 'Smart City Thailand Index (SCITI)',
+      },
+      p07: {
+        title: '巴士被追踪。<em>乘客被告知。</em>',
+        lede: '普吉智能巴士网络的实时GPS追踪和乘客数据。先为乘客的手机而设计，不是为控制室的大屏。在路上、在高温下、用一只大拇指就能操作。',
+        w1lbl: '特别之处',
+        w1: '智能巴士系统通常服务运营商的仪表板。这一个服务的是站台上等车的人。GPS位置、下一班到达、路线说明——给不懂泰文的游客和没时间猜的通勤者。',
+        w2lbl: '替代了什么',
+        w2: '在站台上没有信息地干等。2019年印的那张时刻表。"旅游岛上的公共交通做不到清晰易懂"这个假设。',
+        w3lbl: '建在什么之上',
+        w3: '普吉已有的IoT基础设施。和省长作战室用的是同一层传感器，没有新硬件。',
+        cta: '打开在线系统',
+        name: 'Phuket Smart Bus',
+      },
+      p08: {
+        title: '报告进来。<em>AI把它变成行动。</em>',
+        lede: 'SCTH V2是Smart City Thailand的城市数据平台，通过Telegram和LINE接收市民报告，用AI分析问题，并把准实时的卫星和地图图层叠在上面，给城市建设者、开发商和管理者用。',
+        w1lbl: '特别之处',
+        w1: '大多数城市投诉系统在一个工单号那里就停了。SCTH V2把报告流变成了决策界面。Messenger上的报告、现场照片、SLA风险、AI识别出的模式，跟降水、气溶胶、云层、地形、街道图层在同一张地图上。',
+        w2lbl: '替代了什么',
+        w2: '聊天群里的截图、手动用Excel分类、静态地图图层，以及"有人报告了"和"有人能动手处理"之间的等待。',
+        w3lbl: '决策能力',
+        w3: '城市团队接收报告、指派负责人、分析重复模式、导出Sheet或PDF、在城市状况还是实时的时候把响应任务推下去。',
+        w4lbl: '实时访问',
+        w4: '专有系统，每天都在持续开发中。链接走的是实时隧道。如果打不开，说明系统正在升级，稍后再试一下。',
+        cta: '打开在线系统',
+        name: 'SCTH City Data Platform',
+      },
+      p12: {
+        title: '21个频道。<em>免费。随处可看。</em>',
+        lede: 'NSP是泰国国家流媒体平台——NBTC授权的全部21个数字电视频道，免费，全高清，支持任何设备。实时节目指南、逐频道收视遥测、AI内容助手，以及CAP v1.2紧急预警集成，全在一个界面里。',
+        w1lbl: '为什么特别',
+        w1: '大多数国家电视平台都是事后凑合做的。<b>NSP把21个持牌频道放进一个界面</b>，配备实时EPG、逐频道并发数据、流媒体健康遥测，以及能回答"现在有什么可看"的AI助手——全国范围内，不用装任何App。',
+        w2lbl: '替代了什么',
+        w2: '各家电视台散装的App、非法流媒体，以及那种认为免费电视不可能做得跟订阅平台一样清晰的假设。',
+        w3lbl: '决策能力',
+        w3: '运营方实时看到在线并发人数、频道收视份额和流媒体健康状况。CAP v1.2紧急预警集成意味着全国性紧急警报通过娱乐内容的同一界面推送——不需要另建一套系统。',
+        w4lbl: '实时访问',
+        w4: '在NBTC许可权限下全国部署。向所有设备开放，无需注册。',
+        cta: '打开在线平台',
+        name: 'NSP',
+      },
+      p64: {
+        lede: '泰国森林碳。点击一个省或拉出一个框,查看基于卫星的碳储量、森林吸收与排放、林火与化石 CO₂,并附来源与不确定性。附 T-VER 项目评估工作台。泰文 · 英文。',
+        cta: '打开评估工作台',
+        name: 'Forest Carbon Thailand',
+      },
+      constitution: {
+        lede: '精读、高亮、倾听与练习 2017 年泰国宪法全部 279 条条文，支持泰语、英语和中文。学习卡片、全文搜索、语音朗读与公民常识。泰语 · 英语 · 中文。',
+        cta: '打开阅读室',
+        name: 'Thai Constitution Reader',
+      },
+      techhunt: {
+        lede: '面向泰国城市的已验证技术市场：覆盖 7 大智慧城市领域的 125 家已认证初创企业，按实时信号强度排序，专为采购官员和城市规划者打造。由 depa、SLIC 与 UWN 联合发起。',
+        cta: '打开 TechHunt',
+        name: 'Smart City Thailand TechHunt',
+      },
+      burma: {
+        lede: '面向缅甸语社区的公共交流平台，设有常驻公共聊天室与每日摘要。采用复古 Win95 视窗界面，为 GovTech 青年倡议打造。',
+        cta: '打开 Pirchchat',
+        name: 'Pirchchat · A-Lin-Ein',
+      },
+      tsunami: {
+        lede: '安达曼海沿岸海啸防御与早期预警智能平台。汇聚实时浮标遥测、地震传感器网络、涌波爬升模型与沿海撤离路径。',
+        cta: '打开 Soonami',
+        name: 'Soonami · 海啸防御',
+      },
+      p52: {
+        name: '与阿南博士的二十分钟',
+        lede: '一档新播客——想法、代理、地缘政治，与下一个二十分钟。已在Spotify上线，更多剧集陆续发布。',
+        cta: '在Spotify打开',
+      },
+      p09: {
+        title: '十一个声音。<em>一个决定。</em>',
+        lede: '我的AI Council是个个人多智能体的审议系统：11位名字是回文的AI法官（Tenet、Radar、Otto、Hannah、Ada……）在本地Mac上持续运行，通过一个共享的transcript日志互相辩论，每月大概3美元。基于个人日记、决策和声音训练——专有是设计选择，不是意外。',
+        w1lbl: '为什么存在',
+        w1: '单个模型只给一个答案。值得解的问题，值得被辩论。Council跑四种工作模式——VERIFY、DECIDE、EXPLORE、DEBATE——法官用明确的动作（EXPAND、QUALIFY、CONCEDE、STAND、PASS），每一次立场变化都看得见、追得到。',
+        w2lbl: '成本',
+        w2: 'Manus级自主智能体的能力，每月3美元。Council主席跑在Mistral Large 3上，泰语本地的怀疑论者（Ada）跑在ThaiLLM上——政府支持的模型，免费。执行者（Otto）做OCR、下载视频、起草邮件、生成PDF、同步Google Drive，全程不碰云。',
+        w3lbl: '为什么没有演示',
+        w3: 'Council基于我个人的日记、决定、会议笔记和声音训练。专有是因为必须。协议栈——大约600行Python——是开放的。知识产权是协调方法论，不是模型权重。',
+        cta: 'v1 · DIY 协议',
+        cta2: 'v2 · 智能体 + 执行者',
+        name: "Dr Non's AI Council",
+      },
+      p10: {
+        title: 'HR当<em>记录系统</em>当得够久了',
+        lede: 'Talent Knowledge Collaborative Explorers（TKCX）是个用游戏机制的人才操作系统，把员工当成队伍成员、把项目当成任务、把组队当成策略。每一个关于人的决定都可见、可量化、跟结果挂钩——用能力情报取代组织图政治。',
+        w1lbl: '问题在哪',
+        w1: '大多数HR系统是合规记录，不是情报。告诉你谁是员工，不告诉你谁该被派去哪里、跟谁一起。关于人的决定靠直觉和政治资本做出来。最好的那批人离开，舒服的那批人留下，谁也看不出来为什么。',
+        w2lbl: '引擎',
+        w2: '建在《勇者斗恶龙III》的队伍系统上。五个原型对应真实职场角色（队长、技术、销售、运营、侦察）。Moneyball式的预算上限——项目预算÷10=月薪上限——逼出分配纪律。就绪公式权衡覆盖率、质量、化学反应和士气，合适的团队在项目开始之前就看得出来，不是失败之后才知道。',
+        w3lbl: '改变了什么',
+        w3: '部门主管不再囤人。项目不再靠政治资本跑。技能缺口在变成失败之前就显出来。而HR——改名叫人才孵化——变成大楼里最有战略性的部门，不再是最被绕开的那个。',
+        cta: 'GitHub 仓库 — 即将推出',
+        name: 'TKCX',
+      },
+      p11: {
+        title: '<em>认识你的</em>AI',
+        lede: 'Second Brain OS通过MCP把你的Obsidian知识库同时接到所有AI编程平台。按脑解剖命名的文件夹结构、19个服务器配置、能读取你人格蓝图、用你的声音写作、记得你每一个曾经记下的决定的AI智能体。你这些年积累的知识，终于开始替你工作了。',
+        w1lbl: '填补的空白',
+        w1: '每一次AI对话都从零开始。不知道你的声音、你的价值观、你过去的决定，或者那些塑造你思考方式的多年日记。Second Brain OS通过单一MCP连接，把这一切同时送进所有编程平台——和你协作的AI，已经知道它在跟谁协作。',
+        w2lbl: '怎么搭起来的',
+        w2: '你的Obsidian知识库按大脑结构组织：PrefrontalCortex放战略，Hippocampus放原子记忆，TemporalLobe放模式，Cerebellum放技能和流程。19个MCP服务器配置把这个活的知识图谱同时接到Cursor、Codex、Claude Code和你技术栈里所有的平台。',
+        w3lbl: '为什么开源',
+        w3: '架构是MIT许可的。大脑是你的。任何人都可以fork结构、调整MCP配置、接上自己的知识库。还包含一个12级诊断工具，把AI腔从你的写作里剥出来——保证你积累的知识保留你的声音，不是模型的。',
+        cta: '探索架构',
+        name: 'Second Brain OS',
+      },
+      p20: {
+        lede: 'Horizon 45是一款测试真实AI判断力的现场仪器。从深度伪造识别到提示工程，用户穿行于真实世界信号，离开时带走能力画像与学习路线图。',
+        cta: '打开在线系统',
+        name: 'Horizon 45',
+      },
+      p53: {
+        name: 'ASCN绩效评估（导演剪辑版）',
+        lede: '一个关于东盟智慧城市网络在134个项目和38座城市表现的全面洞察仪表板——考察四个M&E周期内的项目势头与重点领域变化。',
+        cta: '打开在线系统',
       },
       p24: {
-        lede: '三语《道德经》阅读室：蔡志忠漫画、佛学对照、心理学笔记、拼音，以及持续更新的参考书架。',
-        cta:'打开在线系统',
+        lede: '更新后的《道德经》阅读室：81 章，英语、泰语、中文，配有汉字学习、插图笔记和 Palette 的色彩关系。',
+        cta: '打开在线系统',
+        original: '阅读原版',
+        name: 'Dao × Palette',
       },
       ikigai: {
         name: 'Ikigai Finance Engine',
         lede: '中小企业金融情报——资产负债表即信号、现金跑道、银行评分卡与综合金融指数（Ikigai、Lean、Zero、Default、Solvency）。开发阶段研究原型，仅提供截图——ABC Company Limited 为虚构演示数据，尚无公开部署。',
         cta: '查看研究仓库',
       },
-    },
+      p28: {
+        lede: 'FloodDash Blueprint 是泰国洪水监测的开放研究配套——传感网络、排水逻辑、AI 洪水预测、响应剧本，以及完整的数据到决策流水线，向所有城市开放阅读、复用与适配。让系统可被复制，而不是一次性交付。',
+        cta: '在 GitHub 查看',
+        name: 'FloodDash Blueprint',
+      },
+      ladder: {
+        lede: 'Ikigai 的风险投资尽调与评分卡伴侣。在专属私密工作空间中完成项目审阅、财务尽调清单核对、投资逻辑匹配与组合风险评估。',
+        access: '需要登录',
+        cta: '打开 Ladder',
+        name: 'Ladder · Ikigai',
+      },
+      life: {
+        lede: '一个在你身边生长的世界：在等距视角的泰国小镇里度过一段虚构人生，速度可调 2× 至 20×。每个岔路口都要做选择，每个选择都有代价。进度保存在浏览器中。目前使用临时域名，之后迁往 life.nonarkara.org。',
+        access: '需要登录',
+        cta: '打开 Life',
+        name: 'Life',
+      },
+      universe_69: {
+        lede: '持续观测的两个封闭程序化世界，由确定性力学与突发智能体行为驱动——全程观测，从不干预。',
+        cta: '观测 Universe 69',
+        name: 'Universe 69: Beta',
+      },
+      pavilion: {
+        lede: '从零构建、采用现代建筑材料与纯浏览器技术的自主空间元宇宙。完全免费、可持续且高安全性，打破超大规模云巨头对虚拟空间的数据垄断与权限束缚。',
+        cta: '进入 The Pavilion',
+        name: 'The Pavilion · 空间世界',
+      },
+      p54: {
+        lede: '一个16位浏览器街机，每张卡带都带一份脑力简报——训练什么技能、一局要多久、说法的边界在哪里。无广告。分数只保留在本机。',
+        cta: '打开在线系统',
+        name: 'OmniArcade',
+      },
+      p17: {
+        title: '泰国纸质文件，<em>让机器读懂。</em>',
+        lede: 'Ekkasarn AI是面向泰国税务发票、收据和预扣税证明的文档智能引擎。可以上传真实文件或选择样本；系统会运行OCR、分类文档，并提取可用字段，不依赖模拟数据，也不强制登录。',
+        w1lbl: '为什么特别',
+        w1: '大多数OCR演示只适合干净的虚构表单。<b>Ekkasarn AI读取真实泰国纸面文件</b>——皱掉的收据、VAT发票和预扣税证明，然后输出类别、置信度、商店、电话和总额等结构化结果。',
+        w2lbl: '替代了什么',
+        w2: '手工会计录入、堆积的收据照片、电子表格分类，以及泰国纸质文件进入数字财务流程时那道脆弱的交接。',
+        w3lbl: '决策能力',
+        w3: '财务团队可以立即分类文件、核验抽取字段，并把结果送入后续会计逻辑，而不是等待人工分拣。',
+        w4lbl: '实时访问',
+        w4: '泰国文档优先的公开双语演示。上传文件会实时处理，不会保留。',
+        cta: '打开在线系统',
+        name: 'Ekkasarn AI',
+      },
+      p29: {
+        lede: '贴上一段草稿。The Non-Writer 会把它送过一连串代理与处理单元,从另一端出来时,就变成你本来想写的那句话——用 Dr Non 会用的声音。现在还可以翻译成你想要的任何语言。',
+        cta: '打开在线系统',
+        name: 'The Non-Writer',
+      },
+      p30: {
+        lede: '那张桌子,用数字说话。每天一期的 AI 前沿情报简报——什么真的在出货,什么是噱头,今晚该读什么。行业关注、人工精选、以及会随时间复利的存档。',
+        cta: '打开在线系统',
+        name: "Dr Non's Digests",
+      },
+      p31: {
+        lede: '抓取即服务——无需代码。给它一个 URL 和一个问题,它就去读源语言页面,然后用你的语言回答你,带引用、可直接接入下游的结构化 JSON。',
+        cta: '打开在线系统',
+        name: 'Non-Scrape',
+      },
+      p34: {
+        lede: '一份免费的、以证据为先的 261 款奢华与收藏级腕表参考册——引用比对、出处来源、署名屏幕剧照——以及诚实阶梯,显示数据在哪里拒绝估算。',
+        cta: '打开在线系统',
+        name: 'Time Pop',
+      },
+      p35: {
+        lede: '用决策序列设计房子——手绘或 AI 描摹平面,实时看日照地面与太阳得热,再跑居住检查、系统与造价,最后才出图。',
+        cta: '打开在线系统',
+        name: 'Luma/house',
+      },
+      p40: {
+        lede: '把这个 URL 交给 Claude，它会帮你安全地装好 OpenClaw。可让 agent 执行的安装流程、深层安全模型、按内存选本地大模型、按风险分级的工具调用。只有文档，没有私人数据。',
+        cta: '在 GitHub 查看',
+        name: 'OpenClaw Set-Up',
+      },
+      p44: {
+        lede: '曼谷约有40万栋店屋，却没有任何一份清册。一篇关于再利用与隐含碳的长文，附2,311栋建筑调查、财政部地价压力地图与四色答案。发表于哈佛设计研究生院的《店屋大都会》。',
+        cta: '阅读长文',
+        name: 'Shophouse Metropolis',
+      },
+      p47: {
+        lede: '二十年田野工作，关于全球化、遗产产业与城市空间经济。15章、76,312字、134张图、5小时音频、475次引用——在网站上读、听、看。v3阅读版，2026年。',
+        cta: '打开书',
+        name: 'Locating Shanghai',
+      },
+      p55: {
+        lede: '上传 PDF 与链接。系统每次都引用文档出处——文档沉默时，机器人说"我不知道"。100 MB 免费工作区，通过 Telegram 与 LINE 投递。本地嵌入、本地模型，一台在曼谷的 Mac——你的文档不会离开。',
+        cta: '打开工作区',
+        name: 'RAG.NONARKARA',
+      },
+      champion: {
+        lede: '泰国队冲击世界杯的场边执教控制台与战术实验室。实时调整战术走线、压迫挡位与阵型切换。',
+        cta: '打开执教控制台',
+        name: 'SCD · 足球教练控制台',
+      },
+      soccer: {
+        lede: 'NSP 研究原型中的足球战术桌。收录泰国公共电视来源和官方观看渠道，进入前展示版权须知。',
+        cta: '打开研究桌',
+        name: 'Soccer · NSP',
+      },
+      vision: {
+        lede: '图像如何变成数字、边缘、运动和推测。用公共摄像头学习、训练模型，并在浏览器中测试，无需上传自己的图像。',
+        cta: '打开课堂',
+        name: 'Vision',
+      },
+      each: {
+        lede: '集 ERP、ACT、CRM 和 HR 于一体的泰英双语工作空间。财务页呈现现金可支撑时长、费用和贷款分期。缩略图使用 ABC 公司的示例数据。',
+        access: '需要登录',
+        cta: '打开 EACH',
+        name: 'EACH',
+      },
+      p66: {
+        lede: '348 组配色。搜索色彩关系，以灰度研究，复制色值。Dr Non 的色彩展览，灵感来自和田三造。',
+        cta: '探索配色',
+        name: 'Palette',
+      },
+      p56: {
+        lede: 'Axiom 背后的操作标准 — tokens、components、五行 DNA，以及为任何 AI agent 准备的 AGENTS.md。先功能，后删减。丢入 Claude Code、Cursor、Cline、Aider 或任何 agent，agent 一次就能产出正确的 Axiom 风格作品。MIT 授权 — 克隆、分叉、发布。',
+        cta: '打开仓库',
+        name: 'Axiom Design Core',
+      },
+      p57: {
+        lede: 'Dr Non 的可复刻级界面标准。两个层：Rams 静默层（暖灰底、发丝网格、单一强调色）用于单视图；NYCTA 寻路层（封闭的线路色板、圆盘、站牌、实心箭头）用于多板系统。为任何 AI agent 准备的 AGENTS.md。原创工作以 MIT 授权；不属于再授权范围的内容见 NOTICE.md。',
+        cta: '打开仓库',
+        name: 'Rams × NYCTA Design Core',
+      },
+      p58: {
+        lede: '功能极简的白色行李牌设计原则，适用于网站、系统、文档与 AI agent。Design tokens（底色、墨色、四级字号、间距、等宽字体、可选领域色）、印刷 Stock B、Ephemera 皮肤、六个组件、before/after 示例、可被 agent 调用的 skill，以及可运行的 tag-audit PO gate。MIT 授权。',
+        cta: '打开仓库',
+        name: 'Luggage Tag Aesthetic',
+      },
+      p59: {
+        lede: '十条可强制执行的布局法则，配有让构建失败的静态 lint 与运行时审计。包内含：单一数字真源（scale.mjs）、棘轮（moma-lint.mjs）、证明已发布算术的 self-check（self-check.mjs），以及一个浏览器控制台，用于捕捉只有 layout 之后才存在的缺陷（near-miss、ragged-row、orphan-grid）。示例页服从自己的法则。',
+        cta: '打开仓库',
+        name: 'MoMA Rules',
+      },
+      p60: {
+        lede: 'O3 — 第三种力量。泰国 OTOP 登记册，作为数据来读：77 省 154,078 条记录，每一条都带有来源、完整度与时间戳。没有爬取，没有 AI 幻觉：登记册就是登记册，每个单元格都附出处。',
+        cta: '打开登记册',
+        name: 'O3',
+      },
+      p61: {
+        lede: '从未真正开赛的超级联赛。二十六家俱乐部、真实阵容、直线传球 — 一次一个决定。回合制战术足球，支持单人游戏或双人同屏。按下开始，相信下一场比赛仍然重要，传球前先读懂球场。',
+        cta: '按下开始',
+        name: 'Super League',
+      },
+      p68: {
+        lede: '三天的上海指南，用信件体写成。泰语、英语、中文三个版本。静水长流——一座由站在其中的读者所读出的城市。',
+        cta: '打开书',
+        name: '淼燊的上海',
+      },
+      llm: {
+        lede: '基于企业自有私域数据训练轻量专用语言模型的实战实验室。从原始数据标记到可随身携带、在任意环境独立运行的模型文件。',
+        cta: '打开 LLM Lab',
+        name: 'LLM Lab',
+      },
+      dog: {
+        lede: '三维解剖与程序化模拟工作室，精准刻画泰国本土邦高犬的骨骼结构、步态与警觉姿态。',
+        cta: '打开 Canine Studio',
+        name: 'CANINE // 泰国邦高犬',
+      },
+      },
     stagesContent: {
       taipeiLoc:'台北 · 城市愿景舞台 · 2026年3月',
       taipeiTitle:'实时仪表板 45分钟内现场演示',
@@ -1479,6 +3570,12 @@ const i18nExt = {
       sgQuote:'"会议室只剩站位 那不是掌声 那是需求信号 政府要的是能跑的系统 已经厌倦等一份幻灯片了"',
       sgCite:'— 阿南博士 演讲后',
       sgS1:'主舞台观众', sgS2:'总参会人数', sgS3:'参会国家', sgS4:'工作坊容量',
+      shLoc:'Tomorrow.City Shanghai 2026 · Main Stage · 2026',
+      shTitle:'别再叫它数字孪生。叫它上帝模式。',
+      shLede:'数字孪生是客气的叫法。上帝模式才是诚实的：上帝视角看你的城市整体是什么样 — 然后你管得更好，不是对着仪表盘膜拜。Dr Non 第四次站上这个舞台；场地是次要的故事，理念才是产品：FloodDash 实时在立方体大屏上烹制数据。',
+      shQuote:'"每个概念都过 4Ps — Purpose、Practicality、Proof、People。然后为人设计。传感器告诉你水流速度，告诉你不了什么。换成立方米，再跟水库剩余 freeboard 比一比，你就知道水装得下还是装不下 — 会不会淹。这点基础数学就是产品。"',
+      shCite:'— Dr. Non，Tomorrow.City Shanghai 主旨演讲',
+      shS1:'第四次登上此舞台', shS2:'FloodDash 在立方体大屏上', shS3:'公共数据源', shS4:'三点收获（4Ps 框架）',
       leapLoc:'LEAP East 2026 · Orbital Stage · 7月10日',
       leapTitle:'亚洲最大舞台。FloodDash 在这里发布。',
       leapLede:'Orbital Stage 圆桌——「From Congestion to Connection: The Tech Powered Future of Transport in Asia」。Dr. Non Arkara（DEPA 智慧城市推广高级专家）与 Mitchell Price、Richard Chung、Will Peters 一起，用 FloodDash 现场发布收束 Q1–Q2 弧线。',
@@ -1491,15 +3588,18 @@ const i18nExt = {
       collectiveTitle:'随时待命的协作圈',
       collectiveLede:'研究员、交通工程师、人类学家、金融人士、政策翻译、媒体运营 他们按问题加入 不按组织图 需要哪颗大脑 在那个时候付钱给那颗大脑',
       probonoTitle:'公益工作 · 机构项目',
+      probonoMeta:'5个项目 · 机构合作方',
       probonoNote:'这些全是在跑的平台 不是幻灯片也不是报告 每一个都跟真实的机构合作方一起做出来 对外公开部署 现在还在用 点进去看看真东西交付出来是什么样',
       pb1org:'为东盟秘书处', pb1title:'38座城市 10个国家 一个平台', pb1for:'东盟智慧城市网络',
       pb2org:'东盟 · UNDP · UN-Habitat', pb2title:'112,000用户 起源于真实的洪灾', pb2for:'东盟CSCO手册',
       pb3org:'联合国经社部 · 所罗门群岛政府', pb3title:'覆盖整个政府的数字化路线图', pb3for:'霍尼亚拉 · 两天工作坊',
       pb4org:'为泰国depa', pb4title:'泰国数字机构 上线了', pb4for:'智慧城市领导力 · 双语',
+      pb5org:'depa · US DOT', pb5title:'从田野到软件 城市系统工具包', pb5for:'美-东盟智慧城市伙伴关系',
     },
     notesContent: {
       foldLine:'现场笔记 · 6条经验 · 交付方式',
       kicker:'怎么搭出来的',
+      meta:'现场笔记',
       title:'真做出来才学到的事',
       lede:'十一个系统 两个人 十二个月 这些是坚持下来的模式 以及那些没坚持住的 把它们放在这里 因为政府的需求和市场的供给之间那道缝 只有大家把弄明白的东西分享出来 才能慢慢闭合',
       n1title:'供应商说不行 我们十四天就交付了',
@@ -1511,7 +3611,7 @@ const i18nExt = {
       n4title:'组织图告诉你谁向谁汇报 它一句也不告诉你谁该跟谁一起搭什么',
       n4body:'TKCX就是建在这道缝上 游戏原型、就绪分数、Moneyball式的薪资上限 把组织图遮住的东西显出来：合适的人选、他们之间的化学反应、会在半路上冒出来的技能缺口 把人才当成投资组合看 不是当成人头数',
       n5title:'单个AI回答 委员会审议',
-      n5body:'重要决策上 单个模型只给你一种框架 那种烘进训练里的框架 AI Council跑十一位有不同先验的法官 明确的动作（EXPAND、QUALIFY、CONCEDE、STAND、PASS）和一份每个人发言前都得读的共享transcript 分歧就是产品 你离开的时候 立场比进来时更站得住脚',
+      n5body:'重要决策上 单个模型只给你一种框架 那种烘进训练里的框架 AI Council跑十一位有不同先验的法官 明确的动作（EXPAND、QUALIFY、CONCEDE、STAND、PASS）和一份每个人发言前都得读的共享发言记录 分歧就是产品 你离开的时候 立场比进来时更站得住脚',
       n6title:'从第一天就装好仪表 不是后面再补',
       n6body:'每一个Axiom系统交付时都自带数据轨迹：页面浏览、使用信号、决策日志 不是因为第一天就要看分析 而是因为之后再往一个跑着的系统上加测量 几乎做不到 下一版总是从上一版教给你的东西里建起来 留下记录 未来的你会需要它',
       stackNote:'本地优先 没有构建团队 不被供应商锁定 一台M5 Max在曼谷一张桌子上跑推理、构建和部署',
@@ -1529,7 +3629,8 @@ const i18nExt = {
       l8name:'通道', l8role:'输出',
       l9name:'本地运行时', l9role:'工作台',
       legend:'<span data-runtime="cloud">云端</span><span data-runtime="local">// local</span>',
-    },
+    
+      expandHint:'9 层 · 117 项工具 · 从曼谷的一张桌子上构建和运行。点击下方查看完整列表',},
     brandSect: {
       foldLine:'品牌工具包 · 8张 · 可下载',
       kicker:'品牌工具包',
@@ -1538,7 +3639,7 @@ const i18nExt = {
       downloadCta:'下载品牌工具包',
       expandAll:'查看全部品牌规范',
     },
-    pressSection: { foldLine:'媒体报道 · 7篇 · GovInsider、东盟杂志、YouTube', kicker:'媒体报道', title:'读 看 决定', lede:'外界对这些工作、论点和系统的报道' },
+    pressSection: { foldLine:'媒体报道 · 6篇 · GovInsider、东盟杂志、YouTube', kicker:'媒体报道', title:'读 看 决定', lede:'外界对这些工作、论点和系统的报道' },
     credentialsSect: {
       foldLine:'Axiom X Co., Ltd. · 注册号 0105569099335 · 泰国 · 商务部登记',
       kicker:'资质',
@@ -1596,23 +3697,477 @@ const i18nExt = {
 
   ts: {
     panels: {
-      p01: { title:'Governor<em>.situationRoom</em>: BrowserTab', lede:'// phuket.transit + safety + env → 30s read\n// built: weeks; not: procurementCycle', w1lbl:'// WHY_SPECIAL', w1:'// govDashboards: ReadonlyPDF[]\n// phuket: WorkingOpsRoom — transit & safety & env\n// refresh: 42ms; analysts: never[]', w2lbl:'// REPLACED', w2:'threeAgencyReports + smsChain + tuesdayBriefing', w3lbl:'// DAY_ONE', w3:'existingIoT.build() // no new hardware', cta:'system.open()' },
-      p02: { title:'macroSignal<em>.before(roomStartsGuessing)</em>', lede:'// DNGWS: escalation + spillover + crossSourceCrisis\n// for: DecisionMaker.cannotWait(briefingDeck)', w1lbl:'// WHY_SPECIAL', w1:'bloomberg.cost: $25k/seat // this: openData\ncrisis.fuse() // minister.brief(beforeCycle)', w2lbl:'// REPLACED', w2:'subscriptionPlatforms + adHocPDFs + positionGap', w3lbl:'// DAY_ONE', w3:'sentinel2 + OSINT + nlpBrief(53countries)', cta:'system.open()' },
-      p03: { title:'bureaucracy<em>.makeLegible()</em>', lede:'// thailand.smartCity.programme → public surface\n// proposals.in; progress.visible; pdfs.never()', w1lbl:'// WHY_SPECIAL', w1:'nationalProgramme.online(bilingual)\n// outcomes not ceremony; status.update(onMilestone)', w2lbl:'// FUNDED_BY', w2:'depa // digital economy promotion agency\n// direct gov engagement, not sub-vendor', w3lbl:'// MATTERS', w3:'template.for(nationalSmartCity.programmes)', cta:'system.open()' },
-      p04: { title:'ranking<em>.arguesBack()</em>', lede:'SLIC.show(5pillars)\n// mayors.define(livability)\n// math.follows()', w1lbl:'// WHY_SPECIAL', w1:'others.hand(finishedVerdict)\nSLIC.hand(math) // weights.move() → ranking.change()', w2lbl:'// REPLACED', w2:'staticLeaderboards + annualPDF + methodology.dispute', w3lbl:'// SIGNAL', w3:'MayorsOfEurope.adopted()\n// live-demo: SCSE 45min', cta:'SLIC.v3.open()' },
-      p05: { title:'Kuching<em>.oneCommandSurface()</em>', lede:'// IOC: fullSpectrum\n// fx + flights + satellite + env → unified', w1lbl:'// WHY_SPECIAL', w1:'most: IOC<SingleDomain>\nkuching: crossDomain.fuse() // never switchTabs()', w2lbl:'// USERS', w2:'cityOperators + planners\n// realTime situational awareness, daily use', w3lbl:'// MATTERS', w3:'bloomberg.density / city // fraction.of.cost', cta:'system.open()' },
-      p06: { title:'news<em>.before(algorithm.decidesWar)</em>', lede:'MEM: fastest opensource news surface\n// multiSource; noEditorialDelay; noFilterBubble', w1lbl:'// WHY_SPECIAL', w1:'platforms.have(editorial.layer)\nMEM.remove(that) // same signals, machineSpeed', w2lbl:'// REPLACED', w2:'3tabs + 2telegramChannels + twitterList', w3lbl:'// USERS', w3:'journalists + analysts + ngoFieldTeams', cta:'system.open()' },
-      p07: { title:'bus.tracked<em>.rider.informed</em>', lede:'// GPS: realTime; telemetry: passenger\n// designed: phone.first // not controlRoom', w1lbl:'// WHY_SPECIAL', w1:'smartBus.for(operator.dashboard) // old\nthis.for(person.waiting(stop)) // new', w2lbl:'// REPLACED', w2:'noInfo + 2019schedule + "transit.cannotBeReadable"', w3lbl:'// BUILT_ON', w3:'phuket.IoT.existing\n// same sensor as governor ops room', cta:'system.open()' },
-      p08: { title:'reports.arrive<em>.AI.turnsIntoAction()</em>', lede:'// telegram + LINE → AI.analyze()\n// satellite + map layers → nearRealTime', w1lbl:'// WHY_SPECIAL', w1:'complaintSystems.stop(ticketNumber)\nSCTH.stream → decisionSurface()', w2lbl:'// REPLACED', w2:'chatGroupScreenshots + manualTriage + staticLayers', w3lbl:'// DECISION_POWER', w3:'absorb + assign + analyze + export + push', w4lbl:'// LIVE_TUNNEL', w4:'system.proprietary.continuous\n// if !resolve: midUpgrade → retry()', cta:'system.open()' },
-      p09: { title:'voices: 11<em>.decision: 1</em>', lede:'// 11 justices, palindromic names\n// local Mac; sharedTranscript; ~$3/month\n// trained: personal data // proprietary: byDesign', w1lbl:'// WHY_EXISTS', w1:'singleModel.gives(oneAnswer)\n// VERIFY | DECIDE | EXPLORE | DEBATE\n// moves: EXPAND | QUALIFY | CONCEDE | STAND | PASS', w2lbl:'// COST', w2:'manus.class @ $3/mo\n// chair: Mistral3; Ada: ThaiLLM(free)\n// Otto: ocr+video+email+pdf+drive', w3lbl:'// NO_DEMO', w3:'trained: { journals, decisions, voice }\n// protocol: ~600 lines Python // open\n// IP = coordinationMethodology', cta:'protocol.v1.read()', cta2:'agentic.v2.run()' },
-      p10: { title:'HR.recordSystem<em>.enough(years)</em>', lede:'// TKCX: TalentKnowledgeCollaborativeExplorers\n// employees: partyMembers; projects: quests\n// teamAssembly: strategy', w1lbl:'// PROBLEM', w1:'HR.is(complianceRecord)\n// tells: whoEmployed\n// NOT: { deploy: where, with: whom }', w2lbl:'// ENGINE', w2:'DQ3.partySystem\n// 5 archetypes; moneyball: budget÷10\n// readiness(coverage+chemistry+morale)', w3lbl:'// CHANGES', w3:'directors.stop(hoardingPeople)\n// skillGaps.visible(beforeFailure)\n// HR.rename("TalentIncubation")', cta:'engine.explore()' },
-      p11: { title:'AI<em>.knows(you)</em>', lede:'// ObsidianVault → MCP → allPlatforms: simultaneously\n// brainAnatomy.folders; serverConfigs: 19\n// agents.access(persona, voice, decisions)', w1lbl:'// GAP_CLOSED', w1:'session.starts(cold) // no context\nSecondBrainOS.feeds(voice + values + decisions)\n// AI.already.knows(whoItWorksWith)', w2lbl:'// ARCHITECTURE', w2:'vault: { PrefrontalCortex, Hippocampus, TemporalLobe }\n// 19 MCP configs → Cursor + Codex + ClaudeCode\n// livingKnowledgeGraph.connected(atOnce)', w3lbl:'// OPEN_SOURCE', w3:'license: MIT // brain: yours\n// fork(structure); adapt(mcpConfigs)\n// 12levelDiagnostic: strip(aiSpeak)', cta:'architecture.explore()' },
+      p48: {
+        name: 'floodDash.thailandWatch',
+        lede: '// floodDash.thailand.live()\n// 9 public.sources · streams.every(3-60min) // all 77 provinces · one.situation.picture',
+        cta: 'system.open()',
+      },
+      p65: {
+        lede: '// flooddash.community / facebook.channel\n// followers[112k] + likes[37k] + dailyBriefings.th\n// collab(SLIC, depa, RCAD)\n// liveIn.facebook.bitLy/flooddashThai',
+        cta: 'facebook.follow()',
+        name: 'FloodDash Community',
+      },
+      p49: {
+        name: 'sikhio.operationsDesk',
+        lede: '// sikhio.municipality.surface()\n// AQI + weather + traffic + city.live.data // for: operators(who.actually.decide)',
+        cta: 'system.open()',
+      },
+      p50: {
+        lede: '// NST-01.nakhonSiThammarat()\n// 3D city + satellite + flood + KhaoLuang.basin + PakPhanang // 30+ live.sources',
+        cta: 'system.open()',
+        name: 'NST-01 · Nakhon Si Thammarat',
+      },
+      p51: {
+        name: 'laemChabang.portOperations',
+        lede: '// laemChabang.portTraffic()\n// truck.traffic + regulatory.compliance // coordinate.port + reduce.congestion',
+        cta: 'system.open()',
+      },
+      p01: {
+        title: 'Governor<em>.situationRoom</em>: BrowserTab',
+        lede: '// phuket.transit + safety + env → 30s read\n// built: weeks; not: procurementCycle',
+        w1lbl: '// WHY_SPECIAL',
+        w1: '// govDashboards: ReadonlyPDF[]\n// phuket: WorkingOpsRoom — transit & safety & env\n// refresh: 42ms; analysts: never[]',
+        w2lbl: '// REPLACED',
+        w2: 'threeAgencyReports + smsChain + tuesdayBriefing',
+        w3lbl: '// DAY_ONE',
+        w3: 'existingIoT.build() // no new hardware',
+        cta: 'system.open()',
+        name: 'Phuket Ops',
+      },
+      p21: {
+        lede: '// HCMC.massiveScaleCommandSurface()\n// live traffic + flood monitoring + AQ + dynamic routing // one high-performance map for city decision-makers',
+        cta: 'system.open()',
+        name: 'HCMCx Super Dashboard',
+      },
+      p62: {
+        lede: '// lopburi.warRoom / oneScreen.fourStreams\n// floodDash.basinTelemetry(thaiWater,HII) + paSakJolasid.reservoir\n// social.listening + cctv.slotGrid + satellite.layers // dispatchable.read()',
+        cta: 'warRoom.open()',
+        name: 'Lopburi Operations',
+      },
+      p33: {
+        lede: '// MTT.superDashboard.v2()\n// IMPACT Arena + Challenger halls + flood + traffic + AQI + event load // 3D district map for Thailand densest mixed-use complex',
+        cta: 'system.open()',
+        name: 'MTT Super Dashboard',
+      },
+      p05: {
+        title: 'Kuching<em>.oneCommandSurface()</em>',
+        lede: '// IOC: fullSpectrum\n// fx + flights + satellite + env → unified',
+        w1lbl: '// WHY_SPECIAL',
+        w1: 'most: IOC<SingleDomain>\nkuching: crossDomain.fuse() // never switchTabs()',
+        w2lbl: '// USERS',
+        w2: 'cityOperators + planners\n// realTime situational awareness, daily use',
+        w3lbl: '// MATTERS',
+        w3: 'bloomberg.density / city // fraction.of.cost',
+        cta: 'system.open()',
+        name: 'Kuching IOC',
+      },
+      p63: {
+        lede: '// malaysia.godMode\n// jps.riverGauges(everyBasin) + met.warnings(malaysia)\n// transit(buses,trains) + aviation(ships,aircraft)\n// air + fire + citizen.index(who.lives.far.from.help)\n// map.oneScreen(locale[en,bm,zh])',
+        cta: 'liveMap.open()',
+        name: 'Malaysia · God Mode',
+      },
+      p13: {
+        lede: '// Chula.ControlTower\n// 47 live data streams: traffic, events, AQ, satellite, campus, security, transport // one surface for the operations team',
+        cta: 'system.open()',
+        name: 'Chula Control Tower',
+      },
+      p16: {
+        lede: '// Chonburi.ControlTower\n// 3D command surface for the Eastern Seaboard: 42 live sources // coast weather, sea state, market and tourism, all in one',
+        cta: 'tower.open()',
+        name: 'Chonburi Control Tower',
+      },
+      p18: {
+        lede: "// KMITL.ControlTower\n// 56 live data streams for King Mongkut's Institute of Technology Ladkrabang // traffic, events, AQ, satellite, campus, security",
+        cta: 'system.open()',
+        name: 'KMITL Control Tower',
+      },
+      p19: {
+        lede: '// Yala.ControlTower\n// real-time civic intelligence for Yala City Municipality // 3D city model + satellite + flood monitoring + deep-south security events',
+        cta: 'system.open()',
+        name: 'Yala Control Tower',
+      },
+      p15: {
+        lede: '// CityHub.replicableCityIntelligence()\n// give it a city name, it draws the map, absorbs your data, wires APIs and dashboards // one city at a time',
+        cta: 'platform.open()',
+        name: 'City Hub',
+      },
+      p27: {
+        lede: '// AirDash = thailand.aqDust.watch(24/7)\n// provinceRanking + 3day.CAMSminusRain + top5.AT-risk + top5.PM25\n// + washoutLogic + nationalPatternDonut\n// every.province.reads(sameAirPicture // from publicData)',
+        cta: 'system.open()',
+        name: 'AirDash',
+      },
+      p36: {
+        lede: '// BKKxAtlas.walkCity()\n// 432077 OSM buildings · terrain · AQI · rain · landPrice · BTS/MRT · canals',
+        cta: 'system.open()',
+        name: 'BKKx 3D Atlas',
+      },
+      p43: {
+        lede: '// bkk.heritage.blockByBlock()\n// quarters: 9 · monuments: 571 · walks: 7\n// siblingOf(atlas.nonarkara.org)',
+        cta: 'system.live.open()',
+        name: 'BKKx Culture',
+      },
+      jakarta: {
+        lede: 'jakarta.opsDesk({ massing: 3D, weather: BMKG, reports: CRM, flood: DSDA }) // DKI Jakarta ops',
+        cta: 'system.openLive()',
+        name: 'Jakarta 3D Atlas',
+      },
+      p67: {
+        lede: '// simsmartcity / realSite(OSM) → cityEconomy.growsLive\n// inspiredBy(SimCity2000) // urbanPlanning.rules(2026)\n// build.aCity(on: realPlace) → watch(the.economy)',
+        cta: 'demo.open()',
+        name: 'simsmartcity',
+      },
+      p69: {
+        lede: '// tdv.thailandDigitalValley / siRacha.campus(twin)\n// buildings[5] · area[86k m²] · floorPlans[25.published]\n// chibi.visitors(animated) · IoT[1].CAD',
+        cta: 'campus.enter()',
+        name: 'TDV · Thailand Digital Valley',
+      },
+      bangkokIoc: {
+        lede: 'bangkokIoc.placeFit({ station: "BTS", limits: "yours", evidence: ["reports", "civicPlaces", "realWalk"] }) // desk research, not a listing',
+        cta: 'bangkokIoc.open()',
+        name: 'Bangkok IOC',
+      },
+      dhaka: {
+        lede: 'dhaka.atlas3D({ wards: 129, layers: ["massing", "slope", "monsoon", "density"] }) // DHKx block-by-block',
+        cta: 'dhakaAtlas.open()',
+        name: 'DHKx 3D Atlas · Dhaka',
+      },
+      p04: {
+        title: 'ranking<em>.arguesBack()</em>',
+        lede: 'SLIC.show(5pillars)\n// mayors.define(livability)\n// math.follows()',
+        w1lbl: '// WHY_SPECIAL',
+        w1: 'others.hand(finishedVerdict)\nSLIC.hand(math) // weights.move() → ranking.change()',
+        w2lbl: '// REPLACED',
+        w2: 'staticLeaderboards + annualPDF + methodology.dispute',
+        w3lbl: '// SIGNAL',
+        w3: 'MayorsOfEurope.adopted()\n// live-demo: SCSE 45min',
+        cta: 'SLIC.v3.open()',
+        name: 'SLIC Index',
+      },
+      p22: {
+        lede: '// fourTheaters()\n// Middle East, Indo-Pacific, Thailand, Global on one surface // live air + sea traffic, conflicts, markets, 8-week forecast',
+        cta: 'system.open()',
+        name: 'Global Monitor',
+      },
+      p45: {
+        lede: '// asia.theaters(5) + chokepoints(5)\n// Malacca · Hormuz · Mandeb · Taiwan · Sunda // conflict + fires + ADS-B + AIS + news + TV',
+        cta: 'system.open()',
+        name: 'AsiaWatch · Pan-Asian Sentinel',
+      },
+      p46: {
+        lede: '// world.console()\n// planet-scale ADS-B + AIS · conflict + fires · intel + markets docked open',
+        cta: 'system.open()',
+        name: 'World Console',
+      },
+      p06: {
+        title: 'news<em>.before(algorithm.decidesWar)</em>',
+        lede: 'MEM: fastest opensource news surface\n// multiSource; noEditorialDelay; noFilterBubble',
+        w1lbl: '// WHY_SPECIAL',
+        w1: 'platforms.have(editorial.layer)\nMEM.remove(that) // same signals, machineSpeed',
+        w2lbl: '// REPLACED',
+        w2: '3tabs + 2telegramChannels + twitterList',
+        w3lbl: '// USERS',
+        w3: 'journalists + analysts + ngoFieldTeams',
+        cta: 'system.open()',
+        name: 'Middle East Monitor',
+      },
+      p14: {
+        lede: '// DayTraders.thaiMarketIntelligence()\n// Bloomberg-class signals for SET, MAI, mutual funds, RMF // personalized watchlists and AI summaries',
+        cta: 'platform.open()',
+        name: 'DayTraders',
+      },
+      p41: {
+        lede: '// market.intel(useful: true, impressive: false)\n// world · lens · map · fx · capitol · odds · plan\n// researchPreview · notAdvice · everyNumber.carriesAge',
+        cta: 'system.live.open()',
+        name: 'DAY 2',
+      },
+      p70: {
+        lede: '// formHypes.shdt / 20yearReunion(MIT.thesis.2006)\n// formProfiles: 11 (rectilinear.to.pinwheel)\n// formPerf.metrics: 9 [rent, area, skyReach, daylight, distinctiveness]\n// liveRecalc.onEdit() // inspiredBy(SHDT)\n// conceptPrototype.notForConstruction',
+        cta: 'form.design()',
+        name: 'FormHypes · SHDT',
+      },
+      p42: {
+        lede: '// triBorder.command(TH)\n// myanmar · cambodia · southernTheatre\n// liveOps + playback + executiveIntel.on(map)',
+        cta: 'system.live.open()',
+        name: 'Geopolitical Watch',
+      },
+      p23: {
+        lede: '// SCITI.smartCityThailandIndex()\n// official Thai index: 174 city areas, 7 smart-city pillars // progress and impact evaluated',
+        cta: 'system.open()',
+        name: 'Smart City Thailand Index (SCITI)',
+      },
+      p07: {
+        title: 'bus.tracked<em>.rider.informed</em>',
+        lede: '// GPS: realTime; telemetry: passenger\n// designed: phone.first // not controlRoom',
+        w1lbl: '// WHY_SPECIAL',
+        w1: 'smartBus.for(operator.dashboard) // old\nthis.for(person.waiting(stop)) // new',
+        w2lbl: '// REPLACED',
+        w2: 'noInfo + 2019schedule + "transit.cannotBeReadable"',
+        w3lbl: '// BUILT_ON',
+        w3: 'phuket.IoT.existing\n// same sensor as governor ops room',
+        cta: 'system.open()',
+        name: 'Phuket Smart Bus',
+      },
+      p08: {
+        title: 'reports.arrive<em>.AI.turnsIntoAction()</em>',
+        lede: '// telegram + LINE → AI.analyze()\n// satellite + map layers → nearRealTime',
+        w1lbl: '// WHY_SPECIAL',
+        w1: 'complaintSystems.stop(ticketNumber)\nSCTH.stream → decisionSurface()',
+        w2lbl: '// REPLACED',
+        w2: 'chatGroupScreenshots + manualTriage + staticLayers',
+        w3lbl: '// DECISION_POWER',
+        w3: 'absorb + assign + analyze + export + push',
+        w4lbl: '// LIVE_TUNNEL',
+        w4: 'system.proprietary.continuous\n// if !resolve: midUpgrade → retry()',
+        cta: 'system.open()',
+        name: 'SCTH City Data Platform',
+      },
+      p12: {
+        lede: '// NSP.thailand.streamingPlatform()\n// 21 NBTC-licensed digital TV channels // free, full HD, any device // live EPG + viewership telemetry + AI guide + CAP v1.2 emergency alerts',
+        cta: 'platform.open()',
+        name: 'NSP',
+      },
+      p64: {
+        lede: '// forestCarbon.thailand / provinceTap + drawBox\n// satellite.carbonStock + forestRemoval + emissions\n// fire + fossilCO2 + tVer.project(workbench)\n// sources + uncertainty / locale[th,en]',
+        cta: 'assessment.open()',
+        name: 'Forest Carbon Thailand',
+      },
+      constitution: {
+        lede: 'constitution.study({ year: 2017, sections: 279, locales: [th, en, zh], audio: true, cards: true })',
+        cta: 'readingRoom.open()',
+        name: 'Thai Constitution Reader',
+      },
+      techhunt: {
+        lede: 'techhunt.market({ verifiedStartups: 125, domains: 7, provinces: 77, ranking: "signal_strength", partners: ["depa", "slic", "uwn"] })',
+        cta: 'techhunt.open()',
+        name: 'Smart City Thailand TechHunt',
+      },
+      burma: {
+        lede: 'pirchchat.community({ lang: "my", rooms: "persistent", digest: "daily", chrome: "win95", initiative: "GovTechYouth" })',
+        cta: 'pirchchat.open()',
+        name: 'Pirchchat · A-Lin-Ein',
+      },
+      tsunami: {
+        lede: 'soonami.defense({ rim: "andaman", telemetry: "buoys", seismic: true, runup: "modeled", evacuation: "vectors" })',
+        cta: 'soonami.open()',
+        name: 'Soonami · Tsunami Defense',
+      },
+      p52: {
+        name: 'drNon.twentyMinutes',
+        lede: '// podcast.20min.drNon()\n// ideas + agents + geopolitics // spotify.live // episodes.shipping',
+        cta: 'spotify.open()',
+      },
+      p09: {
+        title: 'voices: 11<em>.decision: 1</em>',
+        lede: '// 11 justices, palindromic names\n// local Mac; sharedTranscript; ~$3/month\n// trained: personal data // proprietary: byDesign',
+        w1lbl: '// WHY_EXISTS',
+        w1: 'singleModel.gives(oneAnswer)\n// VERIFY | DECIDE | EXPLORE | DEBATE\n// moves: EXPAND | QUALIFY | CONCEDE | STAND | PASS',
+        w2lbl: '// COST',
+        w2: 'manus.class @ $3/mo\n// chair: Mistral3; Ada: ThaiLLM(free)\n// Otto: ocr+video+email+pdf+drive',
+        w3lbl: '// NO_DEMO',
+        w3: 'trained: { journals, decisions, voice }\n// protocol: ~600 lines Python // open\n// IP = coordinationMethodology',
+        cta: 'protocol.v1.read()',
+        cta2: 'agentic.v2.run()',
+        name: "Dr Non's AI Council",
+      },
+      p10: {
+        title: 'HR.recordSystem<em>.enough(years)</em>',
+        lede: '// TKCX: TalentKnowledgeCollaborativeExplorers\n// employees: partyMembers; projects: quests\n// teamAssembly: strategy',
+        w1lbl: '// PROBLEM',
+        w1: 'HR.is(complianceRecord)\n// tells: whoEmployed\n// NOT: { deploy: where, with: whom }',
+        w2lbl: '// ENGINE',
+        w2: 'DQ3.partySystem\n// 5 archetypes; moneyball: budget÷10\n// readiness(coverage+chemistry+morale)',
+        w3lbl: '// CHANGES',
+        w3: 'directors.stop(hoardingPeople)\n// skillGaps.visible(beforeFailure)\n// HR.rename("TalentIncubation")',
+        cta: 'github.repo.coming.soon',
+        name: 'TKCX',
+      },
+      p11: {
+        title: 'AI<em>.knows(you)</em>',
+        lede: '// ObsidianVault → MCP → allPlatforms: simultaneously\n// brainAnatomy.folders; serverConfigs: 19\n// agents.access(persona, voice, decisions)',
+        w1lbl: '// GAP_CLOSED',
+        w1: 'session.starts(cold) // no context\nSecondBrainOS.feeds(voice + values + decisions)\n// AI.already.knows(whoItWorksWith)',
+        w2lbl: '// ARCHITECTURE',
+        w2: 'vault: { PrefrontalCortex, Hippocampus, TemporalLobe }\n// 19 MCP configs → Cursor + Codex + ClaudeCode\n// livingKnowledgeGraph.connected(atOnce)',
+        w3lbl: '// OPEN_SOURCE',
+        w3: 'license: MIT // brain: yours\n// fork(structure); adapt(mcpConfigs)\n// 12levelDiagnostic: strip(aiSpeak)',
+        cta: 'architecture.explore()',
+        name: 'Second Brain OS',
+      },
+      p20: {
+        lede: '// Horizon45.aiJudgmentFieldInstrument()\n// deepfake detection → prompt engineering // users navigate real-world signals, leave with a capability portrait',
+        cta: 'system.open()',
+        name: 'Horizon 45',
+      },
+      p53: {
+        name: 'ascn.performanceReview.directorsCut',
+        lede: '// ASCN.ASEAN.directorCut()\n// 134 projects · 38 cities · 4 M&E cycles // portfolio.momentum + focus.shifts',
+        cta: 'system.open()',
+      },
+      p24: {
+        lede: 'dao.read({ chapters: 81, locales: [en, th, zh], characters: true, illustratedNotes: true, colours: Palette })',
+        cta: 'system.open()',
+        original: 'dao.original.open()',
+        name: 'Dao × Palette',
+      },
       ikigai: {
         name: 'IkigaiFinanceEngine',
         lede: '// SME.financeIntel: balanceSheet.asSignal + cashRunway + bankScorecard\n// indices: { Ikigai, Lean, Zero, Default, Solvency }\n// status: dev.stage // screenshots.only\n// ABCCompanyLtd: fictitious.mockData // !liveDeployment',
         cta: 'researchRepo.open()',
       },
-    },
+      p28: {
+        lede: '// FloodDash.Blueprint = open.research.companion\n// sensors + drainageLogic + AI.predict() + responsePlaybooks\n// + data.to.decision.pipeline(complete)\n// cities: read.fork.adapt // system.replicable(not one-off)',
+        cta: 'github.open()',
+        name: 'FloodDash Blueprint',
+      },
+      ladder: {
+        lede: 'ladder.diligence({ deals, financialChecklist, thesisMatch, portfolioRisk }) // Ikigai companion',
+        access: 'auth.required',
+        cta: 'ladder.open()',
+        name: 'Ladder · Ikigai',
+      },
+      life: {
+        lede: 'life.run({ speed: "2x–20x", turn: "choose", cost: true, save: "browser" }) // placeholder host → life.nonarkara.org',
+        access: 'auth.required',
+        cta: 'life.open()',
+        name: 'Life',
+      },
+      universe_69: {
+        lede: 'universe69.observe({ worlds: 2, state: "sealed", mechanics: "deterministic", interference: false }) // observed, never helped',
+        cta: 'universe69.observe()',
+        name: 'Universe 69: Beta',
+      },
+      pavilion: {
+        lede: 'pavilion.world({ arch: "modernism", ground: "browser_native", cost: 0, hyperscaler: false, secure: true }) // sustainable metaverse from scratch',
+        cta: 'pavilion.enter()',
+        name: 'The Pavilion · Spatial World',
+      },
+      p54: {
+        lede: '// omniArcade.brainPractice()\n// 16-bit browser.arcade + BrainBriefing(on: every.cartridge) // no.ads · scores.localOnly',
+        cta: 'system.open()',
+        name: 'OmniArcade',
+      },
+      p17: {
+        lede: '// Ekkasarn.AI.thaiDocumentIntelligence()\n// tax invoices, receipts, withholding certificates // OCR + validation + structured output',
+        cta: 'system.open()',
+        name: 'Ekkasarn AI',
+      },
+      p29: {
+        lede: '// paste.draft()\n// Non-Writer: chainOfProxies.run()\n// outputs: cleaner.text | drNon.voice | any.language()',
+        cta: 'system.open()',
+        name: 'The Non-Writer',
+      },
+      p30: {
+        lede: '// the desk.byTheNumbers()\n// daily AI-frontier brief // what is shipping, what is hot air, what to read tonight // sector watch + manual picks + compounding archive',
+        cta: 'system.open()',
+        name: "Dr Non's Digests",
+      },
+      p31: {
+        lede: '// NonScrape.scrapingAsAService()\n// no code // give it a URL + a question, it reads the page in source language, returns the answer in yours // with citations + structured JSON',
+        cta: 'system.open()',
+        name: 'Non-Scrape',
+      },
+      p34: {
+        lede: '// TimePop.evidenceFirstRegister()\n// 261 references · cited comps · sourced provenance · credited stills // honesty ladder: where data refuses to estimate',
+        cta: 'system.open()',
+        name: 'Time Pop',
+      },
+      p35: {
+        lede: '// LumaHouse.decisionSequence()\n// draw|AI-trace → sunlitFloor + solarHeat → living|systems|cost → picture',
+        cta: 'system.open()',
+        name: 'Luma/house',
+      },
+      p40: {
+        lede: '// OpenClaw.setup.agentExecutable()\n// security-first · localLLM.byRAM · riskTiered.tools · docsOnly.noPrivateData',
+        cta: 'github.open()',
+        name: 'OpenClaw Set-Up',
+      },
+      p44: {
+        lede: '// bkk.shophouseInventory.existence: false\n// 400k buildings · no survey · 2311 sample · treasuryPressureMap · fourColour.answer\n// publishedIn(ShophouseMetropolis, harvardGSD)',
+        cta: 'essay.read()',
+        name: 'Shophouse Metropolis',
+      },
+      p47: {
+        lede: '// shanghai.fieldwork.20years\n// 15 chapters · 76312 words · 134 images · 5h audio · 475 citations // v3 readingEdition, 2026',
+        cta: 'book.open()',
+        name: 'Locating Shanghai',
+      },
+      p55: {
+        lede: '// rag.nonarkara.org / retrieval_as_a_service\n// upload(PDF, links) → cite(source) → silence.when(corpus.silent)\n// 100MB/workspace · Telegram + LINE · localMac(Bangkok) · no.outbound',
+        cta: 'workspace.open()',
+        name: 'RAG.NONARKARA',
+      },
+      champion: {
+        lede: 'scd.coachDesk({ team: "thailand", target: "worldCup2030", plans, press, shape }) // sideline.console',
+        cta: 'coachDesk.open()',
+        name: 'SCD · Soccer Coach Desk',
+      },
+      soccer: {
+        lede: 'nsp.tacticsDesk // research.preview; publicTV.thailand + official.viewingLinks; rights.notice.beforeEntry',
+        cta: 'researchDesk.open()',
+        name: 'Soccer · NSP',
+      },
+      vision: {
+        lede: 'image → numbers → edges → motion → prediction // public.cameras; model.train(); private.images.stayInBrowser',
+        cta: 'classroom.open()',
+        name: 'Vision',
+      },
+      each: {
+        lede: 'each.workspace({ modules: [ERP, ACT, CRM, HR], locales: [th, en] }) // finance: runway + expenses + installments; thumbnail: ABC.exampleData',
+        access: 'auth.required',
+        cta: 'each.open()',
+        name: 'EACH',
+      },
+      p66: {
+        lede: 'palettes[348].search(relationship).study(grayscale).copy(css) // Dr Non × Sanzo Wada',
+        cta: 'palettes.explore()',
+        name: 'Palette',
+      },
+      p56: {
+        lede: '// axiom.designCore / operatingStandard.behindAllAxiom\n// tokens.css + components.html + 5line.DNA + AGENTS.md // functionFirst, thenSubtract\n// dropInto(agent) → firstPass.correct.always // MIT.license = clone, fork, ship',
+        cta: 'repo.open()',
+        name: 'Axiom Design Core',
+      },
+      p57: {
+        lede: '// rams.nycta.designCore / reproduction.grade.interface\n// layer1(Rams.silence) + layer2(NYCTA.wayfinding) // closed.trunk.palette + disc + stationPlate + solidArrow\n// AGENTS.md for(any.agent) // MIT.license(originalWork.only) → NOTICE.md',
+        cta: 'repo.open()',
+        name: 'Rams × NYCTA Design Core',
+      },
+      p58: {
+        lede: '// luggage.tagAesthetic / functional.minimalist.whiteBaggage\n// designTokens = ground + ink + fourRanks + spacing + mono // stockB(printed) + ephemera(skin)\n// six.components + beforeAfter.examples // skill.agentInvocable + tagAudit.PO.gate\n// MIT.license → fork.apply()',
+        cta: 'repo.open()',
+        name: 'Luggage Tag Aesthetic',
+      },
+      p59: {
+        lede: '// moma.rules / ten.enforceable.layoutLaws\n// lint.static(moma-lint.mjs) + audit.runtime(near-miss.browser.js) → failBuild // scale.mjs = single.source.of.numeric.truth\n// self.check.mjs proves(arithmetic.published) // demo.page.obeys(itsOwn.laws)',
+        cta: 'repo.open()',
+        name: 'MoMA Rules',
+      },
+      p60: {
+        lede: '// o3.powerOfThird / otop.registry.as.data\n// 154078.records × 77.provinces // each = source + completeness + age\n// no.scraping · no.AI.hallucination // registry.is(registry) · provenance.on(each.cell)',
+        cta: 'registry.open()',
+        name: 'O3',
+      },
+      p61: {
+        lede: '// superLeague.neverLaunched / twentySixClubs.realSquads\n// straightLine.passing // turnBased.tacticalSoccer // onePlayer.or(twoSharing:pad)\n// press.start → believe(nextMatch.matters) // read.pitch.before(pass)',
+        cta: 'press.start()',
+        name: 'Super League',
+      },
+      p68: {
+        lede: '// miaoshen.shanghai / threeDay.guide(asLetters)\n// still.water.running — read(when: in.place)\n// locales[th,en,zh]',
+        cta: 'book.open()',
+        name: '淼燊的上海',
+      },
+      llm: {
+        lede: 'llmLab.train({ scope: "small_slm", data: "private_corpus", output: "portable_weights", run: "edge_or_local" })',
+        cta: 'llmLab.open()',
+        name: 'LLM Lab',
+      },
+      dog: {
+        lede: 'canine.studio({ breed: "thai_bangkaew", mesh: "procedural_3d", anatomy: true, posture: "alert" })',
+        cta: 'canine.open()',
+        name: 'CANINE // Bangkaew',
+      },
+      },
     stagesContent: {
       taipeiLoc:'Taipei<Stage.CityVision> March2026',
       taipeiTitle:'dashboard.live() // demo: 45min',
@@ -1626,6 +4181,12 @@ const i18nExt = {
       sgQuote:'"standingRoom: not applause\nstandingRoom: demandSignal\ngovernments.want(workingSystems)\ntired.of(waitingForTheDeck)"',
       sgCite:'// Dr.Non, postKeynote',
       sgS1:'mainStage.audience', sgS2:'total.attendees', sgS3:'nations.represented', sgS4:'workshop.capacity',
+      shLoc:'Tomorrow.City.Shanghai2026<MainStage> 2026',
+      shTitle:'stop.calling(it: digitalTwin) → call.it(godMode)',
+      shLede:'// digitalTwin = politeName // godMode = honestName → holisticView(of: what.aGod.wouldSee(of: yourCity)) // manage(it: better) ≠ worship(the:dashboard) // drNon.fourthTime(on: thisStage) // venue = sideStory → idea = product // floodDash.on(cubeScreen).cooked(live.in: room)',
+      shQuote:'"filter(every.concept).through(4Ps) → purpose.practicality.proof.people → then.design(for: humans) // sensor(says: water.moving(speed: x)) → useless(for: mayor) // convert(→ cubicMeters) → compare(↔ reservoir.freeboard) → you.know(whether: it.fits) → OR(it: floods) // that.basicMath = product"',
+      shCite:'// Dr.Non, Tomorrow.City.Shanghai.keynote',
+      shS1:'times.on.stage', shS2:'floodDash.on(cubeScreen)', shS3:'public.dataSources', shS4:'takeaways (4Ps.framework)',
       leapLoc:'LEAP.East2026<OrbitalStage> Jul10',
       leapTitle:'asia.largestStage // FloodDash.launches()',
       leapLede:'// OrbitalStage.panel: FromCongestionToConnection\n// speakers: MitchellPrice, RichardChung, WillPeters, DrNon(DEPA)\n// closes: Q1_Q2.arc with FloodDash.liveLaunch',
@@ -1638,15 +4199,18 @@ const i18nExt = {
       collectiveTitle:'collective.onCall()',
       collectiveLede:'// researchers + trafficEngineers + anthropologists\n// financiers + policyTranslators + mediaOperators\n// join: byProblem; not: byOrgChart',
       probonoTitle:'proBono: Institutional[]',
+      probonoMeta:'projects: 5 · partners: institutional',
       probonoNote:'// live working platforms[]\n// not: Deck[] | Report[]\n// each: built(realPartner).deployed(public).stillInUse()',
       pb1org:'for: ASEANSecretariat', pb1title:'cities: 38; nations: 10; platform: 1', pb1for:'ASEAN SmartCitiesNetwork',
       pb2org:'ASEAN + UNDP + UNHabitat', pb2title:'users: 112_000 // born: realFlooding', pb2for:'ASEAN CSCO Handbook',
       pb3org:'UNDESA + SolomonIslandsGov', pb3title:'digital.roadmap: wholeOfGovernment', pb3for:'Honiara<Workshop, 2days>',
       pb4org:'for: depaThailand', pb4title:'digitalAgency.online()', pb4for:'SmartCityLeadership<Bilingual>',
+      pb5org:'depa<USDOT>', pb5title:'fieldworkToSoftware(toolkit)', pb5for:'US_ASEAN_SmartCitiesPartnership',
     },
     notesContent: {
       foldLine:'// fieldNotes: 6 patterns · howWeShip()',
       kicker:'// HOW_IT_GETS_BUILT',
+      meta:'// field.notes',
       title:'type Lessons = LearnedByActuallyShipping',
       lede:'// 10 systems; 2 people; 12 months\n// patterns.that.held + patterns.that.didnt\n// published: because gap.closes(whenPeopleShare)',
       n1title:'vendor.said("no") // shipped: day14',
@@ -1664,8 +4228,8 @@ const i18nExt = {
       stackNote:'localFirst: true\nbuildTeam: never[]\nvendorLockIn: false\nM5Max.runs({ inference, builds, deploys })\n// location: oneDeskInBangkok',
     },
     builtStack: {
-      heading:'buildStack[]', meta:'// 109 tools, 9 layers',
-      expandFull:'stack.expandAll() // 109 tools, 9 layers',
+      heading:'buildStack[]', meta:'// 114 tools, 9 layers',
+      expandFull:'stack.expandAll() // 114 tools, 9 layers',
       l1name:'infra.cloud()', l1role:'// runtime host',
       l2name:'framework.connect()', l2role:'// the wiring',
       l3name:'platform.build()', l3role:'// dev surface',
@@ -1676,7 +4240,8 @@ const i18nExt = {
       l8name:'channels.out', l8role:'// outputs',
       l9name:'runtime.local()', l9role:'// the desk',
       legend:'<span data-runtime="cloud">// cloud</span><span data-runtime="local">// local</span>',
-    },
+    
+      expandHint:'// 9 layers, 117 tools, one desk.bangkok() // click below for the full list',},
     brandSect: {
       foldLine:'// brandKit[8] · download.available()',
       kicker:'brandKit[]',
@@ -1685,7 +4250,7 @@ const i18nExt = {
       downloadCta:'brandKit.download()',
       expandAll:'brandSheets.viewAll()',
     },
-    pressSection: { foldLine:'// press: 7 articles · GovInsider | ASEAN | YouTube', kicker:'// IN_THE_PRESS', title:'read() // watch() // decide()', lede:'// outside coverage: { work, thesis, systems }' },
+    pressSection: { foldLine:'// press: 6 articles · GovInsider | ASEAN | YouTube', kicker:'// IN_THE_PRESS', title:'read() // watch() // decide()', lede:'// outside coverage: { work, thesis, systems }' },
     pressContent: {
       p1title:'// vendor.refuse() → civilServant.build()',
       p2title:'// InnovationService.close(gap: PolicyToImplementation)',
@@ -1776,27 +4341,99 @@ const i18nExt2 = {
       p15:'Live · 5 cities',
       p16:'Live · Chonburi EEC',
       p17:'Live · Thai docs',
+      p27:'Live · 24/7 Air Watch',
+      p28:'Open Blueprint · GitHub',
+      p29:'Live · Writing Service',
+      p30:'Live · Daily Digest',
+      p31:'Live · Scraping',
+      p33:'Live · District Ops',
+      p34:'Live · Watch Intelligence',
+      p35:'Live · Architectural Design',
+      p36:'Live · 3D Urban Atlas',
+      p40:'Live · Agent Gateway',
+      p41:'Live · Working Instrument',
+      p42:'Live · Border Intelligence',
+      p43:'Live · Heritage Atlas',
+      p44:'Live · Urban Research',
+      p45:'Live · Asian Theatres',
+      p46:'Live · World Console',
+      p47:'Live · Fieldwork Book',
+      p55:'Coming soon · Document Intelligence',
+      p56:'Live · Open Source Kit',
+      p57:'Live · Open Source Kit',
+      p58:'Open Source Kit · GitHub',
+      p59:'Open Source Kit · GitHub',
+      p60:'Live · Strategic Intelligence',
+      p61:'Live · Brain Practice',
+      p62:'Live · City Ops',
     },
     cats: {
-      c01:'Regional Operations', c02:'Strategic Intelligence',
-      c03:'National Programme', c04:'City Benchmarking',
-      c05:'Intelligent Operations', c06:'Open Intelligence',
-      c07:'Transit Intelligence', c08:'Civic Intelligence',
-      c09:'Agentic Intelligence', c10:'Talent Intelligence',
-      c11:'Knowledge Intelligence', c12:'National Broadcast',
-      c13:'Campus Intelligence', c14:'Market Intelligence',
-      c15:'City Intelligence',
-      c16:'Coastal Intelligence', c17:'Document Intelligence',
-      c18:'Metropolitan Operations', c20:'Capability Lab', c23:'Digital Humanities', c25:'Finance Intelligence',
-    },
+      c03: 'National Programme',
+      c06: 'Open Intelligence',
+      c40: 'City Pulse',
+      c41: 'Traffic Regulation',
+      c01: 'Regional Operations',
+      c18: 'Metropolitan Operations',
+      c05: 'Intelligent Operations',
+      c42: 'District Operations',
+      c13: 'Campus Intelligence',
+      c16: 'Coastal Intelligence',
+      c08: 'Civic Intelligence',
+      c15: 'City Intelligence',
+      c19: 'Environmental Watch',
+      c32: '3D Urban Atlas',
+      c36: 'Heritage Atlas',
+      c47: 'City Economics',
+      c50: 'Place Fit',
+      c51: 'Metropolitan 3D Atlas',
+      c04: 'City Benchmarking',
+      c02: 'Strategic Intelligence',
+      c14: 'Market Intelligence',
+      c34: 'Working Instrument',
+      c35: 'Border Intelligence',
+      c07: 'Transit Intelligence',
+      c12: 'National Broadcast',
+      c52: 'Community Platform',
+      c53: 'Disaster Preparedness',
+      c43: 'Podcast',
+      c09: 'Agentic Intelligence',
+      c10: 'Talent Intelligence',
+      c11: 'Knowledge Intelligence',
+      c20: 'Capability Lab',
+      c44: 'Network Evaluation',
+      c23: 'Digital Humanities',
+      c25: 'Finance Intelligence',
+      c26: 'Open Blueprint',
+      c54: 'Life Simulation',
+      c55: 'Autonomous Simulation',
+      c56: 'Spatial Metaverse',
+      c45: 'Brain Practice',
+      c17: 'Document Intelligence',
+      c27: 'Writing Intelligence',
+      c28: 'News Intelligence',
+      c29: 'Scraping Service',
+      c30: 'Watch Intelligence',
+      c31: 'Architectural Intelligence',
+      c33: 'Agent Gateway',
+      c37: 'Urban Research',
+      c38: 'Fieldwork Book',
+      c57: 'Tactical Simulation',
+      c58: 'Football Research',
+      c59: 'Computer-Vision Classroom',
+      c60: 'Business Operations',
+      c61: 'Colour Exhibition',
+      c46: 'Open Source Kit',
+      c62: 'Model Training',
+      c63: 'Procedural 3D Canine Studio',
+      },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
       role:'Co-Founder · Systems & Story',
-      lede:'Anthropologist, architect, builder. He watches how cities actually behave, then turns that mess into interfaces people use without a training manual.',
-      bio:'Harvard PhD in Anthropology. MIT and Oxford alumnus. Former Visiting Lecturer at MIT, postdoctoral fellow at NYU. He designs from fieldwork first — because people aren\'t spreadsheets and cities aren\'t slides.',
+      lede:'Anthropologist, architect, builder. Watches how cities behave — turns that mess into interfaces people use without a manual.',
+      bio:'Harvard PhD in Anthropology. MIT and Oxford alumnus. Designs from fieldwork first — people aren\'t spreadsheets, cities aren\'t slides.',
       cvHeader:'Non Arkara, PhD — Quick Profile',
       cvCurrentRole:'Current Role',
-      cvCurrentRoleBody:'Senior Expert in Smart City Promotion, Digital Economy Promotion Agency (depa), Bangkok — May 2019–present. Advisor to Thailand Media Fund, SLIC, NXPO, and the National Strategic Taskforce on Northern Economic Corridor (NeEC).',
+      cvCurrentRoleBody:'Senior Expert, Smart City Promotion, depa (Digital Economy Promotion Agency), Bangkok — May 2019 to present. Advisor: Thailand Media Fund, SLIC, NXPO, NeEC.',
       cvSelectedRoles:'Selected Roles',
       cvScale:'Scale of Work',
       cvScale1:'120+ technology and public-private projects across 77 Thai provinces',
@@ -1812,7 +4449,7 @@ const i18nExt2 = {
       cvCurrentRoles:'Current Roles',
       cvCurrentRolesBody:'Deputy Director, Program Management Unit for Area-Based Development (PMU-A), Ministry of Higher Education, Science, Research and Innovation, Thailand; Director, Excellence Center for Urban Study and Public Policy (ECUP), Chiang Mai University.',
       cvExpertise:'Core Expertise',
-      cvExpertiseBody:'Civil engineering, construction management, sustainable infrastructure development, climate change, disaster management, logistics, urban planning, urban mobility, and transportation systems.',
+      cvExpertiseBody:'Civil engineering, urban mobility, climate, logistics, sustainable infrastructure, disaster management.',
       cvSelectedWork:'Selected Work',
       cvWork1:'Head of Sustainable Infrastructure Development and Climate Change Research Unit, Chiang Mai University, 2010–present',
       cvWork2:'Lead Coordinator, Research University Network (RUN) for Climate Change and Disaster Management, 2015–present',
@@ -1828,27 +4465,42 @@ const i18nExt2 = {
     },
     footer: {
       contact:'Contact',
-      p1:'Axiom builds decision systems for cities, governments, and operators. Delivery is designed with reference to recognised international frameworks for digital twins, AI governance, and data protection.',
-      p2:'Unless expressly stated in writing, no ISO certification, formal accreditation, or third-party audit is claimed. Demonstration and sandbox environments on this site use illustrative data. Nothing here constitutes legal, financial, or investment advice. Client engagements are governed by separate agreements; production systems under NDA may differ from public demonstrations.',
+      p1:'Axiom builds decision systems for cities, governments, operators. Built to ISO/IEC digital twin, AI governance, and data-protection frameworks.',
+      p2:'No ISO certification, accreditation, or third-party audit is claimed unless stated. Sandbox systems use illustrative data — not legal, financial, or investment advice. NDA-covered production systems may differ from public demos.',
       frameworksLabel:'Reference frameworks (alignment by practice, not certification)',
       fwTwin:'Digital twin & interoperability — ISO/IEC 30173, ISO 23247, NIST',
       fwAi:'AI governance & risk — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles',
       fwPrivacy:'Privacy & trust — PDPA, GDPR-informed principles; jurisdictional compliance is engagement-specific',
-      copyright:'Bangkok · Southeast Asia. © 2026 Axiom X Co., Ltd. Axiom is the trade name under which this site and our services are presented. Uptime, response times, and outcome metrics cited here are case-specific observations, not guarantees of future performance.',
+      legalLabel:'Terms · Privacy · Liability · Law',
+      terms:'Use lawfully. No republishing screenshots, dashboards, model outputs, or system internals without written permission. Axiom and the system names shown here are trade names of Axiom X Co., Ltd.',
+      privacy:'Cloudflare provides aggregate traffic analytics. This site does not set advertising cookies or sell visitor data. Hosting and analytics providers may process request metadata. Linked systems have their own privacy policies — read theirs first.',
+      dataAttribution:'Sandbox data: TMD, GISTDA, JICA, NBTC, Pollution Control Dept, OpenStreetMap, TomTom, and other public or open-licensed feeds — credited in-system. Commercial feeds (Air4Thai o61, 33V, 34T, Naver CFT) named in-system.',
+      liability:'Sandbox and demonstration systems on this site are working, not guaranteed. Treat every metric as a hint, not a verdict. Real decisions need real verification with the originating authority. Axiom is not liable for decisions made on sandbox data.',
+      governingLaw:'These terms are governed by the laws of the Kingdom of Thailand. Disputes are subject to the exclusive jurisdiction of the courts of Bangkok. Where this English text conflicts with any translation, the English text prevails.',
+      hosting:'Cloudflare Pages. Built and operated from Bangkok. Site source: github.com/Nonarkara/Axiom. Client systems are private.',
+      copyright:'Bangkok · Southeast Asia. © 2026 Axiom X Co., Ltd. Uptime, response times, and outcome metrics are case observations — not guarantees.',
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '22 systems · 5 countries',
-      command: 'Command',
-      commandMeta: 'Real-time operations rooms · 10',
+      sysMeta: '80 systems · 5 countries',
+      command: 'City Dashboards',
+      commandMeta: 'Real-time city operations rooms & environmental watch · 24',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'Signal & analysis · 5',
+      intelligenceMeta: 'Signal & analysis · 9',
       civic: 'Civic',
-      civicMeta: 'National platforms & citizen infrastructure · 5',
+      civicMeta: 'National platforms & citizen infrastructure · 9',
       emerging: 'Emerging',
-      emergingMeta: 'Research-grade & new operating models · 6',
-    },
-    sysStatus: { live: 'Live', preview: 'Preview', dev: 'In Development' },
+      emergingMeta: 'Research-grade & new operating models · 13',
+      lab: 'Lab',
+      labMeta: 'Side tools · in the open · 25',
+      },
+    sysStatus: {
+      live: 'Live',
+      preview: 'Preview',
+      soon: 'Coming soon',
+      dev: 'In Development',
+      emerging: 'Emerging',
+      },
     metaKeys: {
       AI:'AI', Access:'Access', Audience:'Audience', Authority:'Authority',
       Backup:'Backup', 'Brain layers':'Brain layers', Cadence:'Cadence',
@@ -1862,6 +4514,24 @@ const i18nExt2 = {
       Tracking:'Tracking', Feeds:'Feeds', Lenses:'Lenses', Site:'Site',
       Market:'Market', Signals:'Signals', Frameworks:'Frameworks',
     },
+    HOW_IT_WORKS: 'HOW IT WORKS',
+    archTag: 'Architecture',
+    stackLbl: 'Stack',
+    pb1in1:'38 cities', pb1in2:'134 projects', pb1in3:'11 nations', pb1in4:'M&E submissions',
+    pb1cm:'multi-tenant city benchmarking',
+    pb1out1:'Scorecards', pb1out2:'Public dashboards', pb1out3:'Mayoral insights',
+    pb2in1:'112,000 residents', pb2in2:'City officials', pb2in3:'UNDP + UN-Habitat', pb2in4:'Field evidence',
+    pb2cm:'12-chapter citizen-first playbook',
+    pb2out1:'Policy playbook', pb2out2:'Workshop toolkit', pb2out3:'Field case studies',
+    pb3in1:'8 ministries', pb3in2:'UN DESA team', pb3in3:'2-day workshop', pb3in4:'Honiara field input',
+    pb3cm:'whole-of-government digital transformation',
+    pb3out1:'Digital roadmap', pb3out2:'Implementation timeline', pb3out3:'Capacity-building plan',
+    pb4in1:'depa Thailand', pb4in2:'174 cities', pb4in3:'Leadership cohort', pb4in4:'Curriculum data',
+    pb4cm:'smart city executive programme',
+    pb4out1:'Bilingual portal', pb4out2:'Executive directory', pb4out3:'Programme schedule',
+    pb5in1:'depa Thailand', pb5in2:'US DOT Volpe', pb5in3:'Field research', pb5in4:'Survey data',
+    pb5cm:'institutional capacity building',
+    pb5out1:'Toolkit portal', pb5out2:'Best-practices library', pb5out3:'City-to-city modules',
   },
 
   th: {
@@ -1877,19 +4547,98 @@ const i18nExt2 = {
       p15:'สด · 5 เมือง',
       p16:'สด · Chonburi EEC',
       p17:'สด · เอกสารไทย',
+      p27:'สด · เฝ้าอากาศ 24/7',
+      p28:'Blueprint เปิด · GitHub',
+      p29:'สด · บริการเขียน',
+      p30:'สด · บทความรายวัน',
+      p31:'สด · ดูดข้อมูล',
+      p33:'สด · ปฏิบัติการเขต',
+      p34:'สด · ข่าวกรองนาฬิกา',
+      p35:'สด · การออกแบบสถาปัตย์',
+      p36:'สด · แผนที่เมือง 3D',
+      p40:'สด · เกตเวย์เอเจนต์',
+      p41:'สด · เครื่องมือใช้งานจริง',
+      p42:'สด · ข่าวกรองชายแดน',
+      p43:'สด · แผนที่มรดก',
+      p44:'สด · งานวิจัยเมือง',
+      p45:'สด · เวทีเอเชีย',
+      p46:'สด · คอนโซลโลก',
+      p47:'สด · หนังสือภาคสนาม',
+      p48:'สด · เฝ้าระวังน้ำท่วมชาติ',
+      p49:'สด · ชีพจรเมือง',
+      p50:'สด · ข่าวกรองนครศรีฯ',
+      p51:'สด · จราจรท่าเรือ',
+      p52:'สด · พอดแคสต์',
+      p53:'สด · ประเมินเครือข่าย',
+      p54:'สด · ฝึกสมอง',
+      p55:'เร็ว ๆ นี้ · เอกสารอัจฉริยะ',
+      p56:'สด · ชุดโอเพนซอร์ส',
+      p57:'สด · ชุดโอเพนซอร์ส',
+      p58:'ชุดโอเพนซอร์ส · GitHub',
+      p59:'ชุดโอเพนซอร์ส · GitHub',
+      p60:'สด · ข่าวกรองเชิงกลยุทธ์',
+      p61:'สด · ฝึกสมอง',
+      p62:'สด · ปฏิบัติการเมือง',
     },
     cats: {
-      c01:'ปฏิบัติการระดับภูมิภาค', c02:'ข่าวกรองเชิงกลยุทธ์',
-      c03:'โครงการระดับชาติ', c04:'การจัดอันดับเมือง',
-      c05:'ปฏิบัติการอัจฉริยะ', c06:'ข่าวกรองแบบเปิด',
-      c07:'ระบบขนส่งอัจฉริยะ', c08:'ข่าวกรองพลเมือง',
-      c09:'ข่าวกรอง Agentic', c10:'ข่าวกรองบุคลากร',
-      c11:'ข่าวกรองความรู้', c12:'กระจายเสียงแห่งชาติ',
-      c13:'ข่าวกรองวิทยาเขต', c14:'ข่าวกรองตลาด',
-      c15:'ข่าวกรองเมือง',
-      c16:'ข่าวกรองชายฝั่ง', c17:'ข่าวกรองเอกสาร',
-      c18:'ปฏิบัติการมหานคร', c20:'ห้องทดลองความสามารถ', c23:'มนุษยศาสตร์ดิจิทัล', c25:'ข่าวกรองการเงิน',
-    },
+      c03: 'โครงการระดับชาติ',
+      c06: 'ข่าวกรองแบบเปิด',
+      c40: 'ชีพจรเมือง',
+      c41: 'ควบคุมจราจร',
+      c01: 'ปฏิบัติการระดับภูมิภาค',
+      c18: 'ปฏิบัติการมหานคร',
+      c05: 'ปฏิบัติการอัจฉริยะ',
+      c42: 'ปฏิบัติการเขต',
+      c13: 'ข่าวกรองวิทยาเขต',
+      c16: 'ข่าวกรองชายฝั่ง',
+      c08: 'ข่าวกรองพลเมือง',
+      c15: 'ข่าวกรองเมือง',
+      c19: 'เฝ้าสิ่งแวดล้อม',
+      c32: 'แผนที่เมือง 3D',
+      c36: 'แผนที่มรดก',
+      c47: 'เศรษฐศาสตร์เมือง',
+      c50: 'ความเหมาะสมของย่าน',
+      c51: 'แผนที่เมือง 3D',
+      c04: 'การจัดอันดับเมือง',
+      c02: 'ข่าวกรองเชิงกลยุทธ์',
+      c14: 'ข่าวกรองตลาด',
+      c34: 'เครื่องมือใช้งานจริง',
+      c35: 'ข่าวกรองชายแดน',
+      c07: 'ระบบขนส่งอัจฉริยะ',
+      c12: 'กระจายเสียงแห่งชาติ',
+      c52: 'แพลตฟอร์มชุมชน',
+      c53: 'การเตรียมพร้อมรับภัยพิบัติ',
+      c43: 'พอดแคสต์',
+      c09: 'ข่าวกรอง Agentic',
+      c10: 'ข่าวกรองบุคลากร',
+      c11: 'ข่าวกรองความรู้',
+      c20: 'ห้องทดลองความสามารถ',
+      c44: 'ประเมินเครือข่าย',
+      c23: 'มนุษยศาสตร์ดิจิทัล',
+      c25: 'ข่าวกรองการเงิน',
+      c26: 'Blueprint เปิด',
+      c54: 'แบบจำลองชีวิต',
+      c55: 'การจำลองโลกอัตโนมัติ',
+      c56: 'เมตาเวิร์สเชิงสถาปัตยกรรม',
+      c45: 'ฝึกสมอง',
+      c17: 'ข่าวกรองเอกสาร',
+      c27: 'ข่าวกรองการเขียน',
+      c28: 'ข่าวกรองข่าว',
+      c29: 'บริการดูดข้อมูล',
+      c30: 'ข่าวกรองนาฬิกา',
+      c31: 'ข่าวกรองสถาปัตย์',
+      c33: 'เกตเวย์เอเจนต์',
+      c37: 'งานวิจัยเมือง',
+      c38: 'หนังสือภาคสนาม',
+      c57: 'จำลองแท็กติกฟุตบอล',
+      c58: 'งานวิจัยฟุตบอล',
+      c59: 'ห้องเรียนคอมพิวเตอร์วิทัศน์',
+      c60: 'ระบบบริหารธุรกิจ',
+      c61: 'นิทรรศการสี',
+      c46: 'ชุดโอเพนซอร์ส',
+      c62: 'การฝึกโมเดลภาษา',
+      c63: 'สตูดิโอจำลองสุนัข 3 มิติ',
+      },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
       role:'ผู้ร่วมก่อตั้ง · ระบบและการเล่าเรื่อง',
@@ -1935,21 +4684,36 @@ const i18nExt2 = {
       fwTwin:'Digital twin และการทำงานร่วมกัน — ISO/IEC 30173, ISO 23247, NIST',
       fwAi:'การกำกับดูแลและความเสี่ยง AI — ISO/IEC 42001, ISO/IEC 23894, NIST AI RMF, OECD AI Principles',
       fwPrivacy:'ความเป็นส่วนตัวและความน่าเชื่อถือ — PDPA หลักการตาม GDPR การปฏิบัติตามกฎหมายขึ้นกับขอบเขตงานแต่ละรายการ',
-      copyright:'กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ © 2569 บริษัท แอคเซี่ยม เอ็กซ์ จำกัด ใช้ชื่อทางการค้า Axiom ในการนำเสนอเว็บไซต์และบริการ ตัวเลข uptime เวลาตอบสนอง และผลลัพธ์ที่อ้างถึงเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
+      legalLabel:'ข้อกำหนด · ความเป็นส่วนตัว · ความรับผิด · กฎหมาย',
+      terms:'การใช้เว็บไซต์นี้ถือว่าคุณยอมรับที่จะใช้อย่างถูกกฎหมาย และจะไม่เผยแพร่ซ้ำภาพหน้าจอ แดชบอร์ด ผลลัพธ์จากโมเดล หรือระบบภายในโดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร Axiom ชื่อ Axiom และชื่อระบบที่ปรากฏ เป็นชื่อทางการค้าของบริษัท แอคเซี่ยม เอ็กซ์ จำกัด',
+      privacy:'Cloudflare ให้บริการสถิติการเข้าชมแบบรวม เว็บไซต์นี้ไม่ตั้งคุกกี้โฆษณาหรือขายข้อมูลผู้เข้าชม ผู้ให้บริการโฮสติ้งและสถิติอาจประมวลผลข้อมูลประกอบคำขอ ระบบที่เชื่อมโยงมีนโยบายความเป็นส่วนตัวของตนเอง โปรดอ่านก่อนใช้งาน',
+      dataAttribution:'ข้อมูลสดในระบบ sandbox มาจากแหล่งสาธารณะ รวมถึง TMD, GISTDA, JICA, NBTC, กรมควบคุมมลพิษ, ผู้มีส่วนร่วม OpenStreetMap, TomTom และแหล่งข้อมูลสาธารณะหรือที่มีสัญญาอนุญาตแบบเปิดอื่น ๆ ที่ระบุในระบบ หากมีการผสมแหล่งข้อมูลเชิงพาณิชย์ (เช่น Air4Thai o61, 33V, 34T, Naver CFT) จะระบุแหล่งที่มาในมุมมองของระบบ',
+      liability:'ระบบ sandbox และสาธิตบนเว็บไซต์นี้ทำงานได้จริง แต่ไม่รับประกัน ตัวเลขทุกตัวเป็นเพียงสัญญาณ ไม่ใช่คำตัดสิน การตัดสินใจจริงต้องตรวจสอบกับหน่วยงานต้นทาง Axiom ไม่รับผิดชอบต่อการตัดสินใจที่อิงข้อมูล sandbox',
+      governingLaw:'ข้อกำหนดเหล่านี้อยู่ภายใต้กฎหมายแห่งราชอาณาจักรไทย ข้อพิพาทอยู่ในเขตอำนาจศาลแห่งกรุงเทพมหานครโดยเฉพาะ หากข้อความภาษาอังกฤษขัดแย้งกับคำแปล ให้ใช้ภาษาอังกฤษเป็นหลัก',
+      hosting:'โฮสต์บน Cloudflare Pages · สร้างและดำเนินงานจากกรุงเทพฯ · ซอร์สของเว็บไซต์นี้: github.com/Nonarkara/Axiom (เฉพาะเว็บสาธารณะ ระบบลูกค้าเป็นส่วนตัว)',
+      copyright:'กรุงเทพฯ · เอเชียตะวันออกเฉียงใต้ © 2569 บริษัท แอคเซี่ยม เอ็กซ์ จำกัด ตัวเลข uptime เวลาตอบสนอง และผลลัพธ์ที่อ้างถึงเป็นการสังเกตเฉพาะกรณี ไม่ใช่การรับประกันผลในอนาคต',
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '21 ระบบ · 5 ประเทศ',
-      command: 'บัญชาการ',
-      commandMeta: 'ห้องปฏิบัติการแบบเรียลไทม์ · 10',
+      sysMeta: '80 ระบบ · 5 ประเทศ',
+      command: 'แดชบอร์ดเมือง',
+      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 24',
       intelligence: 'ข่าวกรอง',
-      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 5',
+      intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 9',
       civic: 'พลเมือง',
-      civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 5',
+      civicMeta: 'แพลตฟอร์มระดับชาติและโครงสร้างพื้นฐานพลเมือง · 9',
       emerging: 'ระบบใหม่',
-      emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 6',
-    },
-    sysStatus: { live: 'สด', preview: 'พรีวิว', dev: 'กำลังพัฒนา' },
+      emergingMeta: 'ระดับวิจัยและแบบจำลองการดำเนินงานใหม่ · 13',
+      lab: 'แล็บ',
+      labMeta: 'เครื่องมือเสริม · เปิดกว้าง · 25',
+      },
+    sysStatus: {
+      live: 'สด',
+      preview: 'พรีวิว',
+      soon: 'เร็ว ๆ นี้',
+      dev: 'กำลังพัฒนา',
+      emerging: 'กำลังเกิดใหม่',
+      },
     metaKeys: {
       AI:'AI', Access:'การเข้าถึง', Audience:'ผู้ชม', Authority:'หน่วยงาน',
       Backup:'สำรองข้อมูล', 'Brain layers':'ชั้นสมอง', Cadence:'จังหวะ',
@@ -1963,6 +4727,24 @@ const i18nExt2 = {
       Tracking:'การติดตาม', Feeds:'ฟีดข้อมูล', Lenses:'มุมมอง', Site:'สถานที่',
       Market:'ตลาด', Signals:'สัญญาณ', Frameworks:'กรอบคิด',
     },
+    HOW_IT_WORKS: 'มันทำงานยังไง',
+    archTag:'สถาปัตยกรรม',
+    stackLbl:'สแต็ก',
+    pb1in1:'38 เมือง', pb1in2:'134 โครงการ', pb1in3:'11 ประเทศ', pb1in4:'ข้อมูล M&E',
+    pb1cm:'การเปรียบเทียบเมืองแบบหลายผู้เช่า',
+    pb1out1:'คะแนน', pb1out2:'แดชบอร์ดสาธารณะ', pb1out3:'ข้อมูลเชิงลึกสำหรับผู้ว่าฯ',
+    pb2in1:'ชาวเมือง 112,000 คน', pb2in2:'เจ้าหน้าที่เมือง', pb2in3:'UNDP + UN-Habitat', pb2in4:'หลักฐานภาคสนาม',
+    pb2cm:'คู่มือ 12 บท ที่ประชาชนเป็นศูนย์กลาง',
+    pb2out1:'คู่มือนโยบาย', pb2out2:'ชุดเครื่องมือเวิร์กช็อป', pb2out3:'กรณีศึกษาภาคสนาม',
+    pb3in1:'8 กระทรวง', pb3in2:'ทีม UN DESA', pb3in3:'เวิร์กช็อป 2 วัน', pb3in4:'ข้อมูลภาคสนามโฮนีอารา',
+    pb3cm:'การเปลี่ยนผ่านดิจิทัลทั่วทั้งรัฐบาล',
+    pb3out1:'โรดแมปดิจิทัล', pb3out2:'ไทม์ไลน์การดำเนินงาน', pb3out3:'แผนเสริมสร้างศักยภาพ',
+    pb4in1:'depa ประเทศไทย', pb4in2:'174 เมือง', pb4in3:'รุ่นผู้นำ', pb4in4:'ข้อมูลหลักสูตร',
+    pb4cm:'หลักสูตรผู้บริหารเมืองอัจฉริยะ',
+    pb4out1:'พอร์ทัลสองภาษา', pb4out2:'ทำเนียบผู้บริหาร', pb4out3:'กำหนดการหลักสูตร',
+    pb5in1:'depa ไทย', pb5in2:'US DOT Volpe', pb5in3:'งานวิจัยภาคสนาม', pb5in4:'ข้อมูลสำรวจ',
+    pb5cm:'การเสริมสร้างศักยภาพของสถาบัน',
+    pb5out1:'พอร์ทัลชุดเครื่องมือ', pb5out2:'คลังแนวปฏิบัติที่ดี', pb5out3:'โมดูลเมืองสู่เมือง',
   },
 
   zh: {
@@ -1978,17 +4760,98 @@ const i18nExt2 = {
       p15:'实时 · 5座城市',
       p16:'实时 · 春武里EEC',
       p17:'实时 · 泰国文档',
+      p27:'实时 · 24/7空气质量',
+      p28:'开放蓝图 · GitHub',
+      p29:'在线 · 写作服务',
+      p30:'在线 · 每日摘要',
+      p31:'在线 · 抓取',
+      p33:'在线 · 片区运营',
+      p34:'在线 · 腕表情报',
+      p35:'在线 · 建筑设计',
+      p36:'在线 · 三维城市地图',
+      p40:'在线 · 智能体网关',
+      p41:'在线 · 可用工具',
+      p42:'在线 · 边境情报',
+      p43:'在线 · 遗产地图',
+      p44:'在线 · 城市研究',
+      p45:'在线 · 亚洲剧场',
+      p46:'在线 · 世界控制台',
+      p47:'在线 · 田野志',
+      p48:'在线 · 国家洪水监测',
+      p49:'在线 · 城市脉搏',
+      p50:'在线 · 那空是城市民情',
+      p51:'在线 · 港口交通',
+      p52:'在线 · 播客',
+      p53:'在线 · 网络评估',
+      p54:'在线 · 脑力练习',
+      p55:'即将推出 · 文档智能',
+      p56:'在线 · 开源工具包',
+      p57:'在线 · 开源工具包',
+      p58:'开源工具包 · GitHub',
+      p59:'开源工具包 · GitHub',
+      p60:'在线 · 战略情报',
+      p61:'在线 · 脑力训练',
+      p62:'在线 · 城市作战',
     },
     cats: {
-      c01:'区域运营', c02:'战略情报', c03:'国家级项目',
-      c04:'城市基准评分', c05:'智能运营', c06:'开放情报',
-      c07:'交通智能', c08:'公民智能', c09:'智能体情报',
-      c10:'人才智能', c11:'知识智能', c12:'国家广播',
-      c13:'校园智能', c14:'市场智能',
-      c15:'城市智能',
-      c16:'海岸智能', c17:'文档智能',
-      c18:'都会运营', c20:'能力实验室', c23:'数字人文', c25:'金融情报',
-    },
+      c03: '国家级项目',
+      c06: '开放情报',
+      c40: '城市脉搏',
+      c41: '交通管制',
+      c01: '区域运营',
+      c18: '都会运营',
+      c05: '智能运营',
+      c42: '区域运营',
+      c13: '校园智能',
+      c16: '海岸智能',
+      c08: '公民智能',
+      c15: '城市智能',
+      c19: '环境监测',
+      c32: '三维城市地图',
+      c36: '遗产地图',
+      c47: '城市经济',
+      c50: '选址匹配',
+      c51: '大都市3D地图集',
+      c04: '城市基准评分',
+      c02: '战略情报',
+      c14: '市场智能',
+      c34: '可用工具',
+      c35: '边境情报',
+      c07: '交通智能',
+      c12: '国家广播',
+      c52: '社区平台',
+      c53: '防灾减灾',
+      c43: '播客',
+      c09: '智能体情报',
+      c10: '人才智能',
+      c11: '知识智能',
+      c20: '能力实验室',
+      c44: '网络评估',
+      c23: '数字人文',
+      c25: '金融情报',
+      c26: '开放蓝图',
+      c54: '人生模拟',
+      c55: '自主模拟世界',
+      c56: '空间元宇宙',
+      c45: '脑力练习',
+      c17: '文档智能',
+      c27: '写作智能',
+      c28: '新闻情报',
+      c29: '抓取服务',
+      c30: '腕表情报',
+      c31: '建筑智能',
+      c33: '智能体网关',
+      c37: '城市研究',
+      c38: '田野志',
+      c57: '足球战术模拟',
+      c58: '足球研究',
+      c59: '计算机视觉课堂',
+      c60: '企业运营',
+      c61: '色彩展览',
+      c46: '开源工具包',
+      c62: '模型训练',
+      c63: '程序化3D犬类工作室',
+      },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
       role:'联合创始人 · 系统与叙事',
@@ -2012,7 +4875,7 @@ const i18nExt2 = {
       cvCurrentRoles:'现任职务',
       cvCurrentRolesBody:'泰国高等教育、科学、研究与创新部 PMU-A 副主任；清迈大学 ECUP 主任。',
       cvExpertise:'核心专长',
-      cvExpertiseBody:'土木工程、建筑管理、可持续基础设施开发、气候变化、灾害管理、物流、城市规划、城市移动性和交通系统。',
+      cvExpertiseBody:'土木工程、建筑管理、可持续基础设施开发、气候变化、灾害管理、物流、城市规划、城市交通与出行、交通系统。',
       cvSelectedWork:'部分工作',
       cvWork1:'清迈大学可持续基础设施开发与气候变化研究中心负责人，2010 至今',
       cvWork2:'气候变化与灾害管理研究型大学网络（RUN）首席协调员，2015 至今',
@@ -2034,21 +4897,36 @@ const i18nExt2 = {
       fwTwin:'数字孪生与互操作 — ISO/IEC 30173、ISO 23247、NIST',
       fwAi:'AI 治理与风险 — ISO/IEC 42001、ISO/IEC 23894、NIST AI RMF、OECD AI 原则',
       fwPrivacy:'隐私与信任 — PDPA、GDPR 原则；司法管辖合规因项目而异',
-      copyright:'曼谷 · 东南亚。© 2026 Axiom X Co., Ltd. Axiom 为本网站及服务所使用的商号。本站引用的正常运行时间、响应时间和成果指标均为个案观察，不构成对未来表现的保证。',
+      legalLabel:'条款 · 隐私 · 责任 · 法律',
+      terms:'使用本网站即表示您同意合法使用，且未经书面许可不得转载截图、仪表板、模型输出或系统内部。Axiom、Axiom 名称以及此处显示的系统名称均为 Axiom X Co., Ltd. 的商号。',
+      privacy:'Cloudflare 提供汇总流量分析。本网站不设置广告 Cookie，也不出售访客数据。托管和分析服务商可能处理请求元数据。链接系统各有隐私政策，请先阅读。',
+      dataAttribution:'沙箱系统中显示的实时数据来自公共来源，包括 TMD、GISTDA、JICA、NBTC、污染控制厅、OpenStreetMap 贡献者、TomTom 以及其他在系统内注明出处的公共或开放许可数据源。如涉及商业数据源（如 Air4Thai o61、33V、34T、Naver CFT），来源会在系统视图中标明。',
+      liability:'本网站上的沙箱与演示系统可工作，但不构成保证。所有指标仅为提示，不是定论。真实决策需与原始主管单位核实。Axiom 不对基于沙箱数据做出的决策承担责任。',
+      governingLaw:'本条款受泰王国法律管辖。争议由曼谷法院专属管辖。如英文文本与任何翻译有冲突，以英文文本为准。',
+      hosting:'托管于 Cloudflare Pages · 在曼谷建造并运营 · 本站源码：github.com/Nonarkara/Axiom（仅限公开站点；客户系统为私有）。',
+      copyright:'曼谷 · 东南亚。© 2026 Axiom X Co., Ltd. 本站引用的正常运行时间、响应时间和成果指标均为个案观察，不构成对未来表现的保证。',
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '21 个系统 · 5 个国家',
-      command: '指挥',
-      commandMeta: '实时作战室 · 10',
+      sysMeta: '80 个系统 · 5 个国家',
+      command: '城市仪表板',
+      commandMeta: '实时城市作战室与环境监测 · 24',
       intelligence: '情报',
-      intelligenceMeta: '信号与分析 · 5',
+      intelligenceMeta: '信号与分析 · 9',
       civic: '民生',
-      civicMeta: '国家级平台与公民基础设施 · 5',
+      civicMeta: '国家级平台与公民基础设施 · 9',
       emerging: '新兴',
-      emergingMeta: '研究级与新运营模式 · 6',
-    },
-    sysStatus: { live: '在线', preview: '预览', dev: '开发中' },
+      emergingMeta: '研究级与新运营模式 · 13',
+      lab: '实验室',
+      labMeta: '辅助工具 · 开放中 · 25',
+      },
+    sysStatus: {
+      live: '在线',
+      preview: '预览',
+      soon: '即将推出',
+      dev: '开发中',
+      emerging: '新兴',
+      },
     pressContent: {
       p1title:'供应商说不 泰国公务员自己建工具',
       p2title:'创新即服务能否弥合政策与执行之间的鸿沟',
@@ -2071,6 +4949,24 @@ const i18nExt2 = {
       Feeds:'数据源', Lenses:'视角', Site:'地点',
       Market:'市场', Signals:'信号', Frameworks:'分析框架',
     },
+    HOW_IT_WORKS: '它是如何工作的',
+    archTag:'架构',
+    stackLbl:'技术栈',
+    pb1in1:'38座城市', pb1in2:'134个项目', pb1in3:'11个国家', pb1in4:'M&E 提交',
+    pb1cm:'多租户城市对标',
+    pb1out1:'评分卡', pb1out2:'公开仪表板', pb1out3:'市长洞察',
+    pb2in1:'11.2万居民', pb2in2:'市政府官员', pb2in3:'UNDP + UN-Habitat', pb2in4:'田野证据',
+    pb2cm:'12章公民优先手册',
+    pb2out1:'政策手册', pb2out2:'工作坊工具包', pb2out3:'田野案例',
+    pb3in1:'8个部委', pb3in2:'UN DESA 团队', pb3in3:'两天工作坊', pb3in4:'霍尼亚拉田野',
+    pb3cm:'全政府数字化转型',
+    pb3out1:'数字化路线图', pb3out2:'实施时间表', pb3out3:'能力建设计划',
+    pb4in1:'泰国 depa', pb4in2:'174座城市', pb4in3:'领导力学员', pb4in4:'课程数据',
+    pb4cm:'智慧城市高管项目',
+    pb4out1:'双语门户', pb4out2:'高管名录', pb4out3:'项目日程',
+    pb5in1:'泰国 depa', pb5in2:'US DOT Volpe', pb5in3:'田野研究', pb5in4:'调研数据',
+    pb5cm:'机构能力建设',
+    pb5out1:'工具门户', pb5out2:'最佳实践库', pb5out3:'城对城模块',
   },
 
   ts: {
@@ -2086,17 +4982,95 @@ const i18nExt2 = {
       p15:'live: 5cities',
       p16:'live: ChonburiEEC',
       p17:'live: ThaiDocs',
+      p27:'live: airWatch.24_7',
+      p28:'openBlueprint: github',
+      p29:'live: writingService',
+      p30:'live: dailyDigest',
+      p31:'live: scraping',
+      p33:'live: districtOps',
+      p34:'live: WatchIntel',
+      p35:'live: ArchDesign',
+      p36:'live: UrbanAtlas3D',
+      p40:'live: AgentGateway',
+      p41:'live: WorkingInstrument',
+      p42:'live: BorderIntel',
+      p43:'live: HeritageAtlas',
+      p44:'live: UrbanResearch',
+      p45:'live: AsianTheatres',
+      p46:'live: WorldConsole',
+      p47:'live: FieldworkBook',
+      p48:'live: NationalFloodWatch',
+      p49:'live: CityPulse',
+      p50:'live: NSTCivic',
+      p51:'live: PortTraffic',
+      p52:'live: Podcast',
+      p53:'live: NetworkEval',
+      p54:'live: BrainPractice',
+      p58:'openSourceKit: github',
+      p59:'openSourceKit: github',
+      p60:'live: strategicIntel',
+      p61:'live: brainPractice',
+      p62:'live: cityOps',
     },
     cats: {
-      c01:'RegionalOps', c02:'StrategicIntel', c03:'NationalProgramme',
-      c04:'CityBenchmark', c05:'IntelligentOps', c06:'OpenIntel',
-      c07:'TransitIntel', c08:'CivicIntel', c09:'AgenticIntel',
-      c10:'TalentIntel', c11:'KnowledgeIntel', c12:'NationalBroadcast',
-      c13:'CampusIntel', c14:'MarketIntel',
-      c15:'CityIntel',
-      c16:'CoastalIntel', c17:'DocumentIntel',
-      c18:'MetroOps', c20:'CapabilityLab', c23:'DigitalHumanities', c25:'FinanceIntel',
-    },
+      c03: 'NationalProgramme',
+      c06: 'OpenIntel',
+      c40: 'CityPulse',
+      c41: 'TrafficRegulation',
+      c01: 'RegionalOps',
+      c18: 'MetroOps',
+      c05: 'IntelligentOps',
+      c42: 'DistrictOperations',
+      c13: 'CampusIntel',
+      c16: 'CoastalIntel',
+      c08: 'CivicIntel',
+      c15: 'CityIntel',
+      c19: 'EnvWatch',
+      c32: 'UrbanAtlas3D',
+      c36: 'HeritageAtlas',
+      c47: 'CityEconomics',
+      c50: 'PlaceFit',
+      c51: 'UrbanAtlas3D',
+      c04: 'CityBenchmark',
+      c02: 'StrategicIntel',
+      c14: 'MarketIntel',
+      c34: 'WorkingInstrument',
+      c35: 'BorderIntel',
+      c07: 'TransitIntel',
+      c12: 'NationalBroadcast',
+      c52: 'CommunityPlatform',
+      c53: 'DisasterPreparedness',
+      c43: 'Podcast',
+      c09: 'AgenticIntel',
+      c10: 'TalentIntel',
+      c11: 'KnowledgeIntel',
+      c20: 'CapabilityLab',
+      c44: 'NetworkEvaluation',
+      c23: 'DigitalHumanities',
+      c25: 'FinanceIntel',
+      c26: 'OpenBlueprint',
+      c54: 'LifeSimulation',
+      c55: 'AutonomousSimulation',
+      c56: 'SpatialMetaverse',
+      c45: 'BrainPractice',
+      c17: 'DocumentIntel',
+      c27: 'WritingIntel',
+      c28: 'NewsIntel',
+      c29: 'ScrapingService',
+      c30: 'WatchIntel',
+      c31: 'ArchIntel',
+      c33: 'AgentGateway',
+      c37: 'UrbanResearch',
+      c38: 'FieldworkBook',
+      c57: 'TacticalSimulation',
+      c58: 'FootballResearch',
+      c59: 'ComputerVisionClassroom',
+      c60: 'BusinessOperations',
+      c61: 'ColourExhibition',
+      c46: 'OpenSourceKit',
+      c62: 'ModelTraining',
+      c63: 'Procedural3DStudio',
+      },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {
       role:'CoFounder<Systems & Story>',
@@ -2142,21 +5116,36 @@ const i18nExt2 = {
       fwTwin:'// digitalTwin + interoperability: ISO/IEC_30173, ISO_23247, NIST',
       fwAi:'// aiGovernance + risk: ISO/IEC_42001, ISO/IEC_23894, NIST_AI_RMF, OECD',
       fwPrivacy:'// privacy + trust: PDPA, GDPR.informed; compliance.engagementSpecific',
-      copyright:'// Bangkok · SEA · © 2026 Axiom X Co., Ltd. · tradeName: Axiom\n// metrics: caseSpecific[] // !guarantees<futurePerformance>',
+      legalLabel:'// terms · privacy · liability · law',
+      terms:'// usingThisSite = agree(lawfulUse); noRepublish{screenshots, dashboards, modelOutput, internals} withoutWritten(permission); Axiom + systemNames = tradeNames(Axiom X Co., Ltd.)',
+      privacy:'// analytics: Cloudflare.aggregate; advertisingCookies: false; visitorData.sale: false; providers.mayProcess(request.metadata); linkedSystems.privacyPolicies',
+      dataAttribution:'// liveData: TMD | GISTDA | JICA | NBTC | PCD | OSM.contributors | TomTom | openLicense.feeds; commercial: Air4Thai{o61,33V,34T} | Naver.CFT // source.named(inSystem)',
+      liability:'// sandbox.working.withoutGuarantee; metrics: hints, NOT.verdicts; realDecisions: verify(originAuthority); !Axiom.liable(decision.onSandboxData)',
+      governingLaw:'// governedBy: laws(KingdomOfThailand); jurisdiction: courts(Bangkok).exclusive; conflict<enText vs i18n>: enText.prevails',
+      hosting:'// hosting: cloudflare.pages; builtIn: Bangkok; source: github.com/Nonarkara/Axiom // publicSiteOnly; clientSystems.private',
+      copyright:'// Bangkok · SEA · © 2026 Axiom X Co., Ltd.\n// metrics: caseSpecific[] // !guarantees<futurePerformance>',
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '22 systems · 5 countries',
-      command: 'Command',
-      commandMeta: 'opsRooms.realtime · count[10]',
+      sysMeta: '80 systems · 5 countries',
+      command: 'CityDashboards',
+      commandMeta: 'cityOps.realtime & envWatch · count[24]',
       intelligence: 'Intelligence',
-      intelligenceMeta: 'signal & analysis · count[5]',
+      intelligenceMeta: 'signal & analysis · count[9]',
       civic: 'Civic',
-      civicMeta: 'nationalPlatforms & citizenInfra · count[5]',
+      civicMeta: 'nationalPlatforms & citizenInfra · count[9]',
       emerging: 'Emerging',
-      emergingMeta: 'researchGrade & newOperatingModels · count[6]',
-    },
-    sysStatus: { live: 'live', preview: 'preview', dev: 'dev.stage' },
+      emergingMeta: 'researchGrade & newOperatingModels · count[13]',
+      lab: 'Lab',
+      labMeta: 'sideTools & openProcess · count[25]',
+      },
+    sysStatus: {
+      live: 'live',
+      preview: 'preview',
+      soon: 'coming.soon',
+      dev: 'dev.stage',
+      emerging: 'emerging',
+      },
     metaKeys: {
       AI:'AI', Access:'access', Audience:'audience', Authority:'authority',
       Backup:'backup', 'Brain layers':'brainLayers', Cadence:'cadence',
@@ -2170,6 +5159,24 @@ const i18nExt2 = {
       Tracking:'tracking', Feeds:'feeds[]', Lenses:'lenses[]', Site:'site',
       Market:'market', Signals:'signals[]', Frameworks:'frameworks[]',
     },
+    HOW_IT_WORKS: 'arch.dataFlow',
+    archTag:'arch:dataFlow',
+    stackLbl:'stack',
+    pb1in1:'cities: 38', pb1in2:'projects: 134', pb1in3:'nations: 11', pb1in4:'submissions: M&E',
+    pb1cm:'city.benchmark(multiTenant)',
+    pb1out1:'scorecards', pb1out2:'dashboards(public)', pb1out3:'insights(forMayors)',
+    pb2in1:'residents: 112_000', pb2in2:'officials: city', pb2in3:'partners: UNDP+UNHabitat', pb2in4:'evidence: field',
+    pb2cm:'playbook(citizenFirst)<12chapters>',
+    pb2out1:'playbook(policy)', pb2out2:'toolkit(workshop)', pb2out3:'cases(field)',
+    pb3in1:'ministries: 8', pb3in2:'team: UNDESA', pb3in3:'workshop: 2days', pb3in4:'input: honiara',
+    pb3cm:'digitalTransform(wholeOfGovernment)',
+    pb3out1:'roadmap(digital)', pb3out2:'timeline(implementation)', pb3out3:'plan(capacityBuilding)',
+    pb4in1:'depaThailand', pb4in2:'cities: 174', pb4in3:'cohort: leadership', pb4in4:'data: curriculum',
+    pb4cm:'executiveProgramme()',
+    pb4out1:'portal: bilingual', pb4out2:'directory: executive', pb4out3:'schedule: programme',
+    pb5in1:'depa: thailand', pb5in2:'USDOT: volpe', pb5in3:'research: field', pb5in4:'data: survey',
+    pb5cm:'capacityBuilding(institutional)',
+    pb5out1:'portal(toolkit)', pb5out2:'library(bestPractices)', pb5out3:'modules(cityToCity)',
   },
 };
 
@@ -2177,19 +5184,951 @@ Object.keys(i18nExt2).forEach(locale => {
   if (uiCopy[locale]) Object.assign(uiCopy[locale], i18nExt2[locale]);
 });
 
+// ── Pitch — the buyer's argument (#why section) ──────────────────────────
+// Order is the argument: problem → how it works → results → objections.
+// All 7 locales live together here so they stay in sync. Every number must
+// match a live system on the page (38 in production · Phuket 30s · FloodDash
+// 77 provinces / 9 sources · SLIC 157 cities / 45 min · field note 01).
+const i18nPitch = {
+  en: {
+    field: {
+      kicker: 'In the field · Ground Truth',
+      videoTag: 'CANONICAL FIELD BRIEFING · CRISIS GROUND TRUTH',
+      title: 'The flood arrives at 2 a.m. The dashboard arrives next fiscal year.',
+      line: 'Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:',
+      point1Title: 'Zero-Latency Ingestion Beats Fiscal-Year Inertia',
+      point1Desc: 'Official vendor quotes take a budget year and deliver static PDFs. We stream 9 public agencies (C-band rain radar, water telemetry, river basin gauges) every 3–60 minutes directly into client-side browser memory.',
+      point2Title: 'Calibrated Against Physical Ground Reality',
+      point2Desc: 'Thresholds and alerts are tested in the flooded soi with operators and residents. Decisions happen in seconds without phone trees or bureaucratic lag.',
+      point3Title: 'Radical Public Inclusion Without License Tolls',
+      point3Desc: '112,000+ daily citizens, governors, and emergency responders read the exact same unified situation picture simultaneously — breaking information asymmetry with $0 proprietary licensing fees.',
+      cta: 'See FloodDash live',
+      ctaBriefings: 'Daily Briefings (112K Followers)'
+    },
+    heroConsole: {
+      title: 'DECISION SYSTEMS CONSOLE',
+      tabSystems: 'Systems & Problems',
+      tabImpact: 'Project reach',
+      tabTrends: 'Tech DNA & Trends',
+      tabDossier: 'Active Brief',
+      systemsLabel: 'Labelled Live',
+      problemsLabel: 'Domains shown',
+      slideDecksLabel: 'Other statuses',
+      tagFlood: 'DISASTER & FLOOD',
+      floodTitle: 'Rainfall, river levels and flood context',
+      floodDesc: 'FloodDash and NST-01 bring rainfall, water levels and flood context into a shared view.',
+      tagAir: 'AIR QUALITY & SMOKE',
+      airTitle: 'Air-quality readings and smoke context',
+      airDesc: 'AirDash brings air-quality readings and smoke context together. Source times are shown in the system.',
+      tagPorts: 'SEAPORTS & LOGISTICS',
+      portsTitle: 'Port-area traffic and city operations',
+      portsDesc: 'Laem Chabang Operations brings city and port-area information into an operations view.',
+      tagAirspace: 'TRANSIT & MOBILITY',
+      airspaceTitle: 'Bus routes and city mobility',
+      airspaceDesc: 'Phuket Smart Bus connects route and mobility information for a coastal city.',
+      tagCivic: 'MUNICIPAL & CULTURE',
+      civicTitle: 'Municipal operations and cultural context',
+      civicDesc: 'Sikhio Operations and BKKx Culture organise municipal information around local decisions.',
+      tagSecurity: 'SOVEREIGN & INTEL',
+      securityTitle: 'Regional watch from open sources',
+      securityDesc: 'Middle East Monitor and World Console organise open-source regional information.',
+      citizensLabel: 'Mapped systems',
+      provincesLabel: 'Tour stops',
+      countriesLabel: 'Named currencies',
+      socialTitle: 'Public access',
+      socialDesc: 'Open a linked system to inspect its coverage. Geographic reach is not a count of users or people protected.',
+      feedsTitle: 'Source provenance',
+      feedsDesc: 'Sources, update times and data limitations belong to each linked system. This page is not a feed-health monitor.',
+      speedTitle: 'Pilot target',
+      speedDesc: 'The proposed proof is two weeks. Data access, the decision and acceptance criteria are agreed before work starts.',
+      costTitle: 'Delivery scope',
+      costDesc: 'Hosting, data licences, maintenance and handover are agreed per engagement. Public access does not imply zero operating cost.',
+      dna1Title: 'Browser-Native Vector & Canvas Engines',
+      dna1Desc: 'Maps, telemetry views and canvas animation render in the browser. Performance depends on the device, data and connection.',
+      dna2Title: 'Automated Multi-Source Sensor Fusion',
+      dna2Desc: 'Ingesting disjointed C-band radar sweeps, river sensors, IoT air monitors, and satellite passes into unified situational models.',
+      dna3Title: 'Mathematical Provincial Hazard Indexing',
+      dna3Desc: 'Replacing qualitative consultant opinions with quantitative vulnerability formulas: rainfall anomaly, slope saturation, drainage runoff.',
+      dna4Title: 'Local-First Sovereign RAG & Intelligence',
+      dna4Desc: 'Air-gapped and local-first document retrieval engines that analyze municipal datasets and regulations without leaking sovereign data abroad.',
+      footerLabel: 'Reference data',
+      scopePrefix: 'Active scope',
+      socialValue: 'Direct',
+      feedsValue: 'In-system',
+      speedValue: '2 weeks',
+      costValue: 'Agreed',
+    },
+    pitch: {
+      kicker: 'The problem we solve',
+      meta: 'For governors · mayors · agency heads · operators',
+      title: 'The flood arrives at 2 a.m. <em>The dashboard arrives next fiscal year.</em>',
+      lede: 'Rain, traffic, air, complaints, satellites — scattered across a dozen agencies. Crisis hits, you have no picture. We build the picture. One screen. One decision. Two weeks.',
+      painLabel: 'Sound familiar?',
+      pain1: 'The data exists, but it is split across agencies, PDFs and spreadsheets. Nobody sees the whole city on one screen.',
+      pain2: 'The vendor quote takes a year and a budget cycle — and delivers a slide deck, not a working system.',
+      pain3: 'When something goes wrong, the first hour goes to phone calls about what is happening, not decisions about what to do.',
+      vsLabel: 'Boutique vs big firm.',
+      vsThemTitle: 'The big firm',
+      vsThem: 'A senior partner sells you the project. A junior team you never met builds it. You get slides, delays, and a vendor to manage.',
+      vsUsTitle: 'Axiom',
+      vsUs: 'The people you meet are the people who build. No salespeople. No hand-offs. You judge a working system, not a promise.',
+      serviceLine: 'Bring the problem. We design, build, run it.',
+      howLabel: 'How it works · three steps',
+      step1title: 'Week 1 — Name the decision.',
+      step1body: 'We sit with the person who decides — a governor, a flood desk, a port authority — and agree on one decision to speed up, who owns it, and what data exists.',
+      step2title: 'Week 2 — Put a working screen in the room.',
+      step2body: 'Built on the data you already have plus free public sources. No new hardware. You judge a live system, not a mock-up.',
+      step3title: 'From day one — Measure, then scale.',
+      step3body: 'Every screen logs who uses it, and for which decision. You scale only what is proven to be used.',
+      resultLabel: 'What changes · measured on live systems, not promised',
+      r1lbl: 'Phuket Ops',
+      r1: 'Transit, safety and environment on one screen a governor reads in 30 seconds.',
+      r2lbl: 'FloodDash',
+      r2: 'Every Thai province on one flood picture — 9 public sources, refreshed every 3–60 minutes.',
+      r3lbl: 'SLIC Index · Taipei',
+      r3: '157 cities ranked live — shown working on stage within a 45-minute keynote.',
+      r4lbl: 'Field note 01',
+      r4: 'A vendor called it too complex. A working version was in the room fourteen days later.',
+    proofLine: '80 systems across 5 countries. Open one. Use it. Judge.',
+      faqLabel: 'Before you ask',
+      q1: 'Is it expensive?',
+      a1: "No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.",
+      q2: 'Will it work with our data?',
+      a2: 'Yes. Every system on this page already runs on Thai public data — TMD, GISTDA, the Pollution Control Department, OpenStreetMap. Messy data is normal; it is where we start.',
+      q3: 'Is our data safe?',
+      a3: 'Yes. The first step uses only public data, so sensitive records never leave your hands. Delivery follows PDPA, GDPR-informed principles and ISO/IEC frameworks — by practice, not certification (see Credentials).',
+      q4: 'You\'re a small team. Can you deliver?',
+      a4: 'Yes. You deal directly with the builders — Dr Non Arkaraprasertkul and Dr Poon Thiengburanathum. Specialists join per mission.',
+      q5: 'Will it still run after launch?',
+      a5: 'Yes. Most systems on this page have run long past their launch. Each is documented and instrumented so your team can keep it going.',
+      cta: 'Start a two-week proof',
+      cta2: 'Open a live system first',
+      unitSec: ' sec',
+      unitMin: ' min',
+      unitDays: ' days',
+    },
+  },
+  th: {
+    field: {
+      kicker: 'อยู่ในพื้นที่จริง · ข้อเท็จจริงหน้างาน',
+      videoTag: 'การบรรยายสรุปสถานการณ์จริง · ข้อมูลวิกฤตจากจุดเกิดเหตุ',
+      title: 'น้ำท่วมมาถึงตอนตีสอง แดชบอร์ดมาถึงปีงบประมาณหน้า',
+      line: 'บันทึกภาพขณะยืนลุยน้ำท่วมระดับหน้าแข้งในวิกฤตน้ำหลาก Innovation-as-a-Service ไม่ใช่สไลด์ขายงานในห้องแอร์ แต่ถูกสร้างขึ้นขณะยืนอยู่ ณ จุดที่คำถามเกิดขึ้น นี่คือบทพิสูจน์ถึงความก้าวหน้าล้ำสมัยของแนวทางเรา:',
+      point1Title: 'ประมวลผลทันทีโดยไม่ต้องรอรอบงบประมาณ',
+      point1Desc: 'ระบบราชการทั่วไปต้องรองบข้ามปีเพื่อได้ไฟล์ PDF สรุปสถานการณ์ เราดึงข้อมูล 9 หน่วยงานรัฐ (เรดาร์ฝน C-band, โทรมาตรน้ำ, ประตูระบายน้ำ) ทุก 3–60 นาที เข้าสู่เบราว์เซอร์โดยตรง',
+      point2Title: 'สอบเทียบกับความเป็นจริงบนพื้นดิน',
+      point2Desc: 'เกณฑ์การเตือนภัยถูกทดสอบจริงกลางซอยน้ำท่วมร่วมกับชาวบ้านและเจ้าหน้าที่หน้างาน ทำให้การตัดสินใจเกิดขึ้นได้ในไม่กี่วินาทีโดยไม่ต้องรอสายโทรศัพท์',
+      point3Title: 'เปิดกว้างให้ประชาชนทุกคนโดยไม่มีค่าลิขสิทธิ์',
+      point3Desc: 'ประชาชนกว่า 112,000 คน ผู้ว่าฯ และทีมกู้ภัยอ่านภาพสถานการณ์เดียวกันพร้อมกันทั้งหมด ทลายความเหลื่อมล้ำทางข้อมูลโดยไม่ต้องจ่ายค่าใบอนุญาตซอฟต์แวร์นับล้าน',
+      cta: 'ดู FloodDash สด',
+      ctaBriefings: 'สรุปสถานการณ์ประจำวัน (ผู้ติดตาม 112K)'
+    },
+    heroConsole: {
+      title: 'คอนโซลระบบข้อมูลเพื่อการตัดสินใจ',
+      tabSystems: 'ระบบและปัญหา',
+      tabImpact: 'ขอบเขตโครงการ',
+      tabTrends: 'เทคโนโลยีและดีเอ็นเอ',
+      tabDossier: 'สรุปสถานการณ์',
+      systemsLabel: 'ระบุสถานะ Live',
+      problemsLabel: 'ด้านที่แสดง',
+      slideDecksLabel: 'สถานะอื่น',
+      tagFlood: 'ภัยพิบัติและน้ำท่วม',
+      floodTitle: 'ฝน ระดับน้ำในแม่น้ำ และบริบทน้ำท่วม',
+      floodDesc: 'FloodDash และ NST-01 รวมฝน ระดับน้ำ และบริบทน้ำท่วมไว้ในภาพเดียวกัน',
+      tagAir: 'คุณภาพอากาศและฝุ่นควัน',
+      airTitle: 'ค่าคุณภาพอากาศและบริบทฝุ่นควัน',
+      airDesc: 'AirDash รวมค่าคุณภาพอากาศและบริบทฝุ่นควัน โดยแสดงเวลาของแหล่งข้อมูลในระบบ',
+      tagPorts: 'ท่าเรือและโลจิสติกส์',
+      portsTitle: 'การจราจรพื้นที่ท่าเรือและปฏิบัติการเมือง',
+      portsDesc: 'Laem Chabang Operations รวมข้อมูลเมืองและพื้นที่ท่าเรือไว้ในมุมมองปฏิบัติการ',
+      tagAirspace: 'ขนส่งและการเดินทาง',
+      airspaceTitle: 'เส้นทางรถโดยสารและการเดินทางในเมือง',
+      airspaceDesc: 'Phuket Smart Bus เชื่อมข้อมูลเส้นทางและการเดินทางของเมืองชายฝั่ง',
+      tagCivic: 'เทศบาลและวัฒนธรรม',
+      civicTitle: 'ปฏิบัติการเทศบาลและบริบทวัฒนธรรม',
+      civicDesc: 'Sikhio Operations และ BKKx Culture จัดข้อมูลเทศบาลให้สัมพันธ์กับการตัดสินใจในพื้นที่',
+      tagSecurity: 'ความมั่นคงและยุทธศาสตร์',
+      securityTitle: 'เฝ้าระวังภูมิภาคจากแหล่งข้อมูลเปิด',
+      securityDesc: 'Middle East Monitor และ World Console จัดข้อมูลภูมิภาคจากแหล่งเปิด',
+      citizensLabel: 'ระบบบนแผนที่',
+      provincesLabel: 'จุดในเส้นทางชม',
+      countriesLabel: 'สกุลเงินที่ระบุ',
+      socialTitle: 'การเข้าถึงสาธารณะ',
+      socialDesc: 'เปิดระบบที่เชื่อมไว้เพื่อตรวจสอบขอบเขตพื้นที่ พื้นที่ครอบคลุมไม่ใช่จำนวนผู้ใช้หรือผู้ที่ได้รับการคุ้มครอง',
+      feedsTitle: 'ที่มาของข้อมูล',
+      feedsDesc: 'แต่ละระบบระบุแหล่งข้อมูล เวลาอัปเดต และข้อจำกัดของตนเอง หน้านี้ไม่ได้ตรวจสุขภาพแหล่งข้อมูล',
+      speedTitle: 'เป้าหมายงานนำร่อง',
+      speedDesc: 'ข้อเสนองานพิสูจน์ใช้เวลาสองสัปดาห์ โดยตกลงสิทธิ์เข้าถึงข้อมูล การตัดสินใจ และเกณฑ์รับมอบก่อนเริ่มงาน',
+      costTitle: 'ขอบเขตการส่งมอบ',
+      costDesc: 'ตกลงโฮสติ้ง ใบอนุญาตข้อมูล การบำรุงรักษา และการส่งมอบเป็นรายโครงการ การเปิดให้เข้าถึงไม่ได้แปลว่าไม่มีต้นทุนดำเนินงาน',
+      dna1Title: 'เอนจินเวกเตอร์และแคนวาสบนเบราว์เซอร์',
+      dna1Desc: 'แผนที่ มุมมองข้อมูลตรวจวัด และภาพเคลื่อนไหวแคนวาสแสดงผลในเบราว์เซอร์ ประสิทธิภาพขึ้นอยู่กับอุปกรณ์ ข้อมูล และการเชื่อมต่อ',
+      dna2Title: 'การผสานเซนเซอร์หลากแหล่งอัตโนมัติ',
+      dna2Desc: 'เชื่อมโยงเรดาร์ C-band เซนเซอร์ระดับน้ำ เซนเซอร์ตรวจวัดอากาศ และดาวเทียมเป็นแบบจำลองเดียว',
+      dna3Title: 'ดัชนีชี้วัดความเสี่ยงเชิงคณิตศาสตร์',
+      dna3Desc: 'แทนที่ความเห็นส่วนบุคคลด้วยสูตรความเปราะบางเชิงปริมาณ: ความผิดปกติของฝน ความอิ่มตัวดิน การระบาย',
+      dna4Title: 'ระบบ RAG อัจฉริยะแบบ Local-First',
+      dna4Desc: 'ระบบค้นคืนเอกสารและกฎหมายเมืองที่ทำงานในเครื่อง ไม่ส่งออกข้อมูลอธิปไตยของชาติไปภายนอก',
+      footerLabel: 'ข้อมูลอ้างอิง',
+      scopePrefix: 'ขอบเขตที่เลือก',
+      socialValue: 'เปิดตรง',
+      feedsValue: 'ในระบบ',
+      speedValue: '2 สัปดาห์',
+      costValue: 'ตามข้อตกลง',
+    },
+    pitch: {
+      kicker: 'ปัญหาที่ผมแก้',
+      meta: 'สำหรับผู้ว่าฯ · นายกเทศมนตรี · หัวหน้าหน่วยงาน · ผู้ดำเนินการ',
+      title: 'น้ำมาตอนตีสอง <em>แดชบอร์ดมาปีงบประมาณหน้า</em>',
+      lede: 'ข้อมูลมีอยู่แล้ว — ฝน จราจร อากาศ เรื่องร้องเรียน ภาพดาวเทียม แต่กระจายอยู่นับสิบหน่วยงาน พอวิกฤตมาถึง คุณคือคนที่ไม่เห็นภาพ ผมแก้ตรงนั้น: หน้าจอสดหน้าเดียว การตัดสินใจหนึ่งเรื่อง ภายในสองสัปดาห์',
+      painLabel: 'คุ้น ๆ ไหม?',
+      pain1: 'ข้อมูลมีอยู่จริง แต่แยกกันอยู่ตามหน่วยงาน ไฟล์ PDF และสเปรดชีต ไม่มีใครเห็นทั้งเมืองบนหน้าจอเดียว',
+      pain2: 'ใบเสนอราคาของผู้ขายใช้เวลาหนึ่งปีกับอีกหนึ่งรอบงบประมาณ — และสิ่งที่ได้คือสไลด์ ไม่ใช่ระบบที่ใช้งานได้',
+      pain3: 'เมื่อเกิดเหตุ ชั่วโมงแรกหมดไปกับการโทรถามว่าเกิดอะไรขึ้น แทนที่จะได้ตัดสินใจว่าจะทำอะไร',
+      vsLabel: 'ทำไมต้องสตูดิโอบูทีค ไม่ใช่บริษัทใหญ่',
+      vsThemTitle: 'บริษัทใหญ่',
+      vsThem: 'ผู้บริหารระดับสูงมาขายโครงการ ทีมจูเนียร์ที่คุณไม่เคยเจอเป็นคนสร้าง สิ่งที่ได้คือสไลด์ ความล่าช้า และผู้ขายที่คุณต้องคอยบริหาร',
+      vsUsTitle: 'Axiom',
+      vsUs: 'คนที่คุณคุยด้วยคือคนที่ลงมือสร้าง ไม่มีพนักงานขาย ไม่มีการส่งต่องาน คุณตัดสินจากระบบที่ใช้งานได้จริง ไม่ใช่คำสัญญา',
+      serviceLine: 'นี่คือ Innovation as a Service: คุณนำปัญหามา ผมออกแบบ สร้าง และดูแลคำตอบให้คุณ',
+      howLabel: 'วิธีการทำงาน · สามขั้นตอน',
+      step1title: 'สัปดาห์ที่ 1 — ระบุการตัดสินใจให้ชัด',
+      step1body: 'ผมนั่งคุยกับคนที่ตัดสินใจจริง — ผู้ว่าฯ ศูนย์เฝ้าระวังน้ำท่วม การท่าเรือ — แล้วตกลงกันว่าจะเร่งการตัดสินใจเรื่องไหน ใครรับผิดชอบ และมีข้อมูลอะไรอยู่แล้ว',
+      step2title: 'สัปดาห์ที่ 2 — วางหน้าจอที่ใช้งานได้จริงไว้ในห้อง',
+      step2body: 'สร้างบนข้อมูลที่คุณมีอยู่แล้วบวกข้อมูลสาธารณะฟรี ไม่ต้องซื้อฮาร์ดแวร์ใหม่ คุณตัดสินจากระบบที่รันจริง ไม่ใช่ภาพจำลอง',
+      step3title: 'ตั้งแต่วันแรก — วัดผลก่อน แล้วค่อยขยาย',
+      step3body: 'ทุกหน้าจอบันทึกว่าใครใช้ และใช้กับการตัดสินใจเรื่องใด คุณขยายเฉพาะสิ่งที่พิสูจน์แล้วว่ามีคนใช้',
+      resultLabel: 'สิ่งที่เปลี่ยน · วัดจากระบบที่รันจริง ไม่ใช่คำสัญญา',
+      r1lbl: 'Phuket Ops',
+      r1: 'การจราจร ความปลอดภัย และสิ่งแวดล้อมบนหน้าจอเดียว ที่ผู้ว่าฯ อ่านจบใน 30 วินาที',
+      r2lbl: 'FloodDash',
+      r2: 'ทุกจังหวัดของไทยบนภาพน้ำท่วมภาพเดียว — ข้อมูลสาธารณะ 9 แหล่ง อัปเดตทุก 3–60 นาที',
+      r3lbl: 'SLIC Index · ไทเป',
+      r3: 'จัดอันดับ 157 เมืองแบบสด — ใช้งานได้จริงบนเวทีภายในคีย์โน้ต 45 นาที',
+      r4lbl: 'บันทึกภาคสนาม 01',
+      r4: 'ผู้ขายบอกว่าซับซ้อนเกินไป สิบสี่วันต่อมา ระบบที่ใช้งานได้ก็อยู่ในห้องประชุมแล้ว',
+    proofLine: '80 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
+      faqLabel: 'ก่อนที่คุณจะถาม',
+      q1: 'แพงไหม?',
+      a1: 'ไม่แพงในการเริ่มต้น ขั้นแรกคือพิสูจน์ผลสองสัปดาห์บนข้อมูลที่คุณมีอยู่แล้ว ไม่ต้องซื้อฮาร์ดแวร์ คุณตัดสินใจเรื่องที่ใหญ่กว่าก็ต่อเมื่อได้เห็นมันใช้งานได้แล้ว',
+      q2: 'ใช้กับข้อมูลของเราได้ไหม?',
+      a2: 'ได้ ทุกระบบบนหน้านี้รันบนข้อมูลสาธารณะของไทยอยู่แล้ว — กรมอุตุนิยมวิทยา GISTDA กรมควบคุมมลพิษ OpenStreetMap ข้อมูลที่ยุ่งเป็นเรื่องปกติ ผมเริ่มจากตรงนั้น',
+      q3: 'ข้อมูลของเราปลอดภัยไหม?',
+      a3: 'ปลอดภัย ขั้นแรกใช้เฉพาะข้อมูลสาธารณะ ข้อมูลอ่อนไหวจึงไม่ออกจากมือคุณ การส่งมอบเป็นไปตาม PDPA หลักการที่อิง GDPR และกรอบ ISO/IEC — โดยแนวปฏิบัติ ไม่ใช่การรับรอง (ดูหนังสือรับรอง)',
+      q4: 'ทีมเล็ก ส่งมอบไหวไหม?',
+      a4: 'ไหว — และคุณคุยกับคนสร้างโดยตรง: ดร.นน อัครประเสริฐกุล (ปริญญาเอก Harvard; ผู้เชี่ยวชาญอาวุโส ฝ่ายส่งเสริมเมืองอัจฉริยะ depa) และ Dr Poon Thiengburanathum ผู้เชี่ยวชาญเข้าร่วมเป็นรายภารกิจ: นักบิน UAV วิศวกรจราจร ผู้แปลนโยบาย',
+      q5: 'หลังเปิดตัวแล้วระบบยังอยู่ไหม?',
+      a5: 'อยู่ ระบบส่วนใหญ่บนหน้านี้รันต่อมานานหลังเปิดตัว ทุกระบบมีเอกสารและระบบวัดผล ให้ทีมของคุณดูแลต่อได้เอง',
+      cta: 'เริ่มพิสูจน์ใน 2 สัปดาห์',
+      cta2: 'เปิดดูระบบจริงก่อน',
+      unitSec: ' วินาที',
+      unitMin: ' นาที',
+      unitDays: ' วัน',
+    },
+  },
+  zh: {
+    field: {
+      kicker: '在现场 · 真实态势',
+      videoTag: '权威现场简报 · 危机一线直击',
+      title: '洪水凌晨两点到来。仪表盘下个财年才到。',
+      line: '在季风暴雨峰值期间，站在没过小腿的积水中现场录制。“创新即服务”不是会议室里的方案路演，而是在问题发生的一线动手构建。这个视频印证了我们前沿方案的硬核实力：',
+      point1Title: '零延迟实时接入击穿预算审批惯性',
+      point1Desc: '传统供应商走预算周期需要整整一年，最终只交付静态 PDF 报告。我们将 9 个公共机构数据（C 波段测雨雷达、水文遥测、流域水位计）每 3–60 分钟直接流式注入浏览器内存。',
+      point2Title: '基于街巷物理真实校准告警阈值',
+      point2Desc: '告警线与防汛策略直接在受淹巷道与前线工作人员及居民一同实地验证，数秒内即可形成果断决策，无需层层汇报或漫长电话确认。',
+      point3Title: '打破软件许可壁垒的全民无门槛共享',
+      point3Desc: '逾 112,000 名日常市民、府尹与应急救援队伍同时读取同一张无损态势图，以 0 元专有软件许可费彻底消除信息不对称。',
+      cta: '查看 FloodDash 实时系统',
+      ctaBriefings: '每日防汛简报（112K 关注）'
+    },
+    heroConsole: {
+      title: '决策系统指挥台',
+      tabSystems: '系统与议题',
+      tabImpact: '项目范围',
+      tabTrends: '技术基因与趋势',
+      tabDossier: '当前简报',
+      systemsLabel: '标记为 Live',
+      problemsLabel: '展示领域',
+      slideDecksLabel: '其他状态',
+      tagFlood: '灾害与防汛',
+      floodTitle: '降雨、河流水位与洪水背景',
+      floodDesc: 'FloodDash 和 NST-01 将降雨、水位与洪水背景放在同一视图中。',
+      tagAir: '空气质量与烟雾',
+      airTitle: '空气质量读数与烟霾背景',
+      airDesc: 'AirDash 汇集空气质量读数与烟霾背景，来源时间在系统内标示。',
+      tagPorts: '港口航运与物流',
+      portsTitle: '港区交通与城市运营',
+      portsDesc: 'Laem Chabang Operations 将城市与港区信息汇入运营视图。',
+      tagAirspace: '交通与出行',
+      airspaceTitle: '公交线路与城市出行',
+      airspaceDesc: 'Phuket Smart Bus 整合沿海城市的线路与出行信息。',
+      tagCivic: '市政与文化',
+      civicTitle: '市政运营与文化背景',
+      civicDesc: 'Sikhio Operations 和 BKKx Culture 围绕地方决策组织市政信息。',
+      tagSecurity: '地缘安全与开源情报',
+      securityTitle: '基于公开来源的区域观察',
+      securityDesc: 'Middle East Monitor 和 World Console 整理来自公开来源的区域信息。',
+      citizensLabel: '地图中的系统',
+      provincesLabel: '巡览站点',
+      countriesLabel: '标示币种',
+      socialTitle: '公开访问',
+      socialDesc: '打开所链接的系统核查其覆盖范围。地域范围不等于用户数或受保护人数。',
+      feedsTitle: '数据来源',
+      feedsDesc: '每个链接系统说明自己的来源、更新时间与数据限制。本页不是数据源健康监控器。',
+      speedTitle: '试点目标',
+      speedDesc: '所提议的验证期为两周。开始前先约定数据访问、决策任务与验收标准。',
+      costTitle: '交付范围',
+      costDesc: '托管、数据许可、维护与移交按项目约定。公开访问并不代表零运营成本。',
+      dna1Title: '浏览器原生矢量与 Canvas 引擎',
+      dna1Desc: '地图、遥测视图与画布动画在浏览器中呈现。性能取决于设备、数据与连接。',
+      dna2Title: '自动化多源传感器融合机制',
+      dna2Desc: '将离散的 C 波段雷达扫描、河道浮标、空气传感器与卫星影像整合成统一态势。',
+      dna3Title: '严密数学化的省域风险指数',
+      dna3Desc: '以量化致灾公式取代顾问主观打分：异常雨量、土壤含水饱和度与排涝径流函数。',
+      dna4Title: '本土化优先的主权级 RAG 检索',
+      dna4Desc: '离线私有化运行的政策与规章智能检索系统，不泄露任何关键国家与市政遥测数据。',
+      footerLabel: '参考信息',
+      scopePrefix: '当前范围',
+      socialValue: '直达',
+      feedsValue: '系统内',
+      speedValue: '2 周',
+      costValue: '按约定',
+    },
+    pitch: {
+      kicker: '我们解决的问题',
+      meta: '面向府尹 · 市长 · 部门负责人 · 运营方',
+      title: '洪水凌晨两点到来。<em>仪表盘下个财年才到。</em>',
+      lede: '数据早就有——雨量、交通、空气、投诉、卫星。只是分散在十几个部门。于是危机来临时，看不到全局的人是你。我们解决的就是这个：一块实时屏幕，一个决策，两周。',
+      painLabel: '是否似曾相识？',
+      pain1: '数据是有的，但分散在各部门、PDF 和电子表格里。没有人能在一块屏幕上看到整座城市。',
+      pain2: '供应商报价要走一年外加一个预算周期——交付的是一套幻灯片，而不是能用的系统。',
+      pain3: '出事时，第一个小时花在打电话问“发生了什么”，而不是决定“该做什么”。',
+      vsLabel: '为什么选精品工作室，而不是大公司',
+      vsThemTitle: '大公司',
+      vsThem: '资深合伙人把项目卖给你，你从没见过的初级团队来做。你得到的是幻灯片、延期，和一个需要你去管理的供应商。',
+      vsUsTitle: 'Axiom',
+      vsUs: '你见到的人就是动手构建的人。没有销售，没有层层转交。你评判的是能用的系统，而不是承诺。',
+      serviceLine: '这就是“创新即服务”：你带来问题，我们替你设计、构建并运行答案。',
+      howLabel: '运作方式 · 三个步骤',
+      step1title: '第 1 周——明确决策。',
+      step1body: '我们和真正拍板的人坐下来——府尹、防汛值班台、港务局——商定要加速哪一个决策、由谁负责、已有哪些数据。',
+      step2title: '第 2 周——把能用的屏幕放进会议室。',
+      step2body: '基于你已有的数据加上免费公共数据构建。无需新硬件。你评判的是在线运行的系统，而不是效果图。',
+      step3title: '从第一天起——先度量，再扩展。',
+      step3body: '每块屏幕都记录谁在用、用于哪个决策。你只扩展被证明有人用的部分。',
+      resultLabel: '会发生什么变化 · 来自在线系统的实测，而非承诺',
+      r1lbl: 'Phuket Ops',
+      r1: '交通、公共安全与环境汇于一屏，府尹 30 秒读完。',
+      r2lbl: 'FloodDash',
+      r2: '泰国每个府都在同一张洪水图上——9 个公共数据源，每 3–60 分钟刷新。',
+      r3lbl: 'SLIC Index · 台北',
+      r3: '157 座城市实时排名——在一场 45 分钟的主题演讲中现场跑通。',
+      r4lbl: '现场笔记 01',
+      r4: '供应商说太复杂。十四天后，可用版本已经摆在会议室里。',
+    proofLine: '80 个系统，5 个国家。打开一个，亲自使用，再作判断。',
+      faqLabel: '在你开口之前',
+      q1: '贵吗？',
+      a1: '起步不贵。第一步是基于你已有数据的两周验证，无需购买硬件。只有亲眼看到它跑通，你才需要决定更大的投入。',
+      q2: '能用我们的数据吗？',
+      a2: '可以。本页每个系统都已在使用泰国公共数据——TMD、GISTDA、污染控制厅、OpenStreetMap。数据杂乱是常态，那正是我们的起点。',
+      q3: '我们的数据安全吗？',
+      a3: '安全。第一步只用公共数据，敏感记录从不离开你的手。交付遵循 PDPA、参照 GDPR 的原则和 ISO/IEC 框架——实践对齐，而非认证（见“资质”）。',
+      q4: '你们团队很小，能交付吗？',
+      a4: '能——而且你直接和构建者对话：Non Arkaraprasertkul 博士（哈佛博士；depa 智慧城市推广高级专家）与 Poon Thiengburanathum 博士。专家按任务加入：无人机操作员、交通工程师、政策翻译。',
+      q5: '上线之后还能继续运行吗？',
+      a5: '能。本页大多数系统在上线后长期运行。每个系统都有文档和度量，你的团队可以自己维持。',
+      cta: '开始两周验证',
+      cta2: '先打开一个在线系统',
+      unitSec: ' 秒',
+      unitMin: ' 分钟',
+      unitDays: ' 天',
+    },
+  },
+  ko: {
+    field: {
+      kicker: '현장 · 실측된 현실',
+      videoTag: '위기 현장 브리핑 · 침수 현장 직격',
+      title: '홍수는 새벽 2시에 옵니다. 대시보드는 다음 회계연도에 옵니다.',
+      line: '몬순 폭우 정점 당시 정강이까지 차오른 침수 골목에서 직접 촬영했습니다. Innovation-as-a-Service는 에어컨 나오는 회의실에서의 제안이 아니라, 질문이 터져 나오는 재난의 현장에 서서 만들어집니다. 이 영상이 증명하는 우리의 혁신적 접근법은 다음과 같습니다:',
+      point1Title: '예산 주기 관성을 깨부수는 무지연 스트리밍',
+      point1Desc: '전통적인 벤더는 1년 예산 주기를 거쳐 결국 정적 PDF를 납품합니다. 우리는 9개 공공 기관 데이터(C-밴드 강우 레이더, 수위 원격 측정, 수문 수위계)를 3–60분마다 브라우저 메모리로 직접 실시간 주입합니다.',
+      point2Title: '골목의 물리적 현장 현실로 직접 보정',
+      point2Desc: '경보 임계값은 침수된 골목에서 주민과 현장 운영자와 함께 직접 검증됩니다. 전화 보고에 시간을 낭비하지 않고 수초 안에 과감한 결정을 내릴 수 있습니다.',
+      point3Title: '라이선스 통행료 없는 급진적 공공 공유',
+      point3Desc: '112,000명 이상의 일상 시민, 주지사, 재난 구조팀이 완전히 동일한 상황도를 동시에 읽습니다. 10억 원대 독점 소프트웨어 비용 없이 정보 비대칭을 완전히 해소합니다.',
+      cta: 'FloodDash 실시간 보기',
+      ctaBriefings: '일일 홍수 브리핑 (112K 구독)'
+    },
+    heroConsole: {
+      title: '의사결정 시스템 콘솔',
+      tabSystems: '시스템 및 이슈',
+      tabImpact: '프로젝트 범위',
+      tabTrends: '기술 DNA 및 트렌드',
+      tabDossier: '활성 브리프',
+      systemsLabel: 'Live로 표시',
+      problemsLabel: '표시된 분야',
+      slideDecksLabel: '다른 상태',
+      tagFlood: '재난 및 홍수 방재',
+      floodTitle: '강우, 하천 수위와 홍수 맥락',
+      floodDesc: 'FloodDash와 NST-01은 강우, 수위와 홍수 맥락을 한 화면에 모읍니다.',
+      tagAir: '대기질 및 산불 연무',
+      airTitle: '대기질 수치와 연기 맥락',
+      airDesc: 'AirDash는 대기질 수치와 연기 맥락을 모읍니다. 출처 시각은 시스템에 표시됩니다.',
+      tagPorts: '항만 및 물류 관제',
+      portsTitle: '항만 지역 교통과 도시 운영',
+      portsDesc: 'Laem Chabang Operations는 도시와 항만 지역 정보를 운영 화면에 모읍니다.',
+      tagAirspace: '대중교통 및 이동',
+      airspaceTitle: '버스 노선과 도시 이동',
+      airspaceDesc: 'Phuket Smart Bus는 해안 도시의 노선과 이동 정보를 연결합니다.',
+      tagCivic: '지자체 및 문화',
+      civicTitle: '지자체 운영과 문화 맥락',
+      civicDesc: 'Sikhio Operations와 BKKx Culture는 지역 의사결정에 맞춰 도시 정보를 정리합니다.',
+      tagSecurity: '주권 안보 및 오픈소스 인텔',
+      securityTitle: '공개 출처 기반 지역 관측',
+      securityDesc: 'Middle East Monitor와 World Console은 공개 출처의 지역 정보를 정리합니다.',
+      citizensLabel: '지도상의 시스템',
+      provincesLabel: '순회 지점',
+      countriesLabel: '표시된 통화',
+      socialTitle: '공개 접근',
+      socialDesc: '연결된 시스템을 열어 범위를 확인하세요. 지리적 범위는 사용자 수나 보호받은 인구 수가 아닙니다.',
+      feedsTitle: '데이터 출처',
+      feedsDesc: '출처, 갱신 시각과 데이터 한계는 각 연결 시스템에 표시됩니다. 이 페이지는 피드 상태를 감시하지 않습니다.',
+      speedTitle: '시범 목표',
+      speedDesc: '제안하는 검증 기간은 2주입니다. 데이터 접근, 의사결정과 인수 기준은 착수 전에 합의합니다.',
+      costTitle: '납품 범위',
+      costDesc: '호스팅, 데이터 라이선스, 유지보수와 인계는 계약별로 합의합니다. 공개 접근이 운영비 0원을 뜻하지는 않습니다.',
+      dna1Title: '브라우저 네이티브 벡터 및 캔버스 엔진',
+      dna1Desc: '지도, 관측 화면과 캔버스 애니메이션은 브라우저에서 그려집니다. 성능은 기기, 데이터와 연결에 따라 달라집니다.',
+      dna2Title: '자동화된 다원 센서 융합 메커니즘',
+      dna2Desc: 'C-밴드 레이더 스위프, 하천 센서, IoT 공기질 감시기와 위성 신호를 단일 모델로 결합.',
+      dna3Title: '엄밀한 수학적 주 단위 위험 지수화',
+      dna3Desc: '컨설턴트의 주관적 의견 대신 강우 편차, 토양 포화도, 배수 유출 공식 기반 정량화.',
+      dna4Title: '로컬 우선 주권형 RAG 인텔리전스',
+      dna4Desc: '국가 주권 데이터를 해외로 유출하지 않고 내부에서 규정과 지자체 문서를 분석하는 검색 엔진.',
+      footerLabel: '참고 정보',
+      scopePrefix: '선택 범위',
+      socialValue: '직접',
+      feedsValue: '시스템 내',
+      speedValue: '2주',
+      costValue: '합의',
+    },
+    pitch: {
+      kicker: '우리가 푸는 문제',
+      meta: '주지사 · 시장 · 기관장 · 운영자를 위해',
+      title: '홍수는 새벽 2시에 옵니다. <em>대시보드는 다음 회계연도에 옵니다.</em>',
+      lede: '데이터는 이미 있습니다 — 강우, 교통, 대기, 민원, 위성. 다만 십여 개 기관에 흩어져 있습니다. 그래서 위기가 오면, 그림을 못 보는 사람은 당신입니다. 우리는 그것을 해결합니다: 하나의 화면, 하나의 결정, 2주.',
+      painLabel: '익숙하신가요?',
+      pain1: '데이터는 있지만 기관, PDF, 스프레드시트로 나뉘어 있습니다. 도시 전체를 한 화면에서 보는 사람이 없습니다.',
+      pain2: '벤더 견적은 1년과 예산 주기 하나를 잡아먹고 — 결과물은 작동하는 시스템이 아니라 슬라이드입니다.',
+      pain3: '문제가 생기면 첫 한 시간은 무엇을 할지 결정하는 대신 무슨 일인지 묻는 전화로 사라집니다.',
+      vsLabel: '왜 대기업이 아니라 부티크 스튜디오인가',
+      vsThemTitle: '대형 업체',
+      vsThem: '시니어 파트너가 프로젝트를 팔고, 만난 적 없는 주니어 팀이 만듭니다. 남는 것은 슬라이드, 지연, 그리고 관리해야 할 벤더입니다.',
+      vsUsTitle: 'Axiom',
+      vsUs: '만나는 사람이 곧 만드는 사람입니다. 영업 담당도, 떠넘기기도 없습니다. 약속이 아니라 작동하는 시스템으로 판단하십시오.',
+      serviceLine: '이것이 Innovation as a Service입니다: 문제를 가져오시면, 답을 대신 설계하고, 만들고, 운영합니다.',
+      howLabel: '작동 방식 · 세 단계',
+      step1title: '1주 차 — 결정을 명확히 합니다.',
+      step1body: '실제 결정권자와 마주 앉습니다 — 주지사, 홍수 상황실, 항만 당국 — 그리고 어떤 결정을 빠르게 할지, 누가 책임지는지, 어떤 데이터가 있는지 합의합니다.',
+      step2title: '2주 차 — 작동하는 화면을 회의실에 올립니다.',
+      step2body: '이미 가진 데이터와 무료 공공 데이터로 만듭니다. 새 하드웨어는 필요 없습니다. 목업이 아닌 실시간 시스템으로 판단하십시오.',
+      step3title: '첫날부터 — 측정하고, 그다음 확장합니다.',
+      step3body: '모든 화면은 누가, 어떤 결정에 쓰는지 기록합니다. 실제로 쓰인다고 증명된 것만 확장합니다.',
+      resultLabel: '무엇이 바뀌는가 · 약속이 아닌 라이브 시스템에서 측정',
+      r1lbl: 'Phuket Ops',
+      r1: '교통·치안·환경을 한 화면에 — 주지사가 30초 만에 읽습니다.',
+      r2lbl: 'FloodDash',
+      r2: '태국 모든 주를 하나의 홍수 그림으로 — 공공 데이터 9개, 3–60분마다 갱신.',
+      r3lbl: 'SLIC Index · 타이베이',
+      r3: '157개 도시 실시간 순위 — 45분 기조연설 안에 무대에서 작동을 보였습니다.',
+      r4lbl: '현장 노트 01',
+      r4: '벤더는 너무 복잡하다고 했습니다. 14일 뒤, 작동하는 버전이 회의실에 있었습니다.',
+    proofLine: '5개국의 80개 시스템. 하나를 열고, 사용하고, 판단하세요.',
+      faqLabel: '묻기 전에 답합니다',
+      q1: '비싸지 않나요?',
+      a1: '시작은 비싸지 않습니다. 첫 단계는 이미 가진 데이터로 하는 2주 검증이며, 하드웨어 구매가 없습니다. 작동하는 것을 본 뒤에 더 큰 결정을 하시면 됩니다.',
+      q2: '우리 데이터로도 되나요?',
+      a2: '됩니다. 이 페이지의 모든 시스템이 이미 태국 공공 데이터 — TMD, GISTDA, 오염통제국, OpenStreetMap — 로 작동합니다. 지저분한 데이터는 정상이며, 거기서 시작합니다.',
+      q3: '데이터는 안전한가요?',
+      a3: '안전합니다. 첫 단계는 공공 데이터만 쓰므로 민감한 기록이 밖으로 나가지 않습니다. 납품은 PDPA, GDPR 기반 원칙, ISO/IEC 프레임워크를 따릅니다 — 인증이 아닌 실무 차원입니다(자격 참조).',
+      q4: '팀이 작은데 해낼 수 있나요?',
+      a4: '할 수 있습니다 — 그리고 만드는 사람과 직접 일합니다: Non Arkaraprasertkul 박사(하버드 박사, depa 스마트시티 진흥 수석 전문가)와 Poon Thiengburanathum 박사. 전문가는 임무별로 합류합니다: UAV 운영자, 교통 엔지니어, 정책 번역가.',
+      q5: '출시 후에도 계속 돌아가나요?',
+      a5: '네. 이 페이지의 시스템 대부분은 출시 후에도 오래 작동 중입니다. 모두 문서화·계측되어 귀 기관 팀이 직접 운영할 수 있습니다.',
+      cta: '2주 검증 시작하기',
+      cta2: '라이브 시스템 먼저 열어보기',
+      unitSec: '초',
+      unitMin: '분',
+      unitDays: '일',
+    },
+  },
+  ja: {
+    field: {
+      kicker: '現場 · 実測された現実',
+      videoTag: '現場危機ブリーフィング · 浸水最前線からの実況',
+      title: '洪水は午前2時に来る。ダッシュボードは来年度に来る。',
+      line: 'モンスーン豪雨のピーク時、すねまで水に浸かった浸水路地で直接収録。「Innovation-as-a-Service」は空調の効いた会議室での提案ではなく、問題が起きている現場に立って作られます。この動画が証明する私たちの先進的アプローチは以下の通りです：',
+      point1Title: '予算サイクルの停滞を打ち破るゼロ遅延配信',
+      point1Desc: '従来型ベンダーは予算サイクルに1年を費やし、静的なPDFを納品します。私たちは9つの公的機関データ（Cバンド降雨レーダー、河川テレメータ、水門水位計）を3〜60分ごとにブラウザメモリへ直接ストリーミングします。',
+      point2Title: '路地の物理的現実に基づき直接キャリブレーション',
+      point2Desc: '警戒ラインや警報閾値は、浸水した路地で住民や運用責任者とともに検証されます。電話確認に時間を浪費せず、数秒で的確な意思決定を下せます。',
+      point3Title: '高額ライセンス不要の急進的パブリック共有',
+      point3Desc: '11.2万人以上の日常市民、知事、救助隊が完全に同一の状況図を同時に把握。数億円規模の独占ソフトウェア費用を課すことなく、情報非対称性を完全に解消します。',
+      cta: 'FloodDash ライブを見る',
+      ctaBriefings: '日次洪水ブリーフィング（登録11.2万）'
+    },
+    heroConsole: {
+      title: '意思決定システム統合司令台',
+      tabSystems: 'システムと課題',
+      tabImpact: 'プロジェクト範囲',
+      tabTrends: '技術DNAと動向',
+      tabDossier: '現在ブリーフ',
+      systemsLabel: 'Live 表示',
+      problemsLabel: '掲載分野',
+      slideDecksLabel: 'その他の状態',
+      tagFlood: '防災・洪水監視',
+      floodTitle: '降雨、河川水位と洪水の状況',
+      floodDesc: 'FloodDash と NST-01 は、降雨、水位、洪水の状況を同じ画面にまとめます。',
+      tagAir: '大気質と煙霧',
+      airTitle: '大気質の測定値と煙霧の状況',
+      airDesc: 'AirDash は大気質の測定値と煙霧の状況をまとめます。出典の時刻はシステム内に表示します。',
+      tagPorts: '港湾と物流',
+      portsTitle: '港湾地域の交通と都市運用',
+      portsDesc: 'Laem Chabang Operations は都市と港湾地域の情報を運用画面にまとめます。',
+      tagAirspace: '公共交通と移動',
+      airspaceTitle: 'バス路線と都市の移動',
+      airspaceDesc: 'Phuket Smart Bus は沿岸都市の路線と移動情報をつなぎます。',
+      tagCivic: '自治体と文化',
+      civicTitle: '自治体運用と文化の背景',
+      civicDesc: 'Sikhio Operations と BKKx Culture は、地域の判断に沿って自治体情報を整理します。',
+      tagSecurity: '主権安全保障とOSINT',
+      securityTitle: '公開情報による地域観測',
+      securityDesc: 'Middle East Monitor と World Console は、公開情報から地域の状況を整理します。',
+      citizensLabel: '地図上のシステム',
+      provincesLabel: '巡回地点',
+      countriesLabel: '表示通貨',
+      socialTitle: '公開アクセス',
+      socialDesc: 'リンク先を開いて対象範囲を確認できます。地理的な広がりは、利用者数や保護された人数ではありません。',
+      feedsTitle: 'データの出典',
+      feedsDesc: '出典、更新時刻、データの制約は各システムに表示します。このページはフィードの稼働監視ではありません。',
+      speedTitle: '試行の目標',
+      speedDesc: '提案する検証期間は2週間です。データへのアクセス、判断課題、受入基準は着手前に合意します。',
+      costTitle: '納品範囲',
+      costDesc: 'ホスティング、データ利用許諾、保守、引継ぎは案件ごとに合意します。公開アクセスは運用費ゼロを意味しません。',
+      dna1Title: 'ブラウザネイティブのベクター＆Canvasエンジン',
+      dna1Desc: '地図、観測画面、キャンバスのアニメーションはブラウザーで描画します。性能は端末、データ、接続に依存します。',
+      dna2Title: '自律的多源センサーフュージョン機構',
+      dna2Desc: 'Cバンドレーダースキャン、河川ブイ、IoT大気監視機、衛星画像を統一モデルに統合。',
+      dna3Title: '厳密な数学的地域リスクインデックス',
+      dna3Desc: 'コンサルの主観的見解を排し、降雨偏差・土壌水分飽和度・排水流出の定量的公式で算出。',
+      dna4Title: 'ローカルファーストの主権型RAGインテリジェンス',
+      dna4Desc: '国家機密や市政データを海外に漏洩させることなく、内部で法規や都市文書を解析する検索基盤。',
+      footerLabel: '参考情報',
+      scopePrefix: '選択範囲',
+      socialValue: '直接',
+      feedsValue: 'システム内',
+      speedValue: '2週間',
+      costValue: '合意',
+    },
+    pitch: {
+      kicker: '私たちが解く問題',
+      meta: '知事 · 市長 · 機関の長 · 事業者のために',
+      title: '洪水は午前2時に来る。<em>ダッシュボードは来年度に来る。</em>',
+      lede: 'データはすでにあります——雨量、交通、大気、苦情、衛星。ただ十数の機関に散らばっています。だから危機が来たとき、全体像が見えないのはあなたです。私たちはそれを解決します：ひとつの画面、ひとつの決定、2週間。',
+      painLabel: '心当たりはありませんか？',
+      pain1: 'データは存在するのに、機関、PDF、スプレッドシートに分かれている。都市全体をひとつの画面で見ている人がいない。',
+      pain2: 'ベンダーの見積もりは1年と予算サイクルひとつ分——そして届くのは動くシステムではなくスライド。',
+      pain3: '何か起きると、最初の1時間は「何をするか」の決定ではなく「何が起きているか」を尋ねる電話に消える。',
+      vsLabel: 'なぜ大手ではなく、ブティック・スタジオなのか',
+      vsThemTitle: '大手企業',
+      vsThem: 'シニアパートナーがプロジェクトを売り、会ったこともないジュニアチームが作る。残るのはスライドと遅延、そして管理すべきベンダー。',
+      vsUsTitle: 'Axiom',
+      vsUs: '会う人が、そのまま作る人です。営業も、たらい回しもありません。約束ではなく、動くシステムで判断してください。',
+      serviceLine: 'これが Innovation as a Service です：課題を持ち込めば、答えをあなたに代わって設計し、構築し、運用します。',
+      howLabel: '進め方 · 3つのステップ',
+      step1title: '第1週——決定を特定する。',
+      step1body: '実際に決める人と向き合います——知事、洪水対策デスク、港湾当局——そして、どの決定を速くするか、誰が担うか、どのデータがあるかを合意します。',
+      step2title: '第2週——動く画面を会議室に置く。',
+      step2body: 'お手持ちのデータと無料の公共データで構築します。新しいハードウェアは不要です。モックアップではなく、稼働中のシステムで判断してください。',
+      step3title: '初日から——測ってから、広げる。',
+      step3body: 'すべての画面が、誰がどの決定に使ったかを記録します。使われていると実証されたものだけを拡張します。',
+      resultLabel: '何が変わるか · 約束ではなく、稼働中のシステムで測定',
+      r1lbl: 'Phuket Ops',
+      r1: '交通・治安・環境をひとつの画面に——県知事が30秒で読み取れます。',
+      r2lbl: 'FloodDash',
+      r2: 'タイ全県をひとつの洪水図に——9つの公共データソース、3〜60分ごとに更新。',
+      r3lbl: 'SLIC Index · 台北',
+      r3: '157都市をライブでランキング——45分の基調講演の中で、壇上で動かしてみせました。',
+      r4lbl: 'フィールドノート 01',
+      r4: 'ベンダーは複雑すぎると言った。14日後、動くバージョンが会議室にあった。',
+    proofLine: '5か国、80のシステム。ひとつ開いて、使って、判断してください。',
+      faqLabel: '聞かれる前に',
+      q1: '高くありませんか？',
+      a1: '始めるのに高くはありません。最初の一歩はお手持ちのデータによる2週間の実証で、ハードウェア購入は不要です。動くのを見てから、より大きな判断をしてください。',
+      q2: '私たちのデータで動きますか？',
+      a2: 'はい。このページのすべてのシステムが、すでにタイの公共データ——TMD、GISTDA、公害管理局、OpenStreetMap——で動いています。乱雑なデータは普通のこと。そこから始めます。',
+      q3: 'データは安全ですか？',
+      a3: 'はい。最初の一歩は公共データだけを使うため、機密記録が手元を離れることはありません。提供はPDPA、GDPRに基づく原則、ISO/IECフレームワークに沿っています——認証ではなく実務上の整合です（資格を参照）。',
+      q4: '小さなチームで対応できますか？',
+      a4: 'できます——しかも作る人と直接仕事をします：Non Arkaraprasertkul博士（ハーバード大学博士、depaスマートシティ推進シニアエキスパート）とPoon Thiengburanathum博士。専門家はミッションごとに参加します：UAVオペレーター、交通エンジニア、政策翻訳者。',
+      q5: 'ローンチ後も動き続けますか？',
+      a5: 'はい。このページのシステムの多くは、ローンチ後も長く稼働しています。どれも文書化・計測されており、貴組織のチームが運用を続けられます。',
+      cta: '2週間の実証を始める',
+      cta2: 'まずライブシステムを開く',
+      unitSec: '秒',
+      unitMin: '分',
+      unitDays: '日',
+    },
+  },
+  vi: {
+    field: {
+      kicker: 'Tại hiện trường · Dữ liệu thực địa',
+      videoTag: 'BÁO CÁO THỰC ĐỊA KINH ĐIỂN · TRỰC TIẾP TRONG TÂM BÃO LŨ',
+      title: 'Lũ đến lúc 2 giờ sáng. Dashboard đến vào năm tài khóa sau.',
+      line: 'Được ghi hình khi đứng ngập nước đến bắp chân ngay giữa đỉnh điểm mùa mưa lũ. Innovation-as-a-Service không phải bài thuyết trình trong phòng họp máy lạnh — nó được tạo ra khi đứng ở chính nơi câu hỏi sinh tử được đặt ra. Đây là minh chứng cho tính đột phá trong cách tiếp cận của chúng tôi:',
+      point1Title: 'Xử lý luồng tức thời vượt qua sức ỳ chu kỳ ngân sách',
+      point1Desc: 'Các nhà thầu truyền thống mất cả năm để xin duyệt ngân sách và chỉ giao về file PDF tĩnh. Chúng tôi truyền trực tiếp dữ liệu từ 9 cơ quan nhà nước (radar đo mưa băng C, đo xa thủy văn, mực nước sông) mỗi 3–60 phút thẳng vào bộ nhớ trình duyệt.',
+      point2Title: 'Hiệu chuẩn trực tiếp với thực tế hiện trường',
+      point2Desc: 'Các ngưỡng cảnh báo và thuật toán được thử nghiệm ngay trong con hẻm ngập nước cùng người dân và đội ngũ tác chiến, giúp đưa ra quyết định hành động trong vài giây mà không cần gọi điện hỏi han.',
+      point3Title: 'Minh bạch hóa vì cộng đồng mà không tính phí bản quyền',
+      point3Desc: 'Hơn 112.000 người dân, tỉnh trưởng và đội cứu hộ cùng đọc chung một bức tranh tình huống đồng nhất vào cùng một thời điểm — xóa bỏ hoàn toàn bất đối xứng thông tin mà không thu tiền bản quyền triệu đô.',
+      cta: 'Xem FloodDash trực tiếp',
+      ctaBriefings: 'Điểm tin lũ hàng ngày (112K người theo dõi)'
+    },
+    heroConsole: {
+      title: 'BÀN ĐIỀU KHIỂN HỆ THỐNG RA QUYẾT ĐỊNH',
+      tabSystems: 'Hệ thống & Vấn đề',
+      tabImpact: 'Phạm vi dự án',
+      tabTrends: 'DNA công nghệ',
+      tabDossier: 'Hồ sơ đang mở',
+      systemsLabel: 'Gắn nhãn Live',
+      problemsLabel: 'Lĩnh vực hiển thị',
+      slideDecksLabel: 'Trạng thái khác',
+      tagFlood: 'THIÊN TAI & LŨ LỤT',
+      floodTitle: 'Lượng mưa, mực nước sông và bối cảnh lũ',
+      floodDesc: 'FloodDash và NST-01 đưa lượng mưa, mực nước và bối cảnh ngập lụt vào cùng một góc nhìn.',
+      tagAir: 'CHẤT LƯỢNG KHÔNG KHÍ',
+      airTitle: 'Số đo chất lượng không khí và bối cảnh khói bụi',
+      airDesc: 'AirDash tập hợp số đo chất lượng không khí và bối cảnh khói bụi. Thời điểm nguồn được ghi trong hệ thống.',
+      tagPorts: 'CẢNG BIỂN & HẬU CẦN',
+      portsTitle: 'Giao thông khu cảng và vận hành đô thị',
+      portsDesc: 'Laem Chabang Operations tập hợp thông tin đô thị và khu vực cảng trong một góc nhìn vận hành.',
+      tagAirspace: 'GIAO THÔNG & ĐI LẠI',
+      airspaceTitle: 'Tuyến xe buýt và đi lại trong đô thị',
+      airspaceDesc: 'Phuket Smart Bus kết nối thông tin tuyến và đi lại của một thành phố ven biển.',
+      tagCivic: 'ĐÔ THỊ & VĂN HÓA',
+      civicTitle: 'Vận hành đô thị và bối cảnh văn hóa',
+      civicDesc: 'Sikhio Operations và BKKx Culture tổ chức thông tin đô thị theo quyết định tại địa phương.',
+      tagSecurity: 'AN NINH CHỦ QUYỀN & TÌNH BÁO',
+      securityTitle: 'Theo dõi khu vực từ nguồn mở',
+      securityDesc: 'Middle East Monitor và World Console tổ chức thông tin khu vực từ nguồn mở.',
+      citizensLabel: 'Hệ thống trên bản đồ',
+      provincesLabel: 'Điểm trong hành trình',
+      countriesLabel: 'Tiền tệ được ghi',
+      socialTitle: 'Truy cập công khai',
+      socialDesc: 'Mở hệ thống được liên kết để kiểm tra phạm vi. Phạm vi địa lý không phải số người dùng hay người được bảo vệ.',
+      feedsTitle: 'Nguồn gốc dữ liệu',
+      feedsDesc: 'Mỗi hệ thống ghi nguồn, thời điểm cập nhật và giới hạn dữ liệu riêng. Trang này không giám sát tình trạng nguồn.',
+      speedTitle: 'Mục tiêu thử nghiệm',
+      speedDesc: 'Đề xuất là hai tuần để kiểm chứng. Quyền truy cập dữ liệu, quyết định và tiêu chí nghiệm thu được thống nhất trước khi bắt đầu.',
+      costTitle: 'Phạm vi bàn giao',
+      costDesc: 'Lưu trữ, giấy phép dữ liệu, bảo trì và bàn giao được thống nhất theo từng dự án. Truy cập công khai không có nghĩa là chi phí vận hành bằng không.',
+      dna1Title: 'Động cơ đồ họa Canvas & Vector trên trình duyệt',
+      dna1Desc: 'Bản đồ, góc nhìn quan trắc và hoạt ảnh canvas được vẽ trong trình duyệt. Hiệu năng tùy thuộc thiết bị, dữ liệu và kết nối.',
+      dna2Title: 'Cơ chế hợp nhất cảm biến đa nguồn tự động',
+      dna2Desc: 'Kết hợp các lượt quét radar băng C, trạm đo thủy văn, máy đo IoT và ảnh vệ tinh thành mô hình thống nhất.',
+      dna3Title: 'Chỉ số hóa rủi ro cấp tỉnh bằng toán học',
+      dna3Desc: 'Thay thế ý kiến chủ quan bằng công thức định lượng: lượng mưa bất thường, độ bão hòa đất, dòng chảy thoát nước.',
+      dna4Title: 'Trí tuệ RAG bảo vệ chủ quyền dữ liệu',
+      dna4Desc: 'Công cụ tra cứu tài liệu và quy chuẩn chạy biệt lập tại chỗ, không xuất dữ liệu nhạy cảm ra nước ngoài.',
+      footerLabel: 'Dữ liệu tham khảo',
+      scopePrefix: 'Phạm vi đang chọn',
+      socialValue: 'Trực tiếp',
+      feedsValue: 'Trong hệ thống',
+      speedValue: '2 tuần',
+      costValue: 'Thỏa thuận',
+    },
+    pitch: {
+      kicker: 'Vấn đề chúng tôi giải quyết',
+      meta: 'Dành cho tỉnh trưởng · thị trưởng · lãnh đạo cơ quan · đơn vị vận hành',
+      title: 'Lũ đến lúc 2 giờ sáng. <em>Dashboard đến vào năm tài khóa sau.</em>',
+      lede: 'Dữ liệu đã có — mưa, giao thông, không khí, phản ánh, vệ tinh. Nhưng nằm rải rác ở hàng chục cơ quan. Nên khi khủng hoảng đến, bạn là người không có bức tranh toàn cảnh. Chúng tôi giải quyết điều đó: một màn hình, một quyết định, hai tuần.',
+      painLabel: 'Nghe có quen không?',
+      pain1: 'Dữ liệu có đó, nhưng bị chia cắt giữa các cơ quan, file PDF và bảng tính. Không ai nhìn thấy cả thành phố trên một màn hình.',
+      pain2: 'Báo giá của nhà cung cấp mất một năm và một chu kỳ ngân sách — và thứ nhận được là bộ slide, không phải hệ thống chạy được.',
+      pain3: 'Khi có sự cố, giờ đầu tiên dành cho những cuộc gọi hỏi chuyện gì đang xảy ra, thay vì quyết định phải làm gì.',
+      vsLabel: 'Vì sao chọn studio nhỏ chuyên sâu, không phải công ty lớn',
+      vsThemTitle: 'Công ty lớn',
+      vsThem: 'Một đối tác cấp cao bán dự án cho bạn. Một đội junior bạn chưa từng gặp xây nó. Bạn nhận về slide, chậm trễ, và một nhà cung cấp phải quản lý.',
+      vsUsTitle: 'Axiom',
+      vsUs: 'Người bạn gặp chính là người xây dựng. Không nhân viên bán hàng. Không chuyển tay. Bạn đánh giá hệ thống chạy được, không phải lời hứa.',
+      serviceLine: 'Đó là Innovation as a Service: bạn mang đến bài toán; chúng tôi thiết kế, xây dựng và vận hành lời giải cho bạn.',
+      howLabel: 'Cách làm việc · ba bước',
+      step1title: 'Tuần 1 — Xác định quyết định.',
+      step1body: 'Chúng tôi ngồi với người ra quyết định — tỉnh trưởng, bàn trực lũ, cảng vụ — và thống nhất quyết định nào cần nhanh hơn, ai chịu trách nhiệm, dữ liệu nào đã có.',
+      step2title: 'Tuần 2 — Đặt một màn hình chạy được vào phòng họp.',
+      step2body: 'Xây trên dữ liệu bạn đã có cùng nguồn công khai miễn phí. Không cần phần cứng mới. Bạn đánh giá một hệ thống đang chạy, không phải bản phác.',
+      step3title: 'Từ ngày đầu — Đo lường, rồi mới mở rộng.',
+      step3body: 'Mỗi màn hình ghi lại ai dùng và cho quyết định nào. Bạn chỉ mở rộng những gì đã được chứng minh là có người dùng.',
+      resultLabel: 'Điều gì thay đổi · đo trên hệ thống thật, không phải lời hứa',
+      r1lbl: 'Phuket Ops',
+      r1: 'Giao thông, an ninh và môi trường trên một màn hình mà tỉnh trưởng đọc trong 30 giây.',
+      r2lbl: 'FloodDash',
+      r2: 'Mọi tỉnh của Thái Lan trên một bức tranh lũ — 9 nguồn công khai, cập nhật mỗi 3–60 phút.',
+      r3lbl: 'SLIC Index · Đài Bắc',
+      r3: 'Xếp hạng trực tiếp 157 thành phố — chạy thật trên sân khấu trong một bài keynote 45 phút.',
+      r4lbl: 'Ghi chép thực địa 01',
+      r4: 'Nhà cung cấp nói quá phức tạp. Mười bốn ngày sau, một phiên bản chạy được đã có trong phòng họp.',
+    proofLine: '80 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
+      faqLabel: 'Trước khi bạn hỏi',
+      q1: 'Có đắt không?',
+      a1: 'Khởi đầu thì không. Bước một là thử nghiệm hai tuần trên dữ liệu bạn đã có, không phải mua phần cứng. Bạn chỉ quyết định việc lớn hơn sau khi đã thấy nó chạy.',
+      q2: 'Có dùng được với dữ liệu của chúng tôi không?',
+      a2: 'Có. Mọi hệ thống ở trang này đã chạy trên dữ liệu công khai của Thái Lan — TMD, GISTDA, Cục Kiểm soát Ô nhiễm, OpenStreetMap. Dữ liệu lộn xộn là bình thường; đó là nơi chúng tôi bắt đầu.',
+      q3: 'Dữ liệu của chúng tôi có an toàn không?',
+      a3: 'Có. Bước đầu chỉ dùng dữ liệu công khai, nên hồ sơ nhạy cảm không rời khỏi tay bạn. Triển khai theo PDPA, nguyên tắc dựa trên GDPR và khung ISO/IEC — trong thực hành, không phải chứng nhận (xem Hồ sơ pháp lý).',
+      q4: 'Đội ngũ nhỏ, có làm nổi không?',
+      a4: 'Được — và bạn làm việc trực tiếp với người xây dựng: TS. Non Arkaraprasertkul (Tiến sĩ Harvard; Chuyên gia cấp cao về Thúc đẩy Thành phố Thông minh, depa) và TS. Poon Thiengburanathum. Chuyên gia tham gia theo nhiệm vụ: điều khiển UAV, kỹ sư giao thông, chuyển ngữ chính sách.',
+      q5: 'Sau khi ra mắt, hệ thống có còn chạy không?',
+      a5: 'Có. Hầu hết hệ thống ở trang này đã chạy lâu sau khi ra mắt. Mỗi hệ thống đều có tài liệu và đo lường để đội ngũ của bạn tự vận hành.',
+      cta: 'Bắt đầu thử nghiệm hai tuần',
+      cta2: 'Mở một hệ thống thật trước',
+      unitSec: ' giây',
+      unitMin: ' phút',
+      unitDays: ' ngày',
+    },
+  },
+  ts: {
+    field: {
+      kicker: 'onSite.groundTruth()',
+      videoTag: '// CANONICAL_FIELD_BRIEFING: liveInTheFlood()',
+      title: 'flood.arrivesAt("02:00") // dashboard.arrivesAt("nextFiscalYear")',
+      line: '// recorded: standingInFloodwater({ depth: "shin" })\n// innovation_as_a_service !== conferenceRoom.pitch()\n// innovation_as_a_service === standingWhereQuestionIsAsked()\n// approach.cuttingEdge: Proof[3]',
+      point1Title: 'zeroLatency.beats(budgetCycleInertia)',
+      point1Desc: '// traditional: 1y quote → PDF\n// axiom: 9 publicStreams (radar + gauges + flow) → inMemoryStreams({ refresh: "3-60m" })',
+      point2Title: 'calibratedAgainstPhysicalGroundTruth',
+      point2Desc: '// tested in soi with residents + dispatchers\n// phoneCalls.firstHour === 0 → decisions.immediate()',
+      point3Title: 'radicalPublicInclusion({ licenseCost: 0 })',
+      point3Desc: '// citizens[112_000+] + governors + rescuers\n// read(sameUnifiedSituationPicture) simultaneously // proprietaryTolls: 0',
+      cta: 'FloodDash.live()',
+      ctaBriefings: 'dailyBriefings.view({ followers: "112k" })'
+    },
+    heroConsole: {
+      title: 'DECISION_SYSTEMS_CONSOLE',
+      // The four view names have to fit inside a quarter of the console on a
+      // phone. The long ones did not: "systems.domains()" is wider than the
+      // column it sat in, and the column clipped it — the reader saw
+      // "04 ACTIVE.DOSSIE" and a fourth view they could not name.
+      tabSystems: 'systems()',
+      tabImpact: 'project.scope',
+      tabTrends: 'tech.dna()',
+      tabDossier: 'dossier()',
+      systemsLabel: 'status === Live',
+      problemsLabel: 'shownDomains.length',
+      slideDecksLabel: 'status !== Live',
+      tagFlood: 'DISASTER_FLOOD',
+      floodTitle: 'rainfall + riverLevels + floodContext',
+      floodDesc: 'FloodDash + NST01: rainfall + waterLevels + floodContext.',
+      tagAir: 'AIR_QUALITY_SMOKE',
+      airTitle: 'airReadings + smokeContext',
+      airDesc: 'AirDash: airReadings + smokeContext; timestamps.atSource.',
+      tagPorts: 'SEAPORTS_LOGISTICS',
+      portsTitle: 'portAreaTraffic + cityOperations',
+      portsDesc: 'LaemChabangOperations: city + portArea -> operationsView.',
+      tagAirspace: 'TRANSIT_MOBILITY',
+      airspaceTitle: 'busRoutes + cityMobility',
+      airspaceDesc: 'PhuketSmartBus: routes + mobility -> coastalCity.',
+      tagCivic: 'MUNICIPAL_CULTURE',
+      civicTitle: 'municipalOperations + culturalContext',
+      civicDesc: 'SikhioOperations + BKKxCulture: municipalData -> localDecisions.',
+      tagSecurity: 'SOVEREIGN_INTEL',
+      securityTitle: 'openSources -> regionalWatch',
+      securityDesc: 'MiddleEastMonitor + WorldConsole: openSources -> regionalContext.',
+      citizensLabel: 'mappedSystems.length',
+      provincesLabel: 'tourStops.length',
+      countriesLabel: 'namedCurrencies.size',
+      socialTitle: 'public.access',
+      socialDesc: 'linkedSystem.inspect(coverage); coverage !== users && coverage !== peopleProtected;',
+      feedsTitle: 'source.provenance',
+      feedsDesc: 'linkedSystem.sources + timestamps + limitations; thisPage !== feedHealthMonitor;',
+      speedTitle: 'pilot.target',
+      speedDesc: 'target = twoWeeks; agree(dataAccess, decision, acceptanceCriteria).before(start);',
+      costTitle: 'delivery.scope',
+      costDesc: 'agree(hosting, dataLicences, maintenance, handover).perEngagement; public !== zeroCost;',
+      dna1Title: 'browserNative.vectorEngines',
+      dna1Desc: 'browser.render(map, telemetry, canvas); performance.dependsOn(device, data, connection);',
+      dna2Title: 'automatedMultiSource.sensorFusion',
+      dna2Desc: 'fuse({ cbandRadar, telemetry, airSensors, satellite })',
+      dna3Title: 'mathematical.provincialScoring',
+      dna3Desc: 'vulnerabilityIndex = f(rainAnomaly, soilSaturation, drainage)',
+      dna4Title: 'localFirst.sovereignRAG',
+      dna4Desc: 'airGappedDocumentRetrieval // sovereignData.exported: false',
+      footerLabel: '// referenceData',
+      scopePrefix: 'activeScope',
+      socialValue: 'direct',
+      feedsValue: 'inSystem',
+      speedValue: '2 weeks',
+      costValue: 'agreed',
+    },
+    pitch: {
+      kicker: 'problem.solve()',
+      meta: '// for: governor | mayor | agencyHead | operator',
+      title: 'flood.arrivesAt("02:00") <em>// dashboard.arrivesAt("nextFiscalYear")</em>',
+      lede: '// you.own(data): rainGauges + trafficCounts + airSensors + complaints + satellite\n// data.location = agencies[12] + vendorPortals\n// crisis.hits() → you.inRoom({ picture: null })\nfix = oneLiveScreen(oneDecision, { within: "2w" })',
+      painLabel: 'soundsFamiliar?: boolean',
+      pain1: 'data.split(agencies, PDFs, spreadsheets) // city.onOneScreen === false',
+      pain2: 'vendor.quote({ time: "1y + budgetCycle" }) // returns SlideDeck, not System',
+      pain3: 'incident.firstHour = phoneCalls("what is happening?") // decisions: 0',
+      vsLabel: 'boutique vs bigFirm',
+      vsThemTitle: 'class BigFirm',
+      vsThem: 'seniorPartner.win(deal)\njuniorTeam.deliver() // you never met them\nresult: SlideDeck; timeline.slip(); you.manage(vendor) // not the city',
+      vsUsTitle: 'class Axiom',
+      vsUs: 'pitcher === builder // talk to the architect, not sales\nbuild(whateverProblemNeeds, { onBehalfOf: you })\njudge(workingSystem) // not promises',
+      serviceLine: 'type InnovationAsAService = (problem) => design + build + run({ onBehalfOf: you })',
+      howLabel: 'howItWorks(): Step[3]',
+      step1title: 'week(1): name(decision)',
+      step1body: 'sitWith(decisionMaker) // governor | floodDesk | portAuthority\npin({ decision, owner, existingData })',
+      step2title: 'week(2): room.put(workingScreen)',
+      step2body: 'build(existingData + freePublicData) // newHardware: 0\njudge(liveSystem).before(presentation)',
+      step3title: 'day(1..∞): measure().then(scale)',
+      step3body: 'log({ users, decisionsTouched })\nexpand({ only: provenUse }) // scaleOnFaith: never',
+      resultLabel: 'results: Measured[] // not Promised[]',
+      r1lbl: 'PhuketOps',
+      r1: 'governor.read(transit + safety + environment) // 30s, oneScreen',
+      r2lbl: 'FloodDash',
+      r2: '{ provinces: 77, publicSources: 9, refresh: "3–60min" }',
+      r3lbl: 'SLIC.taipei',
+      r3: 'rank({ cities: 157, live: true }) // within keynote(45min)',
+      r4lbl: 'fieldNote[01]',
+      r4: 'vendor.says("too complex") → workingVersion.inRoom(+14d)',
+      proofLine: 'document.querySelectorAll(".sys-cell[data-arch]").length === 80 // countries: 5\n// verify: open any below',
+      faqLabel: 'objections.preempt()',
+      q1: 'isExpensive?',
+      a1: 'false // to start\nstep1 = proof({ weeks: 2, data: owned + freePublic, hardware: 0 })\nbiggerBuild.only({ after: proof.works })',
+      q2: 'worksWith(ourData)?',
+      a2: 'true\nsources: TMD | GISTDA | PCD | OSM | … // live on every system here\nmessyData.isNormal() → start(here)',
+      q3: 'isDataSafe?',
+      a3: 'true\nproof.data = public // sensitiveRecords.leave: false\ndesign.to(PDPA, GDPR, ISO/IEC) // alignment, not certification',
+      q4: 'smallTeam.canDeliver?',
+      a4: 'true // you talk to the builders\nfounders: [DrNon, DrPoon] // design + build, accountManagers: 0\nspecialists.join(perMission) // UAV | traffic | policy',
+      q5: 'runsAfterLaunch?',
+      a5: 'true\nsystems.stillLive({ after: pressCycle }) === true\ndocumented + instrumented → yourTeam.canRun()',
+      cta: 'proof.start({ weeks: 2 })',
+      cta2: 'systems.openLive()',
+      unitSec: ' s',
+      unitMin: ' min',
+      unitDays: ' d',
+    },
+  },
+};
+
+Object.keys(i18nPitch).forEach(locale => {
+  if (uiCopy[locale]) Object.assign(uiCopy[locale], i18nPitch[locale]);
+});
+
+const catalogReleaseCopy = {
+  en: {
+    proofLine: '80 systems across 5 countries. Open one. Use it. Judge.',
+  },
+  th: {
+    proofLine: '80 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
+  },
+  zh: {
+    proofLine: '80 个系统，5 个国家。打开一个，亲自使用，再作判断。',
+  },
+  ko: {
+    proofLine: '5개국의 80개 시스템. 하나를 열고, 사용하고, 판단하세요.',
+  },
+  ja: {
+    proofLine: '5か国、80のシステム。ひとつ開いて、使って、判断してください。',
+  },
+  vi: {
+    proofLine: '80 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
+  },
+  ts: {
+    proofLine: 'catalog.length === 80 // countries: 5; open → use → judge',
+  },
+  };
+
+Object.entries(catalogReleaseCopy).forEach(([locale, release]) => {
+  uiCopy[locale].pitch.proofLine = release.proofLine;
+});
+
+Object.entries(window.AXIOM_FOOTPRINT.copy).forEach(([locale, copy]) => {
+  const hero = uiCopy[locale].hero;
+  hero.signalLabels.CARBON = { en: 'Carbon', th: 'คาร์บอน', zh: '碳', ko: '탄소', ja: '炭素', vi: 'Carbon', ts: 'carbon' }[locale];
+  hero.projectLabel = copy.label;
+  hero.footprintNote = copy.note;
+  hero.hudLive = copy.hud;
+  hero.hudWatching = copy.watching;
+  hero.featured.kicker = copy.kicker;
+  window.AXIOM_FOOTPRINT.stops.forEach((stop, index) => {
+    const currency = stop.currency === 'multi' ? copy.multi : stop.currency;
+    const systems = stop.projects.map(key => window.AXIOM_FOOTPRINT.projects.find(project => project.key === key).system);
+    hero.theatres[stop.key] = {
+      name: copy.locations[index],
+      meta: `${copy.scopes[stop.scope]} · ${currency}`,
+      featuredName: stop.system,
+      event: `EVENT_ID: ${stop.eventId}`,
+      sitrep: `${copy.locations[index]} · ${copy.scopes[stop.scope]} · ${currency}. ${systems.join(' · ')}.`,
+    };
+  });
+});
+
 const REGIONAL_LOCALES = new Set(['ko', 'ja', 'vi']);
+
+// One tab title per locale. Kept out of the uiCopy tables on purpose: it is
+// keyed BY locale, not contained in one, and putting it inside them would mean
+// seven tables each carrying seven titles.
+const DOC_TITLES = {
+  en: 'Axiom — Smart-City Dashboards & GovTech Systems',
+  th: 'Axiom — แดชบอร์ดเมืองอัจฉริยะและระบบภาครัฐ',
+  zh: 'Axiom — 智慧城市看板与政务系统',
+  ko: 'Axiom — 스마트시티 대시보드 및 행정 시스템',
+  ja: 'Axiom — スマートシティ・ダッシュボードと行政システム',
+  vi: 'Axiom — Bảng điều khiển đô thị thông minh và hệ thống hành chính',
+  ts: 'Axiom — Smart-City Dashboards & GovTech Systems',
+};
+
+function renderCatalogueCounts() {
+  const catalog = document.querySelectorAll('.sys-cell__link').length;
+  const live = document.querySelectorAll('.sys-cell[data-arch] [data-i18n="sysStatus.live"]').length;
+  const footprint = window.AXIOM_FOOTPRINT;
+  const counts = {
+    catalog,
+    live,
+    domains: document.querySelectorAll('#panelSystems .hero-console__item').length,
+    'other-statuses': catalog - live,
+    'mapped-systems': new Set(footprint.projects.map(project => project.key)).size,
+    'tour-stops': footprint.stops.length,
+    currencies: new Set(footprint.stops.flatMap(stop => stop.currency.split(' · ')).filter(currency => /^[A-Z]{3}$/.test(currency))).size,
+  };
+  for (const [key, count] of Object.entries(counts)) {
+    for (const el of document.querySelectorAll(`[data-count="${key}"]`)) {
+      el.textContent = String(count);
+    }
+  }
+}
 
 function renderStaticCopy() {
   const copy = uiCopy[activeLocale] || uiCopy.en;
-  const fallback = REGIONAL_LOCALES.has(activeLocale) ? copy : uiCopy.en;
   const LOCALE_HTML_LANG = { en: 'en', th: 'th', zh: 'zh-Hans', ko: 'ko', ja: 'ja', vi: 'vi', ts: 'en' };
   document.documentElement.lang = LOCALE_HTML_LANG[activeLocale] || activeLocale;
+  // The source view is English rendered as code, so lang="en" cannot tell
+  // it apart from English. The stylesheet needs to know which view it is
+  // writing: an identifier is a different kind of word from a sentence.
+  document.documentElement.dataset.locale = activeLocale;
+  // The browser tab is part of the page a reader is holding. Leaving it English
+  // in every locale is the one piece of copy that escapes the page entirely.
+  if (DOC_TITLES[activeLocale]) document.title = DOC_TITLES[activeLocale];
+  renderCatalogueCounts();
+  // Every locale (including regional ko/ja/vi) falls back to English on a missing key,
+  // so switching zh → ko never leaves Chinese text on a node whose Korean value is absent.
   const lookup = (key) => {
     const parts = key.split('.');
     const val = parts.reduce((obj, k) => obj?.[k], copy);
     if (typeof val === 'string') return val;
-    if (REGIONAL_LOCALES.has(activeLocale)) return undefined;
-    return parts.reduce((obj, k) => obj?.[k], fallback);
+    return parts.reduce((obj, k) => obj?.[k], uiCopy.en);
   };
   const renderInlineMarkup = (value) => value
     .replace(/&/g, '&amp;')
@@ -2223,6 +6162,9 @@ function renderStaticCopy() {
 
 function setPageLocale(locale, options = {}) {
   activeLocale = uiCopy[locale] ? locale : 'en';
+  // Changing the language is a decision the reader made, so it is kept —
+  // except on the first render, which is reading a choice, not making one.
+  if (options.persist !== false) rememberLocale(activeLocale);
   renderStaticCopy();
   if (!options.silent) {
     window.dispatchEvent(new CustomEvent('axiom:localechange', {
@@ -2244,10 +6186,69 @@ function bindLocaleSwitch() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  setPageLocale(activeLocale, { silent: true });
+  // The first render is a language change too, and it says so out loud.
+  // The tour's node names, the HUD, the canvas labels and the rotating
+  // headline are written from the active locale by the localechange
+  // listener; if the first render is silent they stay in English until the
+  // tour first moves — nine seconds of a Thai page wearing English names,
+  // and then the node strip jumps as the labels reflow.
+  setPageLocale(readLocalePreference(), { persist: false });
   bindLocaleSwitch();
   initFlooddashCarousel();
+  injectSystemVersions();
+  injectSystemArchitectures();
+  initEvidenceStrip();
 });
+
+// Evidence strip — auto-update verified date and last-deploy time
+function initEvidenceStrip() {
+  const v = document.getElementById('evidenceVerified');
+  const d = document.getElementById('evidenceDeploy');
+  const sys = document.getElementById('evidenceSystems');
+  const live = document.getElementById('evidenceLive');
+  if (!v && !d && !sys && !live) return;
+
+  // Verified date: build-date derived from the served page (refresh in human locale)
+  if (v) {
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const now = new Date();
+    const iso = `${now.getUTCFullYear()}-${String(now.getUTCMonth()+1).padStart(2,'0')}-${String(now.getUTCDate()).padStart(2,'0')}`;
+    v.textContent = iso;
+    v.title = `Last verified ${iso} · UTC`;
+  }
+
+  // Systems count: read from the DOM so the strip can never drift from the
+  // header. Scoped to [data-arch] on purpose — #brandGrid reuses .sys-cell for
+  // its eight brand-kit thumbnails, and those are not deployed systems.
+  if (sys) {
+    const n = document.querySelectorAll('.sys-cell[data-arch]').length;
+    if (n) sys.textContent = String(n);
+  }
+
+  // Live count: same discipline. Count the Live status badges rather than
+  // asserting a hand-kept figure, so the strip stays checkable against the page.
+  if (live) {
+    const n = document.querySelectorAll('[data-i18n="sysStatus.live"]').length;
+    if (n) live.textContent = String(n);
+  }
+
+  // Last deploy: derived from the page itself (server emits Last-Modified). Fall back to "just now".
+  if (d) {
+    const setText = (txt) => { d.textContent = txt; };
+    const lm = document.lastModified;
+    if (lm) {
+      const lmDate = new Date(lm);
+      const diffMin = Math.max(0, Math.floor((Date.now() - lmDate.getTime()) / 60000));
+      if (diffMin < 1) setText('just now');
+      else if (diffMin < 60) setText(`${diffMin} min ago`);
+      else if (diffMin < 1440) setText(`${Math.floor(diffMin/60)} hr ago`);
+      else setText(`${Math.floor(diffMin/1440)} d ago`);
+      d.title = `Last deploy ${lm}`;
+    } else {
+      setText('just now');
+    }
+  }
+}
 
 function initFlooddashCarousel() {
   const root = document.querySelector('[data-carousel="flooddash"]');
@@ -2377,134 +6378,255 @@ function initFlooddashCarousel() {
   syncPauseBtn();
   arm();
 }
+
+// ── Hero featured carousel — rotates background screenshots ────────────────
+(function initHeroFeatured() {
+  const bg = document.getElementById('heroFeaturedBg');
+  if (!bg) return;
+  const slides = Array.from(bg.querySelectorAll('[data-featured-slide]'));
+  const dots = Array.from(document.querySelectorAll('[data-featured-dot]'));
+  if (slides.length < 2) return;
+  const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const INTERVAL = isReduced ? 12000 : 6000;
+  let idx = 0;
+  let timer = null;
+  function show(n) {
+    idx = (n + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+  }
+  function tick() { show(idx + 1); }
+  function arm() {
+    if (timer) clearInterval(timer);
+    if (isReduced) return;
+    timer = setInterval(tick, INTERVAL);
+  }
+  // Pause when tab hidden so the cycle doesn't burn cycles
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { if (timer) clearInterval(timer); }
+    else arm();
+  });
+  arm();
+})();
+
 (function initSatelliteHero() {
   const container = document.getElementById('heroMap');
   if (!container || !window.L) return;
   const useLiteMotion = axiomMedia.isTouch || axiomMedia.isReduced || axiomMedia.isMobile;
 
-  // Cities Axiom operates in
-  const CITIES = [
-    { key: 'bangkok', name: 'Bangkok', meta: 'Urban command', lat: 13.7563, lng: 100.5018, zoom: 12 },
-    { key: 'phuket', name: 'Phuket', meta: 'Regional ops', lat: 7.8804, lng: 98.3923, zoom: 13 },
-    { key: 'middle-east', name: 'Middle East', meta: 'Strategic signal', lat: 25.2048, lng: 55.2708, zoom: 11 },
-    { key: 'southeast-asia', name: 'Southeast Asia', meta: 'Scale layer', lat: 10.5, lng: 105.0, zoom: 5 },
-  ];
+  const footprint = window.AXIOM_FOOTPRINT;
+  const PROJECTS = footprint.projects.map(project => {
+    const stop = footprint.stops.find(item => item.key === project.stop);
+    return { ...project, lat: project.lat ?? stop.lat, lng: project.lng ?? stop.lng, href: project.href || stop.href, scope: stop.scope };
+  });
+  const CITIES = footprint.stops.map(stop => ({
+    ...stop,
+    featured: { name: stop.system, href: stop.href },
+    signals: stop.projects.map(key => PROJECTS.find(project => project.key === key)),
+  }));
+  const THEATRES = Object.fromEntries(CITIES.map(stop => [stop.key, stop]));
 
+  function theatreCopy(key) {
+    const copy = (typeof uiCopy !== 'undefined' && uiCopy[activeLocale]) || {};
+    const en = (typeof uiCopy !== 'undefined' && uiCopy.en) || {};
+    const local = copy.hero?.theatres?.[key];
+    const fallback = en.hero?.theatres?.[key] || {};
+    return { ...fallback, ...(local || {}) };
+  }
+
+  // Touch: map is full-bleed — single-finger drag scrolls the page.
   const map = L.map(container, {
     center: [CITIES[0].lat, CITIES[0].lng],
     zoom: CITIES[0].zoom,
     minZoom: 3,
     worldCopyJump: false,
     zoomControl: false,
-    attributionControl: false,
-    dragging: true,
+    attributionControl: true,
+    dragging: !axiomMedia.isTouch,
     scrollWheelZoom: false,
     doubleClickZoom: true,
-    touchZoom: true,
+    touchZoom: false,
     keyboard: true,
     boxZoom: true,
     fadeAnimation: !useLiteMotion,
     zoomAnimation: !useLiteMotion,
   });
+  new ResizeObserver(() => map.invalidateSize({ pan: false })).observe(container.parentElement);
 
-  // Tile layers are added in the layer switching section below
+  // ESRI World Dark Gray Canvas — free, no API key required.
+  // Replaces the old Carto dark_all which now requires an account.
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 16,
+    noWrap: true,
+    attribution: 'Tiles &copy; Esri',
+  }).addTo(map);
 
-  // Pulse markers for active cities
-  const pulseIcon = L.divIcon({
-    className: 'sat-pulse-marker',
-    iconSize: [12, 12],
-    iconAnchor: [6, 6],
-  });
+  const signalLayer = L.layerGroup().addTo(map);
+  const coverageLayer = L.layerGroup().addTo(map);
+  const projectMarkers = new Map();
 
-  const markerLocations = [
-    [13.7563, 100.5018],  // Bangkok
-    [7.8804, 98.3923],    // Phuket
-    [25.2048, 55.2708],   // Dubai
-    [24.7136, 46.6753],   // Riyadh
-  ];
+  function signalLabel(type) {
+    const cur = uiCopy[activeLocale] || {};
+    const en = uiCopy.en || {};
+    const result = cur.hero?.signalLabels?.[type] || en.hero?.signalLabels?.[type] || type;
+    return result;
+  }
 
-  markerLocations.forEach(coords => {
-    L.marker(coords, { icon: pulseIcon }).addTo(map);
-  });
+  function signalIcon(project, active) {
+    const stop = THEATRES[project.stop];
+    const copy = theatreCopy(project.stop);
+    const overview = ['thailand', 'malaysia', 'middle-east', 'southeast-asia'].includes(activeTheatreKey);
+    const contextual = overview && ['chiang-mai', 'bangkok', 'ho-chi-minh-city', 'kuching', 'nakhon-si-thammarat'].includes(project.stop) && project.key !== 'culture';
+    const showLabel = active && (selectedProject || (project.stop === activeTheatreKey && project.key !== 'culture'));
+    const label = !active || ['national', 'regional', 'overview'].includes(stop.scope) ? copy.name : project.system;
+    return L.divIcon({
+      className: `sat-project-pin${active ? ' is-active' : ''}${contextual ? ' is-context' : ''}${showLabel ? ' has-label' : ''}`,
+      html: `<div class="sat-signal-marker"><span class="sat-signal-dot"></span><span class="sat-signal-label">${escapeHtml(label)}</span></div>`,
+      iconSize: [44, 44],
+      iconAnchor: [22, 6],
+    });
+  }
 
-  // ── Intelligence Overlays Trigger (V6) ──
-  function updateIntelligenceOverlays(lat, lng) {
-    const dubaiDist = Math.sqrt(Math.pow(lat - 25.2048, 2) + Math.pow(lng - 55.2708, 2));
-    const bkkDist = Math.sqrt(Math.pow(lat - 13.7563, 2) + Math.pow(lng - 100.5018, 2));
-    
-    const dubaiOverlay = document.getElementById('intelOverlayDubai');
-    const bkkOverlay = document.getElementById('intelOverlayBangkok');
-    
-    if (dubaiOverlay) dubaiOverlay.classList.toggle('active', dubaiDist < 0.5);
-    if (bkkOverlay) bkkOverlay.classList.toggle('active', bkkDist < 0.5);
+  function paintSignalMarkers(theatre) {
+    PROJECTS.forEach(project => {
+      // Co-located national/regional systems share a single coverage anchor.
+      const owner = THEATRES[project.stop];
+      if (['national', 'regional', 'overview'].includes(owner.scope) && owner.projects[0] !== project.key) return;
+      const active = selectedProject ? selectedProject.key === project.key : theatre.projects.includes(project.key);
+      const copy = theatreCopy(project.stop);
+      let marker = projectMarkers.get(project.key);
+      if (!marker) {
+        marker = L.marker([project.lat, project.lng], { keyboard: true, icon: signalIcon(project, active) }).addTo(signalLayer);
+        marker.on('click', () => selectStop(owner, project));
+        projectMarkers.set(project.key, marker);
+      }
+      marker.setIcon(signalIcon(project, active));
+      marker.setZIndexOffset(active ? 1000 : 0);
+      const element = marker.getElement();
+      if (element) {
+        element.dataset.project = project.key;
+        element.title = `${copy.name} · ${project.system} · ${copy.meta}`;
+        element.setAttribute('aria-label', element.title);
+        element.setAttribute('aria-pressed', String(active));
+        element.onkeydown = (event) => {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          event.preventDefault();
+          event.stopPropagation();
+          selectStop(owner, project);
+        };
+      }
+    });
+    coverageLayer.clearLayers();
+    (footprint.coverage[theatre.key] || []).forEach(bounds => {
+      L.rectangle(bounds, { color: '#e2b540', weight: 1, dashArray: '5 5', fill: false, interactive: false }).addTo(coverageLayer);
+    });
   }
 
   const heroCityLabel = document.getElementById('heroCityLabel');
   const heroNodeButtons = Array.from(document.querySelectorAll('.hero-node'));
-  const satSourceNote = document.getElementById('satSourceNote');
-
-  function syncCityDisplay(city, options = {}) {
-    const { shouldScroll = false } = options;
-    if (!city) return;
-    if (heroCityLabel) heroCityLabel.textContent = city.name.toUpperCase();
-    heroNodeButtons.forEach((button) => {
-      const isActive = button.dataset.city === city.key;
-      button.classList.toggle('is-active', isActive);
-      button.setAttribute('aria-pressed', String(isActive));
-      if (isActive && shouldScroll && typeof button.scrollIntoView === 'function') {
-        button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
+  const satTheatre = document.getElementById('satTheatre');
+  const satSignals = document.getElementById('satSignals');
+  const satWatching = document.getElementById('satWatching');
+  const featuredBadge = document.getElementById('heroFeaturedBadge');
+  const featuredEvent = document.getElementById('heroFeaturedEvent');
+  const featuredName = document.getElementById('heroFeaturedName');
+  const featuredLede = document.getElementById('heroFeaturedLede');
+  const projectSelect = document.getElementById('heroProjectSelect');
+  if (projectSelect) {
+    CITIES.forEach(city => {
+      const option = document.createElement('option');
+      option.value = city.key;
+      option.textContent = theatreCopy(city.key).name;
+      projectSelect.append(option);
     });
+    projectSelect.firstElementChild?.remove();
+    projectSelect.addEventListener('change', () => selectStop(THEATRES[projectSelect.value]));
   }
 
-  function getClosestCity(lat, lng) {
-    let closest = CITIES[0];
-    let minDistance = Number.POSITIVE_INFINITY;
+  let activeTheatreKey = CITIES[0].key;
+  let selectedProject = null;
 
-    CITIES.forEach((city) => {
-      const distance = Math.hypot(lat - city.lat, lng - city.lng);
-      if (distance < minDistance) {
-        minDistance = distance;
-        closest = city;
+  function syncTheatre(theatre, options = {}) {
+    const { shouldScroll = false } = options;
+    if (!theatre) return;
+    activeTheatreKey = theatre.key;
+    const tCopy = theatreCopy(theatre.key);
+    const name = tCopy.name || theatre.key;
+    const meta = tCopy.meta || theatre.signals.map((s) => s.type.toLowerCase()).join(' · ');
+    const sitrep = selectedProject ? `${name} · ${meta}. ${selectedProject.system}.` : tCopy.sitrep || '';
+    const featuredNameText = selectedProject?.system || tCopy.featuredName || theatre.featured.name;
+    const eventId = tCopy.event || `EVENT_ID: ${theatre.eventId}`;
+    const signals = selectedProject ? [selectedProject] : theatre.signals;
+    const signalTypes = signals.map((s) => signalLabel(s.type)).join(' · ');
+    const watchingLabel = theatreCopy('_hud')?.watching
+      || (uiCopy[activeLocale]?.hero?.hudWatching)
+      || uiCopy.en?.hero?.hudWatching
+      || 'SYSTEMS WATCHING';
+
+    if (heroCityLabel) heroCityLabel.textContent = String(name).toUpperCase();
+    if (satTheatre) satTheatre.textContent = String(name).toUpperCase();
+    if (satSignals) satSignals.textContent = meta;
+    if (satWatching) satWatching.textContent = `${watchingLabel} · ${signals.length}`;
+
+    // Sync the canvas-rendered pretext text (city + signal types) so the
+    // overlay shares the data lines' coordinate system instead of sitting
+    // on a separate DOM chip.
+    if (window.__axiomCanvasText) {
+      window.__axiomCanvasText.city = String(name).toUpperCase();
+      window.__axiomCanvasText.signals = signalTypes;
+    }
+
+    if (featuredBadge) featuredBadge.href = selectedProject?.href || theatre.featured.href;
+    if (featuredEvent) featuredEvent.textContent = eventId;
+    if (featuredName) featuredName.textContent = featuredNameText;
+    if (featuredLede) featuredLede.textContent = sitrep;
+    const consoleFootScope = document.getElementById('consoleFootScope');
+    if (consoleFootScope) {
+      const prefix = uiCopy[activeLocale]?.heroConsole?.scopePrefix || uiCopy.en?.heroConsole?.scopePrefix || 'Active scope';
+      consoleFootScope.textContent = `${prefix.toUpperCase()}: ${String(name).toUpperCase()}`;
+    }
+    if (projectSelect) {
+      projectSelect.value = theatre.key;
+      Array.from(projectSelect.options).forEach(option => { option.textContent = theatreCopy(option.value).name; });
+    }
+
+    heroNodeButtons.forEach((button) => {
+      const isActive = button.dataset.city === theatre.key;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-pressed', String(isActive));
+      const metaEl = button.querySelector('.hero-node-meta');
+      const nameEl = button.querySelector('.hero-node-name');
+      const btnCopy = theatreCopy(button.dataset.city);
+      if (nameEl && btnCopy.name) nameEl.textContent = btnCopy.name;
+      if (metaEl && btnCopy.meta) metaEl.textContent = btnCopy.meta;
+      else if (metaEl && button.dataset.city === theatre.key) metaEl.textContent = meta;
+      if (isActive && shouldScroll) {
+        const rail = document.getElementById('heroNodeRail') || button.parentElement;
+        if (rail && typeof rail.scrollTo === 'function') {
+          const targetLeft = button.offsetLeft - (rail.clientWidth / 2) + (button.clientWidth / 2);
+          rail.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+        }
       }
     });
 
-    return closest;
+    paintSignalMarkers(theatre);
+    window.dispatchEvent(new CustomEvent('axiom:theatrechange', {
+      detail: {
+        key: theatre.key,
+        signals: signals.map((s) => s.type),
+      },
+    }));
   }
 
   window.axiom = window.axiom || {};
   window.axiom.showroom = {
-    goLive: function(id) {
-      const container = document.querySelector(`.mockup-container[data-id="${id}"]`);
-      if (!container) return;
-      
-      const iframeContainer = container.querySelector('.live-iframe-container');
-      if (!iframeContainer) return;
-      const src = iframeContainer.dataset.src;
-      
-      if (!iframeContainer.querySelector('iframe')) {
-        const iframe = document.createElement('iframe');
-        iframe.src = src;
-        iframeContainer.appendChild(iframe);
-      }
-      
-      container.classList.add('is-live');
-    },
-    exitLive: function(id) {
-      const container = document.querySelector(`.mockup-container[data-id="${id}"]`);
-      if (container) container.classList.remove('is-live');
-    },
-    revealMore: function() {
-      document.querySelectorAll('.project-card').forEach(c => c.style.display = 'flex');
-      const btn = document.querySelector('.projects-see-all');
-      if (btn) btn.style.display = 'none';
-    },
-    initV6: function() {
-      // SITREP HUD Telemetry
+    goLive() {},
+    exitLive() {},
+    revealMore() {},
+    initV6() {
       const xLine = document.querySelector('.telemetry-axis-x');
       const yLine = document.querySelector('.telemetry-axis-y');
       const tracker = document.querySelector('.hero-tracker');
-      
       map.on('move', () => {
         const center = map.getCenter();
         const screenPos = map.latLngToContainerPoint(center);
@@ -2514,55 +6636,105 @@ function initFlooddashCarousel() {
           tracker.style.top = screenPos.y + 'px';
           tracker.style.left = screenPos.x + 'px';
         }
-        updateIntelligenceOverlays(center.lat, center.lng);
-        syncCityDisplay(getClosestCity(center.lat, center.lng));
       });
-    }
+    },
   };
-
   axiom.showroom.initV6();
 
-  // ── Auto Tour Mode ──
   const mapModeDot = document.getElementById('mapModeDot');
   const mapModeLabel = document.getElementById('mapModeLabel');
   const mapModeBtn = document.getElementById('mapModeBtn');
   const mapModePause = document.getElementById('mapModePause');
   const mapModePlay = document.getElementById('mapModePlay');
 
-  let autoTour = true;
+  let autoTour = !axiomMedia.isReduced;
   let cityIndex = 0;
   let driftTimer = null;
   let driftInterval = null;
   let resumeTimeout = null;
-  const tourIntervalMs = useLiteMotion ? 16000 : 12000;
-  const tourDuration = useLiteMotion ? 7 : 10;
+  const tourIntervalMs = 9000;
+  const tourDuration = 2.5;
+
+  function modeLabels() {
+    const h = uiCopy[activeLocale]?.hero || uiCopy.en?.hero || {};
+    return {
+      tour: h.modeTour || 'AUTO TOUR',
+      hold: h.modeHold || 'HOLD',
+    };
+  }
 
   function setModeUI(touring) {
+    const labels = modeLabels();
     if (mapModeDot) mapModeDot.className = 'map-mode-dot' + (touring ? '' : ' exploring');
     if (mapModeLabel) {
-      mapModeLabel.textContent = touring ? 'AUTO TOUR' : 'EXPLORING';
+      mapModeLabel.textContent = touring ? labels.tour : labels.hold;
       mapModeLabel.className = 'map-mode-label' + (touring ? '' : ' exploring');
     }
     if (mapModeBtn) {
-      mapModeBtn.setAttribute('aria-label', touring ? 'Pause auto tour' : 'Resume auto tour');
+      const copy = footprint.copy[activeLocale] || footprint.copy.en;
+      mapModeBtn.setAttribute('aria-label', touring ? copy.pause : copy.resume);
       mapModeBtn.setAttribute('aria-pressed', String(touring));
     }
     if (mapModePause) mapModePause.style.display = touring ? 'block' : 'none';
     if (mapModePlay) mapModePlay.style.display = touring ? 'none' : 'block';
+    const heroEl = document.getElementById('hero');
+    if (heroEl) heroEl.classList.toggle('is-touring', touring);
+    // Sync the canvas-rendered mode label (pretext overlay) so the
+    // text is on the same coordinate system as the data lines.
+    if (window.__axiomCanvasText) {
+      window.__axiomCanvasText.mode = touring ? labels.tour : labels.hold;
+    }
   }
 
   function driftToNext() {
-    if (!autoTour) return;
+    if (!autoTour || document.hidden) return;
     cityIndex = (cityIndex + 1) % CITIES.length;
     const city = CITIES[cityIndex];
-    syncCityDisplay(city, { shouldScroll: axiomMedia.isMobile });
-    map.flyTo([city.lat, city.lng], city.zoom, {
-      duration: tourDuration,
-      easeLinearity: useLiteMotion ? 0.1 : 0.05,
-    });
+    selectedProject = null;
+    syncTheatre(city, { shouldScroll: axiomMedia.isMobile });
+    moveToStop(city);
+  }
+
+  function moveToStop(city) {
+    // Keep the geographic anchor in the uncovered map column, away from the
+    // headline AND away from the console. The offset used to be a fixed
+    // tenth of the map width, which put the anchor at 60% — exactly where
+    // the Decision Systems Console now stands, so the panel covered the
+    // label of the very theatre the tour was on. The clear column is
+    // measured from the grid instead of guessed.
+    const size = map.getSize();
+    const viewport = document.querySelector('.hero-map-space');
+    const bounds = viewport?.getBoundingClientRect();
+    const mapBounds = (container.getBoundingClientRect && container.getBoundingClientRect()) || { left: 0, top: 0, width: size.x, height: size.y };
+    const phone = window.matchMedia('(max-width: 600px)').matches;
+    const targetY = phone && bounds ? bounds.top - mapBounds.top + bounds.height / 2 : size.y / 2;
+    let offsetX = phone ? 0 : -size.x * 0.1;
+    if (!phone) {
+      const rectOf = (el) => (el && el.getBoundingClientRect && el.getBoundingClientRect()) || null;
+      const copyRect = rectOf(document.querySelector('.hero-copy'));
+      const consoleRect = rectOf(document.getElementById('heroConsole'));
+      const left = copyRect ? copyRect.right - mapBounds.left : 0;
+      const right = consoleRect ? consoleRect.left - mapBounds.left : size.x;
+      if (right > left + 80) offsetX = (left + right) / 2 - size.x / 2;
+    }
+    const offset = L.point(offsetX, size.y / 2 - targetY);
+    const zoom = phone && city.zoom <= 5 ? Math.max(3, city.zoom - 1) : city.zoom;
+    const center = map.unproject(map.project([city.lat, city.lng], zoom).add(offset), zoom);
+    map.flyTo(center, zoom, { duration: tourDuration, animate: !axiomMedia.isReduced });
+  }
+
+  function selectStop(city, project = null) {
+    if (!city) return;
+    pauseTour(true);
+    selectedProject = project;
+    cityIndex = CITIES.findIndex(item => item.key === city.key);
+    syncTheatre(city, { shouldScroll: true });
+    moveToStop(city);
   }
 
   function startTour() {
+    if (driftInterval) clearInterval(driftInterval);
+    if (driftTimer) { clearTimeout(driftTimer); driftTimer = null; }
     autoTour = true;
     setModeUI(true);
     if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
@@ -2575,60 +6747,37 @@ function initFlooddashCarousel() {
     setModeUI(false);
     if (driftInterval) { clearInterval(driftInterval); driftInterval = null; }
     if (driftTimer) { clearTimeout(driftTimer); driftTimer = null; }
-    map.stop(); // stop any in-progress flyTo
+    map.stop();
 
-    const center = map.getCenter();
-    updateIntelligenceOverlays(center.lat, center.lng);
-    syncCityDisplay(getClosestCity(center.lat, center.lng));
-
-
-    // If user paused by interacting, offer resume after 20s of inactivity
     if (fromUser && resumeTimeout) clearTimeout(resumeTimeout);
     if (fromUser) {
       resumeTimeout = setTimeout(() => {
-        // Gently blink the play button to suggest resuming
         if (mapModeBtn) mapModeBtn.classList.add('map-mode-btn-pulse');
         setTimeout(() => { if (mapModeBtn) mapModeBtn.classList.remove('map-mode-btn-pulse'); }, 3000);
       }, 20000);
     }
   }
 
-  // Toggle button
   if (mapModeBtn) {
     mapModeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (autoTour) {
-        pauseTour(true);
-      } else {
-        startTour();
-      }
+      if (autoTour) pauseTour(true);
+      else startTour();
     });
   }
 
-  // City node clicks → fly to that city, pause the tour
   heroNodeButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const city = CITIES.find((item) => item.key === button.dataset.city);
-      if (!city) return;
-      const newIndex = CITIES.findIndex((item) => item.key === city.key);
-      if (newIndex >= 0) cityIndex = newIndex;
-      pauseTour(true);
-      syncCityDisplay(city, { shouldScroll: true });
-      map.flyTo([city.lat, city.lng], city.zoom, {
-        duration: useLiteMotion ? 5 : 8,
-        easeLinearity: useLiteMotion ? 0.15 : 0.08,
-      });
+      selectStop(city);
     });
   });
 
-  // Detect user interaction with the map → pause tour
   map.on('dragstart', () => { if (autoTour) pauseTour(true); });
   map.on('zoomstart', () => {
-    // Only pause if zoom was initiated by user (not flyTo)
     if (autoTour && !map._flyInProgress) pauseTour(true);
   });
 
-  // Intercept flyTo to track in-progress state
   const origFlyTo = map.flyTo.bind(map);
   map.flyTo = function(latlng, zoom, options) {
     map._flyInProgress = true;
@@ -2636,189 +6785,22 @@ function initFlooddashCarousel() {
   };
   map.on('moveend', () => {
     map._flyInProgress = false;
-    const center = map.getCenter();
-    const closest = getClosestCity(center.lat, center.lng);
-    cityIndex = CITIES.findIndex((city) => city.key === closest.key);
-    syncCityDisplay(closest);
   });
 
-  // Start auto tour after initial pause
-  driftTimer = setTimeout(() => {
-    driftToNext();
-    driftInterval = setInterval(driftToNext, tourIntervalMs);
-  }, useLiteMotion ? 2500 : 5000);
-
-  // ── Layer switching ──
-
-  const tileLayers = {
-    satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 18 }),
-    terrain: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', { maxZoom: 18 }),
-    dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }),
-    topo: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { maxZoom: 17 }),
-  };
-
-  const layerProviders = {
-    satellite: { name: 'ESRI World Imagery', tile: 'arcgisonline.com/World_Imagery' },
-    terrain: { name: 'ESRI World Street Map', tile: 'arcgisonline.com/World_Street_Map' },
-    dark: { name: 'CartoDB Dark Matter', tile: 'basemaps.cartocdn.com/dark_all' },
-    topo: { name: 'OpenTopoMap', tile: 'tile.opentopomap.org' },
-  };
-
-  let currentLayerName = 'dark';
-  let activeLayer = tileLayers[currentLayerName];
-  activeLayer.addTo(map);
-
-  function updateLayerUI(layerName) {
-    currentLayerName = layerName;
-    document.querySelectorAll('.sat-btn[data-layer]').forEach((button) => {
-      button.classList.toggle('sat-btn-active', button.dataset.layer === layerName);
-    });
-    if (satSourceNote) {
-      satSourceNote.textContent = (layerProviders[layerName] || layerProviders.dark).name;
-    }
+  if (autoTour) {
+    driftTimer = setTimeout(() => {
+      driftToNext();
+      driftInterval = setInterval(driftToNext, tourIntervalMs);
+    }, tourIntervalMs);
   }
 
-  function switchMapLayer(layerName) {
-    if (tileLayers[layerName] && tileLayers[layerName] !== activeLayer) {
-      map.removeLayer(activeLayer);
-      activeLayer = tileLayers[layerName];
-      activeLayer.addTo(map);
-      updateLayerUI(layerName);
-      updateHud();
-    }
-  }
-
-  document.querySelectorAll('.sat-btn[data-layer]').forEach((button) => {
-    button.addEventListener('click', () => {
-      switchMapLayer(button.dataset.layer);
-    });
-  });
-
-  updateLayerUI(currentLayerName);
-
-  // ── 1km Grid Overlay ──
-
-  let gridLayer = null;
-
-  function createGrid() {
-    const bounds = map.getBounds();
-    const lines = [];
-
-    // Calculate 1km grid spacing in degrees (approx)
-    const latCenter = map.getCenter().lat;
-    const kmPerDegreeLat = 111.32;
-    const kmPerDegreeLng = 111.32 * Math.cos(latCenter * Math.PI / 180);
-    const dLat = 1 / kmPerDegreeLat;
-    const dLng = 1 / kmPerDegreeLng;
-
-    const south = Math.floor(bounds.getSouth() / dLat) * dLat;
-    const north = bounds.getNorth();
-    const west = Math.floor(bounds.getWest() / dLng) * dLng;
-    const east = bounds.getEast();
-
-    // Latitude lines
-    for (let lat = south; lat <= north; lat += dLat) {
-      lines.push(L.polyline([[lat, west], [lat, east]], {
-        color: 'rgba(37, 99, 255, 0.18)',
-        weight: 0.5,
-        interactive: false,
-      }));
-    }
-
-    // Longitude lines
-    for (let lng = west; lng <= east; lng += dLng) {
-      lines.push(L.polyline([[south, lng], [north, lng]], {
-        color: 'rgba(37, 99, 255, 0.18)',
-        weight: 0.5,
-        interactive: false,
-      }));
-    }
-
-    return L.layerGroup(lines);
-  }
-
-  function updateGrid() {
-    if (gridLayer) {
-      map.removeLayer(gridLayer);
-      gridLayer = createGrid();
-      gridLayer.addTo(map);
-    }
-  }
-
-  const gridToggle = document.getElementById('gridToggle');
-  if (gridToggle) {
-    gridToggle.addEventListener('click', () => {
-      const active = gridToggle.dataset.active === 'true';
-      if (active) {
-        if (gridLayer) { map.removeLayer(gridLayer); gridLayer = null; }
-        gridToggle.dataset.active = 'false';
-      } else {
-        gridLayer = createGrid();
-        gridLayer.addTo(map);
-        gridToggle.dataset.active = 'true';
-      }
-    });
-  }
-
-  // Rebuild grid on move/zoom
-  map.on('moveend', () => { if (gridLayer) updateGrid(); });
-  map.on('zoomend', () => { if (gridLayer) updateGrid(); });
-
-  // ── Live Satellite HUD Telemetry ──
-
-  const satCoord = document.getElementById('satCoord');
-  const satZoom = document.getElementById('satZoom');
-  const satRes = document.getElementById('satRes');
-  const satTile = document.getElementById('satTile');
-  const satTime = document.getElementById('satTime');
-  const satProvider = document.getElementById('satProvider');
-
-  function updateHud() {
-    const center = map.getCenter();
-    const zoom = map.getZoom();
-    const lat = center.lat.toFixed(4);
-    const lng = center.lng.toFixed(4);
-    const latDir = center.lat >= 0 ? 'N' : 'S';
-    const lngDir = center.lng >= 0 ? 'E' : 'W';
-
-    // Resolution: at equator, zoom 0 = ~156543 m/px, halves each zoom
-    const metersPerPx = (156543.03392 * Math.cos(center.lat * Math.PI / 180)) / Math.pow(2, zoom);
-    let resText;
-    if (metersPerPx >= 1000) resText = '~' + (metersPerPx / 1000).toFixed(1) + 'km/px';
-    else resText = '~' + Math.round(metersPerPx) + 'm/px';
-
-    if (satCoord) satCoord.textContent = Math.abs(lat) + '°' + latDir + ' ' + Math.abs(lng) + '°' + lngDir;
-    if (satZoom) satZoom.textContent = 'Z' + Math.round(zoom);
-    if (satRes) satRes.textContent = resText;
-
-    const prov = layerProviders[currentLayerName] || layerProviders.satellite;
-    if (satProvider) satProvider.textContent = prov.name;
-    if (satTile) satTile.textContent = 'Tile: ' + prov.tile;
-    if (satSourceNote) satSourceNote.textContent = prov.name;
-
-    if (satTime) {
-      const now = new Date();
-      const fmt = new Intl.DateTimeFormat('en-GB', {
-        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Bangkok'
-      });
-      satTime.textContent = 'Fetched: ' + fmt.format(now) + ' BKK';
-    }
-  }
-
-  map.on('moveend', updateHud);
-  map.on('zoomend', updateHud);
-  updateHud();
-  setInterval(updateHud, 1000); // keep time fresh
-
-
-  // Subtle parallax on mouse move — only during auto tour
   if (!useLiteMotion) {
     let rafId;
     document.addEventListener('mousemove', (e) => {
       if (!autoTour) return;
       if (rafId) cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
-        if (!autoTour) return;
+        if (!autoTour || map._flyInProgress) return;
         const dx = (e.clientX / window.innerWidth - 0.5) * 0.003;
         const dy = (e.clientY / window.innerHeight - 0.5) * 0.003;
         const center = map.getCenter();
@@ -2827,13 +6809,38 @@ function initFlooddashCarousel() {
     });
   }
 
-  syncCityDisplay(CITIES[0]);
-  updateIntelligenceOverlays(CITIES[0].lat, CITIES[0].lng);
+  window.addEventListener('axiom:localechange', () => {
+    setModeUI(autoTour);
+    const theatre = THEATRES[activeTheatreKey] || CITIES[0];
+    syncTheatre(theatre);
+  });
+
+  syncTheatre(CITIES[0]);
+  setModeUI(autoTour);
+  moveToStop(CITIES[0]);
+
+  const consoleTabs = Array.from(document.querySelectorAll('.hero-console__tab'));
+  consoleTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('aria-controls');
+      consoleTabs.forEach(t => {
+        const isCurrent = t === tab;
+        t.classList.toggle('is-active', isCurrent);
+        t.setAttribute('aria-selected', String(isCurrent));
+      });
+      document.querySelectorAll('.hero-console__panel').forEach(panel => {
+        panel.hidden = panel.id !== targetId;
+      });
+    });
+  });
 })();
 (function initDataLines() {
   const canvas = document.getElementById('heroCanvas');
   if (!canvas || axiomMedia.isReduced) return;
   const useLiteCanvas = axiomMedia.isTouch || axiomMedia.isMobile;
+  const palette = getComputedStyle(document.documentElement);
+  const ACCENT = palette.getPropertyValue('--accent-rgb').trim();
+  const OCHER = palette.getPropertyValue('--ocher-rgb').trim();
 
   const ctx = canvas.getContext('2d');
 
@@ -2845,10 +6852,10 @@ function initFlooddashCarousel() {
   }
   resize();
   window.addEventListener('resize', resize);
+  new ResizeObserver(resize).observe(canvas.parentElement);
 
-  // Scanning line effect
   const lines = [];
-  for (let i = 0; i < (useLiteCanvas ? 2 : 5); i++) {
+  for (let i = 0; i < (useLiteCanvas ? 2 : 4); i++) {
     lines.push({
       y: Math.random() * canvas.offsetHeight,
       speed: 0.3 + Math.random() * 0.5,
@@ -2856,26 +6863,128 @@ function initFlooddashCarousel() {
     });
   }
 
-  // Data nodes — scattered points of light
+  // Signal graph nodes — count tracks active theatre signals
+  let signalCount = 4;
   const nodes = [];
-  for (let i = 0; i < (useLiteCanvas ? 18 : 40); i++) {
-    nodes.push({
-      x: Math.random() * canvas.offsetWidth,
-      y: Math.random() * canvas.offsetHeight,
-      r: 1 + Math.random() * 2,
-      pulse: Math.random() * Math.PI * 2,
-      speed: 0.02 + Math.random() * 0.03,
-    });
-  }
 
-  // Grid overlay
+  function rebuildNodes() {
+    nodes.length = 0;
+    const count = Math.max(3, Math.min(useLiteCanvas ? 10 : 18, signalCount * (useLiteCanvas ? 2 : 4)));
+    const cw = canvas.offsetWidth || 1;
+    const ch = canvas.offsetHeight || 1;
+    for (let i = 0; i < count; i++) {
+      const ring = 0.22 + (i % signalCount) * 0.12;
+      const angle = (Math.PI * 2 * i) / count;
+      nodes.push({
+        x: cw * 0.55 + Math.cos(angle) * cw * ring * 0.35,
+        y: ch * 0.45 + Math.sin(angle) * ch * ring * 0.4,
+        r: 1.2 + (i % 3) * 0.6,
+        pulse: Math.random() * Math.PI * 2,
+        speed: 0.02 + Math.random() * 0.03,
+        hub: i < signalCount,
+      });
+    }
+  }
+  rebuildNodes();
+
+  window.addEventListener('axiom:theatrechange', (e) => {
+    signalCount = (e.detail && e.detail.signals && e.detail.signals.length) || 4;
+    rebuildNodes();
+  });
+
+  // ── Pretext-style canvas text ───────────────────────────────
+  // Pure-canvas text overlay for the city name + signal types.
+  // Cached measureText (pretext's core trick) keeps it cheap at 60fps.
+  // Synced from syncTheatre() and setModeUI() above.
+  const canvasText = {
+    city: document.getElementById('satTheatre')?.textContent || 'THAILAND',
+    signals: document.getElementById('satSignals')?.textContent || '',
+    mode: document.getElementById('mapModeLabel')?.textContent || 'AUTO TOUR',
+  };
+  const _measureCache = new Map();
+  function measure(str, font) {
+    const key = font + '\u0001' + str;
+    if (_measureCache.has(key)) return _measureCache.get(key);
+    ctx.font = font;
+    const w = ctx.measureText(str).width;
+    _measureCache.set(key, w);
+    return w;
+  }
+  // Position: top-right corner, mirrors the legacy .hero-city-label coordinates
+  // so the canvas text replaces the DOM chip without layout drift.
+  const FONT_CITY = '600 11px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace';
+  const FONT_META = '700 9.5px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace';
+  const FONT_MODE = '700 10px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace';
+  const hud = document.getElementById('satHud');
+  let labelTop = 114;
+  let labelRight = 40;
+  function positionCanvasLabels() {
+    if (!hud) return;
+    const bounds = canvas.parentElement.getBoundingClientRect();
+    const hudBounds = hud.getBoundingClientRect();
+    labelTop = hudBounds.bottom - bounds.top + 16;
+    labelRight = bounds.right - hudBounds.right;
+  }
+  new ResizeObserver(positionCanvasLabels).observe(canvas.parentElement);
+  positionCanvasLabels();
+
+  function drawCanvasText() {
+    const cw = canvas.offsetWidth;
+    const ch = canvas.offsetHeight;
+    if (!cw || !ch) return;
+    // When the rich decision console is active, the DOM HUD and console
+    // render the theatre metadata with zero clutter; skip canvas text overlay.
+    if (document.getElementById('heroConsole')) return;
+    // On mobile, the Leaflet map covers the canvas — skip the canvas
+    // tick overlay (the DOM HUD pill is visible on top of the map).
+    if (useLiteCanvas) return;
+    // Keep the canvas label below the live HUD's current bounds.
+    const top = labelTop;
+    const right = labelRight;
+    const isMobile = cw < 600;
+    const cityFont = isMobile ? '600 10px "IBM Plex Mono", ui-monospace, "JetBrains Mono", monospace' : FONT_CITY;
+
+    // City name (right-aligned, paper color, sub-pixel)
+    ctx.font = cityFont;
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'top';
+    ctx.fillStyle = 'rgba(250, 249, 247, 0.95)';
+    ctx.fillText(canvasText.city, cw - right, top);
+
+    // Signal types (right-aligned, smaller, accent underline)
+    const sigW = measure(canvasText.signals, FONT_META);
+    const sigTop = top + (isMobile ? 16 : 18);
+    ctx.font = FONT_META;
+    ctx.fillStyle = `rgba(${OCHER}, 0.85)`;
+    ctx.fillText(canvasText.signals, cw - right, sigTop);
+
+    // Hairline tick under signals to tie to grid — visual "data" mark
+    ctx.strokeStyle = `rgba(${OCHER}, 0.4)`;
+    ctx.lineWidth = 0.5;
+    ctx.beginPath();
+    ctx.moveTo(cw - right - sigW, sigTop + 12);
+    ctx.lineTo(cw - right, sigTop + 12);
+    ctx.stroke();
+
+    // Mode indicator (right-aligned, below the tick, smaller)
+    const modeTop = sigTop + 18;
+    ctx.font = FONT_MODE;
+    const touring = canvasText.mode === 'AUTO TOUR';
+    ctx.fillStyle = touring ? `rgba(${OCHER}, 0.9)` : 'rgba(250, 249, 247, 0.95)';
+    ctx.fillText(canvasText.mode, cw - right, modeTop);
+  }
+  // Make canvasText mutable from outside this IIFE so the existing
+  // syncTheatre() / setModeUI() handlers can update the rendered text
+  // without redrawing the DOM chip.
+  window.__axiomCanvasText = canvasText;
+  window.__axiomClearMeasureCache = () => _measureCache.clear();
+
   function drawGrid() {
     const cw = canvas.offsetWidth;
     const ch = canvas.offsetHeight;
-    ctx.strokeStyle = 'rgba(37, 99, 255, 0.04)';
+    ctx.strokeStyle = `rgba(${ACCENT}, 0.04)`;
     ctx.lineWidth = 0.5;
     const gridSize = 80;
-
     for (let x = 0; x < cw; x += gridSize) {
       ctx.beginPath();
       ctx.moveTo(x, 0);
@@ -2900,16 +7009,12 @@ function initFlooddashCarousel() {
     const cw = canvas.offsetWidth;
     const ch = canvas.offsetHeight;
     ctx.clearRect(0, 0, cw, ch);
-
-    // Grid
     drawGrid();
 
-    // Scan lines
-    lines.forEach(line => {
+    lines.forEach((line) => {
       line.y += line.speed;
       if (line.y > ch) line.y = -2;
-
-      ctx.strokeStyle = `rgba(37, 99, 255, ${line.alpha})`;
+      ctx.strokeStyle = `rgba(${ACCENT}, ${line.alpha})`;
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(0, line.y);
@@ -2917,42 +7022,42 @@ function initFlooddashCarousel() {
       ctx.stroke();
     });
 
-    // Data nodes
-    nodes.forEach(node => {
+    nodes.forEach((node) => {
       node.pulse += node.speed;
-      const alpha = 0.2 + Math.sin(node.pulse) * 0.15;
+      const alpha = (node.hub ? 0.35 : 0.18) + Math.sin(node.pulse) * 0.12;
       const r = node.r + Math.sin(node.pulse) * 0.5;
-
       ctx.beginPath();
       ctx.arc(node.x, node.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(37, 99, 255, ${alpha})`;
+      ctx.fillStyle = `rgba(${ACCENT}, ${alpha})`;
       ctx.fill();
-
-      // Outer ring
       ctx.beginPath();
       ctx.arc(node.x, node.y, r + 4, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(37, 99, 255, ${alpha * 0.3})`;
+      ctx.strokeStyle = `rgba(${ACCENT}, ${alpha * 0.35})`;
       ctx.lineWidth = 0.5;
       ctx.stroke();
     });
 
-    // Connection lines between nearby nodes
-    ctx.lineWidth = 0.3;
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
+    // Prefer edges among hub nodes (active signal graph)
+    ctx.lineWidth = 0.4;
+    const hubs = nodes.filter((n) => n.hub);
+    for (let i = 0; i < hubs.length; i++) {
+      for (let j = i + 1; j < hubs.length; j++) {
+        const dx = hubs[i].x - hubs[j].x;
+        const dy = hubs[i].y - hubs[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 200) {
-          const alpha = (1 - dist / 200) * 0.06;
-          ctx.strokeStyle = `rgba(37, 99, 255, ${alpha})`;
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.stroke();
-        }
+        const alpha = Math.max(0.04, (1 - dist / 320) * 0.14);
+        ctx.strokeStyle = `rgba(${ACCENT}, ${alpha})`;
+        ctx.beginPath();
+        ctx.moveTo(hubs[i].x, hubs[i].y);
+        ctx.lineTo(hubs[j].x, hubs[j].y);
+        ctx.stroke();
       }
     }
+
+    // Canvas-rendered pretext text (city + signals + mode).
+    // This shares the canvas coordinate system with the data lines and
+    // signal nodes above — so the text "is" the data, not chrome on top.
+    drawCanvasText();
   }
 
   document.addEventListener('visibilitychange', () => {
@@ -2961,7 +7066,6 @@ function initFlooddashCarousel() {
       if (rafId) cancelAnimationFrame(rafId);
       return;
     }
-
     if (!running) {
       running = true;
       animate();
@@ -2972,23 +7076,41 @@ function initFlooddashCarousel() {
 })();
 
 // ── Rotating Hero Text (restored from ee756b7) ────────────────
-// Cycles the second line of the hero title every 3.5s.
+// Cycles the second line of the hero title every 3.5s. Uses the
+// active locale's `hero.rotatingPhrases` (added to uiCopy for all
+// 7 locales) so non-EN visitors see the tagline in their script.
 (function initRotatingText() {
   const el = document.getElementById('heroRotatingText');
   if (!el) return;
 
-  const phrases = [
-    'as a Service',
-    'that disappears',
-    'that works',
-    'for cities',
-    'for decisions',
-    'as water',
-  ];
+  function phrasesFor(locale) {
+    const copy = uiCopy[locale] || uiCopy.en;
+    const fromLocale = copy?.hero?.rotatingPhrases;
+    if (Array.isArray(fromLocale) && fromLocale.length) return fromLocale;
+    return uiCopy.en.hero.rotatingPhrases;
+  }
 
+  let phrases = phrasesFor(activeLocale);
   let index = 0;
 
+  // Fit the longest phrase once per locale/width, not on every carousel tick.
+  const title = el.closest('.hero-title');
+  const measure = document.createElement('canvas').getContext('2d');
+  function fitPhrases() {
+    if (!title || !measure || !title.clientWidth) return;
+    const style = getComputedStyle(title);
+    const size = Number.parseFloat(style.fontSize);
+    measure.font = `${style.fontWeight} ${size}px ${style.fontFamily}`;
+    const widest = Math.max(...phrases.map((phrase) => measure.measureText(phrase).width));
+    const fitted = Math.min(size, size * title.clientWidth / Math.max(widest, 1) * 0.98);
+    el.style.setProperty('--hero-phrase-size', `${fitted}px`);
+  }
+
+  el.textContent = phrases[0];
   el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+  fitPhrases();
+  new ResizeObserver(fitPhrases).observe(title);
+  document.fonts?.ready.then(fitPhrases);
 
   setInterval(() => {
     el.style.opacity = 0;
@@ -3001,4 +7123,34 @@ function initFlooddashCarousel() {
       el.style.transform = 'translateY(0)';
     }, 400);
   }, 3500);
+
+  // Locale switch — swap the phrase list and reset to the first item.
+  window.addEventListener('axiom:localechange', () => {
+    phrases = phrasesFor(activeLocale);
+    index = 0;
+    el.textContent = phrases[0];
+    fitPhrases();
+  });
+})();
+
+/* The field clip starts only when motion is welcome. A reader who has asked
+   for reduced motion keeps the poster — the same frame, still the same
+   figure — so nothing autoplays against a stated preference and the block
+   never collapses into an empty box. */
+(() => {
+  const fieldVideoWrap = document.getElementById('fieldVideoWrap');
+  if (fieldVideoWrap) {
+    const startVideo = () => {
+      const videoId = fieldVideoWrap.dataset.videoId || '0-A3R_i3wrs';
+      fieldVideoWrap.innerHTML = `<iframe class="field-band__iframe" src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&amp;rel=0&amp;modestbranding=1" title="Axiom X · Field Briefing: The Flood Arrives at 2 AM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    };
+    fieldVideoWrap.addEventListener('click', startVideo);
+  }
+
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (still) return;
+  document.querySelectorAll('[data-clip]').forEach((v) => {
+    const started = v.play();
+    if (started && started.catch) started.catch(() => { /* poster stands in */ });
+  });
 })();

@@ -1,0 +1,71 @@
+{
+  "_readme": "Decisions that a language keeps in English on purpose. The i18n check fails on any string the page renders that is still English while another language translates it, unless it is written down here with its reason. A decision that no longer applies is a failure too — an allowlist that only grows is a place to hide.",
+  "decisions": {
+    "th": {
+      "credentialsSect.stackTag": "A loanword. This is the tag on the reference-standards plate. ko and ja transliterate it, zh translates it; Thai engineering keeps the English word, and the label is the only place it appears.",
+      "brandSect.kicker": "The name of the product, not a description of it. The Thai section says 'Brand Kit' in all four of its strings — the fold line, the kicker, the download button and the expand link — so translating one of them would break the section.",
+      "cx.leap.v1": "The project's name. ko transliterates it (오빗럴); the other languages keep the name as it is written.",
+      "panels.p09.cta": "A version marker and a protocol name.",
+      "panels.ikigai.name": "The system's name.",
+      "teamContent.pb1for": "An organisation's name.",
+      "teamContent.pb2org": "Three organisations' names.",
+      "teamContent.pb2for": "The title of a published handbook.",
+      "teamContent.pb5org": "Two organisations' names.",
+      "credentialsSect.t2i5": "The name of a standards framework.",
+      "pitch.vsUsTitle": "The brand.",
+      "pitch.r1lbl": "A system's name."
+    },
+    "zh": {
+      "cx.leap.v1": "The project's name.",
+      "panels.ikigai.name": "The system's name.",
+      "teamContent.pb5org": "Two organisations' names.",
+      "credentialsSect.t2i5": "The name of a standards framework.",
+      "pitch.vsUsTitle": "The brand.",
+      "pitch.r1lbl": "A system's name."
+    },
+    "ko": {
+      "panels.ikigai.name": "The system's name.",
+      "teamContent.pb1for": "An organisation's name.",
+      "teamContent.pb2org": "Three organisations' names.",
+      "teamContent.pb2for": "The title of a published handbook.",
+      "teamContent.pb5org": "Two organisations' names.",
+      "credentialsSect.address": "The registered address, which stays as it is registered.",
+      "credentialsSect.capital": "A currency amount.",
+      "credentialsSect.t2i5": "The name of a standards framework.",
+      "pitch.vsUsTitle": "The brand.",
+      "pitch.r1lbl": "A system's name."
+    },
+    "ja": {
+      "cx.leap.v1": "The project's name. ko transliterates it (오빗럴); Japanese keeps the name as it is written.",
+      "panels.ikigai.name": "The system's name.",
+      "teamContent.pb1for": "An organisation's name.",
+      "teamContent.pb2org": "Three organisations' names.",
+      "teamContent.pb2for": "The title of a published handbook.",
+      "teamContent.pb5org": "Two organisations' names.",
+      "credentialsSect.address": "The registered address, which stays as it is registered.",
+      "credentialsSect.capital": "A currency amount.",
+      "credentialsSect.t2i5": "The name of a standards framework.",
+      "pitch.vsUsTitle": "The brand.",
+      "pitch.r1lbl": "A system's name."
+    },
+    "vi": {
+      "cats.c43": "'Podcast' is the word Vietnamese uses.",
+      "sysClusters.lab": "'Lab' is used as it is in Vietnamese tech.",
+      "cx.osaka.city": "Osaka is Osaka in Vietnamese.",
+      "cx.sg.city": "Singapore is Singapore in Vietnamese.",
+      "cx.leap.v1": "The project's name.",
+      "teamSect.meta": "Bangkok is Bangkok in Vietnamese.",
+      "credentialsSect.stackTag": "A loanword, for the same reason as Thai: the label on the reference-standards plate, and the only place the word appears.",
+      "panels.ikigai.name": "The system's name.",
+      "teamContent.pb1for": "An organisation's name.",
+      "teamContent.pb2org": "Three organisations' names.",
+      "teamContent.pb2for": "The title of a published handbook.",
+      "teamContent.pb5org": "Two organisations' names.",
+      "credentialsSect.address": "The registered address, which stays as it is registered.",
+      "credentialsSect.capital": "A currency amount.",
+      "credentialsSect.t2i5": "The name of a standards framework.",
+      "pitch.vsUsTitle": "The brand.",
+      "pitch.r1lbl": "A system's name."
+    }
+  }
+}

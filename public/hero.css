@@ -3,15 +3,16 @@
    dashboard). Re-themed to match the current Thailand-flag /
    light-paper aesthetic. No gradients. No rounded corners.
 
-   Stack:
+   Stack (z-index must be integer):
      z=0  #hero  (paper frame)
      z=1  #heroMap (Leaflet dark tiles)
      z=2  #heroCanvas (data lines / grid)
-     z=3  HUD chrome (city label, sat-hud, intel overlays,
+     z=3  .hero-featured-bg (rotating system screenshots)
+     z=4  HUD chrome (city label, sat-hud, intel overlays,
           sat-controls, map-mode, map-explore-hint, axes)
-     z=4  .hero-content (badge, title, subtitle, actions,
+     z=5  .hero-featured-badge (the FEATURED panel)
+     z=6  .hero-content (badge, title, subtitle, actions,
           node strip, stats)
-     z=5  .hero-scroll-indicator
 
    Variables are inherited from :root in rams.css.
    ============================================================ */
@@ -19,7 +20,18 @@
 #hero {
   position: relative;
   width: 100%;
-  min-height: 88vh;
+  --hero-edge: max(var(--pad), calc((100% - var(--maxw, 1280px)) / 2));
+  --hero-display: var(--t-display);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(380px, 480px);
+  grid-template-areas:
+    'mode status'
+    'copy brief'
+    'nodes brief'
+    'stats brief';
+  gap: 10px 28px;
+  padding: 10px var(--hero-edge) 8px;
+  min-height: 0;
   background: var(--paper);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
@@ -30,123 +42,125 @@
 #heroMap {
   position: absolute;
   inset: 0;
+  height: 100%;
   z-index: 1;
   background: #0a0a0a;
-  filter: brightness(0.55) contrast(1.05) saturate(0.7);
+  filter: none;
 }
 
-/* Leaflet attribution / zoom controls: hide, keep keyboard nav */
+/* Retain the editorial edition's source credit; keep keyboard map navigation. */
 #heroMap .leaflet-control-attribution {
-  display: none !important;
+  display: block !important;
+  font-size: 10px;
+  background: #171a1e;
+  color: var(--paper);
 }
+#heroMap .leaflet-control-attribution a { color: var(--paper); }
 #heroMap .leaflet-control-zoom {
   display: none !important;
 }
+.hero-map-space { display: none; }
 
 /* ----- Canvas (data lines / grid overlay) ----- */
 #heroCanvas {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   pointer-events: none;
 }
 
-/* ----- Hero flat dark wash (for legibility) ----- */
-.hero-gradient {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: rgba(10, 10, 12, 0.45);
-  /* The map's filter:brightness already darkens tiles; this overlay
-     sits BEHIND the map (z=0) so it does not stack on top. It is
-     here as a fallback for when JS fails to mount the map. */
-}
-
-/* ----- Pulse markers (Leaflet divIcon) ----- */
-.sat-pulse-marker {
+/* ----- Signal constellation markers (Leaflet divIcon) ----- */
+.sat-pulse-marker,
+.sat-signal-marker {
   position: relative;
-  width: 12px;
-  height: 12px;
+  box-sizing: border-box;
+  width: 10px;
+  height: 10px;
+  margin: 0;
   background: var(--accent);
   border: 1px solid var(--paper);
-  box-shadow: 0 0 0 0 var(--accent);
-  animation: sat-pulse 2.4s infinite;
+  box-shadow: none;
+  cursor: pointer;
 }
 
-@keyframes sat-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(0, 36, 125, 0.6); }
-  70%  { box-shadow: 0 0 0 12px rgba(0, 36, 125, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 36, 125, 0); }
-}
-
-/* ----- Telemetry axes (decorative crosshair) ----- */
-.telemetry-axis-x,
-.telemetry-axis-y {
-  position: absolute;
-  z-index: 3;
-  background: var(--accent);
-  opacity: 0.18;
-  pointer-events: none;
-}
-
-.telemetry-axis-x {
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 1px;
-}
-
-.telemetry-axis-y {
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-}
-
-/* ----- Hero tracker (decorative) ----- */
-.hero-tracker {
-  position: absolute;
-  z-index: 3;
-  top: 50%;
-  left: 50%;
-  width: 24px;
-  height: 24px;
-  margin: -12px 0 0 -12px;
+.sat-signal-marker {
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
   background: transparent;
-  border: 1px solid var(--accent);
-  opacity: 0.5;
+  border: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sat-signal-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: var(--ocher);
+  border: 1px solid var(--paper);
+  box-shadow: none;
+}
+
+.sat-project-pin { display: flex; justify-content: center; align-items: flex-start; }
+.sat-project-pin .sat-signal-label { display: none; }
+.sat-project-pin.has-label .sat-signal-label,
+.sat-project-pin:hover .sat-signal-label,
+.sat-project-pin:focus-visible .sat-signal-label { display: block; }
+.sat-project-pin.is-active .sat-signal-dot { background: var(--paper); border: 2px solid var(--ocher); }
+.sat-project-pin:focus-visible { outline: 2px solid var(--ocher); }
+
+.sat-signal-label {
+  display: block;
+  padding: 2px 6px;
+  background: rgba(8, 10, 14, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: var(--paper);
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
   pointer-events: none;
 }
 
-.hero-tracker::before,
-.hero-tracker::after {
-  content: "";
-  position: absolute;
-  background: var(--accent);
+/* Context pins name their place on a wide map, where there is room for the
+   caption. On a phone they did not: six caption boxes on a 390px map
+   overlapped each other and the pins in twelve places, and the map stopped
+   being readable as a map. Below 901px a context pin is a pin — the
+   active pin, hover and focus still name it. */
+@media (min-width: 901px) {
+  .sat-project-pin.is-context .sat-signal-label { display: block; }
 }
 
-.hero-tracker::before {
-  top: -8px;
-  left: 50%;
-  width: 1px;
-  height: 8px;
-  margin-left: -0.5px;
+/* ----- Telemetry axes (purged sci-fi slop) ----- */
+.telemetry-axis-x,
+.telemetry-axis-y,
+.hero-tracker {
+  display: none !important;
 }
 
-.hero-tracker::after {
-  top: 50%;
-  left: -8px;
-  width: 8px;
-  height: 1px;
-  margin-top: -0.5px;
-}
-
-/* ----- City label (top-right, large mono) ----- */
+/* ----- City label (top-right, large mono) -----
+   On desktop+tablet the visual text is rendered on the canvas
+   (pretext-style measureText) at the same coordinates as the data
+   lines and signal nodes. The DOM chip stays in the layout for
+   screen readers and is also the visible fallback on mobile, where
+   the Leaflet map covers the canvas and the canvas tick would be
+   hidden. The CSS visually hides the DOM only on the breakpoints
+   where the canvas text takes over (≥ 768px). */
 .hero-city-label {
   position: absolute;
   z-index: 3;
-  top: 28px;
-  right: 28px;
+  top: 22px;
+  right: 22px;
   font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", monospace;
   font-size: 11px;
   font-weight: 600;
@@ -156,50 +170,79 @@
   pointer-events: none;
 }
 
-/* ----- Map Mode Indicator (top-left, AUTO TOUR pill) ----- */
-.map-mode {
+@media (min-width: 768px) {
+  /* Desktop / tablet: canvas pretext tick takes over. Hide the DOM
+     chip (still announced by screen readers via aria-hidden toggling
+     in app.js, but visually replaced). */
+  .hero-city-label {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* Visually-hidden helper used for the canvas-rendered theatre labels */
+.sr-only {
   position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ----- Map Mode Indicator (top-left, AUTO TOUR toolbar) ----- */
+.map-mode {
+  position: relative;
+  grid-area: mode;
   z-index: 4;
-  top: 22px;
-  left: 22px;
+  top: auto;
+  left: auto;
+  align-self: start;
+  /* The bar holds "AUTO TOUR" and a pause button — about 132px of content.
+     It sat in the 684px 'mode' grid track and stretched to fill it, so the
+     map carried a 684px black slab that was 80% empty. A grid item stretches
+     by default; the bar is sized to its content, not to the column. */
+  justify-self: start;
   display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  align-items: stretch;
+  background: rgba(10, 12, 16, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .map-mode-indicator {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 10px;
-  background: rgba(10, 10, 12, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  font-family: ui-monospace, "JetBrains Mono", monospace;
+  padding: 0 12px;
+  height: 38px;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   color: var(--paper);
   text-transform: uppercase;
 }
 
 .map-mode-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: #1ec96b;
-  box-shadow: 0 0 0 0 rgba(30, 201, 107, 0.5);
-  animation: map-mode-pulse 1.6s infinite;
+  width: 6px;
+  height: 6px;
+  background: var(--paper);
+  box-shadow: none;
 }
 
 .map-mode-dot.exploring {
-  background: var(--accent);
-  box-shadow: 0 0 0 0 rgba(0, 36, 125, 0.5);
-}
-
-@keyframes map-mode-pulse {
-  0%   { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
-  70%  { box-shadow: 0 0 0 8px transparent; opacity: 0.8; }
-  100% { box-shadow: 0 0 0 0 transparent; opacity: 1; }
+  background: var(--ocher);
+  box-shadow: none;
 }
 
 .map-mode-label.exploring {
@@ -211,48 +254,42 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 44px;
+  height: 44px;
   padding: 0;
-  background: rgba(10, 10, 12, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  border: 0;
   color: var(--paper);
   cursor: pointer;
-  transition: background 150ms ease, border-color 150ms ease;
+  transition: background 150ms ease, color 150ms ease;
 }
 
 .map-mode-btn:hover {
-  background: rgba(0, 36, 125, 0.85);
-  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--paper);
 }
 
-.map-mode-btn-pulse {
-  animation: map-mode-btn-pulse 0.6s ease 3;
-}
-
-@keyframes map-mode-btn-pulse {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.08); }
-}
-
-/* ----- Map Explore Hint (bottom-left) ----- */
+/* ----- Map Explore Hint (integrated telemetry caption, not box soup) ----- */
 .map-explore-hint {
-  position: absolute;
+  position: relative;
+  grid-area: hint;
   z-index: 3;
-  bottom: 22px;
-  left: 22px;
+  inset: auto;
+  transform: none;
+  justify-self: start;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  background: rgba(10, 10, 12, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  font-family: ui-monospace, "JetBrains Mono", monospace;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--paper);
-  opacity: 0.85;
+  opacity: 0.65;
   pointer-events: none;
 }
 
@@ -294,9 +331,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 32px;
-  height: 28px;
-  padding: 0 8px;
+  min-width: 36px;
+  min-height: 36px;
+  height: auto;
+  padding: 0 10px;
   background: transparent;
   border: none;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -310,7 +348,7 @@
 }
 
 .sat-btn:hover {
-  background: rgba(0, 36, 125, 0.4);
+  background: rgba(var(--accent-rgb), 0.4);
   color: var(--paper);
 }
 
@@ -402,24 +440,65 @@
   left: 60px;
 }
 
-/* ----- Live Satellite HUD (top-center telemetry) ----- */
+/* Layer / fake intel chrome demoted — theatre HUD is the product */
+.sat-controls,
+.intel-overlay {
+  display: none !important;
+}
+
+/* ----- Theatre signal HUD (top-right telemetry) ----- */
 .sat-hud {
-  position: absolute;
+  position: relative;
+  grid-area: status;
   z-index: 4;
-  top: 22px;
-  left: 50%;
-  transform: translateX(-50%);
+  inset: auto;
+  transform: none;
   display: flex;
   flex-direction: column;
   gap: 4px;
   padding: 8px 14px;
-  background: rgba(10, 10, 12, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  font-family: ui-monospace, "JetBrains Mono", monospace;
+  background: rgba(10, 12, 16, 0.90);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
   color: var(--paper);
-  min-width: 460px;
-  max-width: 90vw;
+  /* Same reason as .map-mode: the panel was 280px minimum inside a 480px
+     column and stretched to the column, so three short lines sat in a slab
+     four times their width. It docks to the right edge at its own width. */
+  min-width: 0;
+  max-width: min(560px, 90vw);
+  justify-self: end;
+  pointer-events: none;
 }
+
+.hero-node-strip-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 10px; margin-bottom: 8px; }
+.hero-node-strip-head .hero-node-strip-label { margin: 0; opacity: 1; min-width: 0; }
+.hero-project-select {
+  /* The control holds one place name. It claimed 320px of the row so a
+     three-letter word sat alone inside a large empty field. It takes the
+     width of its content and stops there. */
+  width: auto;
+  field-sizing: content;
+  max-width: min(320px, 55%);
+  flex: 0 1 auto;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0;
+  color: var(--paper);
+  background: #171a1e;
+  /* The label beside it is set in the HUD's mono at 10px. A 13px sans in a
+     44px field beside a 10px caption read as two unrelated objects; in the
+     same voice they read as one control and its name. */
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: auto;
+  color-scheme: dark;
+}
+.hero-footprint-note { margin: 0; color: var(--paper); font-size: 11px; line-height: 1.5; }
 
 .sat-hud-row {
   display: flex;
@@ -433,7 +512,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--accent);
+  color: var(--paper);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -441,27 +520,38 @@
 
 .sat-hud-live-dot {
   display: inline-block;
-  width: 7px;
-  height: 7px;
-  background: var(--accent);
-  box-shadow: 0 0 0 0 var(--accent);
-  animation: sat-hud-live-dot 1.4s infinite;
+  width: 6px;
+  height: 6px;
+  background: var(--paper);
+  box-shadow: none;
 }
 
-@keyframes sat-hud-live-dot {
-  0%   { box-shadow: 0 0 0 0 rgba(0, 36, 125, 0.6); }
-  70%  { box-shadow: 0 0 0 8px transparent; }
-  100% { box-shadow: 0 0 0 0 transparent; }
-}
-
-.sat-hud-provider {
+.sat-hud-theatre {
   margin-left: auto;
   font-size: 10px;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.sat-hud-signals {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.9;
+}
+
+.sat-hud-watching {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--paper);
   opacity: 0.7;
 }
 
+.sat-hud-provider,
 .sat-hud-coord,
 .sat-hud-zoom,
 .sat-hud-res,
@@ -488,18 +578,344 @@
   color: var(--accent);
 }
 
-/* ----- Hero Content (centered) ----- */
+/* Foreground shares Palette's content-led edges; the map remains full-bleed. */
 .hero-content {
+  display: contents;
+}
+
+.hero-copy {
+  grid-area: copy;
   position: relative;
   z-index: 4;
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 18vh var(--pad) 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 14px;
+  gap: 16px;
   text-align: left;
+}
+
+.hero-proof {
+  grid-area: brief;
+  position: relative;
+  z-index: 4;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.hero-proof .map-explore-hint { display: none; }
+
+/* ============================================================
+   HERO DECISION CONSOLE
+   ============================================================ */
+.hero-console {
+  position: relative;
+  width: 100%;
+  background: rgba(13, 15, 18, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-console__head {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 12, 16, 0.8);
+}
+
+.hero-console__title-wrap {
+  /* The instrument name shares its existing reference strip, rather than
+     spending another header band above the four named views. */
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 0;
+}
+
+.hero-console__title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.hero-console__nav {
+  display: grid;
+  /* minmax(0, …) so a long label in any language can shrink inside its own
+     column and wrap, instead of pushing the row past the console. */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-console__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 4px;
+  min-height: 44px;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  color: var(--paper);
+  opacity: 0.65;
+  font-family: inherit;
+  font-size: 9.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: opacity 120ms ease, background 120ms ease, color 120ms ease;
+}
+
+/* The four views are one instrument, not four boxes: the row's own hairline
+   separates it from the panel below, and the filled cell says which view is
+   open. A rule between every cell made four small framed things. */
+.hero-console__tab:hover {
+  opacity: 0.95;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-console__tab.is-active {
+  opacity: 1;
+  background: var(--accent);
+  color: #fff;
+  border-bottom: 2px solid var(--ocher);
+}
+
+.hero-console__tab-num {
+  font-size: 8.5px;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+/* A view name that is longer than its column breaks inside the column
+   rather than pushing the row past the console. The four views are named in
+   seven languages; a name must never be cut off at the edge. */
+.hero-console__tab > span:not(.hero-console__tab-num) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.hero-console__panel {
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.hero-console__panel[hidden] {
+  display: none !important;
+}
+
+.hero-console__metric-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-console__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-console__metric-val {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--paper);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.hero-console__metric-lbl {
+  font-size: 8.5px;
+  letter-spacing: 0.04em;
+  opacity: 0.65;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.hero-console__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (min-width: 901px) {
+  .hero-console__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 10px 12px; }
+}
+
+.hero-console__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  padding-left: 8px;
+}
+
+.hero-console__item:hover {
+  border-left-color: var(--ocher);
+}
+
+.hero-console__item-tag {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ocher);
+  text-transform: uppercase;
+}
+
+.hero-console__item-name {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--paper);
+  font-family: inherit;
+}
+
+.hero-console__item-desc {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.45;
+  opacity: 0.75;
+}
+
+.hero-console__impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.hero-console__impact-card {
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hero-console__impact-num {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--ocher);
+  letter-spacing: 0.04em;
+}
+
+.hero-console__impact-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--paper);
+}
+
+.hero-console__impact-desc {
+  margin: 0;
+  font-size: 9px;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+.hero-console__keywords-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-console__kw {
+  padding: 3px 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 9px;
+  color: var(--ocher);
+  letter-spacing: 0.05em;
+}
+
+.hero-console__dna-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero-console__dna-row {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.hero-console__dna-idx {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ocher);
+}
+
+.hero-console__dna-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--paper);
+  display: block;
+}
+
+.hero-console__dna-desc {
+  margin: 2px 0 0;
+  font-size: 9.5px;
+  line-height: 1.4;
+  opacity: 0.75;
+}
+
+.hero-console__foot {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: center;
+  gap: 2px 8px;
+  padding: 6px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 12, 16, 0.9);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-console__reference {
+  display: grid;
+  grid-template-columns: 5px minmax(0, 1fr) max-content;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.hero-console__status-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--ocher);
+  display: inline-block;
+}
+
+.hero-console__foot-scope {
+  font-weight: 700;
+  color: var(--paper);
+  /* Keep the selected scope readable when the reference row narrows. */
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.hero-console__foot-time {
+  opacity: 0.65;
 }
 
 .hero-badge {
@@ -525,12 +941,13 @@
 .hero-title {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: clamp(2.4rem, 6.2vw, 4.6rem);
+  width: 100%;
+  font-size: var(--hero-display);
   font-weight: 800;
-  line-height: 0.96;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: var(--tr-display);
   color: var(--paper);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
 }
 
 .hero-line {
@@ -539,23 +956,31 @@
 
 .hero-line-accent {
   display: block;
-  color: var(--accent);
-  /* Plain flag-blue accent — no gradient (anti-regression §11.1.3) */
+  color: var(--ocher);
+  /* Reserve one line of height so rotating phrases of different widths
+     don't shift the hero h1 layout. If a phrase ever exceeds one line
+     on a narrow viewport, the @media (max-width: 600px) override
+     below drops the font-size. */
+  min-height: calc(var(--hero-display) * 1.08);
+  white-space: nowrap;
+  font-size: var(--hero-phrase-size, 1em);
+  /* Ocher is editorial emphasis; blue still marks actions and live state. */
 }
 
 .hero-subtitle {
   max-width: 540px;
   margin: 0;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.55;
   font-weight: 500;
   color: var(--paper);
   opacity: 0.88;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  text-shadow: none;
 }
 
 .hero-actions {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 6px;
@@ -564,14 +989,16 @@
 .hero-actions .btn--primary,
 .hero-actions .btn--ghost {
   /* Pick up the global .btn base; override surfaces for legibility on map */
+  min-height: 44px;
+  letter-spacing: 0;
   background: var(--accent);
   border-color: var(--accent);
   color: var(--paper);
 }
 
 .hero-actions .btn--primary:hover {
-  background: #001a5c;
-  border-color: #001a5c;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
 }
 
 .hero-actions .btn--ghost {
@@ -587,9 +1014,12 @@
 
 /* ----- City node strip ----- */
 .hero-node-strip {
-  margin-top: 22px;
+  grid-area: nodes;
+  position: relative;
+  z-index: 4;
+  margin-top: 0;
   width: 100%;
-  max-width: 720px;
+  min-width: 0;
 }
 
 .hero-node-strip-label {
@@ -614,18 +1044,21 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 2px;
-  padding: 10px 12px;
+  padding: 6px 10px;
+  min-width: 0;
+  min-height: 48px;
   background: rgba(10, 10, 12, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--paper);
   font-family: inherit;
+  line-height: 1.4;
   cursor: pointer;
   text-align: left;
   transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
 }
 
 .hero-node:hover {
-  background: rgba(0, 36, 125, 0.5);
+  background: rgba(var(--accent-rgb), 0.5);
   border-color: var(--accent);
 }
 
@@ -637,28 +1070,41 @@
 .hero-node-name {
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: -0.005em;
+  letter-spacing: 0;
 }
 
 .hero-node-meta {
   font-family: ui-monospace, "JetBrains Mono", monospace;
   font-size: 9px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   text-transform: uppercase;
   opacity: 0.7;
 }
 
 /* ----- Hero stats ----- */
+/* A ruled strip: three marks, each with an accent bar, each sized to its
+   own text. The tiles were three equal 1fr tracks of a 684px column, so
+   "5" — twelve pixels of text — sat in a 208px box, seventeen times its
+   own width, and 139px of gap opened up between the marks because the
+   grid divided the column, not the reading. The tiles now take their
+   text's width. The space that frees up goes to the map, which is what
+   is behind them. */
 .hero-stats {
-  margin-top: 18px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 28px;
+  grid-area: stats;
+  position: relative;
+  z-index: 4;
+  align-self: end;
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, max-content));
+  justify-content: start;
+  gap: 12px;
 }
 
 .hero-stat {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 2px;
   border-left: 2px solid var(--accent);
   padding-left: 10px;
@@ -667,87 +1113,353 @@
 .hero-stat-value {
   font-size: 22px;
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   color: var(--paper);
   font-variant-numeric: tabular-nums;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
 }
 
 .hero-stat-label {
   font-family: ui-monospace, "JetBrains Mono", monospace;
   font-size: 9px;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0;
+  line-height: 1.5;
   text-transform: uppercase;
   color: var(--paper);
   opacity: 0.6;
 }
 
-/* ----- Scroll indicator ----- */
-.hero-scroll-indicator {
-  position: absolute;
-  z-index: 5;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 32px;
-  pointer-events: none;
-}
-
-.hero-scroll-line {
-  width: 1px;
-  height: 100%;
-  background: var(--paper);
-  opacity: 0.6;
-  animation: hero-scroll-down 1.8s ease-in-out infinite;
-}
-
-@keyframes hero-scroll-down {
-  0%   { transform: scaleY(0); transform-origin: top; }
-  50%  { transform: scaleY(1); transform-origin: top; }
-  51%  { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
-}
+/* ----- Scroll indicator -----
+   Removed. It was a 1px x 32px hairline at the viewport's horizontal
+   centre, at the bottom of the hero, with no arrowhead and no label —
+   a mark with nothing to point at. At 1024px it landed in the 11px
+   gutter between the copy column and the console with nothing around
+   it, which read as a rendering artifact rather than a cue. It was
+   already hidden below 700px, so it never carried the phone. The hero
+   ends on a rule and the next section starts immediately; the cue said
+   nothing the page did not. */
 
 /* ----- Responsive ----- */
+@media (max-width: 1199px) {
+  #hero { --hero-display: 64px; gap: 16px; }
+}
+
 @media (max-width: 900px) {
-  #hero { min-height: 78vh; }
-  .hero-content { padding-top: 14vh; }
-  .hero-title { font-size: clamp(2rem, 9vw, 3.4rem); }
+  .hero-console__foot { grid-template-columns: minmax(0, 1fr); }
+  #hero {
+    --hero-display: 56px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 'mode status' 'copy copy' 'nodes nodes' 'brief stats';
+  }
   .hero-stats { gap: 18px; }
   .hero-stat-value { font-size: 18px; }
-  .sat-hud { min-width: 0; left: 12px; right: 12px; transform: none; max-width: none; }
+  /* Controls share the first row; the brief stays in normal grid flow. */
+  .map-mode { top: auto; left: auto; }
+  .sat-hud {
+    top: auto;
+    min-width: 0;
+    left: auto;
+    right: auto;
+    transform: none;
+    max-width: none;
+  }
+  /* Mobile fallback: keep the DOM city label visible since the canvas
+     tick is hidden under the Leaflet map. Compact for narrow viewport. */
   .hero-city-label { top: 14px; right: 14px; font-size: 10px; }
-  .map-mode { top: 12px; left: 12px; }
   .sat-controls { bottom: 12px; right: 12px; flex-wrap: wrap; }
-  .map-explore-hint { display: none; }
   #intelOverlayDubai,
   #intelOverlayBangkok { display: none; }
 }
 
 @media (max-width: 600px) {
-  .hero-node-strip-scroller {
-    grid-template-columns: repeat(2, 1fr);
+  #hero {
+    --hero-display: 36px;
+    /* The AUTO TOUR bar sizes to its own content now, so the first column
+       has to be allowed to be as wide as that content — a fixed 132px track
+       wrapped "AUTO TOUR" onto two lines. */
+    grid-template-columns: max-content minmax(0, 1fr);
+    grid-template-areas: 'mode status' 'map map' 'copy copy' 'nodes nodes' 'brief brief' 'stats stats';
+    gap: 6px 12px;
+    padding-block: 10px 14px;
   }
-  .hero-actions { gap: 8px; }
+  .hero-copy { gap: 8px; }
+  .hero-map-space { display: block; grid-area: map; min-height: 180px; pointer-events: none; }
+  .hero-subtitle { font-size: 15px; line-height: 1.45; }
+  /* The place and system count keep their own rows: a tour stop must not
+     push the primary action down when its name reaches the wrap boundary. */
+  .sat-hud { flex-direction: column; align-items: stretch; gap: 2px; }
+  .sat-hud-row:first-child { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .sat-hud-theatre { margin-left: 0; }
+  .sat-hud-row:has(.sat-hud-signals) { display: none; }
+  .sat-hud-signals { display: none; }
+  .hero-node-strip-scroller {
+    /* All four theatres are visible at once. A sideways strip put the
+       fourth card behind a scroll the reader had no reason to know about,
+       and the theatre it named was a decision they could not make. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow-x: visible;
+  }
+  /* Cap the rotating second line so longer non-EN phrases never wrap
+     to 2 lines on a phone — keeps the hero h1 height stable across
+     the 6-phrase rotation. `that vanishes` (en) is the longest
+     remaining phrase; this guard covers every locale. */
+  .hero-node { scroll-snap-align: start; }
+  .hero-actions { gap: 8px; margin-top: 0; width: 100%; flex-wrap: nowrap; }
   .hero-actions .btn--primary,
   .hero-actions .btn--ghost {
-    min-height: 40px;
-    padding: 10px 14px;
+    min-height: 44px;
+    padding: 8px 10px;
     font-size: 10px;
+    letter-spacing: 0;
+    min-width: 0;
+    text-align: center;
   }
-  .sat-hud { font-size: 9px; padding: 6px 8px; }
+  .sat-hud { font-size: 10px; padding: 6px 8px; min-width: 0; }
   .sat-hud-row { gap: 8px; flex-wrap: wrap; }
-  .hero-city-label { display: none; }
+  /* .hero-city-label is canvas-rendered (pretext overlay); the DOM stays
+     in the accessibility tree for screen readers, no mobile override. */
+  .sat-btn { font-size: 11px; }
+  .sat-hud-tile { display: none; } /* hide CARTO tile-source debug line on mobile */
+  .sat-hud-provider { display: none; } /* hide CARTO source on mobile (debug info) */
+  .sat-source-note { display: none; } /* hide CARTO source in bottom-left on mobile */
+  .sat-controls { bottom: auto; top: 70px; right: 12px; flex-wrap: wrap; max-width: calc(100vw - 24px); }
+  .sat-control-label { display: none; } /* hide LABEL on mobile — saves space */
+}
+
+@media (max-width: 1023px) {
+  .sat-btn { font-size: 11px; } /* bigger touch target for tablet touch */
+  .sat-hud-tile { display: none; } /* hide debug tile line on tablet too */
 }
 
 @media (prefers-reduced-motion: reduce) {
   .sat-pulse-marker,
   .map-mode-dot,
   .sat-hud-live-dot,
-  .hero-scroll-line,
   .map-mode-btn-pulse {
     animation: none !important;
   }
+}
+
+/* ============================================================
+   HERO FEATURED — rotating system behind the headline.
+   When a system is worthy of the front page, it lives here.
+   Three rotating screenshots, low opacity, cross-fade every 6s.
+   The FEATURED panel sits at the bottom-LEFT so it doesn't fight
+   the map controls at the bottom-right.
+   ============================================================ */
+
+.hero-featured-bg {
+  display: none !important;
+}
+
+.hero-featured-bg__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1400ms ease-in-out, transform 14s linear;
+  filter: saturate(0.85) contrast(0.95);
+  will-change: opacity, transform;
+}
+
+.hero-featured-bg__slide.is-active {
+  opacity: 0.42;        /* visible enough to read, not enough to distract */
+  transform: scale(1.0);
+}
+
+/* Flat wash; the house style does not use gradients. */
+.hero-featured-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+/* FEATURED panel — middle-right, vertically centered. Fits the empty
+   right half of the hero so it doesn't fight the headline, the city
+   nodes, or the sat-controls. */
+.hero-featured-badge {
+  position: relative;
+  grid-area: brief;
+  align-self: end;
+  inset: auto;
+  transform: none;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 16px 18px 14px;
+  min-width: 0;
+  margin: 0;
+  max-width: none;
+  background: rgba(10, 12, 16, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 2px solid var(--accent);
+  color: var(--paper);
+  font-family: var(--mono, 'IBM Plex Mono', monospace);
+  text-decoration: none;
+  transition: background 150ms ease, border-color 150ms ease;
+  box-shadow: none;
+}
+
+.hero-featured-badge:hover {
+  background: rgba(10, 12, 16, 0.98);
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.32);
+  border-top-color: var(--accent);
+  box-shadow: none;
+}
+
+.hero-featured-badge__kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.hero-featured-badge__kicker::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--accent-ink);
+  display: inline-block;
+  box-shadow: none;
+}
+
+.hero-featured-badge__event {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.55;
+  margin-top: 2px;
+}
+
+.hero-featured-badge__name {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+  margin-top: 4px;
+  line-height: 1.05;
+}
+
+.hero-featured-badge__lede {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--paper);
+  opacity: 0.85;
+  font-family: var(--body, 'IBM Plex Sans', system-ui, sans-serif);
+  margin-top: 4px;
+}
+
+.hero-featured-badge__cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  width: 100%;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.hero-featured-badge__cta .tri {
+  margin-left: auto;
+  transition: transform 200ms ease;
+  font-size: 14px;
+}
+
+.hero-featured-badge:hover .hero-featured-badge__cta .tri {
+  transform: translateX(4px);
+}
+
+.hero-featured-badge__counter {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hero-featured-badge__dot {
+  width: 14px;
+  height: 2px;
+  background: var(--paper);
+  opacity: 0.25;
+  transition: opacity 200ms ease, background 200ms ease;
+}
+
+.hero-featured-badge__dot.is-active {
+  background: var(--accent);
+  opacity: 1;
+}
+
+/* Theatre brief stays visible during AUTO TOUR — it is the proof,
+   synced to each stop. Pause only freezes the map, not the narrative. */
+#hero.is-touring .hero-featured-badge,
+#hero:not(.is-touring) .hero-featured-badge {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+/* Tablet signal-label compaction. The .hero-featured-badge mobile rules
+   are placed further below so they can win the cascade against the
+   base rule (see "Mobile: top stack" block). */
+@media (max-width: 900px) {
+  .sat-signal-label { font-size: 8px; padding: 2px 4px; }
+}
+
+/* The brief participates in the grid on touch screens instead of disappearing. */
+@media (max-width: 900px) {
+  .hero-featured-badge { padding: 14px 16px; }
+  .hero-featured-badge__name { font-size: 22px; }
+}
+
+@media (max-width: 600px) {
+  .hero-featured-badge {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 8px;
+    padding: 10px;
+    width: 100%;
+  }
+  .hero-featured-badge__event { margin-top: 0; font-size: 8px !important; }
+  .hero-featured-badge__name,
+  .hero-featured-badge__lede,
+  .hero-featured-badge__cta { grid-column: 1 / -1; margin-top: 0; }
+  .hero-featured-badge__lede { font-size: 13px; }
+  .hero-featured-badge__cta { margin-top: 4px; padding-top: 8px; }
+  .hero-stats { gap: 16px; }
+  .hero-stat-value { font-size: 22px; }
+  .hero-city-label { display: none; }
+}
+
+#hero :is(button, a):focus-visible {
+  outline: 2px solid var(--ocher);
+  outline-offset: 3px;
+}
+
+#hero :is(.hero-badge, .map-mode-indicator, .map-explore-hint, .sat-hud,
+  .sat-hud-live, .sat-hud-theatre, .sat-hud-signals, .sat-hud-watching,
+  .hero-node-strip-label, .hero-featured-badge__kicker, .hero-featured-badge__event,
+  .hero-featured-badge__cta, .sat-signal-label) {
+  letter-spacing: 0;
 }
