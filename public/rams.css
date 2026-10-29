@@ -979,6 +979,19 @@ summary:focus-visible {
   }
 }
 
+/* §4.1 PITCH RESULTS — four result cells of very different length. Equal
+   1fr tracks stretch the short ones ("77 FloodDash") to match the long
+   ones ("SLIC Index · Taipei"). Columns size to their own content, row
+   packs left. Single column below 760px. */
+.pitch-results {
+  grid-template-columns: repeat(4, minmax(0, max-content));
+  justify-content: start;
+  gap: 8px;
+}
+@media (max-width: 759px) {
+  .pitch-results { grid-template-columns: minmax(0, max-content); }
+}
+
 /* §4.2 STAT CELL — label left-grey, value large, tabular */
 .stat__lbl {
   font-size: var(--t-label);
@@ -1979,13 +1992,13 @@ summary:focus-visible {
   min-width: 0;
 }
 
-/* A ruled strip of tags. The strip is a table, so it is a grid: the cells
-   are equal and the rows are decided. The rule belongs to the cell, as it
-   does in the hairline cell grid — a frame painted by the grid shows
-   through wherever the last row is short. */
+/* A ruled strip of tags. Tags are labels, not a comparison: each takes its
+   own width and the row packs left. Equal 1fr tracks would stretch short
+   tags to fill the row, so columns size to content instead. */
 .tags {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(0, max-content));
+  justify-content: start;
   gap: 1px;
   background: transparent;
 }
@@ -2179,9 +2192,12 @@ summary:focus-visible {
 .pitch-faq .btn { min-height: 44px; }
 
 @media (min-width: 760px) {
-  .pitch-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; }
+  /* Steps and FAQ items are different lengths — equal 1fr tracks stretch
+     the short ones to match the long. Columns size to their own content,
+     row packs left. */
+  .pitch-steps { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); justify-content: start; gap: 20px; align-items: start; }
   .pitch-steps .numbered { border-bottom: 0; }
-  .pitch-faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+  .pitch-faq { display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); justify-content: start; gap: 24px; align-items: start; }
   .field-band__cap .field-band__title { margin: 4px 0 0; }
 }
 

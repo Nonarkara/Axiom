@@ -719,7 +719,11 @@
 
 .hero-console__metric-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* Three metrics of very different length — "71", "8", "0" — in equal
+     1fr tracks would stretch each short value to fill a third of the
+     console. Columns size to their content instead; the row packs left. */
+  grid-template-columns: repeat(3, minmax(0, max-content));
+  justify-content: start;
   gap: 8px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -794,7 +798,10 @@
 
 .hero-console__impact-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* Two impact cards with different content — equal 1fr tracks stretch the
+     shorter one to fill half the grid. Size each to its own content. */
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  justify-content: start;
   gap: 10px;
 }
 
