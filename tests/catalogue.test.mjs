@@ -270,3 +270,12 @@ test('the reading-room catalogue is grouped, so each cluster header prints once'
     }
   }
 });
+
+// A system added without a spatial sweep passes the gate by not being in it:
+// seven systems (dhaka, burma, tsunami, universe-69, pavilion, llm, dog) shipped
+// unmeasured while every check stayed green.
+test('every reading-room system has a measured route in the spatial baseline', async () => {
+  const baseline = JSON.parse(await readFile(new URL('../design/spatial-baseline.json', import.meta.url), 'utf8'));
+  const missing = Array.from(systems, s => '/' + s.id).filter(r => !baseline.routes[r]);
+  assert.deepEqual(missing, [], `sweep these routes and record them: ${missing.join(', ')}`);
+});

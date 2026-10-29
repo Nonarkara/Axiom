@@ -5,7 +5,7 @@
     "file": "docs/design/evidence/axiom-390x844.png",
     "vw": 390,
     "vh": 844,
-    "docH": 31515,
+    "docH": 32927,
     "headerH": 50,
     "topH": 0,
     "bottomH": 0,
@@ -48,14 +48,14 @@
     "assets": [
       "https://axiom.nonarkara.org/rams.css?v=20261027a",
       "https://axiom.nonarkara.org/hero.css?v=20261027a",
-      "https://axiom.nonarkara.org/i18n-regional.js?v=20261025b",
+      "https://axiom.nonarkara.org/i18n-regional.js?v=20261028b",
       "https://axiom.nonarkara.org/footprint.js?v=20261027a",
-      "https://axiom.nonarkara.org/app.js?v=20261026a",
+      "https://axiom.nonarkara.org/app.js?v=20261028b",
       "https://axiom.nonarkara.org/editorial.css?v=20261005h",
       "https://axiom.nonarkara.org/circuit.css?v=20261024a"
     ],
     "h1": {
-      "text": "Innovation\n          as a Service",
+      "text": "Innovation\n          in two weeks",
       "size": 36,
       "y": 345,
       "bottom": 423
@@ -64,7 +64,7 @@
     "voice": [
       {
         "tag": "H1.hero-title",
-        "text": "Innovation\n          as a Service",
+        "text": "Innovation\n          in two weeks",
         "size": 36,
         "weight": "800",
         "y": 345
@@ -92,7 +92,7 @@
     "file": "docs/design/evidence/axiom-1024x900.png",
     "vw": 1024,
     "vh": 900,
-    "docH": 12345,
+    "docH": 12889,
     "headerH": 50,
     "topH": 0,
     "bottomH": 0,
@@ -135,9 +135,9 @@
     "assets": [
       "https://axiom.nonarkara.org/rams.css?v=20261027a",
       "https://axiom.nonarkara.org/hero.css?v=20261027a",
-      "https://axiom.nonarkara.org/i18n-regional.js?v=20261025b",
+      "https://axiom.nonarkara.org/i18n-regional.js?v=20261028b",
       "https://axiom.nonarkara.org/footprint.js?v=20261027a",
-      "https://axiom.nonarkara.org/app.js?v=20261026a",
+      "https://axiom.nonarkara.org/app.js?v=20261028b",
       "https://axiom.nonarkara.org/editorial.css?v=20261005h",
       "https://axiom.nonarkara.org/circuit.css?v=20261024a"
     ],
@@ -179,7 +179,7 @@
     "file": "docs/design/evidence/axiom-1440x900.png",
     "vw": 1440,
     "vh": 900,
-    "docH": 12607,
+    "docH": 13188,
     "headerH": 58,
     "topH": 0,
     "bottomH": 0,
@@ -222,9 +222,9 @@
     "assets": [
       "https://axiom.nonarkara.org/rams.css?v=20261027a",
       "https://axiom.nonarkara.org/hero.css?v=20261027a",
-      "https://axiom.nonarkara.org/i18n-regional.js?v=20261025b",
+      "https://axiom.nonarkara.org/i18n-regional.js?v=20261028b",
       "https://axiom.nonarkara.org/footprint.js?v=20261027a",
-      "https://axiom.nonarkara.org/app.js?v=20261026a",
+      "https://axiom.nonarkara.org/app.js?v=20261028b",
       "https://axiom.nonarkara.org/editorial.css?v=20261005h",
       "https://axiom.nonarkara.org/circuit.css?v=20261024a"
     ],
