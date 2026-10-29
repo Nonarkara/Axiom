@@ -3005,3 +3005,20 @@ html:not([lang="th"]) .foot-th-only { display: none; }
   filter: grayscale(0.55) contrast(0.92);
   opacity: 0.88;
 }
+
+/* Flagship cell — spans all columns of its grid row so no orphan cell
+   sits alone with empty space beside it. Used on the last cell of a
+   cluster whose count doesn't divide by the column count. */
+.sys-cell--full {
+  grid-column: 1 / -1;
+  /* Flex items stretch horizontally by default in a column-direction
+     container. For the flagship we keep the head compact (idx + badge)
+     at the left instead of stretched across all three columns — the
+     space beside a stretched head reads as dead space, not emphasis. */
+  align-items: start;
+}
+
+/* The body still needs to stretch vertically to fill the cell. */
+.sys-cell--full .sys-cell__body {
+  align-self: stretch;
+}

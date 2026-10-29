@@ -5715,6 +5715,7 @@
       "href": "https://nonarkara.org/",
       "domId": "pavilion",
       "variant": "link",
+      "full": true,
       "edition": null,
       "image": {
         "src": "screenshots/pavilion.jpg",

@@ -382,8 +382,9 @@ function cellMarkup(system) {
     ].join('\n');
   }
 
+  const cellClass = system.full ? 'sys-cell sys-cell--full' : 'sys-cell';
   return [
-    `${indent}<a class="sys-cell"${domId} data-arch="${system.id}" href="${system.href}" target="_blank" rel="noopener">`,
+    `${indent}<a class="${cellClass}"${domId} data-arch="${system.id}" href="${system.href}" target="_blank" rel="noopener">`,
     head, picture, body,
     `${indent}</a>`,
   ].join('\n');
