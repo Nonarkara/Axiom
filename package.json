@@ -24,6 +24,8 @@
     "qa:compact": "node .qa/compact-layout.mjs",
     "qa:compact:falsify": "node .qa/compact-layout.mjs --mode falsify",
     "qa:spatial:falsify": "node scripts/spatial/spatial-falsify.mjs",
-    "qa:sweep": "node .qa/spatial-sweep.mjs"
+    "qa:sweep": "node .qa/spatial-sweep.mjs",
+    "catalogue:build": "node scripts/catalogue/build.mjs",
+    "catalogue:check": "node scripts/catalogue/check.mjs"
   }
 }

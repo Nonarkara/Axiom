@@ -247,9 +247,7 @@ journeys include both collections; `tests/ebooks.test.mjs` guards their scope,
 destinations, numbering, and artwork. `npm run qa:ebooks` exercises the three
 entries at 390/1024/1440; `AXIOMX_URL` runs it against the canonical deployment.
 
-`axiom.nonarkara.org` and `axiomx.nonarkara.org` are two sites presenting **one catalogue**. `axiomx/catalog.js` holds it as data; `public/index.html` renders it as cards. They are the same 73 systems, and they must agree on every one of them.
-
-They did not, for a long time, and every test on either site was green the whole time:
+`axiom.nonarkara.org` and `axiomx.nonarkara.org` are two sites presenting **one catalogue**. It used to be written by hand in six places, and it drifted:
 
 - `simcity` and `tdv` sat in Lab on axiom and in City Dashboards on axiomx, so the two sites stated different cluster sizes for the same systems.
 - `formhypes` and `colors` both claimed the number 59.
@@ -257,10 +255,41 @@ They did not, for a long time, and every test on either site was green the whole
 
 `tests/catalogue.test.mjs` is the guard that would have caught all of it: same ids, same cluster per id, same number per id, no shared URL, no shared copy key, and no duplicate key inside a locale's copy block. `npm test` runs it.
 
-Two rules that came out of it:
+### The catalogue is one file, and the renderings are generated from it
+
+**Since 2026-10-29 the catalogue has a single source of truth: `data/catalogue/`.** Six artefacts are generated from it and committed:
+
+| Artefact | What it holds |
+|---|---|
+| `public/app.js` | the copy tables (`panels`, `cats`, `sysStatus`, `sysClusters`), the architecture blocks, the proof line |
+| `public/i18n-regional.js` | the same tables for ko, ja, vi |
+| `public/index.html` | the catalogue cells, in their cluster grids |
+| `axiomx/catalog.js` | `window.AXIOM_SYSTEMS` |
+| `axiomx/i18n.js` | the reading room's per-locale copy and status words |
+| `axiomx/plates.js` | `window.AXIOM_PLATES` |
+
+```bash
+node scripts/catalogue/build.mjs    # write the artefacts from data/catalogue/
+node scripts/catalogue/check.mjs    # fail if they disagree with it
+```
+
+`tests/catalogue-source.test.mjs` runs the check as part of `npm test`, so a hand edit to an artefact that the source does not know about fails the build instead of shipping. **Edit `data/catalogue/systems.json`, then run the generator** — never edit the generated files.
+
+What the pipeline found, all of it live on the public site before the change:
+
+- The reading room's catalogue held a **third, stale copy** of sixteen systems' English descriptions and six call-to-actions, different from the copy both sites actually render and translate into six languages. It was used as a fallback and as the search corpus, so searching for the words on the page found nothing.
+- **Three categories were filed under two keys each** — `c03`/`c39`, `c13`/`c49`, `c38`/`c48` — and the two copies were not the same words in ko, ja, vi or ts. The same category came out two ways depending on which card asked for it. One key per category now.
+- **The reading room had no word for four states** — "Coming soon", "In Development", "Emerging", "Sign-in required" — and printed them in English in every language.
+- **The status vocabulary disagreed**: the podcast was "Preview" on the main site, "Emerging" in the reading room, and "Live" in the console chips. One vocabulary, one meaning, all seven languages.
+- **The cluster counts were typed**, and ko, ja and vi still said the Intelligence cluster held 8 systems while it held 9.
+- **One panel was dead** (`panels.p03`), kept alive in seven languages and two files by nothing.
+
+Four rules that came out of it:
 
 - **A duplicate key in an object literal overwrites by position, not by intent.** Guard for duplicate keys directly; a check that looks for missing content will never see this.
 - **When two catalogue entries turn out to be the same system, let the live system name it.** The live FormHypes titles itself *"FormHypes — Architectural intelligence"* and brands *"FormHypes, inspired by SHDT"* — SHDT is the MIT classmate, not the product. So the surviving card is "FormHypes · SHDT", and the count is 70.
+- **One fact, one place, one wording.** A catalogue entry's description, category, status and destination are stated once and rendered everywhere. Two copies of a fact will disagree; the question is never *which* one wins but *why there are two*.
+- **Numbers derive, never typed.** The system count, the cluster counts and the proof line are computed from the catalogue. A typed count is a claim that goes stale the moment a system is added.
 
 ### The thumbnails are one band, and the crop window moves
 

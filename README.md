@@ -32,7 +32,7 @@ Both are deployed by GitHub Actions on push to `main`. They are different produc
 | Site | Host | Source | What it is |
 |---|---|---|---|
 | **Axiom** | [axiom.nonarkara.org](https://axiom.nonarkara.org) | `public/` | The pitch. One screen, live, click it. Satellite-intelligence dashboard used as marketing language. Seven locales. |
-| **axiomx** | axiomx.nonarkara.org | `axiomx/` | The argument. A two-pane book reader — 113 long-form entries. The case you make to a governor, not the one-liner you make to a browser. |
+| **axiomx** | axiomx.nonarkara.org | `axiomx/` | The argument. A two-pane book reader — 119 long-form entries. The case you make to a governor, not the one-liner you make to a browser. |
 
 The two sites argue deliberately opposite opening lines. The main site says *one screen, live, click it*. axiomx opens with:
 
@@ -131,7 +131,8 @@ No framework. No bundler. No build step. Edit `public/`, commit, push.
 | Deploy (main) | GitHub Actions → Cloudflare Pages project `axiom` → [axiom.nonarkara.org](https://axiom.nonarkara.org) (alias: `axiom-9ye.pages.dev`) |
 | Deploy (axiomx) | GitHub Actions → Cloudflare Pages project `axiomx` → axiomx.nonarkara.org (alias: `axiomx-1d4.pages.dev`) |
 | axiomx shell | `axiomx/index.html` + `axiomx/style.css` — navy `#00247d` / red `#a51931` on paper. **Not** the main site's Lyons blue + ocher |
-| axiomx content | `axiomx/reader.js` (all prose and rendering) + `axiomx/catalog.js` (67 systems × 20 fields, generated) |
+| axiomx content | `axiomx/reader.js` (all prose and rendering) + `axiomx/catalog.js` (80 systems, generated) |
+| The catalogue | `data/catalogue/` — one source of truth for all 80 systems, in all seven languages. `node scripts/catalogue/build.mjs` writes both sites from it; `npm test` fails if they disagree |
 | Local data | `data/axiom.sqlite` — gitignored. Not a production warehouse |
 
 The Cloudflare workflow deploys the `public/` folder as-is. There is no compile step between your editor and the live site. Cache-bust query strings (`?v=YYYYMMDDxx`) on CSS/JS exist because Cloudflare caches; bump them when those files change.
@@ -235,12 +236,12 @@ Forks will not publish to axiom.nonarkara.org unless they wire their own Pages p
 
 ```bash
 npm test                                            # security + circuit regression suites
-node .qa/axiomx-journeys.mjs                        # 51 human journeys, axiomx on :5311
+node .qa/axiomx-journeys.mjs                        # 191 human journeys, axiomx on :5311
 AXIOMX_URL=https://axiomx.nonarkara.org/ \
   node .qa/axiomx-journeys.mjs                      # the same journeys against the live host
 ```
 
-The axiomx suite expects **51 PASS, 0 FAIL**. Point it at the canonical host, not the `pages.dev` alias — the alias cannot catch a broken domain, which is exactly how a missing DNS record went unnoticed here.
+The axiomx suite expects **191 PASS, 0 FAIL**. Point it at the canonical host, not the `pages.dev` alias — the alias cannot catch a broken domain, which is exactly how a missing DNS record went unnoticed here.
 
 ---
 
