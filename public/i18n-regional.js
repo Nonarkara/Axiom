@@ -12,7 +12,7 @@
     "hero": {
       "badge": "공개 프로젝트 목록",
       "titleLine1": "혁신",
-      "subtitle": "도시는 데이터를 갖고 있지만, 중요한 순간에 아무도 보지 못합니다. 가장 어려운 결정을 위해 그것을 하나의 실시간 화면에 올립니다 — 2주 안에 작동합니다.",
+      "subtitle": "창업자가 직접 만드는 의사결정 시스템. 2주 안에 여러분의 팀과 작동하는 시제품을 검증합니다.",
       "cta": "2주 검증 시작하기",
       "ctaSecondary": "시스템 보기",
       "nodeLabel": "전장을 탭하세요",
@@ -202,6 +202,7 @@
       "press": "언론",
       "brand": "브랜드 키트",
       "credentials": "자격",
+      "co": "co.nonarkara",
       "cta": "함께하기"
     },
     "heroCurrent": {
@@ -835,6 +836,11 @@
           "lede": "태국 토종 방깨우 견종의 해부학적 구조, 걸음걸이, 경계 자세를 정밀하게 모델링하는 3D 절차적 시뮬레이션 스튜디오.",
           "cta": "Canine Studio 열기",
           "name": "CANINE // 방깨우"
+        },
+        "hikaruNonGo": {
+          "name": "Hikaru Non Go",
+          "lede": "집, 활로, 다음 수를 눈으로 살펴보는 바둑 배움터. 바둑판에서 두고, 강의를 따라 배우며 기보를 읽습니다. 형세 추정은 추정일 뿐 사활의 증명은 아닙니다.",
+          "cta": "바둑 두고 배우기"
         }
       },
     "stagesContent": {
@@ -1116,6 +1122,7 @@
         "c61": "색채 전시",
         "c46": "오픈 소스 키트",
         "c62": "모델 훈련",
+        "c64": "바둑 배움터",
         "c63": "절차적 3D 개 스튜디오"
       },
     "bioCommon": {
@@ -1201,7 +1208,7 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-        "sysMeta": "80개 시스템 · 5개국",
+        "sysMeta": "81개 시스템 · 5개국",
         "command": "도시 대시보드",
         "commandMeta": "실시간 도시 운영실 및 환경 관측 · 24",
         "intelligence": "인텔리전스",
@@ -1211,7 +1218,7 @@
         "emerging": "신규",
         "emergingMeta": "연구급 및 새 운영 모델 · 13",
         "lab": "랩",
-        "labMeta": "보조 도구 · 공개 진행 · 25"
+        "labMeta": "보조 도구 · 공개 진행 · 26"
       },
     "sysStatus": {
         "live": "라이브",
@@ -1276,7 +1283,7 @@
     "hero": {
       "badge": "公開プロジェクト目録",
       "titleLine1": "革新",
-      "subtitle": "データはあるのに、肝心なときに誰にも見えない。最も難しい意思決定のために、それをひとつのライブ画面にまとめます——2週間で稼働します。",
+      "subtitle": "創業者が自らつくる意思決定システム。2週間で、チームと動く試作を検証します。",
       "cta": "2週間の実証を始める",
       "ctaSecondary": "システムを見る",
       "nodeLabel": "戦域をタップ",
@@ -1466,6 +1473,7 @@
       "press": "メディア",
       "brand": "ブランドキット",
       "credentials": "資格",
+      "co": "co.nonarkara",
       "cta": "ご相談"
     },
     "heroCurrent": {
@@ -2099,6 +2107,11 @@
           "lede": "タイ原産バンケーウ犬の解剖構造、歩様、警戒姿勢を精密に再現する3Dプロシージャル・シミュレーションスタジオ。",
           "cta": "Canine Studioを開く",
           "name": "CANINE // バンケーウ"
+        },
+        "hikaruNonGo": {
+          "name": "Hikaru Non Go",
+          "lede": "地、呼吸点、次の一手を見て考える囲碁の学び舎。盤上で打ち、レッスンを進め、棋譜を読みます。形勢の推定はあくまで推定であり、死活の証明ではありません。",
+          "cta": "囲碁を打って学ぶ"
         }
       },
     "stagesContent": {
@@ -2373,6 +2386,7 @@
         "c61": "色彩展示",
         "c46": "オープンソースキット",
         "c62": "モデル訓練",
+        "c64": "囲碁の学び舎",
         "c63": "手続き型3D犬スタジオ"
       },
     "bioCommon": {
@@ -2458,7 +2472,7 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-        "sysMeta": "80システム · 5か国",
+        "sysMeta": "81システム · 5か国",
         "command": "シティダッシュボード",
         "commandMeta": "リアルタイム都市運用室と環境観測 · 24",
         "intelligence": "インテリジェンス",
@@ -2468,7 +2482,7 @@
         "emerging": "新興",
         "emergingMeta": "研究グレードと新運用モデル · 13",
         "lab": "ラボ",
-        "labMeta": "補助ツール · 公開中 · 25"
+        "labMeta": "補助ツール · 公開中 · 26"
       },
     "sysStatus": {
         "live": "稼働中",
@@ -2533,7 +2547,7 @@
     "hero": {
       "badge": "Danh mục dự án công khai",
       "titleLine1": "Đổi mới",
-      "subtitle": "Thành phố của bạn có dữ liệu, nhưng lúc quan trọng không ai nhìn thấy. Chúng tôi đưa nó lên một màn hình trực tiếp cho quyết định khó nhất của bạn — chạy được trong hai tuần.",
+      "subtitle": "Nhà sáng lập trực tiếp xây hệ thống quyết định. Cùng đội ngũ bạn thử bản chạy thật trong hai tuần.",
       "cta": "Bắt đầu thử nghiệm hai tuần",
       "ctaSecondary": "Xem hệ thống",
       "nodeLabel": "Chạm chọn chiến trường",
@@ -2723,6 +2737,7 @@
       "press": "Báo chí",
       "brand": "Bộ nhận diện thương hiệu",
       "credentials": "Hồ sơ pháp lý",
+      "co": "co.nonarkara",
       "cta": "Hợp tác"
     },
     "heroCurrent": {
@@ -3356,6 +3371,11 @@
           "lede": "Xưởng mô phỏng thủ tục và giải phẫu 3D tái hiện cấu trúc cơ thể, dáng đi và tư thế cảnh giác của giống chó Bangkaew bản địa Thái Lan.",
           "cta": "Mở Canine Studio",
           "name": "CANINE // Bang Kẹo"
+        },
+        "hikaruNonGo": {
+          "name": "Hikaru Non Go",
+          "lede": "Nhà học cờ vây giúp nhìn rõ lãnh thổ, khí và nước đi tiếp theo. Chơi trên bàn, học theo bài và đọc kỳ phổ. Ước tính điểm vẫn là ước tính, không phải chứng minh sống chết của nhóm quân.",
+          "cta": "Chơi và học cờ vây"
         }
       },
     "stagesContent": {
@@ -3630,6 +3650,7 @@
         "c61": "Triển lãm màu sắc",
         "c46": "Bộ công cụ mã nguồn mở",
         "c62": "Huấn luyện mô hình",
+        "c64": "Nhà học cờ vây",
         "c63": "Xưởng mô phỏng chó 3D"
       },
     "bioCommon": {
@@ -3715,7 +3736,7 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-        "sysMeta": "80 hệ thống · 5 quốc gia",
+        "sysMeta": "81 hệ thống · 5 quốc gia",
         "command": "Bảng điều khiển thành phố",
         "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 24",
         "intelligence": "Tình báo",
@@ -3725,7 +3746,7 @@
         "emerging": "Mới nổi",
         "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 13",
         "lab": "Lab",
-        "labMeta": "Công cụ phụ · mở công khai · 25"
+        "labMeta": "Công cụ phụ · mở công khai · 26"
       },
     "sysStatus": {
         "live": "Trực tiếp",

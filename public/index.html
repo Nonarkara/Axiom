@@ -52,15 +52,15 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=optional"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20261029c">
-  <link rel="stylesheet" href="hero.css?v=20261029a">
+  <link rel="stylesheet" href="rams.css?v=20261030a">
+  <link rel="stylesheet" href="hero.css?v=20261030a">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
-  <script src="i18n-regional.js?v=20261028b"></script>
+  <script src="i18n-regional.js?v=20261103a"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
   <script defer src="footprint.js?v=20261027a"></script>
-  <script defer src="app.js?v=20261028b"></script>
+  <script defer src="app.js?v=20261103a"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -192,11 +192,12 @@
         <a href="#press" data-i18n="navCurrent.press">Press</a>
         <a href="#brand" data-i18n="navCurrent.brand">Brand Kit</a>
         <a href="#credentials" data-i18n="navCurrent.credentials">Credentials</a>
+        <a href="https://co.nonarkara.org/" data-i18n="navCurrent.co">co.nonarkara</a>
       </nav>
       <div id="localeSwitch" class="locale-switch" aria-label="Language">
         <button data-locale="en" class="active" aria-label="English">EN</button>
-        <button data-locale="th" aria-label="ภาษาไทย">TH</button>
-        <button data-locale="zh" aria-label="中文（简体）">ZH</button>
+        <button data-locale="th" lang="th" aria-label="ภาษาไทย">TH</button>
+        <button data-locale="zh" lang="zh-Hans" aria-label="中文（简体）">ZH</button>
         <button data-locale="ko" aria-label="한국어">KO</button>
         <button data-locale="ja" aria-label="日本語">JA</button>
         <button data-locale="vi" aria-label="Tiếng Việt">VI</button>
@@ -210,6 +211,7 @@
 
     <!-- ============== HERO — restored from ee756b7 ============== -->
     <section id="hero" class="is-touring">
+      <div class="hero-stage">
       <div id="heroMap"></div>
       <canvas id="heroCanvas"></canvas>
       <div class="hero-map-space" aria-hidden="true"></div>
@@ -257,7 +259,7 @@
           <span class="hero-line hero-line-accent" id="heroRotatingText">as a Service</span>
         </h1>
         <p class="hero-subtitle" data-i18n="hero.subtitle">
-          City data exists. Nobody sees it in crisis. One screen. One decision. Two weeks.
+          Decision systems, built by the founders. A working proof with your team in two weeks.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn--primary">
@@ -293,11 +295,11 @@
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
-            <span class="hero-stat-value" data-count="catalog">80</span>
+            <span class="hero-stat-value" data-count="catalog">81</span>
             <span class="hero-stat-label" data-i18n="hero.statSystems">Catalogue systems</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-value" data-count="live">68</span>
+            <span class="hero-stat-value" data-count="live">69</span>
             <span class="hero-stat-label" data-i18n="hero.statMonitoring">Labelled Live</span>
           </div>
           <div class="hero-stat">
@@ -305,6 +307,7 @@
             <span class="hero-stat-label" data-i18n="hero.statCountries">Countries</span>
           </div>
         </div>
+      </div>
       </div>
       <div class="hero-proof">
         <div class="map-explore-hint" id="mapExploreHint">
@@ -338,7 +341,7 @@
           <div class="hero-console__panel" id="panelSystems" role="tabpanel" aria-labelledby="tabBtnSystems">
             <div class="hero-console__metric-row">
               <div class="hero-console__metric">
-                <span class="hero-console__metric-val" data-count="live">68</span>
+                <span class="hero-console__metric-val" data-count="live">69</span>
                 <span class="hero-console__metric-lbl" data-i18n="heroConsole.systemsLabel">Labelled Live</span>
               </div>
               <div class="hero-console__metric">
@@ -589,7 +592,7 @@
             <p class="t-body-2" data-i18n="pitch.r4" style="margin:6px 0 0;">A vendor called it too complex. A working version was in the room fourteen days later.</p>
           </div>
         </div>
-        <p class="t-body-2" data-i18n="pitch.proofLine" style="max-width:64ch;margin:0 0 16px;">80 systems across 5 countries. Open one. Use it. Judge.</p>
+        <p class="t-body-2" data-i18n="pitch.proofLine" style="max-width:64ch;margin:0 0 16px;">81 systems across 5 countries. Open one. Use it. Judge.</p>
 
         <div class="t-label" data-i18n="pitch.faqLabel">Before you ask</div>
         <div class="pitch-faq">
@@ -640,7 +643,7 @@
       <div class="wrap">
         <div class="s-head">
           <div class="s-head__title" data-i18n="sysSect.kicker">Live in production</div>
-          <div class="s-head__meta" data-i18n="sysClusters.sysMeta">80 systems · 5 countries</div>
+          <div class="s-head__meta" data-i18n="sysClusters.sysMeta">81 systems · 5 countries</div>
         </div>
         <p class="t-body-2" data-i18n="sysSect.lede" style="max-width:64ch;margin:0 0 8px;">Each system below started as one decision someone couldn't make fast enough. Live today. Open. Use. Judge.</p>
 
@@ -692,7 +695,7 @@
             </div>
           </div>
             <div class="field-band__points">
-              <p class="field-band__line" data-i18n="field.line">Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is not a pitch delivered in a conference room — it is engineered standing where the question gets asked. Here is what this proves about our cutting-edge approach:</p>
+              <p class="field-band__line" data-i18n="field.line">Recorded standing in shin-deep floodwaters during the monsoon peak. Innovation-as-a-Service is built where the question gets asked, with the people who must act. What the field changes in the build:</p>
               <div class="field-band__point">
                 <span class="field-band__point-num">01</span>
                 <div class="field-band__point-body">
@@ -704,7 +707,7 @@
                 <span class="field-band__point-num">02</span>
                 <div class="field-band__point-body">
                   <strong data-i18n="field.point2Title">Calibrated Against Physical Ground Reality</strong>
-                  <p data-i18n="field.point2Desc">Thresholds and alerts are tested in the flooded soi with operators and residents. Decisions happen in seconds without phone trees or bureaucratic lag.</p>
+                  <p data-i18n="field.point2Desc">Operators and residents test thresholds and alerts in the flooded soi. The people making the decision can check the same evidence.</p>
                 </div>
               </div>
               <div class="field-band__point">
@@ -1290,7 +1293,7 @@
               <span class="sys-cell__link"><span data-i18n="panels.universe_69.cta">Observe Universe 69</span> <span class="tri">▸</span></span>
             </div>
           </a>
-          <a class="sys-cell sys-cell--full" id="pavilion" data-arch="pavilion" href="https://nonarkara.org/" target="_blank" rel="noopener">
+          <a class="sys-cell" id="pavilion" data-arch="pavilion" href="https://nonarkara.org/" target="_blank" rel="noopener">
             <div class="sys-cell__head"><span class="sys-cell__idx">80</span><span class="sys-cell__status"><span class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
             <picture><source srcset="screenshots/pavilion.webp" type="image/webp"><img class="sys-cell__shot" src="screenshots/pavilion.jpg" loading="lazy" width="1024" height="638" alt="The Pavilion · Spatial World — browser-native spatial metaverse built from scratch with modern architecture materials"></picture>
             <div class="sys-cell__body">
@@ -1310,7 +1313,7 @@
         <!-- LAB -->
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.lab">Lab</div>
-          <div class="s-head__meta" data-i18n="sysClusters.labMeta">Side tools · in the open · 25</div>
+          <div class="s-head__meta" data-i18n="sysClusters.labMeta">Side tools · in the open · 26</div>
         </div>
         <div class="grid grid--3">
           <a class="sys-cell" data-arch="omniarcade" href="https://games.nonarkara.org/" target="_blank" rel="noopener">
@@ -1561,6 +1564,16 @@
               <div class="sys-cell__cat" data-i18n="cats.c63">Procedural 3D Canine Studio</div>
               <div class="sys-cell__lede" data-i18n="panels.dog.lede">A 3D anatomical and procedural simulation studio modeling the structure, gait, and alert posture of Thailand&#39;s native Bangkaew dog breed.</div>
               <span class="sys-cell__link"><span data-i18n="panels.dog.cta">Open Canine Studio</span> <span class="tri">▸</span></span>
+            </div>
+          </a>
+          <a class="sys-cell" id="hikaru-non-go" data-arch="hikaru-non-go" href="https://go.nonarkara.org/" target="_blank" rel="noopener">
+            <div class="sys-cell__head"><span class="sys-cell__idx">81</span><span class="sys-cell__status"><span class="dot"></span><span data-i18n="sysStatus.live">Live</span></span></div>
+            <picture><source srcset="screenshots/hikaru-non-go.webp" type="image/webp"><img class="sys-cell__shot sys-cell__shot--middle" src="screenshots/hikaru-non-go.png" loading="lazy" width="1194" height="834" alt="Hikaru Non Go: a Go board with move comparison, liberties and territory estimates"></picture>
+            <div class="sys-cell__body">
+              <div class="sys-cell__name" data-i18n="panels.hikaruNonGo.name">Hikaru Non Go</div>
+              <div class="sys-cell__cat" data-i18n="cats.c64">Go Study House</div>
+              <div class="sys-cell__lede" data-i18n="panels.hikaruNonGo.lede">A Go study house that makes territory, liberties and the next move inspectable. Play on the board, follow lessons and read game records. Score estimates stay estimates, not life-and-death proof.</div>
+              <span class="sys-cell__link"><span data-i18n="panels.hikaruNonGo.cta">Play and study Go</span> <span class="tri">▸</span></span>
             </div>
           </a>
         </div>
@@ -1930,63 +1943,63 @@
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="4.5"/><rect x="3.5" y="11" width="17" height="4.5"/><rect x="3.5" y="17.5" width="17" height="4.5"/><circle cx="6.5" cy="6.75" r="0.6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="13.25" r="0.6" fill="currentColor" stroke="none"/><circle cx="6.5" cy="19.75" r="0.6" fill="currentColor" stroke="none"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l1name">Cloud Infrastructure</span><span class="stack__role" data-i18n="builtStack.l1role">where it runs</span><span class="stack__count">14</span></div>
+              <div class="stack__head"><span class="stack__label"><span class="stack__name" data-i18n="builtStack.l1name">Cloud Infrastructure</span><span class="stack__role" data-i18n="builtStack.l1role">where it runs</span></span><span class="stack__count">14</span></div>
               <div class="stack__items"><span data-runtime="local">Docker</span><span class="is-fav" data-runtime="cloud">GitHub Pages</span><span data-runtime="cloud">Vercel</span><span data-runtime="cloud">Cloudflare Pages</span><span data-runtime="cloud">Cloudflare Workers</span><span data-runtime="cloud" title="CLI for Pages + Workers deploys">Wrangler</span><span data-runtime="cloud">Cloudflare DNS</span><span data-runtime="cloud">Cloudflare R2</span><span data-runtime="cloud">Netlify</span><span data-runtime="cloud">Supabase</span><span data-runtime="cloud">Render</span><span data-runtime="cloud">Railway</span><span data-runtime="cloud">Fly.io</span><span data-runtime="cloud">Hetzner VPS</span></div>
             </div>
           </div>
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><line x1="8.7" y1="15.3" x2="15.3" y2="8.7"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="6.5" r="2.5"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l2name">Framework &amp; Connectors</span><span class="stack__role" data-i18n="builtStack.l2role">what wires it</span><span class="stack__count">10</span></div>
+              <div class="stack__head"><span class="stack__label"><span class="stack__name" data-i18n="builtStack.l2name">Framework &amp; Connectors</span><span class="stack__role" data-i18n="builtStack.l2role">what wires it</span></span><span class="stack__count">10</span></div>
               <div class="stack__items"><span class="is-fav" data-runtime="local">React</span><span data-runtime="local">Node.js</span><span data-runtime="local">Next.js</span><span data-runtime="local">Tailwind CSS</span><span data-runtime="local">Vite</span><span data-runtime="local">Express</span><span data-runtime="cloud">GitHub Actions</span><span data-runtime="local">ngrok</span><span data-runtime="local">Fastify</span><span data-runtime="cloud">Cloudflare Tunnel</span></div>
             </div>
           </div>
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15"/><line x1="3.5" y1="9" x2="20.5" y2="9"/><circle cx="6.5" cy="6.75" r="0.6" fill="currentColor" stroke="none"/><circle cx="9" cy="6.75" r="0.6" fill="currentColor" stroke="none"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l3name">Platform &amp; Build Tools</span><span class="stack__role" data-i18n="builtStack.l3role">where we build</span><span class="stack__count">16</span></div>
+              <div class="stack__head"><span class="stack__label"><span class="stack__name" data-i18n="builtStack.l3name">Platform &amp; Build Tools</span><span class="stack__role" data-i18n="builtStack.l3role">where we build</span></span><span class="stack__count">16</span></div>
               <div class="stack__items"><span data-runtime="local">VS Code</span><span data-runtime="cloud">GitHub</span><span data-runtime="local">Cursor</span><span class="is-fav" data-runtime="local">Claude Code</span><span data-runtime="cloud">OpenAI Codex</span><span data-runtime="local">Terminal</span><span data-runtime="local">Warp</span><span data-runtime="local">Obsidian</span><span data-runtime="local">Cline</span><span data-runtime="local">Wispr Flow</span><span data-runtime="local">Kilocode</span><span data-runtime="cloud">Google Antigravity</span><span data-runtime="cloud">Google Stitch</span><span data-runtime="cloud">Claude Design</span><span data-runtime="local" title="Visual + locale + release QA across 6 locales">Playwright</span><span data-runtime="local">Blip</span></div>
             </div>
           </div>
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="7.5" y="7.5" width="9" height="9"/><line x1="10" y1="4" x2="10" y2="7.5"/><line x1="14" y1="4" x2="14" y2="7.5"/><line x1="10" y1="16.5" x2="10" y2="20"/><line x1="14" y1="16.5" x2="14" y2="20"/><line x1="4" y1="10" x2="7.5" y2="10"/><line x1="4" y1="14" x2="7.5" y2="14"/><line x1="16.5" y1="10" x2="20" y2="10"/><line x1="16.5" y1="14" x2="20" y2="14"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l4name">AI Models &amp; Engines</span><span class="stack__role" data-i18n="builtStack.l4role">the intelligence</span><span class="stack__count">18</span></div>
+              <div class="stack__head"><span class="stack__label"><span class="stack__name" data-i18n="builtStack.l4name">AI Models &amp; Engines</span><span class="stack__role" data-i18n="builtStack.l4role">the intelligence</span></span><span class="stack__count">18</span></div>
               <div class="stack__items"><span data-runtime="cloud">OpenAI GPT</span><span data-runtime="cloud">Google Gemini</span><span data-runtime="cloud">Grok</span><span data-runtime="cloud">Perplexity</span><span data-runtime="cloud">DeepSeek</span><span class="is-fav" data-runtime="cloud">Opus 4.8</span><span data-runtime="local">Ollama</span><span data-runtime="cloud">Kimi 2.7</span><span data-runtime="cloud">Kimi 2.6</span><span data-runtime="cloud">GLM 5.2</span><span data-runtime="local">Qwen3-Coder 30B</span><span data-runtime="local">Qwen2.5-Coder 32B</span><span data-runtime="local">Qwen2.5-Coder 7B</span><span data-runtime="local">Gemma 4 12B</span><span data-runtime="local">Fable 5</span><span data-runtime="cloud">OpenRouter</span><span data-runtime="local">litellm</span><span data-runtime="local">nomic-embed</span></div>
             </div>
           </div>
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l5name">Software &amp; Libraries</span><span class="stack__role" data-i18n="builtStack.l5role">the working parts</span><span class="stack__count">19</span></div>
+              <div class="stack__head"><span class="stack__label"><span class="stack__name" data-i18n="builtStack.l5name">Software &amp; Libraries</span><span class="stack__role" data-i18n="builtStack.l5role">the working parts</span></span><span class="stack__count">19</span></div>
               <div class="stack__items"><span data-runtime="local">Redis</span><span data-runtime="local">SQLite</span><span data-runtime="local">D3</span><span data-runtime="local">OpenCV</span><span data-runtime="local">Leaflet</span><span data-runtime="cloud">Mapbox GL</span><span data-runtime="local">Chart.js</span><span data-runtime="cloud">PostGIS</span><span data-runtime="local">YOLO</span><span class="is-fav" data-runtime="local">Deck.gl</span><span data-runtime="local">MapLibre</span><span data-runtime="local">pgvector</span><span data-runtime="local">grammY</span><span data-runtime="local">vis-network</span><span data-runtime="local">LINE SDK</span><span data-runtime="cloud" title="Firestore · sabai-sabai backend">Firebase</span><span data-runtime="local">React Router</span><span data-runtime="local" title="Telegram Bot API via grammY">Telegram Bot API</span><a href="https://github.com/helloianneo/ian-xiaohei-illustrations" target="_blank" rel="noopener" data-runtime="cloud">Xiaohei illustration</a></div>
             </div>
           </div>
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M9 4 H6 V11 L4 12 L6 13 V20 H9"/><path d="M15 4 H18 V11 L20 12 L18 13 V20 H15"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l6name">Languages</span><span class="stack__role" data-i18n="builtStack.l6role">the source</span><span class="stack__count">9</span></div>
+              <div class="stack__head"><span class="stack__label"><span class="stack__name" data-i18n="builtStack.l6name">Languages</span><span class="stack__role" data-i18n="builtStack.l6role">the source</span></span><span class="stack__count">9</span></div>
               <div class="stack__items"><span data-runtime="local">JavaScript</span><span class="is-fav" data-runtime="local">Python</span><span data-runtime="local">HTML</span><span data-runtime="local">CSS</span><span data-runtime="local">TypeScript</span><span data-runtime="local">SQL</span><span data-runtime="local">PHP</span><span data-runtime="local">Bash</span><span data-runtime="local">Go</span></div>
             </div>
           </div>
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="18.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7.4 14.5 A6.5 6.5 0 0 1 16.6 14.5"/><path d="M4.6 11.3 A10.5 10.5 0 0 1 19.4 11.3"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l7name">Live Data Sources</span><span class="stack__role" data-i18n="builtStack.l7role">the inputs</span><span class="stack__count">15</span></div>
+              <div class="stack__head"><span class="stack__label"><span class="stack__name" data-i18n="builtStack.l7name">Live Data Sources</span><span class="stack__role" data-i18n="builtStack.l7role">the inputs</span></span><span class="stack__count">15</span></div>
               <div class="stack__items"><span data-runtime="cloud">NASA FIRMS</span><span data-runtime="cloud">NASA GIBS</span><span data-runtime="cloud">World Bank</span><span data-runtime="cloud">Copernicus Sentinel</span><span data-runtime="cloud">FRED</span><span data-runtime="cloud">Open-Meteo</span><span data-runtime="cloud">OpenSky</span><span data-runtime="cloud">OpenAQ</span><span data-runtime="cloud">GDELT</span><span data-runtime="cloud">EIA</span><span data-runtime="cloud">ACLED</span><span data-runtime="cloud">Bank of Thailand</span><span class="is-fav" data-runtime="cloud">GISTDA</span><span data-runtime="cloud">AISStream</span><span data-runtime="cloud">CelesTrak</span></div>
             </div>
           </div>
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><circle cx="5.5" cy="12" r="2" fill="currentColor" stroke="none"/><line x1="7.5" y1="12" x2="15.7" y2="6.3"/><line x1="7.5" y1="12" x2="16" y2="12"/><line x1="7.5" y1="12" x2="15.7" y2="17.7"/><circle cx="18" cy="6" r="1.6"/><circle cx="18" cy="12" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l8name">Channels</span><span class="stack__role" data-i18n="builtStack.l8role">the outputs</span><span class="stack__count">7</span></div>
+              <div class="stack__head"><span class="stack__label"><span class="stack__name" data-i18n="builtStack.l8name">Channels</span><span class="stack__role" data-i18n="builtStack.l8role">the outputs</span></span><span class="stack__count">7</span></div>
               <div class="stack__items"><span data-runtime="cloud">WhatsApp</span><span class="is-fav" data-runtime="cloud">Telegram</span><span data-runtime="cloud">Slack</span><span data-runtime="cloud">Discord</span><span data-runtime="cloud">LINE</span><span data-runtime="cloud">Feishu</span><span data-runtime="cloud">Warp</span></div>
             </div>
           </div>
           <div class="stack__layer">
             <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="5" y="5" width="14" height="11"/><line x1="9" y1="19" x2="15" y2="19"/><line x1="12" y1="16" x2="12" y2="19"/></svg></div>
             <div class="stack__main">
-              <div class="stack__head"><span class="stack__name" data-i18n="builtStack.l9name">Local Runtime</span><span class="stack__role" data-i18n="builtStack.l9role">the desk</span><span class="stack__count">6</span></div>
+              <div class="stack__head"><span class="stack__label"><span class="stack__name" data-i18n="builtStack.l9name">Local Runtime</span><span class="stack__role" data-i18n="builtStack.l9role">the desk</span></span><span class="stack__count">6</span></div>
               <div class="stack__items"><span class="is-fav" data-runtime="local" title="128 GB unified memory · primary workstation">M5 Max · 128GB</span><span data-runtime="local" title="Portable · field machine">M3 MacBook Air</span><span data-runtime="local" title="Remote desk when away from the workstation">Chrome Remote Desktop</span><span data-runtime="local">Git</span><span data-runtime="local">PostgreSQL</span><span data-runtime="local">Docker Desktop</span></div>
             </div>
           </div>

@@ -78,6 +78,10 @@ button {
 
 .index { border-right: 1px solid var(--line); }
 
+@media (min-width: 861px) and (max-width: 1199px) {
+  .index > .bar { gap: 6px; padding-inline: 10px; }
+}
+
 .bar {
   height: 44px;
   flex: 0 0 44px;
@@ -98,6 +102,14 @@ button {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
+}
+
+.mark--co {
+  color: #00247d;
+}
+
+.mark--co:hover {
+  color: #a51931;
 }
 
 /* Locale control. Mirrors the main site's segmented EN/TH/ZH/... switch, in

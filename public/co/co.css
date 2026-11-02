@@ -1,0 +1,484 @@
+/* ============================================================
+   co.nonarkara.org — Community places directory
+   Adapted from the PLUB reference screenshot to Axiom's house
+   design system: warm paper, Thailand flag blue accent,
+   hairline grids, map as operating table, content-sized boxes.
+   ============================================================ */
+
+@import url('../../rams.css?v=20261029c');
+
+:root {
+  --co-accent: #00247d;
+  --co-accent-hover: #001a5c;
+  --co-card-bg: #fcfbf9;
+  --co-border: #e7e5dd;
+  --co-ink: #191712;
+  --co-ink-2: #5c5a54;
+  --co-chip-bg: #faf9f7;
+  --co-panel-width: 340px;
+}
+
+/* Hide rams.css masthead overrides that don't apply to co */
+.co-masthead-override { display: none; }
+
+/* ── Masthead ── */
+.co-masthead {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-2);
+}
+
+.co-masthead .flag-stripe {
+  display: flex;
+  height: 3px;
+  width: 100%;
+}
+
+.co-masthead .flag-stripe span {
+  flex: 1;
+  background: #a51931;
+}
+
+.co-masthead .flag-stripe span:nth-child(2),
+.co-masthead .flag-stripe span:nth-child(4) {
+  background: #f8f7f5;
+}
+
+.co-masthead .flag-stripe span:nth-child(3) {
+  flex: 2;
+  background: #00247d;
+}
+
+.co-masthead__inner {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 5px 0;
+  flex-wrap: wrap;
+}
+
+.co-brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 28px;
+  text-decoration: none;
+}
+
+.co-brand__name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #191712;
+}
+
+.co-brand__ver {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  color: #736f66;
+}
+
+.co-nav {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+.co-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #5c5a54;
+}
+
+.co-nav a:hover {
+  color: #00247d;
+}
+
+/* ── Search ── */
+.co-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+}
+
+.co-search input {
+  appearance: none;
+  width: 220px;
+  height: 28px;
+  padding: 0 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #191712;
+  background: #faf9f7;
+  border: 1px solid #e7e5dd;
+  border-radius: 0;
+}
+
+.co-search input::placeholder {
+  color: #736f66;
+}
+
+.co-search input:focus {
+  outline: 1px solid #00247d;
+  outline-offset: -1px;
+  border-color: transparent;
+}
+
+.co-search__btn {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid #e7e5dd;
+  color: #5c5a54;
+  font-size: 10px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.co-search__btn:hover {
+  border-color: #00247d;
+  color: #00247d;
+}
+
+/* ── Stage — map + panel ── */
+.co-stage {
+  display: flex;
+  height: calc(100vh - 46px);
+  overflow: hidden;
+}
+
+#coMap {
+  flex: 1;
+  background: #0a0a0a;
+}
+
+.co-panel {
+  width: var(--co-panel-width);
+  border-left: 1px solid var(--co-border);
+  background: var(--co-card-bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.co-panel__close {
+  appearance: none;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: #5c5a54;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 10px 0 auto;
+}
+
+.co-panel__close:hover {
+  color: #00247d;
+}
+
+.co-panel__inner {
+  padding: 14px 16px 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ── Filters ── */
+.co-filters {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--co-border);
+  background: var(--paper);
+  overflow-x: auto;
+}
+
+.co-chip {
+  appearance: none;
+  height: 28px;
+  padding: 0 12px;
+  border: 1px solid #e7e5dd;
+  background: #faf9f7;
+  color: #5c5a54;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.co-chip:hover {
+  border-color: #00247d;
+  color: #00247d;
+}
+
+.co-chip--active {
+  border-color: #00247d;
+  color: #00247d;
+  background: #f0f2f5;
+}
+
+/* ── Place details panel ── */
+.co-place__name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #191712;
+  margin: 0 0 2px 0;
+}
+
+.co-place__thai {
+  font-size: 11px;
+  font-weight: 500;
+  color: #736f66;
+  margin: 0 0 12px 0;
+  font-family: 'IBM Plex Sans Thai', 'Noto Sans Thai', sans-serif;
+}
+
+.co-place__meta {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #736f66;
+}
+
+.co-place__rating {
+  font-size: 20px;
+  font-weight: 800;
+  color: #00247d;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.co-place__rating-sub {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #5c5a54;
+  margin-top: 2px;
+}
+
+.co-place__divider {
+  border: 0;
+  border-top: 1px solid #e7e5dd;
+  margin: 14px 0;
+}
+
+.co-place__field {
+  margin: 0 0 10px 0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.co-place__field-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #736f66;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.co-place__field-value {
+  color: #191712;
+  font-weight: 500;
+}
+
+.co-place__field-value a {
+  color: #00247d;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.co-place__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  border-top: 1px solid #e7e5dd;
+  padding-top: 12px;
+}
+
+.co-place__btn {
+  appearance: none;
+  flex: 1;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #191712;
+  background: transparent;
+  color: #191712;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 0;
+  text-align: center;
+}
+
+.co-place__btn:hover {
+  background: #191712;
+  color: #faf9f7;
+}
+
+.co-place__btn--ghost {
+  border-color: #e7e5dd;
+  color: #5c5a54;
+}
+
+.co-place__btn--ghost:hover {
+  border-color: #00247d;
+  color: #00247d;
+}
+
+/* ── Map markers ── */
+.co-marker {
+  width: 10px;
+  height: 10px;
+  background: #00247d;
+  border: 1.5px solid #faf9f7;
+  border-radius: 50%;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.co-marker--cafe { background: #a51931; }
+.co-marker--cowork { background: #8f8b80; }
+.co-marker--library { background: #00247d; }
+.co-marker--food { background: #d8d4ca; }
+
+.co-marker:hover {
+  transform: scale(1.5);
+  z-index: 100;
+}
+
+/* ── Footer ── */
+.foot {
+  border-top: 1px solid #d2cfc5;
+  padding: 16px 0 20px;
+  background: var(--paper);
+}
+
+.foot__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.foot__row .nav {
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 6px 4px;
+  margin-top: 4px;
+}
+
+.foot__row .nav a {
+  min-height: 36px;
+  padding: 6px 8px;
+  font-size: 11px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.foot__note {
+  font-size: 10px;
+  font-weight: 500;
+  color: #736f66;
+  margin-top: 10px;
+}
+
+/* ── Accessibility ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .co-stage {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #coMap {
+    height: 320px;
+    width: 100%;
+    flex: none;
+  }
+
+  .co-panel {
+    width: 100%;
+    border-left: 0;
+    border-top: 1px solid var(--co-border);
+    position: static;
+  }
+
+  .co-panel__inner {
+    max-height: 340px;
+  }
+
+  .co-search input {
+    width: 140px;
+  }
+}
+
+@media (max-width: 460px) {
+  .co-masthead__inner {
+    gap: 8px;
+  }
+
+  .co-search input {
+    width: 120px;
+  }
+
+  .co-nav {
+    display: none;
+  }
+
+  .co-brand__ver {
+    display: none;
+  }
+}
