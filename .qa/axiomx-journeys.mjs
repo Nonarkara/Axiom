@@ -720,29 +720,43 @@ for (const theme of ['light', 'dark']) {
   const dots = ((n5.split('dg-fan-dots')[1] || '').split('</g>')[0].match(/<circle/g) || []);
   check('note-5 draws the eleven it names', fan.length === 11 && dots.length === 11, `${fan.length} lines, ${dots.length} dots`);
 
-  // Every arrowhead's tip — the middle vertex — must sit on the end of a path
-  // in the same drawing. Twenty-three once pointed backwards and passed every
-  // check because nothing compared a tip to the line it finishes.
+  // Every arrowhead must sit on the end of a wire and point the way that wire
+  // travels. Twenty-three once pointed backwards and passed every check,
+  // because nothing compared a head to the line it finishes. The tip is the
+  // apex of the triangle (the vertex equidistant from the other two), not
+  // whichever vertex happens to be listed second.
   const ends = d => {
-    const out = []; let x = 0, y = 0;
-    for (const [, c, a] of d.matchAll(/([MLHVhv])\s*([-\d.\s,]+)/g)) {
+    const out = []; let x = 0, y = 0, px = 0, py = 0, open = false;
+    const close = () => { if (open) out.push({ x, y, dx: x - px, dy: y - py }); };
+    for (const [, c, a] of d.matchAll(/([MLHVmlhv])\s*([-\d.\s,]+)/g)) {
       const n = a.trim().split(/[\s,]+/).map(Number);
-      if (c === 'M') { if (out.length || x || y) out.push([x, y]); [x, y] = n; }
-      else if (c === 'L') [x, y] = n; else if (c === 'H') x = n[0]; else if (c === 'V') y = n[0];
+      if (c === 'M' || c === 'm') { close(); x = c === 'M' ? n[0] : x + n[0]; y = c === 'M' ? n[1] : y + n[1]; open = false; continue; }
+      px = x; py = y; open = true;
+      if (c === 'L') [x, y] = n; else if (c === 'l') { x += n[0]; y += n[1]; }
+      else if (c === 'H') x = n[0]; else if (c === 'V') y = n[0];
       else if (c === 'h') x += n[0]; else if (c === 'v') y += n[0];
     }
-    out.push([x, y]); return out;
+    close(); return out;
   };
+  if (/<path[^>]* d="[^"]*[cCsSqQtTaAzZ]/.test(raw)) check('diagram paths use only lines the arrowhead check can read', false, 'curve or close command found');
   const stray = [];
   for (const key of keys) {
     const body = raw.split(`'${key}':`)[1].split('</svg>')[0];
-    const pts = [...body.matchAll(/<path[^>]* d="([^"]+)"/g)].flatMap(m => ends(m[1]));
+    // Only wires carry flow: rules, strikes and ticks never take a head.
+    const wires = [...body.matchAll(/<path[^>]*class="[^"]*dg-wire[^"]*"[^>]* d="([^"]+)"/g)].flatMap(m => ends(m[1]));
     for (const [, poly] of body.matchAll(/<polygon[^>]*points="([^"]+)"/g)) {
-      const tip = poly.trim().split(/\s+/)[1].split(',').map(Number);
-      if (!pts.some(([px, py]) => Math.hypot(px - tip[0], py - tip[1]) < 0.6)) stray.push(`${key}@${tip}`);
+      const v = poly.trim().split(/\s+/).map(q => q.split(',').map(Number));
+      const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+      const apex = [0, 1, 2].map(i => [i, Math.abs(dist(v[i], v[(i + 1) % 3]) - dist(v[i], v[(i + 2) % 3]))]).sort((a, b) => a[1] - b[1])[0][0];
+      const tip = v[apex], b1 = v[(apex + 1) % 3], b2 = v[(apex + 2) % 3];
+      const hx = tip[0] - (b1[0] + b2[0]) / 2, hy = tip[1] - (b1[1] + b2[1]) / 2;
+      const w = wires.find(e => Math.hypot(e.x - tip[0], e.y - tip[1]) < 0.6);
+      if (!w) { stray.push(`${key}@${tip} on no wire end`); continue; }
+      const cos = (hx * w.dx + hy * w.dy) / (Math.hypot(hx, hy) * Math.hypot(w.dx, w.dy) || 1);
+      if (cos < 0.95) stray.push(`${key}@${tip} points against its wire`);
     }
   }
-  check('every arrowhead tip lands on the end of its line', stray.length === 0, stray.join(' '));
+  check('every arrowhead sits on a wire end and points its way', stray.length === 0, stray.join(' '));
 }
 
 // ── PHONE: the duo stacks, and the diagram stays legible ───────────────────
@@ -778,11 +792,20 @@ for (const w of [390, 360, 320]) {
       // against labels outside the box it strikes.
       const hits = [];
       const boxes = texts.map(t => ({ t: t.textContent, b: t.getBBox() }));
-      for (const path of svg.querySelectorAll('path.dg-wire, g.dg-wire path')) {
+      const rects = [...svg.querySelectorAll('rect')].map(r => r.getBBox());
+      const inside = (b, r) => b.x >= r.x && b.x + b.width <= r.x + r.width && b.y >= r.y && b.y + b.height <= r.y + r.height;
+      for (const path of svg.querySelectorAll('path.dg-wire, g.dg-wire path, path.dg-strike')) {
         const len = path.getTotalLength();
+        // A strike is meant to cross the label of the box it strikes.
+        let exempt = null;
+        if (path.classList.contains('dg-strike')) {
+          const mid = path.getPointAtLength(len / 2);
+          exempt = rects.find(r => mid.x > r.x && mid.x < r.x + r.width && mid.y > r.y && mid.y < r.y + r.height) || null;
+        }
         for (let d = 0; d <= len; d += 2) {
           const q = path.getPointAtLength(d);
-          const hit = boxes.find(({ b }) => q.x > b.x + 1 && q.x < b.x + b.width - 1 && q.y > b.y + 1 && q.y < b.y + b.height - 1);
+          const hit = boxes.find(({ b }) => q.x > b.x + 1 && q.x < b.x + b.width - 1 && q.y > b.y + 1 && q.y < b.y + b.height - 1
+            && !(exempt && inside(b, exempt)));
           if (hit && !hits.includes(hit.t)) hits.push(hit.t);
         }
       }

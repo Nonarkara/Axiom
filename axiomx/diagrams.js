@@ -72,8 +72,8 @@ window.AXIOM_DIAGRAMS = {
 
   <path class="dg-wire dg-wire--key" d="M250 64v36"/>
   <polygon class="dg-dot dg-dot--key" points="247,93 250,100 253,93"/>
-  <text class="dg-t dg-t--key" x="238" y="80" text-anchor="end">direction</text>
-  <text class="dg-t" x="238" y="94" text-anchor="end">not typing</text>
+  <text class="dg-t dg-t--key" x="238" y="80" text-anchor="end">direction, not typing</text>
+  <text class="dg-t" x="238" y="94" text-anchor="end">the skill that compounds</text>
 
   <rect class="dg-box dg-box--key" x="40" y="100" width="288" height="52"/>
   <text class="dg-t dg-t--key" x="52" y="121">model · engineer</text>
@@ -81,7 +81,6 @@ window.AXIOM_DIAGRAMS = {
 
   <path class="dg-wire dg-wire--key" d="M250 152v36"/>
   <polygon class="dg-dot dg-dot--key" points="247,181 250,188 253,181"/>
-  <text class="dg-t" x="238" y="174" text-anchor="end">the skill that compounds</text>
 
   <rect class="dg-box dg-box--fill" x="40" y="188" width="288" height="44"/>
   <text class="dg-t dg-t--ink" x="184" y="206" text-anchor="middle">the system, running</text>
@@ -143,27 +142,27 @@ window.AXIOM_DIAGRAMS = {
   <text class="dg-t dg-t--anti" x="12" y="16">who reports to whom</text>
   <rect class="dg-box dg-box--anti" x="125" y="26" width="90" height="26"/>
   <text class="dg-t" x="170" y="43" text-anchor="middle">director</text>
-  <rect class="dg-box dg-box--anti" x="20"  y="82" width="90" height="26"/>
+  <rect class="dg-box dg-box--anti" x="12"  y="82" width="90" height="26"/>
   <rect class="dg-box dg-box--anti" x="125" y="82" width="90" height="26"/>
-  <rect class="dg-box dg-box--anti" x="230" y="82" width="90" height="26"/>
-  <text class="dg-t" x="65"  y="99" text-anchor="middle">reports</text>
+  <rect class="dg-box dg-box--anti" x="238" y="82" width="90" height="26"/>
+  <text class="dg-t" x="57"  y="99" text-anchor="middle">reports</text>
   <text class="dg-t" x="170" y="99" text-anchor="middle">reports</text>
-  <text class="dg-t" x="275" y="99" text-anchor="middle">reports</text>
-  <path class="dg-wire dg-wire--anti" d="M170 52v15M65 67h210M65 67v15M170 67v15M275 67v15"/>
+  <text class="dg-t" x="283" y="99" text-anchor="middle">reports</text>
+  <path class="dg-wire dg-wire--anti" d="M170 52v15M57 67h226M57 67v15M170 67v15M283 67v15"/>
   <text class="dg-t dg-t--anti" x="170" y="128" text-anchor="middle">says nothing about the work</text>
 
   <path class="dg-rule" d="M12 144h316"/>
 
   <text class="dg-t dg-t--key" x="12" y="166">who builds what, with whom</text>
   <g class="dg-box dg-box--key">
-    <rect x="12"  y="176" width="48" height="24"/><rect x="65"  y="176" width="48" height="24"/>
-    <rect x="118" y="176" width="48" height="24"/><rect x="171" y="176" width="48" height="24"/>
-    <rect x="224" y="176" width="48" height="24"/><rect x="277" y="176" width="48" height="24"/>
-    <rect x="12"  y="206" width="48" height="24"/><rect x="65"  y="206" width="48" height="24"/>
-    <rect x="118" y="206" width="48" height="24"/><rect x="171" y="206" width="48" height="24"/>
-    <rect x="224" y="206" width="48" height="24"/><rect x="277" y="206" width="48" height="24"/>
+    <rect x="12"  y="176" width="48" height="24"/><rect x="65.6" y="176" width="48" height="24"/>
+    <rect x="119.2" y="176" width="48" height="24"/><rect x="172.8" y="176" width="48" height="24"/>
+    <rect x="226.4" y="176" width="48" height="24"/><rect x="280" y="176" width="48" height="24"/>
+    <rect x="12"  y="206" width="48" height="24"/><rect x="65.6" y="206" width="48" height="24"/>
+    <rect x="119.2" y="206" width="48" height="24"/><rect x="172.8" y="206" width="48" height="24"/>
+    <rect x="226.4" y="206" width="48" height="24"/><rect x="280" y="206" width="48" height="24"/>
   </g>
-  <rect class="dg-box dg-box--fill" x="118" y="206" width="48" height="24"/>
+  <rect class="dg-box dg-box--fill" x="119.2" y="206" width="48" height="24"/>
   <path class="dg-rule dg-rule--key" d="M12 244h316"/>
   <text class="dg-n" x="170" y="262" text-anchor="middle">a salary cap, not a headcount</text>
   <text class="dg-t dg-t--key" x="170" y="280" text-anchor="middle">archetypes · readiness · fit</text>
@@ -270,8 +269,8 @@ window.AXIOM_DIAGRAMS = {
   <path class="dg-wire" d="M296 75h32"/>
   <polygon class="dg-dot" points="322,72 328,75 322,78"/>
 
-  <rect class="dg-box dg-box--anti" x="44" y="176" width="252" height="30"/>
-  <text class="dg-t dg-t--anti" x="170" y="195" text-anchor="middle">cloud: only what cannot run here</text>
+  <rect class="dg-box" x="44" y="176" width="252" height="30"/>
+  <text class="dg-t" x="170" y="195" text-anchor="middle">cloud: only what cannot run here</text>
 </svg>`
 
 };
