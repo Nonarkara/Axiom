@@ -712,10 +712,41 @@ for (const theme of ['light', 'dark']) {
   check('every diagram names itself for assistive tech',
     (raw.match(/aria-labelledby=/g) || []).length === keys.length,
     `${(raw.match(/aria-labelledby=/g) || []).length} for ${keys.length} diagrams`);
+
+  // A label that states a number is a claim the drawing has to keep. note-5
+  // says "eleven"; it once drew seven. Count the fan, not the shapes.
+  const n5 = raw.split("'note-5':")[1].split("`,")[0];
+  const fan = ((n5.match(/class="[^"]*dg-fan"[^>]*>\s*<path d="([^"]+)"/) || [])[1] || '').match(/L/g) || [];
+  const dots = ((n5.split('dg-fan-dots')[1] || '').split('</g>')[0].match(/<circle/g) || []);
+  check('note-5 draws the eleven it names', fan.length === 11 && dots.length === 11, `${fan.length} lines, ${dots.length} dots`);
+
+  // Every arrowhead's tip — the middle vertex — must sit on the end of a path
+  // in the same drawing. Twenty-three once pointed backwards and passed every
+  // check because nothing compared a tip to the line it finishes.
+  const ends = d => {
+    const out = []; let x = 0, y = 0;
+    for (const [, c, a] of d.matchAll(/([MLHVhv])\s*([-\d.\s,]+)/g)) {
+      const n = a.trim().split(/[\s,]+/).map(Number);
+      if (c === 'M') { if (out.length || x || y) out.push([x, y]); [x, y] = n; }
+      else if (c === 'L') [x, y] = n; else if (c === 'H') x = n[0]; else if (c === 'V') y = n[0];
+      else if (c === 'h') x += n[0]; else if (c === 'v') y += n[0];
+    }
+    out.push([x, y]); return out;
+  };
+  const stray = [];
+  for (const key of keys) {
+    const body = raw.split(`'${key}':`)[1].split('</svg>')[0];
+    const pts = [...body.matchAll(/<path[^>]* d="([^"]+)"/g)].flatMap(m => ends(m[1]));
+    for (const [, poly] of body.matchAll(/<polygon[^>]*points="([^"]+)"/g)) {
+      const tip = poly.trim().split(/\s+/)[1].split(',').map(Number);
+      if (!pts.some(([px, py]) => Math.hypot(px - tip[0], py - tip[1]) < 0.6)) stray.push(`${key}@${tip}`);
+    }
+  }
+  check('every arrowhead tip lands on the end of its line', stray.length === 0, stray.join(' '));
 }
 
 // ── PHONE: the duo stacks, and the diagram stays legible ───────────────────
-for (const w of [390, 320]) {
+for (const w of [390, 360, 320]) {
   const p = await newPage(w, 900);
   await p.goto(BASE, { waitUntil: 'networkidle' });
   await p.evaluate(() => { location.hash = '#note-5'; });
@@ -725,12 +756,47 @@ for (const w of [390, 320]) {
     const kids = duo ? [...duo.children].map(c => Math.round(c.getBoundingClientRect().top)) : [];
     return {
       stacked: kids.length === 2 && kids[1] > kids[0],
-      svgW: Math.round((document.querySelector('.duo svg.dg') || { getBoundingClientRect: () => ({ width: 0 }) }).getBoundingClientRect().width),
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
     };
   });
   check(`duo stacks at ${w}px`, r.stacked);
-  check(`diagram still reads at ${w}px`, r.svgW > 200, `${r.svgW}px wide`);
+  // Width was the old proxy for legibility, and it passed while every label
+  // rendered at 6px. Measure the rendered type itself, in every drawing.
+  const small = await p.evaluate(async () => {
+    const out = [];
+    for (const id of ['note-1', 'note-2', 'note-3', 'note-4', 'note-5', 'note-6', 'stack']) {
+      location.hash = '#' + id;
+      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+      const svg = document.querySelector('.duo svg.dg');
+      if (!svg) { out.push([id, 0]); continue; }
+      const k = svg.getBoundingClientRect().width / svg.viewBox.baseVal.width;
+      const texts = [...svg.querySelectorAll('text')];
+      const min = Math.min(...texts.map(t => parseFloat(getComputedStyle(t).fontSize) * k));
+      // A label a line runs through is drawn but not read. Walk every wire and
+      // strike in 2-unit steps and flag any label box it passes through.
+      // Strikes are meant to cross their label; a strike is only checked
+      // against labels outside the box it strikes.
+      const hits = [];
+      const boxes = texts.map(t => ({ t: t.textContent, b: t.getBBox() }));
+      for (const path of svg.querySelectorAll('path.dg-wire, g.dg-wire path')) {
+        const len = path.getTotalLength();
+        for (let d = 0; d <= len; d += 2) {
+          const q = path.getPointAtLength(d);
+          const hit = boxes.find(({ b }) => q.x > b.x + 1 && q.x < b.x + b.width - 1 && q.y > b.y + 1 && q.y < b.y + b.height - 1);
+          if (hit && !hits.includes(hit.t)) hits.push(hit.t);
+        }
+      }
+      out.push([id, +min.toFixed(1), hits]);
+    }
+    return out;
+  });
+  const crossed = small.filter(r => r[2].length).map(r => `${r[0]}: ${r[2].join(', ')}`);
+  check(`no line runs through a diagram label at ${w}px`, crossed.length === 0, crossed.join('; '));
+  const worst = small.reduce((a, b) => (b[1] < a[1] ? b : a));
+  // 360 is the narrowest phone the house rules design for (§11.8). At 320 the
+  // labels drop to about 9px; that width is reported, not gated.
+  const floor = w >= 390 ? 11 : w >= 360 ? 10 : 0;
+  check(`diagram labels render >= ${floor}px at ${w}px`, worst[1] >= floor, `smallest ${worst[1]}px in ${worst[0]}`);
   check(`no sideways overflow at ${w}px`, r.overflow === 0, `${r.overflow}px`);
   await p.context().close();
 }

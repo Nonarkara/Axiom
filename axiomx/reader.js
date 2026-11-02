@@ -678,7 +678,7 @@
   // the figure is never asked to speak for itself.
   const duoCaption = {
     'note-1': 'Both lanes begin with the same request. Only one of them arrives anywhere.',
-    'note-2': 'Direction runs left to right. The dashed return is the step that is usually skipped.',
+    'note-2': 'Direction runs downward. The dashed return is review — the step that is usually skipped.',
     'note-3': 'The same four things, in a different order. The decision is the only one that comes first.',
     'note-4': 'The tree gives the chain of command. The grid gives the work. They are not the same shape.',
     'note-5': 'One model returns one line. Eleven priors return a spread, and the spread is what you read.',

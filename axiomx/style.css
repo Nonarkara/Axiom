@@ -1216,8 +1216,11 @@ h1.name {
   max-width: 52ch;
 }
 
-/* The drawing. Geometry only: boxes, rules, arrows, and type. */
-.dg { display: block; width: 100%; height: auto; overflow: visible; }
+/* The drawing. Geometry only: boxes, rules, arrows, and type. Sizes below are
+   SVG units in a 316-wide viewBox, which a phone column renders close to 1:1,
+   so 11 units arrive as about 11px. The cap keeps a desktop half-column from
+   blowing the labels up past the page's own body size. */
+.dg { display: block; width: 100%; max-width: 420px; height: auto; overflow: visible; }
 .dg-box { fill: none; stroke: var(--ink); stroke-width: 1; }
 .dg-box--key { stroke: var(--navy); }
 .dg-box--anti { stroke: var(--red); }
@@ -1234,8 +1237,8 @@ h1.name {
 .dg-dot--anti { fill: var(--red); }
 .dg-t {
   font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   fill: var(--muted);
 }
@@ -1244,13 +1247,13 @@ h1.name {
 .dg-t--anti { fill: var(--red); }
 .dg-k {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 13px;
   fill: var(--ink);
 }
-.dg-k--sm { font-size: 9.5px; }
+.dg-k--sm { font-size: 11px; }
 .dg-n {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 11px;
   fill: var(--navy);
 }
 .dg-strike { stroke: var(--red); stroke-width: 1; }
