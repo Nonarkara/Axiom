@@ -760,7 +760,7 @@ const uiCopy = {
       successDesc: "We'll get back to you soon.",
     },
     navCurrent: {
-      why: 'How It Works', systems: 'Systems', stages: 'Stages', team: 'Team', press: 'Press', brand: 'Brand Kit', credentials: 'Credentials', co: 'co.nonarkara', cta: 'Work With Us',
+      why: 'How It Works', systems: 'Systems', stages: 'Stages', team: 'Team', press: 'Press', brand: 'Brand Kit', credentials: 'Credentials', co: 'co.nonarkara', vr: 'vr.nonarkara', cta: 'Work With Us',
     },
     heroCurrent: {
       title: 'We build the <em>working systems</em> governments <br><span class="hero__punch"><span class="hero__punch-afford">can\'t afford</span> <span class="hero__punch-wait">to wait for.</span></span>',
@@ -1028,7 +1028,7 @@ const uiCopy = {
       successDesc: 'ผมจะติดต่อกลับเร็วๆ นี้',
     },
     navCurrent: {
-      why: 'วิธีการทำงาน', systems: 'ระบบ', stages: 'เวที', team: 'ทีม', press: 'สื่อ', brand: 'แบรนด์คิต', credentials: 'หนังสือรับรอง', co: 'co.nonarkara', cta: 'เริ่มงานร่วมกัน',
+      why: 'วิธีการทำงาน', systems: 'ระบบ', stages: 'เวที', team: 'ทีม', press: 'สื่อ', brand: 'แบรนด์คิต', credentials: 'หนังสือรับรอง', co: 'co.nonarkara', vr: 'vr.nonarkara', cta: 'เริ่มงานร่วมกัน',
     },
     heroCurrent: {
       title: 'เราสร้าง <em>ระบบที่ใช้งานได้จริง</em> ให้รัฐบาล<br><span class="hero__punch"><span class="hero__punch-afford">ไม่ต้องรอ</span> <span class="hero__punch-wait">ให้ใครมาทำให้</span></span>',
@@ -1296,7 +1296,7 @@ const uiCopy = {
       successDesc: '我们会尽快回复您。',
     },
     navCurrent: {
-      why: '运作方式', systems: '系统', stages: '舞台', team: '团队', press: '媒体', brand: '品牌套件', credentials: '资质', co: 'co.nonarkara', cta: '开始合作',
+      why: '运作方式', systems: '系统', stages: '舞台', team: '团队', press: '媒体', brand: '品牌套件', credentials: '资质', co: 'co.nonarkara', vr: 'vr.nonarkara', cta: '开始合作',
     },
     heroCurrent: {
       title: '我们建造<em>能运行的系统</em><br>让政府<span class="hero__punch"><span class="hero__punch-afford">不用再等</span> <span class="hero__punch-wait">别人来做</span></span>',
@@ -1570,6 +1570,7 @@ const uiCopy = {
       brand: 'BrandKit',
       credentials: 'TrustRecord',
       co: 'co.nonarkara',
+      vr: 'vr.nonarkara',
       cta: 'workWith(us)',
     },
     heroCurrent: {

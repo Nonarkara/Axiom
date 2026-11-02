@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>vr.nonarkara.org · Premier League 2026-27</title>
+  <meta name="description" content="Premier League 2026-27 table in VR — column height = points. Built by Axiom X Co., Ltd.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=optional" rel="stylesheet">
+  <link rel="stylesheet" href="vr.css?v=20261103a">
+  <link rel="icon" type="image/png" href="../../favicon-32.png">
+</head>
+<body>
+
+  <!-- ============== MASTHEAD ============== -->
+  <header class="masthead">
+    <div class="flag-stripe" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="masthead__inner">
+      <a href="/" class="brand">
+        <span class="brand__name">vr</span>
+        <span class="brand__ver">nonarkara</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#table">Table</a>
+        <a href="#matches">Matches</a>
+        <a href="#about">About</a>
+      </nav>
+      <a href="https://superleague.nonarkara.org/#/lobby" class="btn btn--primary" target="_blank" rel="noopener">Super League</a>
+      <a href="https://axiom.nonarkara.org/" class="btn btn--ghost" target="_blank" rel="noopener">Axiom</a>
+    </div>
+  </header>
+
+  <!-- ============== VR SCENE ============== -->
+  <main class="vr-stage" id="vrStage">
+    <div id="vrCanvas"></div>
+
+    <!-- Title card floating in scene (HTML overlay positioned over canvas) -->
+    <div class="vr-title" id="vrTitle">
+      <div class="vr-title__badge">SUPER LEAGUE</div>
+      <h1 class="vr-title__main">Premier League<br>2026-27</h1>
+      <p class="vr-title__sub">Column height = points · 50 played matches · openfootball/football.json (CC0)</p>
+    </div>
+
+    <!-- Table panel (opens on the right, overlays the VR scene) -->
+    <aside class="vr-table" id="vrTable" aria-label="League table">
+      <button class="vr-table__close" type="button" aria-label="Close table">
+        <span class="tri">▸</span>
+      </button>
+      <div class="vr-table__inner" id="vrTableInner">
+        <table class="vr-table__grid">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Club</th>
+              <th>P</th>
+              <th>W</th>
+              <th>D</th>
+              <th>L</th>
+              <th>Pts</th>
+            </tr>
+          </thead>
+          <tbody id="vrTableBody"></tbody>
+        </table>
+        <p class="vr-table__note" id="vrTableNote"></p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__row">
+        <span class="brand__name">vr.nonarkara.org</span>
+        <nav class="nav" aria-label="Footer">
+          <a href="https://axiom.nonarkara.org/" target="_blank" rel="noopener">Axiom</a>
+          <a href="https://axiomx.nonarkara.org/" target="_blank" rel="noopener">Axiomx</a>
+          <a href="https://co.nonarkara.org/" target="_blank" rel="noopener">co.nonarkara</a>
+          <a href="https://superleague.nonarkara.org/#/lobby" target="_blank" rel="noopener">Super League</a>
+        </nav>
+      </div>
+      <p class="foot__note" lang="en">VR league table by Axiom X Co., Ltd. — column height = points. Data: openfootball/football.json (CC0), fetched 2026-10-08. © 2026 Axiom X Co., Ltd.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/three@0.160.0/build/three.module.js"></script>
+  <script defer src="vr.js?v=20261103a"></script>
+
+</body>
+</html>

@@ -203,6 +203,7 @@
       "brand": "브랜드 키트",
       "credentials": "자격",
       "co": "co.nonarkara",
+      "vr": "vr.nonarkara",
       "cta": "함께하기"
     },
     "heroCurrent": {
@@ -1474,6 +1475,7 @@
       "brand": "ブランドキット",
       "credentials": "資格",
       "co": "co.nonarkara",
+      "vr": "vr.nonarkara",
       "cta": "ご相談"
     },
     "heroCurrent": {
@@ -2738,6 +2740,7 @@
       "brand": "Bộ nhận diện thương hiệu",
       "credentials": "Hồ sơ pháp lý",
       "co": "co.nonarkara",
+      "vr": "vr.nonarkara",
       "cta": "Hợp tác"
     },
     "heroCurrent": {

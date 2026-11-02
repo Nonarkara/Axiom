@@ -241,13 +241,6 @@
       "labMeta": "sideTools & openProcess · count[{count}]"
     }
   },
-  "clusterCounts": {
-    "City Dashboards": 24,
-    "Intelligence": 9,
-    "Civic": 9,
-    "Emerging": 13,
-    "Lab": 25
-  },
   "proofLines": {
     "en": "{count} systems across {countries} countries. Open one. Use it. Judge.",
     "th": "{count} ระบบใน {countries} ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง",
@@ -5715,7 +5708,6 @@
       "href": "https://nonarkara.org/",
       "domId": "pavilion",
       "variant": "link",
-      "full": true,
       "edition": null,
       "image": {
         "src": "screenshots/pavilion.jpg",
@@ -7857,6 +7849,72 @@
           "cta": "canine.open()",
           "name": "CANINE // Bangkaew",
           "cat": "Procedural3DStudio"
+        }
+      }
+    },
+    {
+      "id": "hikaru-non-go",
+      "cluster": "Lab",
+      "idx": "81",
+      "panelsKey": "hikaruNonGo",
+      "catKey": "c64",
+      "status": "live",
+      "statusLabel": "Live",
+      "href": "https://go.nonarkara.org/",
+      "domId": "hikaru-non-go",
+      "variant": "link",
+      "edition": null,
+      "image": {
+        "src": "screenshots/hikaru-non-go.png",
+        "webp": "screenshots/hikaru-non-go.webp",
+        "alt": "Hikaru Non Go: a Go board with move comparison, liberties and territory estimates",
+        "width": 1194,
+        "height": 834,
+        "crop": "middle"
+      },
+      "arch": null,
+      "copy": {
+        "en": {
+          "name": "Hikaru Non Go",
+          "cat": "Go Study House",
+          "lede": "A Go study house that makes territory, liberties and the next move inspectable. Play on the board, follow lessons and read game records. Score estimates stay estimates, not life-and-death proof.",
+          "cta": "Play and study Go"
+        },
+        "th": {
+          "name": "Hikaru Non Go",
+          "cat": "บ้านเรียนหมากล้อม",
+          "lede": "บ้านเรียนหมากล้อมที่ทำให้เห็นพื้นที่ ลมหายใจ และทางเลือกของหมากถัดไป เล่นบนกระดาน เรียนตามบท และอ่านบันทึกเกม ตัวเลขประเมินยังเป็นการประมาณ ไม่ใช่ข้อพิสูจน์ว่ากลุ่มหมากรอดหรือตาย",
+          "cta": "เล่นและเรียนหมากล้อม"
+        },
+        "zh": {
+          "name": "Hikaru Non Go",
+          "cat": "围棋学习馆",
+          "lede": "把地域、气和下一手变成可观察对象的围棋学习馆。在棋盘上练习、学习课程、阅读棋谱。局面估分仍是估计，不是死活证明。",
+          "cta": "对弈与学棋"
+        },
+        "ko": {
+          "name": "Hikaru Non Go",
+          "cat": "바둑 배움터",
+          "lede": "집, 활로, 다음 수를 눈으로 살펴보는 바둑 배움터. 바둑판에서 두고, 강의를 따라 배우며 기보를 읽습니다. 형세 추정은 추정일 뿐 사활의 증명은 아닙니다.",
+          "cta": "바둑 두고 배우기"
+        },
+        "ja": {
+          "name": "Hikaru Non Go",
+          "cat": "囲碁の学び舎",
+          "lede": "地、呼吸点、次の一手を見て考える囲碁の学び舎。盤上で打ち、レッスンを進め、棋譜を読みます。形勢の推定はあくまで推定であり、死活の証明ではありません。",
+          "cta": "囲碁を打って学ぶ"
+        },
+        "vi": {
+          "name": "Hikaru Non Go",
+          "cat": "Nhà học cờ vây",
+          "lede": "Nhà học cờ vây giúp nhìn rõ lãnh thổ, khí và nước đi tiếp theo. Chơi trên bàn, học theo bài và đọc kỳ phổ. Ước tính điểm vẫn là ước tính, không phải chứng minh sống chết của nhóm quân.",
+          "cta": "Chơi và học cờ vây"
+        },
+        "ts": {
+          "name": "Hikaru Non Go",
+          "cat": "GoStudyHouse",
+          "lede": "go.study({ territory, liberties, nextMove, lessons, gameRecords }) // score.estimate !== lifeDeath.proof",
+          "cta": "go.study()"
         }
       }
     }

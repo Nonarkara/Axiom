@@ -112,6 +112,14 @@ button {
   color: #a51931;
 }
 
+.mark--vr {
+  color: #00247d;
+}
+
+.mark--vr:hover {
+  color: #a51931;
+}
+
 /* Locale control. Mirrors the main site's segmented EN/TH/ZH/... switch, in
    axiomx's own palette. The book is English-only by design, so the other five
    are graded Soon rather than hidden: present, marked, and honest. A locale
