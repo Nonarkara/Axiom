@@ -205,15 +205,15 @@
   },
   "formhypes": {
     "artist": "Piero della Francesca",
-    "title": "The Baptism of Christ",
-    "year": "c. 1448–50",
-    "collection": "National Gallery, London",
-    "source": "https://commons.wikimedia.org/wiki/File:Piero%20della%20Francesca%20-%20Baptism%20of%20Christ%20-%20WGA17595.jpg",
+    "title": "Flagellation of Christ",
+    "year": "1459–1460",
+    "collection": "Galleria Nazionale delle Marche, Urbino",
+    "source": "https://commons.wikimedia.org/wiki/File:Piero_della_Francesca_042.jpg",
     "licence": "Public domain",
     "why": "A form taken apart into the numbers that make it: eleven profiles from rectilinear to pinwheel, nine metrics — rent, area, sky reach, daylight, distinctiveness — recalculated on every edit.",
-    "width": "1600",
-    "height": "2337",
-    "medium": "tempera on poplar"
+    "width": "1200",
+    "height": "852",
+    "medium": "tempera on poplar panel"
   },
   "phuket-bus": {
     "artist": "Anders Zorn",
@@ -349,15 +349,15 @@
   },
   "luma-house": {
     "artist": "Pieter Jansz. Saenredam",
-    "title": "Interior of the Buurkerk, Utrecht",
-    "year": "1645",
+    "title": "The Interior of the Grote Kerk at Haarlem",
+    "year": "1636–7",
     "collection": "National Gallery, London",
-    "source": "https://commons.wikimedia.org/wiki/File:Pieter%20Jansz.%20Saenredam%20-%20Interior%20of%20the%20Buurkerk%2C%20Utrecht%20-%20Google%20Art%20Project.jpg",
-    "licence": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:InteriorofGroteKerkinHaarlemSaenredam.jpg",
+    "licence": "CC0",
     "why": "A room whose daylight is the subject and whose geometry is the calculation: sunlit floor area and heat gain computed on the plan before a single picture is generated.",
-    "width": "1600",
-    "height": "1844",
-    "medium": "oil on panel"
+    "width": "1200",
+    "height": "873",
+    "medium": "oil on oak"
   },
   "champion": {
     "artist": "Albert Gleizes",
@@ -448,11 +448,11 @@
     "title": "Banquet of the Officers of the St George Civic Guard",
     "year": "1616",
     "collection": "Frans Hals Museum, Haarlem",
-    "source": "https://commons.wikimedia.org/wiki/File:Frans%20hals%2C%20banchetto%20degli%20ufficiali%20della%20guardia%20civica%20di%20s.%20giorgio%2C%201616%2C%2003.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Frans_Hals_-_Banket_van_de_officieren_van_de_Sint-Joris-Doelen.jpg",
     "licence": "Public domain",
     "why": "An institution's own people, in their own hall, doing the job the city hired them for: five platforms built with the body that has to use them, and kept by them.",
-    "width": "1600",
-    "height": "2357",
+    "width": "1200",
+    "height": "630",
     "medium": "oil on canvas"
   },
   "stages": {
@@ -577,15 +577,15 @@
   },
   "colophon": {
     "artist": "Martin Schongauer",
-    "title": "Saint Anthony Tormented by Demons",
-    "year": "c. 1470–75",
-    "collection": "Museo Poldi Pezzoli, Milan",
-    "source": "https://commons.wikimedia.org/wiki/File:Schongauer%2C%20Martin%20-%20St%20Antonius%20-%20hi%20res.jpg",
-    "licence": "Public domain",
+    "title": "Christ Carrying the Cross",
+    "year": "1475–90",
+    "collection": "Cleveland Museum of Art",
+    "source": "https://commons.wikimedia.org/wiki/File:Clevelandart_1941.389.jpg",
+    "licence": "CC0",
     "why": "The maker's mark cut into the block: this book was built by hand, from public sources, with every plate carrying its licence — the colophon is the receipt.",
-    "width": "1600",
-    "height": "2140",
-    "medium": "oil on panel"
+    "width": "1200",
+    "height": "811",
+    "medium": "engraving"
   },
   "flood-ami": {
     "artist": "Katsushika Hokusai",
@@ -912,16 +912,16 @@
     "medium": "handscroll"
   },
   "rag": {
-    "artist": "Antonello da Messina",
-    "title": "Saint Jerome in His Study",
-    "year": "c. 1474",
-    "collection": "National Gallery, London",
-    "source": "https://commons.wikimedia.org/wiki/File:Antonello_da_Messina_-_St_Jerome_in_his_study_-_National_Gallery_London.jpg",
+    "artist": "Vittore Carpaccio",
+    "title": "St. Augustine in His Study",
+    "year": "1502",
+    "collection": "Scuola di San Giorgio degli Schiavoni, Venice",
+    "source": "https://commons.wikimedia.org/wiki/File:Vittore_Carpaccio_026.jpg",
     "licence": "Public domain",
-    "why": "A reader inside his own library, every book within reach: your documents cited every time, and when they are silent the answer is 'I don't know'.",
-    "width": "946",
-    "height": "1200",
-    "medium": "Renaissance"
+    "why": "A scholar in his own study, books open on every shelf and on the floor, stopping mid-sentence to listen: your documents cited every time, and when they are silent the answer is 'I don't know'.",
+    "width": "1200",
+    "height": "804",
+    "medium": "tempera on canvas"
   },
   "each": {
     "artist": "Quentin Matsys",
@@ -1153,14 +1153,14 @@
   },
   "page-step-2": {
     "artist": "Joseph Wright of Derby",
-    "title": "The Alchemist Discovering Phosphorus",
-    "year": "1771",
+    "title": "A Philosopher Giving that Lecture on the Orrery, in which a Lamp is put in place of the Sun",
+    "year": "c. 1766",
     "collection": "Derby Museum and Art Gallery",
-    "source": "https://commons.wikimedia.org/wiki/File:Joseph_Wright_of_Derby_The_Alchemist.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Wright_of_Derby,_The_Orrery.jpg",
     "licence": "Public domain",
     "why": "The apparatus on the bench is built from what the room already had. The glow either shows up in front of everybody or it does not — no procurement, no lead time, no promise.",
-    "width": "1000",
-    "height": "1297",
+    "width": "1200",
+    "height": "843",
     "medium": "oil on canvas"
   },
   "page-step-3": {
@@ -1177,14 +1177,14 @@
   },
   "page-changed": {
     "artist": "Thomas Eakins",
-    "title": "The Gross Clinic",
-    "year": "1875",
-    "collection": "Philadelphia Museum of Art",
-    "source": "https://commons.wikimedia.org/wiki/File:Thomas_Eakins%2C_American_-_Portrait_of_Dr._Samuel_D._Gross_%28The_Gross_Clinic%29_-_Google_Art_Project.jpg",
+    "title": "The Agnew Clinic",
+    "year": "1889",
+    "collection": "University of Pennsylvania, Philadelphia",
+    "source": "https://commons.wikimedia.org/wiki/File:Eakins,_Thomas_-_The_Agnew_Clinic.jpg",
     "licence": "Public domain",
     "why": "The operation, live, with the wound open and nothing tidied away. A first screen is one decision on real data, shown while it is still rough — not a finished product, and not sold as one.",
-    "width": "1000",
-    "height": "1240",
+    "width": "1200",
+    "height": "826",
     "medium": "oil on canvas"
   },
   "page-questions": {
@@ -1284,15 +1284,15 @@
     "medium": "oil on canvas"
   },
   "slowdown": {
-    "artist": "Jean Siméon Chardin",
+    "artist": "Jean-Baptiste-Siméon Chardin",
     "title": "The House of Cards",
-    "year": "probably 1737",
-    "collection": "National Gallery of Art, Washington",
-    "source": "https://commons.wikimedia.org/wiki/File:Jean_Sim%C3%A9on_Chardin,_The_House_of_Cards,_probably_1737,_NGA_97.jpg",
-    "licence": "CC0",
+    "year": "1740–1741",
+    "collection": "National Gallery, London",
+    "source": "https://commons.wikimedia.org/wiki/File:Jean-Baptiste-Sim%C3%A9on_Chardin,_The_House_of_Cards,_1736-37.jpg",
+    "licence": "Public domain",
     "why": "A structure that only holds if each move receives attention. Pausing, looking, and placing carefully are the activity in the picture, and the discipline this book asks its reader to practise.",
-    "width": 1280,
-    "height": 1600,
+    "width": "1024",
+    "height": "858",
     "medium": "oil on canvas"
   },
   "dhaka": {
@@ -1327,21 +1327,21 @@
     "source": "https://commons.wikimedia.org/wiki/File:Hieronymus_Bosch_-_The_Garden_of_Earthly_Delights_-_The_exterior_(shutters).jpg",
     "licence": "Public domain",
     "why": "Bosch renders the world as a fragile, translucent sphere floating in silent space, an intact biosphere observed from the exterior by its creator without active interference. Universe 69 operates on the exact same premise: two sealed procedural worlds observed continuously, governed by deterministic mechanics, and never helped.",
-    "width": 950,
-    "height": 876,
+    "width": "876",
+    "height": "950",
     "medium": "oil on oak panels"
   },
   "dog": {
     "artist": "George Stubbs",
-    "title": "White Poodle in a Punt",
-    "year": "c. 1780",
-    "collection": "National Gallery of Art, Washington",
-    "source": "https://commons.wikimedia.org/wiki/File:George_Stubbs_-_White_Poodle_in_a_Punt.jpg",
-    "licence": "CC0",
-    "why": "Stubbs observed animal anatomy and character with scientific rigor, depicting a dog poised attentively aboard a small river craft. CANINE applies procedural 3D modeling and biological proportioning to capture the form, gait, and alert posture of Thailand's native Bangkaew.",
-    "width": 1600,
-    "height": 1288,
-    "medium": "oil on canvas"
+    "title": "Foxhound",
+    "year": "c. 1760",
+    "collection": "Yale Center for British Art, New Haven",
+    "source": "https://commons.wikimedia.org/wiki/File:George_Stubbs_-_Foxhound_-_Google_Art_Project.jpg",
+    "licence": "Public domain",
+    "why": "Stubbs dissected animals before he painted them, so the hound stands as it really stands: weight on the forelegs, head up, every joint where it belongs. CANINE applies the same discipline in procedural 3D, building the form, gait and alert posture of Thailand's native dogs from measured proportion.",
+    "width": "1200",
+    "height": "731",
+    "medium": "oil on paper laid on board"
   },
   "pavilion": {
     "artist": "El Lissitzky",
@@ -1351,8 +1351,8 @@
     "source": "https://commons.wikimedia.org/wiki/File:El_Lissitzky_-_Proun_99_-_1941.548_-_Yale_University_Art_Gallery.jpg",
     "licence": "Public domain",
     "why": "Lissitzky conceived Proun as the station where painting shifts into three-dimensional architecture, constructing weightless spatial forms from fundamental geometric materials without historical baggage. The Pavilion applies this exact modern architectural discipline to the open web: constructing a zero-cost, browser-native spatial world from scratch with steel, travertine, and glass, liberating virtual environments from hyperscaler data silos and proprietary extraction.",
-    "width": 1600,
-    "height": 1212,
+    "width": "1212",
+    "height": "1600",
     "medium": "water soluble and metallic paint on wood"
   },
   "100days": {
@@ -1363,8 +1363,8 @@
     "source": "https://commons.wikimedia.org/wiki/File:Ni_Zan._The_Rongxi_Studio.1372._74,7x35,3._National_Palace_Museum,_Taipei.jpg",
     "licence": "Public domain",
     "why": "Ni Zan depicts an empty pavilion by quiet water, stripped of ornament, surrounded by sparse trees and distant hills. 'Rongxi' means a room barely large enough to hold one's knees: the quintessential statement of deliberate quiet, wandering, and a small life carefully lived in solitude.",
-    "width": 1600,
-    "height": 779,
+    "width": "779",
+    "height": "1600",
     "medium": "hanging scroll, ink on paper"
   }
 }
