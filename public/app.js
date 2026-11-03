@@ -4446,8 +4446,8 @@ const i18nExt2 = {
       c61: 'Colour Exhibition',
       c46: 'Open Source Kit',
       c62: 'Model Training',
-      c64: 'Go Study House',
       c63: 'Procedural 3D Canine Studio',
+      c64: 'Go Study House',
       },
     bioCommon: { cvBtn:'View CV', education:'Education' },
     bioNon: {
@@ -4660,8 +4660,8 @@ const i18nExt2 = {
       c61: 'นิทรรศการสี',
       c46: 'ชุดโอเพนซอร์ส',
       c62: 'การฝึกโมเดลภาษา',
-      c64: 'บ้านเรียนหมากล้อม',
       c63: 'สตูดิโอจำลองสุนัข 3 มิติ',
+      c64: 'สตูดิโอศึกษาโกะ',
       },
     bioCommon: { cvBtn:'ดู CV', education:'การศึกษา' },
     bioNon: {
@@ -4874,8 +4874,8 @@ const i18nExt2 = {
       c61: '色彩展览',
       c46: '开源工具包',
       c62: '模型训练',
-      c64: '围棋学习馆',
       c63: '程序化3D犬类工作室',
+      c64: '围棋研习社',
       },
     bioCommon: { cvBtn:'查看简历', education:'教育背景' },
     bioNon: {
@@ -5094,8 +5094,8 @@ const i18nExt2 = {
       c61: 'ColourExhibition',
       c46: 'OpenSourceKit',
       c62: 'ModelTraining',
-      c64: 'GoStudyHouse',
       c63: 'Procedural3DStudio',
+      c64: 'GoStudyHouse',
       },
     bioCommon: { cvBtn:'cv.open()', education:'education[]' },
     bioNon: {

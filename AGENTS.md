@@ -1,6 +1,8 @@
 > **Read [MSH.md](MSH.md) before any design or frontend work.** This is Dr Non's standing design law: spatial hallucination is when an interface invents a reason for things to occupy space. When you find it, massacre. The law carries the symptom table, the eight laws, the repair procedure, and the evidence required before anyone may declare a pass.
 >
-> **Read [ANTI-SLOP.md](ANTI-SLOP.md) before any design or frontend work.** These are Dr Non's hard rules against AI design slop: empty space is a decision, subtract before you add, and the map comes first. Check pages with `slop-lint` (tools/slop-lint.mjs in Nonarkara/palette).
+> **Read its two companions (same weight, 3 Nov 2026):** [GLANCE-PATH-FOR-AI.md](GLANCE-PATH-FOR-AI.md) — the eye enters on visual weight, not DOM order; the heaviest visual (or map) is the entry, and the headline/key number/primary action sit on its **exit**, no leapfrog. [KINETIC-GRIDS-FOR-AI.md](KINETIC-GRIDS-FOR-AI.md) — energy comes from obeying a named grid (`radial` \| `axial` \| `column` \| `modular`), not drifting off one; name the grid **before** you code, snap to it, leave voids on purpose, title unapologetically huge, palette quiet.
+>
+> **Check pages with `slop-lint` (tools/slop-lint.mjs in Nonarkara/palette).**
 
 # AGENTS.md
 
@@ -128,6 +130,7 @@ If a future agent has re-broken it, the recovery is `git show 8bdf126:public/ind
 | `npm run qa:counts` | Count gate (`.qa/count-check.mjs`) — every figure on the page must equal what the page can be counted for. Run against the live URL to prove it there. |
 | `npm run qa:i18n` | Language gate (`.qa/i18n-check.mjs`) — every locale's keys, the switcher's function, phone reachability, persistence, `?lang=` and the `lang` attribute. A string a language keeps in English **on purpose** is written down in `design/i18n-allowlist.json` with its reason; a stale decision fails the gate. |
 | `node .qa/msh-evidence.mjs` | **The evidence MSH.md requires** — measures chrome cost, task visibility, geometry, hierarchy and preservation at 390/1024/1440 and writes the screenshots to `docs/design/evidence/` |
+| `npm run qa:msh-audit` | **MSH auditor gate** (`.qa/msh-audit.mjs`) — B1–B14 checklist against both surfaces at 390/1024/1440; returns PASS / REVISE / BLOCK. Run before declaring any visual change done. |
 | `npm run security:headers` | Regenerate `public/_headers` from `lib/security.mjs` — **run after any change to an inline script** |
 | `npm test` | Unit tests (`node --test tests/*.test.mjs`) — footprint, catalogue, circuit, security. Run before pushing a change to `public/` or `axiomx/`. |
 | `npm run export:evidence` | Snapshot the live site for evidence of authorship |

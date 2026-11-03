@@ -1,203 +1,138 @@
 # MSH — Massacre Spatial Hallucination
 
-> **When you find SH, massacre.**
->
-> Owner’s design law. Read before designing, building, or reviewing any interface.
-> Applies to every agent, every viewport, and every visual surface.
+**Canonical for every agent on every Non codebase.**  
+Aliases: MSH · massacre spatial hallucination · design spatial hallucination.  
+Companion laws: [ANTI-SPATIAL-HALLUCINATION.md](ANTI-SPATIAL-HALLUCINATION.md) · [AGENTS.md](AGENTS.md) · MoMA Rules (`Nonarkara/moma-rules`) · map pins (`FloodDash` spatial playbook).  
+**Shipability benchmark: no slop.** Language slop is largely cured; the larger demon is **design AI slop** — samey, page-bleeding, unbalanced UI. MSH is the root.
 
-## 0. Why this law exists
+> Every unnecessary scroll through empty space trains users to stop caring. Gradual, or last straw. Compact first. Scroll only for interesting detail. Prefer symbols to words when the meaning is clear. MoMA + MSH. One agent builds; a different agent audits.
 
-SH is like bureaucracy — a good one works like a bento box: neat, full of
-variety, easy to transport, effective, economically resource-oriented. Bureaucracy
-done well is a really good thing.
+---
 
-But bureaucrats act like they know things. They do; they know them through other
-people, usually the ones before them. Passed down through generations, rules get
-bent over time, and bit by bit bureaucracy becomes hallucinated: *we need this
-department*, *we need this meeting*, *we need a new working group*. Each one makes
-things bloated, kicks them out of shape, and eventually they become fully
-hallucinated.
+## 0. Two meanings of “spatial hallucination” (both banned)
 
-For someone who has been in bureaucracy for years and has seen good design
-globally, bad design is visible on sight — and frequent unintentional design is
-one of its biggest tells. SH design is like a bad bureaucracy: disorganized,
-bloated, unbalanced, hard to read, longer than it should be, ugly.
+| Kind | What it invents | Honest failure |
+|---|---|---|
+| **Layout MSH** (this file) | Empty space, oversized boxes, stretch-to-fill, forever-scroll chrome | Fix the first unnecessary expansion |
+| **Map MSH** (FloodDash / geo) | Fake lat/lng, centroids, guessed depth | Leave unpinned / `tip_cm` null |
 
-## 1. The definition
+This document is **layout MSH**. Map rules stay in the FloodDash spatial playbook and the `anti-spatial-hallucination` / `spatial-hallucination-kill` skills. Both apply when a product has a map **and** a UI.
 
-**Spatial hallucination (SH) is when an interface invents a reason for things to occupy space, instead of arranging them around how people read, choose, and act.**
+---
 
-The layout looks composed at first glance but cannot explain its own geometry.
-A container has room, so a control expands. A row has height, so every sibling
-stretches. A header has little to say, so padding makes it look important.
-The user pays for those decisions with scrolling, lost context, and effort.
+## 1. Why MSH is the root of design slop
 
-MSH means finding and removing that invented spatial demand. Treat SH as a
-root design failure, not cosmetic polish. A working system can still have bad
-design when its geometry makes a small task expensive.
+1. An element expands without a task reason (fat padding, fixed height, equal grid tracks, hero void).
+2. Its row / header / panel grows to match.
+3. Useful content drops below the first screen.
+4. Related evidence and actions lose each other.
+5. The user scrolls through **mostly empty space** to reconstruct what the layout should have shown.
+6. Equal-weight blocks flatten hierarchy → page looks “AI default” even if fonts were fixed.
 
-**The test for every region:**
+**Massacre the first expansion.** Do not decorate the consequences.
 
-> Why is this here? Why this size? Why this far from that?
+---
 
-“The grid put it there,” “the container had room,” and “it looks balanced”
-without a reading or task purpose are failed answers.
+## 2. Hard laws (never break)
 
-## 2. How the failure spreads
+1. **Boxes fit content.** Padding ≈ 0.5–1.5× line-height. No fixed/`min-height` that leaves a void under short text. A control/chip/stat is ≤ **2×** content width and ≤ **1.6×** content height.
+2. **No void.** No flat empty region over ~⅓ of the first screen. No phone-width column floating on desktop. No blank half while loading (skeleton or last-good data + timestamp).
+3. **Compact first.** If the task fits one screen at 390×844 and 1440×900, make it fit. Scroll is for **interesting depth**, not for recovering from fat chrome.
+4. **Symbols over prose** when the meaning is unambiguous (status dots, gauge marks, ↑↓, icons with `aria-label`). Never emoji-as-icon decoration.
+5. **Logos never boxed.** No chip, border, shadow, or backing panel around a logo.
+6. **Something must win.** One focal point; real contrast (≥1.5–2× type step). No equal card grids by default.
+7. **Subtract before you add.** Before a new box/shadow/radius/badge, remove one. House caps unless `STYLE.md` overrides: ≤15 cards (composition discipline), ≤3 shadows, one radius system, ≤5 pills, ≤8 font sizes, no decorative gradient/glass, no first-load modal, light by default.
+8. **Map-first surgical table** (map/data products): map ≥60% of first desktop and first phone screen; panels are edge instruments; nothing covers the map on load.
+9. **MoMA alignment.** No loose edges that advertise amateur layout. Use `Nonarkara/moma-rules` spacing/type/grid numbers where the repo has adopted them; otherwise follow this house grid: spacing from a stated scale, hairline 1px without stealing layout, radius 0 unless `STYLE.md` says otherwise.
+10. **Never self-review.** Builder ≠ auditor.
 
-1. An element expands without a task reason.
-2. Its row, header, or panel grows to accommodate it.
-3. Useful content falls below the first screen.
-4. Related information and actions lose their shared context.
-5. The user scrolls to reconstruct a picture the layout should have provided.
-6. Repeated equal-sized blocks flatten hierarchy and make the journey monotonous.
+Banned AI-slop faces as primary: Inter, Poppins, Montserrat, Roboto, Open Sans, Lato, DM Sans, Space Grotesk, Geist, Plus Jakarta Sans, Manrope, Nunito, naked `system-ui` as the design face. Prefer Jost / Josefin / League Spartan; Thai Prompt or Kanit; ≤2 families.
 
-Fix the first unnecessary expansion. Do not decorate the consequences.
+---
 
-## 3. Recognize SH on sight
+## 3. Frontend shipability auditor checklist
 
-| Symptom | What failed | Repair |
-| --- | --- | --- |
-| Gigantic top bar | Identity and navigation consume space needed by the task | Fit the bar to its useful contents; combine redundant rows |
-| Unjustified gaps | Space stretches to satisfy a container | Use deliberate group spacing; remove unused tracks |
-| Orphan photo or block | An element sits beside an unexplained void | Recompose its relationship to the content |
-| Scattered actions | Related controls occupy separate rows or distant edges | Place them together at the decision point |
-| Equal-weight everything | Repetition replaces hierarchy | Establish a first, second, and third reading priority |
-| Accidental wrapping | Navigation breaks wherever width happens to run out | Choose deliberate groups and a responsive transition |
-| Expensive small decision | A short task requires a long scroll | Bring the evidence and action into one useful view |
-| Inflated controls | Short labels inherit container-sized boxes | Size to label, padding, and usable interaction target |
-| Stretched cards | Short content inherits the tallest sibling’s height | Let content size itself unless comparison requires alignment |
-| Empty hero or spacer | A section exists to manufacture importance | Remove the section or give real content its place |
-| Overlapping chrome | Fixed or sticky regions obscure the work | Account for their occupied area and reduce their footprint |
+**Role:** a different agent or human walks the live (or PR preview) UI. Score each row. Any **FAIL** blocks ship unless Non waives in writing.
 
-These are symptoms to investigate in the rendered interface. A CSS property
-alone does not prove SH.
+### A. Capture
 
-## 4. The laws
+- [ ] Screenshots at **1440**, **1024**, **390** (and 320 if claimed).
+- [ ] Squint / silhouette: could this outline be any SaaS landing page? If yes → redesign hierarchy, not colours.
+- [ ] Run `npx github:Nonarkara/Non-Slop scan .` and render when Playwright is available. Fix every **SLOP**; explain or fix every **REVIEW**.
 
-### Space must have a job
+### B. MSH geometry (first screen)
 
-Every region must support reading, grouping, comparison, orientation, interaction,
-or deliberate emphasis. Name the job. If the region has none, remove the wasted
-geometry. Never invent filler to justify an empty area.
+| # | Check | Pass if | Fail if |
+|---|---|---|---|
+| B1 | First-screen task | Primary info + primary action visible together at 390 and 1440 | User must scroll through empty chrome to act |
+| B2 | Chrome cost | Top+bottom bands fit contents; sticky offsets counted | Gigantic / stacked identity+title+status rows |
+| B3 | Box fit | Boxes hug text; no text floating in a much larger panel | Text ≪ box → page bleeds vertically |
+| B4 | Void | Empty space has a named job (map, measure, pause) | Dead thirds, stretch-to-fill, orphan columns |
+| B5 | Scroll honesty | Extra screens earn new facts or actions | Forever-scroll of padding / equal cards |
+| B6 | Symbols | Status/metrics use compact marks where clear | Long labels repeated where a mark would do |
+| B7 | Hierarchy | Obvious 1st / 2nd / 3rd | Equal-weight mush |
+| B8 | Proximity | Related controls grouped; less space inside groups than between | Scattered actions / pager at opposite edges |
+| B9 | Map/data | Map ≥60% when applicable; panels docked | Map buried / covered on load |
+| B10 | Logos | Sit on the surface | Boxed / chipped logos |
+| B11 | MoMA | Edges align; no amateur loose corners | Near-miss edges, ragged rows without intent |
+| B12 | Language | `lang` set; Thai/ZH room; no filler copy | “Unlock / seamless / revolutionize”, fake stats |
+| B13 | Access | Focus visible, ≥44px taps, contrast, no clip | Keyboard traps, tiny targets |
+| B14 | Preservation | Earned content/features still work | “Fixed” by deleting the product |
 
-### Chrome earns its pixels
+### C. Five measurements (per viewport)
 
-Headers, navigation, toolbars, footers, and sticky bands fit their useful contents.
-A brand name does not earn a giant top bar. Avoid stacking identity, page title,
-status, and controls into separate bands when they form one coherent group.
-Measure their combined footprint, including gaps and sticky offsets.
+Record for 390 / 1024 / 1440:
 
-### Content determines size; the task determines the composition
+1. **Chrome cost** — band height share of viewport  
+2. **Task visibility** — evidence + action together?  
+3. **Geometry failures** — voids, inflated boxes, orphans, wrap accidents  
+4. **Hierarchy** — stated 1/2/3 vs screenshot  
+5. **Preservation** — what stayed usable  
 
-Controls fit their labels, padding, and usable targets. Reading columns fit a
-comfortable measure. Maps, charts, canvases, tables, and editors receive the space
-needed to operate and understand them. Their value is not measured by text area.
+### D. Verdict
 
-Inspect fixed heights, minimum heights, full-width controls, fractional tracks,
-equal-height cards, `space-between`, and stretch alignment. Each needs a reason
-in the actual task. They are tools, not automatic violations.
+```text
+Verdict: PASS / REVISE / BLOCK
+Auditor (≠ builder):
+URL / PR:
+Widths / langs checked:
+MSH fails (id → element → repair):
+Scanner: clean / SLOP hits / REVIEW hits:
+MoMA / Non-Slop notes:
+Kept on purpose:
+Unverified:
+```
 
-### Compose the first screen before extending the page
+**PASS** = no B-fails, scanner clean or explained, independent auditor named.  
+**REVISE** = fixable MSH without product loss.  
+**BLOCK** = first-screen void/bleed, self-review only, or map/geo hallucination on a live pin.
 
-For a compact dashboard, tool, or panel, first make the useful task composition
-work at 390 × 844 and 1440 × 900. Check the intermediate 1024 px width too.
-The first screen must explain where the user is, what matters, and what to do.
+---
 
-If the task can fit one screen, make it fit. If the content earns scrolling,
-organize that scroll around meaningful reading or work. Preserve orientation
-and keep related evidence close to its action.
+## 4. Builder procedure (short)
 
-Never force a fit by hiding overflow, clipping content, shrinking readable text,
-removing earned features, or moving everything into nested scroll areas.
+1. Brief: who, one job, hierarchy, constraints, subject-world direction.  
+2. Relationships before rectangles (proximity, scale, empty-space job).  
+3. Real content (long Thai/DE, empty, error, 10× rows).  
+4. Compact composition at 390 + 1440 before adding scroll.  
+5. Symbols where meaning is clear; prose ≤65ch.  
+6. Scan + screenshots + **different** auditor with §3.
 
-### Hierarchy must survive the viewport
+---
 
-One thing wins, then a second, then a third. Use differences in scale, weight,
-placement, and grouping that remain obvious when squinting at a screenshot.
-Within the house type system, use meaningful scale steps where appropriate;
-do not make every element shout. The important picture must remain understandable
-before scrolling fragments it.
+## 5. Where this lives
 
-### Relationships determine distance
+| Place | Role |
+|---|---|
+| `Nonarkara/Non-Slop` → `MSH.md` + `AGENTS.md` | Canonical pack any agent is pointed at |
+| `ANTI-SPATIAL-HALLUCINATION.md` | Full layout law (this file is the auditor front door) |
+| `Nonarkara/moma-rules` | Executable alignment numbers |
+| `Nonarkara/palette` · vibecoding skills | Pointers in `AGENTS.md` / `CLAUDE.md` |
+| FloodDash `knowledge/spatial-hallucination.md` | **Map** MSH only |
+| Grok Bot skills `anti-slop-design`, `msh-auditor` | Always-on for design/review turns |
 
-Related controls stay together. Labels stay with their values. Explanations stay
-with the decision they support. Use less space within a group than between groups.
-Alignment serves these relationships; the grid does not dictate them.
+When rules conflict: **human task and contrast win; decoration loses.** Named `STYLE.md` choices are style, not slop — protect them.
 
-### Responsive layout is a composition decision
+---
 
-Do not let desktop geometry simply fall into a long phone-sized stack.
-Choose what stays together, what changes arrangement, and how navigation adapts.
-Test long labels, real data, text enlargement, and expanded states. Fix accidental
-wrapping without truncating the information needed to act.
-
-### Whitespace is allowed; unexplained space is not
-
-Whitespace can separate meaningful groups, support reading, or establish emphasis.
-It becomes SH when it asks the reader to supply an intention the designer never had.
-Density is not the goal. A readable, calm composition may need generous space.
-Every such choice must still answer the three questions.
-
-## 5. Repair procedure for agents
-
-1. **Read the current instructions.** Apply `anti-slop-design`, project design laws,
-   and anti-regression rules. Inspect the existing product before editing.
-2. **State the user’s task in one sentence.** Identify the information and action
-   needed to complete it, then choose the dominant element.
-3. **Inspect the rendered geometry.** Start with the top bar and the first point
-   where useful content leaves the viewport. Trace the expansion that caused it.
-4. **Name each failure precisely.** Record the element, viewport, wasted space,
-   and the reading or interaction cost. Do not call a surface “slop” as a diagnosis.
-5. **Repair the cause.** Remove redundant wrappers and spacers, reduce unjustified
-   padding, regroup related controls, correct track sizing, and recompose priorities.
-6. **Preserve the product.** Keep live maps, charts, canvases, tickers, HUDs, earned
-   content, keyboard access, readable type, and usable interaction targets.
-   MSH authorizes removing waste; it does not override anti-regression rules.
-7. **Render again.** Exercise real content, open menus, expanded panels, error states,
-   and keyboard focus. Check that the repair did not move the problem elsewhere.
-8. **Record evidence.** Provide before/after screenshots and measured changes.
-   Apply the project’s release and independent-review requirements for visual work.
-
-Do not solve SH by adding another spacer, decorative panel, badge, slogan,
-stock image, or row of identical cards.
-
-## 6. Evidence required before declaring a pass
-
-Capture the real interface at 390, 1024, and 1440 px wide. Use 390 × 844 and
-1440 × 900 for the first-screen checks; record the height used at 1024 px.
-
-For each tested viewport, record:
-
-- **Chrome cost:** top/bottom chrome height and percentage of viewport height;
-  include the combined height of stacked fixed or sticky regions.
-- **Task visibility:** whether the primary information and action are visible
-  together; if scrolling is required, explain what content earns it.
-- **Geometry failures:** unexplained gaps, orphan elements, inflated boxes,
-  accidental wraps, overlap, clipping, and unnecessary horizontal scrolling.
-- **Hierarchy:** the intended first, second, and third reading priorities and
-  whether the screenshot makes them apparent.
-- **Preservation:** important content, features, readable text, focus visibility,
-  and usable targets still work after the change.
-
-A large footprint is a prompt to investigate, not a universal numeric failure.
-Explain geometry in relation to the task. Source scans and successful builds
-cannot prove a visual pass. If rendering was unavailable, report **unverified**.
-
-## 7. The agent’s completion report
-
-Keep the report short and concrete:
-
-- **Found:** element, viewport, and the task cost caused by its geometry.
-- **Changed:** the unnecessary spatial demand removed or relationship repaired.
-- **Verified:** screenshot references, measured before/after geometry, exercised
-  interactions, and any required independent review.
-- **Remaining:** unresolved SH or unverified states. Never claim a clean pass
-  while these remain.
-
-## The standing order
-
-**When you find SH, massacre.**
-
-Remove the invented need for space. Restore the useful picture. Make the screen
-help the human read, choose, and act.
+*Owner voice (2026-10-30): compact up; scroll for interesting detail; texts → symbols when we can; MoMA + MSH; no-slop is the ship bar; auditors need a checklist as they walk the system.*

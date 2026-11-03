@@ -1,0 +1,20 @@
+[
+  {
+    "diagnosticOnly": true,
+    "fixCanvas": false,
+    "errors": [
+      "canvas.getContext is not a function"
+    ],
+    "rows": 0,
+    "canvases": 0,
+    "xr": 1
+  },
+  {
+    "diagnosticOnly": true,
+    "fixCanvas": true,
+    "errors": [],
+    "rows": 20,
+    "canvases": 1,
+    "xr": 1
+  }
+]

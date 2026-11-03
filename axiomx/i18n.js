@@ -748,6 +748,12 @@
           "cat": "Procedural 3D Canine Studio",
           "lede": "A 3D anatomical and procedural simulation studio modeling the structure, gait, and alert posture of Thailand's native Bangkaew dog breed.",
           "cta": "Open Canine Studio"
+        },
+        "hikaru-non-go": {
+          "name": "Hikaru Non Go",
+          "cat": "Go Study House",
+          "lede": "A Go study house that makes territory, liberties and the next move inspectable. Play on the board, follow lessons and read game records. Score estimates stay estimates, not life-and-death proof.",
+          "cta": "Play and study Go"
         }
       },
       "th": {
@@ -1230,6 +1236,12 @@
           "cat": "สตูดิโอจำลองสุนัข 3 มิติ",
           "lede": "สตูดิโอจำลองกายวิภาคและพฤติกรรมเชิงกระบวนการแบบ 3 มิติ จำลองโครงสร้าง ท่าทางการเดิน และการตื่นตัวตามสัญชาตญาณของสุนัขพันธุ์ไทยบางแก้ว",
           "cta": "เปิด Canine Studio"
+        },
+        "hikaru-non-go": {
+          "name": "Hikaru Non Go",
+          "cat": "สตูดิโอศึกษาโกะ",
+          "lede": "บ้านเรียนหมากล้อมที่ทำให้เห็นพื้นที่ ลมหายใจ และทางเลือกของหมากถัดไป เล่นบนกระดาน เรียนตามบท และอ่านบันทึกเกม ตัวเลขประเมินยังเป็นการประมาณ ไม่ใช่ข้อพิสูจน์ว่ากลุ่มหมากรอดหรือตาย",
+          "cta": "เล่นและเรียนหมากล้อม"
         }
       },
       "zh": {
@@ -1712,6 +1724,12 @@
           "cat": "程序化3D犬类工作室",
           "lede": "三维解剖与程序化模拟工作室，精准刻画泰国本土邦高犬的骨骼结构、步态与警觉姿态。",
           "cta": "打开 Canine Studio"
+        },
+        "hikaru-non-go": {
+          "name": "Hikaru Non Go",
+          "cat": "围棋研习社",
+          "lede": "把地域、气和下一手变成可观察对象的围棋学习馆。在棋盘上练习、学习课程、阅读棋谱。局面估分仍是估计，不是死活证明。",
+          "cta": "对弈与学棋"
         }
       },
       "ko": {
@@ -2194,6 +2212,12 @@
           "cat": "절차적 3D 개 스튜디오",
           "lede": "태국 토종 방깨우 견종의 해부학적 구조, 걸음걸이, 경계 자세를 정밀하게 모델링하는 3D 절차적 시뮬레이션 스튜디오.",
           "cta": "Canine Studio 열기"
+        },
+        "hikaru-non-go": {
+          "name": "Hikaru Non Go",
+          "cat": "바둑 연구실",
+          "lede": "집, 활로, 다음 수를 눈으로 살펴보는 바둑 배움터. 바둑판에서 두고, 강의를 따라 배우며 기보를 읽습니다. 형세 추정은 추정일 뿐 사활의 증명은 아닙니다.",
+          "cta": "바둑 두고 배우기"
         }
       },
       "ja": {
@@ -2676,6 +2700,12 @@
           "cat": "手続き型3D犬スタジオ",
           "lede": "タイ原産バンケーウ犬の解剖構造、歩様、警戒姿勢を精密に再現する3Dプロシージャル・シミュレーションスタジオ。",
           "cta": "Canine Studioを開く"
+        },
+        "hikaru-non-go": {
+          "name": "Hikaru Non Go",
+          "cat": "囲碁研究室",
+          "lede": "地、呼吸点、次の一手を見て考える囲碁の学び舎。盤上で打ち、レッスンを進め、棋譜を読みます。形勢の推定はあくまで推定であり、死活の証明ではありません。",
+          "cta": "囲碁を打って学ぶ"
         }
       },
       "vi": {
@@ -3158,6 +3188,12 @@
           "cat": "Xưởng mô phỏng chó 3D",
           "lede": "Xưởng mô phỏng thủ tục và giải phẫu 3D tái hiện cấu trúc cơ thể, dáng đi và tư thế cảnh giác của giống chó Bangkaew bản địa Thái Lan.",
           "cta": "Mở Canine Studio"
+        },
+        "hikaru-non-go": {
+          "name": "Hikaru Non Go",
+          "cat": "Nhà nghiên cứu Cờ vây",
+          "lede": "Nhà học cờ vây giúp nhìn rõ lãnh thổ, khí và nước đi tiếp theo. Chơi trên bàn, học theo bài và đọc kỳ phổ. Ước tính điểm vẫn là ước tính, không phải chứng minh sống chết của nhóm quân.",
+          "cta": "Chơi và học cờ vây"
         }
       }
     },

@@ -1,0 +1,15 @@
+  DRIFT public/app.js
+        line 4449: committed "c64: 'Go Study House',"
+                 generated "c63: 'Procedural 3D Canine Studio',"
+        committed 374314 bytes, generated 374194 bytes
+  DRIFT public/i18n-regional.js
+        line 1126: committed ""c64": "바둑 배움터","
+                 generated ""c63": "절차적 3D 개 스튜디오""
+        committed 210122 bytes, generated 210030 bytes
+  ok    public/index.html
+  ERROR axiomx/catalog.js — Cannot read properties of undefined (reading 'en')
+  ERROR axiomx/i18n.js — Cannot read properties of undefined (reading 'en')
+  ok    axiomx/plates.js
+
+FAIL — 4 artefact(s) disagree with data/catalogue/.
+Run: node scripts/catalogue/build.mjs

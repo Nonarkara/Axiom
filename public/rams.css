@@ -397,10 +397,12 @@ summary:focus-visible {
 /* the row height, so the strip and the CTA cannot drift apart again */
 .masthead__inner .btn,
 .masthead__inner .locale-switch {
-  height: 28px;
-  min-height: 28px;
+  height: 44px;
+  min-height: 44px;
 }
 
+/* the masthead CTA is the site's isolated primary action — real 44px
+   visible target (MSH B13), not a shrunken chrome sliver */
 .masthead__inner .btn {
   position: relative;
   padding: 0 12px;
@@ -1203,12 +1205,12 @@ summary:focus-visible {
    second button alone on the last line. */
 .btn-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  grid-template-columns: repeat(auto-fit, minmax(0, max-content));
   justify-content: start;
   gap: 12px;
 }
 @media (max-width: 560px) {
-  .btn-row { grid-template-columns: minmax(0, 1fr); }
+  .btn-row { grid-template-columns: minmax(0, max-content); } /* buttons size to text, never stretch to fill the row */
 }
 
 /* ============================================================
@@ -2695,6 +2697,9 @@ summary:focus-visible {
 
 .brand-actions {
   margin-top: 14px;
+}
+.brand-actions .btn {
+  min-height: 44px; /* isolated primary action — real tap target (MSH B13) */
 }
 
 .brand-preview {

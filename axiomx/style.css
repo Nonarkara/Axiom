@@ -453,6 +453,10 @@ h1.name {
   text-underline-offset: 3px;
   font-size: 15px;
 }
+/* prose citation links meet the 24px tap-target floor (MSH B13) */
+.inline-link {
+  line-height: 1.6;
+}
 
 /* Primary calls to action are standalone, not inline in a sentence, so they
    carry the full target rather than the inline exemption. */

@@ -1,0 +1,132 @@
+{
+  "status": 200,
+  "csp": "default-src 'self'; script-src 'self' 'sha256-0AuvVfMID3faZWcxBM6DxAPzh/qoFR4oAeuxq3qmGKE=' 'sha256-UBsN28x4Nw+LeG8KdBIKz4WTAPZ8avHAbVLJgxJU+j0=' https://unpkg.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com; connect-src 'self' https://cloudflareinsights.com; frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+  "errors": [],
+  "consoleErrors": [
+    "Loading the image 'https://a.basemaps.cartocdn.com/light_all/13/6382/3779.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://b.basemaps.cartocdn.com/light_all/13/6383/3779.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://b.basemaps.cartocdn.com/light_all/13/6382/3780.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://c.basemaps.cartocdn.com/light_all/13/6383/3780.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://c.basemaps.cartocdn.com/light_all/13/6382/3778.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://a.basemaps.cartocdn.com/light_all/13/6383/3778.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://c.basemaps.cartocdn.com/light_all/13/6381/3779.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://c.basemaps.cartocdn.com/light_all/13/6384/3779.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://a.basemaps.cartocdn.com/light_all/13/6381/3780.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://a.basemaps.cartocdn.com/light_all/13/6384/3780.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://c.basemaps.cartocdn.com/light_all/13/6382/3781.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://a.basemaps.cartocdn.com/light_all/13/6383/3781.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://b.basemaps.cartocdn.com/light_all/13/6381/3778.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://b.basemaps.cartocdn.com/light_all/13/6384/3778.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://b.basemaps.cartocdn.com/light_all/13/6381/3781.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://b.basemaps.cartocdn.com/light_all/13/6384/3781.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://b.basemaps.cartocdn.com/light_all/13/6380/3779.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://a.basemaps.cartocdn.com/light_all/13/6385/3779.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://c.basemaps.cartocdn.com/light_all/13/6380/3780.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://b.basemaps.cartocdn.com/light_all/13/6385/3780.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://a.basemaps.cartocdn.com/light_all/13/6380/3778.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://c.basemaps.cartocdn.com/light_all/13/6385/3778.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://a.basemaps.cartocdn.com/light_all/13/6380/3781.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked.",
+    "Loading the image 'https://c.basemaps.cartocdn.com/light_all/13/6385/3781.png' violates the following Content Security Policy directive: \"img-src 'self' data: blob: https://server.arcgisonline.com https://unpkg.com\". The action has been blocked."
+  ],
+  "failures": [
+    {
+      "url": "https://a.basemaps.cartocdn.com/light_all/13/6382/3779.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://b.basemaps.cartocdn.com/light_all/13/6383/3779.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://b.basemaps.cartocdn.com/light_all/13/6382/3780.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://c.basemaps.cartocdn.com/light_all/13/6383/3780.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://c.basemaps.cartocdn.com/light_all/13/6382/3778.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://a.basemaps.cartocdn.com/light_all/13/6383/3778.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://c.basemaps.cartocdn.com/light_all/13/6381/3779.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://c.basemaps.cartocdn.com/light_all/13/6384/3779.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://a.basemaps.cartocdn.com/light_all/13/6381/3780.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://a.basemaps.cartocdn.com/light_all/13/6384/3780.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://c.basemaps.cartocdn.com/light_all/13/6382/3781.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://a.basemaps.cartocdn.com/light_all/13/6383/3781.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://b.basemaps.cartocdn.com/light_all/13/6381/3778.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://b.basemaps.cartocdn.com/light_all/13/6384/3778.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://b.basemaps.cartocdn.com/light_all/13/6381/3781.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://b.basemaps.cartocdn.com/light_all/13/6384/3781.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://b.basemaps.cartocdn.com/light_all/13/6380/3779.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://a.basemaps.cartocdn.com/light_all/13/6385/3779.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://c.basemaps.cartocdn.com/light_all/13/6380/3780.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://b.basemaps.cartocdn.com/light_all/13/6385/3780.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://a.basemaps.cartocdn.com/light_all/13/6380/3778.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://c.basemaps.cartocdn.com/light_all/13/6385/3778.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://a.basemaps.cartocdn.com/light_all/13/6380/3781.png",
+      "reason": "csp"
+    },
+    {
+      "url": "https://c.basemaps.cartocdn.com/light_all/13/6385/3781.png",
+      "reason": "csp"
+    }
+  ],
+  "title": "co.nonarkara.org · Community places directory",
+  "loadedTiles": 0,
+  "tiles": 24
+}

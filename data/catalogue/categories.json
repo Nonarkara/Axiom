@@ -511,5 +511,14 @@
     "ja": "手続き型3D犬スタジオ",
     "vi": "Xưởng mô phỏng chó 3D",
     "ts": "Procedural3DStudio"
+  },
+  "c64": {
+    "en": "Go Study House",
+    "th": "สตูดิโอศึกษาโกะ",
+    "zh": "围棋研习社",
+    "ko": "바둑 연구실",
+    "ja": "囲碁研究室",
+    "vi": "Nhà nghiên cứu Cờ vây",
+    "ts": "GoStudyHouse"
   }
 }

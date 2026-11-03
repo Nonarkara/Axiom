@@ -1,0 +1,276 @@
+
+> axiom-site@1.0.0 test
+> node --test tests/*.test.mjs
+
+✖ every catalogue artefact matches the source of truth (57.015208ms)
+✖ the source of truth describes every system, in every language (6.486084ms)
+✔ every category is stated once, in every language (4.855584ms)
+✖ the counts the site states are the counts the catalogue holds (4.773583ms)
+✔ every system appears once, with one number and one destination (4.125ms)
+✖ the two catalogues name the same systems, once each (8.342791ms)
+✖ every system sits in the same cluster on both sites (1.564667ms)
+✖ every system carries the same number on both sites, and no number repeats (12.816458ms)
+✔ no two systems share a destination URL (0.597041ms)
+✔ both catalogues link to the same destination, including paths and fragments (2.475542ms)
+✔ verified custom-domain migrations preserve the exact destination route (12.767625ms)
+✔ active catalogue, hero, map and reading-room links do not regress to provider domains (5.66875ms)
+✔ axiom states the true size of every cluster (1.688083ms)
+✔ no locale defines the same copy key twice (9.048667ms)
+✔ every copy key a card asks for exists, and no two cards share one (8.015ms)
+✔ the reading-room catalogue is grouped, so each cluster header prints once (0.347167ms)
+✔ every reading-room system has a measured route in the spatial baseline (11.133625ms)
+✔ all seven locale tables were found in source (2.041125ms)
+✔ the table and the sideways rail are both gone (0.994958ms)
+✔ the bars state every stop, in the flow of the page (0.446417ms)
+✔ every bar photograph resolves to a file that exists (0.425125ms)
+✔ every stage photograph has an alt that names the place (0.306958ms)
+✔ the stage-shot count in the header is the number of stage photos that exist (0.850125ms)
+✔ a quote is never the same sentence as the claim above it (4.94425ms)
+✔ the lede names every city, so the sequence is read before it is scanned (0.564584ms)
+✔ the bars are ordered newest first (0.594042ms)
+✔ bar height is one token, and nothing inside a bar is unbounded (0.61175ms)
+✔ no stop falls back to a pending marker (0.470792ms)
+✔ LEAP East is Hong Kong, not Bangkok (0.725ms)
+✔ Shanghai is 2026 (0.905333ms)
+✔ every circuit key resolves in all seven locales (3.852042ms)
+✔ no sentence-length key falls through to English in a non-English locale (0.901459ms)
+✔ hero figures derive from the catalogue, displayed domains and footprint, including zero (7.383875ms)
+✔ every hero fallback figure agrees with its named source (2.315375ms)
+✔ all seven console editions separate reach, catalogue status and outcomes (1.279791ms)
+✔ the claim guard rejects the previous domain, protection and frame-rate claims (5.92575ms)
+✔ the hero does not present a blanket online status or a measured frame rate (0.816958ms)
+✔ the phone HUD keeps its count on its own row, and obsolete rail declarations cannot close the media query (0.907084ms)
+✔ the live domain audit rejects a wrong host or route even when SPA HTML matches (587.147583ms)
+✔ the requested e-books extend axiomx without changing the shared catalogue (4.175375ms)
+✔ e-book numbers follow the shared catalogue and all destinations are unique (1.99375ms)
+✔ the reading room loads its extension before rendering and every e-book has a plate (3.60575ms)
+✔ every mapped project belongs to a real tour stop and a catalog destination (6.779416ms)
+✔ requested geography and the original four theatre controls survive (0.662291ms)
+✔ all seven locales name every stop and distinguish coverage from installation sites (0.48875ms)
+✔ the complete tour keeps pins and scope aligned, and a pin selects its own dashboard (20.69125ms)
+✔ reduced motion initializes Hold without scheduling a tour or animated flight (4.603083ms)
+✔ the hero system count is computed from the catalogue, never written by hand (0.695833ms)
+✔ every stated system count agrees with the catalogue (0.650542ms)
+✔ every proof line, in every locale and both copy blocks, states only real counts (0.651ms)
+✔ the country count is the same in every locale (0.746208ms)
+✔ every <picture> wraps one complete <img>, never a split attribute list (1.124417ms)
+✖ every wrapped thumbnail has a webp source and a real fallback on disk (3.346542ms)
+✔ security headers match the generated deployment artifact (14.821709ms)
+✔ catalog editions and earned hero interactions remain present (5.836959ms)
+✔ unconfigured admin fails closed while the public page stays available (309.295375ms)
+▶ local API enforces authentication, validation and private/public boundaries
+  ✔ anonymous admin reads and writes are denied, including encoded/case variants (20.3325ms)
+  ✔ host and cross-site checks do not trust forwarding headers (16.194208ms)
+  ✔ JSON must be a bounded, valid object of the correct content type (53.65325ms)
+  ✔ unsafe stored URLs are rejected without mutating existing proof (13.741959ms)
+  ✔ authenticated pipeline CRUD and notes still work; exports never contain private data (193.804542ms)
+  ✔ static paths cannot traverse directories, follow outside symlinks or serve hidden configuration (18.877916ms)
+  ✔ all responses carry browser protections; scripts do not permit arbitrary inline code (9.135208ms)
+  ✔ pageviews discard query strings, referrer paths and user-agent fingerprints (3.899125ms)
+  ✔ failed authentication is rate limited using the socket address (19.150625ms)
+✔ local API enforces authentication, validation and private/public boundaries (628.837333ms)
+ℹ tests 66
+ℹ suites 0
+ℹ pass 59
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1280.698625
+
+✖ failing tests:
+
+test at tests/catalogue-source.test.mjs:22:1
+✖ every catalogue artefact matches the source of truth (57.015208ms)
+  AssertionError [ERR_ASSERTION]: public/app.js disagrees with data/catalogue/ — run: node scripts/catalogue/build.mjs
+  + actual - expected
+  ... Skipped lines
+  
+    '/* ========================================\n' +
+      '   AXIOM — Landing Page\n' +
+      '   ======================================== */\n' +
+      '\n' +
+      '// ── i18n ──────────────────────────────────────────────────────────\n' +
+  ...
+      "    outputs: 'Stability range,Bump radar,News × market map',\n" +
+  +   "    foot: 'Bloomberg signals · Thai market · your"... 364314 more characters
+  -   "    foot: 'Bloomberg signals · Thai market · your"... 364194 more characters
+  
+      at TestContext.<anonymous> (file:///private/tmp/axiom-main-review.HtCQzD/tests/catalogue-source.test.mjs:24:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: `/* ========================================\n   AXIOM — Landing Page\n   ======================================== */\n\n// ── i18n ──────────────────────────────────────────────────────────\n\n// The language the reader chose. A switch that forgets itself on reload is\n// not a switch, so the choice is remembered. A link can also carry a\n// language with ?lang=, and that wins for this visit only — a link somebody\n// sent you should not quietly change your own preference.\nconst LOCALE_STORAGE_KEY = 'axiom:locale';\nlet activeLocale = 'en';\n\nfunction readLocalePreference() {\n  let fromUrl = null;\n  try {\n    fromUrl = new URLSearchParams(window.location.search).get('lang');\n  } catch (e) { /* no search, or a URL the browser will not parse */ }\n  if (fromUrl && uiCopy[fromUrl]) return fromUrl;\n  let saved = null;\n  try {\n    saved = window.localStorage.getItem(LOCALE_STORAGE_KEY);\n  } catch (e) { /* storage can be refused; the switch still works without it */ }\n  if (saved && uiCopy[saved]) return saved;\n  return 'en';\n}\n\nfunction rememberLocale(locale) {\n  try {\n    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);\n  } catch (e) { /* storage can be refused; the switch still works without it */ }\n}\n\n// Lightweight media-query helper (pre-existing axiomMedia was referenced\n// but never defined; recreate it here so the satellite hero and data\n// lines can still detect touch / reduced-motion / mobile).\nconst axiomMedia = (() => {\n  if (typeof window === 'undefined') return { isTouch: false, isReduced: false, isMobile: false };\n  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;\n  const coarse = window.matchMedia?.('(pointer: coarse)').matches ?? false;\n  const narrow = window.matchMedia?.('(max-width: 700px)').matches ?? false;\n  return { isTouch: coarse, isReduced: reduced, isMobile: narrow };\n})();\n\n// ── System architecture popovers ────────────────────────────────────────────\n// On hover (or on mobile tap), each .sys-cell[data-arch] gets a small\n// floating diagram showing inputs → core → outputs. Architecture data\n// lives here so the HTML stays clean.\n\n// i18n helper for architecture text — looks up a flat key in the active\n// locale's uiCopy, falling back to English, then to the supplied default.\nfunction _t(key, fallback) {\n  try {\n    const copy = (typeof uiCopy !== 'undefined' && uiCopy) || {};\n    const locale = (typeof activeLocale !== 'undefined' && activeLocale) || 'en';\n    const cur = copy[locale] || {};\n    if (typeof cur[key] === 'string') return cur[key];\n    if (copy.en && typeof copy.en[key] === 'string') return copy.en[key];\n  } catch (e) { /* ignore */ }\n  return fallback;\n}\n\nconst ARCHITECTURES = {\n  'flood-ami': {\n    name: 'FLOODDASH',\n    ver: '2.4.1',\n    idx: '23',\n    inputs: 'NASA FIRMS,GISTDA,CEMS,HIMAWARI-9,TMD,Open-Meteo,OpenStreetMap,Tide stations,Rain gauges',\n    core: '[object Object]',\n    outputs: 'National map,Province detail,Watch list,3-day forecast',\n    foot: '9 public sources · 24/7 · Thailand-wide',\n  },\n  sikhio: {\n    name: 'SIKHIO OPS',\n    ver: '1.0.0',\n    idx: '26',\n    inputs: 'AQI sensors,Weather,Traffic,Live city data',\n    core: '[object Object]',\n    outputs: 'City pulse,Traffic patterns,Environmental reads',\n    foot: 'town-scale command room · Nakhon Ratchasima',\n  },\n  nst: {\n    name: 'NST-01',\n    ver: '1.0.0',\n    idx: '37',\n    inputs: '3D city mesh,Satellite,Flood / basin feeds,Khao Luang,Pak Phanang,30+ live sources',\n    core: '[object Object]',\n    outputs: 'City command view,Flood watch,Basin situation',\n    foot: 'civic intelligence · southern Thailand coast',\n  },\n  lcbcity: {\n    name: 'LAEM CHABANG',\n    ver: '1.2.0',\n    idx: '22',\n    inputs: 'Truck GPS,Port traffic,Regulatory data,CCTV (where available)',\n    core: '[object Object]',\n    outputs: 'Truck monitor,Compliance tracker,Congestion alerts',\n    foot: 'Thailand Eastern Seaboard · port logistics',\n  },\n  phuket: {\n    name: 'PHUKET OPS',\n    ver: '3.1.2',\n    idx: '01',\n    inputs: 'Transit,Public safety,Environmental signals,Tourism feeds',\n    core: '[object Object]',\n    outputs: 'Unified ops room,Incident board,Alert timeline',\n    foot: 'governor-grade · Andaman coast',\n  },\n  hcmc: {\n    name: 'HCMCx',\n    ver: '1.8.0',\n    idx: '21',\n    inputs: 'Traffic cameras,Flood sensors,Air quality,News / reports',\n    core: '[object Object]',\n    outputs: 'Dynamic routing,Incident board,3D city view',\n    foot: 'Ho Chi Minh City · metropolitan command',\n  },\n  mtt: {\n    name: 'MTT SUPER',\n    ver: '2.0.1',\n    idx: '33',\n    inputs: 'IMPACT events,Flood gauges,Traffic / CWR,AQI,Parking,CCTV / feeds',\n    core: '[object Object]',\n    outputs: 'Arena ops board,Flood alert,Layer stack,Guest load',\n    foot: 'Muang Thong Thani · IMPACT + Challenger',\n  },\n  kuching: {\n    name: 'KUCHING IOC',\n    ver: '2.3.0',\n    idx: '05',\n    inputs: 'Foreign exchange,Flights,Satellite imagery,Environmental reads',\n    core: '[object Object]',\n    outputs: 'Cross-domain board,FX monitor,Flight log',\n    foot: 'Greater Kuching · IOC for the operator',\n  },\n  chula: {\n    name: 'CHULA TOWER',\n    ver: '1.4.2',\n    idx: '13',\n    inputs: 'Traffic,Incidents,Air quality,Satellite,CU Shuttle,News,Emergency',\n    core: '[object Object]',\n    outputs: '3D campus map,Strategic alerts,Civic reports',\n    foot: 'Chulalongkorn University · Siam–Samyan',\n  },\n  chonburi: {\n    name: 'CHONBURI TOWER',\n    ver: '1.5.0',\n    idx: '16',\n    inputs: 'Weather,Marine state,EEC news,CCTV / AIS / AQ / WX',\n    core: '[object Object]',\n    outputs: '3D province render,Coastal watch,EEC trends',\n    foot: 'Eastern Seaboard · 3D command surface',\n  },\n  kmitl: {\n    name: 'KMITL TOWER',\n    ver: '1.3.1',\n    idx: '18',\n    inputs: 'Traffic,Incidents,Air quality,Satellite,Shuttles,News,Emergency',\n    core: '[object Object]',\n    outputs: '3D campus map,Operational view,Civic reports',\n    foot: "King Mongkut's IT Ladkrabang",\n  },\n  yala: {\n    name: 'YALA TOWER',\n    ver: '0.1.0',\n    idx: '19',\n    inputs: '3D city model,Satellite layers,Flood watch,Deep South security,30+ feeds',\n    core: '[object Object]',\n    outputs: '3D city view,Incident board,Initiative tracker',\n    foot: 'Yala Municipality · Deep South',\n  },\n  'city-hub': {\n    name: 'CITY HUB',\n    ver: '5.0.0',\n    idx: '15',\n    inputs: 'City name,Whatever data exists,Satellite + base layers',\n    core: '[object Object]',\n    outputs: 'Side-by-side compare,Per-city pulse,Lens toolkit',\n    foot: 'name a city → start its brain',\n  },\n  'air-dnd': {\n    name: 'AIRDASH',\n    ver: '3.0.0',\n    idx: '27',\n    inputs: 'PM2.5 ground obs,CAMS satellite,Weather,Rain washout',\n    core: '[object Object]',\n    outputs: 'Watch list,3-day forecast,Top-5 AT-risk,National pattern donut',\n    foot: 'Thailand air quality + dust watch',\n  },\n  'bkk-atlas': {\n    name: 'BKKX 3D ATLAS',\n    ver: '1.0.0',\n    idx: '36',\n    inputs: 'OSM buildings,Terrain DEM,AQI / rain radar,Treasury land prices,BTS/MRT',\n    core: '[object Object]',\n    outputs: 'Extruded Bangkok,Layer toggles,15 key-area jumps,Live traffic',\n    foot: 'walk Bangkok block by block · my city, not theirs',\n  },\n  'bkk-culture': {\n    name: 'BKKX CULTURE',\n    ver: '1.0.0',\n    idx: '43',\n    inputs: 'Fine Arts register,9 heritage quarters,7 walks,OSM heritage',\n    core: '[object Object]',\n    outputs: '3D heritage map,Quarter pages,Monument register,Documented walks',\n    foot: "Bangkok's heritage, block by block",\n  },\n  jakarta: {\n    name: 'JAKARTA 3D ATLAS',\n    ver: '1.0.0',\n    idx: '64',\n    inputs: 'Jakarta Satu,BMKG bulletins,CRM citizen feeds,DSDA / BPBD flood risk',\n    core: '[object Object]',\n    outputs: 'Extruded Jakarta 3D,Pantauan Kota desk,CRM incident reports,Flood risk zones',\n    foot: 'DKI Jakarta operations desk · Pantauan Kota',\n  },\n  'bangkok-ioc': {\n    name: 'BANGKOK IOC',\n    ver: '3.0.0',\n    idx: '72',\n    inputs: 'Traffy Fondue reports,BMA open data,OpenStreetMap,Asking-rent context,iTIC traffic,Open-Meteo air',\n    core: '[object Object]',\n    outputs: 'Station-area brief,Budget and journey check,Compare up to 3,800 m evidence radius',\n    foot: "Bangkok Governor's IOC · place-fit pilot · desk research",\n  },\n  slic: {\n    name: 'SLIC',\n    ver: '3.2.0',\n    idx: '04',\n    inputs: '157 cities,5 livability pillars,User weights',\n    core: '[object Object]',\n    outputs: 'Live ranking,Pillar breakdown,Cross-city compare',\n    foot: 'a ranking that argues back',\n  },\n  globalmonitor: {\n    name: 'GLOBAL MONITOR',\n    ver: '2.6.1',\n    idx: '24',\n    inputs: 'Middle East,Indo-Pacific,Thailand,Global,ADS-B,AIS,Fires,Conflict',\n    core: '[object Object]',\n    outputs: 'Live traffic map,Multi-front status,GPD Oracle forecast',\n    foot: 'four theaters, one open data lens',\n  },\n  asiawatch: {\n    name: 'ASIA POLITICAL DASHBOARD',\n    ver: '1.0.0',\n    idx: '44',\n    inputs: 'SE Asia,East Asia,South Asia,Thailand,5 Chokepoints,ADS-B,AIS,GDELT',\n    core: '[object Object]',\n    outputs: 'Regional live map,Frontier markers,Country news + TV',\n    foot: 'Asia through its own lens, not as an annex of the West',\n  },\n  worldconsole: {\n    name: 'WORLD CONSOLE',\n    ver: '1.0.0',\n    idx: '45',\n    inputs: 'Worldwide ADS-B,Worldwide AIS,ACLED,FIRMS,RSS,Markets',\n    core: '[object Object]',\n    outputs: 'World traffic map,Global macro column,Market strip',\n    foot: 'the whole board, one screen',\n  },\n  mem: {\n    name: 'MEM',\n    ver: '2.1.0',\n    idx: '06',\n    inputs: 'Multi-source news,OSINT feeds,No editorial layer',\n    core: '[object Object]',\n    outputs: 'Live news surface,Multi-source feed,Geo timeline',\n    foot: "news before the algorithm decides what's war",\n  },\n  daytraders: {\n    name: 'DAY TRADERS',\n    ver: '2.0.0',\n    idx: '14',\n    inputs: 'SET / MAI,US markets,Graham / Buffett / Munger frameworks',\n    core: '[object Object]',\n    outputs: 'Stability range,Bump radar,News × market map',\n    foot: 'Bloomberg signals · Thai market · your`... 364314 more characters,
+    expected: `/* ========================================\n   AXIOM — Landing Page\n   ======================================== */\n\n// ── i18n ──────────────────────────────────────────────────────────\n\n// The language the reader chose. A switch that forgets itself on reload is\n// not a switch, so the choice is remembered. A link can also carry a\n// language with ?lang=, and that wins for this visit only — a link somebody\n// sent you should not quietly change your own preference.\nconst LOCALE_STORAGE_KEY = 'axiom:locale';\nlet activeLocale = 'en';\n\nfunction readLocalePreference() {\n  let fromUrl = null;\n  try {\n    fromUrl = new URLSearchParams(window.location.search).get('lang');\n  } catch (e) { /* no search, or a URL the browser will not parse */ }\n  if (fromUrl && uiCopy[fromUrl]) return fromUrl;\n  let saved = null;\n  try {\n    saved = window.localStorage.getItem(LOCALE_STORAGE_KEY);\n  } catch (e) { /* storage can be refused; the switch still works without it */ }\n  if (saved && uiCopy[saved]) return saved;\n  return 'en';\n}\n\nfunction rememberLocale(locale) {\n  try {\n    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);\n  } catch (e) { /* storage can be refused; the switch still works without it */ }\n}\n\n// Lightweight media-query helper (pre-existing axiomMedia was referenced\n// but never defined; recreate it here so the satellite hero and data\n// lines can still detect touch / reduced-motion / mobile).\nconst axiomMedia = (() => {\n  if (typeof window === 'undefined') return { isTouch: false, isReduced: false, isMobile: false };\n  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;\n  const coarse = window.matchMedia?.('(pointer: coarse)').matches ?? false;\n  const narrow = window.matchMedia?.('(max-width: 700px)').matches ?? false;\n  return { isTouch: coarse, isReduced: reduced, isMobile: narrow };\n})();\n\n// ── System architecture popovers ────────────────────────────────────────────\n// On hover (or on mobile tap), each .sys-cell[data-arch] gets a small\n// floating diagram showing inputs → core → outputs. Architecture data\n// lives here so the HTML stays clean.\n\n// i18n helper for architecture text — looks up a flat key in the active\n// locale's uiCopy, falling back to English, then to the supplied default.\nfunction _t(key, fallback) {\n  try {\n    const copy = (typeof uiCopy !== 'undefined' && uiCopy) || {};\n    const locale = (typeof activeLocale !== 'undefined' && activeLocale) || 'en';\n    const cur = copy[locale] || {};\n    if (typeof cur[key] === 'string') return cur[key];\n    if (copy.en && typeof copy.en[key] === 'string') return copy.en[key];\n  } catch (e) { /* ignore */ }\n  return fallback;\n}\n\nconst ARCHITECTURES = {\n  'flood-ami': {\n    name: 'FLOODDASH',\n    ver: '2.4.1',\n    idx: '23',\n    inputs: 'NASA FIRMS,GISTDA,CEMS,HIMAWARI-9,TMD,Open-Meteo,OpenStreetMap,Tide stations,Rain gauges',\n    core: '[object Object]',\n    outputs: 'National map,Province detail,Watch list,3-day forecast',\n    foot: '9 public sources · 24/7 · Thailand-wide',\n  },\n  sikhio: {\n    name: 'SIKHIO OPS',\n    ver: '1.0.0',\n    idx: '26',\n    inputs: 'AQI sensors,Weather,Traffic,Live city data',\n    core: '[object Object]',\n    outputs: 'City pulse,Traffic patterns,Environmental reads',\n    foot: 'town-scale command room · Nakhon Ratchasima',\n  },\n  nst: {\n    name: 'NST-01',\n    ver: '1.0.0',\n    idx: '37',\n    inputs: '3D city mesh,Satellite,Flood / basin feeds,Khao Luang,Pak Phanang,30+ live sources',\n    core: '[object Object]',\n    outputs: 'City command view,Flood watch,Basin situation',\n    foot: 'civic intelligence · southern Thailand coast',\n  },\n  lcbcity: {\n    name: 'LAEM CHABANG',\n    ver: '1.2.0',\n    idx: '22',\n    inputs: 'Truck GPS,Port traffic,Regulatory data,CCTV (where available)',\n    core: '[object Object]',\n    outputs: 'Truck monitor,Compliance tracker,Congestion alerts',\n    foot: 'Thailand Eastern Seaboard · port logistics',\n  },\n  phuket: {\n    name: 'PHUKET OPS',\n    ver: '3.1.2',\n    idx: '01',\n    inputs: 'Transit,Public safety,Environmental signals,Tourism feeds',\n    core: '[object Object]',\n    outputs: 'Unified ops room,Incident board,Alert timeline',\n    foot: 'governor-grade · Andaman coast',\n  },\n  hcmc: {\n    name: 'HCMCx',\n    ver: '1.8.0',\n    idx: '21',\n    inputs: 'Traffic cameras,Flood sensors,Air quality,News / reports',\n    core: '[object Object]',\n    outputs: 'Dynamic routing,Incident board,3D city view',\n    foot: 'Ho Chi Minh City · metropolitan command',\n  },\n  mtt: {\n    name: 'MTT SUPER',\n    ver: '2.0.1',\n    idx: '33',\n    inputs: 'IMPACT events,Flood gauges,Traffic / CWR,AQI,Parking,CCTV / feeds',\n    core: '[object Object]',\n    outputs: 'Arena ops board,Flood alert,Layer stack,Guest load',\n    foot: 'Muang Thong Thani · IMPACT + Challenger',\n  },\n  kuching: {\n    name: 'KUCHING IOC',\n    ver: '2.3.0',\n    idx: '05',\n    inputs: 'Foreign exchange,Flights,Satellite imagery,Environmental reads',\n    core: '[object Object]',\n    outputs: 'Cross-domain board,FX monitor,Flight log',\n    foot: 'Greater Kuching · IOC for the operator',\n  },\n  chula: {\n    name: 'CHULA TOWER',\n    ver: '1.4.2',\n    idx: '13',\n    inputs: 'Traffic,Incidents,Air quality,Satellite,CU Shuttle,News,Emergency',\n    core: '[object Object]',\n    outputs: '3D campus map,Strategic alerts,Civic reports',\n    foot: 'Chulalongkorn University · Siam–Samyan',\n  },\n  chonburi: {\n    name: 'CHONBURI TOWER',\n    ver: '1.5.0',\n    idx: '16',\n    inputs: 'Weather,Marine state,EEC news,CCTV / AIS / AQ / WX',\n    core: '[object Object]',\n    outputs: '3D province render,Coastal watch,EEC trends',\n    foot: 'Eastern Seaboard · 3D command surface',\n  },\n  kmitl: {\n    name: 'KMITL TOWER',\n    ver: '1.3.1',\n    idx: '18',\n    inputs: 'Traffic,Incidents,Air quality,Satellite,Shuttles,News,Emergency',\n    core: '[object Object]',\n    outputs: '3D campus map,Operational view,Civic reports',\n    foot: "King Mongkut's IT Ladkrabang",\n  },\n  yala: {\n    name: 'YALA TOWER',\n    ver: '0.1.0',\n    idx: '19',\n    inputs: '3D city model,Satellite layers,Flood watch,Deep South security,30+ feeds',\n    core: '[object Object]',\n    outputs: '3D city view,Incident board,Initiative tracker',\n    foot: 'Yala Municipality · Deep South',\n  },\n  'city-hub': {\n    name: 'CITY HUB',\n    ver: '5.0.0',\n    idx: '15',\n    inputs: 'City name,Whatever data exists,Satellite + base layers',\n    core: '[object Object]',\n    outputs: 'Side-by-side compare,Per-city pulse,Lens toolkit',\n    foot: 'name a city → start its brain',\n  },\n  'air-dnd': {\n    name: 'AIRDASH',\n    ver: '3.0.0',\n    idx: '27',\n    inputs: 'PM2.5 ground obs,CAMS satellite,Weather,Rain washout',\n    core: '[object Object]',\n    outputs: 'Watch list,3-day forecast,Top-5 AT-risk,National pattern donut',\n    foot: 'Thailand air quality + dust watch',\n  },\n  'bkk-atlas': {\n    name: 'BKKX 3D ATLAS',\n    ver: '1.0.0',\n    idx: '36',\n    inputs: 'OSM buildings,Terrain DEM,AQI / rain radar,Treasury land prices,BTS/MRT',\n    core: '[object Object]',\n    outputs: 'Extruded Bangkok,Layer toggles,15 key-area jumps,Live traffic',\n    foot: 'walk Bangkok block by block · my city, not theirs',\n  },\n  'bkk-culture': {\n    name: 'BKKX CULTURE',\n    ver: '1.0.0',\n    idx: '43',\n    inputs: 'Fine Arts register,9 heritage quarters,7 walks,OSM heritage',\n    core: '[object Object]',\n    outputs: '3D heritage map,Quarter pages,Monument register,Documented walks',\n    foot: "Bangkok's heritage, block by block",\n  },\n  jakarta: {\n    name: 'JAKARTA 3D ATLAS',\n    ver: '1.0.0',\n    idx: '64',\n    inputs: 'Jakarta Satu,BMKG bulletins,CRM citizen feeds,DSDA / BPBD flood risk',\n    core: '[object Object]',\n    outputs: 'Extruded Jakarta 3D,Pantauan Kota desk,CRM incident reports,Flood risk zones',\n    foot: 'DKI Jakarta operations desk · Pantauan Kota',\n  },\n  'bangkok-ioc': {\n    name: 'BANGKOK IOC',\n    ver: '3.0.0',\n    idx: '72',\n    inputs: 'Traffy Fondue reports,BMA open data,OpenStreetMap,Asking-rent context,iTIC traffic,Open-Meteo air',\n    core: '[object Object]',\n    outputs: 'Station-area brief,Budget and journey check,Compare up to 3,800 m evidence radius',\n    foot: "Bangkok Governor's IOC · place-fit pilot · desk research",\n  },\n  slic: {\n    name: 'SLIC',\n    ver: '3.2.0',\n    idx: '04',\n    inputs: '157 cities,5 livability pillars,User weights',\n    core: '[object Object]',\n    outputs: 'Live ranking,Pillar breakdown,Cross-city compare',\n    foot: 'a ranking that argues back',\n  },\n  globalmonitor: {\n    name: 'GLOBAL MONITOR',\n    ver: '2.6.1',\n    idx: '24',\n    inputs: 'Middle East,Indo-Pacific,Thailand,Global,ADS-B,AIS,Fires,Conflict',\n    core: '[object Object]',\n    outputs: 'Live traffic map,Multi-front status,GPD Oracle forecast',\n    foot: 'four theaters, one open data lens',\n  },\n  asiawatch: {\n    name: 'ASIA POLITICAL DASHBOARD',\n    ver: '1.0.0',\n    idx: '44',\n    inputs: 'SE Asia,East Asia,South Asia,Thailand,5 Chokepoints,ADS-B,AIS,GDELT',\n    core: '[object Object]',\n    outputs: 'Regional live map,Frontier markers,Country news + TV',\n    foot: 'Asia through its own lens, not as an annex of the West',\n  },\n  worldconsole: {\n    name: 'WORLD CONSOLE',\n    ver: '1.0.0',\n    idx: '45',\n    inputs: 'Worldwide ADS-B,Worldwide AIS,ACLED,FIRMS,RSS,Markets',\n    core: '[object Object]',\n    outputs: 'World traffic map,Global macro column,Market strip',\n    foot: 'the whole board, one screen',\n  },\n  mem: {\n    name: 'MEM',\n    ver: '2.1.0',\n    idx: '06',\n    inputs: 'Multi-source news,OSINT feeds,No editorial layer',\n    core: '[object Object]',\n    outputs: 'Live news surface,Multi-source feed,Geo timeline',\n    foot: "news before the algorithm decides what's war",\n  },\n  daytraders: {\n    name: 'DAY TRADERS',\n    ver: '2.0.0',\n    idx: '14',\n    inputs: 'SET / MAI,US markets,Graham / Buffett / Munger frameworks',\n    core: '[object Object]',\n    outputs: 'Stability range,Bump radar,News × market map',\n    foot: 'Bloomberg signals · Thai market · your`... 364194 more characters,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/catalogue-source.test.mjs:29:1
+✖ the source of truth describes every system, in every language (6.486084ms)
+  AssertionError [ERR_ASSERTION]: hikaru-non-go points at a category that does not exist
+      at TestContext.<anonymous> (file:///private/tmp/axiom-main-review.HtCQzD/tests/catalogue-source.test.mjs:44:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/catalogue-source.test.mjs:71:1
+✖ the counts the site states are the counts the catalogue holds (4.773583ms)
+  TypeError: Cannot convert undefined or null to object
+      at Object.values (<anonymous>)
+      at TestContext.<anonymous> (file:///private/tmp/axiom-main-review.HtCQzD/tests/catalogue-source.test.mjs:80:31)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+
+test at tests/catalogue.test.mjs:51:1
+✖ the two catalogues name the same systems, once each (8.342791ms)
+  AssertionError [ERR_ASSERTION]: axiom and axiomx list different systems
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      'ai-council',
+      'air-dnd',
+      'ascn',
+      'asiawatch',
+  ...
+      'hcmc',
+  +   'hikaru-non-go',
+      'horizon45',
+      'ikigai',
+      'jakarta',
+      'kmitl',
+      'kuching',
+  
+      at TestContext.<anonymous> (file:///private/tmp/axiom-main-review.HtCQzD/tests/catalogue.test.mjs:57:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [
+      'ai-council',           'air-dnd',         'ascn',
+      'asiawatch',            'axiom-dc',        'bangkok-ioc',
+      'bkk-atlas',            'bkk-culture',     'burma',
+      'carbon',               'champion',        'chonburi',
+      'chula',                'city-hub',        'colors',
+      'constitution',         'dao',             'day2',
+      'daytraders',           'dhaka',           'dog',
+      'drnon-digests',        'each',            'ekkasarn',
+      'flood-ami',            'flood-blueprint', 'flooddash-fb',
+      'formhypes',            'geo',             'globalmonitor',
+      'hcmc',                 'hikaru-non-go',   'horizon45',
+      'ikigai',               'jakarta',         'kmitl',
+      'kuching',              'ladder',          'lcbcity',
+      'life',                 'llm',             'locating-shanghai',
+      'lopburi',              'luggage-tag',     'luma-house',
+      'malaysia',             'mem',             'miaoshen',
+      'moma-rules',           'mtt',             'nonscrape',
+      'nonwriter',            'nsp',             'nst',
+      'o3',                   'omniarcade',      'openclaw-setup',
+      'pavilion',             'phuket',          'phuket-bus',
+      'podcast-20min',        'rag',             'rams-dc',
+      'sciti',                'scth',            'second-brain',
+      'shophouse-metropolis', 'sikhio',          'simcity',
+      'slic',                 'soccer',          'superleague',
+      'tdv',                  'techhunt',        'time-pop',
+      'tkcx',                 'tsunami',         'universe-69',
+      'vision',               'worldconsole',    'yala'
+    ],
+    expected: [
+      'ai-council',    'air-dnd',           'ascn',
+      'asiawatch',     'axiom-dc',          'bangkok-ioc',
+      'bkk-atlas',     'bkk-culture',       'burma',
+      'carbon',        'champion',          'chonburi',
+      'chula',         'city-hub',          'colors',
+      'constitution',  'dao',               'day2',
+      'daytraders',    'dhaka',             'dog',
+      'drnon-digests', 'each',              'ekkasarn',
+      'flood-ami',     'flood-blueprint',   'flooddash-fb',
+      'formhypes',     'geo',               'globalmonitor',
+      'hcmc',          'horizon45',         'ikigai',
+      'jakarta',       'kmitl',             'kuching',
+      'ladder',        'lcbcity',           'life',
+      'llm',           'locating-shanghai', 'lopburi',
+      'luggage-tag',   'luma-house',        'malaysia',
+      'mem',           'miaoshen',          'moma-rules',
+      'mtt',           'nonscrape',         'nonwriter',
+      'nsp',           'nst',               'o3',
+      'omniarcade',    'openclaw-setup',    'pavilion',
+      'phuket',        'phuket-bus',        'podcast-20min',
+      'rag',           'rams-dc',           'sciti',
+      'scth',          'second-brain',      'shophouse-metropolis',
+      'sikhio',        'simcity',           'slic',
+      'soccer',        'superleague',       'tdv',
+      'techhunt',      'time-pop',          'tkcx',
+      'tsunami',       'universe-69',       'vision',
+      'worldconsole',  'yala'
+    ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/catalogue.test.mjs:61:1
+✖ every system sits in the same cluster on both sites (1.564667ms)
+  AssertionError [ERR_ASSERTION]: hikaru-non-go is on axiom but not in the catalogue
+      at TestContext.<anonymous> (file:///private/tmp/axiom-main-review.HtCQzD/tests/catalogue.test.mjs:66:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/catalogue.test.mjs:76:1
+✖ every system carries the same number on both sites, and no number repeats (12.816458ms)
+  TypeError: Cannot read properties of undefined (reading 'idx')
+      at TestContext.<anonymous> (file:///private/tmp/axiom-main-review.HtCQzD/tests/catalogue.test.mjs:88:40)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+
+test at tests/footprint.test.mjs:271:1
+✖ every wrapped thumbnail has a webp source and a real fallback on disk (3.346542ms)
+  AssertionError [ERR_ASSERTION]: screenshots/hikaru-non-go.webp missing
+      at TestContext.<anonymous> (file:///private/tmp/axiom-main-review.HtCQzD/tests/footprint.test.mjs:276:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

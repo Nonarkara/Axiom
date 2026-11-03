@@ -40,6 +40,13 @@
     }
   ],
   "countries": 5,
+  "clusterCounts": {
+    "City Dashboards": 24,
+    "Civic": 9,
+    "Emerging": 13,
+    "Intelligence": 9,
+    "Lab": 26
+  },
   "statusVocabulary": {
     "live": {
       "site": {
@@ -5708,6 +5715,7 @@
       "href": "https://nonarkara.org/",
       "domId": "pavilion",
       "variant": "link",
+      "full": true,
       "edition": null,
       "image": {
         "src": "screenshots/pavilion.jpg",

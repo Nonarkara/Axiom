@@ -1,0 +1,362 @@
+[
+  {
+    "name": "vr-claimed",
+    "width": 390,
+    "url": "https://vr.nonarkara.org/",
+    "status": 200,
+    "title": "VR · nonarkara",
+    "canvases": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 390,
+        "h": 844
+      }
+    ],
+    "hero": null,
+    "stage": null,
+    "map": null,
+    "rows": 0,
+    "three": "undefined",
+    "navOverflow": [],
+    "overflow": 0,
+    "scripts": [
+      "https://vr.nonarkara.org/hub.js"
+    ],
+    "errors": [],
+    "console": [],
+    "failed": []
+  },
+  {
+    "name": "vr-claimed",
+    "width": 1440,
+    "url": "https://vr.nonarkara.org/",
+    "status": 200,
+    "title": "VR · nonarkara",
+    "canvases": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 1440,
+        "h": 900
+      }
+    ],
+    "hero": null,
+    "stage": null,
+    "map": null,
+    "rows": 0,
+    "three": "undefined",
+    "navOverflow": [],
+    "overflow": 0,
+    "scripts": [
+      "https://vr.nonarkara.org/hub.js"
+    ],
+    "errors": [],
+    "console": [],
+    "failed": []
+  },
+  {
+    "name": "vr-commit",
+    "width": 390,
+    "url": "https://axiom.nonarkara.org/vr/",
+    "status": 200,
+    "title": "vr.nonarkara.org · Premier League 2026-27",
+    "heading": "Premier League2026-27",
+    "canvases": [],
+    "hero": null,
+    "stage": null,
+    "map": null,
+    "rows": 0,
+    "three": "undefined",
+    "navOverflow": [],
+    "overflow": 0,
+    "scripts": [
+      "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "https://axiom.nonarkara.org/vr/vr.js?v=20261103a"
+    ],
+    "errors": [
+      "Unexpected token 'export'",
+      "THREE is not defined"
+    ],
+    "console": [],
+    "failed": []
+  },
+  {
+    "name": "vr-commit",
+    "width": 1440,
+    "url": "https://axiom.nonarkara.org/vr/",
+    "status": 200,
+    "title": "vr.nonarkara.org · Premier League 2026-27",
+    "heading": "Premier League2026-27",
+    "canvases": [],
+    "hero": null,
+    "stage": null,
+    "map": null,
+    "rows": 0,
+    "three": "undefined",
+    "navOverflow": [],
+    "overflow": 0,
+    "scripts": [
+      "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "https://axiom.nonarkara.org/vr/vr.js?v=20261103a"
+    ],
+    "errors": [
+      "Unexpected token 'export'",
+      "THREE is not defined"
+    ],
+    "console": [],
+    "failed": []
+  },
+  {
+    "name": "axiom-live",
+    "width": 390,
+    "url": "https://axiom.nonarkara.org/",
+    "status": 200,
+    "title": "Axiom — Smart-City Dashboards & GovTech Systems",
+    "heading": "Innovation\n          as a Service",
+    "canvases": [
+      {
+        "x": 0,
+        "y": 50,
+        "w": 390,
+        "h": 1253
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 50,
+      "w": 390,
+      "h": 1254
+    },
+    "stage": {
+      "x": 16,
+      "y": 60,
+      "w": 568,
+      "h": 705
+    },
+    "map": {
+      "x": 0,
+      "y": 50,
+      "w": 390,
+      "h": 1253
+    },
+    "rows": 0,
+    "three": "undefined",
+    "navOverflow": [],
+    "overflow": 0,
+    "scripts": [
+      "https://axiom.nonarkara.org/i18n-regional.js?v=20261103b",
+      "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+      "https://axiom.nonarkara.org/footprint.js?v=20261027a",
+      "https://axiom.nonarkara.org/app.js?v=20261103b",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "errors": [],
+    "console": [],
+    "failed": []
+  },
+  {
+    "name": "axiom-live",
+    "width": 1440,
+    "url": "https://axiom.nonarkara.org/",
+    "status": 200,
+    "title": "Axiom — Smart-City Dashboards & GovTech Systems",
+    "heading": "Innovation\n          as a Service",
+    "canvases": [
+      {
+        "x": 0,
+        "y": 102,
+        "w": 1440,
+        "h": 1097
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 102,
+      "w": 1440,
+      "h": 1098
+    },
+    "stage": {
+      "x": 120,
+      "y": 112,
+      "w": 692,
+      "h": 614
+    },
+    "map": {
+      "x": 0,
+      "y": 102,
+      "w": 1440,
+      "h": 1097
+    },
+    "rows": 0,
+    "three": "undefined",
+    "navOverflow": [],
+    "overflow": 0,
+    "scripts": [
+      "https://axiom.nonarkara.org/i18n-regional.js?v=20261103b",
+      "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+      "https://axiom.nonarkara.org/footprint.js?v=20261027a",
+      "https://axiom.nonarkara.org/app.js?v=20261103b",
+      "https://static.cloudflareinsights.com/beacon.min.js"
+    ],
+    "errors": [],
+    "console": [],
+    "failed": []
+  },
+  {
+    "name": "axiom-dirty",
+    "width": 390,
+    "url": "http://127.0.0.1:5453/",
+    "status": 200,
+    "title": "Axiom — Smart-City Dashboards & GovTech Systems",
+    "heading": "Innovation\n          as a Service",
+    "canvases": [
+      {
+        "x": 0,
+        "y": 54,
+        "w": 390,
+        "h": 1041
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 54,
+      "w": 390,
+      "h": 1577
+    },
+    "stage": {
+      "x": 0,
+      "y": 54,
+      "w": 390,
+      "h": 1041
+    },
+    "map": {
+      "x": 0,
+      "y": 54,
+      "w": 390,
+      "h": 1041
+    },
+    "rows": 0,
+    "three": "undefined",
+    "navOverflow": [],
+    "overflow": 0,
+    "scripts": [
+      "http://127.0.0.1:5453/i18n-regional.js?v=20261103b",
+      "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+      "http://127.0.0.1:5453/footprint.js?v=20261027a",
+      "http://127.0.0.1:5453/app.js?v=20261103b"
+    ],
+    "errors": [],
+    "console": [],
+    "failed": []
+  },
+  {
+    "name": "axiom-dirty",
+    "width": 1440,
+    "url": "http://127.0.0.1:5453/",
+    "status": 200,
+    "title": "Axiom — Smart-City Dashboards & GovTech Systems",
+    "heading": "Innovation\n          as a Service",
+    "canvases": [
+      {
+        "x": 0,
+        "y": 102,
+        "w": 1440,
+        "h": 780
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 102,
+      "w": 1440,
+      "h": 1150
+    },
+    "stage": {
+      "x": 0,
+      "y": 102,
+      "w": 1440,
+      "h": 780
+    },
+    "map": {
+      "x": 0,
+      "y": 102,
+      "w": 1440,
+      "h": 780
+    },
+    "rows": 0,
+    "three": "undefined",
+    "navOverflow": [],
+    "overflow": 0,
+    "scripts": [
+      "http://127.0.0.1:5453/i18n-regional.js?v=20261103b",
+      "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+      "http://127.0.0.1:5453/footprint.js?v=20261027a",
+      "http://127.0.0.1:5453/app.js?v=20261103b"
+    ],
+    "errors": [],
+    "console": [],
+    "failed": []
+  },
+  {
+    "name": "axiomx-live",
+    "width": 390,
+    "url": "https://axiomx.nonarkara.org/",
+    "status": 200,
+    "title": "Axiom — Decision systems",
+    "heading": "The flood arrives at 2 a.m.The dashboard arrives next fiscal year.",
+    "canvases": [],
+    "hero": null,
+    "stage": null,
+    "map": null,
+    "rows": 0,
+    "three": "undefined",
+    "navOverflow": [
+      "EN",
+      "TH",
+      "ZH",
+      "KO",
+      "JA",
+      "VI",
+      "Dark"
+    ],
+    "overflow": 0,
+    "scripts": [
+      "https://axiomx.nonarkara.org/catalog.js?v=20261030a",
+      "https://axiomx.nonarkara.org/ebooks.js?v=20261027a",
+      "https://axiomx.nonarkara.org/plates.js?v=20261030a",
+      "https://axiomx.nonarkara.org/diagrams.js?v=20261021b",
+      "https://axiomx.nonarkara.org/i18n.js?v=20261030a",
+      "https://axiomx.nonarkara.org/reader.js?v=20261030a"
+    ],
+    "errors": [],
+    "console": [],
+    "failed": []
+  },
+  {
+    "name": "axiomx-live",
+    "width": 1440,
+    "url": "https://axiomx.nonarkara.org/",
+    "status": 200,
+    "title": "Axiom — Decision systems",
+    "heading": "The flood arrives at 2 a.m.The dashboard arrives next fiscal year.",
+    "canvases": [],
+    "hero": null,
+    "stage": null,
+    "map": null,
+    "rows": 0,
+    "three": "undefined",
+    "navOverflow": [],
+    "overflow": 0,
+    "scripts": [
+      "https://axiomx.nonarkara.org/catalog.js?v=20261030a",
+      "https://axiomx.nonarkara.org/ebooks.js?v=20261027a",
+      "https://axiomx.nonarkara.org/plates.js?v=20261030a",
+      "https://axiomx.nonarkara.org/diagrams.js?v=20261021b",
+      "https://axiomx.nonarkara.org/i18n.js?v=20261030a",
+      "https://axiomx.nonarkara.org/reader.js?v=20261030a"
+    ],
+    "errors": [],
+    "console": [],
+    "failed": []
+  }
+]

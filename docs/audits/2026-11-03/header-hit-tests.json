@@ -1,0 +1,295 @@
+[
+  {
+    "width": 390,
+    "pane": {
+      "left": 0,
+      "right": 390,
+      "width": 390
+    },
+    "controls": [
+      {
+        "text": "Axiom",
+        "x": 24,
+        "right": 77.859375,
+        "w": 53.859375,
+        "h": 44,
+        "inPane": true,
+        "hit": "Axiom"
+      },
+      {
+        "text": "co.nonarkara",
+        "x": 93.859375,
+        "right": 226.703125,
+        "w": 132.84375,
+        "h": 44,
+        "inPane": true,
+        "hit": "co.nonarkara"
+      },
+      {
+        "text": "vr.nonarkara",
+        "x": 242.703125,
+        "right": 373.375,
+        "w": 130.671875,
+        "h": 44,
+        "inPane": true,
+        "hit": "vr.nonarkara"
+      },
+      {
+        "text": "EN",
+        "x": 390.375,
+        "right": 414.375,
+        "w": 24,
+        "h": 44,
+        "inPane": false
+      },
+      {
+        "text": "TH",
+        "x": 414.375,
+        "right": 438.375,
+        "w": 24,
+        "h": 44,
+        "inPane": false
+      },
+      {
+        "text": "ZH",
+        "x": 438.375,
+        "right": 462.375,
+        "w": 24,
+        "h": 44,
+        "inPane": false
+      },
+      {
+        "text": "KO",
+        "x": 462.375,
+        "right": 486.375,
+        "w": 24,
+        "h": 44,
+        "inPane": false
+      },
+      {
+        "text": "JA",
+        "x": 486.375,
+        "right": 510.375,
+        "w": 24,
+        "h": 44,
+        "inPane": false
+      },
+      {
+        "text": "VI",
+        "x": 510.375,
+        "right": 534.375,
+        "w": 24,
+        "h": 44,
+        "inPane": false
+      },
+      {
+        "text": "Dark",
+        "x": 551.375,
+        "right": 595.375,
+        "w": 44,
+        "h": 44,
+        "inPane": false
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "pane": {
+      "left": 0,
+      "right": 327.671875,
+      "width": 327.671875
+    },
+    "controls": [
+      {
+        "text": "Axiom",
+        "x": 12,
+        "right": 65.859375,
+        "w": 53.859375,
+        "h": 44,
+        "inPane": true,
+        "hit": "Axiom"
+      },
+      {
+        "text": "co.nonarkara",
+        "x": 71.859375,
+        "right": 204.703125,
+        "w": 132.84375,
+        "h": 44,
+        "inPane": true,
+        "hit": "co.nonarkara"
+      },
+      {
+        "text": "vr.nonarkara",
+        "x": 210.703125,
+        "right": 341.375,
+        "w": 130.671875,
+        "h": 44,
+        "inPane": false,
+        "hit": "vr.nonarkara"
+      },
+      {
+        "text": "EN",
+        "x": 348.375,
+        "right": 378.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "Index"
+      },
+      {
+        "text": "TH",
+        "x": 378.375,
+        "right": 408.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "Index"
+      },
+      {
+        "text": "ZH",
+        "x": 408.375,
+        "right": 438.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "Index"
+      },
+      {
+        "text": "KO",
+        "x": 438.375,
+        "right": 468.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "Index"
+      },
+      {
+        "text": "JA",
+        "x": 468.375,
+        "right": 498.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "Index"
+      },
+      {
+        "text": "VI",
+        "x": 498.375,
+        "right": 528.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "Index"
+      },
+      {
+        "text": "Dark",
+        "x": 535.375,
+        "right": 579.375,
+        "w": 44,
+        "h": 44,
+        "inPane": false,
+        "hit": "Dark"
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "pane": {
+      "left": 0,
+      "right": 420,
+      "width": 420
+    },
+    "controls": [
+      {
+        "text": "Axiom",
+        "x": 24,
+        "right": 77.859375,
+        "w": 53.859375,
+        "h": 44,
+        "inPane": true,
+        "hit": "Axiom"
+      },
+      {
+        "text": "co.nonarkara",
+        "x": 93.859375,
+        "right": 226.703125,
+        "w": 132.84375,
+        "h": 44,
+        "inPane": true,
+        "hit": "co.nonarkara"
+      },
+      {
+        "text": "vr.nonarkara",
+        "x": 242.703125,
+        "right": 373.375,
+        "w": 130.671875,
+        "h": 44,
+        "inPane": true,
+        "hit": "vr.nonarkara"
+      },
+      {
+        "text": "EN",
+        "x": 390.375,
+        "right": 420.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "EN"
+      },
+      {
+        "text": "TH",
+        "x": 420.375,
+        "right": 450.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "Back\n        Index\n        Ope"
+      },
+      {
+        "text": "ZH",
+        "x": 450.375,
+        "right": 480.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "Index"
+      },
+      {
+        "text": "KO",
+        "x": 480.375,
+        "right": 510.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "Index"
+      },
+      {
+        "text": "JA",
+        "x": 510.375,
+        "right": 540.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "Index"
+      },
+      {
+        "text": "VI",
+        "x": 540.375,
+        "right": 570.375,
+        "w": 30,
+        "h": 44,
+        "inPane": false,
+        "hit": "Index"
+      },
+      {
+        "text": "Dark",
+        "x": 587.375,
+        "right": 631.375,
+        "w": 44,
+        "h": 44,
+        "inPane": false,
+        "hit": "Dark"
+      }
+    ]
+  }
+]
