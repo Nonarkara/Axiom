@@ -1,12 +1,12 @@
 {
   "verdict": "PASS",
-  "checkedAt": "2026-11-03T20:46:07.197Z",
+  "checkedAt": "2026-11-04T05:55:01.637Z",
   "fails": [],
   "notes": [
     {
       "surface": "axiom",
       "width": "390x844",
-      "detail": "document 33308px = 39.5× viewport height"
+      "detail": "document 33591px = 39.8× viewport height"
     },
     {
       "surface": "axiom",
@@ -176,7 +176,7 @@
     {
       "surface": "axiom",
       "width": "1024x900",
-      "detail": "document 13598px = 15.1× viewport height"
+      "detail": "document 13870px = 15.4× viewport height"
     },
     {
       "surface": "axiom",
@@ -346,7 +346,7 @@
     {
       "surface": "axiom",
       "width": "1440x900",
-      "detail": "document 14054px = 15.6× viewport height"
+      "detail": "document 14352px = 15.9× viewport height"
     },
     {
       "surface": "axiom",
@@ -615,7 +615,7 @@
       "viewport": "390x844",
       "vw": 390,
       "vh": 844,
-      "docH": 33308,
+      "docH": 33591,
       "chromeH": 58,
       "chromePct": 6.9,
       "overflowX": 0,
@@ -630,14 +630,14 @@
           "w": 114,
           "needed": 151,
           "ratio": 0.76,
-          "text": "81\n            Catal"
+          "text": "82\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 90,
           "needed": 116,
           "ratio": 0.78,
-          "text": "69\n            Label"
+          "text": "70\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -862,6 +862,13 @@
           "needed": 1529,
           "ratio": 0.23,
           "text": "76Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1402,
+          "ratio": 0.26,
+          "text": "82v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
@@ -1624,7 +1631,7 @@
       "viewport": "1024x900",
       "vw": 1024,
       "vh": 900,
-      "docH": 13598,
+      "docH": 13870,
       "chromeH": 58,
       "chromePct": 6.4,
       "overflowX": 0,
@@ -1639,14 +1646,14 @@
           "w": 104,
           "needed": 151,
           "ratio": 0.69,
-          "text": "81\n            Catal"
+          "text": "82\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 82,
           "needed": 116,
           "ratio": 0.71,
-          "text": "69\n            Label"
+          "text": "70\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -1871,6 +1878,13 @@
           "needed": 1529,
           "ratio": 0.22,
           "text": "76Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1402,
+          "ratio": 0.24,
+          "text": "82v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
@@ -2640,7 +2654,7 @@
       "viewport": "1440x900",
       "vw": 1440,
       "vh": 900,
-      "docH": 14054,
+      "docH": 14352,
       "chromeH": 118,
       "chromePct": 13.1,
       "overflowX": 0,
@@ -2655,14 +2669,14 @@
           "w": 104,
           "needed": 151,
           "ratio": 0.69,
-          "text": "81\n            Catal"
+          "text": "82\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 82,
           "needed": 116,
           "ratio": 0.71,
-          "text": "69\n            Label"
+          "text": "70\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -2887,6 +2901,13 @@
           "needed": 1529,
           "ratio": 0.26,
           "text": "76Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1402,
+          "ratio": 0.28,
+          "text": "82v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",

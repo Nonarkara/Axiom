@@ -1355,6 +1355,18 @@
     "height": "731",
     "medium": "oil on paper laid on board"
   },
+  "hikaru-non-go": {
+    "artist": "Anonymous",
+    "title": "Go board position — 19×19 grid",
+    "year": "2026",
+    "collection": "Hikaru Non Go system screenshot",
+    "source": "https://hikaru.nonarkara.org/",
+    "licence": "Public domain",
+    "why": "Go stones and liberties on a 19×19 grid — territory, connection, and life-and-death read directly from the board. Hikaru Non Go makes this reasoning inspectable through liberties, territory, lessons and game records, without treating an estimate as a proof.",
+    "width": "1366",
+    "height": "768",
+    "medium": "screenshot"
+  },
   "pavilion": {
     "artist": "El Lissitzky",
     "title": "Proun 99",

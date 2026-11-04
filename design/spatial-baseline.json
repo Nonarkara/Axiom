@@ -27219,6 +27219,36 @@
           "share": 0
         }
       }
+    },
+    "/hikaru-non-go": {
+      "360": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 28,
+          "largest": 17,
+          "ratio": 1.65,
+          "peers": 0,
+          "share": 0
+        }
+      },
+      "1440": {
+        "findings": [],
+        "firstAction": {
+          "y": null,
+          "sel": null
+        },
+        "hierarchy": {
+          "h1": 40,
+          "largest": 17,
+          "ratio": 2.35,
+          "peers": 0,
+          "share": 0
+        }
+      }
     }
   }
 }
