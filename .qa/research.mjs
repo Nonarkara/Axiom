@@ -1,6 +1,9 @@
 import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import { researchCopy } from '../scripts/research/copy.mjs';
+import { readFileSync } from 'node:fs';
+
+const expectedCount = JSON.parse(readFileSync(new URL('../data/research.json', import.meta.url), 'utf8')).papers.length;
 
 const browser = await chromium.launch({ headless: true });
 const main = process.env.AXIOM_URL || 'http://localhost:5462/';
@@ -17,7 +20,7 @@ try {
       await page.goto(base + '#research', { waitUntil: 'domcontentloaded' });
       const root = page.locator(name === 'main' ? '#research' : '#plate');
       await root.locator('[data-paper]').first().waitFor();
-      check(await root.locator('[data-paper]').count() === 4, `${name} four publications @${width}`);
+      check(await root.locator('[data-paper]').count() === expectedCount, `${name} ${expectedCount} publications @${width}`);
       const geometry = await root.evaluate(el => {
         const rows = [...el.querySelectorAll('[data-paper]')];
         const header = document.querySelector('.masthead') || [...document.querySelectorAll('.bar')].find(node => node.getBoundingClientRect().height > 0);

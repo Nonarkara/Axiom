@@ -60,6 +60,21 @@ window.AXIOM_RESEARCH = {
       "source": "https://github.com/Nonarkara/globalmonitor-v3/blob/main/public/research/seeing-a-war-without-standing-in-it.pdf",
       "status": "Preprint",
       "sha256": "5dbb9959067c7198d4ed3b776c25e1157df3d3e7ea4099de74c61a47c4ff2d5e"
+    },
+    {
+      "id": "nst-last-mile",
+      "title": "The Last Mile Is Institutional: Why Thailand's Smart Cities Stall Between Monitoring and Action, and What One City Built to Cross It",
+      "authors": [
+        "Poon Thiengburanathum",
+        "Non Arkaraprasertkul"
+      ],
+      "system": "NST Control Tower",
+      "version": "v1",
+      "date": "2026-11-04",
+      "pdf": "https://axiom.nonarkara.org/research/nst-last-mile-v1.pdf",
+      "source": "https://github.com/Nonarkara/nst-control-tower/blob/c6e92b09d10471f9ba1986500762fa833b3a1275/apps/web/public/research/nst-last-mile-preprint-v1.pdf",
+      "status": "Preprint",
+      "sha256": "e8eefb756410298c0b1b3c5fe8df919d5db913a5fd474329ed050e8d2d7fb6b7"
     }
   ],
   "copy": {
