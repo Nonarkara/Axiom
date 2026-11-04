@@ -413,6 +413,12 @@
           "lede": "Block-by-block 3D spatial intelligence for Dhaka, Bangladesh. Reads building height, terrain slope, monsoon flood dynamics, and high-density urban morphology across 129 wards.",
           "cta": "Open Dhaka Atlas"
         },
+        "cnx": {
+          "name": "Chiang Mai IOC",
+          "cat": "Place Fit",
+          "lede": "Chiang Mai's operations centre — a live Leaflet map of the city with weather, traffic and fire hotspots, plus an 850 hPa forecast layer. Desk research, not a property listing.",
+          "cta": "Open Chiang Mai IOC"
+        },
         "slic": {
           "name": "SLIC Index",
           "cat": "City Benchmarking",
@@ -900,6 +906,12 @@
           "cat": "แผนที่เมือง 3D",
           "lede": "ระบบภูมิสารสนเทศ 3 มิติระดับบล็อกสำหรับกรุงธากา ประเทศบังกลาเทศ อ่านความสูงอาคาร ความลาดชันของภูมิประเทศ พลวัตน้ำท่วมมรสุม และสัณฐานวิทยาเมืองหนาแน่นสูงครอบคลุม 129 วอร์ด",
           "cta": "เปิดแผนที่ธากา"
+        },
+        "cnx": {
+          "name": "ศูนย์ปฏิบัติการเชียงใหม่",
+          "cat": "ความเหมาะสมของย่าน",
+          "lede": "ศูนย์ปฏิบัติการเชียงใหม่ — แผนที่เมืองเชียงใหม่แบบสดบน Leaflet พร้อมสภาพอากาศ การจราจร และจุดเกิดไฟป่า พร้อมชั้นพยากรณ์ 850 hPa เป็นการค้นคว้าเบื้องต้น ไม่ใช่ประกาศขายหรือให้เช่าอสังหาริมทรัพย์",
+          "cta": "เปิดศูนย์ปฏิบัติการเชียงใหม่"
         },
         "slic": {
           "name": "SLIC Index",
@@ -1389,6 +1401,12 @@
           "lede": "孟加拉国达卡街区级三维空间智能系统。覆盖129个选区，实时读取建筑高度、地形坡度、季风洪水动态及高密度城市形态。",
           "cta": "打开达卡三维地图"
         },
+        "cnx": {
+          "name": "清迈 IOC",
+          "cat": "选址匹配",
+          "lede": "清迈运营中心 — 城市的实时 Leaflet 地图，带天气、交通和火灾热点，以及 850 hPa 预报层。案头研究，不是房源列表。",
+          "cta": "打开清迈 IOC"
+        },
         "slic": {
           "name": "SLIC Index",
           "cat": "城市基准评分",
@@ -1876,6 +1894,12 @@
           "cat": "대도시 3D 아틀라스",
           "lede": "방글라데시 다카의 블록 단위 3D 공간 인텔리전스. 129개 워드 전역의 건물 높이, 지형 경사, 몬순 홍수 역학 및 고밀도 도시 형태 분석.",
           "cta": "다카 아틀라스 열기"
+        },
+        "cnx": {
+          "name": "치앙마이 IOC",
+          "cat": "입지 적합성",
+          "lede": "치앙마이 운영 센터 — 날씨, 교통, 화재 핫스팟이 포함된 도시 실시간 Leaflet 지도, 850 hPa 예보 레이어. 책상 연구이지 매물 목록이 아닙니다.",
+          "cta": "치앙마이 IOC 열기"
         },
         "slic": {
           "name": "SLIC Index",
@@ -2365,6 +2389,12 @@
           "lede": "バングラデシュ・ダッカの街区レベル3D空間インテリジェンス。129行政区にわたる建物高、地形勾配、モンスーン浸水動態、高密度都市形態を把握。",
           "cta": "ダッカ・アトラスを開く"
         },
+        "cnx": {
+          "name": "チェンマイ IOC",
+          "cat": "立地の相性",
+          "lede": "チェンマイの運営センター — 天気、交通、火災ホットスポットを備えた都市のライブ Leaflet 地図、850 hPa 予報レイヤー。机上調査であり、物件リストではありません。",
+          "cta": "チェンマイ IOC を開く"
+        },
         "slic": {
           "name": "SLIC Index",
           "cat": "都市ベンチマーク",
@@ -2852,6 +2882,12 @@
           "cat": "Bản đồ đô thị 3D",
           "lede": "Hệ thống thông tin không gian 3D cấp ô phố cho Dhaka, Bangladesh. Đọc chiều cao công trình, độ dốc địa hình, động lực lũ mùa gió mùa và hình thái đô thị mật độ cao trên 129 phường.",
           "cta": "Mở bản đồ Dhaka"
+        },
+        "cnx": {
+          "name": "Trung tâm Điều hành Chiang Mai",
+          "cat": "Độ phù hợp khu vực",
+          "lede": "Trung tâm điều hành Chiang Mai — bản đồ thành phố trực tiếp trên Leaflet với thời tiết, giao thông và nhiệt điểm cháy rừng, cùng lớp dự báo 850 hPa. Đây là nghiên cứu tại bàn, không phải danh sách bất động sản.",
+          "cta": "Mở Trung tâm Điều hành Chiang Mai"
         },
         "slic": {
           "name": "SLIC Index",

@@ -475,6 +475,11 @@
           "cta": "다카 아틀라스 열기",
           "name": "DHKx 3D Atlas · 다카"
         },
+        "chiangMaiIoc": {
+          "name": "치앙마이 IOC",
+          "lede": "치앙마이 운영 센터 — 날씨, 교통, 화재 핫스팟이 포함된 도시 실시간 Leaflet 지도, 850 hPa 예보 레이어. 책상 연구이지 매물 목록이 아닙니다.",
+          "cta": "치앙마이 IOC 열기"
+        },
         "p04": {
           "title": "A ranking <em>that argues back.</em>",
           "lede": "SLIC Index는 도시의 가치를 말해주지 않습니다. 다섯 기둥을 보여주고 우선순위를 스스로 시험하게 합니다. 시장이 '살기 좋음'의 의미를 정하면 수학이 따라갑니다.",
@@ -1209,9 +1214,9 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-        "sysMeta": "81개 시스템 · 5개국",
+        "sysMeta": "82개 시스템 · 5개국",
         "command": "도시 대시보드",
-        "commandMeta": "실시간 도시 운영실 및 환경 관측 · 24",
+        "commandMeta": "실시간 도시 운영실 및 환경 관측 · 25",
         "intelligence": "인텔리전스",
         "intelligenceMeta": "신호 및 분석 · 9",
         "civic": "시민",
@@ -1746,6 +1751,11 @@
           "lede": "バングラデシュ・ダッカの街区レベル3D空間インテリジェンス。129行政区にわたる建物高、地形勾配、モンスーン浸水動態、高密度都市形態を把握。",
           "cta": "ダッカ・アトラスを開く",
           "name": "DHKx 3D Atlas · ダッカ"
+        },
+        "chiangMaiIoc": {
+          "name": "チェンマイ IOC",
+          "lede": "チェンマイの運営センター — 天気、交通、火災ホットスポットを備えた都市のライブ Leaflet 地図、850 hPa 予報レイヤー。机上調査であり、物件リストではありません。",
+          "cta": "チェンマイ IOC を開く"
         },
         "p04": {
           "title": "A ranking <em>that argues back.</em>",
@@ -2474,9 +2484,9 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-        "sysMeta": "81システム · 5か国",
+        "sysMeta": "82システム · 5か国",
         "command": "シティダッシュボード",
-        "commandMeta": "リアルタイム都市運用室と環境観測 · 24",
+        "commandMeta": "リアルタイム都市運用室と環境観測 · 25",
         "intelligence": "インテリジェンス",
         "intelligenceMeta": "シグナルと分析 · 9",
         "civic": "シビック",
@@ -3011,6 +3021,11 @@
           "lede": "Hệ thống thông tin không gian 3D cấp ô phố cho Dhaka, Bangladesh. Đọc chiều cao công trình, độ dốc địa hình, động lực lũ mùa gió mùa và hình thái đô thị mật độ cao trên 129 phường.",
           "cta": "Mở bản đồ Dhaka",
           "name": "DHKx 3D Atlas · Đaka"
+        },
+        "chiangMaiIoc": {
+          "name": "Trung tâm Điều hành Chiang Mai",
+          "lede": "Trung tâm điều hành Chiang Mai — bản đồ thành phố trực tiếp trên Leaflet với thời tiết, giao thông và nhiệt điểm cháy rừng, cùng lớp dự báo 850 hPa. Đây là nghiên cứu tại bàn, không phải danh sách bất động sản.",
+          "cta": "Mở Trung tâm Điều hành Chiang Mai"
         },
         "p04": {
           "title": "A ranking <em>that argues back.</em>",
@@ -3739,9 +3754,9 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-        "sysMeta": "81 hệ thống · 5 quốc gia",
+        "sysMeta": "82 hệ thống · 5 quốc gia",
         "command": "Bảng điều khiển thành phố",
-        "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 24",
+        "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 25",
         "intelligence": "Tình báo",
         "intelligenceMeta": "Tín hiệu và phân tích · 9",
         "civic": "Công dân",

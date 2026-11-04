@@ -223,6 +223,15 @@ const ARCHITECTURES = {
     outputs: 'Station-area brief,Budget and journey check,Compare up to 3,800 m evidence radius',
     foot: "Bangkok Governor's IOC · place-fit pilot · desk research",
   },
+  cnx: {
+    name: 'CHIANG MAI IOC',
+    ver: '2.0.0',
+    idx: '82',
+    inputs: 'TMD,NASA FIRMS,OpenStreetMap,iTIC traffic,Open-Meteo air',
+    core: '[object Object]',
+    outputs: 'City situation map,Weather overlay,Traffic & fire hotspots',
+    foot: 'Chiang Mai IOC · operations centre · desk research',
+  },
   slic: {
     name: 'SLIC',
     ver: '3.2.0',
@@ -1844,6 +1853,11 @@ const i18nExt = {
         cta: 'Open Dhaka Atlas',
         name: 'DHKx 3D Atlas · Dhaka',
       },
+      chiangMaiIoc: {
+        name: 'Chiang Mai IOC',
+        lede: "Chiang Mai's operations centre — a live Leaflet map of the city with weather, traffic and fire hotspots, plus an 850 hPa forecast layer. Desk research, not a property listing.",
+        cta: 'Open Chiang Mai IOC',
+      },
       p04: {
         title: 'A ranking <em>that argues back.</em>',
         lede: "SLIC doesn't rank cities for you. Five pillars. Mayors decide what livability means. The math follows.",
@@ -2526,6 +2540,11 @@ const i18nExt = {
         cta: 'เปิดแผนที่ธากา',
         name: 'DHKx 3D Atlas · ธากา',
       },
+      chiangMaiIoc: {
+        name: 'ศูนย์ปฏิบัติการเชียงใหม่',
+        lede: 'ศูนย์ปฏิบัติการเชียงใหม่ — แผนที่เมืองเชียงใหม่แบบสดบน Leaflet พร้อมสภาพอากาศ การจราจร และจุดเกิดไฟป่า พร้อมชั้นพยากรณ์ 850 hPa เป็นการค้นคว้าเบื้องต้น ไม่ใช่ประกาศขายหรือให้เช่าอสังหาริมทรัพย์',
+        cta: 'เปิดศูนย์ปฏิบัติการเชียงใหม่',
+      },
       p04: {
         title: 'การจัดอันดับ <em>ที่โต้กลับได้</em>',
         lede: 'SLIC Index ไม่บอกเมืองว่ามีค่าเท่าไร แต่แสดง 5 เสาหลักให้เมืองทดสอบลำดับความสำคัญของตัวเอง นายกเทศมนตรีตัดสินว่าคำว่า "เมืองน่าอยู่" หมายถึงอะไร แล้วคณิตศาสตร์ค่อยตามมา',
@@ -3205,6 +3224,11 @@ const i18nExt = {
         cta: '打开达卡三维地图',
         name: 'DHKx 3D Atlas · 达卡',
       },
+      chiangMaiIoc: {
+        name: '清迈 IOC',
+        lede: '清迈运营中心 — 城市的实时 Leaflet 地图，带天气、交通和火灾热点，以及 850 hPa 预报层。案头研究，不是房源列表。',
+        cta: '打开清迈 IOC',
+      },
       p04: {
         title: '一个<em>会顶嘴的</em>排名',
         lede: 'SLIC Index不告诉城市自己值多少。它把五根支柱摆出来，让城市自己测试优先级。市长定义"宜居"是什么意思，数学跟着走。',
@@ -3847,6 +3871,11 @@ const i18nExt = {
         lede: 'dhaka.atlas3D({ wards: 129, layers: ["massing", "slope", "monsoon", "density"] }) // DHKx block-by-block',
         cta: 'dhakaAtlas.open()',
         name: 'DHKx 3D Atlas · Dhaka',
+      },
+      chiangMaiIoc: {
+        name: 'chiangMaiIoc',
+        lede: "cnx.ops({ city: 'Chiang Mai', map: 'Leaflet', layers: [weather, traffic, fire], forecast: '850hPa' }) // desk research, not listings",
+        cta: 'cnx.open()',
       },
       p04: {
         title: 'ranking<em>.arguesBack()</em>',
@@ -4505,9 +4534,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 groups · 17 systems — swipe' },
     sysClusters: {
-      sysMeta: '81 systems · 5 countries',
+      sysMeta: '82 systems · 5 countries',
       command: 'City Dashboards',
-      commandMeta: 'Real-time city operations rooms & environmental watch · 24',
+      commandMeta: 'Real-time city operations rooms & environmental watch · 25',
       intelligence: 'Intelligence',
       intelligenceMeta: 'Signal & analysis · 9',
       civic: 'Civic',
@@ -4719,9 +4748,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 กลุ่ม · 17 ระบบ — ปัดเพื่อสำรวจ' },
     sysClusters: {
-      sysMeta: '81 ระบบ · 5 ประเทศ',
+      sysMeta: '82 ระบบ · 5 ประเทศ',
       command: 'แดชบอร์ดเมือง',
-      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 24',
+      commandMeta: 'ห้องปฏิบัติการเมืองแบบเรียลไทม์และเฝ้าสิ่งแวดล้อม · 25',
       intelligence: 'ข่าวกรอง',
       intelligenceMeta: 'สัญญาณและการวิเคราะห์ · 9',
       civic: 'พลเมือง',
@@ -4933,9 +4962,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'4 组 · 17 个系统 — 滑动浏览' },
     sysClusters: {
-      sysMeta: '81 个系统 · 5 个国家',
+      sysMeta: '82 个系统 · 5 个国家',
       command: '城市仪表板',
-      commandMeta: '实时城市作战室与环境监测 · 24',
+      commandMeta: '实时城市作战室与环境监测 · 25',
       intelligence: '情报',
       intelligenceMeta: '信号与分析 · 9',
       civic: '民生',
@@ -5153,9 +5182,9 @@ const i18nExt2 = {
     },
     misc: { swipeHint:'groups[4].systems[17].swipe()' },
     sysClusters: {
-      sysMeta: '81 systems · 5 countries',
+      sysMeta: '82 systems · 5 countries',
       command: 'CityDashboards',
-      commandMeta: 'cityOps.realtime & envWatch · count[24]',
+      commandMeta: 'cityOps.realtime & envWatch · count[25]',
       intelligence: 'Intelligence',
       intelligenceMeta: 'signal & analysis · count[9]',
       civic: 'Civic',
@@ -5315,7 +5344,7 @@ const i18nPitch = {
       r3: '157 cities ranked live — shown working on stage within a 45-minute keynote.',
       r4lbl: 'Field note 01',
       r4: 'A vendor called it too complex. A working version was in the room fourteen days later.',
-    proofLine: '81 systems across 5 countries. Open one. Use it. Judge.',
+    proofLine: '82 systems across 5 countries. Open one. Use it. Judge.',
       faqLabel: 'Before you ask',
       q1: 'Is it expensive?',
       a1: "No hardware. Step one is a two-week proof on data you already own. Anything bigger waits until you've seen it work.",
@@ -5433,7 +5462,7 @@ const i18nPitch = {
       r3: 'จัดอันดับ 157 เมืองแบบสด — ใช้งานได้จริงบนเวทีภายในคีย์โน้ต 45 นาที',
       r4lbl: 'บันทึกภาคสนาม 01',
       r4: 'ผู้ขายบอกว่าซับซ้อนเกินไป สิบสี่วันต่อมา ระบบที่ใช้งานได้ก็อยู่ในห้องประชุมแล้ว',
-    proofLine: '81 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
+    proofLine: '82 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
       faqLabel: 'ก่อนที่คุณจะถาม',
       q1: 'แพงไหม?',
       a1: 'ไม่แพงในการเริ่มต้น ขั้นแรกคือพิสูจน์ผลสองสัปดาห์บนข้อมูลที่คุณมีอยู่แล้ว ไม่ต้องซื้อฮาร์ดแวร์ คุณตัดสินใจเรื่องที่ใหญ่กว่าก็ต่อเมื่อได้เห็นมันใช้งานได้แล้ว',
@@ -5551,7 +5580,7 @@ const i18nPitch = {
       r3: '157 座城市实时排名——在一场 45 分钟的主题演讲中现场跑通。',
       r4lbl: '现场笔记 01',
       r4: '供应商说太复杂。十四天后，可用版本已经摆在会议室里。',
-    proofLine: '81 个系统，5 个国家。打开一个，亲自使用，再作判断。',
+    proofLine: '82 个系统，5 个国家。打开一个，亲自使用，再作判断。',
       faqLabel: '在你开口之前',
       q1: '贵吗？',
       a1: '起步不贵。第一步是基于你已有数据的两周验证，无需购买硬件。只有亲眼看到它跑通，你才需要决定更大的投入。',
@@ -5669,7 +5698,7 @@ const i18nPitch = {
       r3: '157개 도시 실시간 순위 — 45분 기조연설 안에 무대에서 작동을 보였습니다.',
       r4lbl: '현장 노트 01',
       r4: '벤더는 너무 복잡하다고 했습니다. 14일 뒤, 작동하는 버전이 회의실에 있었습니다.',
-    proofLine: '5개국의 81개 시스템. 하나를 열고, 사용하고, 판단하세요.',
+    proofLine: '5개국의 82개 시스템. 하나를 열고, 사용하고, 판단하세요.',
       faqLabel: '묻기 전에 답합니다',
       q1: '비싸지 않나요?',
       a1: '시작은 비싸지 않습니다. 첫 단계는 이미 가진 데이터로 하는 2주 검증이며, 하드웨어 구매가 없습니다. 작동하는 것을 본 뒤에 더 큰 결정을 하시면 됩니다.',
@@ -5787,7 +5816,7 @@ const i18nPitch = {
       r3: '157都市をライブでランキング——45分の基調講演の中で、壇上で動かしてみせました。',
       r4lbl: 'フィールドノート 01',
       r4: 'ベンダーは複雑すぎると言った。14日後、動くバージョンが会議室にあった。',
-    proofLine: '5か国、81のシステム。ひとつ開いて、使って、判断してください。',
+    proofLine: '5か国、82のシステム。ひとつ開いて、使って、判断してください。',
       faqLabel: '聞かれる前に',
       q1: '高くありませんか？',
       a1: '始めるのに高くはありません。最初の一歩はお手持ちのデータによる2週間の実証で、ハードウェア購入は不要です。動くのを見てから、より大きな判断をしてください。',
@@ -5905,7 +5934,7 @@ const i18nPitch = {
       r3: 'Xếp hạng trực tiếp 157 thành phố — chạy thật trên sân khấu trong một bài keynote 45 phút.',
       r4lbl: 'Ghi chép thực địa 01',
       r4: 'Nhà cung cấp nói quá phức tạp. Mười bốn ngày sau, một phiên bản chạy được đã có trong phòng họp.',
-    proofLine: '81 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
+    proofLine: '82 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
       faqLabel: 'Trước khi bạn hỏi',
       q1: 'Có đắt không?',
       a1: 'Khởi đầu thì không. Bước một là thử nghiệm hai tuần trên dữ liệu bạn đã có, không phải mua phần cứng. Bạn chỉ quyết định việc lớn hơn sau khi đã thấy nó chạy.',
@@ -6027,7 +6056,7 @@ const i18nPitch = {
       r3: 'rank({ cities: 157, live: true }) // within keynote(45min)',
       r4lbl: 'fieldNote[01]',
       r4: 'vendor.says("too complex") → workingVersion.inRoom(+14d)',
-      proofLine: 'catalog.length === 81 // countries: 5; open → use → judge',
+      proofLine: 'catalog.length === 82 // countries: 5; open → use → judge',
       faqLabel: 'objections.preempt()',
       q1: 'isExpensive?',
       a1: 'false // to start\nstep1 = proof({ weeks: 2, data: owned + freePublic, hardware: 0 })\nbiggerBuild.only({ after: proof.works })',
@@ -6054,25 +6083,25 @@ Object.keys(i18nPitch).forEach(locale => {
 
 const catalogReleaseCopy = {
   en: {
-    proofLine: '81 systems across 5 countries. Open one. Use it. Judge.',
+    proofLine: '82 systems across 5 countries. Open one. Use it. Judge.',
   },
   th: {
-    proofLine: '81 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
+    proofLine: '82 ระบบใน 5 ประเทศ เปิดหนึ่งระบบ ลองใช้ แล้วตัดสินด้วยตัวคุณเอง',
   },
   zh: {
-    proofLine: '81 个系统，5 个国家。打开一个，亲自使用，再作判断。',
+    proofLine: '82 个系统，5 个国家。打开一个，亲自使用，再作判断。',
   },
   ko: {
-    proofLine: '5개국의 81개 시스템. 하나를 열고, 사용하고, 판단하세요.',
+    proofLine: '5개국의 82개 시스템. 하나를 열고, 사용하고, 판단하세요.',
   },
   ja: {
-    proofLine: '5か国、81のシステム。ひとつ開いて、使って、判断してください。',
+    proofLine: '5か国、82のシステム。ひとつ開いて、使って、判断してください。',
   },
   vi: {
-    proofLine: '81 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
+    proofLine: '82 hệ thống tại 5 quốc gia. Mở một hệ thống, sử dụng và tự đánh giá.',
   },
   ts: {
-    proofLine: 'catalog.length === 81 // countries: 5; open → use → judge',
+    proofLine: 'catalog.length === 82 // countries: 5; open → use → judge',
   },
   };
 

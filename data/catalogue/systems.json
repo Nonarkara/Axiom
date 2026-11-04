@@ -41,7 +41,7 @@
   ],
   "countries": 5,
   "clusterCounts": {
-    "City Dashboards": 24,
+    "City Dashboards": 25,
     "Civic": 9,
     "Emerging": 13,
     "Intelligence": 9,
@@ -2593,6 +2593,103 @@
           "cta": "dhakaAtlas.open()",
           "name": "DHKx 3D Atlas · Dhaka",
           "cat": "UrbanAtlas3D"
+        }
+      }
+    },
+    {
+      "id": "cnx",
+      "cluster": "City Dashboards",
+      "idx": "82",
+      "panelsKey": "chiangMaiIoc",
+      "catKey": "c50",
+      "status": "live",
+      "statusLabel": "Live",
+      "href": "https://cnx.nonarkara.org/",
+      "domId": "cnx",
+      "variant": "link",
+      "edition": null,
+      "image": {
+        "src": "screenshots/cityhub-cnx.jpg",
+        "webp": "screenshots/cityhub-cnx.webp",
+        "alt": "Chiang Mai IOC — operational dashboard for Chiang Mai with Leaflet map of the city and 850 hPa forecast",
+        "width": 1024,
+        "height": 640,
+        "crop": null
+      },
+      "arch": {
+        "ver": "2.0.0",
+        "inputs": [
+          "TMD",
+          "NASA FIRMS",
+          "OpenStreetMap",
+          "iTIC traffic",
+          "Open-Meteo air"
+        ],
+        "core": {
+          "name": "CHIANG MAI IOC",
+          "meta": [
+            "Chiang Mai operations centre",
+            "850 hPa forecast",
+            "live city map"
+          ]
+        },
+        "outputs": [
+          "City situation map",
+          "Weather overlay",
+          "Traffic & fire hotspots"
+        ],
+        "foot": "Chiang Mai IOC · operations centre · desk research",
+        "stack": [
+          "Leaflet",
+          "OpenStreetMap",
+          "Cloudflare Pages"
+        ],
+        "ai": "",
+        "name": "CHIANG MAI IOC",
+        "idx": "82"
+      },
+      "copy": {
+        "en": {
+          "name": "Chiang Mai IOC",
+          "cat": "Place Fit",
+          "lede": "Chiang Mai's operations centre — a live Leaflet map of the city with weather, traffic and fire hotspots, plus an 850 hPa forecast layer. Desk research, not a property listing.",
+          "cta": "Open Chiang Mai IOC"
+        },
+        "th": {
+          "name": "ศูนย์ปฏิบัติการเชียงใหม่",
+          "cat": "ความเหมาะสมของย่าน",
+          "lede": "ศูนย์ปฏิบัติการเชียงใหม่ — แผนที่เมืองเชียงใหม่แบบสดบน Leaflet พร้อมสภาพอากาศ การจราจร และจุดเกิดไฟป่า พร้อมชั้นพยากรณ์ 850 hPa เป็นการค้นคว้าเบื้องต้น ไม่ใช่ประกาศขายหรือให้เช่าอสังหาริมทรัพย์",
+          "cta": "เปิดศูนย์ปฏิบัติการเชียงใหม่"
+        },
+        "zh": {
+          "name": "清迈 IOC",
+          "cat": "选址匹配",
+          "lede": "清迈运营中心 — 城市的实时 Leaflet 地图，带天气、交通和火灾热点，以及 850 hPa 预报层。案头研究，不是房源列表。",
+          "cta": "打开清迈 IOC"
+        },
+        "ko": {
+          "name": "치앙마이 IOC",
+          "cat": "입지 적합성",
+          "lede": "치앙마이 운영 센터 — 날씨, 교통, 화재 핫스팟이 포함된 도시 실시간 Leaflet 지도, 850 hPa 예보 레이어. 책상 연구이지 매물 목록이 아닙니다.",
+          "cta": "치앙마이 IOC 열기"
+        },
+        "ja": {
+          "name": "チェンマイ IOC",
+          "cat": "立地の相性",
+          "lede": "チェンマイの運営センター — 天気、交通、火災ホットスポットを備えた都市のライブ Leaflet 地図、850 hPa 予報レイヤー。机上調査であり、物件リストではありません。",
+          "cta": "チェンマイ IOC を開く"
+        },
+        "vi": {
+          "name": "Trung tâm Điều hành Chiang Mai",
+          "cat": "Độ phù hợp khu vực",
+          "lede": "Trung tâm điều hành Chiang Mai — bản đồ thành phố trực tiếp trên Leaflet với thời tiết, giao thông và nhiệt điểm cháy rừng, cùng lớp dự báo 850 hPa. Đây là nghiên cứu tại bàn, không phải danh sách bất động sản.",
+          "cta": "Mở Trung tâm Điều hành Chiang Mai"
+        },
+        "ts": {
+          "name": "chiangMaiIoc",
+          "cat": "PlaceFit",
+          "lede": "cnx.ops({ city: 'Chiang Mai', map: 'Leaflet', layers: [weather, traffic, fire], forecast: '850hPa' }) // desk research, not listings",
+          "cta": "cnx.open()"
         }
       }
     },
