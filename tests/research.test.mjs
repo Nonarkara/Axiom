@@ -4,6 +4,8 @@ import { readFile } from 'node:fs/promises';
 import { runInNewContext } from 'node:vm';
 import { validateResearch, safeURL, verifyDestinations, mainDocument, renderMain, bookData, build } from '../scripts/research/build.mjs';
 import { researchCopy } from '../scripts/research/copy.mjs';
+import { geographyData } from '../scripts/research/geography.mjs';
+import { createHash } from 'node:crypto';
 
 const data = JSON.parse(await readFile(new URL('../data/research.json', import.meta.url), 'utf8'));
 const one = () => structuredClone({ papers: [data.papers[0]] });
@@ -63,4 +65,75 @@ test('all seven locales carry complete research interface and preprint qualifica
     assert.deepEqual(Object.keys(copy).sort(), Object.keys(researchCopy.en).sort());
     for (const value of Object.values(copy)) assert.ok(typeof value === 'string' && value.length);
   }
+});
+
+test('unknown geography remains listable and unpinned; registered regions enforce sourced scope', () => {
+  const unknown = one();
+  unknown.papers[0].study = { region: null, label: 'Geography not established', scope: 'unspecified' };
+  validateResearch(unknown);
+  assert.match(renderMain(unknown.papers), /data-region="unmapped"/);
+  for (const study of [
+    { region: 'imaginary-place', label: 'Unknown', scope: 'provincial' },
+    { region: 'chiang-mai', label: 'Chiang Mai', scope: 'national' },
+    { region: null, label: 'Unknown', scope: 'regional' },
+  ]) {
+    const input = one();
+    input.papers[0].study = study;
+    assert.throws(() => validateResearch(input));
+  }
+  const missing = one();
+  delete missing.papers[0].limitation;
+  assert.throws(() => validateResearch(missing), /limitation/);
+});
+
+test('geography includes traceable approximate frames and independently sourced reference cities', async () => {
+  const geo = geographyData();
+  assert.equal(geo.provenance.retrieved, '2026-11-04');
+  assert.match(geo.basemap.source, /ca96624a56bd078437bca8184e78163e5039ad19/);
+  assert.equal(geo.basemap.license, 'Public domain');
+  assert.equal(geo.basemap.features.length, 39);
+  assert.deepEqual(geo.regions.find(region => region.id === 'gulf').bounds, [[10, 24], [42, 65]]);
+  assert.match(geo.regions.find(region => region.id === 'gulf').source, /#page=4$/);
+  for (const city of geo.provenance.cityReferences) {
+    const rdf = await readFile(new URL('../scripts/research/assets/' + city.id + '.rdf', import.meta.url));
+    assert.equal(createHash('sha256').update(rdf).digest('hex'), city.sourceSHA256);
+    assert.ok(rdf.toString().includes('<wgs84_pos:lat>' + city.point[0] + '</wgs84_pos:lat>'));
+    assert.ok(rdf.toString().includes('<wgs84_pos:long>' + city.point[1] + '</wgs84_pos:long>'));
+    const region = geo.regions.find(region => region.id === city.id);
+    assert.equal(region.kind, 'reference');
+    assert.equal(region.scope, 'provincial');
+    assert.ok(!region.bounds, 'a city reference cannot invent a province extent');
+  }
+});
+
+test('both surfaces share local map/controller/CSS assets, and book Leaflet has verified SRI under unchanged CSP', async () => {
+  for (const file of ['research-geography.js', 'research.css']) {
+    assert.equal(await readFile(new URL('../public/' + file, import.meta.url), 'utf8'), await readFile(new URL('../axiomx/' + file, import.meta.url), 'utf8'));
+  }
+  const controller = await readFile(new URL('../public/research-ui.js', import.meta.url), 'utf8');
+  assert.equal(await readFile(new URL('../axiomx/research-ui.js', import.meta.url), 'utf8'), '// Generated from public/research-ui.js.\n' + controller);
+  assert.doesNotMatch(controller, /tileLayer|setInterval|flyTo|fetch\(/);
+  const html = await readFile(new URL('../axiomx/index.html', import.meta.url), 'utf8');
+  for (const file of ['leaflet.js', 'leaflet.css']) {
+    const bytes = await readFile(new URL('../axiomx/vendor/leaflet/' + file, import.meta.url));
+    const integrity = 'sha256-' + createHash('sha256').update(bytes).digest('base64');
+    assert.ok(html.includes('vendor/leaflet/' + file + '" integrity="' + integrity));
+  }
+  const headers = await readFile(new URL('../axiomx/_headers', import.meta.url), 'utf8');
+  assert.match(headers, /script-src 'self';/);
+  assert.ok(!headers.includes('unpkg.com'));
+  assert.match(html, /<noscript><div class="research-noscript">/);
+});
+
+test('book PDFs preserve the reader and English summary metadata is escaped', () => {
+  const input = one();
+  input.papers[0].evidence = '<img src=x onerror=alert(1)>';
+  const context = { window: {} };
+  runInNewContext(bookData(input.papers), context);
+  const html = context.window.AXIOM_RESEARCH.html;
+  assert.match(html, /download target="_blank" rel="noopener"/);
+  assert.ok(html.includes('&lt;img src=x onerror=alert(1)&gt;'));
+  assert.ok(!html.includes('<img src=x'));
+  assert.match(html, /<dd lang="en">/);
+  assert.match(html, /data-research-map role="region"/);
 });

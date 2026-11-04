@@ -893,11 +893,13 @@ summary:focus-visible {
 .evidence-strip__cell {
   flex: 1 1 auto;
   display: flex;
+  flex-wrap: wrap;
+  min-width: 0;
   align-items: baseline;
   gap: 8px;
   padding: 8px 14px;
   border-right: 1px solid var(--line-2);
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .evidence-strip__cell:last-child {
@@ -1513,6 +1515,9 @@ summary:focus-visible {
 }
 
 .foot__row .nav a {
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
   min-height: 36px;
   padding: 6px 8px;
   font-size: var(--t-label);

@@ -1,0 +1,50 @@
+/* Shared column grid: map entry, publication and action at its exit. */
+.research-library { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; color: var(--ink); --research-accent: var(--accent, var(--navy)); }
+.research-library [hidden] { display: none !important; }
+.research-atlas { margin: 0; min-width: 0; }
+.research-map { height: 300px; width: 100%; background: #f0f4f4; z-index: 0; }
+.research-atlas figcaption { max-width: 75ch; margin: 4px 0 0; font-size: var(--t-body, 14px); letter-spacing: 0; }
+.research-city-key { display: block; }
+.research-selection { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 12px; min-width: 0; font-size: var(--t-body, 14px); }
+.research-selection a { display: inline-flex; align-items: center; min-height: 44px; color: var(--research-accent); text-decoration: underline; }
+.research-map-fallback { max-width: 65ch; margin: 0 0 4px; }
+.research-heading h1, .research-heading h2 { margin: 0; font-size: 28px; line-height: 1.15; font-weight: 500; letter-spacing: 0; }
+.research-heading p { margin: 4px 0 0; max-width: 65ch; font-size: var(--t-body, 14px); }
+.research-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; min-width: 0; }
+.research-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; max-width: 100%; min-width: 0; }
+.research-filter > span { white-space: nowrap; }
+.research-filter select { min-width: 0; max-width: 100%; min-height: 44px; padding: 4px; font: inherit; color: inherit; background: var(--paper); border: 1px solid var(--line); border-radius: 0; }
+.research-count { font-size: var(--t-body, 14px); white-space: nowrap; }
+.research-list { display: grid; grid-template-columns: minmax(0, 1fr); }
+.research-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding-block: 12px; border-top: 1px solid var(--line); }
+.research-row h2, .research-row h3 { margin: 0; max-width: 65ch; font-size: var(--t-lede, 20px); line-height: 1.35; font-weight: 500; letter-spacing: 0; overflow-wrap: anywhere; }
+.research-meta, .research-coverage { margin: 0; max-width: 75ch; font-size: var(--t-body, 14px); overflow-wrap: anywhere; }
+.research-actions { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.research-actions a { display: inline-flex; align-items: center; min-height: 44px; color: var(--research-accent); text-decoration: underline; text-underline-offset: 3px; }
+.research-study summary, .research-provenance summary { width: fit-content; max-width: 100%; min-height: 44px; padding-block: 10px; cursor: pointer; overflow-wrap: anywhere; }
+.research-study dl { max-width: 65ch; margin: 0 0 4px; }
+.research-study dt { margin-top: 8px; font-weight: 600; }
+.research-study dd { margin: 0; overflow-wrap: anywhere; }
+.research-provenance ul { margin: 0 0 8px; padding-left: 20px; max-width: 75ch; }
+.research-provenance a { text-decoration: underline; }
+.research-library a:focus-visible, .research-library select:focus-visible, .research-library summary:focus-visible { outline: 2px solid var(--research-accent); outline-offset: 2px; }
+.research-map .leaflet-control, .research-map .leaflet-tooltip { border-radius: 0; box-shadow: none; }
+.research-map .leaflet-control-zoom a { width: 44px !important; height: 44px !important; line-height: 44px !important; border-radius: 0; box-shadow: none; }
+.research-map .leaflet-control-attribution { color: #34454e; font-size: 10px; background: #f0f4f4; }
+.research-map .leaflet-control-attribution a { color: #00247d; }
+.research-map .research-map-label { background: transparent; border: 0; color: #00247d; font: 12px var(--sans, sans-serif); letter-spacing: 0; padding: 2px; }
+.research-map .research-map-label::before { display: none; }
+.research-library--book { margin: 0 var(--pad); max-width: 920px; --t-body: 14px; --t-lede: 20px; }
+.research-noscript { padding: 12px 0; }
+html:has(.research-noscript), body:has(.research-noscript) { height: auto; overflow: auto; }
+body:has(.research-noscript) .shell { display: none; }
+@media (max-width: 600px) {
+  .research-map { height: 240px; }
+  .research-controls { align-items: start; }
+  .research-filter { width: 100%; }
+  .research-filter select { flex: 1 1 180px; }
+  .research-count { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .research-library *, .research-library *::before, .research-library *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

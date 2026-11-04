@@ -206,6 +206,13 @@ test('every stated system count agrees with the catalogue', () => {
   }
 });
 
+test('Thai footer uses the shared live count instead of a separate historical claim', () => {
+  const footer = html.match(/<p class="foot__fineprint-p foot-th-only" lang="th">([\s\S]*?)<\/p>/)?.[1];
+  assert.ok(footer, 'Thai footer statement is preserved');
+  assert.match(footer, /<span data-count="live">\d+<\/span>/);
+  assert.doesNotMatch(footer.replace(/<span data-count="live">\d+<\/span>/, ''), /\d/);
+});
+
 // ---------------------------------------------------------------------------
 // The assertion above only ever matched English, because "'67 systems'" is
 // English. Thai, Chinese, Korean, Japanese and Vietnamese each state the count

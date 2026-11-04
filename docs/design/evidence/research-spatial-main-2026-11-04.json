@@ -1,0 +1,377 @@
+{
+  "measurements": [
+    {
+      "route": "/",
+      "w": 390,
+      "findings": [
+        {
+          "kind": "dead",
+          "sel": "div.sys-cell__head",
+          "metric": 136.375,
+          "detail": "136.375px of empty space under div.sys-cell__head"
+        },
+        {
+          "kind": "wrap",
+          "sel": "div.probono-stack",
+          "metric": 3,
+          "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+        },
+        {
+          "kind": "wrap",
+          "sel": "div.stack__items",
+          "metric": 10,
+          "detail": "div.stack__items breaks into 10 rows and leaves span alone on the last one"
+        },
+        {
+          "kind": "clip",
+          "sel": "div.research-map.leaflet-container",
+          "metric": 35,
+          "detail": "div.research-map.leaflet-container hides 35px of its own content"
+        }
+      ],
+      "hierarchy": {
+        "h1": 36,
+        "h1Count": 1,
+        "largest": 36,
+        "largestInfo": {
+          "tag": "span",
+          "cls": "hero-line",
+          "size": 36,
+          "text": "Innovation"
+        },
+        "ratio": 1,
+        "peers": 132,
+        "share": 0.04,
+        "ramp": {
+          "8": 8,
+          "9": 36,
+          "10": 5248,
+          "11": 27267,
+          "12": 84,
+          "13": 10853,
+          "14": 668,
+          "15": 2257,
+          "16": 198,
+          "18": 5,
+          "19": 211,
+          "20": 49,
+          "22": 15,
+          "24": 67,
+          "28": 8,
+          "36": 22,
+          "8.5": 157,
+          "9.5": 60,
+          "18.3": 10
+        }
+      },
+      "chars": 47223,
+      "containers": [],
+      "firstAction": {
+        "y": 524,
+        "sel": "a.btn.btn--primary"
+      }
+    },
+    {
+      "route": "/",
+      "w": 1024,
+      "findings": [
+        {
+          "kind": "dead",
+          "sel": "span.field-band__point-num",
+          "metric": 86,
+          "detail": "span.field-band__point-num leaves 86px empty beneath it in a 107px row"
+        },
+        {
+          "kind": "dead",
+          "sel": "div.sys-cell__head",
+          "metric": 126,
+          "detail": "125.703125px of empty space under div.sys-cell__head"
+        },
+        {
+          "kind": "wrap",
+          "sel": "div.probono-stack",
+          "metric": 3,
+          "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+        },
+        {
+          "kind": "clip",
+          "sel": "div.research-map.leaflet-container",
+          "metric": 99,
+          "detail": "div.research-map.leaflet-container hides 99px of its own content"
+        },
+        {
+          "kind": "scattered",
+          "sel": "div#heroNodeRail",
+          "metric": 76,
+          "detail": "button.hero-node and button.hero-node sit 76% apart in div#heroNodeRail"
+        }
+      ],
+      "hierarchy": {
+        "h1": 64,
+        "h1Count": 1,
+        "largest": 64,
+        "largestInfo": {
+          "tag": "span",
+          "cls": "hero-line",
+          "size": 64,
+          "text": "Innovation"
+        },
+        "ratio": 1,
+        "peers": 132,
+        "share": 0.04,
+        "ramp": {
+          "9": 282,
+          "10": 5461,
+          "11": 26906,
+          "12": 84,
+          "13": 10853,
+          "14": 668,
+          "15": 2172,
+          "17": 283,
+          "18": 5,
+          "20": 49,
+          "22": 7,
+          "24": 278,
+          "28": 16,
+          "64": 22,
+          "8.5": 157,
+          "9.5": 60,
+          "23.3": 10
+        }
+      },
+      "chars": 47313,
+      "containers": [],
+      "firstAction": {
+        "y": 454,
+        "sel": "a.btn.btn--primary"
+      }
+    },
+    {
+      "route": "/",
+      "w": 1440,
+      "findings": [
+        {
+          "kind": "dead",
+          "sel": "div.sys-cell__head",
+          "metric": 152.125,
+          "detail": "152.125px of empty space under div.sys-cell__head"
+        },
+        {
+          "kind": "wrap",
+          "sel": "div.probono-stack",
+          "metric": 3,
+          "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+        },
+        {
+          "kind": "wrap",
+          "sel": "div.stack__items",
+          "metric": 2,
+          "detail": "div.stack__items breaks into 2 rows and leaves span alone on the last one"
+        },
+        {
+          "kind": "clip",
+          "sel": "div.research-map.leaflet-container",
+          "metric": 120,
+          "detail": "div.research-map.leaflet-container hides 120px of its own content"
+        },
+        {
+          "kind": "scattered",
+          "sel": "div#heroNodeRail",
+          "metric": 76,
+          "detail": "button.hero-node and button.hero-node sit 76% apart in div#heroNodeRail"
+        }
+      ],
+      "hierarchy": {
+        "h1": 76,
+        "h1Count": 1,
+        "largest": 76,
+        "largestInfo": {
+          "tag": "span",
+          "cls": "hero-line",
+          "size": 76,
+          "text": "Innovation"
+        },
+        "ratio": 1,
+        "peers": 132,
+        "share": 0.04,
+        "ramp": {
+          "9": 282,
+          "10": 5461,
+          "11": 26906,
+          "12": 84,
+          "13": 10853,
+          "14": 668,
+          "15": 2172,
+          "17": 283,
+          "18": 5,
+          "20": 49,
+          "22": 7,
+          "24": 278,
+          "28": 16,
+          "76": 22,
+          "8.5": 157,
+          "9.5": 60,
+          "23.3": 10
+        }
+      },
+      "chars": 47313,
+      "containers": [],
+      "firstAction": {
+        "y": 480,
+        "sel": "a.btn.btn--primary"
+      }
+    }
+  ],
+  "cross": [
+    {
+      "route": "/",
+      "w": 1024,
+      "findings": [
+        {
+          "kind": "dead",
+          "sel": "span.field-band__point-num",
+          "metric": 86,
+          "detail": "span.field-band__point-num leaves 86px empty beneath it in a 107px row"
+        },
+        {
+          "kind": "dead",
+          "sel": "div.sys-cell__head",
+          "metric": 126,
+          "detail": "125.703125px of empty space under div.sys-cell__head"
+        },
+        {
+          "kind": "wrap",
+          "sel": "div.probono-stack",
+          "metric": 3,
+          "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+        },
+        {
+          "kind": "clip",
+          "sel": "div.research-map.leaflet-container",
+          "metric": 99,
+          "detail": "div.research-map.leaflet-container hides 99px of its own content"
+        },
+        {
+          "kind": "scattered",
+          "sel": "div#heroNodeRail",
+          "metric": 76,
+          "detail": "button.hero-node and button.hero-node sit 76% apart in div#heroNodeRail"
+        }
+      ],
+      "hierarchy": {
+        "h1": 64,
+        "h1Count": 1,
+        "largest": 64,
+        "largestInfo": {
+          "tag": "span",
+          "cls": "hero-line",
+          "size": 64,
+          "text": "Innovation"
+        },
+        "ratio": 1,
+        "peers": 132,
+        "share": 0.04,
+        "ramp": {
+          "9": 282,
+          "10": 5461,
+          "11": 26906,
+          "12": 84,
+          "13": 10853,
+          "14": 668,
+          "15": 2172,
+          "17": 283,
+          "18": 5,
+          "20": 49,
+          "22": 7,
+          "24": 278,
+          "28": 16,
+          "64": 22,
+          "8.5": 157,
+          "9.5": 60,
+          "23.3": 10
+        }
+      },
+      "chars": 47313,
+      "containers": [],
+      "firstAction": {
+        "y": 454,
+        "sel": "a.btn.btn--primary"
+      }
+    },
+    {
+      "route": "/",
+      "w": 1440,
+      "findings": [
+        {
+          "kind": "dead",
+          "sel": "div.sys-cell__head",
+          "metric": 152.125,
+          "detail": "152.125px of empty space under div.sys-cell__head"
+        },
+        {
+          "kind": "wrap",
+          "sel": "div.probono-stack",
+          "metric": 3,
+          "detail": "div.probono-stack breaks into 3 rows and leaves span.probono-stack__chip alone on the last one"
+        },
+        {
+          "kind": "wrap",
+          "sel": "div.stack__items",
+          "metric": 2,
+          "detail": "div.stack__items breaks into 2 rows and leaves span alone on the last one"
+        },
+        {
+          "kind": "clip",
+          "sel": "div.research-map.leaflet-container",
+          "metric": 120,
+          "detail": "div.research-map.leaflet-container hides 120px of its own content"
+        },
+        {
+          "kind": "scattered",
+          "sel": "div#heroNodeRail",
+          "metric": 76,
+          "detail": "button.hero-node and button.hero-node sit 76% apart in div#heroNodeRail"
+        }
+      ],
+      "hierarchy": {
+        "h1": 76,
+        "h1Count": 1,
+        "largest": 76,
+        "largestInfo": {
+          "tag": "span",
+          "cls": "hero-line",
+          "size": 76,
+          "text": "Innovation"
+        },
+        "ratio": 1,
+        "peers": 132,
+        "share": 0.04,
+        "ramp": {
+          "9": 282,
+          "10": 5461,
+          "11": 26906,
+          "12": 84,
+          "13": 10853,
+          "14": 668,
+          "15": 2172,
+          "17": 283,
+          "18": 5,
+          "20": 49,
+          "22": 7,
+          "24": 278,
+          "28": 16,
+          "76": 22,
+          "8.5": 157,
+          "9.5": 60,
+          "23.3": 10
+        }
+      },
+      "chars": 47313,
+      "containers": [],
+      "firstAction": {
+        "y": 480,
+        "sel": "a.btn.btn--primary"
+      }
+    }
+  ]
+}

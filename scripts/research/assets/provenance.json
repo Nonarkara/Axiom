@@ -1,0 +1,52 @@
+{
+  "retrieved": "2026-11-04",
+  "crs": "EPSG:4326 (WGS84)",
+  "coordinateOrder": {
+    "basemap": "longitude, latitude (GeoJSON)",
+    "regions": "latitude, longitude (Leaflet reference points and frames)"
+  },
+  "basemap": {
+    "source": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_110m_admin_0_countries.geojson",
+    "sourceSHA256": "6866c877d39cba9c357620878839b336d569f8c662d3cfab4cb1dbe2d39c977f",
+    "license": "Public domain",
+    "scale": "1:110m",
+    "transformation": "Selected 39 complete country features; original coordinates unchanged; properties reduced to country name. Context only, not study geography."
+  },
+  "footprint": {
+    "source": "https://github.com/Nonarkara/Axiom/blob/61374ed2dadf0e16a58735873bbfbc574d78848f/public/footprint.js",
+    "sourceSHA256": "e2e0cdb1a4e415c603b8336fb632eb6285dbab9599d50c3c89ea722cfcb7d920",
+    "use": "Thailand coarse frame; independent city-reference cross-check within 0.01 degree."
+  },
+  "regionalFrame": {
+    "source": "https://axiom.nonarkara.org/research/seeing-a-war-v1.pdf#page=4",
+    "sourceSHA256": "5dbb9959067c7198d4ed3b776c25e1157df3d3e7ea4099de74c61a47c4ff2d5e"
+  },
+  "cityReferences": [
+    {
+      "id": "chiang-mai",
+      "source": "https://www.geonames.org/1153671/chiang-mai.html",
+      "rdf": "https://sws.geonames.org/1153671/about.rdf",
+      "sourceSHA256": "4b622527df5d993124f81650b05aee4f9a0452ab80151943467908734a5ce712",
+      "point": [
+        18.79038,
+        98.98468
+      ],
+      "retrieved": "2026-11-04",
+      "license": "GeoNames CC BY 4.0",
+      "meaning": "Administrative seat only; not a field site or provincial boundary."
+    },
+    {
+      "id": "nakhon-si-thammarat",
+      "source": "https://www.geonames.org/1151933/nakhon-si-thammarat.html",
+      "rdf": "https://sws.geonames.org/1151933/about.rdf",
+      "sourceSHA256": "ecae6febb805e0cb739738e8c7827594d7c189146ba5497969526caf81e2d749",
+      "point": [
+        8.43333,
+        99.96667
+      ],
+      "retrieved": "2026-11-04",
+      "license": "GeoNames CC BY 4.0",
+      "meaning": "Administrative seat only; not a field site or provincial boundary."
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import { resolve, dirname, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { researchCopy } from './copy.mjs';
 import { createHash } from 'node:crypto';
+import { researchRegions, geographyData } from './geography.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const START = '<!-- research:generated:start -->';
@@ -32,6 +33,18 @@ export function validateResearch(data) {
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(paper.id)) throw new Error(`Invalid id: ${paper.id}`);
     if (!Array.isArray(paper.authors) || !paper.authors.length || paper.authors.some(a => typeof a !== 'string' || !a.trim())) throw new Error(`Missing authors: ${paper.id}`);
     if (paper.status !== 'Preprint') throw new Error(`Expected Preprint: ${paper.id}`);
+    const study = paper.study;
+    if (!study || typeof study.label !== 'string' || !study.label.trim()) throw new Error(`Missing study geography: ${paper.id}`);
+    if (study.region === null) {
+      if (study.scope !== 'unspecified') throw new Error(`Unmapped study must use unspecified scope: ${paper.id}`);
+    } else {
+      const region = researchRegions.find(region => region.id === study.region);
+      if (!region) throw new Error(`Unregistered study region: ${study.region}; use null/unspecified until sourced`);
+      if (study.scope !== region.scope) throw new Error(`Study scope disagrees with region: ${paper.id}`);
+    }
+    for (const key of ['question', 'evidence', 'limitation']) {
+      if (typeof paper[key] !== 'string' || !paper[key].trim()) throw new Error(`Missing ${key}: ${paper.id}`);
+    }
     if (!/^\d{4}-\d{2}-\d{2}$/.test(paper.date) || new Date(paper.date).toISOString().slice(0, 10) !== paper.date) throw new Error(`Invalid date: ${paper.id}`);
     safeURL(paper.pdf, 'pdf');
     safeURL(paper.source, 'source');
@@ -81,25 +94,46 @@ export async function verifyDestinations(papers, { root = ROOT, fetcher = fetch 
   }
 }
 
-export function renderMain(papers) {
+export function renderLibrary(papers, { book = false } = {}) {
   const text = (key, tag = 'span') => `<${tag} data-i18n="research.${key}">${escape(researchCopy.en[key])}</${tag}>`;
+  const regions = researchRegions.filter(region => papers.some(p => p.study.region === region.id));
   const systems = [...new Set(papers.map(p => p.system))];
   const options = systems.map(system => `<option value="${escape(system)}">${escape(system)} (${papers.filter(p => p.system === system).length})</option>`).join('');
-  const rows = papers.map(p => `        <article class="research-row" data-paper="${escape(p.id)}" data-system="${escape(p.system)}">
-          <h3 lang="en">${escape(p.title)}</h3>
+  const regionOptions = regions.map(region => `<option value="${region.id}" data-region-option="${region.id}" data-name-key="${region.nameKey}">${escape(researchCopy.en[region.nameKey])} (${papers.filter(p => p.study.region === region.id).length})</option>`).join('') + (papers.some(p => p.study.region === null) ? `<option value="unmapped" data-region-option="unmapped">${escape(researchCopy.en.unspecified)}</option>` : '');
+  const rows = papers.map(p => `        <article class="research-row" data-paper="${escape(p.id)}" data-system="${escape(p.system)}" data-region="${p.study.region || 'unmapped'}">
+          <${book ? 'h2' : 'h3'} lang="en">${escape(p.title)}</${book ? 'h2' : 'h3'}>
           <p class="research-meta">${escape(p.authors.join(', '))} · <time datetime="${p.date}">${p.date}</time> · ${escape(p.system)} · ${escape(p.version)}</p>
-          <div class="research-actions"><a href="${escape(p.pdf)}" download>${text('pdf')}</a><a href="${escape(p.source)}" target="_blank" rel="noopener">${text('source')}</a></div>
+          <p class="research-coverage"><span lang="en">${escape(p.study.label)}</span> · ${text(p.study.scope)}</p>
+          <div class="research-actions"><a href="${escape(p.pdf)}" download${book ? ' target="_blank" rel="noopener"' : ''}>${text('pdf')}</a><a href="${escape(p.source)}" target="_blank" rel="noopener">${text('source')}</a></div>
+          <details class="research-study"><summary data-i18n="research.details">${escape(researchCopy.en.details)}</summary><dl>${['question', 'evidence', 'limitation'].map(key => `<dt data-i18n="research.${key}">${escape(researchCopy.en[key])}</dt><dd lang="en">${escape(p[key])}</dd>`).join('')}</dl></details>
         </article>`).join('\n');
-  return `${START}
-    <section class="section research-library" id="research" aria-labelledby="research-title">
-      <h2 class="t-title" id="research-title" data-i18n="research.title">Research</h2>
-      ${text('notice', 'p')}
-      <label class="research-filter">${text('system')} <select data-research-filter><option value="" data-i18n="research.all">${escape(researchCopy.en.all)}</option>${options}</select></label>
+  return `<section class="${book ? 'research-library research-library--book' : 'section research-library'}" id="research" data-research-library aria-labelledby="research-title">
+      <figure class="research-atlas">
+        <div class="research-map" data-research-map role="region" hidden></div>
+        <p class="research-map-fallback" data-research-fallback data-i18n="research.mapStatic">${escape(researchCopy.en.mapStatic)}</p>
+        <figcaption>${text('mapNote')}<span class="research-city-key">${text('chiangMai')} / ${text('nakhon')} · ${text('cityReference')}</span></figcaption>
+      </figure>
+      <div class="research-heading"><${book ? 'h1' : 'h2'} id="research-title" data-i18n="research.title">Research</${book ? 'h1' : 'h2'}>${text('notice', 'p')}${text('english', 'p')}</div>
+      ${papers.length ? `<div class="research-selection" data-research-selection>${text('firstPaper')}<span data-research-selected lang="en">${escape(papers[0].system)} · ${escape(papers[0].version)}</span><a data-research-first-pdf href="${escape(papers[0].pdf)}" download${book ? ' target="_blank" rel="noopener"' : ''}>${text('pdf')}</a></div>` : ''}
+      <div class="research-controls" data-research-controls hidden>
+        <label class="research-filter">${text('region')} <select data-research-region><option value="" data-i18n="research.allRegions">${escape(researchCopy.en.allRegions)}</option>${regionOptions}</select></label>
+        <label class="research-filter">${text('system')} <select data-research-filter><option value="" data-i18n="research.all">${escape(researchCopy.en.all)}</option>${options}</select></label>
+        <output class="research-count" data-research-count aria-live="polite">${papers.length} / ${papers.length} ${escape(researchCopy.en.papers)}</output>
+      </div>
       <div class="research-list">
 ${rows || '        ' + text('empty', 'p')}
       </div>
+      <p data-research-empty hidden data-i18n="research.noResults">${escape(researchCopy.en.noResults)}</p>
+      <details class="research-provenance"><summary data-i18n="research.mapSources">${escape(researchCopy.en.mapSources)}</summary><ul>
+        <li><a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener">Natural Earth · 1:110m · Public domain</a></li>
+        ${regions.map(region => `<li><a href="${escape(region.source)}" target="_blank" rel="noopener">${escape(researchCopy.en[region.nameKey])}</a> · <span data-i18n="research.${region.geometryKey}">${escape(researchCopy.en[region.geometryKey])}</span></li>`).join('')}
+      </ul></details>
     </section>
-    ${END}`;
+    `;
+}
+
+export function renderMain(papers) {
+  return START + '\n    ' + renderLibrary(papers).trim() + '\n    ' + END;
 }
 
 export function mainDocument(html, papers) {
@@ -111,7 +145,7 @@ export function mainDocument(html, papers) {
 }
 
 export function bookData(papers) {
-  return '// Generated by scripts/research/build.mjs. Edit data/research.json.\nwindow.AXIOM_RESEARCH = ' + json({ papers, copy: researchCopy }) + ';\n';
+  return '// Generated by scripts/research/build.mjs. Edit data/research.json.\nwindow.AXIOM_RESEARCH = ' + json({ papers, copy: researchCopy, html: renderLibrary(papers, { book: true }) }) + ';\nwindow.AXIOM_RESEARCH_COPY = window.AXIOM_RESEARCH.copy;\n';
 }
 
 export async function build({ root = ROOT, check = false, verify = false } = {}) {
@@ -121,10 +155,28 @@ export async function build({ root = ROOT, check = false, verify = false } = {})
   if (verify) await verifyDestinations(papers.filter(p => !localPDFPath(p.pdf)), { root });
   const index = resolve(root, 'public/index.html');
   const html = await readFile(index, 'utf8');
+  const bookIndex = resolve(root, 'axiomx/index.html');
+  const bookHTML = await readFile(bookIndex, 'utf8');
+  const fallback = '<!-- research:noscript:start -->\n  <noscript><div class="research-noscript">' + renderLibrary(papers, { book: true }) + '</div></noscript>\n  <!-- research:noscript:end -->';
+  const fallbackStart = bookHTML.indexOf('<!-- research:noscript:start -->');
+  const nextBookHTML = fallbackStart >= 0
+    ? bookHTML.slice(0, fallbackStart) + fallback + bookHTML.slice(bookHTML.indexOf('<!-- research:noscript:end -->') + '<!-- research:noscript:end -->'.length)
+    : bookHTML.replace('  <div class="shell"', '  ' + fallback + '\n  <div class="shell"');
+  const geography = geographyData();
+  const mapData = '// Generated by scripts/research/build.mjs.\nwindow.AXIOM_RESEARCH_GEOGRAPHY = ' + JSON.stringify(geography).replace(/</g, '\\u003c') + ';\n';
+  const css = await readFile(resolve(ROOT, 'scripts/research/library.css'), 'utf8');
+  const controller = await readFile(resolve(ROOT, 'public/research-ui.js'), 'utf8');
   const outputs = new Map([
     [index, mainDocument(html, papers)],
+    [bookIndex, nextBookHTML],
     [resolve(root, 'axiomx/research.js'), bookData(papers)],
-    [resolve(root, 'public/research.js'), '// Generated by scripts/research/build.mjs.\nwindow.AXIOM_RESEARCH_COPY = ' + json(researchCopy) + ';\n'],
+    [resolve(root, 'public/research.js'), bookData(papers)],
+    [resolve(root, 'public/research-geography.js'), mapData],
+    [resolve(root, 'axiomx/research-geography.js'), mapData],
+    [resolve(root, 'public/research.css'), css],
+    [resolve(root, 'axiomx/research.css'), css],
+    [resolve(root, 'axiomx/research-ui.js'), '// Generated from public/research-ui.js.\n' + controller],
+    [resolve(root, 'scripts/research/assets/provenance.json'), json(geography.provenance) + '\n'],
   ]);
   for (const [file, value] of outputs) {
     if (check) {

@@ -55,8 +55,9 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, max-content));
   justify-content: start;
-  /* The four labels are nowrap on purpose — "Stage shots" must not break across
-     lines under its own number. That makes the row intrinsically ~410px wide, so
+  /* At ordinary text sizes each label stays with its number. At enlarged text
+     the label may wrap inside its track rather than widening the page.
+     The full row is intrinsically ~410px wide, so
      below roughly 480px it cannot fit and pushes the whole page sideways. Let
      the row wrap instead: each stat stays intact and moves down a line. The
      breakpoints that used to swallow it (320, 360, 390, 414) all fit after. */
@@ -66,6 +67,7 @@
 
 .cx-head__stat {
   display: flex;
+  min-width: 0;
   align-items: baseline;
   gap: 5px;
   padding: 0 12px;
@@ -103,12 +105,14 @@
 }
 
 .cx-head__lbl {
+  min-width: 0;
   font-size: var(--t-label);
   font-weight: 600;
   letter-spacing: var(--tr-label);
   text-transform: uppercase;
   color: var(--ink-3);
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 /* The lede names every city in order, so the sequence is read as

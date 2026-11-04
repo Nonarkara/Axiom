@@ -81,6 +81,7 @@
 
   let current = '';
   let query = '';
+  let researchController = null;
 
   function media(src) {
     if (!src) return '';
@@ -1186,47 +1187,19 @@
   }
 
   function addResearch() {
-    const copy = RESEARCH.copy[currentLocale] || RESEARCH.copy.en;
-    if (!copy) return;
-    plate.appendChild(el('h1', 'name', copy.title));
-    plate.appendChild(el('p', 'note inset', copy.notice));
-    const wrap = el('div', 'research-library inset');
-    const label = el('label', 'research-filter', copy.system);
-    const select = el('select');
-    const all = el('option', '', copy.all);
-    all.value = '';
-    select.appendChild(all);
-    Array.from(new Set(RESEARCH.papers.map(function (p) { return p.system; }))).forEach(function (system) {
-      const count = RESEARCH.papers.filter(function (p) { return p.system === system; }).length;
-      const option = el('option', '', system + ' (' + count + ')');
-      option.value = system;
-      select.appendChild(option);
-    });
-    label.appendChild(select);
-    wrap.appendChild(label);
-    RESEARCH.papers.forEach(function (paper) {
-      const row = el('section', 'research-row');
-      row.dataset.paper = paper.id;
-      row.dataset.system = paper.system;
-      const title = el('h2', '', paper.title);
-      title.lang = 'en';
-      row.appendChild(title);
-      row.appendChild(el('p', 'research-meta', paper.authors.join(', ') + ' · ' + paper.date + ' · ' + paper.system + ' · ' + paper.version));
-      const actions = el('div', 'research-actions');
-      const pdf = link(paper.pdf, copy.pdf);
-      pdf.setAttribute('download', '');
-      actions.appendChild(pdf);
-      actions.appendChild(link(paper.source, copy.source));
-      row.appendChild(actions);
-      wrap.appendChild(row);
-    });
-    if (!RESEARCH.papers.length) wrap.appendChild(el('p', '', copy.empty));
-    select.addEventListener('change', function () {
-      wrap.querySelectorAll('[data-paper]').forEach(function (row) {
-        row.hidden = Boolean(select.value && row.dataset.system !== select.value);
+    if (!RESEARCH.html) return;
+    const template = document.createElement('template');
+    template.innerHTML = RESEARCH.html;
+    const library = template.content.firstElementChild;
+    plate.appendChild(library);
+    if (window.AxiomResearch) {
+      // Mobile opens the reading pane after rendering. Wait one layout frame
+      // so Leaflet never derives a view from a zero-size hidden container.
+      const frame = requestAnimationFrame(function () {
+        if (library.isConnected) researchController = window.AxiomResearch.mount(library, currentLocale);
       });
-    });
-    plate.appendChild(wrap);
+      researchController = { destroy: function () { cancelAnimationFrame(frame); } };
+    }
   }
 
   function renderSystem(system) {
@@ -1302,6 +1275,10 @@
   }
 
   function renderPlate(entry) {
+    if (researchController) {
+      researchController.destroy();
+      researchController = null;
+    }
     plate.replaceChildren();
     plate.scrollTop = 0;
     barKicker.textContent = t('groups.' + entry.group, entry.group);
@@ -1435,6 +1412,7 @@
 
   document.addEventListener('keydown', function (event) {
     const typing = event.target === q;
+    const interactive = event.target instanceof Element && event.target.closest('select,input,textarea,button:not(.item),summary,[contenteditable]:not([contenteditable="false"]),[data-research-map]');
     if (event.key === 'Escape') {
       // First Escape clears a running search, wherever focus happens to be —
       // clicking a result leaves the box populated but unfocused, and blurring
@@ -1446,11 +1424,12 @@
         if (typing) q.focus();
         return;
       }
+      if (interactive && !typing) return;
       if (typing) q.blur();
       shell.classList.remove('is-open');
       return;
     }
-    if (typing) return;
+    if (typing || interactive || event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey) return;
     if (event.key === '/') {
       event.preventDefault();
       q.focus();

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rdf:RDF xmlns:cc="http://creativecommons.org/ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <gn:Feature rdf:about="https://sws.geonames.org/1151933/">
+        <rdfs:isDefinedBy rdf:resource="https://sws.geonames.org/1151933/about.rdf"/>
+        <gn:toponymName>Nakhon Si Thammarat</gn:toponymName>
+        <gn:name>Nakhon Si Thammarat</gn:name>
+        <gn:alternateName xml:lang="ko">나콘시탐마랏</gn:alternateName>
+        <gn:alternateName>Amphoe Muang Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName>Changwat Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName>Lakawn</gn:alternateName>
+        <gn:alternateName>Lakon</gn:alternateName>
+        <gn:alternateName>Ligor</gn:alternateName>
+        <gn:alternateName>Muang Nagorn Sridharmaraj</gn:alternateName>
+        <gn:alternateName>Muang Nakawn Sri Tamarat</gn:alternateName>
+        <gn:alternateName>Mueang Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName>Nagara Sridharmaraj</gn:alternateName>
+        <gn:alternateName>Nagorn Sridharmrat</gn:alternateName>
+        <gn:alternateName>Nagorri Sridharmrat</gn:alternateName>
+        <gn:alternateName>Nagor Sridhamaraj</gn:alternateName>
+        <gn:alternateName>Nakawn Sitamarat</gn:alternateName>
+        <gn:alternateName>Nakawn Sritamarat</gn:alternateName>
+        <gn:alternateName>Nakhaun Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="de">Nakhon Si Tammarat</gn:alternateName>
+        <gn:alternateName xml:lang="en">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="es">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="fr">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="ha">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="id">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="jv">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="ms">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="nb">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="nl">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="no">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="om">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="pt">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="so">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="sw">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="tr">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName xml:lang="uz">Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName>Nakhon Si Thammarat</gn:alternateName>
+        <gn:alternateName>Nakhon Si Thammarht</gn:alternateName>
+        <gn:alternateName>Nakhonsithamrat</gn:alternateName>
+        <gn:alternateName>Nakhon Sritamarai</gn:alternateName>
+        <gn:alternateName>Nakhon Srithamarat</gn:alternateName>
+        <gn:alternateName>Nakhon Srithamrat</gn:alternateName>
+        <gn:alternateName xml:lang="hu">Nakhon Szi Thammarat</gn:alternateName>
+        <gn:alternateName>Nakon</gn:alternateName>
+        <gn:alternateName>Nakon Sitamarat</gn:alternateName>
+        <gn:alternateName>Nakon Si Tham Rat</gn:alternateName>
+        <gn:alternateName>Nakon Sritamaraj</gn:alternateName>
+        <gn:alternateName>Nakon Sritamarat</gn:alternateName>
+        <gn:alternateName>Nakon Sri Tammarat</gn:alternateName>
+        <gn:alternateName>Nakorn Si Thamarat</gn:alternateName>
+        <gn:alternateName>Nakorn Sridamaraja</gn:alternateName>
+        <gn:alternateName xml:lang="az">Naxon Si Tamarat</gn:alternateName>
+        <gn:alternateName xml:lang="kk">Накхонситхаммарат</gn:alternateName>
+        <gn:alternateName xml:lang="ru">Накхонситхаммарат</gn:alternateName>
+        <gn:alternateName xml:lang="ky">Накхон-Си-Тхаммарат</gn:alternateName>
+        <gn:alternateName xml:lang="tg">Накхон-Си-Тхаммарат</gn:alternateName>
+        <gn:alternateName xml:lang="tt">Накхон-Си-Тхаммарат</gn:alternateName>
+        <gn:alternateName xml:lang="he">נאקון סי טמרט</gn:alternateName>
+        <gn:alternateName xml:lang="ur">ناکھون سی تھامارات</gn:alternateName>
+        <gn:alternateName xml:lang="ps">نخون سي تمارت</gn:alternateName>
+        <gn:alternateName xml:lang="fa">نخون سی تمارت</gn:alternateName>
+        <gn:alternateName xml:lang="pnb">نکھون سی تھاماراٹ</gn:alternateName>
+        <gn:alternateName xml:lang="am">ናኞን ሲ ታማራት</gn:alternateName>
+        <gn:alternateName xml:lang="hi">नखोन सी थाम्मारत</gn:alternateName>
+        <gn:alternateName xml:lang="bn">নখন সি থাম্মারাট</gn:alternateName>
+        <gn:alternateName xml:lang="pa">ਨਖੋਨ ਸੀ ਥਾਮਾਰਤ</gn:alternateName>
+        <gn:alternateName xml:lang="th">เทศบาลนครนครศรีธรรมราช</gn:alternateName>
+        <gn:alternateName xml:lang="ar">นครศรีธรรมราช</gn:alternateName>
+        <gn:alternateName xml:lang="th">นครศรีธรรมราช</gn:alternateName>
+        <gn:alternateName xml:lang="bo">ན་ཁཱོན་སི་ཐམ་མ་ར་ཊི།</gn:alternateName>
+        <gn:alternateName xml:lang="ja">ナコーンシータンマラート</gn:alternateName>
+        <gn:alternateName xml:lang="zh">那空是贪玛叻</gn:alternateName>
+        <gn:featureClass rdf:resource="https://www.geonames.org/ontology#P"/>
+        <gn:featureCode rdf:resource="https://www.geonames.org/ontology#P.PPLA"/>
+        <gn:countryCode>TH</gn:countryCode>
+        <gn:population>102152</gn:population>
+        <wgs84_pos:lat>8.43333</wgs84_pos:lat>
+        <wgs84_pos:long>99.96667</wgs84_pos:long>
+        <gn:parentFeature rdf:resource="https://sws.geonames.org/1608644/"/>
+        <gn:parentCountry rdf:resource="https://sws.geonames.org/1605651/"/>
+        <gn:parentADM1 rdf:resource="https://sws.geonames.org/1608525/"/>
+        <gn:parentADM2 rdf:resource="https://sws.geonames.org/1608644/"/>
+        <gn:nearbyFeatures rdf:resource="https://sws.geonames.org/1151933/nearby.rdf"/>
+        <gn:locationMap rdf:resource="https://www.geonames.org/1151933/nakhon-si-thammarat.html"/>
+        <gn:wikipediaArticle rdf:resource="https://en.wikipedia.org/wiki/Nakhon_Si_Thammarat"/>
+        <rdfs:seeAlso rdf:resource="https://dbpedia.org/resource/Nakhon_Si_Thammarat"/>
+    </gn:Feature>
+    <foaf:Document rdf:about="https://sws.geonames.org/1151933/about.rdf">
+        <foaf:primaryTopic rdf:resource="https://sws.geonames.org/1151933/"/>
+        <cc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <cc:attributionURL rdf:resource="https://www.geonames.org"/>
+        <cc:attributionName rdf:datatype="https://www.w3.org/2001/XMLSchema#string">GeoNames</cc:attributionName>
+        <dcterms:created rdf:datatype="https://www.w3.org/2001/XMLSchema#date">2006-01-15</dcterms:created>
+        <dcterms:modified rdf:datatype="https://www.w3.org/2001/XMLSchema#date">2026-04-14</dcterms:modified>
+    </foaf:Document>
+</rdf:RDF>
