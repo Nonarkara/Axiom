@@ -4,6 +4,8 @@
 >
 > **Check pages with `slop-lint` (tools/slop-lint.mjs in Nonarkara/palette).**
 
+> **Read [STYLE.md](STYLE.md) before visual edits.** It locks the column grid, protected palettes, publication provenance and human-artwork treatment. Add papers to `data/research.json`, then run `node scripts/research/build.mjs`. Verify PDF bytes and hashes, not HTTP status alone.
+
 # AGENTS.md
 
 > Project-specific context for AI coding agents (OpenCode, Codex, Cursor, Aider, Devin, Gemini CLI, …).

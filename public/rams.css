@@ -30,6 +30,20 @@
    outside the box, so the eye sees a label and the finger finds
    a target.
    ============================================================ */
+/* Research uses a column grid; publication and actions stay in one reading row. */
+.research-library { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.research-library > h2, .research-library > p { margin: 0; }
+.research-library > p { max-width: 65ch; }
+.research-filter { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; width: fit-content; max-width: 100%; }
+.research-filter select { max-width: 100%; min-height: 44px; color: inherit; background: transparent; font: inherit; border: 1px solid currentColor; border-radius: 0; }
+.research-list { display: grid; grid-template-columns: minmax(0, 1fr); }
+.research-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding-block: 12px; border-top: 1px solid var(--line); }
+.research-row[hidden] { display: none; }
+.research-row h3 { margin: 0; max-width: 65ch; font-size: var(--t-lede); line-height: 1.35; letter-spacing: 0; overflow-wrap: anywhere; }
+.research-meta { margin: 0; max-width: 75ch; font-size: var(--t-body); overflow-wrap: anywhere; }
+.research-actions { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.research-actions a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: 3px; }
+
 :root {
   --box-pad-tight: 2px;
   --box-pad: 4px;
@@ -116,7 +130,7 @@
    ============================================================ */
 
 :root {
-  scroll-padding-top: 66px;
+  scroll-padding-top: var(--masthead-offset, 66px);
   /* §1.1 Foundation — warm paper, warm ink, hairline grey */
   --paper: #faf9f7;
   /* page bg — warm off-white, never #fff */
@@ -2464,7 +2478,7 @@ summary:focus-visible {
 
 /* phone: also drop the CTA — brand + locale only */
 @media (max-width: 759px) {
-  :root { scroll-padding-top: 120px; }
+  :root { scroll-padding-top: var(--masthead-offset, 120px); }
   .masthead__inner>.btn--primary {
     display: none;
   }
@@ -3009,21 +3023,4 @@ html:not([lang="th"]) .foot-th-only { display: none; }
 .sys-cell--soon:hover .sys-cell__shot {
   filter: grayscale(0.55) contrast(0.92);
   opacity: 0.88;
-}
-
-/* Flagship cell — spans all columns of its grid row so no orphan cell
-   sits alone with empty space beside it. Used on the last cell of a
-   cluster whose count doesn't divide by the column count. */
-.sys-cell--full {
-  grid-column: 1 / -1;
-  /* Flex items stretch horizontally by default in a column-direction
-     container. For the flagship we keep the head compact (idx + badge)
-     at the left instead of stretched across all three columns — the
-     space beside a stretched head reads as dead space, not emphasis. */
-  align-items: start;
-}
-
-/* The body still needs to stretch vertically to fill the cell. */
-.sys-cell--full .sys-cell__body {
-  align-self: stretch;
 }

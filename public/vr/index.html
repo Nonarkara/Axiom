@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>vr.nonarkara.org · Premier League 2026-27</title>
-  <meta name="description" content="Premier League 2026-27 table in VR — column height = points. Built by Axiom X Co., Ltd.">
+  <title>vr.nonarkara.org · Fictional football demonstration</title>
+  <meta name="description" content="Fictional football standings in an interactive 3D scene. Not real league results. Built by Axiom X Co., Ltd.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=optional" rel="stylesheet">
-  <link rel="stylesheet" href="vr.css?v=20261103a">
+  <link rel="stylesheet" href="vr.css?v=20261104a">
   <link rel="icon" type="image/png" href="../../favicon-32.png">
 </head>
 <body>
@@ -22,8 +22,7 @@
         <span class="brand__ver">nonarkara</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a href="#table">Table</a>
-        <a href="#matches">Matches</a>
+        <a href="#vrTable">Table</a>
         <a href="#about">About</a>
       </nav>
       <a href="https://superleague.nonarkara.org/#/lobby" class="btn btn--primary" target="_blank" rel="noopener">Super League</a>
@@ -33,22 +32,25 @@
 
   <!-- ============== VR SCENE ============== -->
   <main class="vr-stage" id="vrStage">
-    <div id="vrCanvas"></div>
+    <canvas id="vrCanvas" tabindex="0" aria-label="Fictional football points in 3D" aria-describedby="vrStatus"></canvas>
 
-    <!-- Title card floating in scene (HTML overlay positioned over canvas) -->
+    <!-- Scene label and action sit at the visual exit. -->
     <div class="vr-title" id="vrTitle">
-      <div class="vr-title__badge">SUPER LEAGUE</div>
-      <h1 class="vr-title__main">Premier League<br>2026-27</h1>
-      <p class="vr-title__sub">Column height = points · 50 played matches · openfootball/football.json (CC0)</p>
+      <div class="vr-title__badge">FICTIONAL DEMONSTRATION</div>
+      <h1 class="vr-title__main">Football points</h1>
+      <p class="vr-title__sub">Invented standings, not league results. Column height = points.</p>
+      <p class="vr-title__sub" id="vrStatus" role="status">Loading 3D scene. Fictional standings are available in the table.</p>
+      <button class="btn btn--primary" id="vrTableToggle" type="button" aria-controls="vrTable" aria-expanded="true">Table</button>
     </div>
 
     <!-- Table panel (opens on the right, overlays the VR scene) -->
-    <aside class="vr-table" id="vrTable" aria-label="League table">
-      <button class="vr-table__close" type="button" aria-label="Close table">
+    <aside class="vr-table vr-table--open" id="vrTable" aria-label="Fictional demonstration standings">
+      <button class="vr-table__close" type="button" aria-label="Close table" hidden>
         <span class="tri">▸</span>
       </button>
       <div class="vr-table__inner" id="vrTableInner">
         <table class="vr-table__grid">
+          <caption>Fictional demonstration · not real standings</caption>
           <thead>
             <tr>
               <th>#</th>
@@ -60,15 +62,37 @@
               <th>Pts</th>
             </tr>
           </thead>
-          <tbody id="vrTableBody"></tbody>
+          <tbody id="vrTableBody">
+            <tr data-abbr="MCI" data-color="#00247d"><td>1</td><th scope="row">Manchester City</th><td>50</td><td>—</td><td>—</td><td>—</td><td>95</td></tr>
+            <tr data-abbr="ARS" data-color="#a51931"><td>2</td><th scope="row">Arsenal</th><td>50</td><td>—</td><td>—</td><td>—</td><td>89</td></tr>
+            <tr data-abbr="LIV" data-color="#c41e3a"><td>3</td><th scope="row">Liverpool</th><td>50</td><td>—</td><td>—</td><td>—</td><td>86</td></tr>
+            <tr data-abbr="CHE" data-color="#034694"><td>4</td><th scope="row">Chelsea</th><td>50</td><td>—</td><td>—</td><td>—</td><td>78</td></tr>
+            <tr data-abbr="MUN" data-color="#da291c"><td>5</td><th scope="row">Man Utd</th><td>50</td><td>—</td><td>—</td><td>—</td><td>74</td></tr>
+            <tr data-abbr="TOT" data-color="#132257"><td>6</td><th scope="row">Tottenham</th><td>50</td><td>—</td><td>—</td><td>—</td><td>71</td></tr>
+            <tr data-abbr="NEW" data-color="#241f20"><td>7</td><th scope="row">Newcastle</th><td>50</td><td>—</td><td>—</td><td>—</td><td>66</td></tr>
+            <tr data-abbr="AST" data-color="#670e36"><td>8</td><th scope="row">Aston Villa</th><td>50</td><td>—</td><td>—</td><td>—</td><td>64</td></tr>
+            <tr data-abbr="BHA" data-color="#0057ba"><td>9</td><th scope="row">Brighton</th><td>50</td><td>—</td><td>—</td><td>—</td><td>62</td></tr>
+            <tr data-abbr="FUL" data-color="#000000"><td>10</td><th scope="row">Fulham</th><td>50</td><td>—</td><td>—</td><td>—</td><td>59</td></tr>
+            <tr data-abbr="CRY" data-color="#4b923d"><td>11</td><th scope="row">Crystal Palace</th><td>50</td><td>—</td><td>—</td><td>—</td><td>57</td></tr>
+            <tr data-abbr="BRE" data-color="#e30613"><td>12</td><th scope="row">Brentford</th><td>50</td><td>—</td><td>—</td><td>—</td><td>56</td></tr>
+            <tr data-abbr="EVE" data-color="#27346a"><td>13</td><th scope="row">Everton</th><td>50</td><td>—</td><td>—</td><td>—</td><td>53</td></tr>
+            <tr data-abbr="WHU" data-color="#7a263a"><td>14</td><th scope="row">West Ham</th><td>50</td><td>—</td><td>—</td><td>—</td><td>51</td></tr>
+            <tr data-abbr="BOU" data-color="#da331d"><td>15</td><th scope="row">Bournemouth</th><td>50</td><td>—</td><td>—</td><td>—</td><td>49</td></tr>
+            <tr data-abbr="IPS" data-color="#0033a0"><td>16</td><th scope="row">Ipswich</th><td>50</td><td>—</td><td>—</td><td>—</td><td>47</td></tr>
+            <tr data-abbr="WOL" data-color="#e64e1f"><td>17</td><th scope="row">Wolves</th><td>50</td><td>—</td><td>—</td><td>—</td><td>45</td></tr>
+            <tr data-abbr="LEI" data-color="#00247d"><td>18</td><th scope="row">Leicester</th><td>50</td><td>—</td><td>—</td><td>—</td><td>44</td></tr>
+            <tr data-abbr="SOU" data-color="#d71920"><td>19</td><th scope="row">Southampton</th><td>50</td><td>—</td><td>—</td><td>—</td><td>39</td></tr>
+            <tr data-abbr="LEE" data-color="#ffcd00"><td>20</td><th scope="row">Leeds</th><td>50</td><td>—</td><td>—</td><td>—</td><td>38</td></tr>
+          </tbody>
         </table>
-        <p class="vr-table__note" id="vrTableNote"></p>
+        <p class="vr-table__note" id="vrTableNote">Fictional points and match counts. Wins, draws and losses are not modelled.</p>
       </div>
     </aside>
+    <noscript><p class="vr-noscript">JavaScript is unavailable. This demonstration does not contain real league results.</p></noscript>
   </main>
 
   <!-- ============== FOOTER ============== -->
-  <footer class="foot">
+  <footer class="foot" id="about">
     <div class="wrap">
       <div class="foot__row">
         <span class="brand__name">vr.nonarkara.org</span>
@@ -79,12 +103,11 @@
           <a href="https://superleague.nonarkara.org/#/lobby" target="_blank" rel="noopener">Super League</a>
         </nav>
       </div>
-      <p class="foot__note" lang="en">VR league table by Axiom X Co., Ltd. — column height = points. Data: openfootball/football.json (CC0), fetched 2026-10-08. © 2026 Axiom X Co., Ltd.</p>
+      <p class="foot__note" lang="en">Interactive 3D demonstration by Axiom X Co., Ltd. Fictional points and match counts, not real standings or a WebXR experience. © 2026 Axiom X Co., Ltd.</p>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/three@0.160.0/build/three.module.js"></script>
-  <script defer src="vr.js?v=20261103a"></script>
+  <script type="module" src="vr.js?v=20261104a"></script>
 
 </body>
 </html>

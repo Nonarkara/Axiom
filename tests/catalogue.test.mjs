@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { runInNewContext } from 'node:vm';
+import { loadMainSiteCells, unescapeHtml } from '../scripts/catalogue/lib.mjs';
 
 // ---------------------------------------------------------------------------
 // axiomx holds the catalogue as data. axiom renders it as cards. They were
@@ -100,14 +101,45 @@ test('no two systems share a destination URL', () => {
   }
 });
 
-test('both catalogues link to the same destination, including paths and fragments', () => {
-  for (const match of html.matchAll(/<a\b[^>]*\bdata-arch="([^"]+)"[^>]*>/g)) {
-    const system = systems.find(entry => entry.id === match[1]);
-    if (!system?.href) continue;
-    const href = match[0].match(/\bhref="([^"]+)"/)?.[1];
-    assert.equal(new URL(href, 'https://axiom.nonarkara.org/').href,
-      new URL(system.href).href, system.id);
+function assertDestinations(markup, catalogue = systems) {
+  for (const cell of loadMainSiteCells(() => markup).filter(cell => cell.id)) {
+    const system = catalogue.find(entry => entry.id === cell.id);
+    assert.ok(system, `${cell.id} has no catalogue entry`);
+    for (const [label, actual, expected] of [
+      ['primary', cell.href, system.href],
+      ['edition', cell.editionHref, system.edition?.href],
+    ]) {
+      if (!expected) {
+        assert.ok(!actual, `${cell.id} has an unexpected ${label} destination`);
+        continue;
+      }
+      assert.ok(actual, `${cell.id} is missing its ${label} destination`);
+      assert.equal(new URL(unescapeHtml(actual), 'https://axiom.nonarkara.org/').href,
+        new URL(expected).href, `${cell.id} ${label}`);
+    }
   }
+}
+
+test('both catalogues link to the same destination, including paths and fragments', () => {
+  assertDestinations(html);
+});
+
+test('destination parity detects drift in both links of an editions card', () => {
+  const cell = loadMainSiteCells().find(cell => cell.variant === 'editions');
+  assert.ok(cell, 'expected an editions card to exercise');
+  for (const href of [cell.href, cell.editionHref]) {
+    const changed = cell.raw.replace(`href="${href}"`, 'href="https://example.org/wrong?query=1#route"');
+    assert.notEqual(changed, cell.raw);
+    assert.throws(() => assertDestinations(changed), new RegExp(cell.id));
+  }
+});
+
+test('destination parity decodes escaped URL query separators', () => {
+  const cell = loadMainSiteCells().find(cell => cell.variant === 'link');
+  assert.ok(cell);
+  const markup = cell.raw.replace(`href="${cell.href}"`, 'href="https://example.org/?a=1&amp;b=2"');
+  const catalogue = [{ id: cell.id, href: 'https://example.org/?a=1&b=2' }];
+  assert.doesNotThrow(() => assertDestinations(markup, catalogue));
 });
 
 test('verified custom-domain migrations preserve the exact destination route', async () => {

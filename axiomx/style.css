@@ -1,3 +1,13 @@
+.research-library { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 920px; }
+.research-filter { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; width: fit-content; max-width: 100%; margin-bottom: 8px; }
+.research-filter select { max-width: 100%; min-height: 44px; border: 1px solid var(--line); border-radius: 0; color: var(--ink); background: var(--paper); font: inherit; }
+.research-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; border-top: 1px solid var(--line); padding-block: 12px; }
+.research-row[hidden] { display: none; }
+.research-row h2 { margin: 0; max-width: 65ch; font-size: 20px; font-weight: 500; line-height: 1.35; letter-spacing: 0; overflow-wrap: anywhere; }
+.research-meta { margin: 0; max-width: 75ch; color: var(--muted); overflow-wrap: anywhere; }
+.research-actions { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.research-actions a { display: inline-flex; align-items: center; min-height: 44px; }
+
 :root {
   --paper: #faf9f7;
   --ink: #191712;

@@ -6166,6 +6166,9 @@ function renderCatalogueCounts() {
 }
 
 function renderStaticCopy() {
+  Object.entries(window.AXIOM_RESEARCH_COPY || {}).forEach(([locale, research]) => {
+    if (uiCopy[locale]) uiCopy[locale].research = research;
+  });
   const copy = uiCopy[activeLocale] || uiCopy.en;
   const LOCALE_HTML_LANG = { en: 'en', th: 'th', zh: 'zh-Hans', ko: 'ko', ja: 'ja', vi: 'vi', ts: 'en' };
   document.documentElement.lang = LOCALE_HTML_LANG[activeLocale] || activeLocale;

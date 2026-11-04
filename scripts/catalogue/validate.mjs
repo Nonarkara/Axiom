@@ -36,9 +36,8 @@ export function validateCatalogue(catalogue) {
     if (!system || typeof system !== 'object' || Array.isArray(system)) {
       throw new Error('catalogue system: expected an object');
     }
-    if (Object.hasOwn(system, 'full')
-        && (typeof system.full !== 'boolean' || system.full !== true)) {
-      fail(system, 'full', 'expected boolean true or absent');
+    if (Object.hasOwn(system, 'full')) {
+      fail(system, 'full', 'unsupported property; catalogue cards use one thumbnail band');
     }
     for (const field of ['id', 'panelsKey', 'catKey']) {
       if (typeof system[field] !== 'string' || !system[field] || /[^A-Za-z0-9_-]/.test(system[field])) {

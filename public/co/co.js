@@ -188,12 +188,12 @@
   /* ── Map ── */
   const map = L.map('coMap', {
     zoomControl: false,
-    attributionControl: false,
+    attributionControl: true,
   }).setView([13.7500, 100.5000], 13);
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 19,
-    attribution: '&copy; OpenStreetMap &copy; CARTO',
+    attribution: 'Tiles &copy; Esri &mdash; Sources: Esri, HERE, Garmin, USGS, Intermap, INCREMENT P, NRCan, Esri Japan, METI, Esri China (Hong Kong), NOSTRA, &copy; OpenStreetMap contributors, GIS User Community',
   }).addTo(map);
 
   L.control.zoom({ position: 'bottomright' }).addTo(map);

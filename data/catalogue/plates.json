@@ -648,16 +648,16 @@
     "medium": "De Stijl"
   },
   "cnx": {
-    "artist": "Anonymous",
-    "title": "Chiang Mai city view",
-    "year": "c. 1900–1920",
-    "collection": "Public domain",
-    "source": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_city_view.jpg",
+    "artist": "Edgar Degas",
+    "title": "A Cotton Office in New Orleans",
+    "year": "1873",
+    "collection": "Musée des Beaux-Arts de Pau",
+    "source": "https://commons.wikimedia.org/wiki/File:Edgar_Germain_Hilaire_Degas_016.jpg",
     "licence": "Public domain",
-    "why": "Chiang Mai's operations centre reads the city as a live map — streets, traffic, weather and fire hotspots layered on one screen. A period view of the city it watches.",
-    "width": "1024",
-    "height": "640",
-    "medium": "photograph"
+    "why": "Cotton samples, a newspaper and accounts are examined in the same working room: different sources brought together before an operational decision. Chiang Mai IOC couples weather, traffic, fire hotspots and a forecast layer on one city map so an operator can read conditions together rather than consult isolated feeds. The binding is the comparison of sources, not the city depicted.",
+    "width": "1600",
+    "height": "1263",
+    "medium": "oil on canvas"
   },
   "bkk-atlas": {
     "artist": "Pieter Bruegel the Elder",
@@ -1356,16 +1356,16 @@
     "medium": "oil on paper laid on board"
   },
   "hikaru-non-go": {
-    "artist": "Anonymous",
-    "title": "Go board position — 19×19 grid",
-    "year": "2026",
-    "collection": "Hikaru Non Go system screenshot",
-    "source": "https://hikaru.nonarkara.org/",
+    "artist": "Zhou Wenju",
+    "title": "Playing Go Under Double Screens (detail)",
+    "year": "942–961",
+    "collection": "Palace Museum, Beijing",
+    "source": "https://commons.wikimedia.org/wiki/File:Zhou-Wenju-Go-Players.jpg",
     "licence": "Public domain",
-    "why": "Go stones and liberties on a 19×19 grid — territory, connection, and life-and-death read directly from the board. Hikaru Non Go makes this reasoning inspectable through liberties, territory, lessons and game records, without treating an estimate as a proof.",
-    "width": "1366",
-    "height": "768",
-    "medium": "screenshot"
+    "why": "Players examine a shared Go board before choosing a move. Hikaru Non Go makes that reasoning inspectable through connected groups, liberties, territory, lessons and game records, without treating a score estimate as a proof of life or death.",
+    "width": "792",
+    "height": "640",
+    "medium": "silk"
   },
   "pavilion": {
     "artist": "El Lissitzky",

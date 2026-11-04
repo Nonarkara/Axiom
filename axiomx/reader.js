@@ -14,6 +14,14 @@
   const ART_V = '20261028b';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
   const I18N = window.AXIOM_I18N || { ui: {}, systems: {}, docs: {} };
+  const RESEARCH = window.AXIOM_RESEARCH || { papers: [], copy: {} };
+  Object.entries(RESEARCH.copy).forEach(function ([locale, copy]) {
+    if (!I18N.ui[locale]) I18N.ui[locale] = {};
+    if (!I18N.ui[locale].groups) I18N.ui[locale].groups = {};
+    I18N.ui[locale].groups.Research = copy.title;
+    if (!I18N.docs[locale]) I18N.docs[locale] = {};
+    I18N.docs[locale].research = { title: copy.title };
+  });
 
   let currentLocale = 'en';
   try {
@@ -926,6 +934,12 @@
     { type: 'note', text: 'Bangkok · Southeast Asia. © 2026 Axiom X Co., Ltd. Figures on this site are case-specific. They are not a promise of the next case.' }
   ]));
 
+  book.push(doc('research', 'Research', 'Research', [{ type: 'research' }], {
+    search: ['Research', 'Preprints'].concat(RESEARCH.papers.map(function (paper) {
+      return [paper.title, paper.authors.join(' '), paper.system, paper.date, paper.version].join(' ');
+    })).join(' ')
+  }));
+
   // Which artworks does the book actually mount? A plate that exists in
   // plates.js but is wired into no page is a file nobody ever sees, so the list
   // of live plates is derived here and read by the QA harness.
@@ -1050,8 +1064,15 @@
       });
     }
 
+    if (entry.id === 'colophon') blocks = blocks.concat([{ type: 'actions', items: [
+      { href: 'https://co.nonarkara.org/', label: 'co.nonarkara' },
+      { href: 'https://vr.nonarkara.org/', label: 'vr.nonarkara' }
+    ] }]);
+
     (blocks || []).forEach(function (block) {
-      if (block.type === 'poster') {
+      if (block.type === 'research') {
+        addResearch();
+      } else if (block.type === 'poster') {
         const h = el('h1', 'poster', block.text);
         if (block.em) h.appendChild(el('em', '', block.em));
         plate.appendChild(h);
@@ -1162,6 +1183,50 @@
         plate.appendChild(wrap);
       }
     });
+  }
+
+  function addResearch() {
+    const copy = RESEARCH.copy[currentLocale] || RESEARCH.copy.en;
+    if (!copy) return;
+    plate.appendChild(el('h1', 'name', copy.title));
+    plate.appendChild(el('p', 'note inset', copy.notice));
+    const wrap = el('div', 'research-library inset');
+    const label = el('label', 'research-filter', copy.system);
+    const select = el('select');
+    const all = el('option', '', copy.all);
+    all.value = '';
+    select.appendChild(all);
+    Array.from(new Set(RESEARCH.papers.map(function (p) { return p.system; }))).forEach(function (system) {
+      const count = RESEARCH.papers.filter(function (p) { return p.system === system; }).length;
+      const option = el('option', '', system + ' (' + count + ')');
+      option.value = system;
+      select.appendChild(option);
+    });
+    label.appendChild(select);
+    wrap.appendChild(label);
+    RESEARCH.papers.forEach(function (paper) {
+      const row = el('section', 'research-row');
+      row.dataset.paper = paper.id;
+      row.dataset.system = paper.system;
+      const title = el('h2', '', paper.title);
+      title.lang = 'en';
+      row.appendChild(title);
+      row.appendChild(el('p', 'research-meta', paper.authors.join(', ') + ' · ' + paper.date + ' · ' + paper.system + ' · ' + paper.version));
+      const actions = el('div', 'research-actions');
+      const pdf = link(paper.pdf, copy.pdf);
+      pdf.setAttribute('download', '');
+      actions.appendChild(pdf);
+      actions.appendChild(link(paper.source, copy.source));
+      row.appendChild(actions);
+      wrap.appendChild(row);
+    });
+    if (!RESEARCH.papers.length) wrap.appendChild(el('p', '', copy.empty));
+    select.addEventListener('change', function () {
+      wrap.querySelectorAll('[data-paper]').forEach(function (row) {
+        row.hidden = Boolean(select.value && row.dataset.system !== select.value);
+      });
+    });
+    plate.appendChild(wrap);
   }
 
   function renderSystem(system) {

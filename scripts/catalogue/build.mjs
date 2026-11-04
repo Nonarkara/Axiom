@@ -23,8 +23,10 @@ import {
   BOOK_LOCALES, PLATE_FIELDS, SITE_LOCALES, canonicalJSON, loadCatalogue, read, write,
 } from './lib.mjs';
 import { elementEnd, htmlEscape, jsKey, jsString, memberPath, splice } from './edit.mjs';
+import { validateCatalogue } from './validate.mjs';
 
 const catalogue = loadCatalogue();
+validateCatalogue(catalogue);
 const systems = catalogue.systems.systems;
 const categories = catalogue.categories;
 const plates = catalogue.plates;
@@ -84,14 +86,13 @@ function bookStatusFor(locale) {
 /** The cluster headings for one locale, with the counts the catalogue holds. */
 function clusterMetaFor(locale) {
   const template = catalogue.systems.clusterMeta[locale] || {};
-  const counts = catalogue.systems.clusterCounts || {};
   const total = systems.length;
   const countries = catalogue.systems.countries;
   const filled = {};
   for (const [key, value] of Object.entries(template)) {
     if (typeof value !== 'string') { filled[key] = value; continue; }
     const clusterKey = { command: 'City Dashboards', intelligence: 'Intelligence', civic: 'Civic', emerging: 'Emerging', lab: 'Lab' }[key.replace(/Meta$/, '')];
-    const count = clusterKey ? (counts[clusterKey] ?? 0) : total;
+    const count = clusterKey ? inCluster(clusterKey).length : total;
     filled[key] = value
       .replace(/\{count\}/g, String(count))
       .replace(/\{countries\}/g, String(countries));
@@ -373,18 +374,17 @@ function cellMarkup(system) {
   if (system.variant === 'editions') {
     return [
       `${indent}<div class="sys-cell sys-cell--editions" data-arch="${system.id}">`,
-      `${indent}  <a class="sys-cell__primary" href="${system.href}" target="_blank" rel="noopener">`,
+      `${indent}  <a class="sys-cell__primary" href="${htmlEscape(system.href)}" target="_blank" rel="noopener">`,
       head, picture, body,
       `${indent}  </a>`,
-      `${indent}  <a class="sys-cell__edition" href="${system.edition.href}" target="_blank" rel="noopener"`
+      `${indent}  <a class="sys-cell__edition" href="${htmlEscape(system.edition.href)}" target="_blank" rel="noopener"`
       + ` data-i18n="panels.${system.panelsKey}.original">${htmlEscape(system.copy.en.original || '')}</a>`,
       `${indent}</div>`,
     ].join('\n');
   }
 
-  const cellClass = system.full ? 'sys-cell sys-cell--full' : 'sys-cell';
   return [
-    `${indent}<a class="${cellClass}"${domId} data-arch="${system.id}" href="${system.href}" target="_blank" rel="noopener">`,
+    `${indent}<a class="sys-cell"${domId} data-arch="${system.id}" href="${htmlEscape(system.href)}" target="_blank" rel="noopener">`,
     head, picture, body,
     `${indent}</a>`,
   ].join('\n');
@@ -392,6 +392,21 @@ function cellMarkup(system) {
 
 function buildHtml() {
   let source = read('public/index.html');
+  source = source.replace(/<meta\s+(?:name="description"|property="og:description")[^>]*>/g,
+    (tag) => tag.replace(/\b\d+ systems (across|in) \d+ countries\b/g,
+      (_, relation) => `${systems.length} systems ${relation} ${catalogue.systems.countries} countries`));
+  const counts = {
+    catalog: systems.length,
+    live: systems.filter((system) => system.status === 'live').length,
+  };
+  source = source.replace(/(data-count="(catalog|live)"[^>]*>)[^<]*(<\/span>)/g,
+    (_, open, key, close) => open + counts[key] + close);
+  const meta = clusterMetaFor('en');
+  source = source.replace(/(data-i18n="sysClusters\.([A-Za-z]+Meta)"[^>]*>)[^<]*(<\/div>)/g,
+    (match, open, key, close) => Object.hasOwn(meta, key)
+      ? open + htmlEscape(meta[key]) + close : match);
+  source = source.replace(/(data-i18n="pitch\.proofLine"[^>]*>)[^<]*(<\/p>)/g,
+    (_, open, close) => open + htmlEscape(proofLine('en')) + close);
   for (const cluster of catalogue.systems.clusters) {
     const markerAt = source.indexOf(cluster.marker);
     if (markerAt < 0) throw new Error(`missing cluster marker: ${cluster.marker}`);

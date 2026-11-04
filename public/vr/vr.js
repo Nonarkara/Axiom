@@ -1,49 +1,96 @@
 /* ============================================================
-   vr.nonarkara.org — Premier League 2026-27 VR table
+   vr.nonarkara.org — fictional football points demonstration
    Three.js 3D scene: football pitch with column bars.
    Column height = points. Click a bar to open the table panel.
    ============================================================ */
 
-(function () {
+(async function () {
   'use strict';
 
-  /* ── Premier League 2026-27 table (representative) ── */
-  /* Column height = points. 20 teams, 50 played matches. */
-  const teams = [
-    { abbr: 'MCI', name: 'Manchester City', pts: 95, played: 50, color: '#00247d' },
-    { abbr: 'ARS', name: 'Arsenal', pts: 89, played: 50, color: '#a51931' },
-    { abbr: 'LIV', name: 'Liverpool', pts: 86, played: 50, color: '#c41e3a' },
-    { abbr: 'CHE', name: 'Chelsea', pts: 78, played: 50, color: '#034694' },
-    { abbr: 'MUN', name: 'Man Utd', pts: 74, played: 50, color: '#da291c' },
-    { abbr: 'TOT', name: 'Tottenham', pts: 71, played: 50, color: '#132257' },
-    { abbr: 'NEW', name: 'Newcastle', pts: 66, played: 50, color: '#241f20' },
-    { abbr: 'AST', name: 'Aston Villa', pts: 64, played: 50, color: '#670e36' },
-    { abbr: 'BHA', name: 'Brighton', pts: 62, played: 50, color: '#0057ba' },
-    { abbr: 'FUL', name: 'Fulham', pts: 59, played: 50, color: '#000000' },
-    { abbr: 'CRY', name: 'Crystal Palace', pts: 57, played: 50, color: '#4b923d' },
-    { abbr: 'BRE', name: 'Brentford', pts: 56, played: 50, color: '#e30613' },
-    { abbr: 'EVE', name: 'Everton', pts: 53, played: 50, color: '#27346a' },
-    { abbr: 'WHU', name: 'West Ham', pts: 51, played: 50, color: '#7a263a' },
-    { abbr: 'BOU', name: 'Bournemouth', pts: 49, played: 50, color: '#da331d' },
-    { abbr: 'IPS', name: 'Ipswich', pts: 47, played: 50, color: '#0033a0' },
-    { abbr: 'WOL', name: 'Wolves', pts: 45, played: 50, color: '#e64e1f' },
-    { abbr: 'LEI', name: 'Leicester', pts: 44, played: 50, color: '#00247d' },
-    { abbr: 'SOU', name: 'Southampton', pts: 39, played: 50, color: '#d71920' },
-    { abbr: 'LEE', name: 'Leeds', pts: 38, played: 50, color: '#ffcd00' },
-  ];
+  /* Invented demonstration values, not sourced league standings. */
+  const teams = [...document.querySelectorAll('#vrTableBody tr')].map((row) => ({
+    abbr: row.dataset.abbr,
+    color: row.dataset.color,
+    name: row.cells[1].textContent,
+    played: Number(row.cells[2].textContent),
+    pts: Number(row.cells[6].textContent),
+  }));
 
+  /* The semantic table remains usable even if the module or WebGL fails. */
+  const panel = document.getElementById('vrTable');
+  const closeBtn = document.querySelector('.vr-table__close');
+  const toggle = document.getElementById('vrTableToggle');
+  const tableBody = document.getElementById('vrTableBody');
+  const tableNote = document.getElementById('vrTableNote');
+  const status = document.getElementById('vrStatus');
+  let selectedIndex = null;
+  let updateSelection = () => {};
+  let returnFocus = toggle;
+
+  [...tableBody.rows].forEach((row, i) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.dataset.team = i;
+    button.textContent = teams[i].name;
+    row.cells[1].replaceChildren(button);
+  });
+
+  function openTable(idx = selectedIndex, source = document.activeElement) {
+    if (!panel.classList.contains('vr-table--open')) returnFocus = source;
+    if (idx !== null) {
+      selectedIndex = idx;
+      const team = teams[idx];
+      tableBody.querySelectorAll('tr').forEach((row, i) => {
+        row.classList.toggle('vr-table__row--active', i === idx);
+        row.querySelector('button').setAttribute('aria-pressed', String(i === idx));
+      });
+      tableNote.textContent = `Fictional demonstration: ${team.name} — ${team.pts} points from ${team.played} invented matches.`;
+      updateSelection(idx);
+    }
+    panel.inert = false;
+    panel.setAttribute('aria-hidden', 'false');
+    panel.classList.add('vr-table--open');
+    toggle.setAttribute('aria-expanded', 'true');
+    closeBtn.focus({ preventScroll: true });
+  }
+
+  function closeTable() {
+    panel.classList.remove('vr-table--open');
+    panel.inert = true;
+    panel.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+    selectedIndex = null;
+    updateSelection(null);
+    returnFocus?.focus({ preventScroll: true });
+  }
+
+  closeBtn.hidden = false;
+  closeBtn.addEventListener('click', closeTable);
+  toggle.addEventListener('click', () => panel.inert ? openTable() : closeTable());
+  tableBody.addEventListener('click', (event) => {
+    const button = event.target.closest('button[data-team]');
+    if (button) openTable(Number(button.dataset.team));
+  });
+  document.querySelector('a[href="#vrTable"]').addEventListener('click', (event) => {
+    event.preventDefault();
+    openTable();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !panel.inert) closeTable();
+  });
+
+  try {
+  const THREE = await import('https://unpkg.com/three@0.160.0/build/three.module.js');
   /* ── Three.js setup ── */
   const canvas = document.getElementById('vrCanvas');
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x0a0a0a);
-  scene.fog = new THREE.Fog(0x0a0a0a, 40, 140);
 
   const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
   camera.position.set(0, 28, 70);
   camera.lookAt(0, 0, 0);
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
-  renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -82,7 +129,6 @@
   /* Outer boundary */
   const boundary = new THREE.Mesh(lineGeo(120, 1), lineMat);
   boundary.position.set(0, 0.06, -45);
-  boundary.rotation.x = -Math.PI / 2;
   scene.add(boundary);
 
   const boundary2 = boundary.clone();
@@ -91,7 +137,6 @@
 
   const boundary3 = new THREE.Mesh(lineGeo(1, 90), lineMat);
   boundary3.position.set(-60, 0.06, 0);
-  boundary3.rotation.x = -Math.PI / 2;
   scene.add(boundary3);
 
   const boundary4 = boundary3.clone();
@@ -128,8 +173,8 @@
   teams.forEach((team, i) => {
     const frac = i / (teams.length - 1);
     const angle = arcStart + frac * (arcEnd - arcStart);
-    const x = Math.cos(angle) * radius;
-    const z = Math.sin(angle) * radius - 18;
+    const x = Math.sin(angle) * radius;
+    const z = -Math.cos(angle) * radius + 24;
 
     const height = (team.pts / maxPts) * barMaxHeight;
 
@@ -159,7 +204,7 @@
     const spriteMat = new THREE.SpriteMaterial({ map: tex, transparent: true });
     const sprite = new THREE.Sprite(spriteMat);
     sprite.position.set(x, height + 2.5, z);
-    sprite.scale.set(2.6, 0.9, 1);
+    sprite.scale.set(4.4, 1.6, 1);
     sprite.userData = { team, abbr: team.abbr, index: i };
     barGroup.add(sprite);
     bars.push(sprite);
@@ -178,30 +223,30 @@
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
 
-  let selectedIndex = null;
-
   function onPointerMove(event) {
-    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-    pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    const rect = canvas.getBoundingClientRect();
+    pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
   }
 
-  function onClick() {
+  function onClick(event) {
+    onPointerMove(event);
     raycaster.setFromCamera(pointer, camera);
     const intersects = raycaster.intersectObjects(bars.filter((b) => b.isMesh));
     if (intersects.length > 0) {
       const bar = intersects[0].object;
       const idx = bar.userData.index;
-      selectTeam(idx);
+      openTable(idx, canvas);
+    } else if (!panel.inert) {
+      closeTable();
     }
   }
 
-  window.addEventListener('pointermove', onPointerMove);
-  window.addEventListener('click', onClick);
-  canvas.addEventListener('pointermove', onPointerMove);
   canvas.addEventListener('click', onClick);
 
   /* Hover: tint bars slightly */
-  function onHover() {
+  function onHover(event) {
+    onPointerMove(event);
     raycaster.setFromCamera(pointer, camera);
     const intersects = raycaster.intersectObjects(bars.filter((b) => b.isMesh));
     bars.forEach((b) => {
@@ -212,103 +257,61 @@
         b.material.emissive.set(0x000000);
       }
     });
+    render();
   }
-  window.addEventListener('pointermove', onHover);
   canvas.addEventListener('pointermove', onHover);
 
-  function selectTeam(idx) {
-    selectedIndex = idx;
-    const team = teams[idx];
+  updateSelection = (idx) => {
+    bars.filter((b) => b.isMesh).forEach((bar) => {
+      bar.material.emissive.set(bar.userData.index === idx ? 0x333333 : 0x000000);
+    });
     const bar = bars.find((b) => b.isMesh && b.userData.index === idx);
     if (bar) {
       ring.position.copy(bar.position);
       ring.position.y = 0.09;
       ring.visible = true;
+    } else {
+      ring.visible = false;
     }
-    openTable(idx);
-  }
+    render();
+  };
 
-  /* ── Table panel ── */
-  const panel = document.getElementById('vrTable');
-  const panelInner = document.getElementById('vrTableInner');
-  const closeBtn = document.querySelector('.vr-table__close');
-  const tableBody = document.getElementById('vrTableBody');
-  const tableNote = document.getElementById('vrTableNote');
-
-  function renderTable(highlightIdx) {
-    tableBody.innerHTML = teams
-      .map(
-        (t, i) => `
-        <tr${i === highlightIdx ? ' class="vr-table__row--active"' : ''}>
-          <td>${i + 1}</td>
-          <td>${t.abbr}</td>
-          <td>${t.played}</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>${t.pts}</td>
-        </tr>`
-      )
-      .join('');
-    const t = teams[highlightIdx];
-    tableNote.textContent = `${t.name} — ${t.pts} points from ${t.played} matches. Column height = points.`;
-  }
-
-  function openTable(idx) {
-    renderTable(idx);
-    panel.classList.add('vr-table--open');
-  }
-
-  function closeTable() {
-    panel.classList.remove('vr-table--open');
-    ring.visible = false;
-    selectedIndex = null;
-  }
-
-  closeBtn.addEventListener('click', closeTable);
-
-  /* Click canvas background closes table */
-  canvas.addEventListener('click', () => {
-    const target = document.elementFromPoint(event.clientX, event.clientY);
-    if (target === canvas || target.parentElement === canvas) closeTable();
+  canvas.addEventListener('keydown', (event) => {
+    if (!['ArrowLeft', 'ArrowRight', 'Enter', ' '].includes(event.key)) return;
+    event.preventDefault();
+    const delta = event.key === 'ArrowLeft' ? -1 : event.key === 'ArrowRight' ? 1 : 0;
+    openTable(((selectedIndex ?? 0) + delta + teams.length) % teams.length, canvas);
   });
 
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeTable();
-  });
-
-  /* ── Animation loop ── */
-  const clock = new THREE.Clock();
-
-  function animate() {
-    requestAnimationFrame(animate);
-    const t = clock.getElapsedTime();
-
-    /* Gentle camera drift */
-    camera.position.x = Math.sin(t * 0.15) * 4;
-    camera.lookAt(0, 0, 0);
-
-    /* Subtle pulse on selected bar */
-    if (selectedIndex !== null) {
-      const bar = bars.find((b) => b.isMesh && b.userData.index === selectedIndex);
-      if (bar) {
-        const s = 1 + Math.sin(t * 3) * 0.02;
-        bar.scale.set(s, s, s);
-      }
-    }
-
-    renderer.render(scene, camera);
+  // Render only on input/resize; no autoplay, drift or hidden-page loop.
+  function render() {
+    if (!document.hidden) renderer.render(scene, camera);
   }
 
   /* ── Resize ── */
   function onResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    const { width, height } = canvas.getBoundingClientRect();
+    camera.aspect = width / height;
+    const distance = Math.max(100, 125 / camera.aspect);
+    camera.position.set(0, distance * 0.65, distance);
+    camera.lookAt(0, 4, 0);
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height, false);
+    render();
   }
-  window.addEventListener('resize', onResize);
+  const observer = new ResizeObserver(onResize);
+  observer.observe(canvas);
+  document.addEventListener('visibilitychange', render);
+  window.addEventListener('pagehide', () => observer.disconnect(), { once: true });
+  window.addEventListener('pageshow', () => observer.observe(canvas));
 
   /* ── Start ── */
-  renderTable(0);
-  animate();
+  onResize();
+  canvas.dataset.ready = 'true';
+  status.textContent = 'Interactive 3D scene. Fictional demonstration.';
+  closeTable();
+  } catch (error) {
+    status.textContent = '3D unavailable. Fictional standings remain available in the table.';
+    console.warn('3D demonstration unavailable:', error);
+  }
 })();

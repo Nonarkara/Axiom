@@ -209,12 +209,14 @@ export function memberPath(source, declaration, path) {
  */
 export function jsString(value) {
   const text = String(value);
-  if (text.includes("'") && !text.includes('"')) return JSON.stringify(text);
+  const escape = (literal) => literal.replace(/\r/g, '\\r')
+    .replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
+  if (text.includes("'") && !text.includes('"')) return escape(JSON.stringify(text));
   if (text.includes("'")) {
     // Prefer single quotes with escapes, matching the file's existing style.
-    return `'${text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n')}'`;
+    return escape(`'${text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n')}'`);
   }
-  return `'${text.replace(/\\/g, '\\\\').replace(/\n/g, '\\n')}'`;
+  return escape(`'${text.replace(/\\/g, '\\\\').replace(/\n/g, '\\n')}'`);
 }
 
 /** A JavaScript object key: bare when it can be, quoted when it cannot. */
