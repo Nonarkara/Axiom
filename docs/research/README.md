@@ -49,6 +49,28 @@ conditions and which reported claims an outside reader can actually reproduce.
 
 ## Current Editorial Review
 
+The 5 November Foresight addition is a new, explicitly labelled methods preprint
+draft: Poon Thiengburanathum's research and Non Arkaraprasertkul's analysis.
+It audits a pinned implementation of The Anchor Console rather than claiming
+access to the complete underlying reports or validated policy effects.
+See [its manuscript and reproduction instructions](foresight/README.md),
+[independent methods review](foresight/independent-review.md), and
+[evidence ledger](foresight-evidence-2026-11-05.md). Detailed author approval,
+affiliations, funding and competing-interest declarations remain unconfirmed;
+do not silently turn this public draft into a final author-approved article.
+The PDF and methods ZIP are versioned separately from the original five papers.
+The supplement includes only the pinned execution inputs, not private Git
+history, application credentials or the original source reports.
+
+`scripts/research/render-paper.py` renders Markdown with the dependencies pinned
+in `scripts/research/paper-requirements.txt`; pass a directory containing the
+Liberation Sans/Serif TTF families via `--font-dir`. Inspect every rendered page.
+`node scripts/research/package-foresight.mjs /path/to/Foresights` builds the source
+supplement from pinned Git objects and a locally pinned upstream MIT notice.
+It refuses to replace a versioned archive with different bytes. ZIP timestamps,
+permissions, timezone and ordering are normalized; snapshot reproduction must
+also be verified after downloading the deployed archive.
+
 See [the 4 November review](preprint-review-2026-11-04.md) for specific proposed
 improvements. It is an internal editorial review, not peer review, independent
 data certification or author approval. The library's original PDFs stay intact.

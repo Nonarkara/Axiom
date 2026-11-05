@@ -1,0 +1,177 @@
+{
+  "schema": "axiom/catalogue-asset-provenance/v1",
+  "updated": "2026-11-05",
+  "drafted_by": "codex/gpt-5",
+  "reviewed": false,
+  "systemId": "foresight",
+  "product": {
+    "name": "The Anchor Console",
+    "url": "https://foresight.nonarkara.org/",
+    "observedTitle": "The Anchor Console — Thailand in the Multipolar Transition",
+    "observedHttpStatus": 200,
+    "observedOn": "2026-11-05",
+    "researchCredit": "Poon Thiengburanathum",
+    "analysisAndConsoleCredit": "Dr Non / Non Arkara / Axiom",
+    "localRepository": "/Users/nonarkara/Projects/Foresights",
+    "localCommit": "459d79c585d8c67830bd492ebe791429824f1024",
+    "localWorktreeAtInspection": "clean",
+    "identityEvidence": [
+      "index.html: document title and Open Graph product name",
+      "src/App.tsx: research and console bylines; four-futures and eleven-cluster views; method and limits",
+      "src/data/sources.ts: exact source-study URLs and source-tier vocabulary",
+      "src/lib/scoring.ts: threshold direction versus console-authored one-step magnitude",
+      "package.json: React 19, TypeScript, Vite 6 and package version 1.0.0",
+      "wrangler.toml: foresights Cloudflare Pages project"
+    ],
+    "sourceStudiesAsNamedByProduct": [
+      {
+        "title": "The Anchor Strategy v1.1 — Thailand in the Multipolar Transition",
+        "url": "https://forsight.craft.me/6S8F26TZcMyf6z"
+      },
+      {
+        "title": "Thailand's Economic Clusters: Value, Growth, Local Contribution, and Sovereignty — V2 (July 2026)",
+        "url": "https://forsight.craft.me/jlRBiYvhyZ2msI"
+      }
+    ],
+    "limits": "Catalogue verification of a public reading instrument, not a scholarly audit of either study. Live means available to open, not live telemetry. Scenarios are not predictions; analytical judgments are not measured outcomes. Manuscript and paper auditing remain parent-owned."
+  },
+  "catalogueSnapshot": {
+    "id": "foresight",
+    "idx": "83",
+    "panelsKey": "foresight",
+    "cluster": "Intelligence",
+    "catKey": "c02",
+    "status": "live",
+    "locales": ["en", "th", "zh", "ko", "ja", "vi", "ts"],
+    "entrySha256": "105df157122e7c9b6fe700d49b202b896db7feedaea81830600dc7711a2d3576",
+    "entryHashEncoding": "UTF-8 JSON.stringify(entry), without trailing newline, at 2026-11-05T05:42:39.452Z"
+  },
+  "screenshots": {
+    "sourceUrl": "https://foresight.nonarkara.org/",
+    "captureDate": "2026-11-05",
+    "fileCreatedAt": "2026-11-05T05:39:29.095Z",
+    "fileTimeMeaning": "Filesystem creation time observed after capture, not a separately recorded browser capture timestamp.",
+    "method": "Playwright Chromium; 1600x1000 CSS-pixel viewport, deviceScaleFactor 1; wait for networkidle and document.fonts.ready; select .rail button at index 2 (Four futures); capture viewport JPEG quality 90.",
+    "state": "Four futures view with default beta / Archipelago Order selected; six-layer stress grid. No DOM, CSS or content modifications before capture.",
+    "rights": {
+      "licence": null,
+      "note": "Actual product screenshot for its catalogue thumbnail. No public-domain, CC0 or other licence claim is made for the screenshot or included product marks. It is not the reading-room artwork."
+    },
+    "assets": [
+      {
+        "path": "public/screenshots/foresight.jpg",
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 1000,
+        "bytes": 187910,
+        "sha256": "3ad3fc8c13ad718e7a1192dcf41ac744f5e364f07890f9cd6b35efd79d617fee"
+      },
+      {
+        "path": "public/screenshots/foresight.webp",
+        "mime": "image/webp",
+        "width": 1600,
+        "height": 1000,
+        "bytes": 85472,
+        "sha256": "a5f60d23167b10c74535addb6ff0c61e5971e9e7774e4c3ae634c3d7d6648ae5",
+        "conversion": "cwebp -q 85 public/screenshots/foresight.jpg -o public/screenshots/foresight.webp"
+      }
+    ]
+  },
+  "plate": {
+    "artist": "Hans Holbein the Younger",
+    "title": "The Ambassadors",
+    "year": "1533",
+    "collection": "National Gallery, London",
+    "medium": "oil on oak panel",
+    "licence": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg",
+    "commons": {
+      "verifiedOn": "2026-11-05",
+      "api": "https://commons.wikimedia.org/w/api.php",
+      "query": {
+        "action": "query",
+        "format": "json",
+        "formatversion": 2,
+        "titles": "File:Hans Holbein the Younger - The Ambassadors - Google Art Project.jpg",
+        "prop": "imageinfo|revisions",
+        "iiprop": "url|size|sha1|extmetadata",
+        "iiurlwidth": 1600,
+        "rvprop": "ids"
+      },
+      "pageId": 22354806,
+      "revisionId": 1279356698,
+      "licenceShortName": "Public domain",
+      "usageTerms": "Public domain",
+      "copyrighted": "False",
+      "attributionRequired": "false",
+      "original": {
+        "width": 30000,
+        "height": 29560,
+        "bytes": 226102411,
+        "sha1": "c463f18bf032dc41837d789f16462ed36abad570",
+        "downloaded": false
+      },
+      "downloadedThumbnail": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg/1920px-Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg",
+        "mime": "image/jpeg",
+        "width": 1920,
+        "height": 1892,
+        "bytes": 971736,
+        "sha256": "5a09bdad6da9dcca717f5466e5db8111807369ed46a6463f9d5b7094a1c58a47",
+        "note": "API request width 1600 returned a URL in the 1920px thumbnail bucket. Actual downloaded dimensions were decoded, not copied from the requested width. The original SHA-1 above is API metadata, not a claim to have downloaded or hashed the original."
+      }
+    },
+    "wikidata": {
+      "artwork": "Q1212937",
+      "verifiedVia": "wbgetentities, props=labels|claims, languages=en",
+      "creatorP170": "Q48319",
+      "collectionP195": "Q180788",
+      "inceptionP571": "1533 (year precision)",
+      "materialsP186": ["Q296955", "Q106857823"]
+    },
+    "museumCorroboration": {
+      "url": "https://www.nationalgallery.org.uk/paintings/hans-holbein-the-younger-the-ambassadors",
+      "inventoryNumber": "NG1314",
+      "verifiedOn": "2026-11-05",
+      "facts": "Hans Holbein the Younger; 1533; oil on wood (Baltic/Polish oak). The museum explains the measuring instruments and the skull revealed from an oblique viewpoint."
+    },
+    "localAsset": {
+      "path": "axiomx/art/foresight.webp",
+      "mime": "image/webp",
+      "width": 1600,
+      "height": 1577,
+      "bytes": 434144,
+      "sha256": "afaaccad86bc1fdfc974cde1b4c9e05e41f1874b82c1867d70f9d782affe4a56",
+      "conversion": "cwebp -q 85 -resize 1600 0 /tmp/axiom-foresight-holbein.jpg -o axiomx/art/foresight.webp",
+      "converterVersion": "libwebp cwebp 1.6.0",
+      "crop": "none; whole Commons composition retained"
+    },
+    "bindingInterpretation": "Measuring instruments and globes sit between two diplomats, while the distorted skull becomes legible only from another viewpoint. The console similarly changes the analytical lens through scenarios and review thresholds. This is an interpretive mechanics/concept binding, not museum metadata or a claim that the work depicts Thailand.",
+    "reuseCheck": "At addition: no other source-catalogue entry used this work; Hans Holbein the Younger had two plates including this one."
+  },
+  "spatialMeasurement": {
+    "requestedByParent": "Measure only /foresight at 360 and 1440 against port 5501; merge only that route.",
+    "command": "node scripts/spatial/spatial-check.mjs --base http://127.0.0.1:5501/ --routes /foresight --widths 360,1440 --baseline /tmp/axiom-foresight-spatial-20261105.json --update",
+    "exitCode": 0,
+    "temporaryReceiptModifiedAt": "2026-11-05T05:43:33.553Z",
+    "timestampMeaning": "Observed filesystem modification time of the actual driver output; the driver does not emit a measuredAt field.",
+    "temporaryReceiptSha256": "8939a6dae494ee45c9e39c88c621fd079d967c0331b1344097c2c76d87e10ab9",
+    "driverSha256": "e244ec3e16db60a7f0f29722d59db3bd5607e65c22a6e3cde7ca5fa6f73671a3",
+    "probeSha256": "41b8a6b5ccd1399dd00630ea0daba6e8546b14ac3977d582007ecacc968baf37",
+    "routeCellsCopiedFromDriver": {
+      "360": {
+        "findings": [],
+        "firstAction": {"y": null, "sel": null},
+        "hierarchy": {"h1": 28, "largest": 17, "ratio": 1.65, "peers": 0, "share": 0}
+      },
+      "1440": {
+        "findings": [],
+        "firstAction": {"y": null, "sel": null},
+        "hierarchy": {"h1": 40, "largest": 17, "ratio": 2.35, "peers": 0, "share": 0}
+      }
+    },
+    "mergeTarget": "design/spatial-baseline.json routes./foresight only",
+    "browserIdentityCheck": "At both widths, route resolves to #foresight, heading is The Anchor Console, art/foresight.webp decodes, and document scrollWidth does not exceed innerWidth.",
+    "limits": "Explicitly partial two-width measurement. No full CSS-breakpoint sweep, independent MSH audit, enlarged-text pass or live deployment pass is claimed. Null firstAction values mean the probe did not identify an action, not that an action was proven absent. No chrome or measuredAt fields were fabricated to fit the stricter receipt helper."
+  }
+}

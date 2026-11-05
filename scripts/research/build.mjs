@@ -101,33 +101,35 @@ export function renderLibrary(papers, { book = false } = {}) {
   const options = systems.map(system => `<option value="${escape(system)}">${escape(system)} (${papers.filter(p => p.system === system).length})</option>`).join('');
   const regionOptions = regions.map(region => `<option value="${region.id}" data-region-option="${region.id}" data-name-key="${region.nameKey}">${escape(researchCopy.en[region.nameKey])} (${papers.filter(p => p.study.region === region.id).length})</option>`).join('') + (papers.some(p => p.study.region === null) ? `<option value="unmapped" data-region-option="unmapped">${escape(researchCopy.en.unspecified)}</option>` : '');
   const rows = papers.map(p => `        <article class="research-row" data-paper="${escape(p.id)}" data-system="${escape(p.system)}" data-region="${p.study.region || 'unmapped'}">
-          <${book ? 'h2' : 'h3'} lang="en">${escape(p.title)}</${book ? 'h2' : 'h3'}>
-          <p class="research-meta">${escape(p.authors.join(', '))} · <time datetime="${p.date}">${p.date}</time> · ${escape(p.system)} · ${escape(p.version)}</p>
-          <p class="research-coverage"><span lang="en">${escape(p.study.label)}</span> · ${text(p.study.scope)}</p>
-          <div class="research-actions"><a href="${escape(p.pdf)}" download${book ? ' target="_blank" rel="noopener"' : ''}>${text('pdf')}</a><a href="${escape(p.source)}" target="_blank" rel="noopener">${text('source')}</a></div>
-          <details class="research-study"><summary data-i18n="research.details">${escape(researchCopy.en.details)}</summary><dl>${['question', 'evidence', 'limitation'].map(key => `<dt data-i18n="research.${key}">${escape(researchCopy.en[key])}</dt><dd lang="en">${escape(p[key])}</dd>`).join('')}</dl></details>
+          <${book ? 'h2' : 'h3'} id="research-paper-${escape(p.id)}" lang="en">${escape(p.title)}</${book ? 'h2' : 'h3'}>
+          <div class="research-facts"><p class="research-meta">${escape(p.authors.join(', '))} · <time datetime="${p.date}">${p.date}</time> · ${escape(p.system)} · ${escape(p.version)}</p>
+          <p class="research-coverage"><span lang="en">${escape(p.study.label)}</span> · ${text(p.study.scope)}</p></div>
+          <div class="research-commands"><div class="research-actions"><a href="${escape(p.pdf)}" aria-labelledby="research-download-${escape(p.id)} research-paper-${escape(p.id)}" download${book ? ' target="_blank" rel="noopener"' : ''}><span id="research-download-${escape(p.id)}" data-i18n="research.pdf">${escape(researchCopy.en.pdf)}</span></a><a href="${escape(p.source)}" target="_blank" rel="noopener">${text('source')}</a></div>
+          <details class="research-study"><summary data-i18n="research.details">${escape(researchCopy.en.details)}</summary><dl>${['question', 'evidence', 'limitation'].map(key => `<dt data-i18n="research.${key}">${escape(researchCopy.en[key])}</dt><dd lang="en">${escape(p[key])}</dd>`).join('')}</dl></details></div>
         </article>`).join('\n');
   return `<section class="${book ? 'research-library research-library--book' : 'section research-library'}" id="research" data-research-library aria-labelledby="research-title">
+      <div class="research-desk">
       <figure class="research-atlas">
         <div class="research-map" data-research-map role="region" hidden></div>
         <p class="research-map-fallback" data-research-fallback data-i18n="research.mapStatic">${escape(researchCopy.en.mapStatic)}</p>
-        <figcaption>${text('mapNote')}<span class="research-city-key">${text('chiangMai')} / ${text('nakhon')} · ${text('cityReference')}</span></figcaption>
+        <figcaption>${text('mapNote')}
+      <details class="research-provenance"><summary data-i18n="research.mapSources">${escape(researchCopy.en.mapSources)}</summary><ul>
+        <li><a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener">Natural Earth · 1:110m · Public domain</a></li>
+        ${regions.map(region => `<li><a href="${escape(region.source)}" target="_blank" rel="noopener">${escape(researchCopy.en[region.nameKey])}</a> · <span data-i18n="research.${region.geometryKey}">${escape(researchCopy.en[region.geometryKey])}</span></li>`).join('')}
+      </ul></details></figcaption>
       </figure>
-      <div class="research-heading"><${book ? 'h1' : 'h2'} id="research-title" data-i18n="research.title">Research</${book ? 'h1' : 'h2'}>${text('notice', 'p')}${text('english', 'p')}</div>
-      ${papers.length ? `<div class="research-selection" data-research-selection>${text('firstPaper')}<span data-research-selected lang="en">${escape(papers[0].system)} · ${escape(papers[0].version)}</span><a data-research-first-pdf href="${escape(papers[0].pdf)}" download${book ? ' target="_blank" rel="noopener"' : ''}>${text('pdf')}</a></div>` : ''}
+      <div class="research-index">
+      <div class="research-heading"><${book ? 'h1' : 'h2'} id="research-title" data-i18n="research.title">Research</${book ? 'h1' : 'h2'}>${text('notice', 'p')}</div>
       <div class="research-controls" data-research-controls hidden>
         <label class="research-filter">${text('region')} <select data-research-region><option value="" data-i18n="research.allRegions">${escape(researchCopy.en.allRegions)}</option>${regionOptions}</select></label>
-        <label class="research-filter">${text('system')} <select data-research-filter><option value="" data-i18n="research.all">${escape(researchCopy.en.all)}</option>${options}</select></label>
+        <label class="research-filter">${text('system')} <select data-research-filter><option value="" data-i18n="research.all">${escape(researchCopy.en.all)}</option>${options}</select><span data-research-filter-value hidden></span></label>
         <output class="research-count" data-research-count aria-live="polite">${papers.length} / ${papers.length} ${escape(researchCopy.en.papers)}</output>
       </div>
       <div class="research-list">
 ${rows || '        ' + text('empty', 'p')}
       </div>
       <p data-research-empty hidden data-i18n="research.noResults">${escape(researchCopy.en.noResults)}</p>
-      <details class="research-provenance"><summary data-i18n="research.mapSources">${escape(researchCopy.en.mapSources)}</summary><ul>
-        <li><a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener">Natural Earth · 1:110m · Public domain</a></li>
-        ${regions.map(region => `<li><a href="${escape(region.source)}" target="_blank" rel="noopener">${escape(researchCopy.en[region.nameKey])}</a> · <span data-i18n="research.${region.geometryKey}">${escape(researchCopy.en[region.geometryKey])}</span></li>`).join('')}
-      </ul></details>
+      </div></div>
     </section>
     `;
 }

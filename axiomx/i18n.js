@@ -473,6 +473,12 @@
           "lede": "Tri-border command dashboard for Thailand's Myanmar, Cambodia, and southern frontier theatres — live operations, historical playback, and executive-grade intelligence design on one map.",
           "cta": "Open live system"
         },
+        "foresight": {
+          "name": "The Anchor Console",
+          "cat": "Strategic Intelligence",
+          "lede": "Dr Poon Thiengburanathum's Anchor Strategy v1.1 and Thailand's Economic Clusters V2, made interactive through Dr Non's analysis and console. Compare four scenarios, eleven clusters and what-if review thresholds, with source tiers attached. Published evidence and analytical judgments, not live data or predictions.",
+          "cta": "Open The Anchor Console"
+        },
         "sciti": {
           "name": "Smart City Thailand Index (SCITI)",
           "cat": "National Programme",
@@ -966,6 +972,12 @@
           "cat": "ข่าวกรองชายแดน",
           "lede": "แดชบอร์ดบัญชาการสามแนวชายแดนของไทย — พม่า กัมพูชา และภาคใต้ — ปฏิบัติการสด การย้อนดูประวัติศาสตร์ และการออกแบบข่าวกรองระดับผู้บริหารบนแผนที่เดียว",
           "cta": "เปิดระบบสด"
+        },
+        "foresight": {
+          "name": "The Anchor Console",
+          "cat": "ข่าวกรองเชิงกลยุทธ์",
+          "lede": "งานวิจัย Anchor Strategy v1.1 และ Thailand's Economic Clusters V2 ของ Dr Poon Thiengburanathum ถ่ายทอดเป็นเครื่องมือโต้ตอบผ่านการวิเคราะห์และคอนโซลของ ดร.นน เปรียบเทียบสี่ฉากทัศน์ สิบเอ็ดคลัสเตอร์ และเงื่อนไขทบทวนแบบสมมติ พร้อมระบุประเภทแหล่งข้อมูล ใช้หลักฐานที่เผยแพร่และดุลยพินิจเชิงวิเคราะห์ ไม่ใช่ข้อมูลสดหรือคำทำนาย",
+          "cta": "เปิด The Anchor Console"
         },
         "sciti": {
           "name": "Smart City Thailand Index (SCITI)",
@@ -1461,6 +1473,12 @@
           "lede": "泰国三边境指挥仪表板——缅甸、柬埔寨与南部战区——实时行动、历史回放与行政级情报设计，集于一张地图。",
           "cta": "打开实时系统"
         },
+        "foresight": {
+          "name": "The Anchor Console",
+          "cat": "战略情报",
+          "lede": "以 Poon Thiengburanathum 博士的 Anchor Strategy v1.1 和 Thailand's Economic Clusters V2 为研究基础，由 Non 博士进行分析并制作交互控制台。比较四种情景、十一个经济集群及假设性的复核条件，并标明来源类型。内容为已发表的证据和分析判断，不是实时数据或预测。",
+          "cta": "打开 The Anchor Console"
+        },
         "sciti": {
           "name": "Smart City Thailand Index (SCITI)",
           "cat": "国家级项目",
@@ -1954,6 +1972,12 @@
           "cat": "국경 인텔리전스",
           "lede": "태국의 미얀마·캄보디아·남부 전선 삼중 국경 지휘 대시보드 — 실시간 작전, 역사 재생, 임원급 인텔리전스 디자인을 한 지도에.",
           "cta": "라이브 시스템 열기"
+        },
+        "foresight": {
+          "name": "The Anchor Console",
+          "cat": "전략 인텔리전스",
+          "lede": "Poon Thiengburanathum 박사의 Anchor Strategy v1.1과 Thailand's Economic Clusters V2를 바탕으로 Non 박사가 분석하고 구현한 인터랙티브 콘솔. 네 가지 시나리오, 열한 개 경제 클러스터, 가정에 따른 재검토 조건을 출처 유형과 함께 비교합니다. 발표된 근거와 분석적 판단이며 실시간 데이터나 예측이 아닙니다.",
+          "cta": "The Anchor Console 열기"
         },
         "sciti": {
           "name": "Smart City Thailand Index (SCITI)",
@@ -2449,6 +2473,12 @@
           "lede": "タイのミャンマー・カンボジア・南部戦域の三国境指揮ダッシュボード — ライブ作戦、歴史再生、幹部級インテリジェンス設計を一枚の地図に。",
           "cta": "ライブシステムを開く"
         },
+        "foresight": {
+          "name": "The Anchor Console",
+          "cat": "戦略インテリジェンス",
+          "lede": "Poon Thiengburanathum博士のAnchor Strategy v1.1とThailand's Economic Clusters V2を基に、Non博士が分析と対話型コンソールを制作。出典の区分を確認しながら、四つのシナリオ、十一の経済クラスター、仮定に基づく見直し条件を比較します。公表された根拠と分析上の判断であり、リアルタイムデータや予測ではありません。",
+          "cta": "The Anchor Consoleを開く"
+        },
         "sciti": {
           "name": "Smart City Thailand Index (SCITI)",
           "cat": "国家プログラム",
@@ -2942,6 +2972,12 @@
           "cat": "Tình báo biên giới",
           "lede": "Bảng điều khiển chỉ huy ba biên giới của Thái Lan — Myanmar, Campuchia và chiến trường phía nam — hoạt động trực tiếp, phát lại lịch sử và thiết kế tình báo cấp điều hành trên một bản đồ.",
           "cta": "Mở hệ thống trực tiếp"
+        },
+        "foresight": {
+          "name": "The Anchor Console",
+          "cat": "Tình báo chiến lược",
+          "lede": "Dựa trên Anchor Strategy v1.1 và Thailand's Economic Clusters V2 của Tiến sĩ Poon Thiengburanathum, với phần phân tích và bảng điều khiển tương tác của Tiến sĩ Non. So sánh bốn kịch bản, mười một cụm kinh tế và các điều kiện xem xét lại giả định, kèm phân loại nguồn. Đây là bằng chứng đã công bố và nhận định phân tích, không phải dữ liệu trực tiếp hay dự báo.",
+          "cta": "Mở The Anchor Console"
         },
         "sciti": {
           "name": "Smart City Thailand Index (SCITI)",

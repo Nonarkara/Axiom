@@ -1,0 +1,110 @@
+[
+  {
+    "surface": "main",
+    "viewportWidth": 390,
+    "deviceScaleFactor": 1,
+    "sectionWidth": 356,
+    "sectionHeight": 1691.578125,
+    "papers": 6,
+    "overflow": false
+  },
+  {
+    "surface": "main",
+    "viewportWidth": 1024,
+    "deviceScaleFactor": 1,
+    "sectionWidth": 990,
+    "sectionHeight": 985.75,
+    "papers": 6,
+    "overflow": false
+  },
+  {
+    "surface": "main",
+    "viewportWidth": 1152,
+    "deviceScaleFactor": 3,
+    "sectionWidth": 1118,
+    "sectionHeight": 985.75,
+    "papers": 6,
+    "overflow": false
+  },
+  {
+    "surface": "main",
+    "viewportWidth": 1440,
+    "deviceScaleFactor": 1,
+    "sectionWidth": 1198,
+    "sectionHeight": 949.375,
+    "papers": 6,
+    "overflow": false
+  },
+  {
+    "surface": "main",
+    "viewportWidth": 1920,
+    "deviceScaleFactor": 1,
+    "sectionWidth": 1198,
+    "sectionHeight": 949.375,
+    "papers": 6,
+    "overflow": false
+  },
+  {
+    "surface": "main",
+    "viewportWidth": 3440,
+    "deviceScaleFactor": 1,
+    "sectionWidth": 1198,
+    "sectionHeight": 949.375,
+    "papers": 6,
+    "overflow": false
+  },
+  {
+    "surface": "book",
+    "viewportWidth": 390,
+    "deviceScaleFactor": 1,
+    "sectionWidth": 346,
+    "sectionHeight": 1790.046875,
+    "papers": 6,
+    "overflow": false
+  },
+  {
+    "surface": "book",
+    "viewportWidth": 1024,
+    "deviceScaleFactor": 1,
+    "sectionWidth": 652.328125,
+    "sectionHeight": 1320,
+    "papers": 6,
+    "overflow": false
+  },
+  {
+    "surface": "book",
+    "viewportWidth": 1152,
+    "deviceScaleFactor": 3,
+    "sectionWidth": 739.375,
+    "sectionHeight": 1300.40625,
+    "papers": 6,
+    "overflow": false
+  },
+  {
+    "surface": "book",
+    "viewportWidth": 1440,
+    "deviceScaleFactor": 1,
+    "sectionWidth": 976,
+    "sectionHeight": 1018.40625,
+    "papers": 6,
+    "overflow": false
+  },
+  {
+    "surface": "book",
+    "viewportWidth": 1920,
+    "deviceScaleFactor": 1,
+    "sectionWidth": 1200,
+    "sectionHeight": 979.21875,
+    "papers": 6,
+    "overflow": false
+  },
+  {
+    "surface": "book",
+    "viewportWidth": 3440,
+    "deviceScaleFactor": 1,
+    "sectionWidth": 1200,
+    "sectionHeight": 979.21875,
+    "papers": 6,
+    "overflow": false
+  }
+]

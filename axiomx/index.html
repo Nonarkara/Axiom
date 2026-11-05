@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20261104researchmap">
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
-  <link rel="stylesheet" href="research.css?v=20261104map1">
+  <link rel="stylesheet" href="research.css?v=20261105compact1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,60 +43,69 @@
 <body>
   <!-- research:noscript:start -->
   <noscript><div class="research-noscript"><section class="research-library research-library--book" id="research" data-research-library aria-labelledby="research-title">
+      <div class="research-desk">
       <figure class="research-atlas">
         <div class="research-map" data-research-map role="region" hidden></div>
         <p class="research-map-fallback" data-research-fallback data-i18n="research.mapStatic">The map and filters require JavaScript. All papers and PDF links are available below.</p>
-        <figcaption><span data-i18n="research.mapNote">Coverage, not fieldwork. Frames are approximate; dots are city references for provincial studies.</span><span class="research-city-key"><span data-i18n="research.chiangMai">Chiang Mai province</span> / <span data-i18n="research.nakhon">Nakhon Si Thammarat</span> · <span data-i18n="research.cityReference">City reference, not field site</span></span></figcaption>
-      </figure>
-      <div class="research-heading"><h1 id="research-title" data-i18n="research.title">Research</h1><p data-i18n="research.notice">Preprints · Not peer-reviewed</p><p data-i18n="research.english">English articles and summaries</p></div>
-      <div class="research-selection" data-research-selection><span data-i18n="research.firstPaper">First matching paper</span><span data-research-selected lang="en">FloodDash · v1</span><a data-research-first-pdf href="https://axiom.nonarkara.org/research/rain-to-phone-v1.pdf" download target="_blank" rel="noopener"><span data-i18n="research.pdf">Download PDF</span></a></div>
-      <div class="research-controls" data-research-controls hidden>
-        <label class="research-filter"><span data-i18n="research.region">Study region</span> <select data-research-region><option value="" data-i18n="research.allRegions">All regions</option><option value="thailand" data-region-option="thailand" data-name-key="thailand">Thailand (2)</option><option value="chiang-mai" data-region-option="chiang-mai" data-name-key="chiangMai">Chiang Mai province (1)</option><option value="nakhon-si-thammarat" data-region-option="nakhon-si-thammarat" data-name-key="nakhon">Nakhon Si Thammarat (1)</option><option value="gulf" data-region-option="gulf" data-name-key="gulf">Middle East / Gulf (1)</option></select></label>
-        <label class="research-filter"><span data-i18n="research.system">System</span> <select data-research-filter><option value="" data-i18n="research.all">All systems</option><option value="FloodDash">FloodDash (1)</option><option value="AirDash">AirDash (1)</option><option value="CNX">CNX (1)</option><option value="GlobalWatch / GlobalMonitor">GlobalWatch / GlobalMonitor (1)</option><option value="NST Control Tower">NST Control Tower (1)</option></select></label>
-        <output class="research-count" data-research-count aria-live="polite">5 / 5 papers</output>
-      </div>
-      <div class="research-list">
-        <article class="research-row" data-paper="rain-to-phone" data-system="FloodDash" data-region="thailand">
-          <h2 lang="en">Rain to Phone: What an open, end-to-end flood monitoring system shows about Thailand&#39;s coordination gap</h2>
-          <p class="research-meta">Poon Thiengburanathum, Non Arkaraprasertkul · <time datetime="2026-11-04">2026-11-04</time> · FloodDash · v1</p>
-          <p class="research-coverage"><span lang="en">Thailand</span> · <span data-i18n="research.national">National</span></p>
-          <div class="research-actions"><a href="https://axiom.nonarkara.org/research/rain-to-phone-v1.pdf" download target="_blank" rel="noopener"><span data-i18n="research.pdf">Download PDF</span></a><a href="https://flood.nonarkara.org/paper/flooddash-preprint-v1.pdf" target="_blank" rel="noopener"><span data-i18n="research.source">Source</span></a></div>
-          <details class="research-study"><summary data-i18n="research.details">Study details</summary><dl><dt data-i18n="research.question">Question</dt><dd lang="en">Can public flood feeds become a working rain-to-alert chain without waiting for agencies to merge?</dd><dt data-i18n="research.evidence">Evidence</dt><dd lang="en">124 days of alert records; 44 feeds. Median gauge-to-alert lag was 6.7 minutes in 162 matched alerts. A retrospective watchlist reached 84.4% recall at 12.5% precision (pp. 3-5).</dd><dt data-i18n="research.limitation">Limitations</dt><dd lang="en">The replay uses the same gauge network as its reference, not an independent flood record. Alert generation is not phone receipt or protective action; only 29 Telegram subscribers were recorded (pp. 3, 5).</dd></dl></details>
-        </article>
-        <article class="research-row" data-paper="nobody-owns-the-haze" data-system="AirDash" data-region="thailand">
-          <h2 lang="en">Nobody owns the haze: An open, end-to-end warning system for Thailand, and its first 110 days</h2>
-          <p class="research-meta">Pun Thiengburanathum, Non Arkaraprasertkul · <time datetime="2026-11-04">2026-11-04</time> · AirDash · v1</p>
-          <p class="research-coverage"><span lang="en">Thailand; mainland Southeast Asian fire context</span> · <span data-i18n="research.national">National</span></p>
-          <div class="research-actions"><a href="https://axiom.nonarkara.org/research/nobody-owns-the-haze-v1.pdf" download target="_blank" rel="noopener"><span data-i18n="research.pdf">Download PDF</span></a><a href="https://air.nonarkara.org/paper/nobody-owns-the-haze-v1.pdf" target="_blank" rel="noopener"><span data-i18n="research.source">Source</span></a></div>
-          <details class="research-study"><summary data-i18n="research.details">Study details</summary><dl><dt data-i18n="research.question">Question</dt><dd lang="en">What can an open haze-warning chain deliver, and where do monitoring coverage and forecast skill still fall short?</dd><dt data-i18n="research.evidence">Evidence</dt><dd lang="en">110 pre-burning-season days; 58,298 scheduled pulls across 23 logged sources. 98.7% were marked successful despite two token-gated feeds skipping without data. Persistence outperformed the corrected forecast (pp. 3-4).</dd><dt data-i18n="research.limitation">Limitations</dt><dd lang="en">This is an early-season systems audit, not a multi-year trend or health-impact study. Telegram handoff to one or two chats does not establish population receipt or response (pp. 1, 3, 6).</dd></dl></details>
-        </article>
-        <article class="research-row" data-paper="gauge-to-shelter" data-system="CNX" data-region="chiang-mai">
-          <h2 lang="en">From Gauge to Shelter: Why Thai Smart-City Programmes Stall Between Measurement and Action</h2>
-          <p class="research-meta">Poon Thiengburanathum, Non Arkaraprasertkul · <time datetime="2026-11-04">2026-11-04</time> · CNX · v1.0</p>
-          <p class="research-coverage"><span lang="en">Chiang Mai province</span> · <span data-i18n="research.provincial">Provincial</span></p>
-          <div class="research-actions"><a href="https://axiom.nonarkara.org/research/gauge-to-shelter-v1.pdf" download target="_blank" rel="noopener"><span data-i18n="research.pdf">Download PDF</span></a><a href="https://cnx.nonarkara.org/research/gauge-to-shelter-preprint.pdf" target="_blank" rel="noopener"><span data-i18n="research.source">Source</span></a></div>
-          <details class="research-study"><summary data-i18n="research.details">Study details</summary><dl><dt data-i18n="research.question">Question</dt><dd lang="en">Which links between measurement, warning and shelter can a provincial operations room assemble from public data?</dd><dt data-i18n="research.evidence">Evidence</dt><dd lang="en">An audit of 311 datasets, 2,869 resources and 177 official shelter rows. The official shelter list contained no coordinates; the system records differing precision for subsequently located shelters (pp. 2-5).</dd><dt data-i18n="research.limitation">Limitations</dt><dd lang="en">Catalogue absence means not found in the specified searches, not absent everywhere. This is a descriptive audit and feasibility study, not a test of institutional causes or warning outcomes (pp. 1-3).</dd></dl></details>
-        </article>
-        <article class="research-row" data-paper="seeing-a-war" data-system="GlobalWatch / GlobalMonitor" data-region="gulf">
-          <h2 lang="en">Seeing a War Without Standing in It: What open ships, planes, satellites and markets reveal about the 2026 Gulf conflict, and where they go blind</h2>
-          <p class="research-meta">Poon Thiengburanathum, Non Arkaraprasertkul · <time datetime="2026-11-04">2026-11-04</time> · GlobalWatch / GlobalMonitor · v1.0</p>
-          <p class="research-coverage"><span lang="en">Middle East and Gulf; global comparison areas</span> · <span data-i18n="research.regional">Regional</span></p>
-          <div class="research-actions"><a href="https://axiom.nonarkara.org/research/seeing-a-war-v1.pdf" download target="_blank" rel="noopener"><span data-i18n="research.pdf">Download PDF</span></a><a href="https://github.com/Nonarkara/globalmonitor-v3/blob/main/public/research/seeing-a-war-without-standing-in-it.pdf" target="_blank" rel="noopener"><span data-i18n="research.source">Source</span></a></div>
-          <details class="research-study"><summary data-i18n="research.details">Study details</summary><dl><dt data-i18n="research.question">Question</dt><dd lang="en">What can ships, aircraft, thermal satellites, markets and regulators reveal from outside a conflict zone?</dd><dt data-i18n="research.evidence">Evidence</dt><dd lang="en">Five observation channels, with control ports and explicit coverage checks. Gulf port calls fell to 28% of their earlier rate; only 17.5% of 68,680 vessel positions were under six hours old (pp. 1-4).</dd><dt data-i18n="research.limitation">Limitations</dt><dd lang="en">One-event descriptive comparisons do not identify causes. Sparse receivers, stale positions and industrial heat cannot establish absent activity, weapons attribution or human impact (pp. 2, 5-6).</dd></dl></details>
-        </article>
-        <article class="research-row" data-paper="nst-last-mile" data-system="NST Control Tower" data-region="nakhon-si-thammarat">
-          <h2 lang="en">The Last Mile Is Institutional: Why Thailand&#39;s Smart Cities Stall Between Monitoring and Action, and What One City Built to Cross It</h2>
-          <p class="research-meta">Poon Thiengburanathum, Non Arkaraprasertkul · <time datetime="2026-11-04">2026-11-04</time> · NST Control Tower · v1</p>
-          <p class="research-coverage"><span lang="en">Nakhon Si Thammarat city and province</span> · <span data-i18n="research.provincial">Provincial</span></p>
-          <div class="research-actions"><a href="https://axiom.nonarkara.org/research/nst-last-mile-v1.pdf" download target="_blank" rel="noopener"><span data-i18n="research.pdf">Download PDF</span></a><a href="https://github.com/Nonarkara/nst-control-tower/blob/c6e92b09d10471f9ba1986500762fa833b3a1275/apps/web/public/research/nst-last-mile-preprint-v1.pdf" target="_blank" rel="noopener"><span data-i18n="research.source">Source</span></a></div>
-          <details class="research-study"><summary data-i18n="research.details">Study details</summary><dl><dt data-i18n="research.question">Question</dt><dd lang="en">What can a city control-tower prototype connect, and which institutional links remain outside its authority?</dd><dt data-i18n="research.evidence">Evidence</dt><dd lang="en">A participant case combining 216 catalogue datasets, dated provincial station snapshots and an operational audit. Its 47 adapters support source-labelled briefings and human verification (pp. 3-5).</dd><dt data-i18n="research.limitation">Limitations</dt><dd lang="en">Two checks 145 minutes apart do not measure warning delay. Hydraulic and camera calibration, official receipt, adoption and public-safety outcomes remain unestablished (pp. 4-6).</dd></dl></details>
-        </article>
-      </div>
-      <p data-research-empty hidden data-i18n="research.noResults">No papers match these filters.</p>
+        <figcaption><span data-i18n="research.mapNote">Coverage, not fieldwork. Frames are approximate; dots are city references for provincial studies.</span>
       <details class="research-provenance"><summary data-i18n="research.mapSources">Map sources</summary><ul>
         <li><a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener">Natural Earth · 1:110m · Public domain</a></li>
         <li><a href="https://github.com/Nonarkara/Axiom/blob/61374ed2dadf0e16a58735873bbfbc574d78848f/public/footprint.js" target="_blank" rel="noopener">Thailand</a> · <span data-i18n="research.coarseFrame">Coarse coverage frame</span></li><li><a href="https://www.geonames.org/1153671/chiang-mai.html" target="_blank" rel="noopener">Chiang Mai province</a> · <span data-i18n="research.cityReference">City reference, not field site</span></li><li><a href="https://www.geonames.org/1151933/nakhon-si-thammarat.html" target="_blank" rel="noopener">Nakhon Si Thammarat</a> · <span data-i18n="research.cityReference">City reference, not field site</span></li><li><a href="https://axiom.nonarkara.org/research/seeing-a-war-v1.pdf#page=4" target="_blank" rel="noopener">Middle East / Gulf</a> · <span data-i18n="research.analysisFrame">ADS-B analysis frame · p. 4</span></li>
-      </ul></details>
+      </ul></details></figcaption>
+      </figure>
+      <div class="research-index">
+      <div class="research-heading"><h1 id="research-title" data-i18n="research.title">Research</h1><p data-i18n="research.notice">Preprints · Not peer-reviewed</p></div>
+      <div class="research-controls" data-research-controls hidden>
+        <label class="research-filter"><span data-i18n="research.region">Study region</span> <select data-research-region><option value="" data-i18n="research.allRegions">All regions</option><option value="thailand" data-region-option="thailand" data-name-key="thailand">Thailand (3)</option><option value="chiang-mai" data-region-option="chiang-mai" data-name-key="chiangMai">Chiang Mai province (1)</option><option value="nakhon-si-thammarat" data-region-option="nakhon-si-thammarat" data-name-key="nakhon">Nakhon Si Thammarat (1)</option><option value="gulf" data-region-option="gulf" data-name-key="gulf">Middle East / Gulf (1)</option></select></label>
+        <label class="research-filter"><span data-i18n="research.system">System</span> <select data-research-filter><option value="" data-i18n="research.all">All systems</option><option value="FloodDash">FloodDash (1)</option><option value="AirDash">AirDash (1)</option><option value="CNX">CNX (1)</option><option value="GlobalWatch / GlobalMonitor">GlobalWatch / GlobalMonitor (1)</option><option value="NST Control Tower">NST Control Tower (1)</option><option value="The Anchor Console">The Anchor Console (1)</option></select><span data-research-filter-value hidden></span></label>
+        <output class="research-count" data-research-count aria-live="polite">6 / 6 papers</output>
+      </div>
+      <div class="research-list">
+        <article class="research-row" data-paper="rain-to-phone" data-system="FloodDash" data-region="thailand">
+          <h2 id="research-paper-rain-to-phone" lang="en">Rain to Phone: What an open, end-to-end flood monitoring system shows about Thailand&#39;s coordination gap</h2>
+          <div class="research-facts"><p class="research-meta">Poon Thiengburanathum, Non Arkaraprasertkul · <time datetime="2026-11-04">2026-11-04</time> · FloodDash · v1</p>
+          <p class="research-coverage"><span lang="en">Thailand</span> · <span data-i18n="research.national">National</span></p></div>
+          <div class="research-commands"><div class="research-actions"><a href="https://axiom.nonarkara.org/research/rain-to-phone-v1.pdf" aria-labelledby="research-download-rain-to-phone research-paper-rain-to-phone" download target="_blank" rel="noopener"><span id="research-download-rain-to-phone" data-i18n="research.pdf">Download PDF</span></a><a href="https://flood.nonarkara.org/paper/flooddash-preprint-v1.pdf" target="_blank" rel="noopener"><span data-i18n="research.source">Source</span></a></div>
+          <details class="research-study"><summary data-i18n="research.details">Study details</summary><dl><dt data-i18n="research.question">Question</dt><dd lang="en">Can public flood feeds become a working rain-to-alert chain without waiting for agencies to merge?</dd><dt data-i18n="research.evidence">Evidence</dt><dd lang="en">124 days of alert records; 44 feeds. Median gauge-to-alert lag was 6.7 minutes in 162 matched alerts. A retrospective watchlist reached 84.4% recall at 12.5% precision (pp. 3-5).</dd><dt data-i18n="research.limitation">Limitations</dt><dd lang="en">The replay uses the same gauge network as its reference, not an independent flood record. Alert generation is not phone receipt or protective action; only 29 Telegram subscribers were recorded (pp. 3, 5).</dd></dl></details></div>
+        </article>
+        <article class="research-row" data-paper="nobody-owns-the-haze" data-system="AirDash" data-region="thailand">
+          <h2 id="research-paper-nobody-owns-the-haze" lang="en">Nobody owns the haze: An open, end-to-end warning system for Thailand, and its first 110 days</h2>
+          <div class="research-facts"><p class="research-meta">Pun Thiengburanathum, Non Arkaraprasertkul · <time datetime="2026-11-04">2026-11-04</time> · AirDash · v1</p>
+          <p class="research-coverage"><span lang="en">Thailand; mainland Southeast Asian fire context</span> · <span data-i18n="research.national">National</span></p></div>
+          <div class="research-commands"><div class="research-actions"><a href="https://axiom.nonarkara.org/research/nobody-owns-the-haze-v1.pdf" aria-labelledby="research-download-nobody-owns-the-haze research-paper-nobody-owns-the-haze" download target="_blank" rel="noopener"><span id="research-download-nobody-owns-the-haze" data-i18n="research.pdf">Download PDF</span></a><a href="https://air.nonarkara.org/paper/nobody-owns-the-haze-v1.pdf" target="_blank" rel="noopener"><span data-i18n="research.source">Source</span></a></div>
+          <details class="research-study"><summary data-i18n="research.details">Study details</summary><dl><dt data-i18n="research.question">Question</dt><dd lang="en">What can an open haze-warning chain deliver, and where do monitoring coverage and forecast skill still fall short?</dd><dt data-i18n="research.evidence">Evidence</dt><dd lang="en">110 pre-burning-season days; 58,298 scheduled pulls across 23 logged sources. 98.7% were marked successful despite two token-gated feeds skipping without data. Persistence outperformed the corrected forecast (pp. 3-4).</dd><dt data-i18n="research.limitation">Limitations</dt><dd lang="en">This is an early-season systems audit, not a multi-year trend or health-impact study. Telegram handoff to one or two chats does not establish population receipt or response (pp. 1, 3, 6).</dd></dl></details></div>
+        </article>
+        <article class="research-row" data-paper="gauge-to-shelter" data-system="CNX" data-region="chiang-mai">
+          <h2 id="research-paper-gauge-to-shelter" lang="en">From Gauge to Shelter: Why Thai Smart-City Programmes Stall Between Measurement and Action</h2>
+          <div class="research-facts"><p class="research-meta">Poon Thiengburanathum, Non Arkaraprasertkul · <time datetime="2026-11-04">2026-11-04</time> · CNX · v1.0</p>
+          <p class="research-coverage"><span lang="en">Chiang Mai province</span> · <span data-i18n="research.provincial">Provincial</span></p></div>
+          <div class="research-commands"><div class="research-actions"><a href="https://axiom.nonarkara.org/research/gauge-to-shelter-v1.pdf" aria-labelledby="research-download-gauge-to-shelter research-paper-gauge-to-shelter" download target="_blank" rel="noopener"><span id="research-download-gauge-to-shelter" data-i18n="research.pdf">Download PDF</span></a><a href="https://cnx.nonarkara.org/research/gauge-to-shelter-preprint.pdf" target="_blank" rel="noopener"><span data-i18n="research.source">Source</span></a></div>
+          <details class="research-study"><summary data-i18n="research.details">Study details</summary><dl><dt data-i18n="research.question">Question</dt><dd lang="en">Which links between measurement, warning and shelter can a provincial operations room assemble from public data?</dd><dt data-i18n="research.evidence">Evidence</dt><dd lang="en">An audit of 311 datasets, 2,869 resources and 177 official shelter rows. The official shelter list contained no coordinates; the system records differing precision for subsequently located shelters (pp. 2-5).</dd><dt data-i18n="research.limitation">Limitations</dt><dd lang="en">Catalogue absence means not found in the specified searches, not absent everywhere. This is a descriptive audit and feasibility study, not a test of institutional causes or warning outcomes (pp. 1-3).</dd></dl></details></div>
+        </article>
+        <article class="research-row" data-paper="seeing-a-war" data-system="GlobalWatch / GlobalMonitor" data-region="gulf">
+          <h2 id="research-paper-seeing-a-war" lang="en">Seeing a War Without Standing in It: What open ships, planes, satellites and markets reveal about the 2026 Gulf conflict, and where they go blind</h2>
+          <div class="research-facts"><p class="research-meta">Poon Thiengburanathum, Non Arkaraprasertkul · <time datetime="2026-11-04">2026-11-04</time> · GlobalWatch / GlobalMonitor · v1.0</p>
+          <p class="research-coverage"><span lang="en">Middle East and Gulf; global comparison areas</span> · <span data-i18n="research.regional">Regional</span></p></div>
+          <div class="research-commands"><div class="research-actions"><a href="https://axiom.nonarkara.org/research/seeing-a-war-v1.pdf" aria-labelledby="research-download-seeing-a-war research-paper-seeing-a-war" download target="_blank" rel="noopener"><span id="research-download-seeing-a-war" data-i18n="research.pdf">Download PDF</span></a><a href="https://github.com/Nonarkara/globalmonitor-v3/blob/main/public/research/seeing-a-war-without-standing-in-it.pdf" target="_blank" rel="noopener"><span data-i18n="research.source">Source</span></a></div>
+          <details class="research-study"><summary data-i18n="research.details">Study details</summary><dl><dt data-i18n="research.question">Question</dt><dd lang="en">What can ships, aircraft, thermal satellites, markets and regulators reveal from outside a conflict zone?</dd><dt data-i18n="research.evidence">Evidence</dt><dd lang="en">Five observation channels, with control ports and explicit coverage checks. Gulf port calls fell to 28% of their earlier rate; only 17.5% of 68,680 vessel positions were under six hours old (pp. 1-4).</dd><dt data-i18n="research.limitation">Limitations</dt><dd lang="en">One-event descriptive comparisons do not identify causes. Sparse receivers, stale positions and industrial heat cannot establish absent activity, weapons attribution or human impact (pp. 2, 5-6).</dd></dl></details></div>
+        </article>
+        <article class="research-row" data-paper="nst-last-mile" data-system="NST Control Tower" data-region="nakhon-si-thammarat">
+          <h2 id="research-paper-nst-last-mile" lang="en">The Last Mile Is Institutional: Why Thailand&#39;s Smart Cities Stall Between Monitoring and Action, and What One City Built to Cross It</h2>
+          <div class="research-facts"><p class="research-meta">Poon Thiengburanathum, Non Arkaraprasertkul · <time datetime="2026-11-04">2026-11-04</time> · NST Control Tower · v1</p>
+          <p class="research-coverage"><span lang="en">Nakhon Si Thammarat city and province</span> · <span data-i18n="research.provincial">Provincial</span></p></div>
+          <div class="research-commands"><div class="research-actions"><a href="https://axiom.nonarkara.org/research/nst-last-mile-v1.pdf" aria-labelledby="research-download-nst-last-mile research-paper-nst-last-mile" download target="_blank" rel="noopener"><span id="research-download-nst-last-mile" data-i18n="research.pdf">Download PDF</span></a><a href="https://github.com/Nonarkara/nst-control-tower/blob/c6e92b09d10471f9ba1986500762fa833b3a1275/apps/web/public/research/nst-last-mile-preprint-v1.pdf" target="_blank" rel="noopener"><span data-i18n="research.source">Source</span></a></div>
+          <details class="research-study"><summary data-i18n="research.details">Study details</summary><dl><dt data-i18n="research.question">Question</dt><dd lang="en">What can a city control-tower prototype connect, and which institutional links remain outside its authority?</dd><dt data-i18n="research.evidence">Evidence</dt><dd lang="en">A participant case combining 216 catalogue datasets, dated provincial station snapshots and an operational audit. Its 47 adapters support source-labelled briefings and human verification (pp. 3-5).</dd><dt data-i18n="research.limitation">Limitations</dt><dd lang="en">Two checks 145 minutes apart do not measure warning delay. Hydraulic and camera calibration, official receipt, adoption and public-safety outcomes remain unestablished (pp. 4-6).</dd></dl></details></div>
+        </article>
+        <article class="research-row" data-paper="foresight-inspectable-decisions" data-system="The Anchor Console" data-region="thailand">
+          <h2 id="research-paper-foresight-inspectable-decisions" lang="en">From Strategic Foresight to Inspectable Decisions: A Provenance-Aware Scenario Console for Thailand&#39;s Economic Clusters</h2>
+          <div class="research-facts"><p class="research-meta">Poon Thiengburanathum, Non Arkaraprasertkul · <time datetime="2026-11-05">2026-11-05</time> · The Anchor Console · v1</p>
+          <p class="research-coverage"><span lang="en">Thailand; national economic clusters and regional analytical overlays</span> · <span data-i18n="research.national">National</span></p></div>
+          <div class="research-commands"><div class="research-actions"><a href="https://axiom.nonarkara.org/research/foresight-inspectable-decisions-v1.pdf" aria-labelledby="research-download-foresight-inspectable-decisions research-paper-foresight-inspectable-decisions" download target="_blank" rel="noopener"><span id="research-download-foresight-inspectable-decisions" data-i18n="research.pdf">Download PDF</span></a><a href="https://foresight.nonarkara.org/" target="_blank" rel="noopener"><span data-i18n="research.source">Source</span></a></div>
+          <details class="research-study"><summary data-i18n="research.details">Study details</summary><dl><dt data-i18n="research.question">Question</dt><dd lang="en">How can a scenario console keep source claims, strategic judgments and executable conventions distinguishable?</dd><dt data-i18n="research.evidence">Evidence</dt><dd lang="en">A pinned-code audit of eleven economic clusters and four conditional switches. Exhaustive enumeration produces 16 configurations and 176 cluster-state rows: 32 changed, 144 unchanged. A downloadable source supplement reproduces the results.</dd><dt data-i18n="research.limitation">Limitations</dt><dd lang="en">A methods preprint draft, not a forecast or policy-impact evaluation. Complete underlying reports were unavailable for independent reading. Scores are judgments; one-step upgrades are conventions. Later statistical discrepancies do not prove original-vintage errors.</dd></dl></details></div>
+        </article>
+      </div>
+      <p data-research-empty hidden data-i18n="research.noResults">No papers match these filters.</p>
+      </div></div>
     </section>
     </div></noscript>
   <!-- research:noscript:end -->
@@ -135,15 +144,15 @@
       <article class="plate-scroll" id="plate" tabindex="-1"></article>
     </main>
   </div>
-  <script src="catalog.js?v=20261030a"></script>
+  <script src="catalog.js?v=20261105foresight1"></script>
   <script src="ebooks.js?v=20261027a"></script>
-  <script src="plates.js?v=20261030a"></script>
+  <script src="plates.js?v=20261105foresight1"></script>
   <script src="diagrams.js?v=20261021b"></script>
-  <script src="i18n.js?v=20261030a"></script>
+  <script src="i18n.js?v=20261105foresight1"></script>
   <script src="vendor/leaflet/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
-  <script src="research.js?v=20261104map1"></script>
+  <script src="research.js?v=20261105compact1"></script>
   <script src="research-geography.js?v=20261104map1"></script>
-  <script src="research-ui.js?v=20261104map1"></script>
-  <script src="reader.js?v=20261104researchmap"></script>
+  <script src="research-ui.js?v=20261105compact1"></script>
+  <script src="reader.js?v=20261105foresight1"></script>
 </body>
 </html>

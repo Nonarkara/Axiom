@@ -1,0 +1,376 @@
+{
+  "captured": "2026-11-05",
+  "baselineCommit": "beb7dd215445fd5a36e1d2c04ad9c19b09d31a0d",
+  "candidate": "working-tree compact layout before adding Foresight; five unchanged papers on both sides",
+  "note": "Exact source archive before versus rendered repair. CSS widths, not device pixels. Later selected-value/focus fixes do not alter the default closed five-paper composition.",
+  "measurements": [
+    {
+      "name": "before-main",
+      "width": 356,
+      "height": 1873.53125,
+      "rows": [
+        245.109375,
+        224.859375,
+        245.109375,
+        245.109375,
+        245.109375
+      ],
+      "pdfBottoms": [
+        852.3125,
+        1077.171875,
+        1322.28125,
+        1567.390625,
+        1812.5
+      ],
+      "viewportWidth": 390,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 356,
+      "viewportHeight": 844
+    },
+    {
+      "name": "before-main",
+      "width": 1118,
+      "height": 1695.03125,
+      "rows": [
+        206.40625,
+        206.40625,
+        206.40625,
+        224.859375,
+        206.40625
+      ],
+      "pdfBottoms": [
+        787.125,
+        993.53125,
+        1199.9375,
+        1424.796875,
+        1631.203125
+      ],
+      "viewportWidth": 1152,
+      "deviceScaleFactor": 3,
+      "sectionWidth": 1118,
+      "viewportHeight": 900
+    },
+    {
+      "name": "before-main",
+      "width": 1198,
+      "height": 1695.03125,
+      "rows": [
+        206.40625,
+        206.40625,
+        206.40625,
+        224.859375,
+        206.40625
+      ],
+      "pdfBottoms": [
+        787.125,
+        993.53125,
+        1199.9375,
+        1424.796875,
+        1631.203125
+      ],
+      "viewportWidth": 1440,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 1198,
+      "viewportHeight": 900
+    },
+    {
+      "name": "before-main",
+      "width": 1198,
+      "height": 1695.03125,
+      "rows": [
+        206.40625,
+        206.40625,
+        206.40625,
+        224.859375,
+        206.40625
+      ],
+      "pdfBottoms": [
+        787.125,
+        993.53125,
+        1199.9375,
+        1424.796875,
+        1631.203125
+      ],
+      "viewportWidth": 3440,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 1198,
+      "viewportHeight": 900
+    },
+    {
+      "name": "after-main",
+      "width": 356,
+      "height": 1463.46875,
+      "rows": [
+        191.734375,
+        191.734375,
+        191.734375,
+        215.125,
+        215.125
+      ],
+      "pdfBottoms": [
+        693.65625,
+        885.390625,
+        1077.125,
+        1292.25,
+        1507.375
+      ],
+      "viewportWidth": 390,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 356,
+      "viewportHeight": 844
+    },
+    {
+      "name": "after-main",
+      "width": 1118,
+      "height": 835.59375,
+      "rows": [
+        131.96875,
+        150.15625,
+        131.96875,
+        150.15625,
+        150.15625
+      ],
+      "pdfBottoms": [
+        296.875,
+        447.03125,
+        579,
+        729.15625,
+        879.3125
+      ],
+      "viewportWidth": 1152,
+      "deviceScaleFactor": 3,
+      "sectionWidth": 1118,
+      "viewportHeight": 900
+    },
+    {
+      "name": "after-main",
+      "width": 1198,
+      "height": 799.21875,
+      "rows": [
+        131.96875,
+        131.96875,
+        131.96875,
+        150.15625,
+        131.96875
+      ],
+      "pdfBottoms": [
+        296.875,
+        428.84375,
+        560.8125,
+        710.96875,
+        842.9375
+      ],
+      "viewportWidth": 1440,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 1198,
+      "viewportHeight": 900
+    },
+    {
+      "name": "after-main",
+      "width": 1198,
+      "height": 799.21875,
+      "rows": [
+        131.96875,
+        131.96875,
+        131.96875,
+        150.15625,
+        131.96875
+      ],
+      "pdfBottoms": [
+        296.875,
+        428.84375,
+        560.8125,
+        710.96875,
+        842.9375
+      ],
+      "viewportWidth": 3440,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 1198,
+      "viewportHeight": 900
+    },
+    {
+      "name": "before-book",
+      "width": 346,
+      "height": 2142.3125,
+      "rows": [
+        297.890625,
+        291.1875,
+        270.890625,
+        318.1875,
+        297.890625
+      ],
+      "pdfBottoms": [
+        942.15625,
+        1233.34375,
+        1504.234375,
+        1822.421875,
+        2120.3125
+      ],
+      "viewportWidth": 390,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 346,
+      "viewportHeight": 844
+    },
+    {
+      "name": "before-book",
+      "width": 739.375,
+      "height": 1788.234375,
+      "rows": [
+        223.59375,
+        223.59375,
+        223.59375,
+        243.890625,
+        223.59375
+      ],
+      "pdfBottoms": [
+        851.5625,
+        1075.15625,
+        1298.75,
+        1542.640625,
+        1766.234375
+      ],
+      "viewportWidth": 1152,
+      "deviceScaleFactor": 3,
+      "sectionWidth": 739.375,
+      "viewportHeight": 900
+    },
+    {
+      "name": "before-book",
+      "width": 920,
+      "height": 1763.9375,
+      "rows": [
+        223.59375,
+        223.59375,
+        223.59375,
+        243.890625,
+        223.59375
+      ],
+      "pdfBottoms": [
+        827.265625,
+        1050.859375,
+        1274.453125,
+        1518.34375,
+        1741.9375
+      ],
+      "viewportWidth": 1440,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 920,
+      "viewportHeight": 900
+    },
+    {
+      "name": "before-book",
+      "width": 920,
+      "height": 1763.9375,
+      "rows": [
+        223.59375,
+        223.59375,
+        223.59375,
+        243.890625,
+        223.59375
+      ],
+      "pdfBottoms": [
+        827.265625,
+        1050.859375,
+        1274.453125,
+        1518.34375,
+        1741.9375
+      ],
+      "viewportWidth": 3440,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 920,
+      "viewportHeight": 900
+    },
+    {
+      "name": "after-book",
+      "width": 346,
+      "height": 1551.109375,
+      "rows": [
+        195.953125,
+        215.546875,
+        195.953125,
+        238.9375,
+        219.34375
+      ],
+      "pdfBottoms": [
+        749.328125,
+        964.875,
+        1160.828125,
+        1399.765625,
+        1619.109375
+      ],
+      "viewportWidth": 390,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 346,
+      "viewportHeight": 844
+    },
+    {
+      "name": "after-book",
+      "width": 739.375,
+      "height": 1147.4375,
+      "rows": [
+        133.375,
+        152.96875,
+        133.375,
+        152.96875,
+        152.96875
+      ],
+      "pdfBottoms": [
+        623.15625,
+        776.125,
+        909.5,
+        1062.46875,
+        1215.4375
+      ],
+      "viewportWidth": 1152,
+      "deviceScaleFactor": 3,
+      "sectionWidth": 739.375,
+      "viewportHeight": 900
+    },
+    {
+      "name": "after-book",
+      "width": 976,
+      "height": 845.84375,
+      "rows": [
+        133.375,
+        152.96875,
+        133.375,
+        152.96875,
+        152.96875
+      ],
+      "pdfBottoms": [
+        321.5625,
+        474.53125,
+        607.90625,
+        760.875,
+        913.84375
+      ],
+      "viewportWidth": 1440,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 976,
+      "viewportHeight": 900
+    },
+    {
+      "name": "after-book",
+      "width": 1200,
+      "height": 826.25,
+      "rows": [
+        133.375,
+        133.375,
+        133.375,
+        152.96875,
+        152.96875
+      ],
+      "pdfBottoms": [
+        321.5625,
+        454.9375,
+        588.3125,
+        741.28125,
+        894.25
+      ],
+      "viewportWidth": 3440,
+      "deviceScaleFactor": 1,
+      "sectionWidth": 1200,
+      "viewportHeight": 900
+    }
+  ]
+}

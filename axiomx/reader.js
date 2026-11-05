@@ -11,7 +11,7 @@
   // Cloudflare serves static assets with a four-hour max-age. A plate whose
   // file changed under the same name keeps serving the old bytes for hours,
   // so every plate is addressed by a versioned path. Bump this when art ships.
-  const ART_V = '20261104b';
+  const ART_V = '20261105foresight1';
   const DIAGRAMS = window.AXIOM_DIAGRAMS || {};
   const I18N = window.AXIOM_I18N || { ui: {}, systems: {}, docs: {} };
   const RESEARCH = window.AXIOM_RESEARCH || { papers: [], copy: {} };

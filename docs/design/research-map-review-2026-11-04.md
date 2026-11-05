@@ -6,6 +6,11 @@ reviewed: false
 
 # Independent Research Map Review
 
+**Superseded by owner rejection, 5 November 2026.** The PASS below is a historical
+record, not current design approval. The owner demonstrated sparse full-width
+publication towers and excessive repeated chrome that this review failed to
+reject. See `research-compact-review-2026-11-05.md` for the replacement review.
+
 **Final verdict: PASS for the Research UI only, on the reviewed local candidate.**
 
 All three original BLOCK/REVISE findings and the subsequently isolated main

@@ -1,5 +1,43 @@
 # Shared Preprint Library
 
+## Owner Correction, 5 November 2026
+
+The owner rejected the 4 November composition. Functional checks and the earlier
+independent PASS missed the cost of full-width stacked records, duplicated early
+download chrome and repeated blank command rows. Those checks are not evidence
+that the rejected composition was good.
+
+The replacement is a column desk: an independently sized atlas beside a compact
+publication index when its actual container can hold both, and map then index on
+phone/narrow book panes. Title/qualification form one heading group. Metadata and
+scope travel together, and PDF/source/disclosure share one command line. The
+duplicated first-matching-paper band is removed. Original paper content, map,
+filters, source links, seven interface locales and expanded evidence stay intact.
+
+Measure whole-section height and visible paper/action pairs at 390, 1024, 1440,
+1920, 3440 and the owner's approximate 1152-CSS-pixel/3x device-scale capture.
+The new composition gate must reject restoration of the old full-width stack,
+not merely a synthetic extra margin. Before/after evidence and independent review
+live in `research-compact-review-2026-11-05.md` and its linked artifacts.
+
+The preserved five-paper comparison is recorded in
+`evidence/research-compact-comparison-2026-11-05.json`: at 1440 CSS pixels the
+main section fell from 1695 to 799 pixels before the sixth paper was added.
+This is a same-content comparison, not a claim that adding publications costs
+no space. The enlarged-text and short-reader click defects found by the
+independent reviewer were fixed rather than waived by a passing overflow check.
+Native filter labels expose a wrapping full-value line only when a measured
+unconstrained native control would exceed the available width.
+
+The generic external slop scanner rated the whole main document SLOP (8 points)
+and the reading room OK (1 point). It scans document-wide styles and the first
+four screens, not just this research desk; those broad signals are not a
+research-section pass or a completed whole-site audit. The targeted composition
+falsifier and independent rendered review govern this repair. The earlier legacy
+global spatial-gate failures remain separately documented, not silently cleared.
+
+The remaining sections below record the earlier implementation and its limits.
+
 Owner brief, 4 November 2026: the research surface is a publication index,
 not an artwork-bearing argument. This bibliography deliberately uses unframed
 column rows rather than adding decorative artwork to satisfy an unrelated

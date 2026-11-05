@@ -30,7 +30,6 @@ for (const [locale, values] of Object.entries(geographyCopy)) {
   if (values.length !== keys.length) throw new Error(`Incomplete research map copy: ${locale}`);
   keys.forEach((key, index) => { researchCopy[locale][key] = values[index]; });
 }
-for (const [locale, value] of Object.entries({ en: 'First matching paper', th: 'บทความแรกที่ตรงกับตัวกรอง', zh: '首篇匹配论文', ko: '첫 번째 일치 논문', ja: '最初の該当論文', vi: 'Bài đầu tiên khớp bộ lọc', ts: 'papers.filtered[0]' })) researchCopy[locale].firstPaper = value;
 for (const [locale, [zoomIn, zoomOut]] of Object.entries({ en: ['Zoom in', 'Zoom out'], th: ['ขยายแผนที่', 'ย่อแผนที่'], zh: ['放大', '缩小'], ko: ['확대', '축소'], ja: ['拡大', '縮小'], vi: ['Phóng to', 'Thu nhỏ'], ts: ['map.zoomIn()', 'map.zoomOut()'] })) Object.assign(researchCopy[locale], { zoomIn, zoomOut });
 for (const [locale, value] of Object.entries({
   en: 'The map and filters require JavaScript. All papers and PDF links are available below.',

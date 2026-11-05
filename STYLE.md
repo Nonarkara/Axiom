@@ -45,6 +45,17 @@ prohibition on CI file-specific pre-checks.
 
 ## Research And Human Artwork
 
+Owner rejected the first research layout on 5 November 2026. Its functional
+PASS did not establish a spatial pass. Research is a **column desk**: a
+task-sized map rail beside the publication index when the reading pane has room,
+and a single reading path on a phone. The atlas must not stretch to the index's
+height. Put authors, date/version and study scope together; put PDF, source and
+study disclosure on one compact command line. Expanded reading earns its height.
+No duplicate "first matching paper" strip or full-width five-row metadata tower.
+Validate the combined section and repeated-record cost, not only overflow or a
+permissive per-row ceiling. Include 1152 CSS pixels at 3x device scale (the owner's
+capture), ordinary desktop and ultra-wide views in the visual review.
+
 Preprints are free downloads and explicitly not peer reviewed. Preserve author
 spellings, versions and source provenance. Do not label an audit report, manual,
 figure-only PDF or unfinished draft as a research paper. Hash mirrored PDFs.

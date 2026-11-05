@@ -34,6 +34,27 @@
     let map = null;
     let observer = null;
     const layers = [];
+    function focusMap(event) {
+      if (!event.target.closest('.leaflet-control')) mapNode.focus({ preventScroll: true });
+    }
+    function fitFilterValue() {
+      const output = root.querySelector('[data-research-filter-value]');
+      if (!output) return;
+      const label = systemSelect.selectedOptions[0].textContent;
+      const intrinsic = systemSelect.cloneNode(true);
+      intrinsic.removeAttribute('data-research-filter');
+      intrinsic.setAttribute('aria-hidden', 'true');
+      intrinsic.tabIndex = -1;
+      intrinsic.style.cssText = 'position:absolute;visibility:hidden;max-width:none;width:max-content;pointer-events:none';
+      systemSelect.parentNode.append(intrinsic);
+      intrinsic.value = systemSelect.value;
+      const required = intrinsic.getBoundingClientRect().width;
+      intrinsic.remove();
+      output.textContent = label;
+      output.hidden = !systemSelect.value || required <= systemSelect.getBoundingClientRect().width + 1;
+    }
+    const filterObserver = new ResizeObserver(fitFilterValue);
+    filterObserver.observe(systemSelect);
     const copy = () => data.copy[locale] || data.copy.en;
     const name = region => copy()[region.nameKey];
 
@@ -41,6 +62,8 @@
       regionSelect.value = id;
       if (!data.papers.some(p => (p.study.region || 'unmapped') === id && (!systemSelect.value || p.system === systemSelect.value))) systemSelect.value = '';
       update(true);
+      const paper = rows.find(row => !row.hidden);
+      if (paper) paper.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
     }
     function update(fit) {
       const region = regionSelect.value;
@@ -50,16 +73,6 @@
       rows.forEach(row => { row.hidden = !ids.has(row.dataset.paper); });
       root.querySelector('[data-research-count]').textContent = visible.length + ' / ' + data.papers.length + ' ' + copy().papers;
       root.querySelector('[data-research-empty]').hidden = visible.length > 0;
-      const selection = root.querySelector('[data-research-selection]');
-      if (selection) {
-        selection.hidden = visible.length === 0;
-        if (visible.length) {
-          root.querySelector('[data-research-selected]').textContent = visible[0].system + ' · ' + visible[0].version;
-          const pdf = root.querySelector('[data-research-first-pdf]');
-          pdf.href = visible[0].pdf;
-          pdf.setAttribute('aria-label', copy().pdf + ': ' + visible[0].title);
-        }
-      }
       root.querySelectorAll('[data-region-option]').forEach(option => {
         const id = option.dataset.regionOption;
         const definition = geography && geography.regions.find(item => item.id === id);
@@ -70,6 +83,7 @@
         const count = data.papers.filter(p => p.system === option.value && (!region || (p.study.region || 'unmapped') === region)).length;
         option.textContent = option.value + ' (' + count + ')';
       });
+      fitFilterValue();
       if (!map) {
         if (!data.papers.some(p => p.study.region)) fallback.textContent = data.papers.length ? copy().unspecified : copy().empty;
         return;
@@ -135,6 +149,8 @@
         const size = mapNode.getBoundingClientRect();
         if (!size.width || !size.height) throw new Error('Research map has no rendered size');
         map = L.map(mapNode, { zoomControl: true, attributionControl: true, keyboard: true, scrollWheelZoom: false, doubleClickZoom: false, zoomAnimation: false, fadeAnimation: false, markerZoomAnimation: false });
+        // Leaflet's pointer focus otherwise scrolls a short reader pane mid-click.
+        mapNode.addEventListener('mousedown', focusMap, true);
         map.fitBounds(geography.regions.find(region => region.id === 'thailand').bounds, { animate: false, padding: [24, 20] });
         const panBy = map.panBy;
         map.panBy = function (offset, options) { return panBy.call(this, offset, Object.assign({}, options, { animate: false })); };
@@ -190,6 +206,8 @@
     const controller = { setLocale, destroy: function () {
       regionSelect.removeEventListener('change', onRegion);
       systemSelect.removeEventListener('change', onSystem);
+      mapNode.removeEventListener('mousedown', focusMap, true);
+      filterObserver.disconnect();
       if (observer) observer.disconnect();
       if (map) map.remove();
       map = null;

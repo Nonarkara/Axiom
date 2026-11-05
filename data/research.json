@@ -24,6 +24,11 @@
       "study":{"region":"nakhon-si-thammarat","label":"Nakhon Si Thammarat city and province","scope":"provincial"},
       "question":"What can a city control-tower prototype connect, and which institutional links remain outside its authority?",
       "evidence":"A participant case combining 216 catalogue datasets, dated provincial station snapshots and an operational audit. Its 47 adapters support source-labelled briefings and human verification (pp. 3-5).",
-      "limitation":"Two checks 145 minutes apart do not measure warning delay. Hydraulic and camera calibration, official receipt, adoption and public-safety outcomes remain unestablished (pp. 4-6)."}
+      "limitation":"Two checks 145 minutes apart do not measure warning delay. Hydraulic and camera calibration, official receipt, adoption and public-safety outcomes remain unestablished (pp. 4-6)."},
+    {"id":"foresight-inspectable-decisions","title":"From Strategic Foresight to Inspectable Decisions: A Provenance-Aware Scenario Console for Thailand's Economic Clusters","authors":["Poon Thiengburanathum","Non Arkaraprasertkul"],"system":"The Anchor Console","version":"v1","date":"2026-11-05","pdf":"https://axiom.nonarkara.org/research/foresight-inspectable-decisions-v1.pdf","source":"https://foresight.nonarkara.org/","status":"Preprint","sha256":"65c5c70c865f76aaf535a7a9ad5a9778abdf7e1c1dbda23899d86d36565fe192",
+      "study":{"region":"thailand","label":"Thailand; national economic clusters and regional analytical overlays","scope":"national"},
+      "question":"How can a scenario console keep source claims, strategic judgments and executable conventions distinguishable?",
+      "evidence":"A pinned-code audit of eleven economic clusters and four conditional switches. Exhaustive enumeration produces 16 configurations and 176 cluster-state rows: 32 changed, 144 unchanged. A downloadable source supplement reproduces the results.",
+      "limitation":"A methods preprint draft, not a forecast or policy-impact evaluation. Complete underlying reports were unavailable for independent reading. Scores are judgments; one-step upgrades are conventions. Later statistical discrepancies do not prove original-vintage errors."}
   ]
 }

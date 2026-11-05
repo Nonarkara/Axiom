@@ -1,0 +1,1987 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "459d79c585d8c67830bd492ebe791429824f1024",
+  "analysisSha256": "dabe20303bdd14441e42adf6ae2e236d84e3ee2ee60d7028f0dc38dbda8e2423",
+  "primaryChecksSha256": "7c73a210c5fbca178ea1fea81310d7231cf848323fa345268d653824902648ac",
+  "inputHashes": {
+    "src/data/anchor.ts": "a9819b36efc17076d045c70a19e09d0aae955463bd5ac3ea5df3cab9030bfbd8",
+    "src/data/clusters.ts": "c4acbf3f39cd9df1472a4268ccc5d268c68c1dd21b0e03f0fbe1307cf605f9d4",
+    "src/data/geography.ts": "67edd7462a1b75207725fb3567f05b1fe723273c132fec98b74ff745a40c430b",
+    "src/data/sources.ts": "33d68ef552b641160a3059657dad6f3731b1c3334c53d1bce80adda59293056a",
+    "src/data/research.ts": "a8b141e27bdc92375ffaabbae7874a30fd0217080341973fd7623b843df683a6",
+    "src/data/corroboration.ts": "ed381dca61e5c6c3009b6f2dc0629a6ba301f6109da317171ed5fa35108a5a56",
+    "src/data/thailandSeries.ts": "98c3dcd3fcaa98a4a74f15d50e6c764fe46c1294d09a1838c84404d71bc23894",
+    "src/lib/scoring.ts": "9cb519e6e71f9b4a5340c67c4db29ff29ffa1b0cb613e798e4417b5867b5a912",
+    "src/lib/thailandProvinces.ts": "3bc4a9c94bd238ba9cdf9c3128327ee2face5e748ca3f63d7d912160b51eaf4f",
+    "src/lib/thailandProvinces.generated.ts": "daeb438db818b9a7c15ccc0e8e5503c0c4b0f5c57ae29f9969101be26104fefb",
+    "src/lib/provenance.test.ts": "9a18a9b4bceebc41e6ca615c01def38791889a005cd5fa108050472c97fdf574"
+  },
+  "counts": {
+    "clusters": 11,
+    "axes": 4,
+    "thresholds": 4,
+    "trajectories": 4,
+    "stressRows": 6,
+    "regions": 7,
+    "strategicClusters": 9,
+    "uniqueDerivedProvinceMembers": 70,
+    "sourceRecords": 55,
+    "literatureRecords": 13,
+    "configurations": 16,
+    "clusterStateRows": 176,
+    "uniqueSystemStates": 16,
+    "uniqueClusterProfiles": 15,
+    "changedRows": 32,
+    "unchangedRows": 144,
+    "changedProperties": {
+      "value": 0,
+      "growth": 8,
+      "local": 0,
+      "sovereignty": 16,
+      "stance": 16
+    }
+  },
+  "checks": {
+    "localityChecks": 176,
+    "insertionOrderChecks": 176,
+    "repeatedReadChecks": 176,
+    "sourceUnmutated": true,
+    "baselineUnchanged": true,
+    "valueAndLocalInvariant": true,
+    "pinnedExistingTests": {
+      "tests": 25,
+      "passes": 25,
+      "failures": 0
+    }
+  },
+  "singleSwitchEffects": [
+    {
+      "switch": "ev-localisation",
+      "cluster": "ev",
+      "condition": "Thai-owned Tier-1 EV and battery suppliers, and local cell production, materialise.",
+      "before": {
+        "value": "Med",
+        "growth": "High",
+        "local": "Low–Med",
+        "sovereignty": "Low",
+        "stance": "Focus (conditional)"
+      },
+      "after": {
+        "value": "Med",
+        "growth": "High",
+        "local": "Low–Med",
+        "sovereignty": "Low–Med",
+        "stance": "Focus"
+      },
+      "changed": [
+        "sovereignty",
+        "stance"
+      ]
+    },
+    {
+      "switch": "dc-governance",
+      "cluster": "datacenters",
+      "condition": "Operators accept data-residency, local equity, and renewable-power obligations.",
+      "before": {
+        "value": "Med",
+        "growth": "High",
+        "local": "Low",
+        "sovereignty": "Very Low",
+        "stance": "Focus (conditional)"
+      },
+      "after": {
+        "value": "Med",
+        "growth": "High",
+        "local": "Low",
+        "sovereignty": "Low",
+        "stance": "Focus (conditional)"
+      },
+      "changed": [
+        "sovereignty"
+      ]
+    },
+    {
+      "switch": "steel-restructure",
+      "cluster": "steel",
+      "condition": "Steel shifts toward green or specialty output with capacity utilisation above 50%.",
+      "before": {
+        "value": "Low–Med",
+        "growth": "Declining",
+        "local": "Low–Med",
+        "sovereignty": "Low",
+        "stance": "Make it exist"
+      },
+      "after": {
+        "value": "Low–Med",
+        "growth": "Declining",
+        "local": "Low–Med",
+        "sovereignty": "Low",
+        "stance": "Keep & upgrade"
+      },
+      "changed": [
+        "stance"
+      ]
+    },
+    {
+      "switch": "agri-productivity",
+      "cluster": "food",
+      "condition": "Agricultural productivity and future-food exports rise materially.",
+      "before": {
+        "value": "High",
+        "growth": "Low–Med",
+        "local": "High",
+        "sovereignty": "High",
+        "stance": "Keep & upgrade"
+      },
+      "after": {
+        "value": "High",
+        "growth": "Med",
+        "local": "High",
+        "sovereignty": "High",
+        "stance": "Keep & upgrade"
+      },
+      "changed": [
+        "growth"
+      ]
+    }
+  ],
+  "statisticalComparisons": [
+    {
+      "indicator": "NY.GDP.PCAP.CD",
+      "url": "https://api.worldbank.org/v2/country/TH/indicator/NY.GDP.PCAP.CD?format=json&date=2024",
+      "year": 2024,
+      "consoleValue": 7900,
+      "capturedPrimaryValue": 7386.63615126055,
+      "differenceConsoleMinusPrimary": 513.3638487394501,
+      "primaryLastUpdated": "2026-10-08"
+    },
+    {
+      "indicator": "NY.GDP.MKTP.KD.ZG",
+      "url": "https://api.worldbank.org/v2/country/TH/indicator/NY.GDP.MKTP.KD.ZG?format=json&date=2024",
+      "year": 2024,
+      "consoleValue": 2.5,
+      "capturedPrimaryValue": 2.94859986593323,
+      "differenceConsoleMinusPrimary": -0.4485998659332302,
+      "primaryLastUpdated": "2026-10-08"
+    },
+    {
+      "indicator": "BX.KLT.DINV.WD.GD.ZS",
+      "url": "https://api.worldbank.org/v2/country/TH/indicator/BX.KLT.DINV.WD.GD.ZS?format=json&date=2024",
+      "year": 2024,
+      "consoleValue": 1.1,
+      "capturedPrimaryValue": 2.70165281834265,
+      "differenceConsoleMinusPrimary": -1.6016528183426497,
+      "primaryLastUpdated": "2026-10-08"
+    },
+    {
+      "indicator": "SP.POP.1564.TO.ZS",
+      "url": "https://api.worldbank.org/v2/country/TH/indicator/SP.POP.1564.TO.ZS?format=json&date=2024",
+      "year": 2024,
+      "consoleValue": 70,
+      "capturedPrimaryValue": 69.887763454186,
+      "differenceConsoleMinusPrimary": 0.11223654581399956,
+      "primaryLastUpdated": "2026-10-08"
+    }
+  ],
+  "states": [
+    {
+      "mask": 0,
+      "active": [],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Low–Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": []
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Very Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 1,
+      "active": [
+        "ev-localisation"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Low–Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": []
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low–Med",
+          "stance": "Focus",
+          "changed": [
+            "sovereignty",
+            "stance"
+          ]
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Very Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 2,
+      "active": [
+        "dc-governance"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Low–Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": []
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": [
+            "sovereignty"
+          ]
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 3,
+      "active": [
+        "ev-localisation",
+        "dc-governance"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Low–Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": []
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low–Med",
+          "stance": "Focus",
+          "changed": [
+            "sovereignty",
+            "stance"
+          ]
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": [
+            "sovereignty"
+          ]
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 4,
+      "active": [
+        "steel-restructure"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Low–Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": []
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Very Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "stance"
+          ]
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 5,
+      "active": [
+        "ev-localisation",
+        "steel-restructure"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Low–Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": []
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low–Med",
+          "stance": "Focus",
+          "changed": [
+            "sovereignty",
+            "stance"
+          ]
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Very Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "stance"
+          ]
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 6,
+      "active": [
+        "dc-governance",
+        "steel-restructure"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Low–Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": []
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": [
+            "sovereignty"
+          ]
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "stance"
+          ]
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 7,
+      "active": [
+        "ev-localisation",
+        "dc-governance",
+        "steel-restructure"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Low–Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": []
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low–Med",
+          "stance": "Focus",
+          "changed": [
+            "sovereignty",
+            "stance"
+          ]
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": [
+            "sovereignty"
+          ]
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "stance"
+          ]
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 8,
+      "active": [
+        "agri-productivity"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "growth"
+          ]
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Very Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 9,
+      "active": [
+        "ev-localisation",
+        "agri-productivity"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "growth"
+          ]
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low–Med",
+          "stance": "Focus",
+          "changed": [
+            "sovereignty",
+            "stance"
+          ]
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Very Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 10,
+      "active": [
+        "dc-governance",
+        "agri-productivity"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "growth"
+          ]
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": [
+            "sovereignty"
+          ]
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 11,
+      "active": [
+        "ev-localisation",
+        "dc-governance",
+        "agri-productivity"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "growth"
+          ]
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low–Med",
+          "stance": "Focus",
+          "changed": [
+            "sovereignty",
+            "stance"
+          ]
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": [
+            "sovereignty"
+          ]
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 12,
+      "active": [
+        "steel-restructure",
+        "agri-productivity"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "growth"
+          ]
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Very Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "stance"
+          ]
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 13,
+      "active": [
+        "ev-localisation",
+        "steel-restructure",
+        "agri-productivity"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "growth"
+          ]
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low–Med",
+          "stance": "Focus",
+          "changed": [
+            "sovereignty",
+            "stance"
+          ]
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Very Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "stance"
+          ]
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 14,
+      "active": [
+        "dc-governance",
+        "steel-restructure",
+        "agri-productivity"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "growth"
+          ]
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": []
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": [
+            "sovereignty"
+          ]
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "stance"
+          ]
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    },
+    {
+      "mask": 15,
+      "active": [
+        "ev-localisation",
+        "dc-governance",
+        "steel-restructure",
+        "agri-productivity"
+      ],
+      "rows": [
+        {
+          "cluster": "food",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "High",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "growth"
+          ]
+        },
+        {
+          "cluster": "tourism",
+          "value": "High",
+          "growth": "Med",
+          "local": "High",
+          "sovereignty": "Med–High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "auto",
+          "value": "High",
+          "growth": "Declining",
+          "local": "High",
+          "sovereignty": "Med",
+          "stance": "Make it exist",
+          "changed": []
+        },
+        {
+          "cluster": "ev",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low–Med",
+          "sovereignty": "Low–Med",
+          "stance": "Focus",
+          "changed": [
+            "sovereignty",
+            "stance"
+          ]
+        },
+        {
+          "cluster": "electronics",
+          "value": "High",
+          "growth": "Med–High",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Focus / transition",
+          "changed": []
+        },
+        {
+          "cluster": "datacenters",
+          "value": "Med",
+          "growth": "High",
+          "local": "Low",
+          "sovereignty": "Low",
+          "stance": "Focus (conditional)",
+          "changed": [
+            "sovereignty"
+          ]
+        },
+        {
+          "cluster": "petrochem",
+          "value": "High",
+          "growth": "Low",
+          "local": "Med",
+          "sovereignty": "Med",
+          "stance": "Keep → specialty",
+          "changed": []
+        },
+        {
+          "cluster": "steel",
+          "value": "Low–Med",
+          "growth": "Declining",
+          "local": "Low–Med",
+          "sovereignty": "Low",
+          "stance": "Keep & upgrade",
+          "changed": [
+            "stance"
+          ]
+        },
+        {
+          "cluster": "finance",
+          "value": "High",
+          "growth": "Med",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Keep & defend",
+          "changed": []
+        },
+        {
+          "cluster": "medical",
+          "value": "Med",
+          "growth": "High",
+          "local": "Med",
+          "sovereignty": "High",
+          "stance": "Focus",
+          "changed": []
+        },
+        {
+          "cluster": "textiles",
+          "value": "Low",
+          "growth": "Declining",
+          "local": "Med",
+          "sovereignty": "Low",
+          "stance": "Make it exist",
+          "changed": []
+        }
+      ]
+    }
+  ]
+}

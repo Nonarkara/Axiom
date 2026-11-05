@@ -201,6 +201,12 @@ function emitJSON(value, indent) {
 function buildAppJs() {
   let source = read('public/app.js');
 
+  // Keep the original pitch tables truthful as well as the runtime override.
+  for (const locale of SITE_LOCALES) {
+    const span = memberPath(source, 'const i18nPitch = {', [locale, 'pitch', 'proofLine']);
+    source = splice(source, span.valueStart, span.valueEnd, jsString(proofLine(locale)));
+  }
+
   // The panels table for en, th, zh, ts.
   for (const locale of ['en', 'th', 'zh', 'ts']) {
     const span = memberPath(source, 'const i18nExt = {', [locale, 'panels']);

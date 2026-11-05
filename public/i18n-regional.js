@@ -548,6 +548,11 @@
           "cta": "라이브 시스템 열기",
           "name": "Geopolitical Watch"
         },
+        "foresight": {
+          "name": "The Anchor Console",
+          "lede": "Poon Thiengburanathum 박사의 Anchor Strategy v1.1과 Thailand's Economic Clusters V2를 바탕으로 Non 박사가 분석하고 구현한 인터랙티브 콘솔. 네 가지 시나리오, 열한 개 경제 클러스터, 가정에 따른 재검토 조건을 출처 유형과 함께 비교합니다. 발표된 근거와 분석적 판단이며 실시간 데이터나 예측이 아닙니다.",
+          "cta": "The Anchor Console 열기"
+        },
         "p23": {
           "lede": "태국 공식 스마트시티 지수(SCITI). 7대 스마트시티 기둥에 따라 전국 174개 도시권의 진행 상황과 영향을 평가합니다.",
           "cta": "라이브 시스템 열기",
@@ -1214,11 +1219,11 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-        "sysMeta": "82개 시스템 · 5개국",
+        "sysMeta": "83개 시스템 · 5개국",
         "command": "도시 대시보드",
         "commandMeta": "실시간 도시 운영실 및 환경 관측 · 25",
         "intelligence": "인텔리전스",
-        "intelligenceMeta": "신호 및 분석 · 9",
+        "intelligenceMeta": "신호 및 분석 · 10",
         "civic": "시민",
         "civicMeta": "국가 플랫폼 및 시민 인프라 · 9",
         "emerging": "신규",
@@ -1824,6 +1829,11 @@
           "lede": "タイのミャンマー・カンボジア・南部戦域の三国境指揮ダッシュボード — ライブ作戦、歴史再生、幹部級インテリジェンス設計を一枚の地図に。",
           "cta": "ライブシステムを開く",
           "name": "Geopolitical Watch"
+        },
+        "foresight": {
+          "name": "The Anchor Console",
+          "lede": "Poon Thiengburanathum博士のAnchor Strategy v1.1とThailand's Economic Clusters V2を基に、Non博士が分析と対話型コンソールを制作。出典の区分を確認しながら、四つのシナリオ、十一の経済クラスター、仮定に基づく見直し条件を比較します。公表された根拠と分析上の判断であり、リアルタイムデータや予測ではありません。",
+          "cta": "The Anchor Consoleを開く"
         },
         "p23": {
           "lede": "タイ公式スマートシティ指数（SCITI）。7つのスマートシティ基準に基づき、全国174の都市圏の進捗と影響を評価します。",
@@ -2484,11 +2494,11 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-        "sysMeta": "82システム · 5か国",
+        "sysMeta": "83システム · 5か国",
         "command": "シティダッシュボード",
         "commandMeta": "リアルタイム都市運用室と環境観測 · 25",
         "intelligence": "インテリジェンス",
-        "intelligenceMeta": "シグナルと分析 · 9",
+        "intelligenceMeta": "シグナルと分析 · 10",
         "civic": "シビック",
         "civicMeta": "国家プラットフォームと市民インフラ · 9",
         "emerging": "新興",
@@ -3094,6 +3104,11 @@
           "lede": "Bảng điều khiển chỉ huy ba biên giới của Thái Lan — Myanmar, Campuchia và chiến trường phía nam — hoạt động trực tiếp, phát lại lịch sử và thiết kế tình báo cấp điều hành trên một bản đồ.",
           "cta": "Mở hệ thống trực tiếp",
           "name": "Geopolitical Watch"
+        },
+        "foresight": {
+          "name": "The Anchor Console",
+          "lede": "Dựa trên Anchor Strategy v1.1 và Thailand's Economic Clusters V2 của Tiến sĩ Poon Thiengburanathum, với phần phân tích và bảng điều khiển tương tác của Tiến sĩ Non. So sánh bốn kịch bản, mười một cụm kinh tế và các điều kiện xem xét lại giả định, kèm phân loại nguồn. Đây là bằng chứng đã công bố và nhận định phân tích, không phải dữ liệu trực tiếp hay dự báo.",
+          "cta": "Mở The Anchor Console"
         },
         "p23": {
           "lede": "Chỉ số Thành phố Thông minh Thái Lan chính thức (SCITI) đánh giá tiến độ và tác động của 174 khu đô thị trên cả nước theo 7 trụ cột thành phố thông minh.",
@@ -3754,11 +3769,11 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-        "sysMeta": "82 hệ thống · 5 quốc gia",
+        "sysMeta": "83 hệ thống · 5 quốc gia",
         "command": "Bảng điều khiển thành phố",
         "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 25",
         "intelligence": "Tình báo",
-        "intelligenceMeta": "Tín hiệu và phân tích · 9",
+        "intelligenceMeta": "Tín hiệu và phân tích · 10",
         "civic": "Công dân",
         "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 9",
         "emerging": "Mới nổi",
