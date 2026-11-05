@@ -34,6 +34,11 @@
       "study":{"region":"thailand","label":"Thailand","scope":"national"},
       "question":"Do four common explanations for stalled Thai smart-city promotion survive contact with national data?",
       "evidence":"Of 20 environment and safety headline projects in 21 endorsed city records, 15 stop at sensing and 2 name an alert (pp. 4-5). Certified provinces were not detectably more haze-exposed (delta -0.32, CI -0.61 to +0.01) (p. 5).",
-      "limitation":"Single-coder one-line titles, one-province audits, no outcome series, and authors who built the systems and work for the studied agency; procurement is untestable (pp. 7-8)."}
+      "limitation":"Single-coder one-line titles, one-province audits, no outcome series, and authors who built the systems and work for the studied agency; procurement is untestable (pp. 7-8)."},
+    {"id": "democratizing-decision-dashboards", "title": "Democratizing Effective Decision-Making through Dashboard Building", "authors": ["Non Arkaraprasertkul"], "system": "Five city boards", "version": "v1", "date": "2026-11-05", "pdf": "https://axiom.nonarkara.org/research/democratizing-decision-dashboards-v1.pdf", "source": "https://github.com/Nonarkara/Axiom/blob/main/docs/research/democratizing-dashboards/manuscript-v1.md", "status": "Preprint", "sha256": "20c0703e2b69280e362be7630a5aa45410701d26076b64ee751495f97cc68533",
+      "study":{"region": null, "label": "Five cities in Southeast and South Asia", "scope": "unspecified"},
+      "question":"When AI agents make city dashboards cheap to build, what does it take for a public board to be fit to inform a decision?",
+      "evidence":"A comparison of five boards (six public surfaces) from their own rulebooks, dated records and tests. Five principles recur in all five; Table 3 lists 22 dated failures, seven of them invented content, each with the rule it produced (pp. 3, 6, 8-9).",
+      "limitation":"No repository records usage, adoption or any decision informed; all five boards are self-declared demonstrations. The author built the boards, the cases share code and rules, and four repositories were read from shallow clones (pp. 5, 10)."}
   ]
 }

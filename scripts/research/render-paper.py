@@ -11,7 +11,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, Image
 
 
 def inline(node):
@@ -36,6 +36,8 @@ def main():
     parser.add_argument('manuscript', type=Path)
     parser.add_argument('output', type=Path)
     parser.add_argument('--font-dir', required=True, type=Path)
+    parser.add_argument('--author', default='Poon Thiengburanathum; Non Arkaraprasertkul',
+                        help='PDF author metadata, as printed on the manuscript')
     args = parser.parse_args()
     for family in ('Serif', 'Sans'):
         for suffix, variant in (('', 'Regular'), ('-Bold', 'Bold'), ('-Italic', 'Italic'), ('-BoldItalic', 'BoldItalic')):
@@ -55,6 +57,17 @@ def main():
     for node in soup.children:
         if isinstance(node, NavigableString):
             continue
+        img = node.find('img') if node.name == 'p' else None
+        if img is not None:
+            # A figure is a local image beside the manuscript, scaled to the text width.
+            path = (args.manuscript.parent / img.get('src', '')).resolve()
+            if args.manuscript.parent.resolve() not in path.parents or not path.is_file():
+                raise SystemExit('figure not found beside the manuscript: ' + img.get('src', ''))
+            figure = Image(str(path))
+            scale = min(1, width / figure.imageWidth)
+            figure.drawWidth, figure.drawHeight = figure.imageWidth * scale, figure.imageHeight * scale
+            story.extend([figure, Spacer(1, 4)])
+            continue
         if node.name in ('h1', 'h2', 'h3', 'h4', 'p', 'blockquote'):
             style = title if node.name == 'h1' else heading if node.name == 'h2' else subhead if node.name in ('h3', 'h4') else body
             story.append(Paragraph(inline(node), style))
@@ -66,7 +79,19 @@ def main():
             rows = [[Paragraph(inline(cell), small) for cell in row.find_all(['td', 'th'])] for row in node.find_all('tr')]
             if not rows:
                 continue
-            table = Table(rows, colWidths=[width / len(rows[0])] * len(rows[0]), repeatRows=1, hAlign='LEFT')
+            texts = [[cell.get_text() for cell in row.find_all(['td', 'th'])] for row in node.find_all('tr')]
+            # Every column is at least as wide as its longest word (8.4 pt sans,
+            # about 4.9 pt a character, plus padding); the remaining width is
+            # shared by how much text each column carries.
+            n = len(rows[0])
+            cols = [[r[i] for r in texts if i < len(r)] for i in range(n)]
+            floor = [max(len(w) for c in col for w in (c.split() or [''])) * 4.9 + 10 for col in cols]
+            if sum(floor) > width:
+                floor = [f * width / sum(floor) for f in floor]
+            share = [min(60, sum(len(c) for c in col) / len(col)) for col in cols]
+            spare = width - sum(floor)
+            widths = [f + spare * w / sum(share) for f, w in zip(floor, share)]
+            table = Table(rows, colWidths=widths, repeatRows=1, hAlign='LEFT')
             table.setStyle(TableStyle([
                 ('VALIGN', (0, 0), (-1, -1), 'TOP'),
                 ('LINEABOVE', (0, 0), (-1, 0), 0.7, colors.HexColor('#00247d')),
@@ -77,7 +102,9 @@ def main():
                 ('TOPPADDING', (0, 0), (-1, -1), 5),
                 ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
             ]))
-            story.extend([KeepTogether([table]), Spacer(1, 9)])
+            # A caption printed just before the table stays on the table's page.
+            caption = story.pop() if story and isinstance(story[-1], Paragraph) and story[-1].text.startswith('<b>') and story[-1].text.endswith('</b>') else None
+            story.extend([KeepTogether(([caption] if caption else []) + [table]), Spacer(1, 9)])
         elif node.name == 'pre':
             story.append(Paragraph(escape(node.get_text()).replace('\n', '<br/>'), small))
     def page(canvas, doc):
@@ -90,7 +117,7 @@ def main():
         canvas.restoreState()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     doc = SimpleDocTemplate(str(args.output), pagesize=A4, leftMargin=50, rightMargin=50, topMargin=47, bottomMargin=48,
-                            title=soup.h1.get_text(), author='Poon Thiengburanathum; Non Arkaraprasertkul')
+                            title=soup.h1.get_text(), author=args.author)
     doc.build(story, onFirstPage=page, onLaterPages=page)
     print(args.output)
 
