@@ -14,6 +14,7 @@
 
 import { chromium } from 'playwright';
 import { writeFileSync } from 'node:fs';
+import { chromeBudget } from './chrome-budget.mjs';
 
 const argv = process.argv.slice(2);
 const has = (n) => argv.includes('--' + n);
@@ -47,13 +48,12 @@ const MEASURE = () => {
     return (cs.position === 'fixed' || cs.position === 'sticky') ? cs : null;
   };
   const chromeEls = [...document.querySelectorAll('body *')].filter(isFixed);
-  const top = new Set(), bottom = new Set();
-  for (const el of chromeEls) {
+  const rect = el => {
     const r = el.getBoundingClientRect();
-    if (r.height <= 0 || r.width <= 0) continue;
-    if (r.bottom <= 2) top.add(el);
-    if (r.top >= vh - 2) bottom.add(el);
-  }
+    const style = getComputedStyle(el);
+    return { top: r.top, bottom: r.bottom, left: r.left, right: r.right,
+      visible: style.display !== 'none' && style.visibility === 'visible' && parseFloat(style.opacity) !== 0 };
+  };
   const headers = [...document.querySelectorAll('header, .masthead, .bar')];
   let headerH = 0;
   for (const h of headers) {
@@ -61,12 +61,9 @@ const MEASURE = () => {
     const cs = getComputedStyle(h);
     if (cs.display === 'none' || cs.visibility === 'hidden') continue;
     if (r.height <= 0 || r.width <= 0) continue;
-    if (r.top > 4) continue;
+    if (r.top > 4 || r.bottom <= 0) continue;
     if (r.height > headerH) headerH = Math.round(r.height);
   }
-  const topH = [...top].reduce((n, el) => n + el.getBoundingClientRect().height, 0);
-  const bottomH = [...bottom].reduce((n, el) => n + el.getBoundingClientRect().height, 0);
-  const chromeH = Math.max(headerH, topH) + bottomH;
 
   // task visibility — first actionable + primary actions + h1 in first screen
   const actionable = [...document.querySelectorAll('a[href], button, [role="button"], input, select')];
@@ -170,7 +167,7 @@ const MEASURE = () => {
 
   return {
     vw, vh, docH: Math.round(doc.scrollHeight),
-    chromeH: Math.round(chromeH), chromePct: +((chromeH / vh) * 100).toFixed(1),
+    chromeGeometry: { width: vw, height: vh, bands: chromeEls.map(rect), headers: headers.filter(el => getComputedStyle(el).visibility !== 'hidden' && getComputedStyle(el).display !== 'none').map(rect) },
     overflowX, firstAction, h1Visible: h1r ? (h1r.top >= 0 && h1r.bottom <= vh) : false,
     primaryActionVisible: primaryActions.length > 0,
     voiceTop: voice[0] ? voice[0].size : 0, voiceSecond: voice[1] ? voice[1].size : 0,
@@ -212,7 +209,7 @@ for (const s of surfaces) {
             cur.boxFit.every((b, i) => b.w === prev.boxFit[i].w && b.ratio === prev.boxFit[i].ratio))
           break;
       }
-      return cur;
+      return { ...cur, ...chromeBudget(cur.chromeGeometry) };
     };
     const m = await stableMeasure();
     m.errors = [...new Set(errors)];

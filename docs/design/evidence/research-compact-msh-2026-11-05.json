@@ -1,0 +1,4552 @@
+{
+  "verdict": "PASS",
+  "checkedAt": "2026-11-05T06:09:21.387Z",
+  "fails": [],
+  "notes": [
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "document 35565px = 42.1× viewport height"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "no clear hierarchy step (36px vs 28px)"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "map covers 100% of first screen"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A.brand 58×28px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link BUTTON.active 30×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link BUTTON 31×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link BUTTON 31×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link BUTTON 32×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link BUTTON 30×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link BUTTON 28×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link BUTTON.locale-btn--ts 34×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 44×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A.t-ctrl 116×32px (font 11px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A.t-ctrl 116×32px (font 11px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 61×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 51×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 230×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 51×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 123×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 133×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 107×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 265×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 215×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 171×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 249×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 227×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 77×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 116×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 221×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 107×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 72×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 62×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 49×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 55×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 80×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 81×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 99×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 72×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 49×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 73×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 83×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 112×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 110×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "document 14891px = 16.5× viewport height"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "map covers 100% of first screen"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A.brand 170×28px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON.active 30×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON 31×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON 31×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON 32×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON 30×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON 28×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON.locale-btn--ts 34×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 44×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A.t-ctrl 116×32px (font 11px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A.t-ctrl 116×32px (font 11px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 61×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 51×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 230×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 51×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 123×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 133×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 107×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 265×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 215×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 171×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 249×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 227×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 77×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 116×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 221×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 107×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 72×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 62×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 49×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 55×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 80×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 81×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 99×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 72×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 49×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 73×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 83×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 112×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 110×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "document 15250px = 16.9× viewport height"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "map covers 100% of first screen"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A.brand 170×28px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON.active 30×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON 31×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON 31×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON 32×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON 30×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON 28×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON.locale-btn--ts 34×42px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 44×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A.t-ctrl 116×32px (font 11px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A.t-ctrl 116×32px (font 11px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 61×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 51×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 230×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 51×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 123×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 133×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 107×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 42×44px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 265×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 215×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 171×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 249×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 227×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 77×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 116×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 221×31px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 107×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 72×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 62×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 49×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 55×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 80×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 81×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 99×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 72×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 49×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 73×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 83×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 112×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 110×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "390x844",
+      "detail": "prose credit link A.inline-link 40×13px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1024x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1024x900",
+      "detail": "prose credit link A.inline-link 40×13px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1024x900",
+      "detail": "dense text group A.inline-link 129×24px below 32px target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1024x900",
+      "detail": "dense text group A.inline-link 173×24px below 32px target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1440x900",
+      "detail": "prose credit link BUTTON.locale-btn 30×44px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1440x900",
+      "detail": "prose credit link A.inline-link 40×13px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1440x900",
+      "detail": "dense text group A.inline-link 129×24px below 32px target"
+    },
+    {
+      "surface": "axiomx",
+      "width": "1440x900",
+      "detail": "dense text group A.inline-link 173×24px below 32px target"
+    }
+  ],
+  "measured": [
+    {
+      "surface": "axiom",
+      "viewport": "390x844",
+      "vw": 390,
+      "vh": 844,
+      "docH": 35565,
+      "chromeGeometry": {
+        "width": 390,
+        "height": 844,
+        "bands": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 390,
+            "visible": true
+          }
+        ],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 390,
+            "visible": true
+          }
+        ]
+      },
+      "overflowX": 0,
+      "firstAction": 16,
+      "h1Visible": true,
+      "primaryActionVisible": true,
+      "voiceTop": 36,
+      "voiceSecond": 28,
+      "boxFit": [
+        {
+          "sel": ".hero-stat",
+          "w": 114,
+          "needed": 151,
+          "ratio": 0.76,
+          "text": "83\n            Catal"
+        },
+        {
+          "sel": ".hero-stat",
+          "w": 90,
+          "needed": 116,
+          "ratio": 0.78,
+          "text": "71\n            Label"
+        },
+        {
+          "sel": ".hero-stat",
+          "w": 80,
+          "needed": 87,
+          "ratio": 0.92,
+          "text": "5\n            Countr"
+        },
+        {
+          "sel": ".chip",
+          "w": 172,
+          "needed": 110,
+          "ratio": 1.56,
+          "text": "PhD · Harvard"
+        },
+        {
+          "sel": ".chip",
+          "w": 172,
+          "needed": 112,
+          "ratio": 1.54,
+          "text": "MPhil · Oxford"
+        },
+        {
+          "sel": ".chip",
+          "w": 172,
+          "needed": 87,
+          "ratio": 1.97,
+          "text": "MSc ·\n              "
+        },
+        {
+          "sel": ".chip",
+          "w": 172,
+          "needed": 157,
+          "ratio": 1.09,
+          "text": "Visiting Lecturer · "
+        },
+        {
+          "sel": ".chip",
+          "w": 180,
+          "needed": 163,
+          "ratio": 1.11,
+          "text": "PhD · Civil Engineer"
+        },
+        {
+          "sel": ".chip",
+          "w": 180,
+          "needed": 140,
+          "ratio": 1.29,
+          "text": "Assoc. Prof. · CMU"
+        },
+        {
+          "sel": ".chip",
+          "w": 180,
+          "needed": 164,
+          "ratio": 1.1,
+          "text": "Smart City Master Pl"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1607,
+          "ratio": 0.22,
+          "text": "23v2.4.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1431,
+          "ratio": 0.25,
+          "text": "58Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1359,
+          "ratio": 0.26,
+          "text": "32v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1407,
+          "ratio": 0.25,
+          "text": "37v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1228,
+          "ratio": 0.29,
+          "text": "22v1.2.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1172,
+          "ratio": 0.31,
+          "text": "01v3.1.2Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1659,
+          "ratio": 0.22,
+          "text": "21v1.8.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1902,
+          "ratio": 0.19,
+          "text": "55Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1716,
+          "ratio": 0.21,
+          "text": "33v2.0.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1625,
+          "ratio": 0.22,
+          "text": "05v2.3.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1558,
+          "ratio": 0.23,
+          "text": "56Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1885,
+          "ratio": 0.19,
+          "text": "13v1.4.2Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1943,
+          "ratio": 0.18,
+          "text": "16v1.5.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2076,
+          "ratio": 0.17,
+          "text": "18v1.3.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1690,
+          "ratio": 0.21,
+          "text": "19v0.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1129,
+          "ratio": 0.32,
+          "text": "15v5.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1891,
+          "ratio": 0.19,
+          "text": "27v3.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1410,
+          "ratio": 0.25,
+          "text": "36v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1754,
+          "ratio": 0.2,
+          "text": "43v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1599,
+          "ratio": 0.22,
+          "text": "64v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1104,
+          "ratio": 0.32,
+          "text": "67Preview\n          "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1561,
+          "ratio": 0.23,
+          "text": "69Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2046,
+          "ratio": 0.17,
+          "text": "72v3.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1529,
+          "ratio": 0.23,
+          "text": "76Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1402,
+          "ratio": 0.26,
+          "text": "82v2.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 968,
+          "ratio": 0.37,
+          "text": "04v3.2.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1242,
+          "ratio": 0.29,
+          "text": "24v2.6.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1798,
+          "ratio": 0.2,
+          "text": "44v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1498,
+          "ratio": 0.24,
+          "text": "45v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1460,
+          "ratio": 0.25,
+          "text": "06v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1922,
+          "ratio": 0.19,
+          "text": "14v2.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1480,
+          "ratio": 0.24,
+          "text": "41v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1866,
+          "ratio": 0.19,
+          "text": "70Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1580,
+          "ratio": 0.23,
+          "text": "42v6.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2432,
+          "ratio": 0.15,
+          "text": "83v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1449,
+          "ratio": 0.25,
+          "text": "03v2.0.3Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1599,
+          "ratio": 0.22,
+          "text": "07v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1873,
+          "ratio": 0.19,
+          "text": "08v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1795,
+          "ratio": 0.2,
+          "text": "12v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1819,
+          "ratio": 0.2,
+          "text": "57Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1593,
+          "ratio": 0.22,
+          "text": "65v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1867,
+          "ratio": 0.19,
+          "text": "71v2.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1337,
+          "ratio": 0.27,
+          "text": "74Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1559,
+          "ratio": 0.23,
+          "text": "77Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1140,
+          "ratio": 0.31,
+          "text": "38v0.1.0Emerging\n   "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2469,
+          "ratio": 0.14,
+          "text": "09v1.0.0Preview\n    "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2452,
+          "ratio": 0.15,
+          "text": "10v1.0.0Coming soon\n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1760,
+          "ratio": 0.2,
+          "text": "11v1.6.0Preview\n    "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1242,
+          "ratio": 0.29,
+          "text": "20v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1797,
+          "ratio": 0.2,
+          "text": "46v1.2.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1453,
+          "ratio": 0.25,
+          "text": "25Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2240,
+          "ratio": 0.16,
+          "text": "26v1.0.0In Developme"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2297,
+          "ratio": 0.16,
+          "text": "28v1.0.0Preview\n    "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1485,
+          "ratio": 0.24,
+          "text": "66v1.0.0Sign-in requ"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1728,
+          "ratio": 0.21,
+          "text": "73Sign-in required\n "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1342,
+          "ratio": 0.27,
+          "text": "78Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1894,
+          "ratio": 0.19,
+          "text": "80Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1396,
+          "ratio": 0.26,
+          "text": "39v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1999,
+          "ratio": 0.18,
+          "text": "17v1.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1806,
+          "ratio": 0.2,
+          "text": "29v1.4.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1612,
+          "ratio": 0.22,
+          "text": "30v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1709,
+          "ratio": 0.21,
+          "text": "31v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1639,
+          "ratio": 0.22,
+          "text": "34v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1432,
+          "ratio": 0.25,
+          "text": "35v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1607,
+          "ratio": 0.22,
+          "text": "40v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2044,
+          "ratio": 0.18,
+          "text": "47v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1822,
+          "ratio": 0.2,
+          "text": "48v3.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2259,
+          "ratio": 0.16,
+          "text": "49v0.9.0Coming soon\n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1395,
+          "ratio": 0.26,
+          "text": "60Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1311,
+          "ratio": 0.27,
+          "text": "61Preview\n          "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1396,
+          "ratio": 0.26,
+          "text": "62Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1439,
+          "ratio": 0.25,
+          "text": "63Sign-in required\n "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1162,
+          "ratio": 0.31,
+          "text": "59Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2239,
+          "ratio": 0.16,
+          "text": "50v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2522,
+          "ratio": 0.14,
+          "text": "02v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2361,
+          "ratio": 0.15,
+          "text": "51Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2618,
+          "ratio": 0.14,
+          "text": "52Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1683,
+          "ratio": 0.21,
+          "text": "53Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1906,
+          "ratio": 0.19,
+          "text": "54Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1138,
+          "ratio": 0.31,
+          "text": "68Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1307,
+          "ratio": 0.27,
+          "text": "75Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1328,
+          "ratio": 0.27,
+          "text": "79Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 1535,
+          "ratio": 0.23,
+          "text": "81Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 290,
+          "needed": 213,
+          "ratio": 1.36,
+          "text": "01Cover\n            "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 290,
+          "needed": 220,
+          "ratio": 1.32,
+          "text": "02Logo\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 290,
+          "needed": 187,
+          "ratio": 1.55,
+          "text": "03Colors\n           "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 290,
+          "needed": 203,
+          "ratio": 1.43,
+          "text": "04Type\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 290,
+          "needed": 200,
+          "ratio": 1.45,
+          "text": "05Layout\n           "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 290,
+          "needed": 229,
+          "ratio": 1.27,
+          "text": "06Apply\n            "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 290,
+          "needed": 236,
+          "ratio": 1.23,
+          "text": "07Photo\n            "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 290,
+          "needed": 194,
+          "ratio": 1.49,
+          "text": "08Voice\n            "
+        },
+        {
+          "sel": ".btn",
+          "w": 175,
+          "needed": 181,
+          "ratio": 0.97,
+          "text": "Start a Two-Week Pro"
+        },
+        {
+          "sel": ".btn",
+          "w": 98,
+          "needed": 110,
+          "ratio": 0.89,
+          "text": "View systems"
+        },
+        {
+          "sel": ".btn",
+          "w": 225,
+          "needed": 184,
+          "ratio": 1.22,
+          "text": "Start a two-week pro"
+        },
+        {
+          "sel": ".btn",
+          "w": 225,
+          "needed": 176,
+          "ratio": 1.27,
+          "text": "Open a live system f"
+        },
+        {
+          "sel": ".btn",
+          "w": 156,
+          "needed": 154,
+          "ratio": 1.02,
+          "text": "See FloodDash live ▸"
+        },
+        {
+          "sel": ".btn",
+          "w": 238,
+          "needed": 228,
+          "ratio": 1.04,
+          "text": "Daily Briefings (112"
+        },
+        {
+          "sel": ".btn",
+          "w": 196,
+          "needed": 167,
+          "ratio": 1.17,
+          "text": "Download Brand Kit ▸"
+        },
+        {
+          "sel": ".btn",
+          "w": 198,
+          "needed": 164,
+          "ratio": 1.21,
+          "text": "non@nonarkara.org\n  "
+        },
+        {
+          "sel": ".btn",
+          "w": 92,
+          "needed": 87,
+          "ratio": 1.06,
+          "text": "LinkedIn"
+        },
+        {
+          "sel": ".btn",
+          "w": 104,
+          "needed": 102,
+          "ratio": 1.02,
+          "text": "SLIC Index"
+        }
+      ],
+      "taps": [
+        {
+          "sel": "A.brand",
+          "w": 58,
+          "h": 28,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "BUTTON.active",
+          "w": 30,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 31,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 31,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 32,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 30,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 28,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn--ts",
+          "w": 34,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 44,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A.t-ctrl",
+          "w": 116,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 11
+        },
+        {
+          "sel": "A.t-ctrl",
+          "w": 116,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 11
+        },
+        {
+          "sel": "A",
+          "w": 61,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 230,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 123,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 133,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 107,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 265,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 215,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 171,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 249,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 227,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 77,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 116,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 221,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 107,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 72,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 62,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 49,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 55,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 80,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 81,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 99,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 72,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 49,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 73,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 83,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 112,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 110,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        }
+      ],
+      "mapCoverPct": 100,
+      "lang": "en",
+      "chromeH": 58,
+      "chromePct": 6.9,
+      "errors": []
+    },
+    {
+      "surface": "axiom",
+      "viewport": "1024x900",
+      "vw": 1024,
+      "vh": 900,
+      "docH": 14891,
+      "chromeGeometry": {
+        "width": 1024,
+        "height": 900,
+        "bands": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 1024,
+            "visible": true
+          },
+          {
+            "top": 13024.375,
+            "bottom": 13408.9375,
+            "left": 17,
+            "right": 297,
+            "visible": true
+          }
+        ],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 1024,
+            "visible": true
+          }
+        ]
+      },
+      "overflowX": 0,
+      "firstAction": 16,
+      "h1Visible": true,
+      "primaryActionVisible": true,
+      "voiceTop": 64,
+      "voiceSecond": 28,
+      "boxFit": [
+        {
+          "sel": ".hero-stat",
+          "w": 104,
+          "needed": 151,
+          "ratio": 0.69,
+          "text": "83\n            Catal"
+        },
+        {
+          "sel": ".hero-stat",
+          "w": 82,
+          "needed": 116,
+          "ratio": 0.71,
+          "text": "71\n            Label"
+        },
+        {
+          "sel": ".hero-stat",
+          "w": 61,
+          "needed": 87,
+          "ratio": 0.7,
+          "text": "5\n            Countr"
+        },
+        {
+          "sel": ".chip",
+          "w": 113,
+          "needed": 110,
+          "ratio": 1.03,
+          "text": "PhD · Harvard"
+        },
+        {
+          "sel": ".chip",
+          "w": 114,
+          "needed": 112,
+          "ratio": 1.02,
+          "text": "MPhil · Oxford"
+        },
+        {
+          "sel": ".chip",
+          "w": 79,
+          "needed": 87,
+          "ratio": 0.91,
+          "text": "MSc ·\n              "
+        },
+        {
+          "sel": ".chip",
+          "w": 114,
+          "needed": 157,
+          "ratio": 0.72,
+          "text": "Visiting Lecturer · "
+        },
+        {
+          "sel": ".chip",
+          "w": 140,
+          "needed": 163,
+          "ratio": 0.86,
+          "text": "PhD · Civil Engineer"
+        },
+        {
+          "sel": ".chip",
+          "w": 140,
+          "needed": 140,
+          "ratio": 1,
+          "text": "Assoc. Prof. · CMU"
+        },
+        {
+          "sel": ".chip",
+          "w": 140,
+          "needed": 164,
+          "ratio": 0.85,
+          "text": "Smart City Master Pl"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1607,
+          "ratio": 0.21,
+          "text": "23v2.4.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1431,
+          "ratio": 0.23,
+          "text": "58Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1359,
+          "ratio": 0.24,
+          "text": "32v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1407,
+          "ratio": 0.23,
+          "text": "37v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1228,
+          "ratio": 0.27,
+          "text": "22v1.2.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1172,
+          "ratio": 0.28,
+          "text": "01v3.1.2Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1659,
+          "ratio": 0.2,
+          "text": "21v1.8.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1902,
+          "ratio": 0.17,
+          "text": "55Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1716,
+          "ratio": 0.19,
+          "text": "33v2.0.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1625,
+          "ratio": 0.2,
+          "text": "05v2.3.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1558,
+          "ratio": 0.21,
+          "text": "56Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1885,
+          "ratio": 0.18,
+          "text": "13v1.4.2Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1943,
+          "ratio": 0.17,
+          "text": "16v1.5.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2076,
+          "ratio": 0.16,
+          "text": "18v1.3.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1690,
+          "ratio": 0.2,
+          "text": "19v0.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1129,
+          "ratio": 0.29,
+          "text": "15v5.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1891,
+          "ratio": 0.17,
+          "text": "27v3.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1410,
+          "ratio": 0.23,
+          "text": "36v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1754,
+          "ratio": 0.19,
+          "text": "43v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1599,
+          "ratio": 0.21,
+          "text": "64v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1104,
+          "ratio": 0.3,
+          "text": "67Preview\n          "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1561,
+          "ratio": 0.21,
+          "text": "69Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2046,
+          "ratio": 0.16,
+          "text": "72v3.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1529,
+          "ratio": 0.22,
+          "text": "76Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1402,
+          "ratio": 0.24,
+          "text": "82v2.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 968,
+          "ratio": 0.34,
+          "text": "04v3.2.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1242,
+          "ratio": 0.27,
+          "text": "24v2.6.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1798,
+          "ratio": 0.18,
+          "text": "44v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1498,
+          "ratio": 0.22,
+          "text": "45v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1460,
+          "ratio": 0.23,
+          "text": "06v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1922,
+          "ratio": 0.17,
+          "text": "14v2.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1480,
+          "ratio": 0.22,
+          "text": "41v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1866,
+          "ratio": 0.18,
+          "text": "70Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1580,
+          "ratio": 0.21,
+          "text": "42v6.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2432,
+          "ratio": 0.14,
+          "text": "83v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1449,
+          "ratio": 0.23,
+          "text": "03v2.0.3Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1599,
+          "ratio": 0.21,
+          "text": "07v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1873,
+          "ratio": 0.18,
+          "text": "08v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1795,
+          "ratio": 0.18,
+          "text": "12v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1819,
+          "ratio": 0.18,
+          "text": "57Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1593,
+          "ratio": 0.21,
+          "text": "65v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1867,
+          "ratio": 0.18,
+          "text": "71v2.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1337,
+          "ratio": 0.25,
+          "text": "74Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1559,
+          "ratio": 0.21,
+          "text": "77Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1140,
+          "ratio": 0.29,
+          "text": "38v0.1.0Emerging\n   "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2469,
+          "ratio": 0.13,
+          "text": "09v1.0.0Preview\n    "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2452,
+          "ratio": 0.13,
+          "text": "10v1.0.0Coming soon\n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1760,
+          "ratio": 0.19,
+          "text": "11v1.6.0Preview\n    "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1242,
+          "ratio": 0.27,
+          "text": "20v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1797,
+          "ratio": 0.18,
+          "text": "46v1.2.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1453,
+          "ratio": 0.23,
+          "text": "25Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2240,
+          "ratio": 0.15,
+          "text": "26v1.0.0In Developme"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2297,
+          "ratio": 0.14,
+          "text": "28v1.0.0Preview\n    "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1485,
+          "ratio": 0.22,
+          "text": "66v1.0.0Sign-in requ"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1728,
+          "ratio": 0.19,
+          "text": "73Sign-in required\n "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1342,
+          "ratio": 0.25,
+          "text": "78Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1894,
+          "ratio": 0.17,
+          "text": "80Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1396,
+          "ratio": 0.24,
+          "text": "39v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1999,
+          "ratio": 0.17,
+          "text": "17v1.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1806,
+          "ratio": 0.18,
+          "text": "29v1.4.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1612,
+          "ratio": 0.2,
+          "text": "30v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1709,
+          "ratio": 0.19,
+          "text": "31v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1639,
+          "ratio": 0.2,
+          "text": "34v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1432,
+          "ratio": 0.23,
+          "text": "35v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1607,
+          "ratio": 0.21,
+          "text": "40v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2044,
+          "ratio": 0.16,
+          "text": "47v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1822,
+          "ratio": 0.18,
+          "text": "48v3.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2259,
+          "ratio": 0.15,
+          "text": "49v0.9.0Coming soon\n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1395,
+          "ratio": 0.24,
+          "text": "60Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1311,
+          "ratio": 0.25,
+          "text": "61Preview\n          "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1396,
+          "ratio": 0.24,
+          "text": "62Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1439,
+          "ratio": 0.23,
+          "text": "63Sign-in required\n "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1162,
+          "ratio": 0.28,
+          "text": "59Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2239,
+          "ratio": 0.15,
+          "text": "50v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2522,
+          "ratio": 0.13,
+          "text": "02v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2361,
+          "ratio": 0.14,
+          "text": "51Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 2618,
+          "ratio": 0.13,
+          "text": "52Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1683,
+          "ratio": 0.2,
+          "text": "53Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1906,
+          "ratio": 0.17,
+          "text": "54Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1138,
+          "ratio": 0.29,
+          "text": "68Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1307,
+          "ratio": 0.25,
+          "text": "75Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1328,
+          "ratio": 0.25,
+          "text": "79Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 1535,
+          "ratio": 0.21,
+          "text": "81Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 230,
+          "needed": 213,
+          "ratio": 1.08,
+          "text": "01Cover\n            "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 230,
+          "needed": 220,
+          "ratio": 1.05,
+          "text": "02Logo\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 230,
+          "needed": 187,
+          "ratio": 1.23,
+          "text": "03Colors\n           "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 230,
+          "needed": 203,
+          "ratio": 1.13,
+          "text": "04Type\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 230,
+          "needed": 200,
+          "ratio": 1.15,
+          "text": "05Layout\n           "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 230,
+          "needed": 229,
+          "ratio": 1,
+          "text": "06Apply\n            "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 230,
+          "needed": 236,
+          "ratio": 0.97,
+          "text": "07Photo\n            "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 230,
+          "needed": 194,
+          "ratio": 1.19,
+          "text": "08Voice\n            "
+        },
+        {
+          "sel": ".btn",
+          "w": 125,
+          "needed": 114,
+          "ratio": 1.1,
+          "text": "Work With Us"
+        },
+        {
+          "sel": ".btn",
+          "w": 197,
+          "needed": 189,
+          "ratio": 1.04,
+          "text": "Start a Two-Week Pro"
+        },
+        {
+          "sel": ".btn",
+          "w": 113,
+          "needed": 118,
+          "ratio": 0.96,
+          "text": "View systems"
+        },
+        {
+          "sel": ".btn",
+          "w": 210,
+          "needed": 184,
+          "ratio": 1.14,
+          "text": "Start a two-week pro"
+        },
+        {
+          "sel": ".btn",
+          "w": 210,
+          "needed": 176,
+          "ratio": 1.19,
+          "text": "Open a live system f"
+        },
+        {
+          "sel": ".btn",
+          "w": 156,
+          "needed": 154,
+          "ratio": 1.02,
+          "text": "See FloodDash live ▸"
+        },
+        {
+          "sel": ".btn",
+          "w": 238,
+          "needed": 228,
+          "ratio": 1.04,
+          "text": "Daily Briefings (112"
+        },
+        {
+          "sel": ".btn",
+          "w": 196,
+          "needed": 167,
+          "ratio": 1.17,
+          "text": "Download Brand Kit ▸"
+        },
+        {
+          "sel": ".btn",
+          "w": 198,
+          "needed": 164,
+          "ratio": 1.21,
+          "text": "non@nonarkara.org\n  "
+        },
+        {
+          "sel": ".btn",
+          "w": 92,
+          "needed": 87,
+          "ratio": 1.06,
+          "text": "LinkedIn"
+        },
+        {
+          "sel": ".btn",
+          "w": 104,
+          "needed": 102,
+          "ratio": 1.02,
+          "text": "SLIC Index"
+        }
+      ],
+      "taps": [
+        {
+          "sel": "A.brand",
+          "w": 170,
+          "h": 28,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "BUTTON.active",
+          "w": 30,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 31,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 31,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 32,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 30,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 28,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn--ts",
+          "w": 34,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 44,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A.t-ctrl",
+          "w": 116,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 11
+        },
+        {
+          "sel": "A.t-ctrl",
+          "w": 116,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 11
+        },
+        {
+          "sel": "A",
+          "w": 61,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 230,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 123,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 133,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 107,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 265,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 215,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 171,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 249,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 227,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 77,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 116,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 221,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 107,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 72,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 62,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 49,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 55,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 80,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 81,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 99,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 72,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 49,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 73,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 83,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 112,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 110,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        }
+      ],
+      "mapCoverPct": 100,
+      "lang": "en",
+      "chromeH": 58,
+      "chromePct": 6.4,
+      "errors": []
+    },
+    {
+      "surface": "axiom",
+      "viewport": "1440x900",
+      "vw": 1440,
+      "vh": 900,
+      "docH": 15250,
+      "chromeGeometry": {
+        "width": 1440,
+        "height": 900,
+        "bands": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 1440,
+            "visible": true
+          },
+          {
+            "top": 13470.890625,
+            "bottom": 13837.265625,
+            "left": 121,
+            "right": 441,
+            "visible": true
+          }
+        ],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 1440,
+            "visible": true
+          }
+        ]
+      },
+      "overflowX": 0,
+      "firstAction": 16,
+      "h1Visible": true,
+      "primaryActionVisible": true,
+      "voiceTop": 76,
+      "voiceSecond": 28,
+      "boxFit": [
+        {
+          "sel": ".hero-stat",
+          "w": 104,
+          "needed": 151,
+          "ratio": 0.69,
+          "text": "83\n            Catal"
+        },
+        {
+          "sel": ".hero-stat",
+          "w": 82,
+          "needed": 116,
+          "ratio": 0.71,
+          "text": "71\n            Label"
+        },
+        {
+          "sel": ".hero-stat",
+          "w": 61,
+          "needed": 87,
+          "ratio": 0.7,
+          "text": "5\n            Countr"
+        },
+        {
+          "sel": ".chip",
+          "w": 113,
+          "needed": 110,
+          "ratio": 1.03,
+          "text": "PhD · Harvard"
+        },
+        {
+          "sel": ".chip",
+          "w": 119,
+          "needed": 112,
+          "ratio": 1.06,
+          "text": "MPhil · Oxford"
+        },
+        {
+          "sel": ".chip",
+          "w": 79,
+          "needed": 87,
+          "ratio": 0.91,
+          "text": "MSc ·\n              "
+        },
+        {
+          "sel": ".chip",
+          "w": 172,
+          "needed": 157,
+          "ratio": 1.09,
+          "text": "Visiting Lecturer · "
+        },
+        {
+          "sel": ".chip",
+          "w": 173,
+          "needed": 163,
+          "ratio": 1.07,
+          "text": "PhD · Civil Engineer"
+        },
+        {
+          "sel": ".chip",
+          "w": 141,
+          "needed": 140,
+          "ratio": 1.01,
+          "text": "Assoc. Prof. · CMU"
+        },
+        {
+          "sel": ".chip",
+          "w": 180,
+          "needed": 164,
+          "ratio": 1.1,
+          "text": "Smart City Master Pl"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1607,
+          "ratio": 0.25,
+          "text": "23v2.4.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1431,
+          "ratio": 0.28,
+          "text": "58Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1359,
+          "ratio": 0.29,
+          "text": "32v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1407,
+          "ratio": 0.28,
+          "text": "37v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1228,
+          "ratio": 0.33,
+          "text": "22v1.2.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1172,
+          "ratio": 0.34,
+          "text": "01v3.1.2Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1659,
+          "ratio": 0.24,
+          "text": "21v1.8.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1902,
+          "ratio": 0.21,
+          "text": "55Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1716,
+          "ratio": 0.23,
+          "text": "33v2.0.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1625,
+          "ratio": 0.25,
+          "text": "05v2.3.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1558,
+          "ratio": 0.26,
+          "text": "56Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1885,
+          "ratio": 0.21,
+          "text": "13v1.4.2Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1943,
+          "ratio": 0.21,
+          "text": "16v1.5.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2076,
+          "ratio": 0.19,
+          "text": "18v1.3.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1690,
+          "ratio": 0.24,
+          "text": "19v0.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1129,
+          "ratio": 0.35,
+          "text": "15v5.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1891,
+          "ratio": 0.21,
+          "text": "27v3.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1410,
+          "ratio": 0.28,
+          "text": "36v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1754,
+          "ratio": 0.23,
+          "text": "43v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1599,
+          "ratio": 0.25,
+          "text": "64v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1104,
+          "ratio": 0.36,
+          "text": "67Preview\n          "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1561,
+          "ratio": 0.26,
+          "text": "69Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2046,
+          "ratio": 0.2,
+          "text": "72v3.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1529,
+          "ratio": 0.26,
+          "text": "76Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1402,
+          "ratio": 0.28,
+          "text": "82v2.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 968,
+          "ratio": 0.41,
+          "text": "04v3.2.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1242,
+          "ratio": 0.32,
+          "text": "24v2.6.1Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1798,
+          "ratio": 0.22,
+          "text": "44v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1498,
+          "ratio": 0.27,
+          "text": "45v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1460,
+          "ratio": 0.27,
+          "text": "06v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1922,
+          "ratio": 0.21,
+          "text": "14v2.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1480,
+          "ratio": 0.27,
+          "text": "41v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1866,
+          "ratio": 0.21,
+          "text": "70Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1580,
+          "ratio": 0.25,
+          "text": "42v6.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2432,
+          "ratio": 0.16,
+          "text": "83v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1449,
+          "ratio": 0.28,
+          "text": "03v2.0.3Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1599,
+          "ratio": 0.25,
+          "text": "07v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1873,
+          "ratio": 0.21,
+          "text": "08v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1795,
+          "ratio": 0.22,
+          "text": "12v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1819,
+          "ratio": 0.22,
+          "text": "57Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1593,
+          "ratio": 0.25,
+          "text": "65v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1867,
+          "ratio": 0.21,
+          "text": "71v2.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1337,
+          "ratio": 0.3,
+          "text": "74Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1559,
+          "ratio": 0.26,
+          "text": "77Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1140,
+          "ratio": 0.35,
+          "text": "38v0.1.0Emerging\n   "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2469,
+          "ratio": 0.16,
+          "text": "09v1.0.0Preview\n    "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2452,
+          "ratio": 0.16,
+          "text": "10v1.0.0Coming soon\n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1760,
+          "ratio": 0.23,
+          "text": "11v1.6.0Preview\n    "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1242,
+          "ratio": 0.32,
+          "text": "20v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1797,
+          "ratio": 0.22,
+          "text": "46v1.2.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1453,
+          "ratio": 0.27,
+          "text": "25Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2240,
+          "ratio": 0.18,
+          "text": "26v1.0.0In Developme"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2297,
+          "ratio": 0.17,
+          "text": "28v1.0.0Preview\n    "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1485,
+          "ratio": 0.27,
+          "text": "66v1.0.0Sign-in requ"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1728,
+          "ratio": 0.23,
+          "text": "73Sign-in required\n "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1342,
+          "ratio": 0.3,
+          "text": "78Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1894,
+          "ratio": 0.21,
+          "text": "80Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1396,
+          "ratio": 0.29,
+          "text": "39v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1999,
+          "ratio": 0.2,
+          "text": "17v1.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1806,
+          "ratio": 0.22,
+          "text": "29v1.4.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1612,
+          "ratio": 0.25,
+          "text": "30v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1709,
+          "ratio": 0.23,
+          "text": "31v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1639,
+          "ratio": 0.24,
+          "text": "34v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1432,
+          "ratio": 0.28,
+          "text": "35v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1607,
+          "ratio": 0.25,
+          "text": "40v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2044,
+          "ratio": 0.2,
+          "text": "47v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1822,
+          "ratio": 0.22,
+          "text": "48v3.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2259,
+          "ratio": 0.18,
+          "text": "49v0.9.0Coming soon\n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1395,
+          "ratio": 0.29,
+          "text": "60Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1311,
+          "ratio": 0.3,
+          "text": "61Preview\n          "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1396,
+          "ratio": 0.29,
+          "text": "62Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1439,
+          "ratio": 0.28,
+          "text": "63Sign-in required\n "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1162,
+          "ratio": 0.34,
+          "text": "59Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2239,
+          "ratio": 0.18,
+          "text": "50v2.1.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2522,
+          "ratio": 0.16,
+          "text": "02v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2361,
+          "ratio": 0.17,
+          "text": "51Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 2618,
+          "ratio": 0.15,
+          "text": "52Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1683,
+          "ratio": 0.24,
+          "text": "53Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1906,
+          "ratio": 0.21,
+          "text": "54Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1138,
+          "ratio": 0.35,
+          "text": "68Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1307,
+          "ratio": 0.31,
+          "text": "75Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1328,
+          "ratio": 0.3,
+          "text": "79Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 1535,
+          "ratio": 0.26,
+          "text": "81Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 282,
+          "needed": 213,
+          "ratio": 1.32,
+          "text": "01Cover\n            "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 282,
+          "needed": 220,
+          "ratio": 1.28,
+          "text": "02Logo\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 282,
+          "needed": 187,
+          "ratio": 1.51,
+          "text": "03Colors\n           "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 282,
+          "needed": 203,
+          "ratio": 1.39,
+          "text": "04Type\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 282,
+          "needed": 200,
+          "ratio": 1.41,
+          "text": "05Layout\n           "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 282,
+          "needed": 229,
+          "ratio": 1.23,
+          "text": "06Apply\n            "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 282,
+          "needed": 236,
+          "ratio": 1.19,
+          "text": "07Photo\n            "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 282,
+          "needed": 194,
+          "ratio": 1.45,
+          "text": "08Voice\n            "
+        },
+        {
+          "sel": ".btn",
+          "w": 125,
+          "needed": 114,
+          "ratio": 1.1,
+          "text": "Work With Us"
+        },
+        {
+          "sel": ".btn",
+          "w": 197,
+          "needed": 189,
+          "ratio": 1.04,
+          "text": "Start a Two-Week Pro"
+        },
+        {
+          "sel": ".btn",
+          "w": 113,
+          "needed": 118,
+          "ratio": 0.96,
+          "text": "View systems"
+        },
+        {
+          "sel": ".btn",
+          "w": 210,
+          "needed": 184,
+          "ratio": 1.14,
+          "text": "Start a two-week pro"
+        },
+        {
+          "sel": ".btn",
+          "w": 210,
+          "needed": 176,
+          "ratio": 1.19,
+          "text": "Open a live system f"
+        },
+        {
+          "sel": ".btn",
+          "w": 156,
+          "needed": 154,
+          "ratio": 1.02,
+          "text": "See FloodDash live ▸"
+        },
+        {
+          "sel": ".btn",
+          "w": 238,
+          "needed": 228,
+          "ratio": 1.04,
+          "text": "Daily Briefings (112"
+        },
+        {
+          "sel": ".btn",
+          "w": 196,
+          "needed": 167,
+          "ratio": 1.17,
+          "text": "Download Brand Kit ▸"
+        },
+        {
+          "sel": ".btn",
+          "w": 198,
+          "needed": 164,
+          "ratio": 1.21,
+          "text": "non@nonarkara.org\n  "
+        },
+        {
+          "sel": ".btn",
+          "w": 92,
+          "needed": 87,
+          "ratio": 1.06,
+          "text": "LinkedIn"
+        },
+        {
+          "sel": ".btn",
+          "w": 104,
+          "needed": 102,
+          "ratio": 1.02,
+          "text": "SLIC Index"
+        }
+      ],
+      "taps": [
+        {
+          "sel": "A.brand",
+          "w": 170,
+          "h": 28,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "BUTTON.active",
+          "w": 30,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 31,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 31,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 32,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 30,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON",
+          "w": 28,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn--ts",
+          "w": 34,
+          "h": 42,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 44,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A.t-ctrl",
+          "w": 116,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 11
+        },
+        {
+          "sel": "A.t-ctrl",
+          "w": 116,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 11
+        },
+        {
+          "sel": "A",
+          "w": 61,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 230,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 123,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 133,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 107,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 42,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 265,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 215,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 171,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 249,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 227,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 77,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 116,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 221,
+          "h": 31,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 107,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 72,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 62,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 49,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 55,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 80,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 81,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 99,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 72,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 49,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 73,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 83,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 112,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 110,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        }
+      ],
+      "mapCoverPct": 100,
+      "lang": "en",
+      "chromeH": 58,
+      "chromePct": 6.4,
+      "errors": []
+    },
+    {
+      "surface": "axiomx",
+      "viewport": "390x844",
+      "vw": 390,
+      "vh": 844,
+      "docH": 844,
+      "chromeGeometry": {
+        "width": 390,
+        "height": 844,
+        "bands": [],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0,
+            "visible": true
+          },
+          {
+            "top": 0,
+            "bottom": 44,
+            "left": 0,
+            "right": 390,
+            "visible": true
+          }
+        ]
+      },
+      "overflowX": 0,
+      "firstAction": 326,
+      "h1Visible": true,
+      "primaryActionVisible": true,
+      "voiceTop": 28,
+      "voiceSecond": 15,
+      "boxFit": [],
+      "taps": [
+        {
+          "sel": "A.inline-link",
+          "w": 40,
+          "h": 13,
+          "isPrimary": false,
+          "fontSize": 10
+        }
+      ],
+      "mapCoverPct": null,
+      "lang": "en",
+      "chromeH": 44,
+      "chromePct": 5.2,
+      "errors": []
+    },
+    {
+      "surface": "axiomx",
+      "viewport": "1024x900",
+      "vw": 1024,
+      "vh": 900,
+      "docH": 900,
+      "chromeGeometry": {
+        "width": 1024,
+        "height": 900,
+        "bands": [],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 44,
+            "left": 0,
+            "right": 326.671875,
+            "visible": true
+          },
+          {
+            "top": 0,
+            "bottom": 44,
+            "left": 327.671875,
+            "right": 1024,
+            "visible": true
+          }
+        ]
+      },
+      "overflowX": 0,
+      "firstAction": 1,
+      "h1Visible": true,
+      "primaryActionVisible": true,
+      "voiceTop": 31,
+      "voiceSecond": 15,
+      "boxFit": [],
+      "taps": [
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A.inline-link",
+          "w": 40,
+          "h": 13,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A.inline-link",
+          "w": 129,
+          "h": 24,
+          "isPrimary": false,
+          "fontSize": 15
+        },
+        {
+          "sel": "A.inline-link",
+          "w": 173,
+          "h": 24,
+          "isPrimary": false,
+          "fontSize": 15
+        }
+      ],
+      "mapCoverPct": null,
+      "lang": "en",
+      "chromeH": 44,
+      "chromePct": 4.9,
+      "errors": []
+    },
+    {
+      "surface": "axiomx",
+      "viewport": "1440x900",
+      "vw": 1440,
+      "vh": 900,
+      "docH": 900,
+      "chromeGeometry": {
+        "width": 1440,
+        "height": 900,
+        "bands": [],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 44,
+            "left": 0,
+            "right": 419,
+            "visible": true
+          },
+          {
+            "top": 0,
+            "bottom": 44,
+            "left": 420,
+            "right": 1440,
+            "visible": true
+          }
+        ]
+      },
+      "overflowX": 0,
+      "firstAction": 1,
+      "h1Visible": true,
+      "primaryActionVisible": true,
+      "voiceTop": 40,
+      "voiceSecond": 15,
+      "boxFit": [],
+      "taps": [
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.locale-btn",
+          "w": 30,
+          "h": 44,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A.inline-link",
+          "w": 40,
+          "h": 13,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A.inline-link",
+          "w": 129,
+          "h": 24,
+          "isPrimary": false,
+          "fontSize": 15
+        },
+        {
+          "sel": "A.inline-link",
+          "w": 173,
+          "h": 24,
+          "isPrimary": false,
+          "fontSize": 15
+        }
+      ],
+      "mapCoverPct": null,
+      "lang": "en",
+      "chromeH": 44,
+      "chromePct": 4.9,
+      "errors": []
+    }
+  ],
+  "summary": {
+    "surfaces": 2,
+    "widths": 3,
+    "measurements": 6,
+    "fails": 0,
+    "notes": 164
+  }
+}

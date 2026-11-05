@@ -154,3 +154,75 @@ version or operating system.
   matrix was not rerun, and no general-purpose secret scanner was run.
 - Shared-memory bootstrap was attempted; the Obsidian bridge returned
   `Transport closed`. No vault contents were changed.
+
+## Separate Chrome-Budget Gate Review
+
+**Final targeted verdict: PASS for the repaired gate correction.** Both findings
+below are resolved by independent actual-DOM retests. This does not revoke the
+supplement-byte PASS above and is not a new UI finding. Scope: the new pure
+`.qa/chrome-budget.mjs` helper, its `.qa/msh-audit.mjs` integration and
+`tests/chrome-budget.test.mjs`. Only this report was edited; the parent's dirty
+audit output, spatial baseline and UI were not changed. The live audit was not
+rerun by this reviewer.
+
+### Resolved P2: A Stacked Fixed Toolbar Escaped the Chrome Budget
+
+Location: `.qa/chrome-budget.mjs:16`.
+
+The helper requires every band to touch the viewport edge individually before
+unioning intervals. A 58px top header followed immediately by a full-width fixed
+toolbar occupying y58-458 is therefore measured as only 58px / 6.4%, even though
+458px / 50.9% of the viewport is chrome. This is a false PASS of the 33% limit.
+
+Confirmed pure-helper fixture: width 1440, height 900; headers `[0,58]`; bands
+`[0,58]` and `[58,458]`, both spanning x0-1440. Actual result is
+`{chromeH:58,chromePct:6.4}`. Edge-connected stacked bands need to be included as
+a connected interval group; unioning only the already edge-selected members
+cannot recover the omitted toolbar. Add this falsifier while retaining the
+offscreen/narrow-rail exclusions.
+
+### Resolved P2: Hidden Fixed Bands Were Counted as Visible Chrome
+
+Location: `.qa/msh-audit.mjs:46-50` and the `chromeGeometry.bands` collection.
+
+The fixed/sticky collection filters only `position`; unlike the header collection,
+it does not reject `visibility:hidden`. Such elements retain nonzero rectangles.
+A real Chromium fixture with a visible fixed 58px header and an otherwise hidden
+full-width fixed panel at y0-400 reports 400px / 44.4% instead of 58px / 6.4%.
+This is a false REVISE with no visible oversized band. Exclude nonvisible bands
+before reducing them to raw geometry; the pure helper cannot infer visibility
+from the four rectangle coordinates. Add an integration-level visibility case.
+
+### Initial Checks
+
+`node --test tests/chrome-budget.test.mjs`: 3 passed, 0 failed. Offscreen sticky
+rails above/below the viewport are excluded; narrow side instruments are excluded;
+overlapping/nested visible edge bands are not double-counted. A genuine full-width
+400px bottom band plus the 58px header still measures 458px / 50.9%, so that
+existing oversize falsifier remains effective. The two additional independently
+reproduced cases above are not covered by the three passing tests.
+
+### Independent Repair Retest
+
+The repaired helper merges all qualifying visible intervals first, then counts
+edge-connected merged groups. Raw measurement rectangles now carry visibility
+computed from display, visibility and opacity; the helper excludes `visible:false`.
+
+`node --test tests/chrome-budget.test.mjs`: 4 passed, 0 failed, including the added
+stacked/hidden regression test. Independently extracted the actual `MEASURE`
+function from `.qa/msh-audit.mjs` and executed it against real Chromium DOM
+fixtures at 1440x900, then passed its raw geometry to the actual helper:
+
+| DOM fixture | Chrome height / percentage | Result |
+| --- | --- | --- |
+| 58px header plus fixed y58-458 toolbar | 458px / 50.9% | Oversize correctly fails |
+| 58px header plus visibility:hidden 400px panel | 58px / 6.4% | Hidden panel excluded |
+| 58px header plus opacity:0 400px panel | 58px / 6.4% | Transparent panel excluded |
+| 58px header plus full-width y20000 rail | 58px / 6.4% | Offscreen rail excluded |
+| 58px header plus real 400px bottom band | 458px / 50.9% | Oversize falsifier still bites |
+
+All five targeted actual-DOM cases match expected values. Evidence:
+`/tmp/axiom-chrome-budget-recheck.json`. No UI, audit output or baseline edits
+were made. This sign-off covers the bounded helper/integration repair, not a
+global MSH baseline PASS; the parent's full audit rerun is separate. Supplement
+bytes and their earlier review remain unchanged by this retest.
