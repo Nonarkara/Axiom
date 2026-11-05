@@ -152,7 +152,7 @@ window.AXIOM_RESEARCH = {
       "pdf": "https://axiom.nonarkara.org/research/smart-city-gaps-v1.pdf",
       "source": "https://sciti.nonarkara.org/research/smart-city-gaps/SCITI_2026-11-05_DOC_smart-city-gaps-synthesis.pdf",
       "status": "Preprint",
-      "sha256": "87679b3a81fd3d411fa29f43001a8e54b0143e4e01c10f2f74466fda24d6f9dc",
+      "sha256": "3b56a07cda656b230d54f2d8bbe3d46579c93f02cac28e6d941aa8f2c86aeaae",
       "study": {
         "region": "thailand",
         "label": "Thailand",
