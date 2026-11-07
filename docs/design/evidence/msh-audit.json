@@ -1,17 +1,22 @@
 {
   "verdict": "PASS",
-  "checkedAt": "2026-11-04T05:55:01.637Z",
+  "checkedAt": "2026-11-07T18:14:01.579Z",
   "fails": [],
   "notes": [
     {
       "surface": "axiom",
       "width": "390x844",
-      "detail": "document 33591px = 39.8× viewport height"
+      "detail": "document 35014px = 41.5× viewport height"
     },
     {
       "surface": "axiom",
       "width": "390x844",
-      "detail": "map covers 100% of first screen"
+      "detail": "no clear hierarchy step (32px vs 28px)"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "map covers 67.1% of first screen"
     },
     {
       "surface": "axiom",
@@ -71,6 +76,36 @@
     {
       "surface": "axiom",
       "width": "390x844",
+      "detail": "prose credit link A 61×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 51×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 51×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 68×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 68×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 71×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
       "detail": "prose credit link A 265×31px (font 13px) — not a tap target"
     },
     {
@@ -136,6 +171,11 @@
     {
       "surface": "axiom",
       "width": "390x844",
+      "detail": "prose credit link A 80×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
       "detail": "prose credit link A 81×36px (font 10px) — not a tap target"
     },
     {
@@ -176,12 +216,17 @@
     {
       "surface": "axiom",
       "width": "1024x900",
-      "detail": "document 13870px = 15.4× viewport height"
+      "detail": "document 14444px = 16.0× viewport height"
     },
     {
       "surface": "axiom",
       "width": "1024x900",
-      "detail": "map covers 100% of first screen"
+      "detail": "no clear hierarchy step (32px vs 32px)"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "map covers 67.3% of first screen"
     },
     {
       "surface": "axiom",
@@ -241,6 +286,141 @@
     {
       "surface": "axiom",
       "width": "1024x900",
+      "detail": "prose credit link A 61×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 51×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 51×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 68×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 68×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 71×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
       "detail": "prose credit link A 265×31px (font 13px) — not a tap target"
     },
     {
@@ -306,6 +486,11 @@
     {
       "surface": "axiom",
       "width": "1024x900",
+      "detail": "prose credit link A 80×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
       "detail": "prose credit link A 81×36px (font 10px) — not a tap target"
     },
     {
@@ -346,12 +531,17 @@
     {
       "surface": "axiom",
       "width": "1440x900",
-      "detail": "document 14352px = 15.9× viewport height"
+      "detail": "document 14778px = 16.4× viewport height"
     },
     {
       "surface": "axiom",
       "width": "1440x900",
-      "detail": "map covers 100% of first screen"
+      "detail": "no clear hierarchy step (32px vs 32px)"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "map covers 67.3% of first screen"
     },
     {
       "surface": "axiom",
@@ -411,6 +601,141 @@
     {
       "surface": "axiom",
       "width": "1440x900",
+      "detail": "prose credit link A 61×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 51×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 51×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 68×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 68×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 71×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
       "detail": "prose credit link A 265×31px (font 13px) — not a tap target"
     },
     {
@@ -472,6 +797,11 @@
       "surface": "axiom",
       "width": "1440x900",
       "detail": "prose credit link A 55×36px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 80×36px (font 10px) — not a tap target"
     },
     {
       "surface": "axiom",
@@ -615,29 +945,49 @@
       "viewport": "390x844",
       "vw": 390,
       "vh": 844,
-      "docH": 33591,
-      "chromeH": 58,
-      "chromePct": 6.9,
+      "docH": 35014,
+      "chromeGeometry": {
+        "width": 390,
+        "height": 844,
+        "bands": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 390,
+            "visible": true
+          }
+        ],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 390,
+            "visible": true
+          }
+        ]
+      },
       "overflowX": 0,
       "firstAction": 16,
       "h1Visible": true,
       "primaryActionVisible": true,
-      "voiceTop": 36,
-      "voiceSecond": 24,
+      "voiceTop": 32,
+      "voiceSecond": 28,
       "boxFit": [
         {
           "sel": ".hero-stat",
           "w": 114,
           "needed": 151,
           "ratio": 0.76,
-          "text": "82\n            Catal"
+          "text": "83\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 90,
           "needed": 116,
           "ratio": 0.78,
-          "text": "70\n            Label"
+          "text": "71\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -932,6 +1282,13 @@
           "needed": 1580,
           "ratio": 0.23,
           "text": "42v6.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 2432,
+          "ratio": 0.15,
+          "text": "83v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
@@ -1327,16 +1684,16 @@
         },
         {
           "sel": ".btn",
-          "w": 175,
-          "needed": 181,
-          "ratio": 0.97,
+          "w": 200,
+          "needed": 177,
+          "ratio": 1.13,
           "text": "Start a Two-Week Pro"
         },
         {
           "sel": ".btn",
-          "w": 98,
-          "needed": 110,
-          "ratio": 0.89,
+          "w": 109,
+          "needed": 106,
+          "ratio": 1.03,
           "text": "View systems"
         },
         {
@@ -1476,6 +1833,48 @@
         },
         {
           "sel": "A",
+          "w": 61,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 68,
+          "h": 34,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 68,
+          "h": 34,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 71,
+          "h": 34,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
           "w": 265,
           "h": 31,
           "isPrimary": false,
@@ -1567,6 +1966,13 @@
         },
         {
           "sel": "A",
+          "w": 80,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
           "w": 81,
           "h": 36,
           "isPrimary": false,
@@ -1622,8 +2028,10 @@
           "fontSize": 10
         }
       ],
-      "mapCoverPct": 100,
+      "mapCoverPct": 67.1,
       "lang": "en",
+      "chromeH": 58,
+      "chromePct": 6.9,
       "errors": []
     },
     {
@@ -1631,29 +2039,49 @@
       "viewport": "1024x900",
       "vw": 1024,
       "vh": 900,
-      "docH": 13870,
-      "chromeH": 58,
-      "chromePct": 6.4,
+      "docH": 14444,
+      "chromeGeometry": {
+        "width": 1024,
+        "height": 900,
+        "bands": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 1024,
+            "visible": true
+          }
+        ],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 1024,
+            "visible": true
+          }
+        ]
+      },
       "overflowX": 0,
       "firstAction": 16,
       "h1Visible": true,
       "primaryActionVisible": true,
-      "voiceTop": 64,
-      "voiceSecond": 24,
+      "voiceTop": 32,
+      "voiceSecond": 32,
       "boxFit": [
         {
           "sel": ".hero-stat",
           "w": 104,
           "needed": 151,
           "ratio": 0.69,
-          "text": "82\n            Catal"
+          "text": "83\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 82,
           "needed": 116,
           "ratio": 0.71,
-          "text": "70\n            Label"
+          "text": "71\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -1952,6 +2380,13 @@
         {
           "sel": ".sys-cell",
           "w": 330,
+          "needed": 2432,
+          "ratio": 0.14,
+          "text": "83v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
           "needed": 1449,
           "ratio": 0.23,
           "text": "03v2.0.3Live\n       "
@@ -2098,9 +2533,9 @@
         },
         {
           "sel": ".sys-cell",
-          "w": 992,
+          "w": 330,
           "needed": 1894,
-          "ratio": 0.52,
+          "ratio": 0.17,
           "text": "80Live\n            \n"
         },
         {
@@ -2350,16 +2785,16 @@
         },
         {
           "sel": ".btn",
-          "w": 197,
-          "needed": 189,
-          "ratio": 1.04,
+          "w": 200,
+          "needed": 177,
+          "ratio": 1.13,
           "text": "Start a Two-Week Pro"
         },
         {
           "sel": ".btn",
-          "w": 113,
-          "needed": 118,
-          "ratio": 0.96,
+          "w": 109,
+          "needed": 106,
+          "ratio": 1.03,
           "text": "View systems"
         },
         {
@@ -2499,6 +2934,209 @@
         },
         {
           "sel": "A",
+          "w": 61,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A.leaflet-control-zoom-in",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 18
+        },
+        {
+          "sel": "A.leaflet-control-zoom-out",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 18
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 68,
+          "h": 34,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 68,
+          "h": 34,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 71,
+          "h": 34,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
           "w": 265,
           "h": 31,
           "isPrimary": false,
@@ -2590,6 +3228,13 @@
         },
         {
           "sel": "A",
+          "w": 80,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
           "w": 81,
           "h": 36,
           "isPrimary": false,
@@ -2645,8 +3290,10 @@
           "fontSize": 10
         }
       ],
-      "mapCoverPct": 100,
+      "mapCoverPct": 67.3,
       "lang": "en",
+      "chromeH": 58,
+      "chromePct": 6.4,
       "errors": []
     },
     {
@@ -2654,29 +3301,49 @@
       "viewport": "1440x900",
       "vw": 1440,
       "vh": 900,
-      "docH": 14352,
-      "chromeH": 118,
-      "chromePct": 13.1,
+      "docH": 14778,
+      "chromeGeometry": {
+        "width": 1440,
+        "height": 900,
+        "bands": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 1440,
+            "visible": true
+          }
+        ],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 58,
+            "left": 0,
+            "right": 1440,
+            "visible": true
+          }
+        ]
+      },
       "overflowX": 0,
       "firstAction": 16,
       "h1Visible": true,
       "primaryActionVisible": true,
-      "voiceTop": 76,
-      "voiceSecond": 24,
+      "voiceTop": 32,
+      "voiceSecond": 32,
       "boxFit": [
         {
           "sel": ".hero-stat",
           "w": 104,
           "needed": 151,
           "ratio": 0.69,
-          "text": "82\n            Catal"
+          "text": "83\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 82,
           "needed": 116,
           "ratio": 0.71,
-          "text": "70\n            Label"
+          "text": "71\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -2975,6 +3642,13 @@
         {
           "sel": ".sys-cell",
           "w": 399,
+          "needed": 2432,
+          "ratio": 0.16,
+          "text": "83v1.0.0Live\n       "
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
           "needed": 1449,
           "ratio": 0.28,
           "text": "03v2.0.3Live\n       "
@@ -3121,9 +3795,9 @@
         },
         {
           "sel": ".sys-cell",
-          "w": 1200,
+          "w": 399,
           "needed": 1894,
-          "ratio": 0.63,
+          "ratio": 0.21,
           "text": "80Live\n            \n"
         },
         {
@@ -3373,16 +4047,16 @@
         },
         {
           "sel": ".btn",
-          "w": 197,
-          "needed": 189,
-          "ratio": 1.04,
+          "w": 200,
+          "needed": 177,
+          "ratio": 1.13,
           "text": "Start a Two-Week Pro"
         },
         {
           "sel": ".btn",
-          "w": 113,
-          "needed": 118,
-          "ratio": 0.96,
+          "w": 109,
+          "needed": 106,
+          "ratio": 1.03,
           "text": "View systems"
         },
         {
@@ -3522,6 +4196,209 @@
         },
         {
           "sel": "A",
+          "w": 61,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 12,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A.leaflet-control-zoom-in",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 18
+        },
+        {
+          "sel": "A.leaflet-control-zoom-out",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 18
+        },
+        {
+          "sel": "A",
+          "w": 51,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 68,
+          "h": 34,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 68,
+          "h": 34,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 71,
+          "h": 34,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
           "w": 265,
           "h": 31,
           "isPrimary": false,
@@ -3613,6 +4490,13 @@
         },
         {
           "sel": "A",
+          "w": 80,
+          "h": 36,
+          "isPrimary": false,
+          "fontSize": 10
+        },
+        {
+          "sel": "A",
           "w": 81,
           "h": 36,
           "isPrimary": false,
@@ -3668,8 +4552,10 @@
           "fontSize": 10
         }
       ],
-      "mapCoverPct": 100,
+      "mapCoverPct": 67.3,
       "lang": "en",
+      "chromeH": 58,
+      "chromePct": 6.4,
       "errors": []
     },
     {
@@ -3678,8 +4564,27 @@
       "vw": 390,
       "vh": 844,
       "docH": 844,
-      "chromeH": 44,
-      "chromePct": 5.2,
+      "chromeGeometry": {
+        "width": 390,
+        "height": 844,
+        "bands": [],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0,
+            "visible": true
+          },
+          {
+            "top": 0,
+            "bottom": 44,
+            "left": 0,
+            "right": 390,
+            "visible": true
+          }
+        ]
+      },
       "overflowX": 0,
       "firstAction": 326,
       "h1Visible": true,
@@ -3698,6 +4603,8 @@
       ],
       "mapCoverPct": null,
       "lang": "en",
+      "chromeH": 44,
+      "chromePct": 5.2,
       "errors": []
     },
     {
@@ -3706,8 +4613,27 @@
       "vw": 1024,
       "vh": 900,
       "docH": 900,
-      "chromeH": 44,
-      "chromePct": 4.9,
+      "chromeGeometry": {
+        "width": 1024,
+        "height": 900,
+        "bands": [],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 44,
+            "left": 0,
+            "right": 326.671875,
+            "visible": true
+          },
+          {
+            "top": 0,
+            "bottom": 44,
+            "left": 327.671875,
+            "right": 1024,
+            "visible": true
+          }
+        ]
+      },
       "overflowX": 0,
       "firstAction": 1,
       "h1Visible": true,
@@ -3782,6 +4708,8 @@
       ],
       "mapCoverPct": null,
       "lang": "en",
+      "chromeH": 44,
+      "chromePct": 4.9,
       "errors": []
     },
     {
@@ -3790,8 +4718,27 @@
       "vw": 1440,
       "vh": 900,
       "docH": 900,
-      "chromeH": 44,
-      "chromePct": 4.9,
+      "chromeGeometry": {
+        "width": 1440,
+        "height": 900,
+        "bands": [],
+        "headers": [
+          {
+            "top": 0,
+            "bottom": 44,
+            "left": 0,
+            "right": 419,
+            "visible": true
+          },
+          {
+            "top": 0,
+            "bottom": 44,
+            "left": 420,
+            "right": 1440,
+            "visible": true
+          }
+        ]
+      },
       "overflowX": 0,
       "firstAction": 1,
       "h1Visible": true,
@@ -3866,6 +4813,8 @@
       ],
       "mapCoverPct": null,
       "lang": "en",
+      "chromeH": 44,
+      "chromePct": 4.9,
       "errors": []
     }
   ],
@@ -3874,6 +4823,6 @@
     "widths": 3,
     "measurements": 6,
     "fails": 0,
-    "notes": 121
+    "notes": 187
   }
 }
