@@ -349,8 +349,8 @@
         // A frame that crops a picture on purpose is not a row that lost its
         // content. The palace plates are sprite crops — a 400%-wide image
         // inside a 3:4 window with overflow hidden — and that is the picture
-        // working, not a defect.
-        if (oe.querySelector("img, picture, video, canvas")) continue;
+        // working, not a defect. Maps (.leaflet-pane) similarly crop tiles/vectors.
+        if (oe.querySelector("img, picture, video, canvas, .leaflet-pane")) continue;
         push(F, "clip", sel(oe), oe.scrollWidth - oe.clientWidth,
           sel(oe) + " hides " + (oe.scrollWidth - oe.clientWidth) + "px of its own content");
       }

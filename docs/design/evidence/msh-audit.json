@@ -1,12 +1,12 @@
 {
   "verdict": "PASS",
-  "checkedAt": "2026-11-07T18:14:01.579Z",
+  "checkedAt": "2026-11-07T18:32:59.900Z",
   "fails": [],
   "notes": [
     {
       "surface": "axiom",
       "width": "390x844",
-      "detail": "document 35014px = 41.5× viewport height"
+      "detail": "document 35178px = 41.7× viewport height"
     },
     {
       "surface": "axiom",
@@ -216,7 +216,7 @@
     {
       "surface": "axiom",
       "width": "1024x900",
-      "detail": "document 14444px = 16.0× viewport height"
+      "detail": "document 14503px = 16.1× viewport height"
     },
     {
       "surface": "axiom",
@@ -312,6 +312,21 @@
       "surface": "axiom",
       "width": "1024x900",
       "detail": "prose credit link A 71×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
     },
     {
       "surface": "axiom",
@@ -531,7 +546,7 @@
     {
       "surface": "axiom",
       "width": "1440x900",
-      "detail": "document 14778px = 16.4× viewport height"
+      "detail": "document 14837px = 16.5× viewport height"
     },
     {
       "surface": "axiom",
@@ -627,6 +642,21 @@
       "surface": "axiom",
       "width": "1440x900",
       "detail": "prose credit link A 71×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A.research-preview 81×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 32×32px (font 13px) — not a tap target"
     },
     {
       "surface": "axiom",
@@ -945,7 +975,7 @@
       "viewport": "390x844",
       "vw": 390,
       "vh": 844,
-      "docH": 35014,
+      "docH": 35178,
       "chromeGeometry": {
         "width": 390,
         "height": 844,
@@ -2039,7 +2069,7 @@
       "viewport": "1024x900",
       "vw": 1024,
       "vh": 900,
-      "docH": 14444,
+      "docH": 14503,
       "chromeGeometry": {
         "width": 1024,
         "height": 900,
@@ -3136,6 +3166,27 @@
           "fontSize": 13
         },
         {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
           "sel": "A",
           "w": 265,
           "h": 31,
@@ -3301,7 +3352,7 @@
       "viewport": "1440x900",
       "vw": 1440,
       "vh": 900,
-      "docH": 14778,
+      "docH": 14837,
       "chromeGeometry": {
         "width": 1440,
         "height": 900,
@@ -4398,6 +4449,27 @@
           "fontSize": 13
         },
         {
+          "sel": "A.research-preview",
+          "w": 81,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 32,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
           "sel": "A",
           "w": 265,
           "h": 31,
@@ -4823,6 +4895,6 @@
     "widths": 3,
     "measurements": 6,
     "fails": 0,
-    "notes": 187
+    "notes": 193
   }
 }
