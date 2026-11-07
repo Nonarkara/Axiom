@@ -35,6 +35,33 @@
     let map = null;
     let observer = null;
     const layers = [];
+    let reader;
+    let readerRequest = 0;
+    async function onPreview(event) {
+      if (!reader && event.target.closest('[data-reader-close]')) { root.querySelector('[data-research-reader]').close(); return; }
+      const trigger = event.target.closest('[data-research-preview]');
+      if (!trigger) return;
+      const paper = data.papers.find(paper => paper.id === trigger.dataset.researchPreview);
+      if (!paper) return;
+      event.preventDefault();
+      const request = ++readerRequest;
+      try {
+        const module = await import('./research-reader.js?v=20261105reader1');
+        if (request !== readerRequest || !root.isConnected) return;
+        reader ||= module.createReader(root, copy);
+        reader.open(paper, trigger);
+      } catch (error) {
+        if (request !== readerRequest || !root.isConnected) return;
+        const dialog = root.querySelector('[data-research-reader]');
+        dialog.querySelector('#research-reader-title').textContent = paper.title;
+        dialog.querySelector('[data-reader-open]').href = paper.pdf;
+        dialog.querySelector('[data-reader-status]').textContent = copy().readerError;
+        dialog.querySelector('[data-reader-status]').hidden = false;
+        dialog.dataset.readerState = 'error';
+        if (!dialog.open) dialog.showModal();
+      }
+    }
+    root.addEventListener('click', onPreview);
     function focusMap(event) {
       if (!event.target.closest('.leaflet-control')) mapNode.focus({ preventScroll: true });
     }
@@ -113,7 +140,7 @@
           // Reference cities cannot establish provincial fit boxes.
           bounds.extend(item.bounds || geography.regions.find(item => item.id === 'thailand').bounds);
         });
-        if (bounds.isValid()) map.fitBounds(bounds, { animate: false, padding: [24, 20] });
+        if (bounds.isValid()) map.fitBounds(bounds, { animate: false, padding: [48, 20] });
       }
     }
     function setLocale(next) {
@@ -123,8 +150,12 @@
         if (typeof copy()[key] === 'string') node.textContent = copy()[key];
       });
       mapNode.setAttribute('aria-label', copy().mapTitle);
-      const zoomIn = mapNode.querySelector('.leaflet-control-zoom-in');
-      const zoomOut = mapNode.querySelector('.leaflet-control-zoom-out');
+      root.querySelectorAll('[data-reader-label]').forEach(node => {
+        node.title = copy()[node.dataset.readerLabel];
+        if (node.tagName === 'BUTTON') node.setAttribute('aria-label', node.title);
+      });
+      const zoomIn = root.querySelector('.leaflet-control-zoom-in');
+      const zoomOut = root.querySelector('.leaflet-control-zoom-out');
       if (zoomIn) zoomIn.setAttribute('aria-label', copy().zoomIn);
       if (zoomOut) zoomOut.setAttribute('aria-label', copy().zoomOut);
       update(false);
@@ -150,9 +181,10 @@
         const size = mapNode.getBoundingClientRect();
         if (!size.width || !size.height) throw new Error('Research map has no rendered size');
         map = L.map(mapNode, { zoomControl: true, attributionControl: true, keyboard: true, scrollWheelZoom: false, doubleClickZoom: false, zoomAnimation: false, fadeAnimation: false, markerZoomAnimation: false });
+        root.querySelector('[data-research-map-tools]').append(map.zoomControl.getContainer());
         // Leaflet's pointer focus otherwise scrolls a short reader pane mid-click.
         mapNode.addEventListener('mousedown', focusMap, true);
-        map.fitBounds(geography.regions.find(region => region.id === 'thailand').bounds, { animate: false, padding: [24, 20] });
+        map.fitBounds(geography.regions.find(region => region.id === 'thailand').bounds, { animate: false, padding: [48, 20] });
         const panBy = map.panBy;
         map.panBy = function (offset, options) { return panBy.call(this, offset, Object.assign({}, options, { animate: false })); };
         map.attributionControl.setPrefix(false);
@@ -205,6 +237,9 @@
       root.dataset.mapError = error.message;
     }
     const controller = { setLocale, destroy: function () {
+      readerRequest++;
+      root.removeEventListener('click', onPreview);
+      reader?.destroy();
       regionSelect.removeEventListener('change', onRegion);
       systemSelect.removeEventListener('change', onSystem);
       mapNode.removeEventListener('mousedown', focusMap, true);

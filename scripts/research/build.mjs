@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { resolve, dirname, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { researchCopy } from './copy.mjs';
@@ -96,6 +96,8 @@ export async function verifyDestinations(papers, { root = ROOT, fetcher = fetch 
 
 export function renderLibrary(papers, { book = false } = {}) {
   const text = (key, tag = 'span') => `<${tag} data-i18n="research.${key}">${escape(researchCopy.en[key])}</${tag}>`;
+  const icon = name => `<img class="research-icon" src="vendor/lucide/${name}.svg" width="18" height="18" alt="">`;
+  const tool = (key, name, attr) => `<button type="button" ${attr} data-reader-label="${key}" title="${escape(researchCopy.en[key])}" aria-label="${escape(researchCopy.en[key])}">${icon(name)}</button>`;
   const regions = researchRegions.filter(region => papers.some(p => p.study.region === region.id));
   const systems = [...new Set(papers.map(p => p.system))];
   const options = systems.map(system => `<option value="${escape(system)}">${escape(system)} (${papers.filter(p => p.system === system).length})</option>`).join('');
@@ -104,8 +106,8 @@ export function renderLibrary(papers, { book = false } = {}) {
           <${book ? 'h2' : 'h3'} id="research-paper-${escape(p.id)}" lang="en">${escape(p.title)}</${book ? 'h2' : 'h3'}>
           <div class="research-facts"><p class="research-meta">${escape(p.authors.join(', '))} · <time datetime="${p.date}">${p.date}</time> · ${escape(p.system)} · ${escape(p.version)}</p>
           <p class="research-coverage"><span lang="en">${escape(p.study.label)}</span> · ${text(p.study.scope)}</p></div>
-          <div class="research-commands"><div class="research-actions"><a href="${escape(p.pdf)}" aria-labelledby="research-download-${escape(p.id)} research-paper-${escape(p.id)}" download${book ? ' target="_blank" rel="noopener"' : ''}><span id="research-download-${escape(p.id)}" data-i18n="research.pdf">${escape(researchCopy.en.pdf)}</span></a><a href="${escape(p.source)}" target="_blank" rel="noopener">${text('source')}</a></div>
-          <details class="research-study"><summary data-i18n="research.details">${escape(researchCopy.en.details)}</summary><dl>${['question', 'evidence', 'limitation'].map(key => `<dt data-i18n="research.${key}">${escape(researchCopy.en[key])}</dt><dd lang="en">${escape(p[key])}</dd>`).join('')}</dl></details></div>
+          <div class="research-commands"><div class="research-actions"><a class="research-preview" href="${escape(p.pdf)}" data-research-preview="${escape(p.id)}" aria-labelledby="research-preview-${escape(p.id)} research-paper-${escape(p.id)}" aria-haspopup="dialog" target="_blank" rel="noopener">${icon('book-open')}<span id="research-preview-${escape(p.id)}" data-i18n="research.preview">${escape(researchCopy.en.preview)}</span></a><a href="${escape(p.pdf)}" aria-labelledby="research-download-${escape(p.id)} research-paper-${escape(p.id)}" data-reader-label="pdf" title="Download PDF" download${book ? ' target="_blank" rel="noopener"' : ''}>${icon('download')}<span class="research-sr" id="research-download-${escape(p.id)}" data-i18n="research.pdf">${escape(researchCopy.en.pdf)}</span></a><a href="${escape(p.source)}" data-reader-label="source" title="Source" target="_blank" rel="noopener">${icon('external-link')}<span class="research-sr" data-i18n="research.source">${escape(researchCopy.en.source)}</span></a></div>
+          <details class="research-study"><summary data-reader-label="details" title="Study details">${icon('info')}<span class="research-sr" data-i18n="research.details">${escape(researchCopy.en.details)}</span></summary><dl>${['question', 'evidence', 'limitation'].map(key => `<dt data-i18n="research.${key}">${escape(researchCopy.en[key])}</dt><dd lang="en">${escape(p[key])}</dd>`).join('')}</dl></details></div>
         </article>`).join('\n');
   return `<section class="${book ? 'research-library research-library--book' : 'section research-library'}" id="research" data-research-library aria-labelledby="research-title">
       <div class="research-desk">
@@ -113,10 +115,10 @@ export function renderLibrary(papers, { book = false } = {}) {
         <div class="research-map" data-research-map role="region" hidden></div>
         <p class="research-map-fallback" data-research-fallback data-i18n="research.mapStatic">${escape(researchCopy.en.mapStatic)}</p>
         <figcaption>${text('mapNote')}
-      <details class="research-provenance"><summary data-i18n="research.mapSources">${escape(researchCopy.en.mapSources)}</summary><ul>
+      <div class="research-atlas-tools"><div data-research-map-tools></div><details class="research-provenance"><summary data-i18n="research.mapSources">${escape(researchCopy.en.mapSources)}</summary><ul>
         <li><a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener">Natural Earth · 1:110m · Public domain</a></li>
         ${regions.map(region => `<li><a href="${escape(region.source)}" target="_blank" rel="noopener">${escape(researchCopy.en[region.nameKey])}</a> · <span data-i18n="research.${region.geometryKey}">${escape(researchCopy.en[region.geometryKey])}</span></li>`).join('')}
-      </ul></details></figcaption>
+      </ul></details></div></figcaption>
       </figure>
       <div class="research-index">
       <div class="research-heading"><${book ? 'h1' : 'h2'} id="research-title" data-i18n="research.title">Research</${book ? 'h1' : 'h2'}>${text('notice', 'p')}</div>
@@ -125,11 +127,17 @@ export function renderLibrary(papers, { book = false } = {}) {
         <label class="research-filter">${text('system')} <select data-research-filter><option value="" data-i18n="research.all">${escape(researchCopy.en.all)}</option>${options}</select><span data-research-filter-value hidden></span></label>
         <output class="research-count" data-research-count aria-live="polite">${papers.length} / ${papers.length} ${escape(researchCopy.en.papers)}</output>
       </div>
+      </div>
       <div class="research-list">
 ${rows || '        ' + text('empty', 'p')}
       </div>
       <p data-research-empty hidden data-i18n="research.noResults">${escape(researchCopy.en.noResults)}</p>
-      </div></div>
+      </div>
+      <dialog class="research-reader" aria-labelledby="research-reader-title" data-research-reader>
+        <div class="research-reader-head"><div><h2 id="research-reader-title" lang="en"></h2><p data-i18n="research.notice">${escape(researchCopy.en.notice)}</p></div>${tool('close', 'x', 'data-reader-close')}</div>
+        <div class="research-reader-toolbar"><div class="research-reader-pages">${tool('previousPage', 'chevron-left', 'data-reader-previous disabled')}<label>${text('page')} <input data-reader-page type="number" min="1" value="1" inputmode="numeric"></label><span data-reader-total></span>${tool('nextPage', 'chevron-right', 'data-reader-next disabled')}</div><div class="research-reader-zoom">${tool('zoomPageOut', 'zoom-out', 'data-reader-zoom-out disabled')}${tool('fitWidth', 'scan', 'data-reader-fit disabled')}<output data-reader-scale></output>${tool('zoomPageIn', 'zoom-in', 'data-reader-zoom-in disabled')}</div><a data-reader-open target="_blank" rel="noopener">${text('openPDF')}</a></div>
+        <div class="research-reader-viewport" data-reader-viewport tabindex="0" role="document"><p data-reader-status role="status" aria-live="polite"></p><div class="research-reader-sheet" data-reader-sheet></div></div>
+      </dialog>
     </section>
     `;
 }
@@ -178,6 +186,7 @@ export async function build({ root = ROOT, check = false, verify = false } = {})
     [resolve(root, 'public/research.css'), css],
     [resolve(root, 'axiomx/research.css'), css],
     [resolve(root, 'axiomx/research-ui.js'), '// Generated from public/research-ui.js.\n' + controller],
+    [resolve(root, 'axiomx/research-reader.js'), await readFile(resolve(ROOT, 'public/research-reader.js'), 'utf8')],
     [resolve(root, 'scripts/research/assets/provenance.json'), json(geography.provenance) + '\n'],
   ]);
   for (const [file, value] of outputs) {
@@ -185,6 +194,31 @@ export async function build({ root = ROOT, check = false, verify = false } = {})
       if (await readFile(file, 'utf8') !== value) throw new Error(`Stale research artifact: ${file}`);
     } else await writeFile(file, value);
   }
+  // Preview stays same-origin on both sites without weakening the book's CSP.
+  for (const paper of papers) {
+    const local = localPDFPath(paper.pdf);
+    if (!local) continue;
+    const bytes = await readFile(resolve(root, 'public', '.' + decodeURIComponent(local)));
+    const destination = resolve(root, 'axiomx', '.' + decodeURIComponent(local));
+    if (check) {
+      if (!bytes.equals(await readFile(destination))) throw new Error(`Stale preview PDF: ${paper.id}`);
+    } else { await mkdir(dirname(destination), { recursive: true }); await writeFile(destination, bytes); }
+  }
+  async function mirror(directory, destination) {
+    for (const entry of await readdir(directory, { withFileTypes: true })) {
+      const source = resolve(directory, entry.name);
+      const target = resolve(destination, entry.name);
+      if (entry.isDirectory()) await mirror(source, target);
+      else {
+        const bytes = await readFile(source);
+        if (check) {
+          if (!bytes.equals(await readFile(target))) throw new Error(`Stale preview vendor: ${entry.name}`);
+        } else { await mkdir(dirname(target), { recursive: true }); await writeFile(target, bytes); }
+      }
+    }
+  }
+  await mirror(resolve(ROOT, 'public/vendor/pdfjs-6.5.438'), resolve(root, 'axiomx/vendor/pdfjs-6.5.438'));
+  await mirror(resolve(ROOT, 'public/vendor/lucide'), resolve(root, 'axiomx/vendor/lucide'));
   return papers.length;
 }
 

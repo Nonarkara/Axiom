@@ -31,6 +31,17 @@ for (const [locale, values] of Object.entries(geographyCopy)) {
   keys.forEach((key, index) => { researchCopy[locale][key] = values[index]; });
 }
 for (const [locale, [zoomIn, zoomOut]] of Object.entries({ en: ['Zoom in', 'Zoom out'], th: ['ขยายแผนที่', 'ย่อแผนที่'], zh: ['放大', '缩小'], ko: ['확대', '축소'], ja: ['拡大', '縮小'], vi: ['Phóng to', 'Thu nhỏ'], ts: ['map.zoomIn()', 'map.zoomOut()'] })) Object.assign(researchCopy[locale], { zoomIn, zoomOut });
+const readerKeys = ['preview', 'close', 'previousPage', 'nextPage', 'page', 'fitWidth', 'zoomPageIn', 'zoomPageOut', 'loading', 'readerError', 'openPDF'];
+const readerCopy = {
+  en: ['Preview', 'Close preview', 'Previous page', 'Next page', 'Page', 'Fit width', 'Zoom in', 'Zoom out', 'Loading paper…', 'This paper could not be displayed. Open the PDF or try Preview again.', 'Open PDF'],
+  th: ['อ่านตัวอย่าง', 'ปิดตัวอย่าง', 'หน้าก่อนหน้า', 'หน้าถัดไป', 'หน้า', 'พอดีความกว้าง', 'ขยาย', 'ย่อ', 'กำลังโหลดบทความ…', 'แสดงบทความไม่ได้ กรุณาเปิด PDF หรือลองอ่านตัวอย่างอีกครั้ง', 'เปิด PDF'],
+  zh: ['预览', '关闭预览', '上一页', '下一页', '页码', '适合宽度', '放大', '缩小', '正在加载论文…', '无法显示论文。请打开 PDF 或重新预览。', '打开 PDF'],
+  ko: ['미리보기', '미리보기 닫기', '이전 페이지', '다음 페이지', '페이지', '너비에 맞춤', '확대', '축소', '논문 불러오는 중…', '논문을 표시할 수 없습니다. PDF를 열거나 다시 시도하세요.', 'PDF 열기'],
+  ja: ['プレビュー', 'プレビューを閉じる', '前のページ', '次のページ', 'ページ', '幅に合わせる', '拡大', '縮小', '論文を読み込み中…', '論文を表示できません。PDFを開くか再度お試しください。', 'PDFを開く'],
+  vi: ['Xem trước', 'Đóng xem trước', 'Trang trước', 'Trang sau', 'Trang', 'Vừa chiều rộng', 'Phóng to', 'Thu nhỏ', 'Đang tải bài báo…', 'Không thể hiển thị bài báo. Mở PDF hoặc thử xem trước lại.', 'Mở PDF'],
+  ts: ['preview()', 'preview.close()', 'page.previous()', 'page.next()', 'page', 'zoom.fitWidth()', 'zoom.in()', 'zoom.out()', 'paper.loading()', 'paper.renderFailed(); openPDF() or retry', 'open(PDF)'],
+};
+for (const [locale, values] of Object.entries(readerCopy)) readerKeys.forEach((key, index) => { researchCopy[locale][key] = values[index]; });
 for (const [locale, value] of Object.entries({
   en: 'The map and filters require JavaScript. All papers and PDF links are available below.',
   th: 'แผนที่และตัวกรองต้องใช้ JavaScript บทความและลิงก์ PDF ทั้งหมดยังคงอยู่ด้านล่าง',

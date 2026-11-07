@@ -1480,3 +1480,133 @@
   .hero-featured-badge__cta, .sat-signal-label) {
   letter-spacing: 0;
 }
+
+/* 2026-11-05: column operating table. The stage wrapper must not create
+   an implicit grid row. Map and instruments occupy separate tracks. */
+#hero {
+  --hero-display: 32px;
+  --hero-map-width: 68%;
+  height: calc(100svh - var(--masthead-offset, 58px));
+  min-height: 540px;
+  padding: 0;
+  grid-template-columns: minmax(0, 68fr) minmax(0, 32fr);
+  grid-template-rows: auto minmax(0, max-content) auto;
+  grid-template-areas: 'map tools' 'map content' 'map brief';
+  gap: 0;
+  align-content: start;
+  overflow: hidden;
+}
+#hero .hero-stage { display: contents; }
+#heroMap {
+  position: absolute;
+  grid-area: auto;
+  inset: 0 auto 0 0;
+  width: var(--hero-map-width);
+  height: 100%;
+  min-height: 0;
+  filter: none;
+}
+#heroCanvas {
+  inset: 0 auto auto 0;
+  width: var(--hero-map-width);
+  height: 100%;
+  max-width: var(--hero-map-width);
+}
+#hero .hero-map-space {
+  display: block;
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: var(--hero-map-width);
+  height: 100%;
+  min-height: 0;
+  pointer-events: none;
+}
+#hero .map-mode {
+  grid-area: tools;
+  margin: 8px 0 8px 12px;
+  align-self: start;
+}
+#hero .sat-hud {
+  grid-area: tools;
+  margin: 8px 12px 8px 130px;
+  padding: 0;
+  align-self: center;
+  background: transparent;
+  border: 0;
+  gap: 2px;
+  max-width: none;
+  color: var(--ink);
+}
+#hero .sat-hud-row { flex-wrap: wrap; gap: 2px 8px; font-size: 10px; }
+#hero .sat-hud-row span { color: inherit; }
+#hero .sat-hud-theatre { margin-left: 0; }
+#hero .sat-hud-live-dot { background: var(--accent); }
+#hero .hero-content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  padding: 4px 12px 12px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+#hero .hero-copy { gap: 8px; flex: 0 0 auto; }
+#hero .hero-title { font-size: 32px; color: var(--ink); letter-spacing: 0; }
+#hero .hero-line-accent { min-height: 1.08em; color: var(--accent); }
+#hero .hero-subtitle { font-size: 14px; line-height: 1.4; color: var(--ink); opacity: 1; }
+#hero .hero-badge { padding: 0; background: none; color: var(--accent); }
+#hero .hero-badge-dot { background: var(--accent); }
+#hero .hero-actions { margin: 0; gap: 6px; }
+#hero .hero-actions .btn { padding: 6px 8px; font-size: 12px; }
+#hero .hero-actions .btn--ghost { color: var(--ink); border-color: var(--line); background: transparent; }
+#hero .hero-node-strip { flex: 0 0 auto; }
+#hero .hero-node-strip-head { gap: 6px; margin-bottom: 6px; }
+#hero .hero-node-strip-label { color: var(--ink); opacity: 1; }
+#hero .hero-project-select { max-width: 100%; min-height: 36px; padding: 4px 6px; letter-spacing: 0; }
+#hero .hero-node-strip-scroller { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+#hero .hero-node { padding: 4px 6px; min-height: 44px; background: transparent; color: var(--ink); border-color: var(--line); }
+#hero .hero-node.is-active { background: var(--accent); color: var(--paper); }
+#hero .hero-node-name { font-size: 12px; }
+#hero .hero-node-meta { overflow-wrap: anywhere; }
+#hero .hero-stats { flex: 0 0 auto; align-self: start; gap: 12px; }
+#hero .hero-stat-value { font-size: 22px; color: var(--ink); }
+#hero .hero-stat-label { color: var(--ink); opacity: 1; }
+#hero .hero-proof { grid-area: brief; margin: 0 12px 8px; gap: 4px; min-height: 0; }
+#hero .hero-console { max-height: 290px; }
+#hero .hero-console__panel { max-height: 120px; min-height: 0; flex: 0 1 auto; overflow: auto; overscroll-behavior: contain; }
+#hero .hero-console__head, #hero .hero-console__foot { flex: 0 0 auto; }
+#hero .hero-console__list { grid-template-columns: minmax(0, 1fr); }
+#hero .hero-console__foot { grid-template-columns: minmax(0, 1fr); }
+#hero .hero-footprint-note { color: var(--ink); font-size: 10px; line-height: 1.3; }
+#hero .hero-city-label { display: none; }
+#hero .hero-console * { letter-spacing: 0; }
+
+@media (min-width: 701px) and (max-height: 800px) {
+  #hero .hero-console__panel { max-height: 80px; }
+}
+
+@media (max-width: 700px) {
+  #hero {
+    --hero-map-width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 62.5svh max-content max-content max-content;
+    grid-template-areas: 'map' 'tools' 'content' 'brief';
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  #heroCanvas { height: 62.5svh; max-height: 62.5svh; }
+  #heroMap { position: relative; grid-area: map; inset: auto; width: 100%; }
+  #hero .hero-map-space { height: 62.5svh; }
+  #hero .hero-content { overflow: visible; }
+  #hero .hero-title { font-size: 28px; }
+  #hero .sat-hud { justify-self: start; }
+  #hero .sat-hud-row:has(.sat-hud-signals),
+  #hero .sat-hud-signals { display: flex; }
+  #hero .sat-hud-row:first-child { display: flex; }
+  #hero .hero-console__panel { max-height: 240px; }
+}
