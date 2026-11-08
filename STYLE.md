@@ -18,7 +18,8 @@ index, not promotional cards: title, authors/version, then the PDF action.
 
 ## Standing Laws
 
-Read [MSH](MSH.md), [Glance Path](GLANCE-PATH-FOR-AI.md) and
+Read [THE-BOOK](THE-BOOK.md) (Non's Design Scripture: Canon, absolute, non-negotiable),
+[MSH](MSH.md), [Glance Path](GLANCE-PATH-FOR-AI.md) and
 [Kinetic Grids](KINETIC-GRIDS-FOR-AI.md) before visual work. These checked-in
 documents mirror the owner's canonical `_reference/` documents. Downloads are
 input evidence, not an alternative authority. Never silently weaken the laws.
