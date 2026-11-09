@@ -1402,5 +1402,29 @@
     "width": "779",
     "height": "1600",
     "medium": "hanging scroll, ink on paper"
+  },
+  "co": {
+    "artist": "Gerrit Adriaenszoon Berckheyde",
+    "title": "Market Place at Haarlem, Looking towards Grote Kerk",
+    "year": "1665",
+    "collection": "Frans Hals Museum, Haarlem",
+    "source": "https://commons.wikimedia.org/wiki/File:Market_Place_at_Haarlem,_Looking_towards_Grote_Kerk_by_Berckheyde.jpg",
+    "licence": "Public domain",
+    "why": "Town squares, markets, and public meeting grounds form the civic spine of any settlement. co maps community places so local venues, gathering halls, and shared public amenities are directly navigable by the citizens who use them.",
+    "width": "1600",
+    "height": "1156",
+    "medium": "oil on panel"
+  },
+  "kl": {
+    "artist": "Jacopo de' Barbari",
+    "title": "View of Venice",
+    "year": "1500",
+    "collection": "Minneapolis Institute of Art",
+    "source": "https://commons.wikimedia.org/wiki/File:Jacopo_de%27_Barbari_-_View_of_Venice_-_Minneapolis_Institute_of_Art.jpg",
+    "licence": "Public domain",
+    "why": "The monumental 1500 woodcut aerial perspective of Venice: the earliest comprehensive three-dimensional survey of a grand metropolis, rendering roofs, elevations, and canals in exact spatial relationship. KLx continues that lineage in the browser, streaming Kuala Lumpur's three-dimensional architectural fabric as PMTiles.",
+    "width": "1600",
+    "height": "771",
+    "medium": "woodcut on six sheets of paper"
   }
 }

@@ -2,8 +2,8 @@
 .research-library { container: research / inline-size; color: var(--ink); --research-accent: var(--accent, var(--navy)); padding-block: 16px; }
 .research-library [hidden] { display: none !important; }
 .research-desk { display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; gap: 8px 20px; max-width: 1200px; }
-.research-atlas { margin: 0; min-width: 0; align-self: start; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
-.research-library .research-map { height: 144px; width: 100%; background: #f0f4f4; z-index: 0; }
+.research-atlas { margin: 0; min-width: 0; align-self: start; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.research-library .research-map { height: 240px; width: 100%; background: #f0f4f4; z-index: 0; }
 .research-atlas figcaption { margin: 0; font-size: var(--t-body, 14px); line-height: 1.4; letter-spacing: 0; }
 .research-atlas-tools { display: flex; flex-wrap: wrap; align-items: start; gap: 0 8px; margin-top: 4px; }
 .research-atlas-tools:has(details[open]) details { flex-basis: 100%; }
@@ -56,7 +56,6 @@
 html:has(.research-noscript), body:has(.research-noscript) { height: auto; overflow: auto; }
 body:has(.research-noscript) .shell { display: none; }
 @container research (min-width: 650px) {
-  .research-desk { grid-template-columns: 420px minmax(0, 1fr); }
   .research-row { grid-template-columns: minmax(0, 1fr) max-content; }
   .research-row > :is(h2, h3, .research-facts) { grid-column: 1; }
   .research-commands { grid-column: 2; grid-row: 1 / 3; align-self: center; gap: 0 4px; }

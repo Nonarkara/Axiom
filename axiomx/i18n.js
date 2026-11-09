@@ -419,6 +419,12 @@
           "lede": "Chiang Mai's operations centre — a live Leaflet map of the city with weather, traffic and fire hotspots, plus an 850 hPa forecast layer. Desk research, not a property listing.",
           "cta": "Open Chiang Mai IOC"
         },
+        "kl": {
+          "name": "KLx 3D Atlas",
+          "cat": "Regional Operations",
+          "lede": "KLx 3D Atlas of Kuala Lumpur — public 3D atlas, buildings streamed as PMTiles.",
+          "cta": "Open KLx"
+        },
         "slic": {
           "name": "SLIC Index",
           "cat": "City Benchmarking",
@@ -532,6 +538,12 @@
           "cat": "Disaster Preparedness",
           "lede": "Coastal tsunami defense and early warning intelligence platform for the Andaman rim. Live buoy telemetry, seismic sensor networks, run-up modeling, and coastal evacuation vectors.",
           "cta": "Open Soonami"
+        },
+        "co": {
+          "name": "co",
+          "cat": "Business Operations",
+          "lede": "Community places directory — map of places with categories and details.",
+          "cta": "Open co"
         },
         "podcast-20min": {
           "name": "20 Minutes with Dr Non",
@@ -919,6 +931,12 @@
           "lede": "ศูนย์ปฏิบัติการเชียงใหม่ — แผนที่เมืองเชียงใหม่แบบสดบน Leaflet พร้อมสภาพอากาศ การจราจร และจุดเกิดไฟป่า พร้อมชั้นพยากรณ์ 850 hPa เป็นการค้นคว้าเบื้องต้น ไม่ใช่ประกาศขายหรือให้เช่าอสังหาริมทรัพย์",
           "cta": "เปิดศูนย์ปฏิบัติการเชียงใหม่"
         },
+        "kl": {
+          "name": "KLx 3D Atlas",
+          "cat": "ปฏิบัติการระดับภูมิภาค",
+          "lede": "KLx แผนที่ 3D ของกัวลาลัมเปอร์ — แผนที่ 3D สาธารณะ อาคารสตรีมเป็น PMTiles",
+          "cta": "เปิด KLx"
+        },
         "slic": {
           "name": "SLIC Index",
           "cat": "การจัดอันดับเมือง",
@@ -1032,6 +1050,12 @@
           "cat": "การเตรียมพร้อมรับภัยพิบัติ",
           "lede": "แพลตฟอร์มข่าวกรองป้องกันและเตือนภัยล่วงหน้าสึนามิชายฝั่งสำหรับแนวขอบทะเลอันดามัน โทรมาตรทุ่นลอยแบบเรียลไทม์ เครือข่ายเซนเซอร์แผ่นดินไหว แบบจำลองการซัดท่วม และเวกเตอร์อพยพชายฝั่ง",
           "cta": "เปิด Soonami"
+        },
+        "co": {
+          "name": "co",
+          "cat": "ระบบบริหารธุรกิจ",
+          "lede": "ไดเรกทอรีสถานที่ชุมชน — แผนที่สถานที่พร้อมหมวดหมู่และรายละเอียด",
+          "cta": "เปิด co"
         },
         "podcast-20min": {
           "name": "20 นาทีกับ ดร.นน",
@@ -1419,6 +1443,12 @@
           "lede": "清迈运营中心 — 城市的实时 Leaflet 地图，带天气、交通和火灾热点，以及 850 hPa 预报层。案头研究，不是房源列表。",
           "cta": "打开清迈 IOC"
         },
+        "kl": {
+          "name": "KLx 3D Atlas",
+          "cat": "区域运营",
+          "lede": "KLx 吉隆坡 3D 地图 — 公共 3D 地图，建筑以 PMTiles 流式传输",
+          "cta": "打开 KLx"
+        },
         "slic": {
           "name": "SLIC Index",
           "cat": "城市基准评分",
@@ -1532,6 +1562,12 @@
           "cat": "防灾减灾",
           "lede": "安达曼海沿岸海啸防御与早期预警智能平台。汇聚实时浮标遥测、地震传感器网络、涌波爬升模型与沿海撤离路径。",
           "cta": "打开 Soonami"
+        },
+        "co": {
+          "name": "co",
+          "cat": "企业运营",
+          "lede": "社区场所目录 — 包含丰富分类与详细信息的地点空间地图。",
+          "cta": "打开 co"
         },
         "podcast-20min": {
           "name": "与阿南博士的二十分钟",
@@ -1919,6 +1955,12 @@
           "lede": "치앙마이 운영 센터 — 날씨, 교통, 화재 핫스팟이 포함된 도시 실시간 Leaflet 지도, 850 hPa 예보 레이어. 책상 연구이지 매물 목록이 아닙니다.",
           "cta": "치앙마이 IOC 열기"
         },
+        "kl": {
+          "name": "KLx 3D Atlas",
+          "cat": "지역 운영",
+          "lede": "KLx 쿠알라룸푸르 3D 어틀라스 — PMTiles로 스트리밍되는 공공 3D 어틀라스",
+          "cta": "KLx 열기"
+        },
         "slic": {
           "name": "SLIC Index",
           "cat": "도시 벤치마킹",
@@ -2032,6 +2074,12 @@
           "cat": "재난 대비",
           "lede": "안다만 해안 쓰나미 방어 및 조기 경보 인텔리전스 플랫폼. 실시간 부표 원격 측정, 지진 센서 네트워크, 소상 모델링 및 해안 대피 벡터 제공.",
           "cta": "Soonami 열기"
+        },
+        "co": {
+          "name": "co",
+          "cat": "비즈니스 운영",
+          "lede": "커뮤니티 장소 디렉터리 — 범주와 세부 정보가 있는 장소 지도",
+          "cta": "co 열기"
         },
         "podcast-20min": {
           "name": "20분 with 닥터 논",
@@ -2419,6 +2467,12 @@
           "lede": "チェンマイの運営センター — 天気、交通、火災ホットスポットを備えた都市のライブ Leaflet 地図、850 hPa 予報レイヤー。机上調査であり、物件リストではありません。",
           "cta": "チェンマイ IOC を開く"
         },
+        "kl": {
+          "name": "KLx 3D Atlas",
+          "cat": "地域オペレーション",
+          "lede": "KLx クアラルンプール 3D アトラス — PMTiles でストリーミングされる公共 3D アトラス",
+          "cta": "KLx を開く"
+        },
         "slic": {
           "name": "SLIC Index",
           "cat": "都市ベンチマーク",
@@ -2532,6 +2586,12 @@
           "cat": "防災対策",
           "lede": "アンダマン沿岸津波防護・早期警戒インテリジェンスプラットフォーム。海洋ブイ観測、地震センサー網、遡上シミュレーション、沿岸避難ベクトルを統合。",
           "cta": "Soonamiを開く"
+        },
+        "co": {
+          "name": "co",
+          "cat": "業務管理",
+          "lede": "コミュニティ施設ディレクトリ — カテゴリと詳細付きの場所マップ",
+          "cta": "co を開く"
         },
         "podcast-20min": {
           "name": "Dr Nonとの20分",
@@ -2919,6 +2979,12 @@
           "lede": "Trung tâm điều hành Chiang Mai — bản đồ thành phố trực tiếp trên Leaflet với thời tiết, giao thông và nhiệt điểm cháy rừng, cùng lớp dự báo 850 hPa. Đây là nghiên cứu tại bàn, không phải danh sách bất động sản.",
           "cta": "Mở Trung tâm Điều hành Chiang Mai"
         },
+        "kl": {
+          "name": "KLx 3D Atlas",
+          "cat": "Vận hành khu vực",
+          "lede": "KLx 3D Atlas Kuala Lumpur — bản đồ 3D công cộng, tòa nhà phát trực tuyến dưới dạng PMTiles",
+          "cta": "Mở KLx"
+        },
         "slic": {
           "name": "SLIC Index",
           "cat": "Đối sánh thành phố",
@@ -3032,6 +3098,12 @@
           "cat": "Ứng phó thảm họa",
           "lede": "Nền tảng tình báo phòng thủ và cảnh báo sớm sóng thần ven biển cho vành đai Andaman. Đo xa phao thực tế, mạng lưới cảm biến địa chấn, mô hình dòng triều dâng và hướng sơ tán ven biển.",
           "cta": "Mở Soonami"
+        },
+        "co": {
+          "name": "co",
+          "cat": "Vận hành doanh nghiệp",
+          "lede": "Thư mục địa điểm cộng đồng — bản đồ địa điểm có danh mục và chi tiết",
+          "cta": "Mở co"
         },
         "podcast-20min": {
           "name": "20 phút với Dr Non",

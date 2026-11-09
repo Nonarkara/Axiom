@@ -41,8 +41,8 @@
   ],
   "countries": 5,
   "clusterCounts": {
-    "City Dashboards": 25,
-    "Civic": 9,
+    "City Dashboards": 26,
+    "Civic": 10,
     "Emerging": 13,
     "Intelligence": 10,
     "Lab": 26
@@ -2694,6 +2694,72 @@
       }
     },
     {
+      "id": "kl",
+      "cluster": "City Dashboards",
+      "idx": "85",
+      "panelsKey": "kl",
+      "catKey": "c01",
+      "status": "live",
+      "statusLabel": "Live",
+      "href": "https://kl.nonarkara.org/",
+      "domId": null,
+      "variant": "link",
+      "edition": null,
+      "image": {
+        "src": "screenshots/kl.png",
+        "webp": "screenshots/kl.webp",
+        "alt": "KLx 3D Atlas — Kuala Lumpur 3D atlas",
+        "width": null,
+        "height": null,
+        "crop": null
+      },
+      "arch": null,
+      "copy": {
+        "en": {
+          "lede": "KLx 3D Atlas of Kuala Lumpur — public 3D atlas, buildings streamed as PMTiles.",
+          "cta": "Open KLx",
+          "name": "KLx 3D Atlas",
+          "cat": "City Dashboards"
+        },
+        "th": {
+          "lede": "KLx แผนที่ 3D ของกัวลาลัมเปอร์ — แผนที่ 3D สาธารณะ อาคารสตรีมเป็น PMTiles",
+          "cta": "เปิด KLx",
+          "name": "KLx 3D Atlas",
+          "cat": "แดชบอร์ดเมือง"
+        },
+        "zh": {
+          "lede": "KLx 吉隆坡 3D 地图 — 公共 3D 地图，建筑以 PMTiles 流式传输",
+          "cta": "打开 KLx",
+          "name": "KLx 3D Atlas",
+          "cat": "城市仪表板"
+        },
+        "ko": {
+          "lede": "KLx 쿠알라룸푸르 3D 어틀라스 — PMTiles로 스트리밍되는 공공 3D 어틀라스",
+          "cta": "KLx 열기",
+          "name": "KLx 3D Atlas",
+          "cat": "도시 대시보드"
+        },
+        "ja": {
+          "lede": "KLx クアラルンプール 3D アトラス — PMTiles でストリーミングされる公共 3D アトラス",
+          "cta": "KLx を開く",
+          "name": "KLx 3D Atlas",
+          "cat": "都市ダッシュボード"
+        },
+        "vi": {
+          "lede": "KLx 3D Atlas Kuala Lumpur — bản đồ 3D công cộng, tòa nhà phát trực tuyến dưới dạng PMTiles",
+          "cta": "Mở KLx",
+          "name": "KLx 3D Atlas",
+          "cat": "Bảng điều khiển thành phố"
+        },
+        "ts": {
+          "lede": "klx.3dAtlas(kualaLumpur) // public 3D / PMTiles streaming",
+          "cta": "klx.open()",
+          "name": "KLx 3D Atlas",
+          "cat": "CityDashboards"
+        }
+      }
+    },
+    {
       "id": "slic",
       "cluster": "Intelligence",
       "idx": "04",
@@ -4667,6 +4733,72 @@
           "cta": "soonami.open()",
           "name": "Soonami · Tsunami Defense",
           "cat": "DisasterPreparedness"
+        }
+      }
+    },
+    {
+      "id": "co",
+      "cluster": "Civic",
+      "idx": "84",
+      "panelsKey": "co",
+      "catKey": "c60",
+      "status": "live",
+      "statusLabel": "Live",
+      "href": "https://co.nonarkara.org/",
+      "domId": null,
+      "variant": "link",
+      "edition": null,
+      "image": {
+        "src": "screenshots/co.png",
+        "webp": "screenshots/co.webp",
+        "alt": "co.nonarkara.org — Community places directory",
+        "width": null,
+        "height": null,
+        "crop": null
+      },
+      "arch": null,
+      "copy": {
+        "en": {
+          "lede": "Community places directory — map of places with categories and details.",
+          "cta": "Open co",
+          "name": "co",
+          "cat": "Community"
+        },
+        "th": {
+          "lede": "ไดเรกทอรีสถานที่ชุมชน — แผนที่สถานที่พร้อมหมวดหมู่และรายละเอียด",
+          "cta": "เปิด co",
+          "name": "co",
+          "cat": "ชุมชน"
+        },
+        "zh": {
+          "lede": "社区场所目录 — 包含丰富分类与详细信息的地点空间地图。",
+          "cta": "打开 co",
+          "name": "co",
+          "cat": "社区"
+        },
+        "ko": {
+          "lede": "커뮤니티 장소 디렉터리 — 범주와 세부 정보가 있는 장소 지도",
+          "cta": "co 열기",
+          "name": "co",
+          "cat": "커뮤니티"
+        },
+        "ja": {
+          "lede": "コミュニティ施設ディレクトリ — カテゴリと詳細付きの場所マップ",
+          "cta": "co を開く",
+          "name": "co",
+          "cat": "コミュニティ"
+        },
+        "vi": {
+          "lede": "Thư mục địa điểm cộng đồng — bản đồ địa điểm có danh mục và chi tiết",
+          "cta": "Mở co",
+          "name": "co",
+          "cat": "Cộng đồng"
+        },
+        "ts": {
+          "lede": "co.communityPlacesDirectory() // map + categories + details",
+          "cta": "co.open()",
+          "name": "co",
+          "cat": "Community"
         }
       }
     },

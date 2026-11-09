@@ -480,6 +480,11 @@
           "lede": "치앙마이 운영 센터 — 날씨, 교통, 화재 핫스팟이 포함된 도시 실시간 Leaflet 지도, 850 hPa 예보 레이어. 책상 연구이지 매물 목록이 아닙니다.",
           "cta": "치앙마이 IOC 열기"
         },
+        "kl": {
+          "lede": "KLx 쿠알라룸푸르 3D 어틀라스 — PMTiles로 스트리밍되는 공공 3D 어틀라스",
+          "cta": "KLx 열기",
+          "name": "KLx 3D Atlas"
+        },
         "p04": {
           "title": "A ranking <em>that argues back.</em>",
           "lede": "SLIC Index는 도시의 가치를 말해주지 않습니다. 다섯 기둥을 보여주고 우선순위를 스스로 시험하게 합니다. 시장이 '살기 좋음'의 의미를 정하면 수학이 따라갑니다.",
@@ -622,6 +627,11 @@
           "lede": "안다만 해안 쓰나미 방어 및 조기 경보 인텔리전스 플랫폼. 실시간 부표 원격 측정, 지진 센서 네트워크, 소상 모델링 및 해안 대피 벡터 제공.",
           "cta": "Soonami 열기",
           "name": "Soonami · 쓰나미 방어"
+        },
+        "co": {
+          "lede": "커뮤니티 장소 디렉터리 — 범주와 세부 정보가 있는 장소 지도",
+          "cta": "co 열기",
+          "name": "co"
         },
         "p52": {
           "name": "20분 with 닥터 논",
@@ -1219,13 +1229,13 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-        "sysMeta": "83개 시스템 · 5개국",
+        "sysMeta": "85개 시스템 · 5개국",
         "command": "도시 대시보드",
-        "commandMeta": "실시간 도시 운영실 및 환경 관측 · 25",
+        "commandMeta": "실시간 도시 운영실 및 환경 관측 · 26",
         "intelligence": "인텔리전스",
         "intelligenceMeta": "신호 및 분석 · 10",
         "civic": "시민",
-        "civicMeta": "국가 플랫폼 및 시민 인프라 · 9",
+        "civicMeta": "국가 플랫폼 및 시민 인프라 · 10",
         "emerging": "신규",
         "emergingMeta": "연구급 및 새 운영 모델 · 13",
         "lab": "랩",
@@ -1762,6 +1772,11 @@
           "lede": "チェンマイの運営センター — 天気、交通、火災ホットスポットを備えた都市のライブ Leaflet 地図、850 hPa 予報レイヤー。机上調査であり、物件リストではありません。",
           "cta": "チェンマイ IOC を開く"
         },
+        "kl": {
+          "lede": "KLx クアラルンプール 3D アトラス — PMTiles でストリーミングされる公共 3D アトラス",
+          "cta": "KLx を開く",
+          "name": "KLx 3D Atlas"
+        },
         "p04": {
           "title": "A ranking <em>that argues back.</em>",
           "lede": "SLIC Indexは都市の価値を教えません。5つの柱を示し、自らの優先順位を検証させます。市長が「住みやすさ」の意味を決め、数学がそれに従います。",
@@ -1904,6 +1919,11 @@
           "lede": "アンダマン沿岸津波防護・早期警戒インテリジェンスプラットフォーム。海洋ブイ観測、地震センサー網、遡上シミュレーション、沿岸避難ベクトルを統合。",
           "cta": "Soonamiを開く",
           "name": "Soonami · 津波防護"
+        },
+        "co": {
+          "lede": "コミュニティ施設ディレクトリ — カテゴリと詳細付きの場所マップ",
+          "cta": "co を開く",
+          "name": "co"
         },
         "p52": {
           "name": "Dr Nonとの20分",
@@ -2494,13 +2514,13 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-        "sysMeta": "83システム · 5か国",
+        "sysMeta": "85システム · 5か国",
         "command": "シティダッシュボード",
-        "commandMeta": "リアルタイム都市運用室と環境観測 · 25",
+        "commandMeta": "リアルタイム都市運用室と環境観測 · 26",
         "intelligence": "インテリジェンス",
         "intelligenceMeta": "シグナルと分析 · 10",
         "civic": "シビック",
-        "civicMeta": "国家プラットフォームと市民インフラ · 9",
+        "civicMeta": "国家プラットフォームと市民インフラ · 10",
         "emerging": "新興",
         "emergingMeta": "研究グレードと新運用モデル · 13",
         "lab": "ラボ",
@@ -3037,6 +3057,11 @@
           "lede": "Trung tâm điều hành Chiang Mai — bản đồ thành phố trực tiếp trên Leaflet với thời tiết, giao thông và nhiệt điểm cháy rừng, cùng lớp dự báo 850 hPa. Đây là nghiên cứu tại bàn, không phải danh sách bất động sản.",
           "cta": "Mở Trung tâm Điều hành Chiang Mai"
         },
+        "kl": {
+          "lede": "KLx 3D Atlas Kuala Lumpur — bản đồ 3D công cộng, tòa nhà phát trực tuyến dưới dạng PMTiles",
+          "cta": "Mở KLx",
+          "name": "KLx 3D Atlas"
+        },
         "p04": {
           "title": "A ranking <em>that argues back.</em>",
           "lede": "SLIC Index không nói thành phố đáng giá bao nhiêu. Nó cho thấy năm trụ cột và để họ tự kiểm tra ưu tiên. Thị trưởng quyết định \"sống được\" nghĩa là gì — và phép toán đi theo.",
@@ -3179,6 +3204,11 @@
           "lede": "Nền tảng tình báo phòng thủ và cảnh báo sớm sóng thần ven biển cho vành đai Andaman. Đo xa phao thực tế, mạng lưới cảm biến địa chấn, mô hình dòng triều dâng và hướng sơ tán ven biển.",
           "cta": "Mở Soonami",
           "name": "Soonami · Phòng thủ Sóng thần"
+        },
+        "co": {
+          "lede": "Thư mục địa điểm cộng đồng — bản đồ địa điểm có danh mục và chi tiết",
+          "cta": "Mở co",
+          "name": "co"
         },
         "p52": {
           "name": "20 phút với Dr Non",
@@ -3769,13 +3799,13 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-        "sysMeta": "83 hệ thống · 5 quốc gia",
+        "sysMeta": "85 hệ thống · 5 quốc gia",
         "command": "Bảng điều khiển thành phố",
-        "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 25",
+        "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 26",
         "intelligence": "Tình báo",
         "intelligenceMeta": "Tín hiệu và phân tích · 10",
         "civic": "Công dân",
-        "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 9",
+        "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 10",
         "emerging": "Mới nổi",
         "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 13",
         "lab": "Lab",
