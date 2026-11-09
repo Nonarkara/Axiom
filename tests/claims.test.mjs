@@ -121,9 +121,10 @@ test('the hero does not present a blanket online status or a measured frame rate
 });
 
 test('the phone HUD keeps its count on its own row, and obsolete rail declarations cannot close the media query', () => {
-  assert.match(heroCss, /\.sat-hud \{ flex-direction: column; align-items: stretch; gap: 2px; \}/);
-  assert.match(heroCss, /\.sat-hud-row:has\(\.sat-hud-signals\) \{ display: none; \}/);
-  assert.match(heroCss, /\.sat-hud-row:first-child \{ display: grid; grid-template-columns: minmax\(0, 1fr\); gap: 0; \}/);
+  // Phone HUD is now a single content-sized row beside the map-mode toggle
+  // (DESIGN-PRINCIPLES.md L1/L2: no stacked slabs, no dead void).
+  assert.match(heroCss, /\.sat-hud \{ flex-direction: row; flex-wrap: wrap; gap: 8px; align-items: center; justify-self: end; \}/);
+  assert.match(heroCss, /\.sat-hud-row \{ gap: 6px 10px; \}/);
   assert.doesNotMatch(heroCss, /\}\s*scroll-snap-type:\s*x proximity;\s*\}/);
   assert.doesNotMatch(heroCss, /backdrop-filter:\s*blur/);
   assert.doesNotMatch(html, /class="hero-gradient"/);

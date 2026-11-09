@@ -6658,18 +6658,6 @@ function initFlooddashCarousel() {
   const featuredEvent = document.getElementById('heroFeaturedEvent');
   const featuredName = document.getElementById('heroFeaturedName');
   const featuredLede = document.getElementById('heroFeaturedLede');
-  const projectSelect = document.getElementById('heroProjectSelect');
-  if (projectSelect) {
-    CITIES.forEach(city => {
-      const option = document.createElement('option');
-      option.value = city.key;
-      option.textContent = theatreCopy(city.key).name;
-      projectSelect.append(option);
-    });
-    projectSelect.firstElementChild?.remove();
-    projectSelect.addEventListener('change', () => selectStop(THEATRES[projectSelect.value]));
-  }
-
   let activeTheatreKey = CITIES[0].key;
   let selectedProject = null;
 
@@ -6712,6 +6700,7 @@ function initFlooddashCarousel() {
       const prefix = uiCopy[activeLocale]?.heroConsole?.scopePrefix || uiCopy.en?.heroConsole?.scopePrefix || 'Active scope';
       consoleFootScope.textContent = `${prefix.toUpperCase()}: ${String(name).toUpperCase()}`;
     }
+    const projectSelect = document.getElementById('heroProjectSelect');
     if (projectSelect) {
       projectSelect.value = theatre.key;
       Array.from(projectSelect.options).forEach(option => { option.textContent = theatreCopy(option.value).name; });

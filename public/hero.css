@@ -204,15 +204,21 @@
   top: auto;
   left: auto;
   align-self: start;
-  /* The bar holds "AUTO TOUR" and a pause button — about 132px of content.
-     It sat in the 684px 'mode' grid track and stretched to fill it, so the
-     map carried a 684px black slab that was 80% empty. A grid item stretches
-     by default; the bar is sized to its content, not to the column. */
+  /* Sized to its content, not to the column. Transparent hairline bar on the
+     map — no black slab, no stretched void. */
   justify-self: start;
   display: inline-flex;
-  align-items: stretch;
-  background: rgba(10, 12, 16, 0.90);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
 }
 
 .map-mode-indicator {
@@ -446,7 +452,10 @@
   display: none !important;
 }
 
-/* ----- Theatre signal HUD (top-right telemetry) ----- */
+/* ----- Theatre signal HUD (top-right telemetry) -----
+   Collapsed to a single ruled line sized to its content. The three stacked
+   rows each sat in a black slab four times their width; now it is one line
+   beside the map-mode toggle, no box, no void. */
 .sat-hud {
   position: relative;
   grid-area: status;
@@ -454,70 +463,36 @@
   inset: auto;
   transform: none;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 8px 14px;
-  background: rgba(10, 12, 16, 0.90);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 0;
+  background: transparent;
+  border: 0;
   font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
   color: var(--paper);
-  /* Same reason as .map-mode: the panel was 280px minimum inside a 480px
-     column and stretched to the column, so three short lines sat in a slab
-     four times their width. It docks to the right edge at its own width. */
   min-width: 0;
   max-width: min(560px, 90vw);
   justify-self: end;
   pointer-events: none;
 }
-
-.hero-node-strip-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 10px; margin-bottom: 8px; }
-.hero-node-strip-head .hero-node-strip-label { margin: 0; opacity: 1; min-width: 0; }
-.hero-project-select {
-  /* The control holds one place name. It claimed 320px of the row so a
-     three-letter word sat alone inside a large empty field. It takes the
-     width of its content and stops there. */
-  width: auto;
-  field-sizing: content;
-  max-width: min(320px, 55%);
-  flex: 0 1 auto;
-  min-width: 0;
-  min-height: 44px;
-  padding: 8px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 0;
-  color: var(--paper);
-  background: #171a1e;
-  /* The label beside it is set in the HUD's mono at 10px. A 13px sans in a
-     44px field beside a 10px caption read as two unrelated objects; in the
-     same voice they read as one control and its name. */
-  font-family: var(--mono, ui-monospace, "JetBrains Mono", monospace);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  pointer-events: auto;
-  color-scheme: dark;
-}
-.hero-footprint-note { margin: 0; color: var(--paper); font-size: 11px; line-height: 1.5; }
-
 .sat-hud-row {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 6px;
   font-size: 10px;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
 }
-
 .sat-hud-live {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   color: var(--paper);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
 }
-
 .sat-hud-live-dot {
   display: inline-block;
   width: 6px;
@@ -525,31 +500,25 @@
   background: var(--paper);
   box-shadow: none;
 }
-
 .sat-hud-theatre {
-  margin-left: auto;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
   color: var(--paper);
 }
-
 .sat-hud-signals {
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: var(--paper);
-  opacity: 0.9;
+  opacity: 0.8;
 }
-
 .sat-hud-watching {
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--paper);
   opacity: 0.7;
 }
+
+.hero-footprint-note { margin: 0; color: var(--paper); font-size: 11px; line-height: 1.5; }
 
 .sat-hud-provider,
 .sat-hud-coord,
@@ -988,17 +957,20 @@
 
 .hero-actions {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
   margin-top: 6px;
 }
 
-.hero-actions .btn--primary,
-.hero-actions .btn--ghost {
-  /* Pick up the global .btn base; override surfaces for legibility on map */
+.hero-actions .btn--primary {
+  /* One primary action, content-width on desktop (full-width only on phone
+     via the @media (max-width: 600px) override). Never a full-width slab
+     beside the map. */
+  width: auto;
   min-height: 44px;
   letter-spacing: 0;
+  padding: 0 16px;
   background: var(--accent);
   border-color: var(--accent);
   color: var(--paper);
@@ -1009,15 +981,27 @@
   border-color: var(--accent-hover);
 }
 
-.hero-actions .btn--ghost {
-  background: rgba(10, 10, 12, 0.7);
-  border-color: var(--paper);
-  color: var(--paper);
+/* Secondary action is a plain text link, never a second button. */
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  min-height: auto;
+  background: none;
+  border: 0;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  cursor: pointer;
 }
 
-.hero-actions .btn--ghost:hover {
-  background: var(--paper);
-  color: var(--ink);
+.hero-link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 
 /* ----- City node strip ----- */
@@ -1042,9 +1026,14 @@
 }
 
 .hero-node-strip-scroller {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* Content-sized pills in a row, not equal 1fr cards that stretch to fill
+     the column. Scrollable horizontally so the footprint never forces a
+     stretched grid or a wrapped void. */
+  display: flex;
   gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .hero-node {
@@ -1052,9 +1041,10 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 2px;
-  padding: 6px 10px;
+  flex: 0 0 auto;
   min-width: 0;
-  min-height: 48px;
+  padding: 4px 8px;
+  min-height: 44px;
   background: rgba(10, 10, 12, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--paper);
@@ -1062,7 +1052,8 @@
   line-height: 1.4;
   cursor: pointer;
   text-align: left;
-  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
+  scroll-snap-align: start;
+  transition: background 150ms ease, border-color 150ms ease;
 }
 
 .hero-node:hover {
@@ -1204,18 +1195,18 @@
   .hero-subtitle { font-size: 15px; line-height: 1.45; }
   /* The place and system count keep their own rows: a tour stop must not
      push the primary action down when its name reaches the wrap boundary. */
-  .sat-hud { flex-direction: column; align-items: stretch; gap: 2px; }
-  .sat-hud-row:first-child { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .sat-hud-theatre { margin-left: 0; }
-  .sat-hud-row:has(.sat-hud-signals) { display: none; }
-  .sat-hud-signals { display: none; }
+  .sat-hud { flex-direction: row; flex-wrap: wrap; gap: 8px; align-items: center; justify-self: end; }
+  .sat-hud-row { gap: 6px 10px; }
+  /* One content-sized pill row on phone too — no 2-column grid that forces
+     equal widths or hides theatres behind an undiscoverable scroll. */
   .hero-node-strip-scroller {
-    /* All four theatres are visible at once. A sideways strip put the
-       fourth card behind a scroll the reader had no reason to know about,
-       and the theatre it named was a decision they could not make. */
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    overflow-x: visible;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
+  .hero-node { scroll-snap-align: start; }
   /* Cap the rotating second line so longer non-EN phrases never wrap
      to 2 lines on a phone — keeps the hero h1 height stable across
      the 6-phrase rotation. `that vanishes` (en) is the longest
@@ -1562,12 +1553,13 @@
 #hero .hero-badge-dot { background: var(--accent); }
 #hero .hero-actions { margin: 0; gap: 6px; }
 #hero .hero-actions .btn { padding: 6px 8px; font-size: 12px; }
-#hero .hero-actions .btn--ghost { color: var(--ink); border-color: var(--line); background: transparent; }
 #hero .hero-node-strip { flex: 0 0 auto; }
-#hero .hero-node-strip-head { gap: 6px; margin-bottom: 6px; }
-#hero .hero-node-strip-label { color: var(--ink); opacity: 1; }
-#hero .hero-project-select { max-width: 100%; min-height: 36px; padding: 4px 6px; letter-spacing: 0; }
-#hero .hero-node-strip-scroller { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+#hero .hero-node-strip-scroller {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
 #hero .hero-node { padding: 4px 6px; min-height: 44px; background: transparent; color: var(--ink); border-color: var(--line); }
 #hero .hero-node.is-active { background: var(--accent); color: var(--paper); }
 #hero .hero-node-name { font-size: 12px; }

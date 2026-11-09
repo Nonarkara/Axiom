@@ -44,7 +44,10 @@ test('requested geography and the original four theatre controls survive', () =>
     assert.ok(html.includes(`data-city="${key}"`), key);
   }
   assert.ok(html.indexOf('src="footprint.js') < html.indexOf('src="app.js'));
-  assert.match(html, /for="heroProjectSelect"/);
+  // The PROJECT LOCATIONS select was removed under DESIGN-PRINCIPLES.md L19 —
+  // it duplicated the hero node strip (same four theatres). The four theatre
+  // controls (data-city=...) are asserted above instead.
+  assert.doesNotMatch(html, /for="heroProjectSelect"/);
 });
 
 test('all seven locales name every stop and distinguish coverage from installation sites', () => {

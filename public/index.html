@@ -57,7 +57,7 @@
   <script src="research.js?v=20261105reader1"></script>
   <script src="research-geography.js?v=20261104map1"></script>
   <script defer src="research-ui.js?v=20261105reader1"></script>
-  <link rel="stylesheet" href="hero.css?v=20261105table1">
+  <link rel="stylesheet" href="hero.css?v=20261110mo1">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
   <script src="i18n-regional.js?v=20261109desk1"></script>
@@ -253,30 +253,23 @@
 
       <div class="hero-content">
         <div class="hero-copy">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          <span data-i18n="hero.badge">Public project catalogue</span>
-        </div>
-        <h1 class="hero-title">
-          <span class="hero-line" data-i18n="hero.titleLine1">Innovation</span>
-          <span class="hero-line hero-line-accent" id="heroRotatingText">as a Service</span>
-        </h1>
-        <p class="hero-subtitle" data-i18n="hero.subtitle">
-          Decision systems, built by the founders. A working proof with your team in two weeks.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn--primary">
-            <span data-i18n="hero.cta">Start a Two-Week Proof</span>
-            <span class="tri">▸</span>
-          </a>
-          <a href="#systems" class="btn btn--ghost" data-i18n="hero.ctaSecondary">View systems</a>
-        </div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span data-i18n="hero.badge">Public project catalogue</span>
+          </div>
+          <h1 class="hero-title" data-i18n="hero.titleLine1">Innovation</h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
+            Decision systems, built by the founders. A working proof with your team in two weeks.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn--primary">
+              <span data-i18n="hero.cta">Start a Two-Week Proof</span>
+              <span class="tri">▸</span>
+            </a>
+            <a href="#systems" class="hero-link" data-i18n="hero.ctaSecondary">View systems</a>
+          </div>
         </div>
         <div class="hero-node-strip" aria-label="Operational footprint">
-          <div class="hero-node-strip-head">
-            <label class="hero-node-strip-label" for="heroProjectSelect" data-i18n="hero.projectLabel">Project locations</label>
-            <select id="heroProjectSelect" class="hero-project-select"><option value="thailand">Thailand · National coverage</option></select>
-          </div>
           <div class="hero-node-strip-scroller" id="heroNodeRail">
             <button class="hero-node is-active" type="button" data-city="bangkok" aria-pressed="true">
               <span class="hero-node-name">Bangkok</span>

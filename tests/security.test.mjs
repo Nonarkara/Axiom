@@ -80,9 +80,13 @@ test('catalog editions and earned hero interactions remain present', async () =>
   for (const host of ['champion', 'soccer', 'vision', 'dao', 'daoriginal', 'each']) {
     assert.match(html, new RegExp(`href="https://${host}\\.nonarkara\\.org/"`));
   }
-  for (const id of ['heroCanvas', 'heroMap', 'satHud', 'heroRotatingText', 'mapModeBtn', 'heroFeaturedBadge']) {
+  for (const id of ['heroCanvas', 'heroMap', 'satHud', 'mapModeBtn', 'heroFeaturedBadge']) {
     assert.match(html, new RegExp(`id="${id}"`));
   }
+  // heroRotatingText (idle animated second title line) was removed under
+  // DESIGN-PRINCIPLES.md L15 — no idle animation on non-live text. It is not
+  // an earned interaction, so it is not required to remain in the DOM.
+  assert.doesNotMatch(html, /id="heroRotatingText"/);
   assert.match(html, /sys-cell__edition/);
   assert.match(html, /src="screenshots\/each\.jpg"/);
   assert.match(html, /data-i18n="panels\.each\.access">Sign-in required/);
