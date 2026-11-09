@@ -18,40 +18,31 @@
     },
     "primaryActions": [
       {
-        "label": "Start a Two-Week Proof\n            ▸",
+        "label": "Start a Two-Week Proof\n              ▸",
         "selector": "a.btn.btn--primary",
         "x": 12,
-        "y": 790,
+        "y": 743,
         "width": 200,
         "height": 44,
         "visible": true
       },
       {
         "label": "View systems",
-        "selector": "a.btn.btn--ghost",
-        "x": 218,
-        "y": 790,
-        "width": 109,
+        "selector": "a.hero-link",
+        "x": 12,
+        "y": 793,
+        "width": 95,
         "height": 44,
         "visible": true
-      },
-      {
-        "label": "Project locations",
-        "selector": "#heroProjectSelect",
-        "x": 120,
-        "y": 842,
-        "width": 87,
-        "height": 36,
-        "visible": false
       }
     ],
     "assets": [
-      "https://axiom.nonarkara.org/rams.css?v=20261104map2",
+      "https://axiom.nonarkara.org/rams.css?v=20261110ms1",
       "https://axiom.nonarkara.org/research.css?v=20261109desk1",
       "https://axiom.nonarkara.org/research.js?v=20261105reader1",
       "https://axiom.nonarkara.org/research-geography.js?v=20261104map1",
       "https://axiom.nonarkara.org/research-ui.js?v=20261105reader1",
-      "https://axiom.nonarkara.org/hero.css?v=20261105table1",
+      "https://axiom.nonarkara.org/hero.css?v=20261110mo2",
       "https://axiom.nonarkara.org/i18n-regional.js?v=20261109desk1",
       "https://axiom.nonarkara.org/footprint.js?v=20261027a",
       "https://axiom.nonarkara.org/app.js?v=20261109desk1",
@@ -59,10 +50,10 @@
       "https://axiom.nonarkara.org/circuit.css?v=20261104map2"
     ],
     "h1": {
-      "text": "Innovation\n          as a Service",
+      "text": "Innovation",
       "size": 28,
-      "y": 674,
-      "bottom": 735
+      "y": 658,
+      "bottom": 688
     },
     "overflowX": 0,
     "voice": [
@@ -75,10 +66,10 @@
       },
       {
         "tag": "H1.hero-title",
-        "text": "Innovation\n          as a Service",
+        "text": "Innovation",
         "size": 28,
         "weight": "800",
-        "y": 674
+        "y": 658
       },
       {
         "tag": "H3.field-band__title",
@@ -109,40 +100,31 @@
     },
     "primaryActions": [
       {
-        "label": "Start a Two-Week Proof\n            ▸",
+        "label": "Start a Two-Week Proof\n              ▸",
         "selector": "a.btn.btn--primary",
         "x": 708,
-        "y": 271,
+        "y": 238,
         "width": 200,
         "height": 44,
         "visible": true
       },
       {
         "label": "View systems",
-        "selector": "a.btn.btn--ghost",
+        "selector": "a.hero-link",
         "x": 708,
-        "y": 321,
-        "width": 109,
+        "y": 288,
+        "width": 95,
         "height": 44,
-        "visible": true
-      },
-      {
-        "label": "Project locations",
-        "selector": "#heroProjectSelect",
-        "x": 806,
-        "y": 373,
-        "width": 87,
-        "height": 36,
         "visible": true
       }
     ],
     "assets": [
-      "https://axiom.nonarkara.org/rams.css?v=20261104map2",
+      "https://axiom.nonarkara.org/rams.css?v=20261110ms1",
       "https://axiom.nonarkara.org/research.css?v=20261109desk1",
       "https://axiom.nonarkara.org/research.js?v=20261105reader1",
       "https://axiom.nonarkara.org/research-geography.js?v=20261104map1",
       "https://axiom.nonarkara.org/research-ui.js?v=20261105reader1",
-      "https://axiom.nonarkara.org/hero.css?v=20261105table1",
+      "https://axiom.nonarkara.org/hero.css?v=20261110mo2",
       "https://axiom.nonarkara.org/i18n-regional.js?v=20261109desk1",
       "https://axiom.nonarkara.org/footprint.js?v=20261027a",
       "https://axiom.nonarkara.org/app.js?v=20261109desk1",
@@ -150,19 +132,19 @@
       "https://axiom.nonarkara.org/circuit.css?v=20261104map2"
     ],
     "h1": {
-      "text": "Innovation\n          as a Service",
+      "text": "Innovation",
       "size": 32,
-      "y": 147,
-      "bottom": 216
+      "y": 149,
+      "bottom": 183
     },
     "overflowX": 0,
     "voice": [
       {
         "tag": "H1.hero-title",
-        "text": "Innovation\n          as a Service",
+        "text": "Innovation",
         "size": 32,
         "weight": "800",
-        "y": 147
+        "y": 149
       },
       {
         "tag": "H2",
@@ -200,40 +182,31 @@
     },
     "primaryActions": [
       {
-        "label": "Start a Two-Week Proof\n            ▸",
+        "label": "Start a Two-Week Proof\n              ▸",
         "selector": "a.btn.btn--primary",
         "x": 991,
-        "y": 271,
+        "y": 220,
         "width": 200,
         "height": 44,
         "visible": true
       },
       {
         "label": "View systems",
-        "selector": "a.btn.btn--ghost",
-        "x": 1197,
-        "y": 271,
-        "width": 109,
+        "selector": "a.hero-link",
+        "x": 991,
+        "y": 270,
+        "width": 95,
         "height": 44,
-        "visible": true
-      },
-      {
-        "label": "Project locations",
-        "selector": "#heroProjectSelect",
-        "x": 1089,
-        "y": 323,
-        "width": 87,
-        "height": 36,
         "visible": true
       }
     ],
     "assets": [
-      "https://axiom.nonarkara.org/rams.css?v=20261104map2",
+      "https://axiom.nonarkara.org/rams.css?v=20261110ms1",
       "https://axiom.nonarkara.org/research.css?v=20261109desk1",
       "https://axiom.nonarkara.org/research.js?v=20261105reader1",
       "https://axiom.nonarkara.org/research-geography.js?v=20261104map1",
       "https://axiom.nonarkara.org/research-ui.js?v=20261105reader1",
-      "https://axiom.nonarkara.org/hero.css?v=20261105table1",
+      "https://axiom.nonarkara.org/hero.css?v=20261110mo2",
       "https://axiom.nonarkara.org/i18n-regional.js?v=20261109desk1",
       "https://axiom.nonarkara.org/footprint.js?v=20261027a",
       "https://axiom.nonarkara.org/app.js?v=20261109desk1",
@@ -241,19 +214,19 @@
       "https://axiom.nonarkara.org/circuit.css?v=20261104map2"
     ],
     "h1": {
-      "text": "Innovation\n          as a Service",
+      "text": "Innovation",
       "size": 32,
-      "y": 147,
-      "bottom": 216
+      "y": 131,
+      "bottom": 165
     },
     "overflowX": 0,
     "voice": [
       {
         "tag": "H1.hero-title",
-        "text": "Innovation\n          as a Service",
+        "text": "Innovation",
         "size": 32,
         "weight": "800",
-        "y": 147
+        "y": 131
       },
       {
         "tag": "H2",
