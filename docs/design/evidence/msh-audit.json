@@ -1,12 +1,12 @@
 {
   "verdict": "PASS",
-  "checkedAt": "2026-11-09T09:39:32.626Z",
+  "checkedAt": "2026-11-09T11:22:00.925Z",
   "fails": [],
   "notes": [
     {
       "surface": "axiom",
       "width": "390x844",
-      "detail": "document 35178px = 41.7× viewport height"
+      "detail": "document 35799px = 42.4× viewport height"
     },
     {
       "surface": "axiom",
@@ -216,7 +216,7 @@
     {
       "surface": "axiom",
       "width": "1024x900",
-      "detail": "document 14503px = 16.1× viewport height"
+      "detail": "document 15004px = 16.7× viewport height"
     },
     {
       "surface": "axiom",
@@ -546,7 +546,7 @@
     {
       "surface": "axiom",
       "width": "1440x900",
-      "detail": "document 14837px = 16.5× viewport height"
+      "detail": "document 15349px = 17.1× viewport height"
     },
     {
       "surface": "axiom",
@@ -975,7 +975,7 @@
       "viewport": "390x844",
       "vw": 390,
       "vh": 844,
-      "docH": 35178,
+      "docH": 35799,
       "chromeGeometry": {
         "width": 390,
         "height": 844,
@@ -1010,14 +1010,14 @@
           "w": 114,
           "needed": 151,
           "ratio": 0.76,
-          "text": "83\n            Catal"
+          "text": "85\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 90,
           "needed": 116,
           "ratio": 0.78,
-          "text": "71\n            Label"
+          "text": "73\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -1253,6 +1253,13 @@
         {
           "sel": ".sys-cell",
           "w": 358,
+          "needed": 816,
+          "ratio": 0.44,
+          "text": "85Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
           "needed": 968,
           "ratio": 0.37,
           "text": "04v3.2.0Live\n       "
@@ -1382,6 +1389,13 @@
           "needed": 1559,
           "ratio": 0.23,
           "text": "77Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 705,
+          "ratio": 0.51,
+          "text": "84Live\n            \n"
         },
         {
           "sel": ".sys-cell",
@@ -2069,7 +2083,7 @@
       "viewport": "1024x900",
       "vw": 1024,
       "vh": 900,
-      "docH": 14503,
+      "docH": 15004,
       "chromeGeometry": {
         "width": 1024,
         "height": 900,
@@ -2104,14 +2118,14 @@
           "w": 104,
           "needed": 151,
           "ratio": 0.69,
-          "text": "83\n            Catal"
+          "text": "85\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 82,
           "needed": 116,
           "ratio": 0.71,
-          "text": "71\n            Label"
+          "text": "73\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -2347,6 +2361,13 @@
         {
           "sel": ".sys-cell",
           "w": 330,
+          "needed": 816,
+          "ratio": 0.4,
+          "text": "85Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
           "needed": 968,
           "ratio": 0.34,
           "text": "04v3.2.0Live\n       "
@@ -2476,6 +2497,13 @@
           "needed": 1559,
           "ratio": 0.21,
           "text": "77Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 705,
+          "ratio": 0.47,
+          "text": "84Live\n            \n"
         },
         {
           "sel": ".sys-cell",
@@ -3352,7 +3380,7 @@
       "viewport": "1440x900",
       "vw": 1440,
       "vh": 900,
-      "docH": 14837,
+      "docH": 15349,
       "chromeGeometry": {
         "width": 1440,
         "height": 900,
@@ -3387,14 +3415,14 @@
           "w": 104,
           "needed": 151,
           "ratio": 0.69,
-          "text": "83\n            Catal"
+          "text": "85\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 82,
           "needed": 116,
           "ratio": 0.71,
-          "text": "71\n            Label"
+          "text": "73\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -3630,6 +3658,13 @@
         {
           "sel": ".sys-cell",
           "w": 399,
+          "needed": 816,
+          "ratio": 0.49,
+          "text": "85Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
           "needed": 968,
           "ratio": 0.41,
           "text": "04v3.2.0Live\n       "
@@ -3759,6 +3794,13 @@
           "needed": 1559,
           "ratio": 0.26,
           "text": "77Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 399,
+          "needed": 705,
+          "ratio": 0.57,
+          "text": "84Live\n            \n"
         },
         {
           "sel": ".sys-cell",
