@@ -981,13 +981,15 @@
   border-color: var(--accent-hover);
 }
 
-/* Secondary action is a plain text link, never a second button. */
+/* Secondary action is a plain text link, never a second button.
+   Isolated action: the hit area is a real 44px tall (padding is invisible),
+   so it meets B13/L13 without drawing a second button box. */
 .hero-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 0;
-  min-height: auto;
+  padding: 0 2px;
+  min-height: 44px;
   background: none;
   border: 0;
   color: var(--ink);
@@ -1026,14 +1028,14 @@
 }
 
 .hero-node-strip-scroller {
-  /* Content-sized pills in a row, not equal 1fr cards that stretch to fill
-     the column. Scrollable horizontally so the footprint never forces a
-     stretched grid or a wrapped void. */
-  display: flex;
+  /* Content-sized pills in a two-column grid — never equal 1fr cards, never
+     a sideways scroll that hides a theatre. */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  justify-content: start;
+  justify-items: start;
+  align-items: start;
   gap: 8px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
 }
 
 .hero-node {
@@ -1052,7 +1054,6 @@
   line-height: 1.4;
   cursor: pointer;
   text-align: left;
-  scroll-snap-align: start;
   transition: background 150ms ease, border-color 150ms ease;
 }
 
@@ -1197,16 +1198,16 @@
      push the primary action down when its name reaches the wrap boundary. */
   .sat-hud { flex-direction: row; flex-wrap: wrap; gap: 8px; align-items: center; justify-self: end; }
   .sat-hud-row { gap: 6px 10px; }
-  /* One content-sized pill row on phone too — no 2-column grid that forces
-     equal widths or hides theatres behind an undiscoverable scroll. */
+  /* Phone keeps the same content-sized pill grid as the desktop panel —
+     no equal 1fr tracks, no sideways scroll that hides a theatre. */
   .hero-node-strip-scroller {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, max-content));
+    justify-content: start;
+    justify-items: start;
+    align-items: start;
     gap: 8px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
   }
-  .hero-node { scroll-snap-align: start; }
   /* Cap the rotating second line so longer non-EN phrases never wrap
      to 2 lines on a phone — keeps the hero h1 height stable across
      the 6-phrase rotation. `that vanishes` (en) is the longest
@@ -1481,7 +1482,9 @@
   min-height: 540px;
   padding: 0;
   grid-template-columns: minmax(0, 68fr) minmax(0, 32fr);
-  grid-template-rows: auto minmax(0, max-content) auto;
+  /* The console takes the remaining column height instead of leaving a dead
+     void under it: its list scrolls, so the space shows real rows. */
+  grid-template-rows: auto minmax(0, max-content) minmax(0, 1fr);
   grid-template-areas: 'map tools' 'map content' 'map brief';
   gap: 0;
   align-content: start;
@@ -1512,24 +1515,33 @@
   min-height: 0;
   pointer-events: none;
 }
+/* AUTO TOUR is a map control: dock it on the map. It used to share the
+   panel's 'tools' cell with the scope HUD, and at 1440 the two overlapped
+   by 47px — the HUD text painted over the pause button. */
 #hero .map-mode {
-  grid-area: tools;
-  margin: 8px 0 8px 12px;
-  align-self: start;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 5;
+  margin: 0;
 }
 #hero .sat-hud {
   grid-area: tools;
-  margin: 8px 12px 8px 130px;
+  margin: 10px 12px 4px;
   padding: 0;
-  align-self: center;
+  align-self: start;
+  justify-self: end;
   background: transparent;
   border: 0;
-  gap: 2px;
+  gap: 4px 12px;
   max-width: none;
   color: var(--ink);
 }
 #hero .sat-hud-row { flex-wrap: wrap; gap: 2px 8px; font-size: 10px; }
 #hero .sat-hud-row span { color: inherit; }
+/* A middot between the scope segments so "THAILAND NATIONAL …" never reads
+   as one run-on word. */
+#hero .sat-hud-row:not(:first-child)::before { content: '·'; margin-right: 6px; opacity: 0.45; }
 #hero .sat-hud-theatre { margin-left: 0; }
 #hero .sat-hud-live-dot { background: var(--accent); }
 #hero .hero-content {
@@ -1554,22 +1566,36 @@
 #hero .hero-actions { margin: 0; gap: 6px; }
 #hero .hero-actions .btn { padding: 6px 8px; font-size: 12px; }
 #hero .hero-node-strip { flex: 0 0 auto; }
+/* Two columns of content-sized pills. Long scopes wrap inside a capped
+   measure so both columns always fit the narrow instrument panel — no pill
+   is ever hidden behind a scroll (307px of the row used to be clipped). */
 #hero .hero-node-strip-scroller {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  justify-content: start;
+  justify-items: start;
+  align-items: start;
   gap: 8px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
 }
 #hero .hero-node { padding: 4px 6px; min-height: 44px; background: transparent; color: var(--ink); border-color: var(--line); }
 #hero .hero-node.is-active { background: var(--accent); color: var(--paper); }
 #hero .hero-node-name { font-size: 12px; }
-#hero .hero-node-meta { overflow-wrap: anywhere; }
+#hero .hero-node-meta { max-width: 160px; overflow-wrap: anywhere; }
+
+/* A panel too narrow for two pill columns takes one — every theatre stays
+   visible at every width. */
+@media (min-width: 701px) and (max-width: 1199px) {
+  #hero .hero-node-strip-scroller { grid-template-columns: minmax(0, max-content); }
+}
+@media (max-width: 380px) {
+  #hero .hero-node-strip-scroller { grid-template-columns: minmax(0, max-content); }
+}
 #hero .hero-stats { flex: 0 0 auto; align-self: start; gap: 12px; }
 #hero .hero-stat-value { font-size: 22px; color: var(--ink); }
 #hero .hero-stat-label { color: var(--ink); opacity: 1; }
-#hero .hero-proof { grid-area: brief; margin: 0 12px 8px; gap: 4px; min-height: 0; }
-#hero .hero-console { max-height: 290px; }
-#hero .hero-console__panel { max-height: 120px; min-height: 0; flex: 0 1 auto; overflow: auto; overscroll-behavior: contain; }
+#hero .hero-proof { grid-area: brief; margin: 0 12px 8px; gap: 4px; min-height: 0; height: 100%; }
+#hero .hero-console { max-height: none; height: 100%; min-height: 0; }
+#hero .hero-console__panel { max-height: none; min-height: 0; flex: 1 1 auto; overflow: auto; overscroll-behavior: contain; }
 #hero .hero-console__head, #hero .hero-console__foot { flex: 0 0 auto; }
 #hero .hero-console__list { grid-template-columns: minmax(0, 1fr); }
 #hero .hero-console__foot { grid-template-columns: minmax(0, 1fr); }
@@ -1577,9 +1603,8 @@
 #hero .hero-city-label { display: none; }
 #hero .hero-console * { letter-spacing: 0; }
 
-@media (min-width: 701px) and (max-height: 800px) {
-  #hero .hero-console__panel { max-height: 80px; }
-}
+/* Short desktop viewports let the console take whatever height is left
+   (it scrolls internally) instead of capping it into a void. */
 
 @media (max-width: 700px) {
   #hero {

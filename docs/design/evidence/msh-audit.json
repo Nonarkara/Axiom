@@ -1,6 +1,6 @@
 {
   "verdict": "PASS",
-  "checkedAt": "2026-11-09T17:46:41.317Z",
+  "checkedAt": "2026-11-09T21:11:58.176Z",
   "fails": [],
   "notes": [
     {
@@ -1028,23 +1028,23 @@
         },
         {
           "sel": ".chip",
-          "w": 172,
+          "w": 113,
           "needed": 110,
-          "ratio": 1.56,
+          "ratio": 1.03,
           "text": "PhD · Harvard"
         },
         {
           "sel": ".chip",
-          "w": 172,
+          "w": 119,
           "needed": 112,
-          "ratio": 1.54,
+          "ratio": 1.06,
           "text": "MPhil · Oxford"
         },
         {
           "sel": ".chip",
-          "w": 172,
+          "w": 79,
           "needed": 87,
-          "ratio": 1.97,
+          "ratio": 0.91,
           "text": "MSc ·\n              "
         },
         {
@@ -1056,16 +1056,16 @@
         },
         {
           "sel": ".chip",
-          "w": 180,
+          "w": 173,
           "needed": 163,
-          "ratio": 1.11,
+          "ratio": 1.07,
           "text": "PhD · Civil Engineer"
         },
         {
           "sel": ".chip",
-          "w": 180,
+          "w": 141,
           "needed": 140,
-          "ratio": 1.29,
+          "ratio": 1.01,
           "text": "Assoc. Prof. · CMU"
         },
         {
@@ -1732,13 +1732,6 @@
           "needed": 177,
           "ratio": 1.13,
           "text": "Start a Two-Week Pro"
-        },
-        {
-          "sel": ".btn",
-          "w": 109,
-          "needed": 106,
-          "ratio": 1.03,
-          "text": "View systems"
         },
         {
           "sel": ".btn",
@@ -2847,13 +2840,6 @@
           "needed": 177,
           "ratio": 1.13,
           "text": "Start a Two-Week Pro"
-        },
-        {
-          "sel": ".btn",
-          "w": 109,
-          "needed": 106,
-          "ratio": 1.03,
-          "text": "View systems"
         },
         {
           "sel": ".btn",
@@ -4144,13 +4130,6 @@
           "needed": 177,
           "ratio": 1.13,
           "text": "Start a Two-Week Pro"
-        },
-        {
-          "sel": ".btn",
-          "w": 109,
-          "needed": 106,
-          "ratio": 1.03,
-          "text": "View systems"
         },
         {
           "sel": ".btn",

@@ -2038,11 +2038,16 @@ summary:focus-visible {
 
 /* creds chips, built-with stack */
 /* Four credentials. Four, two or one to a row — never three and an orphan.
-   Tracks are content-width, so a chip is never stretched to fill a cell. */
+   Tracks are content-width, so a chip is never stretched to fill a cell.
+   justify-items: start keeps each chip its own width when several share a
+   track (2- and 1-column layouts): "MSc · MIT" was stretched to the width of
+   "Visiting Lecturer · MIT", a box 2.1x its own label. */
 .chips {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, max-content));
   justify-content: start;
+  justify-items: start;
+  align-items: start;
   gap: 6px;
   margin-top: 10px;
 }
