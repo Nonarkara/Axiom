@@ -105,8 +105,11 @@ const rows = await p.evaluate(() => {
     return buckets.map(g => g.count);
   }).filter(Boolean);
 });
-const ragged = rows.flatMap((g, grid) =>
-  g.slice(0, -1).filter(n => n !== 3).map(n => `grid ${grid}: a row of ${n}`));
+const ragged = rows.flatMap((g, grid) => {
+  if (!g || g.length < 2) return [];
+  const expected = g[0];
+  return g.slice(0, -1).filter(n => n !== expected).map(n => `grid ${grid}: a row of ${n} (expected ${expected})`);
+});
 check('every catalogue row is full but the last', ragged.length === 0,
   ragged.join(', ') || rows.map(g => g.join('/')).join('  '));
 

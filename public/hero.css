@@ -1617,17 +1617,23 @@
   #hero {
     --hero-map-width: 100%;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: 46svh max-content max-content max-content;
+    /* Map must cover >=60% of first screen on phone (MSH B9). 56svh gives ~65% with masthead and leaves room for primary action. */
+    grid-template-rows: 56svh max-content max-content max-content;
     grid-template-areas: 'map' 'tools' 'content' 'brief';
     min-height: 0;
     overflow-y: auto;
     overscroll-behavior: contain;
   }
-  #heroCanvas { height: 46svh; max-height: 46svh; }
+  #heroCanvas { height: 56svh; max-height: 56svh; }
   #heroMap { position: relative; grid-area: map; inset: auto; width: 100%; }
-  #hero .hero-map-space { height: 46svh; }
+  #hero .hero-map-space { height: 56svh; }
   #hero .hero-content { overflow: visible; }
-  #hero .hero-title { font-size: 36px; }
+  #hero .hero-title { font-size: 34px; }
+  /* Compact node pills on phone so primary action stays in first screen */
+  #hero .hero-node-strip-scroller { gap: 4px; }
+  #hero .hero-node { min-height: 32px; padding: 2px 6px; }
+  #hero .hero-node-name { font-size: 11px; }
+  #hero .hero-node-meta { display: none; }
   #hero .sat-hud { justify-self: start; }
   #hero .sat-hud-row:has(.sat-hud-signals),
   #hero .sat-hud-signals { display: flex; }
