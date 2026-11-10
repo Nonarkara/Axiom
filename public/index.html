@@ -52,19 +52,19 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=optional"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20261110ms1">
+  <link rel="stylesheet" href="rams.css?v=20261110craft1">
   <link rel="stylesheet" href="research.css?v=20261109desk1">
   <script src="research.js?v=20261105reader1"></script>
   <script src="research-geography.js?v=20261104map1"></script>
   <script defer src="research-ui.js?v=20261105reader1"></script>
-  <link rel="stylesheet" href="hero.css?v=20261110mo2">
+  <link rel="stylesheet" href="hero.css?v=20261110craft1">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
-  <script src="i18n-regional.js?v=20261109desk1"></script>
+  <script src="i18n-regional.js?v=20261110craft1"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
   <script defer src="footprint.js?v=20261027a"></script>
-  <script defer src="app.js?v=20261109desk1"></script>
+  <script defer src="app.js?v=20261110craft1"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -175,7 +175,7 @@
 }
 </script>
   <link rel="stylesheet" href="editorial.css?v=20261005h">
-  <link rel="stylesheet" href="circuit.css?v=20261104map2">
+  <link rel="stylesheet" href="circuit.css?v=20261110craft1">
 </head>
 
 <body>
@@ -206,7 +206,7 @@
         <button data-locale="vi" aria-label="Tiếng Việt">VI</button>
         <button data-locale="ts" class="locale-btn--ts" aria-label="TypeScript">&lt;/&gt;</button>
       </div>
-      <a href="#contact" class="btn btn--primary" data-i18n="navCurrent.cta">Work With Us</a>
+      <a href="#contact" class="masthead-cta" data-i18n="navCurrent.cta">Work With Us</a>
     </div>
   </header>
 
@@ -257,7 +257,7 @@
             <span class="hero-badge-dot"></span>
             <span data-i18n="hero.badge">Public project catalogue</span>
           </div>
-          <h1 class="hero-title" data-i18n="hero.titleLine1">Innovation</h1>
+          <h1 class="hero-title" data-i18n-html="pitch.title">The flood arrives at 2 a.m. <em>The dashboard arrives next fiscal year.</em></h1>
           <p class="hero-subtitle" data-i18n="hero.subtitle">
             Decision systems, built by the founders. A working proof with your team in two weeks.
           </p>
@@ -511,7 +511,6 @@
           <div class="s-head__title" data-i18n="pitch.kicker">The problem we solve</div>
           <div class="s-head__meta" data-i18n="pitch.meta">For governors · mayors · agency heads · operators</div>
         </div>
-        <h2 class="t-big" data-i18n-html="pitch.title">The flood arrives at 2 a.m. <em>The dashboard arrives next fiscal year.</em></h2>
         <p class="t-body-2" data-i18n="pitch.lede" style="max-width:64ch;margin:10px 0 16px;">Rain, traffic, air, complaints, satellites — scattered across a dozen agencies. Crisis hits, you have no picture. We build the picture. One screen. One decision. Two weeks.</p>
 
         <div class="t-label" data-i18n="pitch.painLabel">Sound familiar?</div>
@@ -570,27 +569,23 @@
           <div class="cell">
             <div class="stat__val">30<small data-i18n="pitch.unitSec"> sec</small></div>
             <div class="stat__lbl" data-i18n="pitch.r1lbl" style="margin-top:8px;">Phuket Ops</div>
-            <p class="t-body-2" data-i18n="pitch.r1" style="margin:6px 0 0;">Transit, safety and environment on one screen a governor reads in 30 seconds.</p>
           </div>
           <div class="cell">
             <div class="stat__val">77</div>
             <div class="stat__lbl" data-i18n="pitch.r2lbl" style="margin-top:8px;">FloodDash</div>
-            <p class="t-body-2" data-i18n="pitch.r2" style="margin:6px 0 0;">Every Thai province on one flood picture — 9 public sources, refreshed every 3–60 minutes.</p>
           </div>
           <div class="cell">
             <div class="stat__val">45<small data-i18n="pitch.unitMin"> min</small></div>
             <div class="stat__lbl" data-i18n="pitch.r3lbl" style="margin-top:8px;">SLIC Index · Taipei</div>
-            <p class="t-body-2" data-i18n="pitch.r3" style="margin:6px 0 0;">157 cities ranked live — shown working on stage within a 45-minute keynote.</p>
           </div>
           <div class="cell">
             <div class="stat__val">14<small data-i18n="pitch.unitDays"> days</small></div>
             <div class="stat__lbl" data-i18n="pitch.r4lbl" style="margin-top:8px;">Field note 01</div>
-            <p class="t-body-2" data-i18n="pitch.r4" style="margin:6px 0 0;">A vendor called it too complex. A working version was in the room fourteen days later.</p>
           </div>
         </div>
-        <p class="t-body-2" data-i18n="pitch.proofLine" style="max-width:64ch;margin:0 0 16px;">85 systems across 5 countries. Open one. Use it. Judge.</p>
-
-        <div class="t-label" data-i18n="pitch.faqLabel">Before you ask</div>
+        <p hidden data-i18n="pitch.proofLine">85 systems across 5 countries. Open one. Use it. Judge.</p>
+        <details class="pitch-more">
+        <summary class="t-label" data-i18n="pitch.faqLabel">Before you ask</summary>
         <div class="pitch-faq">
           <div class="pitch-faq__group">
           <div class="numbered"><span class="numbered__n">Q1</span>
@@ -625,12 +620,10 @@
               <div class="numbered__body" data-i18n="pitch.a5">Yes. Most systems on this page have run long past their launch. Each is documented and instrumented so your team can keep it going.</div>
             </div>
           </div>
-        <div class="btn-row">
-          <a href="#contact" class="btn btn--primary"><span data-i18n="pitch.cta">Start a two-week proof</span> <span class="tri">▸</span></a>
-          <a href="#systems" class="btn btn--ghost" data-i18n="pitch.cta2">Open a live system first</a>
-        </div>
           </div>
         </div>
+        </details>
+        <p class="pitch-next"><a href="#systems" data-i18n="pitch.cta2">Open a live system first</a></p>
       </div>
     </section>
 
@@ -640,6 +633,7 @@
         <div class="s-head">
           <div class="s-head__title" data-i18n="sysSect.kicker">Live in production</div>
           <div class="s-head__meta" data-i18n="sysClusters.sysMeta">85 systems · 5 countries</div>
+          <p class="record-link"><a href="record.html" data-i18n="sysSect.record">Full descriptions</a></p>
         </div>
         <p class="t-body-2" data-i18n="sysSect.lede" style="max-width:64ch;margin:0 0 8px;">Each system below started as one decision someone couldn't make fast enough. Live today. Open. Use. Judge.</p>
 
@@ -664,7 +658,6 @@
         <section class="field-band field-band--video" id="groundTruth" aria-label="Field Ground Truth and Approach">
           <div class="field-band__cap">
             <span class="t-label" data-i18n="field.kicker">In the field · Ground Truth</span>
-            <h3 class="field-band__title" data-i18n="field.title">The flood arrives at 2 a.m. The dashboard arrives next fiscal year.</h3>
           </div>
           <div class="field-band__media">
             <div class="field-band__video-wrap" id="fieldVideoWrap" data-video-id="0-A3R_i3wrs">
@@ -1350,6 +1343,7 @@
         <div class="cluster-head">
           <div class="t-label" data-i18n="sysClusters.lab">Lab</div>
           <div class="s-head__meta" data-i18n="sysClusters.labMeta">Side tools · in the open · 26</div>
+          <p class="record-link"><a href="record.html" data-i18n="sysSect.record">Full descriptions</a></p>
         </div>
         <div class="grid grid--3">
           <a class="sys-cell" data-arch="omniarcade" href="https://games.nonarkara.org/" target="_blank" rel="noopener">
@@ -2051,10 +2045,8 @@
     </section>
 
     <!-- ============== TEAM ============== -->
-    <section class="section section--fold" id="team">
-        <details class="fold-row">
-          <summary class="fold-row__summary" data-i18n="teamSect.foldLine">Team · Dr Non &amp; Dr Poon · two founders, collective on call</summary>
-          <div class="fold-row__body">
+    <section class="section" id="team">
+        <div class="wrap">
         <div class="s-head">
           <div class="s-head__title" data-i18n="teamSect.kicker">Who builds it</div>
           <div class="s-head__meta" data-i18n="teamSect.meta">Bangkok</div>
@@ -2072,9 +2064,6 @@
             <p class="t-body-2" data-i18n="bioNon.lede" style="margin:10px 0 0;">Anthropologist, architect, builder. He
               watches how cities actually behave, then turns that mess into interfaces people use without a training
               manual.</p>
-            <p class="t-body-2" data-i18n="bioNon.bio" style="margin:8px 0 0;">Harvard PhD in Anthropology. MIT and
-              Oxford alumnus. Former Visiting Lecturer at MIT, postdoctoral fellow at NYU. He designs from fieldwork
-              first — because people aren't spreadsheets and cities aren't slides.</p>
             <div class="chips">
               <span class="chip">PhD · Harvard</span><span class="chip">MPhil · Oxford</span><span class="chip">MSc ·
                 MIT</span><span class="chip">Visiting Lecturer · MIT</span>
@@ -2082,6 +2071,9 @@
             <details>
               <summary class="t-ctrl" style="cursor:pointer;margin-top:14px;color:var(--ink-2);"><span
                   data-i18n="bioCommon.cvBtn">View CV</span> ▾</summary>
+              <p class="t-body-2" data-i18n="bioNon.bio" style="margin:8px 0 0;">Harvard PhD in Anthropology. MIT and
+              Oxford alumnus. Former Visiting Lecturer at MIT, postdoctoral fellow at NYU. He designs from fieldwork
+              first — because people aren't spreadsheets and cities aren't slides.</p>
               <div class="cv-block">
                 <div class="cv-block__h" data-i18n="bioNon.cvCurrentRole">Current Role</div>
                 <p class="t-body-2" data-i18n="bioNon.cvCurrentRoleBody">Senior Expert in Smart City Promotion, Digital
@@ -2144,9 +2136,6 @@
             <p class="t-body-2" data-i18n="bioPoon.lede" style="margin:10px 0 0;">Engineer, strategist, operational
               anchor. He keeps ambition tied to working systems and makes sure the product survives contact with
               reality.</p>
-            <p class="t-body-2" data-i18n="bioPoon.bio" style="margin:8px 0 0;">Associate Professor at Chiang Mai
-              University. Co-author of Chiang Mai's Smart City Master Plan. Works on cities as complex adaptive systems
-              — real-time bus prediction, transit decision support, sustainable infrastructure.</p>
             <div class="chips">
               <span class="chip">PhD · Civil Engineering</span><span class="chip">Assoc. Prof. · CMU</span><span
                 class="chip">Smart City Master Plan</span>
@@ -2154,6 +2143,9 @@
             <details>
               <summary class="t-ctrl" style="cursor:pointer;margin-top:14px;color:var(--ink-2);"><span
                   data-i18n="bioCommon.cvBtn">View CV</span> ▾</summary>
+              <p class="t-body-2" data-i18n="bioPoon.bio" style="margin:8px 0 0;">Associate Professor at Chiang Mai
+              University. Co-author of Chiang Mai's Smart City Master Plan. Works on cities as complex adaptive systems
+              — real-time bus prediction, transit decision support, sustainable infrastructure.</p>
               <div class="cv-block">
                 <div class="cv-block__h" data-i18n="bioPoon.cvCurrentRoles">Current Roles</div>
                 <p class="t-body-2" data-i18n="bioPoon.cvCurrentRolesBody">Deputy Director, Program Management Unit for
@@ -2209,10 +2201,7 @@
             translators</span><span data-i18n="network.urban">Urban researchers</span><span
             data-i18n="network.media">Media operators</span>
         </div>
-
-
-          </div>
-        </details>
+        </div>
     </section>
 
     <!-- ============== PRESS ============== -->

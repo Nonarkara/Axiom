@@ -795,6 +795,7 @@ const uiCopy = {
       title: 'Real systems. <em>Real cities.</em> Operating today.',
       lede: 'Each system below started as one decision someone couldn\'t make fast enough. Live today. Open. Use. Judge.',
       sandboxKicker: 'Sandbox // Live',
+      record: 'Full descriptions',
       sandboxNote: "These aren't demos. They're working systems in a sandbox — built to scale, not to impress. NDA-protected deployments run larger; what you see here behaves like them, with advanced modules withheld.",
     },
     stageSect: {
@@ -1063,6 +1064,7 @@ const uiCopy = {
       title: 'ระบบจริง <em>เมืองจริง</em> รันอยู่วันนี้',
       lede: 'หลักฐาน ไม่ใช่คำสัญญา ทุกระบบด้านล่างเริ่มจากการตัดสินใจหนึ่งเรื่องที่มีคนทำได้ไม่ทันการณ์ และทุกระบบใช้งานได้จริงวันนี้ — เปิดเข้าไป ลองใช้ แล้วตัดสินผลงานด้วยตัวคุณเอง',
       sandboxKicker: 'Sandbox // สด',
+      record: 'คำอธิบายฉบับเต็ม',
       sandboxNote: 'ไม่ใช่ demo — ทุกระบบรันใน sandbox จริง สร้างให้ scale ได้ ไม่ใช่สร้างมาโชว์ การ deploy จริงของลูกค้าอยู่ภายใต้ NDA ใหญ่กว่าและซับซ้อนกว่า สิ่งที่รันที่นี่ทำงานแบบเดียวกัน โมดูลขั้นสูงถูกถอดออกเพราะ NDA ไม่ใช่เพราะของปลอม',
     },
     stageSect: {
@@ -1331,6 +1333,7 @@ const uiCopy = {
       title: '真实系统 <em>真实城市</em> 今天就在跑',
       lede: '用证据说话，而不是承诺。下面每个系统都始于一个“做得不够快”的决策。每一个今天都在线运行——打开它、使用它、自己评判。',
       sandboxKicker: '沙盒 // 在线',
+      record: '完整说明',
       sandboxNote: '不是演示稿——是运行在沙盒里的可用系统。按可扩展的方式搭建，不是为了好看。客户生产部署在保密协议下规模更大；这里运行的逻辑与之一致，敏感模块不对外展示，不是因为它们是假的。',
     },
     stageSect: {
@@ -1609,6 +1612,7 @@ const uiCopy = {
       title: 'type Systems = Real<Cities> // operating today',
       lede: '// proof, not promises\n// each: oneDecision → liveSystem → you.judge()',
       sandboxKicker: '// SANDBOX // LIVE',
+      record: 'record.full()',
       sandboxNote: '// not demos — systems.runIn(sandbox)\n// built.toScale(), not.toImpress()\n// prod under NDA: larger; behavior.same(); advancedModules.withheld(not.faked)',
     },
     stageSect: {
@@ -6178,7 +6182,7 @@ Object.entries(catalogReleaseCopy).forEach(([locale, release]) => {
   uiCopy[locale].pitch.proofLine = release.proofLine;
 });
 
-Object.entries(window.AXIOM_FOOTPRINT.copy).forEach(([locale, copy]) => {
+if (window.AXIOM_FOOTPRINT && window.AXIOM_FOOTPRINT.copy) Object.entries(window.AXIOM_FOOTPRINT.copy).forEach(([locale, copy]) => {
   const hero = uiCopy[locale].hero;
   hero.signalLabels.CARBON = { en: 'Carbon', th: 'คาร์บอน', zh: '碳', ko: '탄소', ja: '炭素', vi: 'Carbon', ts: 'carbon' }[locale];
   hero.projectLabel = copy.label;
@@ -6223,15 +6227,98 @@ function renderCatalogueCounts() {
     live,
     domains: document.querySelectorAll('#panelSystems .hero-console__item').length,
     'other-statuses': catalog - live,
-    'mapped-systems': new Set(footprint.projects.map(project => project.key)).size,
-    'tour-stops': footprint.stops.length,
-    currencies: new Set(footprint.stops.flatMap(stop => stop.currency.split(' · ')).filter(currency => /^[A-Z]{3}$/.test(currency))).size,
   };
+  if (footprint && footprint.projects && footprint.stops) {
+    counts['mapped-systems'] = new Set(footprint.projects.map(project => project.key)).size;
+    counts['tour-stops'] = footprint.stops.length;
+    counts.currencies = new Set(footprint.stops.flatMap(stop => String(stop.currency).split(' · ')).filter(currency => /^[A-Z]{3}$/.test(currency))).size;
+  }
   for (const [key, count] of Object.entries(counts)) {
     for (const el of document.querySelectorAll(`[data-count="${key}"]`)) {
       el.textContent = String(count);
     }
   }
+}
+
+// The homepage shows a short face of copy that is already in the
+// dictionaries. The unabridged sentences stay in uiCopy and on record.html.
+// The source view (ts) is a code transcription, so it is left whole.
+function clipFace(text, maxWords) {
+  const clean = String(text).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  if (!clean) return clean;
+  const wordList = (s) => s.split(/\s+/).filter(Boolean);
+  const mostlyCjk = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(clean) && wordList(clean).length < 4;
+  if (mostlyCjk) {
+    const chars = [...clean];
+    const limit = Math.max(18, maxWords * 2);
+    if (chars.length <= limit) return clean;
+    return chars.slice(0, limit).join('').replace(/[，,、]\s*$/, '') + '…';
+  }
+  const parts = clean.split(/(?<=[.!?。！？])\s+/).filter(Boolean);
+  const chosen = [];
+  let count = 0;
+  for (const part of parts) {
+    const n = wordList(part).length;
+    if (chosen.length && count + n > maxWords) {
+      if (count < 8) {
+        const room = Math.max(1, maxWords - count);
+        chosen.push(wordList(part).slice(0, room).join(' ').replace(/[,:;–—-]+$/, '') + '.');
+      }
+      break;
+    }
+    chosen.push(part);
+    count += n;
+  }
+  let result = (chosen.length ? chosen : [clean]).join(' ');
+  const resultWords = wordList(result);
+  if (resultWords.length > maxWords) {
+    result = resultWords.slice(0, maxWords).join(' ').replace(/[,:;–—-]+$/, '');
+    if (!/[.!?…。！？]$/.test(result)) result += '.';
+  }
+  return result;
+}
+
+const FACE_CAPS = {
+  'hero.subtitle': 12,
+  'pitch.lede': 18,
+  'pitch.step1body': 16,
+  'pitch.step2body': 16,
+  'pitch.step3body': 16,
+  'pitch.a1': 18,
+  'pitch.a2': 18,
+  'pitch.a3': 20,
+  'pitch.a4': 18,
+  'pitch.a5': 18,
+  'sysSect.lede': 14,
+  'sysSect.sandboxNote': 22,
+  'field.line': 14,
+  'field.point1Desc': 16,
+  'field.point2Desc': 16,
+  'field.point3Desc': 16,
+  'notesContent.lede': 25,
+  'notesContent.n1body': 25,
+  'notesContent.n2body': 25,
+  'notesContent.n3body': 25,
+  'notesContent.n4body': 25,
+  'notesContent.n5body': 25,
+  'notesContent.n6body': 25,
+  'notesContent.stackNote': 16,
+  'teamSect.lede': 22,
+  'teamContent.collectiveLede': 18,
+  'bioNon.lede': 20,
+  'bioPoon.lede': 20,
+};
+
+function faceCopy(node, key, value) {
+  if (activeLocale === 'ts') return value;
+  if (key === 'hero.subtitle') {
+    const clean = String(value).replace(/\s+/g, ' ').trim();
+    const sentence = clean.match(/^[\s\S]*?[.!?。！？](?=\s|$)/);
+    return sentence ? sentence[0].trim() : clipFace(value, 12);
+  }
+  if (node.classList.contains('sys-cell__lede')) return clipFace(value, 8);
+  if (Object.prototype.hasOwnProperty.call(FACE_CAPS, key)) return clipFace(value, FACE_CAPS[key]);
+  return value;
 }
 
 function renderStaticCopy() {
@@ -6268,12 +6355,14 @@ function renderStaticCopy() {
     .replace(/&lt;\/span&gt;/g, '</span>');
 
   document.querySelectorAll('[data-i18n]').forEach((node) => {
-    const value = lookup(node.getAttribute('data-i18n'));
+    const key = node.getAttribute('data-i18n');
+    const value = lookup(key);
     if (typeof value !== 'string') return;
-    if (value.includes('<b>') || value.includes('<em>')) {
-      node.innerHTML = renderInlineMarkup(value);
+    const shown = faceCopy(node, key, value);
+    if (shown.includes('<b>') || shown.includes('<em>')) {
+      node.innerHTML = renderInlineMarkup(shown);
     } else {
-      node.textContent = value;
+      node.textContent = shown;
     }
   });
 

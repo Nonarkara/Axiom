@@ -1558,7 +1558,14 @@
   overscroll-behavior: contain;
 }
 #hero .hero-copy { gap: 8px; flex: 0 0 auto; }
-#hero .hero-title { font-size: 32px; color: var(--ink); letter-spacing: 0; }
+#hero .hero-title {
+  font-size: clamp(36px, 3.8vw, 60px);
+  font-weight: 600;
+  letter-spacing: var(--tr-display);
+  line-height: 1.05;
+  color: var(--ink);
+}
+#hero .hero-title em { font-style: normal; color: var(--accent); }
 #hero .hero-line-accent { min-height: 1.08em; color: var(--accent); }
 #hero .hero-subtitle { font-size: 14px; line-height: 1.4; color: var(--ink); opacity: 1; }
 #hero .hero-badge { padding: 0; background: none; color: var(--accent); }
@@ -1610,17 +1617,17 @@
   #hero {
     --hero-map-width: 100%;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: 62.5svh max-content max-content max-content;
+    grid-template-rows: 46svh max-content max-content max-content;
     grid-template-areas: 'map' 'tools' 'content' 'brief';
     min-height: 0;
     overflow-y: auto;
     overscroll-behavior: contain;
   }
-  #heroCanvas { height: 62.5svh; max-height: 62.5svh; }
+  #heroCanvas { height: 46svh; max-height: 46svh; }
   #heroMap { position: relative; grid-area: map; inset: auto; width: 100%; }
-  #hero .hero-map-space { height: 62.5svh; }
+  #hero .hero-map-space { height: 46svh; }
   #hero .hero-content { overflow: visible; }
-  #hero .hero-title { font-size: 28px; }
+  #hero .hero-title { font-size: 36px; }
   #hero .sat-hud { justify-self: start; }
   #hero .sat-hud-row:has(.sat-hud-signals),
   #hero .sat-hud-signals { display: flex; }

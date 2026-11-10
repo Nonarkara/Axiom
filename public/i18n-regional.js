@@ -228,6 +228,7 @@
       "title": "Real systems. <em>Real cities.</em> Operating today.",
       "lede": "약속이 아니라 증거입니다. 아래의 모든 시스템은 누군가 충분히 빨리 내리지 못한 하나의 결정에서 시작했습니다. 모두 오늘 작동 중입니다 — 열어 보고, 써 보고, 직접 판단하십시오.",
       "sandboxKicker": "샌드박스 // 라이브",
+      "record": "전체 설명",
       "sandboxNote": "데모가 아닙니다 — 샌드박스에서 작동하는 시스템입니다. 인상이 아니라 확장을 위해 구축했습니다. 고객 NDA 하의 프로덕션 배포는 더 크지만, 여기서 실행되는 것은 동일하게 동작하며 고급 모듈만 제외됩니다."
     },
     "stageSect": {
@@ -1520,6 +1521,7 @@
       "title": "Real systems. <em>Real cities.</em> Operating today.",
       "lede": "約束ではなく証拠を。下のシステムはどれも、誰かが十分な速さで下せなかったひとつの決定から始まりました。どれも今日稼働中です——開いて、使って、ご自身で判断してください。",
       "sandboxKicker": "サンドボックス // ライブ",
+      "record": "全文",
       "sandboxNote": "デモではありません — サンドボックスで稼働する実システムです。見せるためではなく、スケールするために構築しています。クライアント NDA 下の本番展開はより大規模ですが、ここで動くものは同じ挙動をし、高度なモジュールのみ非公開です。"
     },
     "stageSect": {
@@ -2805,6 +2807,7 @@
       "title": "Real systems. <em>Real cities.</em> Operating today.",
       "lede": "Bằng chứng, không phải lời hứa. Mỗi hệ thống dưới đây bắt đầu từ một quyết định mà ai đó chưa đưa ra đủ nhanh. Tất cả đều đang chạy hôm nay — hãy mở, dùng thử và tự đánh giá.",
       "sandboxKicker": "Sandbox // Trực tiếp",
+      "record": "Mô tả đầy đủ",
       "sandboxNote": "Đây không phải bản demo — là hệ thống đang chạy trong sandbox. Xây để mở rộng, không phải để gây ấn tượng. Triển khai production dưới NDA của khách hàng lớn hơn; những gì chạy ở đây hoạt động tương tự, chỉ giữ lại các module nâng cao."
     },
     "stageSect": {

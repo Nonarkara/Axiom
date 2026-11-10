@@ -247,8 +247,9 @@
   -webkit-box-orient: vertical;
 }
 
-/* his own words, one line, in italic — the voice is the credential */
-.cx-bar__quote {
+/* The claim under the date already says this line. */
+.cx-bar__quote { display: none; }
+.cx-bar__quote-kept {
   font-size: var(--t-micro);
   font-style: italic;
   line-height: 1.35;
@@ -384,7 +385,7 @@
      claim runs to its full length here. A description that stops at
      "proof that…" tells the reader nothing; two honest lines do. */
   .cx-bar__claim { -webkit-line-clamp: unset; display: block; }
-  .cx-bar__quote { white-space: normal; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; }
+  .cx-bar__quote { display: none; }
   .cx-head__stats { width: 100%; padding-top: 6px; }
   /* Four stats, two to a row on a narrow column. A row of three and an
      orphan is not a shape anyone chose. */
