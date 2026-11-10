@@ -477,19 +477,15 @@
   book.push(doc('axiom', 'Index', 'Axiom', [
     { type: 'poster', text: 'The flood arrives at 2 a.m.', em: 'The dashboard arrives next fiscal year.' },
     { type: 'hero', plate: 'page-hero' },
-    { type: 'lede', text: 'City data already exists. In a crisis, nobody sees it whole. We build one screen for one decision, and put it in the room in two weeks.' },
+    { type: 'lede', text: 'One screen for one decision, in the room in two weeks.' },
     { type: 'figs', rows: [
-      { v: String(systems.length), l: 'Systems', t: 'Across five countries. Open one.' },
-      { v: '2 wk', l: 'To a screen', t: 'On data you already have. No new hardware to start.' },
-      { v: '24/7', l: 'Monitoring', t: 'Public sources, refreshed while the room is asleep.' },
-      { v: '112K', l: 'Following', t: 'The FloodDash brief, in public, in Thai.' }
+      { v: String(systems.length), l: 'Systems' },
+      { v: '2 wk', l: 'To a screen' },
+      { v: '24/7', l: 'Monitoring', t: 'Public sources.' },
+      { v: '112K', l: 'Following', t: 'FloodDash, in Thai.' }
     ]},
-    { type: 'p', text: 'For governors, mayors, agency heads, and the operators who have to decide before the meeting.' },
-    { type: 'p', text: 'Bangkok — flood, campus, urban. Phuket — coast, transit, air. The Middle East — conflict, open intelligence. Southeast Asia — border, index, scale. These name a scope. They are not a list of installation sites.' },
     { type: 'actions', items: [
-      { href: '#problem', label: 'The problem' },
-      { href: '#brief', label: 'Start a two-week proof' },
-      { href: '#flood-ami', label: 'FloodDash' }
+      { href: '#brief', label: 'Start a two-week proof' }
     ]}
   ]));
 
@@ -1330,7 +1326,27 @@
     current = entry.id;
     renderPlate(entry);
     const btn = nav.querySelector('[aria-current="true"]');
-    if (btn && !(opts && opts.keepScroll)) btn.scrollIntoView({ block: 'nearest' });
+    // On a phone the cover is the page. Scrolling the current row into view
+    // would pull the poster off the first screen.
+    if (btn && !(opts && opts.keepScroll) && !isPhone()) btn.scrollIntoView({ block: 'nearest' });
+  }
+
+  function isPhone() {
+    return window.matchMedia('(max-width: 860px)').matches;
+  }
+
+  // The phone cover is the poster, then the index. Closing an entry returns
+  // to that cover. The hash follows, so a refresh of an open entry still
+  // opens the entry.
+  function returnToIndex() {
+    if (!isPhone()) {
+      shell.classList.remove('is-open');
+      return;
+    }
+    if (current !== 'axiom') select('axiom', { push: false, open: false, keepScroll: true });
+    else shell.classList.remove('is-open');
+    const find = document.querySelector('.find');
+    if (find) find.scrollIntoView({ block: 'start' });
   }
 
   function select(id, opts) {
@@ -1343,7 +1359,15 @@
       else history.replaceState({ id: current }, '', next);
     }
     paint(opts);
-    if (window.matchMedia('(max-width: 860px)').matches && (!opts || opts.open !== false)) {
+    if (!isPhone()) return;
+    // The opening plate is the cover: poster first, index after it. Any other
+    // entry takes the screen. Deep links still open, because only the cover
+    // refuses the overlay.
+    if (entry.id === 'axiom' || (opts && opts.open === false)) {
+      shell.classList.remove('is-open');
+      if (!(opts && opts.keepScroll)) window.scrollTo(0, 0);
+    } else if (!opts || opts.open !== false) {
+      window.scrollTo(0, 0);
       shell.classList.add('is-open');
       plate.focus();
     }
@@ -1392,7 +1416,7 @@
   });
 
   backBtn.addEventListener('click', function () {
-    shell.classList.remove('is-open');
+    returnToIndex();
   });
 
   themeBtn.addEventListener('click', function () {
@@ -1426,7 +1450,7 @@
       }
       if (interactive && !typing) return;
       if (typing) q.blur();
-      shell.classList.remove('is-open');
+      returnToIndex();
       return;
     }
     if (typing || interactive || event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey) return;
@@ -1444,8 +1468,8 @@
       } else if (event.key === 'ArrowUp') {
         event.preventDefault();
         if (list[i - 1]) select(list[i - 1].id);
-      } else if (window.matchMedia('(max-width: 860px)').matches) {
-        shell.classList.remove('is-open');
+      } else if (isPhone()) {
+        returnToIndex();
       }
     }
   });

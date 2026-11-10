@@ -3,7 +3,7 @@
   global.AXIOM_I18N = {
   "ui": {
     "en": {
-      "searchPlaceholder": "Filter by title, group, scope, tech…",
+      "searchPlaceholder": "Find",
       "empty": "Nothing under that name.",
       "barOpen": "Open",
       "back": "Back",
@@ -47,7 +47,7 @@
       }
     },
     "th": {
-      "searchPlaceholder": "ค้นหาตามชื่อ กลุ่ม ขอบเขต เทคโนโลยี…",
+      "searchPlaceholder": "ค้นหา",
       "empty": "ไม่พบข้อมูลที่ตรงกับคำค้นหา",
       "barOpen": "เปิดระบบ",
       "back": "กลับ",
@@ -91,7 +91,7 @@
       }
     },
     "zh": {
-      "searchPlaceholder": "按标题、分组、范围、技术过滤…",
+      "searchPlaceholder": "查找",
       "empty": "未找到匹配项。",
       "barOpen": "打开系统",
       "back": "返回",
@@ -135,7 +135,7 @@
       }
     },
     "ko": {
-      "searchPlaceholder": "제목, 그룹, 범위, 기술로 검색…",
+      "searchPlaceholder": "찾기",
       "empty": "해당하는 항목이 없습니다.",
       "barOpen": "시스템 열기",
       "back": "뒤로",
@@ -179,7 +179,7 @@
       }
     },
     "ja": {
-      "searchPlaceholder": "タイトル、グループ、対象、技術で絞り込み…",
+      "searchPlaceholder": "検索",
       "empty": "該当する項目がありません。",
       "barOpen": "システムを開く",
       "back": "戻る",
@@ -223,7 +223,7 @@
       }
     },
     "vi": {
-      "searchPlaceholder": "Lọc theo tên, nhóm, phạm vi, công nghệ…",
+      "searchPlaceholder": "Tìm",
       "empty": "Không tìm thấy kết quả phù hợp.",
       "barOpen": "Mở hệ thống",
       "back": "Quay lại",
@@ -3347,9 +3347,7 @@
         "title": "Axiom",
         "poster": "น้ำท่วมมาถึงตอนตีสอง",
         "posterEm": "แดชบอร์ดมาถึงปีงบประมาณหน้า",
-        "lede": "ข้อมูลเมืองมีอยู่แล้ว แต่ในวิกฤตไม่มีใครเห็นภาพรวม เราสร้างหนึ่งหน้าจอสำหรับการตัดสินใจหนึ่งเรื่อง และส่งมอบถึงห้องสั่งการภายในสองสัปดาห์",
-        "p1": "สำหรับผู้ว่าราชการจังหวัด นายกเทศมนตรี หัวหน้าหน่วยงาน และผู้ปฏิบัติการที่ต้องตัดสินใจก่อนการประชุม",
-        "p2": "กรุงเทพฯ — น้ำท่วม วิทยาเขต เมือง ภูเก็ต — ชายฝั่ง ขนส่ง อากาศ ตะวันออกกลาง — ความขัดแย้ง ข่าวกรองเปิด เอเชียตะวันออกเฉียงใต้ — พรมแดน ดัชนี สเกล สิ่งเหล่านี้คือขอบเขต ไม่ใช่เพียงรายชื่อสถานที่ติดตั้ง"
+        "lede": "หนึ่งหน้าจอ สำหรับหนึ่งการตัดสินใจ ในห้องภายในสองสัปดาห์"
       },
       "problem": {
         "title": "ภาพสถานการณ์ที่มาช้าเกินไป",
@@ -3661,9 +3659,7 @@
         "title": "Axiom",
         "poster": "洪水在凌晨两点到来",
         "posterEm": "仪表板在下个财年交付",
-        "lede": "城市数据早已存在。但在危机时刻，无人能够纵览全局。我们为一个决定构建一个屏幕，并在两周内将其送达指挥决策室。",
-        "p1": "面向省长、市长、机构负责人，以及必须在会议前做出抉择的指挥运营官。",
-        "p2": "曼谷——防汛、园区、城市。普吉——海岸、交通、空气。中东——冲突、开源情报。东南亚——边境、指数、规模。这些是真实边界，而非单纯的安装清单。"
+        "lede": "一个屏幕，一个决定，两周内送到房间里。"
       },
       "problem": {
         "title": "迟到的全景图",
@@ -3975,9 +3971,7 @@
         "title": "Axiom",
         "poster": "홍수는 새벽 2시에 도달합니다",
         "posterEm": "대시보드는 다음 회계연도에 도착합니다",
-        "lede": "도시 데이터는 이미 존재합니다. 위기 상황에서 누구도 그것을 온전히 보지 못할 뿐입니다. 우리는 단 하나의 결정을 위한 하나의 화면을 구축하여 2주 안에 작전실에 전달합니다.",
-        "p1": "도지사, 시장, 기관장, 그리고 회의 시작 전에 결단을 내려야 하는 현장 운영자를 위한 시스템.",
-        "p2": "방콕 — 홍수, 캠퍼스, 도시. 푸켓 — 해안, 교통, 대기. 중동 — 분쟁, 공개 정보. 동남아시아 — 국경, 지수, 규모. 이는 단순한 설치 장소가 아닌 실제 작동 경계입니다."
+        "lede": "화면 하나. 결정 하나. 2주 안에 그 방으로."
       },
       "problem": {
         "title": "뒤늦게 도착하는 상황판",
@@ -4289,9 +4283,7 @@
         "title": "Axiom",
         "poster": "洪水は深夜2時にやってくる",
         "posterEm": "ダッシュボードは翌年度に届く",
-        "lede": "都市のデータはすでに存在しています。危機の最中に全体を見渡せる者がいないだけです。私たちは1つの決断のために1つの画面を構築し、2週間で作戦室に届けます。",
-        "p1": "知事、市長、機関のトップ、そして会議の前に決断を下さなければならない現場指揮官のために。",
-        "p2": "バンコク — 洪水、キャンパス、都市。プーケット — 海岸、交通、大気。中東 — 紛争、オープンインテリジェンス。東南アジア — 国境、指標、スケール。これらは単なる設置リストではなく、現実の活動領域です。"
+        "lede": "画面は一つ。決断は一つ。二週間で、その部屋へ。"
       },
       "problem": {
         "title": "遅れて届く全体像",
@@ -4603,9 +4595,7 @@
         "title": "Axiom",
         "poster": "Lũ lụt ập đến lúc 2 giờ sáng",
         "posterEm": "Bảng điều khiển đến vào năm tài chính tới",
-        "lede": "Dữ liệu đô thị đã tồn tại. Nhưng trong khủng hoảng, không ai nhìn thấy toàn cảnh. Chúng tôi xây dựng một màn hình cho một quyết định duy nhất, và đưa nó vào phòng chỉ huy trong vòng hai tuần.",
-        "p1": "Dành cho các tỉnh trưởng, thị trưởng, lãnh đạo cơ quan và các chỉ huy vận hành phải ra quyết định trước cuộc họp.",
-        "p2": "Bangkok — ngập lụt, khu trường học, đô thị. Phuket — bờ biển, giao thông, không khí. Trung Đông — xung đột, tin tức mở. Đông Nam Á — biên giới, chỉ số, quy mô. Đây là các phạm vi thực tế, không đơn thuần là danh sách lắp đặt."
+        "lede": "Một màn hình. Một quyết định. Trong phòng, sau hai tuần."
       },
       "problem": {
         "title": "Bức tranh toàn cảnh đến muộn",
