@@ -966,6 +966,29 @@ summary:focus-visible {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  /* The catalogue is the scroll. Four, then five, columns keep the 21:8
+     band and put more systems on a row, so the page is not a stack of essays. */
+  #systems .grid--3,
+  #lab .grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  #systems .grid--3,
+  #lab .grid--3 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1400px) {
+  #systems .grid--3,
+  #lab .grid--3 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 760px) {
   .grid--4 {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -2399,6 +2422,41 @@ summary:focus-visible {
   text-transform: uppercase;
   color: var(--ink-3);
 }
+
+.pitch-steps .numbered__body { display: none; }
+.sys-cell__link { display: none; }
+
+.hero-console__item-desc,
+.hero-console__impact-desc,
+.hero-console__dna-desc,
+.hero-console__keywords-strip { display: none; }
+
+.masthead-cta {
+  color: var(--ink);
+  font-size: var(--t-micro);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  background: none;
+  border: 0;
+}
+
+.masthead-cta:hover { color: var(--accent); }
+
+.record-link { margin: 0 0 10px; }
+.record-link a { color: var(--accent); }
+.pitch-more > summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; }
+.pitch-next { margin: 8px 0 0; }
+.pitch-next a { color: var(--accent); }
+
+.record-entry { padding: 12px 0; border-top: 1px solid var(--line); }
+.record-entry h2 { font-size: var(--t-lede); font-weight: 600; letter-spacing: var(--tr-lead); margin: 0 0 4px; }
+.record-entry p { margin: 0; max-width: 66ch; }
 
 .sys-cell__lede {
   font-size: var(--t-micro);
