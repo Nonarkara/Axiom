@@ -2,7 +2,12 @@ import { chromium } from 'playwright';
 import { readFile } from 'node:fs/promises';
 // Defaults to the local reading room; set AXIOMX_URL to test a deployment.
 const BASE = (process.env.AXIOMX_URL || 'http://127.0.0.1:5311/').replace(/\/?$/, '/');
-const b = await chromium.launch();
+const launch = {};
+if (process.env.CHROME_PATH) {
+  launch.executablePath = process.env.CHROME_PATH;
+  launch.args = ['--no-sandbox', '--disable-dev-shm-usage'];
+}
+const b = await chromium.launch(launch);
 const fails = [];
 const ok = [];
 const check = (name, cond, detail = '') => (cond ? ok : fails).push(`${name}${detail ? ' — ' + detail : ''}`);
@@ -145,12 +150,26 @@ async function newPage(w = 1440, h = 900) {
     clientW: document.documentElement.clientWidth,
   }));
   check('no horizontal overflow on phone', overflow.scrollW <= overflow.clientW + 1, JSON.stringify(overflow));
-  // plate should be hidden until you pick something
-  const plateVisible = await p.evaluate(() => getComputedStyle(document.querySelector('.plate')).display !== 'none');
-  check('phone shows the index first', !plateVisible);
+  // The cover is the poster. The index follows it on the same scroll.
+  const cover = await p.evaluate(() => {
+    const poster = document.querySelector('.poster');
+    const nav = document.querySelector('#nav');
+    const pr = poster.getBoundingClientRect();
+    const nr = nav.getBoundingClientRect();
+    return {
+      top: Math.round(pr.top),
+      height: Math.round(pr.height),
+      font: getComputedStyle(poster).fontSize,
+      navTop: Math.round(nr.top),
+      text: poster.textContent
+    };
+  });
+  check('phone shows the poster first', cover.height > 40 && cover.top >= 0 && cover.top < 844 && cover.top < cover.navTop, JSON.stringify(cover));
+  check('phone poster stays at display size', cover.font === '68px', cover.font);
+  check('phone poster is the 2 a.m. line', cover.text.includes('flood arrives') && cover.text.includes('next fiscal year'));
   const itemH = await p.evaluate(() => Math.round(document.querySelector('.item').getBoundingClientRect().height));
   check('phone tap target ≥44px', itemH >= 44, `${itemH}px`);
-  await p.click('#nav .item');
+  await p.click('#nav button[data-id="problem"]');
   await p.waitForTimeout(350);
   const openNow = await p.evaluate(() => document.querySelector('.shell').classList.contains('is-open'));
   check('tapping an entry opens the plate', openNow);
@@ -161,7 +180,17 @@ async function newPage(w = 1440, h = 900) {
   check('back button present and tappable on phone', backVisible >= 44, `${backVisible}px`);
   await p.click('.back');
   await p.waitForTimeout(250);
-  check('back returns to the index', await p.evaluate(() => !document.querySelector('.shell').classList.contains('is-open')));
+  const returned = await p.evaluate(() => {
+    const poster = document.querySelector('.poster');
+    const nav = document.querySelector('#nav');
+    const pr = poster.getBoundingClientRect();
+    return {
+      open: document.querySelector('.shell').classList.contains('is-open'),
+      poster: Math.round(pr.height),
+      navTop: Math.round(nav.getBoundingClientRect().top)
+    };
+  });
+  check('back returns to the index', !returned.open && returned.navTop < 844 && returned.poster > 0, JSON.stringify(returned));
   await p.context().close();
 }
 
@@ -511,7 +540,9 @@ async function newPage(w = 1440, h = 900) {
   check('it grows from its left edge, not its centre', /^0px\b/.test(h.originX), h.originX);
   check('the grown label stays inside the index column', h.lbRight <= h.idxRight, `${h.lbRight} vs ${h.idxRight}`);
   check('the row keeps its 44px target', h.rowH >= 44, `${h.rowH}px`);
-  check('a vertical list never offers a sideways scrollbar', h.ox === 'hidden', `overflow-x ${h.ox}`);
+  // clip, not hidden: hidden would make the vertical list a horizontal scroll
+  // container. Either value refuses a sideways scrollbar.
+  check('a vertical list never offers a sideways scrollbar', h.ox === 'clip' || h.ox === 'hidden', `overflow-x ${h.ox}`);
 
   const quiet = await p.evaluate(() => [...document.querySelectorAll('.item .lb')]
     .filter(lb => getComputedStyle(lb).transform !== 'none').length);
@@ -610,7 +641,8 @@ for (const theme of ['light', 'dark']) {
   const p = await ctx.newPage();
   await p.goto(BASE, { waitUntil: 'networkidle' });
   await p.waitForTimeout(500);
-  for (let i = 0; i < 9; i++) await p.keyboard.press('Tab');
+  // Mark, six locales, Dark, Find, then the first row.
+  for (let i = 0; i < 10; i++) await p.keyboard.press('Tab');
   const f = await p.evaluate(() => {
     const el = document.activeElement;
     if (!el || !el.classList.contains('item')) return null;

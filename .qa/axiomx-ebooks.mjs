@@ -5,7 +5,12 @@ import { chromium } from 'playwright';
 const base = process.env.AXIOMX_URL || 'http://127.0.0.1:5311/';
 const out = process.env.EBOOK_EVIDENCE || '/tmp/axiomx-ebooks-evidence';
 mkdirSync(out, { recursive: true });
-const browser = await chromium.launch();
+const launch = {};
+if (process.env.CHROME_PATH) {
+  launch.executablePath = process.env.CHROME_PATH;
+  launch.args = ['--no-sandbox', '--disable-dev-shm-usage'];
+}
+const browser = await chromium.launch(launch);
 const report = [];
 const errors = [];
 try {
