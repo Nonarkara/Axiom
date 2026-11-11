@@ -12,7 +12,7 @@ urllib3>=2.8.0
 gtfs-realtime-bindings>=3.0.0
 
 # Data processing
-pandas>=3.0.6
+pandas>=3.1.1
 numpy>=2.5.4
 
 # Geospatial
@@ -22,7 +22,7 @@ shapely>=2.2.0
 python-dotenv>=1.2.4
 
 # MQTT client (for direct MQTT publishing)
-paho-mqtt>=2.1.0
+paho-mqtt>=2.2.0
 
 # Scheduling (for cron-style pollers)
 schedule>=1.2.2
