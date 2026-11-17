@@ -13,7 +13,8 @@
 .research-index { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 4px; min-width: 0; }
 .research-map-fallback { max-width: 65ch; margin: 0 0 4px; }
 .research-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; }
-.research-heading h1, .research-heading h2 { margin: 0; font-size: 32px; line-height: 1.15; font-weight: 500; letter-spacing: 0; }
+.research-heading h1 { margin: 0; font-size: 32px; line-height: 1.15; font-weight: 500; letter-spacing: 0; }
+.research-heading h2 { margin: 0; font-size: var(--t-lead, 24px); line-height: 1.15; font-weight: 600; letter-spacing: var(--tr-lead, -0.008em); }
 .research-heading p { margin: 0; font-size: var(--t-body, 14px); }
 .research-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; min-width: 0; padding-bottom: 4px; }
 [data-research-filter-value] { max-width: 100%; overflow-wrap: anywhere; }

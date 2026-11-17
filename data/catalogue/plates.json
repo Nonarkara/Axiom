@@ -1426,5 +1426,17 @@
     "width": "1600",
     "height": "771",
     "medium": "woodcut on six sheets of paper"
+  },
+  "club": {
+    "artist": "Franz Eugen Köhler",
+    "title": "Cannabis sativa (Köhler’s Medizinal-Pflanzen)",
+    "year": "1897",
+    "collection": "Botanical Archive (Köhler’s Medizinal-Pflanzen, Vol. 1)",
+    "source": "https://commons.wikimedia.org/wiki/File:Cannabis_sativa_(K%C3%B6hler).jpg",
+    "licence": "Public domain",
+    "why": "A nineteenth-century botanical classification plate rendering specimen anatomy alongside taxonomic detail. CL;UB applies the same public-record discipline to 329 open-data venues across Thailand — separating dispensaries, cafés, clinics and unclassified entries on one auditable urban map.",
+    "width": "1335",
+    "height": "1600",
+    "medium": "chromolithograph"
   }
 }

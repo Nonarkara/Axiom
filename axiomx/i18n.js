@@ -545,6 +545,12 @@
           "lede": "Community places directory — map of places with categories and details.",
           "cta": "Open co"
         },
+        "club": {
+          "name": "CL;UB",
+          "cat": "Urban Research",
+          "lede": "Thailand Cannabis Directory — 329 open-data venues mapped across dispensaries, cafés, and clinics with hotspots and Einstein tiles.",
+          "cta": "Open CL;UB"
+        },
         "podcast-20min": {
           "name": "20 Minutes with Dr Non",
           "cat": "Podcast",
@@ -1056,6 +1062,12 @@
           "cat": "ระบบบริหารธุรกิจ",
           "lede": "ไดเรกทอรีสถานที่ชุมชน — แผนที่สถานที่พร้อมหมวดหมู่และรายละเอียด",
           "cta": "เปิด co"
+        },
+        "club": {
+          "name": "CL;UB",
+          "cat": "งานวิจัยเมือง",
+          "lede": "ทำเนียบกัญชาประเทศไทย — แผนที่สถานที่ 329 แห่งจากข้อมูลเปิด ทั้งร้านจำหน่าย คาเฟ่ และคลินิก พร้อมจุดหนาแน่นและไทล์ไอน์สไตน์",
+          "cta": "เปิด CL;UB"
         },
         "podcast-20min": {
           "name": "20 นาทีกับ ดร.นน",
@@ -1569,6 +1581,12 @@
           "lede": "社区场所目录 — 包含丰富分类与详细信息的地点空间地图。",
           "cta": "打开 co"
         },
+        "club": {
+          "name": "CL;UB",
+          "cat": "城市研究",
+          "lede": "泰国大麻场所名录 — 基于开放数据绘制 329 处药房、咖啡馆与诊所的空间分布地图，附带热点区域与爱因斯坦拼块集群视图。",
+          "cta": "打开 CL;UB"
+        },
         "podcast-20min": {
           "name": "与阿南博士的二十分钟",
           "cat": "播客",
@@ -2080,6 +2098,12 @@
           "cat": "비즈니스 운영",
           "lede": "커뮤니티 장소 디렉터리 — 범주와 세부 정보가 있는 장소 지도",
           "cta": "co 열기"
+        },
+        "club": {
+          "name": "CL;UB",
+          "cat": "도시 연구",
+          "lede": "태국 대마 장소 디렉터리 — 오픈 데이터 기반 329개 판매점·카페·클리닉 공간 지도, 핫스팟 및 아인슈타인 타일 클러스터링 제공.",
+          "cta": "CL;UB 열기"
         },
         "podcast-20min": {
           "name": "20분 with 닥터 논",
@@ -2593,6 +2617,12 @@
           "lede": "コミュニティ施設ディレクトリ — カテゴリと詳細付きの場所マップ",
           "cta": "co を開く"
         },
+        "club": {
+          "name": "CL;UB",
+          "cat": "都市研究",
+          "lede": "タイ大麻施設ディレクトリ — オープンデータに基づく 329 箇所のディスペンサリー・カフェ・クリニックの空間マップとホットスポット・アインシュタインタイル表示。",
+          "cta": "CL;UB を開く"
+        },
         "podcast-20min": {
           "name": "Dr Nonとの20分",
           "cat": "ポッドキャスト",
@@ -3104,6 +3134,12 @@
           "cat": "Vận hành doanh nghiệp",
           "lede": "Thư mục địa điểm cộng đồng — bản đồ địa điểm có danh mục và chi tiết",
           "cta": "Mở co"
+        },
+        "club": {
+          "name": "CL;UB",
+          "cat": "Nghiên cứu đô thị",
+          "lede": "Danh bạ cần sa Thái Lan — bản đồ 329 địa điểm dữ liệu mở gồm cửa hàng, quán cà phê và phòng khám kèm điểm nóng và ô gạch Einstein.",
+          "cta": "Mở CL;UB"
         },
         "podcast-20min": {
           "name": "20 phút với Dr Non",

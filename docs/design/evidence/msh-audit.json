@@ -1,17 +1,12 @@
 {
   "verdict": "PASS",
-  "checkedAt": "2026-11-17T07:08:02.117Z",
+  "checkedAt": "2026-11-17T10:52:27.591Z",
   "fails": [],
   "notes": [
     {
       "surface": "axiom",
       "width": "390x844",
-      "detail": "document 32892px = 39.0× viewport height"
-    },
-    {
-      "surface": "axiom",
-      "width": "390x844",
-      "detail": "no clear hierarchy step (34px vs 32px)"
+      "detail": "document 33129px = 39.3× viewport height"
     },
     {
       "surface": "axiom",
@@ -251,12 +246,7 @@
     {
       "surface": "axiom",
       "width": "1024x900",
-      "detail": "document 14260px = 15.8× viewport height"
-    },
-    {
-      "surface": "axiom",
-      "width": "1024x900",
-      "detail": "no clear hierarchy step (39px vs 32px)"
+      "detail": "document 14247px = 15.8× viewport height"
     },
     {
       "surface": "axiom",
@@ -596,7 +586,7 @@
     {
       "surface": "axiom",
       "width": "1440x900",
-      "detail": "document 10399px = 11.6× viewport height"
+      "detail": "document 10593px = 11.8× viewport height"
     },
     {
       "surface": "axiom",
@@ -1035,7 +1025,7 @@
       "viewport": "390x844",
       "vw": 390,
       "vh": 844,
-      "docH": 32892,
+      "docH": 33129,
       "chromeGeometry": {
         "width": 390,
         "height": 844,
@@ -1063,21 +1053,21 @@
       "h1Visible": true,
       "primaryActionVisible": true,
       "voiceTop": 34,
-      "voiceSecond": 32,
+      "voiceSecond": 19,
       "boxFit": [
         {
           "sel": ".hero-stat",
           "w": 114,
           "needed": 151,
           "ratio": 0.76,
-          "text": "85\n            Catal"
+          "text": "86\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 90,
           "needed": 116,
           "ratio": 0.78,
-          "text": "73\n            Label"
+          "text": "74\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -1456,6 +1446,13 @@
           "needed": 569,
           "ratio": 0.63,
           "text": "84Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 358,
+          "needed": 664,
+          "ratio": 0.54,
+          "text": "86Live\n            \n"
         },
         {
           "sel": ".sys-cell",
@@ -2171,7 +2168,7 @@
       "viewport": "1024x900",
       "vw": 1024,
       "vh": 900,
-      "docH": 14260,
+      "docH": 14247,
       "chromeGeometry": {
         "width": 1024,
         "height": 900,
@@ -2199,21 +2196,21 @@
       "h1Visible": true,
       "primaryActionVisible": true,
       "voiceTop": 39,
-      "voiceSecond": 32,
+      "voiceSecond": 24,
       "boxFit": [
         {
           "sel": ".hero-stat",
           "w": 104,
           "needed": 151,
           "ratio": 0.69,
-          "text": "85\n            Catal"
+          "text": "86\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 82,
           "needed": 116,
           "ratio": 0.71,
-          "text": "73\n            Label"
+          "text": "74\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -2592,6 +2589,13 @@
           "needed": 569,
           "ratio": 0.58,
           "text": "84Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 330,
+          "needed": 664,
+          "ratio": 0.5,
+          "text": "86Live\n            \n"
         },
         {
           "sel": ".sys-cell",
@@ -3461,7 +3465,7 @@
       "viewport": "1440x900",
       "vw": 1440,
       "vh": 900,
-      "docH": 10399,
+      "docH": 10593,
       "chromeGeometry": {
         "width": 1440,
         "height": 900,
@@ -3489,21 +3493,21 @@
       "h1Visible": true,
       "primaryActionVisible": true,
       "voiceTop": 55,
-      "voiceSecond": 32,
+      "voiceSecond": 24,
       "boxFit": [
         {
           "sel": ".hero-stat",
           "w": 104,
           "needed": 151,
           "ratio": 0.69,
-          "text": "85\n            Catal"
+          "text": "86\n            Catal"
         },
         {
           "sel": ".hero-stat",
           "w": 82,
           "needed": 116,
           "ratio": 0.71,
-          "text": "73\n            Label"
+          "text": "74\n            Label"
         },
         {
           "sel": ".hero-stat",
@@ -3882,6 +3886,13 @@
           "needed": 569,
           "ratio": 0.42,
           "text": "84Live\n            \n"
+        },
+        {
+          "sel": ".sys-cell",
+          "w": 239,
+          "needed": 664,
+          "ratio": 0.36,
+          "text": "86Live\n            \n"
         },
         {
           "sel": ".sys-cell",
@@ -5011,6 +5022,6 @@
     "widths": 3,
     "measurements": 6,
     "fails": 0,
-    "notes": 205
+    "notes": 203
   }
 }

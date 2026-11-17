@@ -634,6 +634,11 @@
           "cta": "co 열기",
           "name": "co"
         },
+        "club": {
+          "lede": "태국 대마 장소 디렉터리 — 오픈 데이터 기반 329개 판매점·카페·클리닉 공간 지도, 핫스팟 및 아인슈타인 타일 클러스터링 제공.",
+          "cta": "CL;UB 열기",
+          "name": "CL;UB"
+        },
         "p52": {
           "name": "20분 with 닥터 논",
           "lede": "새로운 팟캐스트 — 아이디어, 에이전트, 지정학, 그리고 다음 20분. Spotify에서 라이브, 더 많은 에피소드 출항 중.",
@@ -1230,13 +1235,13 @@
     "pb5cm": "기관 역량 강화",
     "pb5out1": "툴킷 포털", "pb5out2": "모범 사례 라이브러리", "pb5out3": "도시 간 모듈",
     "sysClusters": {
-        "sysMeta": "85개 시스템 · 5개국",
+        "sysMeta": "86개 시스템 · 5개국",
         "command": "도시 대시보드",
         "commandMeta": "실시간 도시 운영실 및 환경 관측 · 26",
         "intelligence": "인텔리전스",
         "intelligenceMeta": "신호 및 분석 · 10",
         "civic": "시민",
-        "civicMeta": "국가 플랫폼 및 시민 인프라 · 10",
+        "civicMeta": "국가 플랫폼 및 시민 인프라 · 11",
         "emerging": "신규",
         "emergingMeta": "연구급 및 새 운영 모델 · 13",
         "lab": "랩",
@@ -1927,6 +1932,11 @@
           "cta": "co を開く",
           "name": "co"
         },
+        "club": {
+          "lede": "タイ大麻施設ディレクトリ — オープンデータに基づく 329 箇所のディスペンサリー・カフェ・クリニックの空間マップとホットスポット・アインシュタインタイル表示。",
+          "cta": "CL;UB を開く",
+          "name": "CL;UB"
+        },
         "p52": {
           "name": "Dr Nonとの20分",
           "lede": "新しいポッドキャスト — アイデア、エージェント、地政学、そして次の20分。Spotifyでライブ配信中、エピソード順次公開中。",
@@ -2516,13 +2526,13 @@
     "pb5cm": "組織能力構築",
     "pb5out1": "ツールキットポータル", "pb5out2": "ベストプラクティス図書館", "pb5out3": "都市間モジュール",
     "sysClusters": {
-        "sysMeta": "85システム · 5か国",
+        "sysMeta": "86システム · 5か国",
         "command": "シティダッシュボード",
         "commandMeta": "リアルタイム都市運用室と環境観測 · 26",
         "intelligence": "インテリジェンス",
         "intelligenceMeta": "シグナルと分析 · 10",
         "civic": "シビック",
-        "civicMeta": "国家プラットフォームと市民インフラ · 10",
+        "civicMeta": "国家プラットフォームと市民インフラ · 11",
         "emerging": "新興",
         "emergingMeta": "研究グレードと新運用モデル · 13",
         "lab": "ラボ",
@@ -3213,6 +3223,11 @@
           "cta": "Mở co",
           "name": "co"
         },
+        "club": {
+          "lede": "Danh bạ cần sa Thái Lan — bản đồ 329 địa điểm dữ liệu mở gồm cửa hàng, quán cà phê và phòng khám kèm điểm nóng và ô gạch Einstein.",
+          "cta": "Mở CL;UB",
+          "name": "CL;UB"
+        },
         "p52": {
           "name": "20 phút với Dr Non",
           "lede": "Podcast mới — ý tưởng, tác nhân, địa chính trị, và hai mươi phút tiếp theo. Đang phát trực tiếp trên Spotify, thêm tập đang ra.",
@@ -3802,13 +3817,13 @@
     "pb5cm": "Xây dựng năng lực thể chế",
     "pb5out1": "Cổng bộ công cụ", "pb5out2": "Thư viện thực tiễn tốt", "pb5out3": "Mô-đun thành phố với thành phố",
     "sysClusters": {
-        "sysMeta": "85 hệ thống · 5 quốc gia",
+        "sysMeta": "86 hệ thống · 5 quốc gia",
         "command": "Bảng điều khiển thành phố",
         "commandMeta": "Phòng vận hành thành phố thời gian thực & quan trắc môi trường · 26",
         "intelligence": "Tình báo",
         "intelligenceMeta": "Tín hiệu và phân tích · 10",
         "civic": "Công dân",
-        "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 10",
+        "civicMeta": "Nền tảng quốc gia và hạ tầng công dân · 11",
         "emerging": "Mới nổi",
         "emergingMeta": "Cấp nghiên cứu và mô hình vận hành mới · 13",
         "lab": "Lab",

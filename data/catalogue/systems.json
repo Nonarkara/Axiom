@@ -42,7 +42,7 @@
   "countries": 5,
   "clusterCounts": {
     "City Dashboards": 26,
-    "Civic": 10,
+    "Civic": 11,
     "Emerging": 13,
     "Intelligence": 10,
     "Lab": 26
@@ -4799,6 +4799,72 @@
           "cta": "co.open()",
           "name": "co",
           "cat": "Community"
+        }
+      }
+    },
+    {
+      "id": "club",
+      "cluster": "Civic",
+      "idx": "86",
+      "panelsKey": "club",
+      "catKey": "c37",
+      "status": "live",
+      "statusLabel": "Live",
+      "href": "https://club.nonarkara.org/",
+      "domId": null,
+      "variant": "link",
+      "edition": null,
+      "image": {
+        "src": "screenshots/club.jpg",
+        "webp": "screenshots/club.webp",
+        "alt": "CL;UB Thailand Cannabis Directory — 329 open-data venues mapped with hotspots and Einstein tiles",
+        "width": null,
+        "height": null,
+        "crop": null
+      },
+      "arch": null,
+      "copy": {
+        "en": {
+          "lede": "Thailand Cannabis Directory — 329 open-data venues mapped across dispensaries, cafés, and clinics with hotspots and Einstein tiles.",
+          "cta": "Open CL;UB",
+          "name": "CL;UB",
+          "cat": "Urban Research"
+        },
+        "th": {
+          "lede": "ทำเนียบกัญชาประเทศไทย — แผนที่สถานที่ 329 แห่งจากข้อมูลเปิด ทั้งร้านจำหน่าย คาเฟ่ และคลินิก พร้อมจุดหนาแน่นและไทล์ไอน์สไตน์",
+          "cta": "เปิด CL;UB",
+          "name": "CL;UB",
+          "cat": "งานวิจัยเมือง"
+        },
+        "zh": {
+          "lede": "泰国大麻场所名录 — 基于开放数据绘制 329 处药房、咖啡馆与诊所的空间分布地图，附带热点区域与爱因斯坦拼块集群视图。",
+          "cta": "打开 CL;UB",
+          "name": "CL;UB",
+          "cat": "城市研究"
+        },
+        "ko": {
+          "lede": "태국 대마 장소 디렉터리 — 오픈 데이터 기반 329개 판매점·카페·클리닉 공간 지도, 핫스팟 및 아인슈타인 타일 클러스터링 제공.",
+          "cta": "CL;UB 열기",
+          "name": "CL;UB",
+          "cat": "도시 연구"
+        },
+        "ja": {
+          "lede": "タイ大麻施設ディレクトリ — オープンデータに基づく 329 箇所のディスペンサリー・カフェ・クリニックの空間マップとホットスポット・アインシュタインタイル表示。",
+          "cta": "CL;UB を開く",
+          "name": "CL;UB",
+          "cat": "都市研究"
+        },
+        "vi": {
+          "lede": "Danh bạ cần sa Thái Lan — bản đồ 329 địa điểm dữ liệu mở gồm cửa hàng, quán cà phê và phòng khám kèm điểm nóng và ô gạch Einstein.",
+          "cta": "Mở CL;UB",
+          "name": "CL;UB",
+          "cat": "Nghiên cứu đô thị"
+        },
+        "ts": {
+          "lede": "club.thailandDirectory({ venues: 329, hotspots: 24, tiling: \"Einstein\" }) // open-data spatial bureau",
+          "cta": "club.open()",
+          "name": "CL;UB",
+          "cat": "UrbanResearch"
         }
       }
     },
