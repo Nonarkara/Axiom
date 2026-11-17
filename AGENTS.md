@@ -2,6 +2,8 @@
 >
 > **Read its companion bibles (same weight, November 2026):** [GLANCE-PATH-FOR-AI.md](GLANCE-PATH-FOR-AI.md) — the eye enters on visual weight, not DOM order; the heaviest visual (or map) is the entry, and the headline/key number/primary action sit on its **exit**, no leapfrog. [KINETIC-GRIDS-FOR-AI.md](KINETIC-GRIDS-FOR-AI.md) — energy comes from obeying a named grid (`radial` \| `axial` \| `column` \| `modular`), not drifting off one; name the grid **before** you code, snap to it, leave voids on purpose, title unapologetically huge, palette quiet.
 >
+> **[ANTI-SLOP.md](ANTI-SLOP.md) carries the measured hard limits** (≤3 shadows, ≤65ch, one radius, ≤8 sizes, zero emoji icons, ≤15 boxes, ≤5 pills, map ≥60% of the first screen) from the 46-app flood-app study; where it differs from the November law above, the November law wins.
+>
 > **Check pages with `slop-lint` (tools/slop-lint.mjs in Nonarkara/palette).**
 
 > **Read [STYLE.md](STYLE.md) before visual edits.** It locks the column grid, protected palettes, publication provenance and human-artwork treatment. Add papers to `data/research.json`, then run `node scripts/research/build.mjs`. Verify PDF bytes and hashes, not HTTP status alone.
