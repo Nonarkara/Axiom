@@ -1,22 +1,22 @@
 {
   "verdict": "PASS",
-  "checkedAt": "2026-11-09T21:35:49.493Z",
+  "checkedAt": "2026-11-17T07:08:02.117Z",
   "fails": [],
   "notes": [
     {
       "surface": "axiom",
       "width": "390x844",
-      "detail": "document 35799px = 42.4× viewport height"
+      "detail": "document 32892px = 39.0× viewport height"
     },
     {
       "surface": "axiom",
       "width": "390x844",
-      "detail": "no clear hierarchy step (32px vs 28px)"
+      "detail": "no clear hierarchy step (34px vs 32px)"
     },
     {
       "surface": "axiom",
       "width": "390x844",
-      "detail": "map covers 67.1% of first screen"
+      "detail": "map covers 64.6% of first screen"
     },
     {
       "surface": "axiom",
@@ -66,6 +66,41 @@
     {
       "surface": "axiom",
       "width": "390x844",
+      "detail": "prose credit link BUTTON.hero-node 61×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link BUTTON.hero-node 51×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link BUTTON.hero-node 76×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link BUTTON.hero-node 93×32px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 140×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 74×34px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
+      "detail": "prose credit link A 99×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "390x844",
       "detail": "prose credit link A.t-ctrl 116×32px (font 11px) — not a tap target"
     },
     {
@@ -216,12 +251,12 @@
     {
       "surface": "axiom",
       "width": "1024x900",
-      "detail": "document 15004px = 16.7× viewport height"
+      "detail": "document 14260px = 15.8× viewport height"
     },
     {
       "surface": "axiom",
       "width": "1024x900",
-      "detail": "no clear hierarchy step (32px vs 32px)"
+      "detail": "no clear hierarchy step (39px vs 32px)"
     },
     {
       "surface": "axiom",
@@ -272,6 +307,21 @@
       "surface": "axiom",
       "width": "1024x900",
       "detail": "prose credit link A 44×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 140×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 99×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1024x900",
+      "detail": "prose credit link A 99×16px (font 13px) — not a tap target"
     },
     {
       "surface": "axiom",
@@ -546,12 +596,7 @@
     {
       "surface": "axiom",
       "width": "1440x900",
-      "detail": "document 15349px = 17.1× viewport height"
-    },
-    {
-      "surface": "axiom",
-      "width": "1440x900",
-      "detail": "no clear hierarchy step (32px vs 32px)"
+      "detail": "document 10399px = 11.6× viewport height"
     },
     {
       "surface": "axiom",
@@ -602,6 +647,21 @@
       "surface": "axiom",
       "width": "1440x900",
       "detail": "prose credit link A 44×12px (font 10px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 140×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 99×16px (font 13px) — not a tap target"
+    },
+    {
+      "surface": "axiom",
+      "width": "1440x900",
+      "detail": "prose credit link A 99×16px (font 13px) — not a tap target"
     },
     {
       "surface": "axiom",
@@ -975,14 +1035,14 @@
       "viewport": "390x844",
       "vw": 390,
       "vh": 844,
-      "docH": 35799,
+      "docH": 32892,
       "chromeGeometry": {
         "width": 390,
         "height": 844,
         "bands": [
           {
             "top": 0,
-            "bottom": 58,
+            "bottom": 112,
             "left": 0,
             "right": 390,
             "visible": true
@@ -991,7 +1051,7 @@
         "headers": [
           {
             "top": 0,
-            "bottom": 58,
+            "bottom": 112,
             "left": 0,
             "right": 390,
             "visible": true
@@ -1002,8 +1062,8 @@
       "firstAction": 16,
       "h1Visible": true,
       "primaryActionVisible": true,
-      "voiceTop": 32,
-      "voiceSecond": 28,
+      "voiceTop": 34,
+      "voiceSecond": 32,
       "boxFit": [
         {
           "sel": ".hero-stat",
@@ -1078,596 +1138,596 @@
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1607,
-          "ratio": 0.22,
+          "needed": 883,
+          "ratio": 0.41,
           "text": "23v2.4.1Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1431,
-          "ratio": 0.25,
+          "needed": 793,
+          "ratio": 0.45,
           "text": "58Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1359,
-          "ratio": 0.26,
+          "needed": 712,
+          "ratio": 0.5,
           "text": "32v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1407,
-          "ratio": 0.25,
+          "needed": 806,
+          "ratio": 0.44,
           "text": "37v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1228,
-          "ratio": 0.29,
+          "needed": 787,
+          "ratio": 0.46,
           "text": "22v1.2.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1172,
-          "ratio": 0.31,
+          "needed": 740,
+          "ratio": 0.48,
           "text": "01v3.1.2Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1659,
-          "ratio": 0.22,
+          "needed": 823,
+          "ratio": 0.43,
           "text": "21v1.8.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1902,
-          "ratio": 0.19,
+          "needed": 796,
+          "ratio": 0.45,
           "text": "55Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1716,
-          "ratio": 0.21,
+          "needed": 784,
+          "ratio": 0.46,
           "text": "33v2.0.1Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1625,
-          "ratio": 0.22,
+          "needed": 770,
+          "ratio": 0.46,
           "text": "05v2.3.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1558,
-          "ratio": 0.23,
+          "needed": 725,
+          "ratio": 0.49,
           "text": "56Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1885,
-          "ratio": 0.19,
+          "needed": 797,
+          "ratio": 0.45,
           "text": "13v1.4.2Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1943,
-          "ratio": 0.18,
+          "needed": 786,
+          "ratio": 0.46,
           "text": "16v1.5.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2076,
-          "ratio": 0.17,
+          "needed": 807,
+          "ratio": 0.44,
           "text": "18v1.3.1Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1690,
-          "ratio": 0.21,
+          "needed": 774,
+          "ratio": 0.46,
           "text": "19v0.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1129,
-          "ratio": 0.32,
+          "needed": 534,
+          "ratio": 0.67,
           "text": "15v5.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1891,
-          "ratio": 0.19,
+          "needed": 688,
+          "ratio": 0.52,
           "text": "27v3.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1410,
-          "ratio": 0.25,
+          "needed": 646,
+          "ratio": 0.55,
           "text": "36v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1754,
-          "ratio": 0.2,
+          "needed": 690,
+          "ratio": 0.52,
           "text": "43v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1599,
-          "ratio": 0.22,
+          "needed": 651,
+          "ratio": 0.55,
           "text": "64v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1104,
-          "ratio": 0.32,
+          "needed": 608,
+          "ratio": 0.59,
           "text": "67Preview\n          "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1561,
-          "ratio": 0.23,
+          "needed": 772,
+          "ratio": 0.46,
           "text": "69Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2046,
-          "ratio": 0.17,
+          "needed": 711,
+          "ratio": 0.5,
           "text": "72v3.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1529,
-          "ratio": 0.23,
+          "needed": 865,
+          "ratio": 0.41,
           "text": "76Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1402,
-          "ratio": 0.26,
+          "needed": 671,
+          "ratio": 0.53,
           "text": "82v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 816,
-          "ratio": 0.44,
+          "needed": 572,
+          "ratio": 0.63,
           "text": "85Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 968,
-          "ratio": 0.37,
+          "needed": 634,
+          "ratio": 0.57,
           "text": "04v3.2.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1242,
-          "ratio": 0.29,
+          "needed": 824,
+          "ratio": 0.43,
           "text": "24v2.6.1Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1798,
-          "ratio": 0.2,
+          "needed": 832,
+          "ratio": 0.43,
           "text": "44v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1498,
-          "ratio": 0.24,
+          "needed": 694,
+          "ratio": 0.52,
           "text": "45v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1460,
-          "ratio": 0.25,
+          "needed": 734,
+          "ratio": 0.49,
           "text": "06v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1922,
-          "ratio": 0.19,
+          "needed": 777,
+          "ratio": 0.46,
           "text": "14v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1480,
-          "ratio": 0.24,
+          "needed": 681,
+          "ratio": 0.53,
           "text": "41v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1866,
-          "ratio": 0.19,
+          "needed": 748,
+          "ratio": 0.48,
           "text": "70Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1580,
-          "ratio": 0.23,
+          "needed": 875,
+          "ratio": 0.41,
           "text": "42v6.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2432,
-          "ratio": 0.15,
+          "needed": 915,
+          "ratio": 0.39,
           "text": "83v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1449,
-          "ratio": 0.25,
+          "needed": 869,
+          "ratio": 0.41,
           "text": "03v2.0.3Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1599,
-          "ratio": 0.22,
+          "needed": 805,
+          "ratio": 0.44,
           "text": "07v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1873,
-          "ratio": 0.19,
+          "needed": 689,
+          "ratio": 0.52,
           "text": "08v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1795,
-          "ratio": 0.2,
+          "needed": 670,
+          "ratio": 0.53,
           "text": "12v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1819,
-          "ratio": 0.2,
+          "needed": 736,
+          "ratio": 0.49,
           "text": "57Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1593,
-          "ratio": 0.22,
+          "needed": 757,
+          "ratio": 0.47,
           "text": "65v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1867,
-          "ratio": 0.19,
+          "needed": 838,
+          "ratio": 0.43,
           "text": "71v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1337,
-          "ratio": 0.27,
+          "needed": 840,
+          "ratio": 0.43,
           "text": "74Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1559,
-          "ratio": 0.23,
+          "needed": 852,
+          "ratio": 0.42,
           "text": "77Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 705,
-          "ratio": 0.51,
+          "needed": 569,
+          "ratio": 0.63,
           "text": "84Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1140,
-          "ratio": 0.31,
+          "needed": 768,
+          "ratio": 0.47,
           "text": "38v0.1.0Emerging\n   "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2469,
-          "ratio": 0.14,
+          "needed": 740,
+          "ratio": 0.48,
           "text": "09v1.0.0Preview\n    "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2452,
-          "ratio": 0.15,
+          "needed": 880,
+          "ratio": 0.41,
           "text": "10v1.0.0Coming soon\n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1760,
-          "ratio": 0.2,
+          "needed": 799,
+          "ratio": 0.45,
           "text": "11v1.6.0Preview\n    "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1242,
-          "ratio": 0.29,
+          "needed": 637,
+          "ratio": 0.56,
           "text": "20v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1797,
-          "ratio": 0.2,
+          "needed": 947,
+          "ratio": 0.38,
           "text": "46v1.2.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1453,
-          "ratio": 0.25,
+          "needed": 780,
+          "ratio": 0.46,
           "text": "25Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2240,
-          "ratio": 0.16,
+          "needed": 852,
+          "ratio": 0.42,
           "text": "26v1.0.0In Developme"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2297,
-          "ratio": 0.16,
+          "needed": 786,
+          "ratio": 0.46,
           "text": "28v1.0.0Preview\n    "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1485,
-          "ratio": 0.24,
+          "needed": 806,
+          "ratio": 0.44,
           "text": "66v1.0.0Sign-in requ"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1728,
-          "ratio": 0.21,
+          "needed": 559,
+          "ratio": 0.64,
           "text": "73Sign-in required\n "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1342,
-          "ratio": 0.27,
+          "needed": 849,
+          "ratio": 0.42,
           "text": "78Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1894,
-          "ratio": 0.19,
+          "needed": 865,
+          "ratio": 0.41,
           "text": "80Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1396,
-          "ratio": 0.26,
+          "needed": 643,
+          "ratio": 0.56,
           "text": "39v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1999,
-          "ratio": 0.18,
+          "needed": 726,
+          "ratio": 0.49,
           "text": "17v1.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1806,
-          "ratio": 0.2,
+          "needed": 687,
+          "ratio": 0.52,
           "text": "29v1.4.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1612,
-          "ratio": 0.22,
+          "needed": 697,
+          "ratio": 0.51,
           "text": "30v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1709,
-          "ratio": 0.21,
+          "needed": 625,
+          "ratio": 0.57,
           "text": "31v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1639,
-          "ratio": 0.22,
+          "needed": 663,
+          "ratio": 0.54,
           "text": "34v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1432,
-          "ratio": 0.25,
+          "needed": 669,
+          "ratio": 0.54,
           "text": "35v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1607,
-          "ratio": 0.22,
+          "needed": 619,
+          "ratio": 0.58,
           "text": "40v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2044,
-          "ratio": 0.18,
+          "needed": 793,
+          "ratio": 0.45,
           "text": "47v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1822,
-          "ratio": 0.2,
+          "needed": 764,
+          "ratio": 0.47,
           "text": "48v3.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2259,
-          "ratio": 0.16,
+          "needed": 807,
+          "ratio": 0.44,
           "text": "49v0.9.0Coming soon\n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1395,
-          "ratio": 0.26,
+          "needed": 830,
+          "ratio": 0.43,
           "text": "60Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1311,
-          "ratio": 0.27,
+          "needed": 712,
+          "ratio": 0.5,
           "text": "61Preview\n          "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1396,
-          "ratio": 0.26,
+          "needed": 723,
+          "ratio": 0.5,
           "text": "62Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1439,
-          "ratio": 0.25,
+          "needed": 641,
+          "ratio": 0.56,
           "text": "63Sign-in required\n "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1162,
-          "ratio": 0.31,
+          "needed": 674,
+          "ratio": 0.53,
           "text": "59Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2239,
-          "ratio": 0.16,
+          "needed": 781,
+          "ratio": 0.46,
           "text": "50v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2522,
-          "ratio": 0.14,
+          "needed": 863,
+          "ratio": 0.41,
           "text": "02v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2361,
-          "ratio": 0.15,
+          "needed": 876,
+          "ratio": 0.41,
           "text": "51Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 2618,
-          "ratio": 0.14,
+          "needed": 617,
+          "ratio": 0.58,
           "text": "52Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1683,
-          "ratio": 0.21,
+          "needed": 577,
+          "ratio": 0.62,
           "text": "53Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1906,
-          "ratio": 0.19,
+          "needed": 648,
+          "ratio": 0.55,
           "text": "54Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1138,
-          "ratio": 0.31,
+          "needed": 611,
+          "ratio": 0.59,
           "text": "68Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1307,
-          "ratio": 0.27,
+          "needed": 661,
+          "ratio": 0.54,
           "text": "75Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1328,
-          "ratio": 0.27,
+          "needed": 857,
+          "ratio": 0.42,
           "text": "79Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 358,
-          "needed": 1535,
-          "ratio": 0.23,
+          "needed": 653,
+          "ratio": 0.55,
           "text": "81Live\n            \n"
         },
         {
@@ -1732,20 +1792,6 @@
           "needed": 177,
           "ratio": 1.13,
           "text": "Start a Two-Week Pro"
-        },
-        {
-          "sel": ".btn",
-          "w": 225,
-          "needed": 184,
-          "ratio": 1.22,
-          "text": "Start a two-week pro"
-        },
-        {
-          "sel": ".btn",
-          "w": 225,
-          "needed": 176,
-          "ratio": 1.27,
-          "text": "Open a live system f"
         },
         {
           "sel": ".btn",
@@ -1853,6 +1899,55 @@
           "h": 12,
           "isPrimary": false,
           "fontSize": 10
+        },
+        {
+          "sel": "BUTTON.hero-node",
+          "w": 61,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "BUTTON.hero-node",
+          "w": 51,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "BUTTON.hero-node",
+          "w": 76,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "BUTTON.hero-node",
+          "w": 93,
+          "h": 32,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 140,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 74,
+          "h": 34,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 99,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
         },
         {
           "sel": "A.t-ctrl",
@@ -2065,10 +2160,10 @@
           "fontSize": 10
         }
       ],
-      "mapCoverPct": 67.1,
+      "mapCoverPct": 64.6,
       "lang": "en",
-      "chromeH": 58,
-      "chromePct": 6.9,
+      "chromeH": 112,
+      "chromePct": 13.3,
       "errors": []
     },
     {
@@ -2076,7 +2171,7 @@
       "viewport": "1024x900",
       "vw": 1024,
       "vh": 900,
-      "docH": 15004,
+      "docH": 14260,
       "chromeGeometry": {
         "width": 1024,
         "height": 900,
@@ -2103,7 +2198,7 @@
       "firstAction": 16,
       "h1Visible": true,
       "primaryActionVisible": true,
-      "voiceTop": 32,
+      "voiceTop": 39,
       "voiceSecond": 32,
       "boxFit": [
         {
@@ -2179,596 +2274,596 @@
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1607,
-          "ratio": 0.21,
+          "needed": 883,
+          "ratio": 0.37,
           "text": "23v2.4.1Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1431,
-          "ratio": 0.23,
+          "needed": 793,
+          "ratio": 0.42,
           "text": "58Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1359,
-          "ratio": 0.24,
+          "needed": 712,
+          "ratio": 0.46,
           "text": "32v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1407,
-          "ratio": 0.23,
+          "needed": 806,
+          "ratio": 0.41,
           "text": "37v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1228,
-          "ratio": 0.27,
+          "needed": 787,
+          "ratio": 0.42,
           "text": "22v1.2.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1172,
-          "ratio": 0.28,
+          "needed": 740,
+          "ratio": 0.45,
           "text": "01v3.1.2Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1659,
-          "ratio": 0.2,
+          "needed": 823,
+          "ratio": 0.4,
           "text": "21v1.8.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1902,
-          "ratio": 0.17,
+          "needed": 796,
+          "ratio": 0.41,
           "text": "55Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1716,
-          "ratio": 0.19,
+          "needed": 784,
+          "ratio": 0.42,
           "text": "33v2.0.1Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1625,
-          "ratio": 0.2,
+          "needed": 770,
+          "ratio": 0.43,
           "text": "05v2.3.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1558,
-          "ratio": 0.21,
+          "needed": 725,
+          "ratio": 0.46,
           "text": "56Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1885,
-          "ratio": 0.18,
+          "needed": 797,
+          "ratio": 0.41,
           "text": "13v1.4.2Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1943,
-          "ratio": 0.17,
+          "needed": 786,
+          "ratio": 0.42,
           "text": "16v1.5.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2076,
-          "ratio": 0.16,
+          "needed": 807,
+          "ratio": 0.41,
           "text": "18v1.3.1Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1690,
-          "ratio": 0.2,
+          "needed": 774,
+          "ratio": 0.43,
           "text": "19v0.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1129,
-          "ratio": 0.29,
+          "needed": 534,
+          "ratio": 0.62,
           "text": "15v5.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1891,
-          "ratio": 0.17,
+          "needed": 688,
+          "ratio": 0.48,
           "text": "27v3.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1410,
-          "ratio": 0.23,
+          "needed": 646,
+          "ratio": 0.51,
           "text": "36v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1754,
-          "ratio": 0.19,
+          "needed": 690,
+          "ratio": 0.48,
           "text": "43v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1599,
-          "ratio": 0.21,
+          "needed": 651,
+          "ratio": 0.51,
           "text": "64v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1104,
-          "ratio": 0.3,
+          "needed": 608,
+          "ratio": 0.54,
           "text": "67Preview\n          "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1561,
-          "ratio": 0.21,
+          "needed": 772,
+          "ratio": 0.43,
           "text": "69Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2046,
-          "ratio": 0.16,
+          "needed": 711,
+          "ratio": 0.46,
           "text": "72v3.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1529,
-          "ratio": 0.22,
+          "needed": 865,
+          "ratio": 0.38,
           "text": "76Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1402,
-          "ratio": 0.24,
+          "needed": 671,
+          "ratio": 0.49,
           "text": "82v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 816,
-          "ratio": 0.4,
+          "needed": 572,
+          "ratio": 0.58,
           "text": "85Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 968,
-          "ratio": 0.34,
+          "needed": 634,
+          "ratio": 0.52,
           "text": "04v3.2.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1242,
-          "ratio": 0.27,
+          "needed": 824,
+          "ratio": 0.4,
           "text": "24v2.6.1Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1798,
-          "ratio": 0.18,
+          "needed": 832,
+          "ratio": 0.4,
           "text": "44v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1498,
-          "ratio": 0.22,
+          "needed": 694,
+          "ratio": 0.48,
           "text": "45v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1460,
-          "ratio": 0.23,
+          "needed": 734,
+          "ratio": 0.45,
           "text": "06v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1922,
-          "ratio": 0.17,
+          "needed": 777,
+          "ratio": 0.42,
           "text": "14v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1480,
-          "ratio": 0.22,
+          "needed": 681,
+          "ratio": 0.48,
           "text": "41v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1866,
-          "ratio": 0.18,
+          "needed": 748,
+          "ratio": 0.44,
           "text": "70Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1580,
-          "ratio": 0.21,
+          "needed": 875,
+          "ratio": 0.38,
           "text": "42v6.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2432,
-          "ratio": 0.14,
+          "needed": 915,
+          "ratio": 0.36,
           "text": "83v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1449,
-          "ratio": 0.23,
+          "needed": 869,
+          "ratio": 0.38,
           "text": "03v2.0.3Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1599,
-          "ratio": 0.21,
+          "needed": 805,
+          "ratio": 0.41,
           "text": "07v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1873,
-          "ratio": 0.18,
+          "needed": 689,
+          "ratio": 0.48,
           "text": "08v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1795,
-          "ratio": 0.18,
+          "needed": 670,
+          "ratio": 0.49,
           "text": "12v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1819,
-          "ratio": 0.18,
+          "needed": 736,
+          "ratio": 0.45,
           "text": "57Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1593,
-          "ratio": 0.21,
+          "needed": 757,
+          "ratio": 0.44,
           "text": "65v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1867,
-          "ratio": 0.18,
+          "needed": 838,
+          "ratio": 0.39,
           "text": "71v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1337,
-          "ratio": 0.25,
+          "needed": 840,
+          "ratio": 0.39,
           "text": "74Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1559,
-          "ratio": 0.21,
+          "needed": 852,
+          "ratio": 0.39,
           "text": "77Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 705,
-          "ratio": 0.47,
+          "needed": 569,
+          "ratio": 0.58,
           "text": "84Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1140,
-          "ratio": 0.29,
+          "needed": 768,
+          "ratio": 0.43,
           "text": "38v0.1.0Emerging\n   "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2469,
-          "ratio": 0.13,
+          "needed": 740,
+          "ratio": 0.45,
           "text": "09v1.0.0Preview\n    "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2452,
-          "ratio": 0.13,
+          "needed": 880,
+          "ratio": 0.38,
           "text": "10v1.0.0Coming soon\n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1760,
-          "ratio": 0.19,
+          "needed": 799,
+          "ratio": 0.41,
           "text": "11v1.6.0Preview\n    "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1242,
-          "ratio": 0.27,
+          "needed": 637,
+          "ratio": 0.52,
           "text": "20v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1797,
-          "ratio": 0.18,
+          "needed": 947,
+          "ratio": 0.35,
           "text": "46v1.2.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1453,
-          "ratio": 0.23,
+          "needed": 780,
+          "ratio": 0.42,
           "text": "25Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2240,
-          "ratio": 0.15,
+          "needed": 852,
+          "ratio": 0.39,
           "text": "26v1.0.0In Developme"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2297,
-          "ratio": 0.14,
+          "needed": 786,
+          "ratio": 0.42,
           "text": "28v1.0.0Preview\n    "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1485,
-          "ratio": 0.22,
+          "needed": 806,
+          "ratio": 0.41,
           "text": "66v1.0.0Sign-in requ"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1728,
-          "ratio": 0.19,
+          "needed": 559,
+          "ratio": 0.59,
           "text": "73Sign-in required\n "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1342,
-          "ratio": 0.25,
+          "needed": 849,
+          "ratio": 0.39,
           "text": "78Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1894,
-          "ratio": 0.17,
+          "needed": 865,
+          "ratio": 0.38,
           "text": "80Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1396,
-          "ratio": 0.24,
+          "needed": 643,
+          "ratio": 0.51,
           "text": "39v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1999,
-          "ratio": 0.17,
+          "needed": 726,
+          "ratio": 0.45,
           "text": "17v1.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1806,
-          "ratio": 0.18,
+          "needed": 687,
+          "ratio": 0.48,
           "text": "29v1.4.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1612,
-          "ratio": 0.2,
+          "needed": 697,
+          "ratio": 0.47,
           "text": "30v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1709,
-          "ratio": 0.19,
+          "needed": 625,
+          "ratio": 0.53,
           "text": "31v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1639,
-          "ratio": 0.2,
+          "needed": 663,
+          "ratio": 0.5,
           "text": "34v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1432,
-          "ratio": 0.23,
+          "needed": 669,
+          "ratio": 0.49,
           "text": "35v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1607,
-          "ratio": 0.21,
+          "needed": 619,
+          "ratio": 0.53,
           "text": "40v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2044,
-          "ratio": 0.16,
+          "needed": 793,
+          "ratio": 0.42,
           "text": "47v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1822,
-          "ratio": 0.18,
+          "needed": 764,
+          "ratio": 0.43,
           "text": "48v3.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2259,
-          "ratio": 0.15,
+          "needed": 807,
+          "ratio": 0.41,
           "text": "49v0.9.0Coming soon\n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1395,
-          "ratio": 0.24,
+          "needed": 830,
+          "ratio": 0.4,
           "text": "60Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1311,
-          "ratio": 0.25,
+          "needed": 712,
+          "ratio": 0.46,
           "text": "61Preview\n          "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1396,
-          "ratio": 0.24,
+          "needed": 723,
+          "ratio": 0.46,
           "text": "62Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1439,
-          "ratio": 0.23,
+          "needed": 641,
+          "ratio": 0.51,
           "text": "63Sign-in required\n "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1162,
-          "ratio": 0.28,
+          "needed": 674,
+          "ratio": 0.49,
           "text": "59Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2239,
-          "ratio": 0.15,
+          "needed": 781,
+          "ratio": 0.42,
           "text": "50v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2522,
-          "ratio": 0.13,
+          "needed": 863,
+          "ratio": 0.38,
           "text": "02v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2361,
-          "ratio": 0.14,
+          "needed": 876,
+          "ratio": 0.38,
           "text": "51Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 2618,
-          "ratio": 0.13,
+          "needed": 617,
+          "ratio": 0.54,
           "text": "52Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1683,
-          "ratio": 0.2,
+          "needed": 577,
+          "ratio": 0.57,
           "text": "53Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1906,
-          "ratio": 0.17,
+          "needed": 648,
+          "ratio": 0.51,
           "text": "54Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1138,
-          "ratio": 0.29,
+          "needed": 611,
+          "ratio": 0.54,
           "text": "68Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1307,
-          "ratio": 0.25,
+          "needed": 661,
+          "ratio": 0.5,
           "text": "75Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1328,
-          "ratio": 0.25,
+          "needed": 857,
+          "ratio": 0.39,
           "text": "79Live\n            \n"
         },
         {
           "sel": ".sys-cell",
           "w": 330,
-          "needed": 1535,
-          "ratio": 0.21,
+          "needed": 653,
+          "ratio": 0.51,
           "text": "81Live\n            \n"
         },
         {
@@ -2829,31 +2924,10 @@
         },
         {
           "sel": ".btn",
-          "w": 125,
-          "needed": 114,
-          "ratio": 1.1,
-          "text": "Work With Us"
-        },
-        {
-          "sel": ".btn",
           "w": 200,
           "needed": 177,
           "ratio": 1.13,
           "text": "Start a Two-Week Pro"
-        },
-        {
-          "sel": ".btn",
-          "w": 210,
-          "needed": 184,
-          "ratio": 1.14,
-          "text": "Start a two-week pro"
-        },
-        {
-          "sel": ".btn",
-          "w": 210,
-          "needed": 176,
-          "ratio": 1.19,
-          "text": "Open a live system f"
         },
         {
           "sel": ".btn",
@@ -2961,6 +3035,27 @@
           "h": 12,
           "isPrimary": false,
           "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 140,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 99,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 99,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
         },
         {
           "sel": "A.t-ctrl",
@@ -3366,7 +3461,7 @@
       "viewport": "1440x900",
       "vw": 1440,
       "vh": 900,
-      "docH": 15349,
+      "docH": 10399,
       "chromeGeometry": {
         "width": 1440,
         "height": 900,
@@ -3393,7 +3488,7 @@
       "firstAction": 16,
       "h1Visible": true,
       "primaryActionVisible": true,
-      "voiceTop": 32,
+      "voiceTop": 55,
       "voiceSecond": 32,
       "boxFit": [
         {
@@ -3468,597 +3563,597 @@
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1607,
-          "ratio": 0.25,
+          "w": 239,
+          "needed": 883,
+          "ratio": 0.27,
           "text": "23v2.4.1Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1431,
-          "ratio": 0.28,
+          "w": 239,
+          "needed": 793,
+          "ratio": 0.3,
           "text": "58Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1359,
-          "ratio": 0.29,
+          "w": 239,
+          "needed": 712,
+          "ratio": 0.34,
           "text": "32v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1407,
-          "ratio": 0.28,
+          "w": 239,
+          "needed": 806,
+          "ratio": 0.3,
           "text": "37v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1228,
-          "ratio": 0.33,
+          "w": 239,
+          "needed": 787,
+          "ratio": 0.3,
           "text": "22v1.2.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1172,
-          "ratio": 0.34,
+          "w": 239,
+          "needed": 740,
+          "ratio": 0.32,
           "text": "01v3.1.2Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1659,
-          "ratio": 0.24,
+          "w": 239,
+          "needed": 823,
+          "ratio": 0.29,
           "text": "21v1.8.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1902,
-          "ratio": 0.21,
+          "w": 239,
+          "needed": 796,
+          "ratio": 0.3,
           "text": "55Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1716,
-          "ratio": 0.23,
+          "w": 239,
+          "needed": 784,
+          "ratio": 0.31,
           "text": "33v2.0.1Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1625,
-          "ratio": 0.25,
+          "w": 239,
+          "needed": 770,
+          "ratio": 0.31,
           "text": "05v2.3.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1558,
-          "ratio": 0.26,
+          "w": 239,
+          "needed": 725,
+          "ratio": 0.33,
           "text": "56Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1885,
-          "ratio": 0.21,
+          "w": 239,
+          "needed": 797,
+          "ratio": 0.3,
           "text": "13v1.4.2Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1943,
-          "ratio": 0.21,
+          "w": 239,
+          "needed": 786,
+          "ratio": 0.3,
           "text": "16v1.5.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2076,
-          "ratio": 0.19,
+          "w": 239,
+          "needed": 807,
+          "ratio": 0.3,
           "text": "18v1.3.1Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1690,
-          "ratio": 0.24,
+          "w": 239,
+          "needed": 774,
+          "ratio": 0.31,
           "text": "19v0.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1129,
-          "ratio": 0.35,
+          "w": 239,
+          "needed": 534,
+          "ratio": 0.45,
           "text": "15v5.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1891,
-          "ratio": 0.21,
+          "w": 239,
+          "needed": 688,
+          "ratio": 0.35,
           "text": "27v3.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1410,
-          "ratio": 0.28,
+          "w": 239,
+          "needed": 646,
+          "ratio": 0.37,
           "text": "36v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1754,
-          "ratio": 0.23,
+          "w": 239,
+          "needed": 690,
+          "ratio": 0.35,
           "text": "43v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1599,
-          "ratio": 0.25,
+          "w": 239,
+          "needed": 651,
+          "ratio": 0.37,
           "text": "64v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1104,
-          "ratio": 0.36,
+          "w": 239,
+          "needed": 608,
+          "ratio": 0.39,
           "text": "67Preview\n          "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1561,
-          "ratio": 0.26,
+          "w": 239,
+          "needed": 772,
+          "ratio": 0.31,
           "text": "69Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2046,
-          "ratio": 0.2,
+          "w": 239,
+          "needed": 711,
+          "ratio": 0.34,
           "text": "72v3.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1529,
-          "ratio": 0.26,
+          "w": 239,
+          "needed": 865,
+          "ratio": 0.28,
           "text": "76Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1402,
-          "ratio": 0.28,
+          "w": 239,
+          "needed": 671,
+          "ratio": 0.36,
           "text": "82v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 816,
-          "ratio": 0.49,
+          "w": 239,
+          "needed": 572,
+          "ratio": 0.42,
           "text": "85Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 968,
-          "ratio": 0.41,
+          "w": 239,
+          "needed": 634,
+          "ratio": 0.38,
           "text": "04v3.2.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1242,
-          "ratio": 0.32,
+          "w": 239,
+          "needed": 824,
+          "ratio": 0.29,
           "text": "24v2.6.1Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1798,
-          "ratio": 0.22,
+          "w": 239,
+          "needed": 832,
+          "ratio": 0.29,
           "text": "44v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1498,
-          "ratio": 0.27,
+          "w": 239,
+          "needed": 694,
+          "ratio": 0.34,
           "text": "45v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1460,
-          "ratio": 0.27,
+          "w": 239,
+          "needed": 734,
+          "ratio": 0.33,
           "text": "06v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1922,
-          "ratio": 0.21,
+          "w": 239,
+          "needed": 777,
+          "ratio": 0.31,
           "text": "14v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1480,
-          "ratio": 0.27,
+          "w": 239,
+          "needed": 681,
+          "ratio": 0.35,
           "text": "41v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1866,
-          "ratio": 0.21,
+          "w": 239,
+          "needed": 748,
+          "ratio": 0.32,
           "text": "70Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1580,
-          "ratio": 0.25,
+          "w": 239,
+          "needed": 875,
+          "ratio": 0.27,
           "text": "42v6.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2432,
-          "ratio": 0.16,
+          "w": 239,
+          "needed": 915,
+          "ratio": 0.26,
           "text": "83v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1449,
+          "w": 239,
+          "needed": 869,
           "ratio": 0.28,
           "text": "03v2.0.3Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1599,
-          "ratio": 0.25,
+          "w": 239,
+          "needed": 805,
+          "ratio": 0.3,
           "text": "07v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1873,
-          "ratio": 0.21,
+          "w": 239,
+          "needed": 689,
+          "ratio": 0.35,
           "text": "08v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1795,
-          "ratio": 0.22,
+          "w": 239,
+          "needed": 670,
+          "ratio": 0.36,
           "text": "12v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1819,
-          "ratio": 0.22,
+          "w": 239,
+          "needed": 736,
+          "ratio": 0.32,
           "text": "57Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1593,
-          "ratio": 0.25,
+          "w": 239,
+          "needed": 757,
+          "ratio": 0.32,
           "text": "65v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1867,
-          "ratio": 0.21,
+          "w": 239,
+          "needed": 838,
+          "ratio": 0.29,
           "text": "71v2.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1337,
-          "ratio": 0.3,
+          "w": 239,
+          "needed": 840,
+          "ratio": 0.28,
           "text": "74Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1559,
-          "ratio": 0.26,
+          "w": 239,
+          "needed": 852,
+          "ratio": 0.28,
           "text": "77Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 705,
-          "ratio": 0.57,
+          "w": 239,
+          "needed": 569,
+          "ratio": 0.42,
           "text": "84Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1140,
-          "ratio": 0.35,
+          "w": 239,
+          "needed": 768,
+          "ratio": 0.31,
           "text": "38v0.1.0Emerging\n   "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2469,
-          "ratio": 0.16,
+          "w": 239,
+          "needed": 740,
+          "ratio": 0.32,
           "text": "09v1.0.0Preview\n    "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2452,
-          "ratio": 0.16,
+          "w": 239,
+          "needed": 880,
+          "ratio": 0.27,
           "text": "10v1.0.0Coming soon\n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1760,
-          "ratio": 0.23,
+          "w": 239,
+          "needed": 799,
+          "ratio": 0.3,
           "text": "11v1.6.0Preview\n    "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1242,
-          "ratio": 0.32,
+          "w": 239,
+          "needed": 637,
+          "ratio": 0.38,
           "text": "20v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1797,
-          "ratio": 0.22,
+          "w": 239,
+          "needed": 947,
+          "ratio": 0.25,
           "text": "46v1.2.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1453,
-          "ratio": 0.27,
+          "w": 239,
+          "needed": 780,
+          "ratio": 0.31,
           "text": "25Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2240,
-          "ratio": 0.18,
+          "w": 239,
+          "needed": 852,
+          "ratio": 0.28,
           "text": "26v1.0.0In Developme"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2297,
-          "ratio": 0.17,
+          "w": 239,
+          "needed": 786,
+          "ratio": 0.3,
           "text": "28v1.0.0Preview\n    "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1485,
-          "ratio": 0.27,
+          "w": 239,
+          "needed": 806,
+          "ratio": 0.3,
           "text": "66v1.0.0Sign-in requ"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1728,
-          "ratio": 0.23,
+          "w": 239,
+          "needed": 559,
+          "ratio": 0.43,
           "text": "73Sign-in required\n "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1342,
-          "ratio": 0.3,
+          "w": 239,
+          "needed": 849,
+          "ratio": 0.28,
           "text": "78Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1894,
-          "ratio": 0.21,
+          "w": 239,
+          "needed": 865,
+          "ratio": 0.28,
           "text": "80Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1396,
-          "ratio": 0.29,
+          "w": 239,
+          "needed": 643,
+          "ratio": 0.37,
           "text": "39v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1999,
-          "ratio": 0.2,
+          "w": 239,
+          "needed": 726,
+          "ratio": 0.33,
           "text": "17v1.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1806,
-          "ratio": 0.22,
+          "w": 239,
+          "needed": 687,
+          "ratio": 0.35,
           "text": "29v1.4.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1612,
-          "ratio": 0.25,
+          "w": 239,
+          "needed": 697,
+          "ratio": 0.34,
           "text": "30v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1709,
-          "ratio": 0.23,
+          "w": 239,
+          "needed": 625,
+          "ratio": 0.38,
           "text": "31v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1639,
-          "ratio": 0.24,
+          "w": 239,
+          "needed": 663,
+          "ratio": 0.36,
           "text": "34v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1432,
-          "ratio": 0.28,
+          "w": 239,
+          "needed": 669,
+          "ratio": 0.36,
           "text": "35v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1607,
-          "ratio": 0.25,
+          "w": 239,
+          "needed": 619,
+          "ratio": 0.39,
           "text": "40v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2044,
-          "ratio": 0.2,
+          "w": 239,
+          "needed": 793,
+          "ratio": 0.3,
           "text": "47v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1822,
-          "ratio": 0.22,
+          "w": 239,
+          "needed": 764,
+          "ratio": 0.31,
           "text": "48v3.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2259,
-          "ratio": 0.18,
+          "w": 239,
+          "needed": 807,
+          "ratio": 0.3,
           "text": "49v0.9.0Coming soon\n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1395,
+          "w": 239,
+          "needed": 830,
           "ratio": 0.29,
           "text": "60Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1311,
-          "ratio": 0.3,
+          "w": 239,
+          "needed": 712,
+          "ratio": 0.34,
           "text": "61Preview\n          "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1396,
-          "ratio": 0.29,
+          "w": 239,
+          "needed": 723,
+          "ratio": 0.33,
           "text": "62Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1439,
-          "ratio": 0.28,
+          "w": 239,
+          "needed": 641,
+          "ratio": 0.37,
           "text": "63Sign-in required\n "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1162,
-          "ratio": 0.34,
+          "w": 239,
+          "needed": 674,
+          "ratio": 0.35,
           "text": "59Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2239,
-          "ratio": 0.18,
+          "w": 239,
+          "needed": 781,
+          "ratio": 0.31,
           "text": "50v2.1.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2522,
-          "ratio": 0.16,
+          "w": 239,
+          "needed": 863,
+          "ratio": 0.28,
           "text": "02v1.0.0Live\n       "
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2361,
-          "ratio": 0.17,
+          "w": 239,
+          "needed": 876,
+          "ratio": 0.27,
           "text": "51Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 2618,
-          "ratio": 0.15,
+          "w": 239,
+          "needed": 617,
+          "ratio": 0.39,
           "text": "52Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1683,
-          "ratio": 0.24,
+          "w": 239,
+          "needed": 577,
+          "ratio": 0.41,
           "text": "53Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1906,
-          "ratio": 0.21,
+          "w": 239,
+          "needed": 648,
+          "ratio": 0.37,
           "text": "54Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1138,
-          "ratio": 0.35,
+          "w": 239,
+          "needed": 611,
+          "ratio": 0.39,
           "text": "68Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1307,
-          "ratio": 0.31,
+          "w": 239,
+          "needed": 661,
+          "ratio": 0.36,
           "text": "75Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1328,
-          "ratio": 0.3,
+          "w": 239,
+          "needed": 857,
+          "ratio": 0.28,
           "text": "79Live\n            \n"
         },
         {
           "sel": ".sys-cell",
-          "w": 399,
-          "needed": 1535,
-          "ratio": 0.26,
+          "w": 239,
+          "needed": 653,
+          "ratio": 0.37,
           "text": "81Live\n            \n"
         },
         {
@@ -4119,31 +4214,10 @@
         },
         {
           "sel": ".btn",
-          "w": 125,
-          "needed": 114,
-          "ratio": 1.1,
-          "text": "Work With Us"
-        },
-        {
-          "sel": ".btn",
           "w": 200,
           "needed": 177,
           "ratio": 1.13,
           "text": "Start a Two-Week Pro"
-        },
-        {
-          "sel": ".btn",
-          "w": 210,
-          "needed": 184,
-          "ratio": 1.14,
-          "text": "Start a two-week pro"
-        },
-        {
-          "sel": ".btn",
-          "w": 210,
-          "needed": 176,
-          "ratio": 1.19,
-          "text": "Open a live system f"
         },
         {
           "sel": ".btn",
@@ -4251,6 +4325,27 @@
           "h": 12,
           "isPrimary": false,
           "fontSize": 10
+        },
+        {
+          "sel": "A",
+          "w": 140,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 99,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
+        },
+        {
+          "sel": "A",
+          "w": 99,
+          "h": 16,
+          "isPrimary": false,
+          "fontSize": 13
         },
         {
           "sel": "A.t-ctrl",
@@ -4728,7 +4823,7 @@
         ]
       },
       "overflowX": 0,
-      "firstAction": 1,
+      "firstAction": 44,
       "h1Visible": true,
       "primaryActionVisible": true,
       "voiceTop": 31,
@@ -4833,7 +4928,7 @@
         ]
       },
       "overflowX": 0,
-      "firstAction": 1,
+      "firstAction": 44,
       "h1Visible": true,
       "primaryActionVisible": true,
       "voiceTop": 40,
@@ -4916,6 +5011,6 @@
     "widths": 3,
     "measurements": 6,
     "fails": 0,
-    "notes": 193
+    "notes": 205
   }
 }
