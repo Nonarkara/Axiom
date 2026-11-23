@@ -99,7 +99,7 @@ services:
   # ============================================================================
 
   mosquitto:
-    image: eclipse-mosquitto:2.0.22
+    image: eclipse-mosquitto:2.0.23
     container_name: axiom-mosquitto
     <<: *restart-policy
     <<: *default-network
@@ -245,7 +245,7 @@ services:
       start_period: 60s
 
   metabase:
-    image: metabase/metabase:v0.65.4.3
+    image: metabase/metabase:v0.65.6.2
     container_name: axiom-metabase
     <<: *restart-policy
     <<: *default-network
