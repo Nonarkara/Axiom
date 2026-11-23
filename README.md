@@ -32,7 +32,7 @@ Both are deployed by GitHub Actions on push to `main`. They are different produc
 | Site | Host | Source | What it is |
 |---|---|---|---|
 | **Axiom** | [axiom.nonarkara.org](https://axiom.nonarkara.org) | `public/` | The pitch. One screen, live, click it. Satellite-intelligence dashboard used as marketing language. Seven locales. |
-| **axiomx** | axiomx.nonarkara.org | `axiomx/` | The argument. A two-pane book reader — 119 long-form entries. The case you make to a governor, not the one-liner you make to a browser. |
+| **axiomx** | axiomx.nonarkara.org | `axiomx/` | The argument. A two-pane book reader — 139 long-form entries. The case you make to a governor, not the one-liner you make to a browser. |
 
 The two sites argue deliberately opposite opening lines. The main site says *one screen, live, click it*. axiomx opens with:
 

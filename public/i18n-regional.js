@@ -232,12 +232,24 @@
       "sandboxNote": "데모가 아닙니다 — 샌드박스에서 작동하는 시스템입니다. 인상이 아니라 확장을 위해 구축했습니다. 고객 NDA 하의 프로덕션 배포는 더 크지만, 여기서 실행되는 것은 동일하게 동작하며 고급 모듈만 제외됩니다."
     },
     "stageSect": {
-      "kicker": "다섯 개 무대 · 2026",
+      "kicker": "여섯 개 무대 · 2026",
       "title": "한 번 만들어 <em>공개 검증</em>",
-      "lede": "2026년 아시아의 다섯 무대. 매번 방 안에는 실제로 작동하는 시스템이 돌아갔다 — 타이베이의 SLIC Index, 싱가포르·상하이·홍콩의 FloodDash, 오사카의 DEPA. 아래는 전부 공개 기록입니다. 다음 무대는 함께 정합니다."
+      "lede": "2026년 여섯 개 무대 — 다섯 곳은 무대 위에서 시스템이 실제로 돌았고, 한 곳은 대화였습니다. SLIC Index는 <b>타이베이</b>, FloodDash는 <b>싱가포르</b>·<b>상하이</b>·<b>홍콩</b>, DEPA는 <b>오사카</b>, EECO는 <b>방콕</b>. 아래 내용은 모두 공개 기록입니다."
     ,
-        "meta": "2026 · 오사카 · 상하이 · 홍콩 · 싱가포르 · 타이베이",},
+        "meta": "2026 · 방콕 · 오사카 · 상하이 · 홍콩 · 싱가포르 · 타이베이",},
     "cx": {
+      "bkk": {
+        city: "방콕",
+        venue: "EEC Never Stops · 익스클루시브 라운드테이블 · 방콕 인터컨티넨탈",
+        venueShort: "EECO · 방콕 인터컨티넨탈",
+        format: "라운드테이블 · 패널",
+        note: "EECiti, EEC의 비즈니스 허브와 스마트 상거 도시. Live·Work·Play로 사간 직을 진룬공, 30–40년 스페으로 도사.",
+        quote: "\"이 라운드테이블은 모든 부문이 함께하며 EECiti를 추진할 기회입니다 — 주변 도시와 경제의 성장을 받쳐주는 중심.\"",
+        cite: "EECO 사부총장 · 현장 기록",
+        s1: "발언자",
+        s2: "주",
+        s3: "기간",
+      },
       "stops": "정차", "cities": "도시", "shots": "무대 사진", "thesis": "작동하는 시스템",
       "osaka": {
         "city": "오사카",
@@ -293,8 +305,8 @@
       },
       "l": {
         "date": "날짜", "city": "도시", "where": "장소", "fmt": "형식",
-        "note": "모든 정차는 주최 측의 공식 일정이나 프로그램에서 가져온 날짜를 가진다. 이 레일에는 그 근거 없는 주장이 없다.",
-        "updated": "2026.10 갱신",
+        "note": "각 정차는 주최 측의 공식 일정이나 프로그램, 또는 그날의 글쓴 날짜를 가진다. 이 레일에는 그 근거 없는 주장이 없다.",
+        "updated": "2026.11 갱신",
       },
     },
     "teamSect": {
@@ -1530,12 +1542,24 @@
       "sandboxNote": "デモではありません — サンドボックスで稼働する実システムです。見せるためではなく、スケールするために構築しています。クライアント NDA 下の本番展開はより大規模ですが、ここで動くものは同じ挙動をし、高度なモジュールのみ非公開です。"
     },
     "stageSect": {
-      "kicker": "五つのステージ · 2026",
+      "kicker": "六つのステージ · 2026",
       "title": "一度作って <em>公開検証</em>",
-      "lede": "2026年、アジアの五つのステージ。毎回、部屋の中で実際に動くシステムが走っていた——台北の SLIC Index、シンガポール・上海・香港の FloodDash、大阪の DEPA。以下はすべて公開記録。次のステージは一緒に決めます。"
+      "lede": "2026年の六つのステージ — 五つは実際にシステムを動かして語りました。一つは対話です。SLIC Index は<b>台北</b>、FloodDash は<b>シンガポール</b>・<b>上海</b>・<b>香港</b>、DEPA は<b>大阪</b>、EECO は<b>バンコク</b>。以下はすべて公開記録です。"
     ,
-        "meta": "2026 · 大阪 · 上海 · 香港 · シンガポール · 台北",},
+        "meta": "2026 · バンコク · 大阪 · 上海 · 香港 · シンガポール · 台北",},
     "cx": {
+      "bkk": {
+        city: "バンコク",
+        venue: "EEC Never Stops · エクスクルーシブ・ラウンドテーブル · バンコク・インターコンチネンタル",
+        venueShort: "EECO · バンコク",
+        format: "ラウンドテーブル · パネル",
+        note: "EECiti — EECのビジネスコアとスマート宜居都市。Live・Work・Playで3県にまたがる、30〜40年のスパンの設計。",
+        quote: "\"今回のラウンドテーブルは、スマート宜居新都市 EECitiを進めるため、すべての部門が連携するための重要な機会です。周辺の都市と経済の成長を支える中心として機能します。\"",
+        cite: "EECO 事務総長 · 現場記録",
+        s1: "登壇者",
+        s2: "県",
+        s3: "スパン",
+      },
       "stops": "停留所", "cities": "都市", "shots": "ステージ写真", "thesis": "稼働中のシステム",
       "osaka": {
         "city": "大阪",
@@ -1591,8 +1615,8 @@
       },
       "l": {
         "date": "日付", "city": "都市", "where": "会場", "fmt": "形式",
-        "note": "すべての停留所には主催側の公式日程またはプログラムから得た日付がある。このレールに裏付けのない主張はない。",
-        "updated": "2026.10 更新",
+        "note": "すべての展張には、主催者自身の議事項目やプログラム、または行事自体が公開した記録に基づいて日付がある。根拠のない虚位いは、ここには出ない。",
+        "updated": "2026.11 更新",
       },
     },
     "teamSect": {
@@ -2821,12 +2845,24 @@
       "sandboxNote": "Đây không phải bản demo — là hệ thống đang chạy trong sandbox. Xây để mở rộng, không phải để gây ấn tượng. Triển khai production dưới NDA của khách hàng lớn hơn; những gì chạy ở đây hoạt động tương tự, chỉ giữ lại các module nâng cao."
     },
     "stageSect": {
-      "kicker": "Năm sân khấu · 2026",
+      "kicker": "Sáu sân khấu · 2026",
       "title": "Xây một lần. <em>Kiểm chứng công khai.</em>",
-      "lede": "Năm sân khấu khắp châu Á trong 2026, mỗi lần đều có hệ thống chạy thật trong phòng — SLIC Index ở Đài Bắc, FloodDash ở Singapore, Thượng Hải và Hong Kong, DEPA ở Osaka. Tất cả dưới đây đều là hồ sơ công khai. Lần tiếp theo là của chúng ta."
+      "lede": "Sáu sân khấu năm 2026 — năm nơi có hệ thống thật chạy ngay trên sân khấu, một nơi là một cuộc trò chuyện. SLIC Index ở <b>Đài Bắc</b>, FloodDash ở <b>Singapore</b>, <b>Thượng Hải</b> và <b>Hồng Kông</b>, DEPA ở <b>Osaka</b>, EECO ở <b>Bangkok</b>. Tất cả dưới đây là hồ sơ công khai."
     ,
-        "meta": "2026 · Osaka · Thượng Hải · Hồng Kông · Singapore · Đài Bắc",},
+        "meta": "2026 · Bangkok · Osaka · Thượng Hải · Hồng Kông · Singapore · Đài Bắc",},
     "cx": {
+      "bkk": {
+        city: "Bangkok",
+        venue: "EEC Never Stops · Bàn tròn khép kín · Khách sạn InterContinental Bangkok",
+        venueShort: "EECO · InterContinental",
+        format: "Bàn tròn · Thảo luận",
+        note: "EECiti — lõi thương mại và thành phố mới sống được của EEC. Live, Work, Play trải rộng ba tỉnh, với tầm nhìn 30–40 năm.",
+        quote: "\"Đây là cơ hội quan trọng để các bên cùng chung tay thúc đẩy EECiti — một thành phố mới sống được, làm trung tâm hỗ trợ sự phát triển của các thành phố và nền kinh tế quanh EEC.\"",
+        cite: "Tổng thư ký EECO · Ghi chép tại chỗ",
+        s1: "Diễn giả",
+        s2: "Tỉnh",
+        s3: "Tầm nhìn",
+      },
       "stops": "Chặng", "cities": "Thành phố", "shots": "Ảnh sân khấu", "thesis": "Hệ thống đang chạy",
       "osaka": {
         "city": "Osaka",
@@ -2882,8 +2918,8 @@
       },
       "l": {
         "date": "Ngày", "city": "Thành phố", "where": "Địa điểm", "fmt": "Hình thức",
-        "note": "Mỗi chặng đều có ngày lấy từ chương trình hoặc agenda chính thức của ban tổ chức. Không có tuyên bố nào trên thanh ray này thiếu căn cứ.",
-        "updated": "Cập nhật 2026.10",
+        "note": "Mỗi chặng dừng mang một ngày từ lịch hoặc chương trình chính thức của ban tổ chức, hoặc từ bản ghi mà sự kiện đã công khai. Không có gì điện đại ở đây.",
+        "updated": "Cập nhật 2026.11",
       },
     },
     "teamSect": {

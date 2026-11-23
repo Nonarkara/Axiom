@@ -637,6 +637,7 @@
   });
 
   const stages = [
+    ['bangkok', '11.16', 'Bangkok', '2026.11.16', 'EEC Never Stops · Exclusive Roundtable · InterContinental Bangkok', 'EECiti — the EEC\'s business core and smart livable city. Live, Work, Play across three provinces, on a 30–40 year horizon.', 'images/bangkok-eec-roundtable.jpg', 'Dr. Non at the EECO roundtable on EECiti, InterContinental Bangkok, 16 November 2026', [['8', 'Speakers'], ['3', 'Provinces'], ['30–40', 'Year horizon']]],
     ['osaka', '10.08', 'Osaka', '2026.10.08', 'Osaka Metropolitan University · Morinomiya', 'What happens after the pilot works — and why the constraint is institutional, not technical.', 'images/osaka-keynote.jpg', 'Dr. Non speaking at the Osaka Asia Roundtable 2026', [['3', 'Sessions'], ['7 min', 'On record'], ['4', 'Delegations']]],
     ['shanghai', '09.22', 'Shanghai', '2026.09.22', 'Tomorrow.City Shanghai 2026 · Zhangjiang Science Hall', 'Stop calling it a digital twin — call it God Mode. Raw speed, to cubic metres, to freeboard, to whether the water fits.', 'images/shanghai-stage-screen.jpg', 'Tomorrow.City Shanghai — FloodDash running live on the cube screen', [['4th', 'On this stage'], ['9', 'Data sources'], ['4', 'Takeaways']]],
     ['hong-kong', '07.10', 'Hong Kong', '2026.07.10', 'LEAP East 2026 · Orbital Stage · HKCEC', 'From Congestion to Connection. FloodDash launched live — a Thailand flood watch, 24/7, nine public sources.', 'images/leap-east-panel-speakers.png', 'Dr. Non on the Orbital Stage panel at LEAP East 2026, Hong Kong', [['Orbital', 'Stage tier'], ['4', 'Speakers'], ['9', 'Live sources']]],
@@ -646,17 +647,17 @@
 
   book.push(doc('stages', 'Stages', 'Proven in public', [
     { type: 'h', text: 'Proven in public' },
-    { type: 'lede', text: 'Five stages across Asia in 2026. Each one had a system running live in the room — SLIC Index in Taipei, FloodDash in Singapore, Shanghai, and Hong Kong, DEPA in Osaka.' },
+    { type: 'lede', text: 'Six stages in 2026. Five had a system running live in the room — SLIC Index in Taipei, FloodDash in Singapore, Shanghai and Hong Kong, DEPA in Osaka. The sixth was a conversation in Bangkok.' },
     { type: 'plate', plate: 'stages' },
     { type: 'figs', rows: [
-      { v: '5', l: 'Stops', t: 'Osaka, Shanghai, Hong Kong, Singapore, Taipei.' },
-      { v: '5', l: 'Cities', t: 'One thesis, carried into a different room each time.' },
-      { v: '13', l: 'Photographs', t: 'From the stage, not from a stock library.' }
+      { v: '6', l: 'Stops', t: 'Bangkok, Osaka, Shanghai, Hong Kong, Singapore, Taipei.' },
+      { v: '6', l: 'Cities', t: 'One thesis, carried into a different room each time.' },
+      { v: '14', l: 'Photographs', t: 'From the stage, not from a stock library.' }
     ]},
     { type: 'rows', items: stages.map(function (row) {
       return { href: '#' + row[0], title: row[2], meta: row[3] + ' @ ' + row[4].split(' @ ')[0] };
     })},
-    { type: 'note', text: 'Every date comes from the organiser’s agenda. Nothing here is asserted without one.' }
+    { type: 'note', text: 'Every date comes from the organiser’s agenda, or from the event’s own published record. Nothing here is asserted without one.' }
   ]));
 
   stages.forEach(function (row) {

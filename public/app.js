@@ -799,12 +799,24 @@ const uiCopy = {
       sandboxNote: "These aren't demos. They're working systems in a sandbox — built to scale, not to impress. NDA-protected deployments run larger; what you see here behaves like them, with advanced modules withheld.",
     },
     stageSect: {
-      kicker: 'Five stages \u00b7 2026',
+      kicker: 'Six stages \u00b7 2026',
       title: 'Built once. <em>Proven in public.</em>',
-      lede: 'Five stages across Asia in 2026, each with the system running live in the room \u2014 SLIC Index in <b>Taipei</b>, FloodDash in <b>Singapore</b>, <b>Shanghai</b> and <b>Hong Kong</b>, DEPA in <b>Osaka</b>. Everything below is public record. The next one is a conversation.',
+      lede: 'Six stages in 2026 \u2014 five with the system running live in the room, and one a conversation. SLIC Index in <b>Taipei</b>, FloodDash in <b>Singapore</b>, <b>Shanghai</b> and <b>Hong Kong</b>, DEPA in <b>Osaka</b>, EECO in <b>Bangkok</b>. Everything below is public record.',
 
-      meta: '2026 \u00b7 Osaka \u00b7 Shanghai \u00b7 Hong Kong \u00b7 Singapore \u00b7 Taipei',},
+      meta: '2026 \u00b7 Bangkok \u00b7 Osaka \u00b7 Shanghai \u00b7 Hong Kong \u00b7 Singapore \u00b7 Taipei',},
     cx: {
+      bkk: {
+        city: 'Bangkok',
+        venue: 'EEC Never Stops \u00b7 Exclusive Roundtable \u00b7 InterContinental Bangkok',
+        venueShort: 'EECO \u00b7 InterContinental Bangkok',
+        format: 'Roundtable \u00b7 Panel',
+        note: 'EECiti \u2014 the EEC\u2019s business core and smart livable city. Live, Work, Play across three provinces, on a 30\u201340 year horizon.',
+        quote: '"This roundtable is an important opportunity to bring every sector together and drive EECiti \u2014 a smart livable new city that serves as the centre supporting the growth of the surrounding cities and the economy."',
+        cite: 'EECO Secretary General, on the record',
+        s1: 'Speakers',
+        s2: 'Provinces',
+        s3: 'Year horizon',
+      },
       stops: 'Stops', cities: 'Cities', shots: 'Stage shots', thesis: 'Working system',
       osaka: {
         city: 'Osaka',
@@ -860,8 +872,8 @@ const uiCopy = {
       },
       l: {
         date: 'Date', city: 'City', where: 'Venue', fmt: 'Format',
-        note: 'Every stop carries a date from the organiser\'s own agenda or programme. Nothing here is asserted without one behind it.',
-        updated: 'Updated 2026.10',
+        note: 'Every stop carries a date from the organiser\u2019s own agenda or programme, or from the event\u2019s own published record. Nothing here is asserted without one behind it.',
+        updated: 'Updated 2026.11',
       },
     },
     teamSect: {
@@ -1068,12 +1080,24 @@ const uiCopy = {
       sandboxNote: 'ไม่ใช่ demo — ทุกระบบรันใน sandbox จริง สร้างให้ scale ได้ ไม่ใช่สร้างมาโชว์ การ deploy จริงของลูกค้าอยู่ภายใต้ NDA ใหญ่กว่าและซับซ้อนกว่า สิ่งที่รันที่นี่ทำงานแบบเดียวกัน โมดูลขั้นสูงถูกถอดออกเพราะ NDA ไม่ใช่เพราะของปลอม',
     },
     stageSect: {
-      kicker: 'ห้าเวที · 2569',
+      kicker: 'หกเวที \u00b7 2569',
       title: 'สร้างครั้งเดียว <em>พิสูจน์ต่อสาธารณะ</em>',
-      lede: 'ห้าเวทีทั่วเอเชียในปี 2569 ทุกครั้งมีระบบจริงเปิดทำงานอยู่ในห้อง — SLIC Index ที่ <b>ไทเป</b> FloodDash ที่ <b>สิงคโปร์</b> <b>เซี่ยงไฮ้</b> และ <b>ฮ่องกง</b> DEPA ที่ <b>โอสากะ</b> ทั้งหมดนี้เป็นบันทึกสาธารณะ ส่วนครั้งต่อไปเป็นเรื่องของคุณ',
+      lede: 'หกเวทีในปี 2569 \u2014 ห้าเวทีมีระบบจริงเปิดทำงานอยู่ในห้อง อีกหนึ่งเวทีคือบทสนทนา SLIC Index ที่ <b>ไทเป</b> FloodDash ที่ <b>สิงคโปร</b> <b>เซี่ยงไฮ้</b> และ <b>ห่องกง</b> DEPA ที่ <b>โอสากะ</b> EECO ที่ <b>กรุงเทพฯ</b> ทั้งหมดนี้เป็นบันทึกสาธารณะ',
 
-      meta: '2569 \u00b7 \u0e42\u0e2d\u0e0b\u0e32\u0e01\u0e30 \u00b7 \u0e40\u0e0b\u0e35\u0e48\u0e22\u0e07\u0e44\u0e0e \u00b7 \u0e2b\u0e48\u0e2d\u0e07\u0e01\u0e49\u0e07 \u00b7 \u0e2a\u0e34\u0e07\u0e04\u0e42\u0e1b\u0e23 \u00b7 \u0e44\u0e17\u0e40\u0e1b',},
+      meta: '2569 \u00b7 กรุงเทพฯ \u00b7 โอซากะ \u00b7 เซี่ยงไภ \u00b7 ห่องก้ง \u00b7 สิงคโปร \u00b7 ไทเป',},
     cx: {
+      bkk: {
+        city: 'กรุงเทพฯ',
+        venue: 'EEC Never Stops \u00b7 วงเวทียกเอกชน \u00b7 อินเตอร์คอนติเนนตัล กรุงเทพฯ',
+        venueShort: 'สกพอ. \u00b7 อินเตอร์คอนติเนนตัล',
+        format: 'วงเวทียก \u00b7 เวทีสัมมนา',
+        note: 'EECiti ศูนย์ธุรกิจ EEC และเมืองใหม่น่าอยู่อัจฉริยะ สร้างบน Live Work Play ครบสามจังหวัด ออกแบบไว้ 30\u201340 ปี',
+        quote: '"วงเวทีสัมมนาครั้งนี้เป็นโอกาสสำคัญที่จะได้รับความร่วมมือจากทุกภาคส่วน ขับเคลื่อนให้เกิดการพัฒนาเมืองใหม่น่าอยู่อัจฉริยะ EECiti ซึ่งจะทำหน้าที่เป็นศูนย์กลางช่วยสนับสนุนการเติบโตของเมืองและเศรษฐกิจโดยรอบ"',
+        cite: 'เลขาธิการ EECO \u00b7 บันทึกคำกล่าว',
+        s1: 'ผู้พูด',
+        s2: 'จังหวัด',
+        s3: 'กรอบเวลา',
+      },
       stops: '\u0e23\u0e2d\u0e1a\u0e2d\u0e23\u0e32\u0e22', cities: '\u0e40\u0e21\u0e37\u0e2d\u0e07', shots: '\u0e20\u0e32\u0e1e\u0e1a\u0e19\u0e40\u0e27\u0e17\u0e35', thesis: 'ระบบที่ใช้งานได้',
       osaka: {
         city: '\u0e42\u0e2d\u0e0b\u0e32\u0e01\u0e30',
@@ -1129,8 +1153,8 @@ const uiCopy = {
       },
       l: {
         date: '\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48', city: '\u0e40\u0e21\u0e37\u0e2d\u0e07', where: '\u0e2a\u0e16\u0e32\u0e19\u0e17\u0e35\u0e48', fmt: '\u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a',
-        note: '\u0e17\u0e38\u0e01\u0e23\u0e2d\u0e1a\u0e21\u0e35\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48\u0e21\u0e32\u0e08\u0e32\u0e01\u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e02\u0e2d\u0e07\u0e41\u0e2b\u0e25\u0e48\u0e07\u0e02\u0e2d\u0e07\u0e1e\u0e34\u0e40\u0e01\u0e14\u0e2b\u0e2d\u0e31\u0e07\u0e2a\u0e34\u0e14\u0e2a\u0e32\u0e21\u0e21\u0e2d\u0e07\u0e1c\u0e39\u0e49\u0e2b\u0e49\u0e2d\u0e01\u0e32\u0e23\u0e13\u0e30',
-        updated: '\u0e2d\u0e1b\u0e40\u0e14\u0e15 2026.10',
+        note: 'ทุกรอบมีวันที่มาจากอัอกการออกภาคส่วนอย่างเป็นทางการหรือจากบันทึกที่กิจกรรมได้เผยแพร่เอง ไม่มีข้อความใดที่ไม่มีหลักฐานรองรับ',
+        updated: 'อัปเดต 2026.11',
       },
     },
     teamSect: {
@@ -1337,12 +1361,24 @@ const uiCopy = {
       sandboxNote: '不是演示稿——是运行在沙盒里的可用系统。按可扩展的方式搭建，不是为了好看。客户生产部署在保密协议下规模更大；这里运行的逻辑与之一致，敏感模块不对外展示，不是因为它们是假的。',
     },
     stageSect: {
-      kicker: '五个舞台 · 2026',
+      kicker: '六个舞台 \u00b7 2026',
       title: '一次构建，<em>公开验证</em>',
-      lede: '2026 年亚洲五个舞台，每次现场都跑着真正能用的系统 —— 台北的 SLIC Index，新加坡、上海与香港的 FloodDash，大阪的 DEPA。以下全部为公开记录。下一次，轮到你的城市。',
+      lede: '2026 年的六个舞台 \u2014\u2014 五个在台上运行着真实系统，一个是对话。SLIC Index 在<b>台北</b>，FloodDash 在<b>新加坡</b>、<b>上海</b>与<b>香港</b>，DEPA 在<b>大阪</b>，EECO 在<b>曼谷</b>。以下皆为公开记录。',
 
-      meta: '2026 \u00b7 \u5927\u962a \u00b7 \u4e0a\u6d77 \u00b7 \u9999\u6e2f \u00b7 \u65b0\u52a0\u5761 \u00b7 \u53f0\u5317',},
+      meta: '2026 \u00b7 曼谷 \u00b7 大阪 \u00b7 上海 \u00b7 香港 \u00b7 新加坡 \u00b7 台北',},
     cx: {
+      bkk: {
+        city: '曼谷',
+        venue: 'EEC Never Stops \u00b7 闭门圆桌 \u00b7 曼谷洲际酒店',
+        venueShort: 'EECO \u00b7 曼谷洲际',
+        format: '圆桌 \u00b7 研讨',
+        note: 'EECiti：东部经济走廊的商务核心与智慧宜居新城。以 Live、Work、Play 覆盖三个府，横跨 30\u201340 年。',
+        quote: '"本次圆桌是凝聚各方力量、共同推动 EECiti \u2014\u2014 一座智慧宜居新城市，支撑周边城市与经济增长的核心。"',
+        cite: 'EECO 秘书长 \u00b7 现场记录',
+        s1: '发言人',
+        s2: '府',
+        s3: '时间跨度',
+      },
       stops: '\u573a\u6b21', cities: '\u57ce\u5e02', shots: '\u821e\u53f0\u5f71\u50cf', thesis: '可运行的系统',
       osaka: {
         city: '\u5927\u962a',
@@ -1398,8 +1434,8 @@ const uiCopy = {
       },
       l: {
         date: '\u65e5\u671f', city: '\u57ce\u5e02', where: '\u573a\u5730', fmt: '\u5f62\u5f0f',
-        note: '\u6bcf\u4e00\u7ad9\u90fd\u6709\u4e00\u4e2a\u6765\u81ea\u4e3b\u529e\u65b9\u5b98\u65b9\u65e5\u7a0b\u6216\u6d3b\u52a8\u624b\u518c\u7684\u65e5\u671f\u3002\u8fd9\u6761\u8f68\u9053\u4e0a\u6ca1\u6709\u4e00\u6761\u6570\u636e\u662f\u5728\u7f3a\u5c11\u4f9d\u636e\u7684\u60c5\u51b5\u4e0b\u65ad\u8a00\u7684\u3002',
-        updated: '\u66f4\u65b0\u4e8e 2026.10',
+        note: '每一站都有一个日期作为依据：主办方自己的议程或官方程序，或活动本身已发布的记录。没有依据的方位，不会出现在这里。',
+        updated: '更新于 2026.11',
       },
     },
     teamSect: {
@@ -1616,12 +1652,24 @@ const uiCopy = {
       sandboxNote: '// not demos — systems.runIn(sandbox)\n// built.toScale(), not.toImpress()\n// prod under NDA: larger; behavior.same(); advancedModules.withheld(not.faked)',
     },
     stageSect: {
-      kicker: '// FIVE_STAGES_2026',
+      kicker: '// SIX_STAGES_2026',
       title: 'built.once(provenInPublic)',
-      lede: '// 5(stages) × asia × 2026 — live(inEveryRoom)\\n// sli.index(taipei) · flooddash(singapore · shanghai · hongkong) · depa(osaka)\\n// all(publicRecord) · next(you)',
+      lede: '// 6(stages) \u00d7 asia \u00d7 2026 \u2014 live(inEveryRoom:5) + conversation(1:bangkok)\\n// sli.index(taipei) \u00b7 flooddash(singapore \u00b7 shanghai \u00b7 hongkong) \u00b7 depa(osaka) \u00b7 eeco(bangkok)\\n// all(publicRecord)',
     
-      meta: '// 2026.osaka.shanghai.hongkong.singapore.taipei',},
+      meta: '// 2026.bangkok.osaka.shanghai.hongkong.singapore.taipei',},
     cx: {
+      bkk: {
+        city: 'Bangkok',
+        venue: 'EEC.NeverStops\u00b7exclusiveRoundtable\u00b7intercontinental.bangkok',
+        venueShort: 'EECO\u00b7intercontinental',
+        format: 'roundtable\u00b7panel',
+        note: '// eeciti{eec.businessCore + smartLivableCity} ⇒ live.work.play(\u00d73provinces) \u00b7 horizon(30-40y)',
+        quote: '"roundtable.align(everySector) ⇒ drive(eeciti) // the centre for the growth of the cities and the economy around the EEC"',
+        cite: 'eeco.secretaryGeneral.onRecord',
+        s1: 'speakers',
+        s2: 'provinces',
+        s3: 'yearHorizon',
+      },
       stops: 'stops.count', cities: 'cities.count', shots: 'shots.onStage', thesis: 'systems.running',
       osaka: {
         city: 'Osaka',
@@ -1677,8 +1725,8 @@ const uiCopy = {
       },
       l: {
         date: 'date', city: 'city', where: 'venue', fmt: 'format',
-        note: '// everyStop.dated(from: organiser.agenda ∥ organiser.programme). nothingHere.asserted(without: date)',
-        updated: 'updated.2026.10',
+        note: '// every stop carries a date from the organiser\u2019s own agenda or programme, or from the event\u2019s own published record. nothing here is asserted without one behind it.',
+        updated: '// updated 2026.11',
       },
     },
     teamSect: {

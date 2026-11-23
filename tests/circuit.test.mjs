@@ -157,7 +157,7 @@ test('the stage-shot count in the header is the number of stage photos that exis
   // The header states a figure. An unsourced figure on a judge-facing page is
   // worse than no figure, because a reader cannot tell a real one from a
   // guessed one. This counted 14 while 13 stage photos were on disk.
-  const STAGE_PREFIX = /^(osaka|shanghai|singapore|taipei|leap-east)/;
+  const STAGE_PREFIX = /^(osaka|shanghai|singapore|taipei|leap-east|bangkok)/;
   const stagePhotos = new Set(
     imagesOnDisk
       .map((f) => f.replace(/\.(jpg|webp|png)$/i, ''))
@@ -172,7 +172,7 @@ test('a quote is never the same sentence as the claim above it', () => {
   // The rebuild once wrote each note into its own quote slot, so every stop
   // printed the same sentence twice in a row. Distinctness is the whole point
   // of having a quote.
-  for (const key of ['osaka', 'sh', 'leap', 'sg', 'tpe']) {
+  for (const key of ['osaka', 'sh', 'leap', 'sg', 'tpe', 'bkk']) {
     const block = balancedBlock(appSource, appSource.indexOf(`${key}: {`));
     const note = block.match(/note:\s*'((?:[^'\\]|\\.)*)'/)?.[1];
     const quote = block.match(/quote:\s*'((?:[^'\\]|\\.)*)'/)?.[1];
@@ -183,7 +183,7 @@ test('a quote is never the same sentence as the claim above it', () => {
 
 test('the lede names every city, so the sequence is read before it is scanned', () => {
   const lede = circuit.slice(circuit.indexOf('class="cx-lede"'), circuit.indexOf('<ol class="cx-bars">'));
-  for (const city of ['Taipei', 'Singapore', 'Hong Kong', 'Shanghai', 'Osaka']) {
+  for (const city of ['Taipei', 'Singapore', 'Hong Kong', 'Shanghai', 'Osaka', 'Bangkok']) {
     assert.match(lede, new RegExp(city), `the lede must name ${city}`);
   }
 });
@@ -221,9 +221,15 @@ test('no stop falls back to a pending marker', () => {
 test('LEAP East is Hong Kong, not Bangkok', () => {
   // Regression guard. The rail previously filed LEAP East 2026 under Bangkok.
   // It was at the Hong Kong Convention and Exhibition Centre, 8–10 July 2026.
+  // Bangkok is now a stop in its own right — the EECO roundtable, 16 November
+  // 2026 — so the guard is that LEAP is Hong Kong, not that the word is absent.
   assert.match(circuit, /data-i18n="cx\.leap\.city">Hong Kong</);
-  assert.doesNotMatch(circuit, /Bangkok/);
   assert.doesNotMatch(html, /LEAP_EAST_2026_BKK/);
+  const leapBar = bars.find(bar => bar.includes('cx.leap.city'));
+  assert.ok(leapBar, 'the LEAP East bar must exist');
+  assert.doesNotMatch(leapBar, /Bangkok/);
+  assert.equal(bars.filter(bar => bar.includes('cx.bkk.city')).length, 1,
+    'exactly one bar is the Bangkok stop');
   for (const locale of LOCALE_KEYS) {
     assert.match(lookup(tables()[locale], 'cx.leap.venue'), /LEAP[ .]East/);
     assert.doesNotMatch(lookup(tables()[locale], 'cx.leap.venue'), /Bangkok|กรุงเทพฯ|曼谷/);
