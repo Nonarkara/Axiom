@@ -279,7 +279,9 @@
         "crop": null
       },
       "arch": {
-        "ver": "2.4.1",
+        "ver": "4.194.1",
+        "checked_at": "2026-11-25",
+        "version_source": "https://flood.nonarkara.org/api/health",
         "inputs": [
           "NASA FIRMS",
           "GISTDA",
@@ -1937,7 +1939,9 @@
         "crop": null
       },
       "arch": {
-        "ver": "3.0.0",
+        "ver": "2.4.140",
+        "checked_at": "2026-11-25",
+        "version_source": "https://air.nonarkara.org/api/health",
         "inputs": [
           "PM2.5 ground obs",
           "CAMS satellite",

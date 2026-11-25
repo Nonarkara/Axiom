@@ -922,6 +922,8 @@ summary:focus-visible {
   color: var(--accent);
 }
 
+.evidence-strip__check { min-height: 44px; align-content: center; }
+
 @media (max-width: 720px) {
   .evidence-strip { font-size: var(--t-label); }
   .evidence-strip__cell { padding: 6px 10px; }

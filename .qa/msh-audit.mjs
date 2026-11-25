@@ -20,8 +20,8 @@ const argv = process.argv.slice(2);
 const has = (n) => argv.includes('--' + n);
 const LOCAL = has('local');
 const OUT = 'docs/design/evidence';
-const AXIOM = LOCAL ? 'http://127.0.0.1:5312/' : 'https://axiom.nonarkara.org/';
-const AXIOMX = LOCAL ? 'http://127.0.0.1:5311/' : 'https://axiomx.nonarkara.org/';
+const AXIOM = process.env.AXIOM_URL || (LOCAL ? 'http://127.0.0.1:5312/' : 'https://axiom.nonarkara.org/');
+const AXIOMX = process.env.AXIOMX_URL || (LOCAL ? 'http://127.0.0.1:5311/' : 'https://axiomx.nonarkara.org/');
 
 // 390 x 844 and 1440 x 900 are the first-screen checks the law names;
 // 1024 is the intermediate, and the law asks for the height used there.
@@ -55,15 +55,6 @@ const MEASURE = () => {
       visible: style.display !== 'none' && style.visibility === 'visible' && parseFloat(style.opacity) !== 0 };
   };
   const headers = [...document.querySelectorAll('header, .masthead, .bar')];
-  let headerH = 0;
-  for (const h of headers) {
-    const r = h.getBoundingClientRect();
-    const cs = getComputedStyle(h);
-    if (cs.display === 'none' || cs.visibility === 'hidden') continue;
-    if (r.height <= 0 || r.width <= 0) continue;
-    if (r.top > 4 || r.bottom <= 0) continue;
-    if (r.height > headerH) headerH = Math.round(r.height);
-  }
 
   // task visibility — first actionable + primary actions + h1 in first screen
   const actionable = [...document.querySelectorAll('a[href], button, [role="button"], input, select')];
@@ -78,10 +69,16 @@ const MEASURE = () => {
   }
   const h1 = document.querySelector('h1');
   const h1r = h1 ? h1.getBoundingClientRect() : null;
-  const primaryActions = [...document.querySelectorAll('#hero .hero-actions a, #heroProjectSelect, #plate .actions a, #plate button')]
+  const primaryActions = [...document.querySelectorAll('#hero .hero-actions .btn--primary, #plate .actions a, #plate button')]
     .filter((el) => {
       const r = el.getBoundingClientRect();
       const style = getComputedStyle(el);
+      for (let parent = el.parentElement; parent && parent !== doc; parent = parent.parentElement) {
+        const bounds = parent.getBoundingClientRect();
+        const { overflowX, overflowY } = getComputedStyle(parent);
+        if ((overflowX !== 'visible' && (r.left < bounds.left || r.right > bounds.right)) ||
+            (overflowY !== 'visible' && (r.top < bounds.top || r.bottom > bounds.bottom))) return false;
+      }
       return style.visibility !== 'hidden' && Number(style.opacity) > 0 &&
         r.width > 0 && r.height > 0 && r.top >= 0 && r.left >= 0 &&
         r.right <= vw && r.bottom <= vh;
@@ -126,16 +123,15 @@ const MEASURE = () => {
     }
   }
 
-  // 44px tap targets (B13 access) — classify isolated primary actions vs
-  // dense text groups (MSH: isolated actions get real 44px; dense groups keep
-  // label-plus-padding boxes ≥32px, never below 24px WCAG floor).
+  // Inline prose links are exempt, not small-font interface controls.
   const taps = [];
-  for (const el of document.querySelectorAll('button, a[href], [role="button"]')) {
+  for (const el of document.querySelectorAll('button, a[href], select, summary, [role="button"]')) {
     const r = el.getBoundingClientRect();
     const cs = getComputedStyle(el);
     if (r.width <= 0 || r.height <= 0) continue;
-    if (cs.visibility === 'hidden' || cs.display === 'none') continue;
-    const cls = el.className || '';
+    if (cs.visibility === 'hidden' || cs.display === 'none' ||
+        el.matches('a[href]') && el.closest('p, .leaflet-control-attribution')) continue;
+    const cls = el.getAttribute('class') || '';
     const closest = (s) => !!el.closest(s);
     const isPrimary = /btn--primary/.test(cls) ||
       closest('.hero-actions, .field-band__actions, .contact, .brand-actions') ||
@@ -152,8 +148,7 @@ const MEASURE = () => {
   let mapCoverPct = null;
   if (map) {
     const mr = map.getBoundingClientRect();
-    const screenH = Math.max(0, vh - headerH); // first screen below chrome
-    const screenArea = vw * screenH;
+    const screenArea = vw * vh;
     if (screenArea > 0) {
       const visibleTop = Math.max(0, mr.top);
       const visibleBottom = Math.min(vh, mr.bottom);
@@ -222,9 +217,8 @@ for (const s of surfaces) {
     if (!m.primaryActionVisible) fails.push({ rule: 'B1', surface: s.name, width: w, detail: 'no primary action visible in first screen' });
     if (!m.h1Visible && s.name === 'axiom') notes.push({ surface: s.name, width: w, detail: 'h1 not fully in first screen' });
 
-    // B2 Chrome cost — chrome ≤ ⅓ of viewport
-    if (m.chromePct > 33) fails.push({ rule: 'B2', surface: s.name, width: w, detail: `chrome ${m.chromeH}px = ${m.chromePct}% of viewport (over ⅓)` });
-    else if (m.chromePct > 20) notes.push({ surface: s.name, width: w, detail: `chrome ${m.chromePct}% of viewport` });
+    const chromeLimit = vp.w === 390 ? 15 : 12;
+    if (m.chromePct > chromeLimit) fails.push({ rule: 'B2', surface: s.name, width: w, detail: `chrome ${m.chromePct}% of viewport (over ${chromeLimit}%)` });
 
     // B3 Box fit — no box over ~2× what its content needs
     const overBoxes = m.boxFit.filter((b) => b.ratio > 2.0 && b.w > 120);
@@ -243,27 +237,23 @@ for (const s of surfaces) {
     // B12 Language — lang attribute set
     if (!m.lang) fails.push({ rule: 'B12', surface: s.name, width: w, detail: 'no lang attribute on <html>' });
 
-    // B13 Access — MSH: isolated primary actions get real 44px; dense text
-    // groups keep label-plus-padding boxes ≥32px, never below 24px WCAG floor.
-    // Prose credit links (small font-size metadata, e.g. "Source") are not tap
-    // targets — exempt from B13, noted instead.
     for (const t of m.taps) {
-      if (t.fontSize <= 13) {
-        notes.push({ surface: s.name, width: w, detail: `prose credit link ${t.sel} ${t.w}×${t.h}px (font ${t.fontSize}px) — not a tap target` });
-        continue;
-      }
-      const failThresh = t.isPrimary ? 44 : 24;
-      const noteThresh = t.isPrimary ? 44 : 32;
+      const failThresh = (vp.w === 390 || t.isPrimary) ? 44 : 24;
+      const noteThresh = Math.max(failThresh, 32);
       if (t.w < failThresh || t.h < failThresh) {
         fails.push({ rule: 'B13', surface: s.name, width: w,
-          detail: `tap target ${t.sel} ${t.w}×${t.h}px ${t.isPrimary ? 'under 44px (isolated action)' : 'below dense-group floor'}` });
+          detail: `tap target ${t.sel} ${t.w}×${t.h}px (under ${failThresh}px)` });
       } else if (!t.isPrimary && (t.w < noteThresh || t.h < noteThresh)) {
         notes.push({ surface: s.name, width: w, detail: `dense text group ${t.sel} ${t.w}×${t.h}px below 32px target` });
       }
     }
 
     // JS errors
-    for (const e of m.errors) notes.push({ surface: s.name, width: w, detail: 'JS error: ' + e });
+    for (const e of m.errors) {
+      const item = { surface: s.name, width: w, detail: e };
+      if (e.startsWith('JS ERROR:')) fails.push({ rule: 'Runtime', ...item });
+      else notes.push(item);
+    }
     await ctx.close();
   }
 }

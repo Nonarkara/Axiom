@@ -7,12 +7,36 @@ const catalogue = JSON.parse(await readFile(new URL('../data/catalogue/systems.j
 const { papers } = JSON.parse(await readFile(new URL('../data/research.json', import.meta.url)));
 const main = process.env.AXIOM_URL || 'http://127.0.0.1:5742/';
 const book = process.env.AXIOMX_URL || 'http://127.0.0.1:5741/';
+const observations = catalogue.systems.filter(s => s.arch?.checked_at);
+assert.ok(observations.length > 0, 'exercise a real version observation');
+const versionLabel = ({ ver, checked_at }) => `v${ver} · ${checked_at}`;
+const versionTitle = ({ checked_at, version_source }) => `Version checked ${checked_at} UTC: ${version_source}`;
+
+for (const [base, folder, assets] of [
+  [main, 'public', ['app.js', 'rams.css']],
+  [book, 'axiomx', ['catalog.js', 'reader.js']],
+]) {
+  const fetchBytes = async url => {
+    const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
+    assert.ok(res.ok, url);
+    return Buffer.from(await res.arrayBuffer());
+  };
+  const html = await fetchBytes(base);
+  assert.deepEqual(html, await readFile(new URL(`../${folder}/index.html`, import.meta.url)), `${base} serves the candidate HTML`);
+  for (const file of assets) {
+    const reference = html.toString().match(new RegExp(`(?:src|href)="(${file.replace('.', '\\.')}\\?v=[^"]+)"`))?.[1];
+    assert.ok(reference, `versioned ${file} in ${base}`);
+    assert.deepEqual(await fetchBytes(new URL(reference, base)), await readFile(new URL(`../${folder}/${file}`, import.meta.url)), `${reference} serves the candidate bytes`);
+  }
+}
+
 const browser = await chromium.launch();
 try {
   for (const width of [390, 1024, 1440]) {
     const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: 'reduce', hasTouch: width === 390 });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
+    await page.clock.setFixedTime(new Date('2030-01-02T12:00:00Z'));
     for (const locale of ['en', 'th', 'zh', 'ko', 'ja', 'vi', 'ts']) {
       await page.goto(new URL('?lang=' + locale, main).href);
       await page.waitForFunction(value => document.documentElement.dataset.locale === value, locale);
@@ -21,6 +45,20 @@ try {
     await page.locator('#heroMap .leaflet-tile-loaded').first().waitFor();
     assert.equal(await page.locator('.sys-cell[data-arch]').count(), catalogue.systems.length);
     assert.equal(await page.locator('#stages .cx-bars > li').count(), 6);
+    assert.equal(await page.locator('#evidenceStages').textContent(), '6');
+    assert.equal(await page.locator('#evidenceVerified time').textContent(), '2026-11-25');
+    const evidenceLink = await page.locator('#evidenceVerified').boundingBox();
+    assert.ok(evidenceLink.width >= 44 && evidenceLink.height >= 44);
+    assert.equal(await page.locator('#evidenceDeploy').count(), 0);
+    assert.equal(await page.locator('#heroCanvas, #mapModeBtn').count(), 2);
+    assert.equal(await page.locator('.sys-cell a summary, a.sys-cell summary, a.sys-cell button').count(), 0);
+    assert.equal(await page.locator('.cluster-jump a').count(), catalogue.clusters.length);
+    assert.equal(await page.locator('.sys-cell__ver').count(), observations.length);
+    for (const { id, arch } of observations) {
+      const badge = page.locator(`[data-arch="${id}"] .sys-cell__ver`);
+      assert.equal(await badge.textContent(), versionLabel(arch));
+      assert.equal(await badge.getAttribute('title'), versionTitle(arch));
+    }
     for (const tab of await page.locator('.hero-console__tab').all()) {
       await tab.click();
       assert.equal(await tab.getAttribute('aria-selected'), 'true');
@@ -33,6 +71,13 @@ try {
         const header = document.querySelector('.masthead').getBoundingClientRect();
         return location.hash === hash && target?.top >= header.bottom - 1 && target.bottom < innerHeight;
       }, hash);
+    }
+    for (const { id, arch } of observations) {
+      await page.goto(new URL('#' + id, book).href);
+      const badge = page.locator('.version-observed');
+      await badge.waitFor();
+      assert.equal(await badge.textContent(), versionLabel(arch));
+      assert.equal(await badge.getAttribute('title'), versionTitle(arch));
     }
     for (const base of [main, book]) {
       await page.goto(new URL('#research', base).href);

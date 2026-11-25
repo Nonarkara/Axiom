@@ -1286,10 +1286,16 @@
       const cat = locSys.cat || entry.system.cat;
       const status = entry.system.status;
       const statusLabel = t('status.' + status, status);
-      const bits = [cat, entry.system.arch && entry.system.arch.ver ? 'v' + entry.system.arch.ver : ''].filter(Boolean);
-      if (bits.length) locatorMeta.append(bits.join('  ·  '));
+      const arch = entry.system.arch;
+      if (cat) locatorMeta.append(cat);
+      if (arch?.ver && arch.checked_at && arch.version_source) {
+        if (cat) locatorMeta.append('  ·  ');
+        const observed = el('span', 'version-observed', `v${arch.ver} · ${arch.checked_at}`);
+        observed.title = `Version checked ${arch.checked_at} UTC: ${arch.version_source}`;
+        locatorMeta.append(observed);
+      }
       if (status) {
-        if (bits.length) locatorMeta.append('  ·  ');
+        if (locatorMeta.firstChild) locatorMeta.append('  ·  ');
         locatorMeta.appendChild(el('span', status === 'Live' ? 'is-live' : '', statusLabel));
       }
     } else if (entry.locator) {

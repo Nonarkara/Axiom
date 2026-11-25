@@ -63,7 +63,9 @@ function _t(key, fallback) {
 const ARCHITECTURES = {
   'flood-ami': {
     name: 'FLOODDASH',
-    ver: '2.4.1',
+    ver: '4.194.1',
+    checked_at: '2026-11-25',
+    version_source: 'https://flood.nonarkara.org/api/health',
     idx: '23',
     inputs: 'NASA FIRMS,GISTDA,CEMS,HIMAWARI-9,TMD,Open-Meteo,OpenStreetMap,Tide stations,Rain gauges',
     core: '[object Object]',
@@ -72,7 +74,6 @@ const ARCHITECTURES = {
   },
   sikhio: {
     name: 'SIKHIO OPS',
-    ver: '1.0.0',
     idx: '26',
     inputs: 'AQI sensors,Weather,Traffic,Live city data',
     core: '[object Object]',
@@ -81,7 +82,6 @@ const ARCHITECTURES = {
   },
   nst: {
     name: 'NST-01',
-    ver: '1.0.0',
     idx: '37',
     inputs: '3D city mesh,Satellite,Flood / basin feeds,Khao Luang,Pak Phanang,30+ live sources',
     core: '[object Object]',
@@ -90,7 +90,6 @@ const ARCHITECTURES = {
   },
   lcbcity: {
     name: 'LAEM CHABANG',
-    ver: '1.2.0',
     idx: '22',
     inputs: 'Truck GPS,Port traffic,Regulatory data,CCTV (where available)',
     core: '[object Object]',
@@ -99,7 +98,6 @@ const ARCHITECTURES = {
   },
   phuket: {
     name: 'PHUKET OPS',
-    ver: '3.1.2',
     idx: '01',
     inputs: 'Transit,Public safety,Environmental signals,Tourism feeds',
     core: '[object Object]',
@@ -108,7 +106,6 @@ const ARCHITECTURES = {
   },
   hcmc: {
     name: 'HCMCx',
-    ver: '1.8.0',
     idx: '21',
     inputs: 'Traffic cameras,Flood sensors,Air quality,News / reports',
     core: '[object Object]',
@@ -117,7 +114,6 @@ const ARCHITECTURES = {
   },
   mtt: {
     name: 'MTT SUPER',
-    ver: '2.0.1',
     idx: '33',
     inputs: 'IMPACT events,Flood gauges,Traffic / CWR,AQI,Parking,CCTV / feeds',
     core: '[object Object]',
@@ -126,7 +122,6 @@ const ARCHITECTURES = {
   },
   kuching: {
     name: 'KUCHING IOC',
-    ver: '2.3.0',
     idx: '05',
     inputs: 'Foreign exchange,Flights,Satellite imagery,Environmental reads',
     core: '[object Object]',
@@ -135,7 +130,6 @@ const ARCHITECTURES = {
   },
   chula: {
     name: 'CHULA TOWER',
-    ver: '1.4.2',
     idx: '13',
     inputs: 'Traffic,Incidents,Air quality,Satellite,CU Shuttle,News,Emergency',
     core: '[object Object]',
@@ -144,7 +138,6 @@ const ARCHITECTURES = {
   },
   chonburi: {
     name: 'CHONBURI TOWER',
-    ver: '1.5.0',
     idx: '16',
     inputs: 'Weather,Marine state,EEC news,CCTV / AIS / AQ / WX',
     core: '[object Object]',
@@ -153,7 +146,6 @@ const ARCHITECTURES = {
   },
   kmitl: {
     name: 'KMITL TOWER',
-    ver: '1.3.1',
     idx: '18',
     inputs: 'Traffic,Incidents,Air quality,Satellite,Shuttles,News,Emergency',
     core: '[object Object]',
@@ -162,7 +154,6 @@ const ARCHITECTURES = {
   },
   yala: {
     name: 'YALA TOWER',
-    ver: '0.1.0',
     idx: '19',
     inputs: '3D city model,Satellite layers,Flood watch,Deep South security,30+ feeds',
     core: '[object Object]',
@@ -171,7 +162,6 @@ const ARCHITECTURES = {
   },
   'city-hub': {
     name: 'CITY HUB',
-    ver: '5.0.0',
     idx: '15',
     inputs: 'City name,Whatever data exists,Satellite + base layers',
     core: '[object Object]',
@@ -180,7 +170,9 @@ const ARCHITECTURES = {
   },
   'air-dnd': {
     name: 'AIRDASH',
-    ver: '3.0.0',
+    ver: '2.4.140',
+    checked_at: '2026-11-25',
+    version_source: 'https://air.nonarkara.org/api/health',
     idx: '27',
     inputs: 'PM2.5 ground obs,CAMS satellite,Weather,Rain washout',
     core: '[object Object]',
@@ -189,7 +181,6 @@ const ARCHITECTURES = {
   },
   'bkk-atlas': {
     name: 'BKKX 3D ATLAS',
-    ver: '1.0.0',
     idx: '36',
     inputs: 'OSM buildings,Terrain DEM,AQI / rain radar,Treasury land prices,BTS/MRT',
     core: '[object Object]',
@@ -198,7 +189,6 @@ const ARCHITECTURES = {
   },
   'bkk-culture': {
     name: 'BKKX CULTURE',
-    ver: '1.0.0',
     idx: '43',
     inputs: 'Fine Arts register,9 heritage quarters,7 walks,OSM heritage',
     core: '[object Object]',
@@ -207,7 +197,6 @@ const ARCHITECTURES = {
   },
   jakarta: {
     name: 'JAKARTA 3D ATLAS',
-    ver: '1.0.0',
     idx: '64',
     inputs: 'Jakarta Satu,BMKG bulletins,CRM citizen feeds,DSDA / BPBD flood risk',
     core: '[object Object]',
@@ -216,7 +205,6 @@ const ARCHITECTURES = {
   },
   'bangkok-ioc': {
     name: 'BANGKOK IOC',
-    ver: '3.0.0',
     idx: '72',
     inputs: 'Traffy Fondue reports,BMA open data,OpenStreetMap,Asking-rent context,iTIC traffic,Open-Meteo air',
     core: '[object Object]',
@@ -225,7 +213,6 @@ const ARCHITECTURES = {
   },
   cnx: {
     name: 'CHIANG MAI IOC',
-    ver: '2.0.0',
     idx: '82',
     inputs: 'TMD,NASA FIRMS,OpenStreetMap,iTIC traffic,Open-Meteo air',
     core: '[object Object]',
@@ -234,7 +221,6 @@ const ARCHITECTURES = {
   },
   slic: {
     name: 'SLIC',
-    ver: '3.2.0',
     idx: '04',
     inputs: '157 cities,5 livability pillars,User weights',
     core: '[object Object]',
@@ -243,7 +229,6 @@ const ARCHITECTURES = {
   },
   globalmonitor: {
     name: 'GLOBAL MONITOR',
-    ver: '2.6.1',
     idx: '24',
     inputs: 'Middle East,Indo-Pacific,Thailand,Global,ADS-B,AIS,Fires,Conflict',
     core: '[object Object]',
@@ -252,7 +237,6 @@ const ARCHITECTURES = {
   },
   asiawatch: {
     name: 'ASIA POLITICAL DASHBOARD',
-    ver: '1.0.0',
     idx: '44',
     inputs: 'SE Asia,East Asia,South Asia,Thailand,5 Chokepoints,ADS-B,AIS,GDELT',
     core: '[object Object]',
@@ -261,7 +245,6 @@ const ARCHITECTURES = {
   },
   worldconsole: {
     name: 'WORLD CONSOLE',
-    ver: '1.0.0',
     idx: '45',
     inputs: 'Worldwide ADS-B,Worldwide AIS,ACLED,FIRMS,RSS,Markets',
     core: '[object Object]',
@@ -270,7 +253,6 @@ const ARCHITECTURES = {
   },
   mem: {
     name: 'MEM',
-    ver: '2.1.0',
     idx: '06',
     inputs: 'Multi-source news,OSINT feeds,No editorial layer',
     core: '[object Object]',
@@ -279,7 +261,6 @@ const ARCHITECTURES = {
   },
   daytraders: {
     name: 'DAY TRADERS',
-    ver: '2.0.0',
     idx: '14',
     inputs: 'SET / MAI,US markets,Graham / Buffett / Munger frameworks',
     core: '[object Object]',
@@ -288,7 +269,6 @@ const ARCHITECTURES = {
   },
   day2: {
     name: 'DAY 2',
-    ver: '1.0.0',
     idx: '41',
     inputs: 'Market lake,Stock search,FX / rates,Capitol + odds',
     core: '[object Object]',
@@ -297,7 +277,6 @@ const ARCHITECTURES = {
   },
   geo: {
     name: 'GEOPOLITICAL WATCH',
-    ver: '6.0.0',
     idx: '42',
     inputs: 'Myanmar frontier,Cambodia frontier,Southern theatre,Open feeds',
     core: '[object Object]',
@@ -306,7 +285,6 @@ const ARCHITECTURES = {
   },
   foresight: {
     name: 'THE ANCHOR CONSOLE',
-    ver: '1.0.0',
     idx: '83',
     inputs: 'Anchor Strategy v1.1,Economic Clusters V2,Selected trajectory,Review-threshold switches',
     core: '[object Object]',
@@ -315,7 +293,6 @@ const ARCHITECTURES = {
   },
   sciti: {
     name: 'SCITI',
-    ver: '2.0.3',
     idx: '03',
     inputs: '174 urban areas,7 Smart City pillars,Milestone events',
     core: '[object Object]',
@@ -324,7 +301,6 @@ const ARCHITECTURES = {
   },
   'phuket-bus': {
     name: 'PHUKET BUS',
-    ver: '1.0.0',
     idx: '07',
     inputs: 'GPS tracking,Passenger telemetry,Route definitions',
     core: '[object Object]',
@@ -333,7 +309,6 @@ const ARCHITECTURES = {
   },
   scth: {
     name: 'SCTH V2',
-    ver: '2.1.0',
     idx: '08',
     inputs: 'Telegram reports,LINE reports,Field photos,SLA data',
     core: '[object Object]',
@@ -342,7 +317,6 @@ const ARCHITECTURES = {
   },
   nsp: {
     name: 'NSP',
-    ver: '2.1.0',
     idx: '12',
     inputs: '21 NBTC-licensed channels,EPG feed,Viewership telemetry',
     core: '[object Object]',
@@ -351,7 +325,6 @@ const ARCHITECTURES = {
   },
   constitution: {
     name: 'CONSTITUTION',
-    ver: '1.0.0',
     idx: '65',
     inputs: '2017 Thai Constitution,279 Sections,Trilingual corpora (TH/EN/ZH),Audio readings',
     core: '[object Object]',
@@ -359,7 +332,6 @@ const ARCHITECTURES = {
     foot: 'Thai Constitution 2017 · read to understand · 3 languages',
   },
   techhunt: {
-    ver: '2.0.0',
     inputs: '125 verified startups,7 smart-city domains,Public mention signals,77 provinces',
     core: '[object Object]',
     outputs: 'Signal-ranked startups,Procurement index,Domain heat map',
@@ -367,7 +339,6 @@ const ARCHITECTURES = {
   },
   'podcast-20min': {
     name: '20 MIN WITH DR NON',
-    ver: '0.1.0',
     idx: '38',
     inputs: 'Field notes,City systems,AI agents,Geopolitics',
     core: '[object Object]',
@@ -376,7 +347,6 @@ const ARCHITECTURES = {
   },
   'ai-council': {
     name: 'AI COUNCIL',
-    ver: '1.0.0',
     idx: '09',
     inputs: 'Decision question,Personal journals,Decision history',
     core: '[object Object]',
@@ -385,7 +355,6 @@ const ARCHITECTURES = {
   },
   tkcx: {
     name: 'TKCX',
-    ver: '1.0.0',
     idx: '10',
     inputs: 'Employees,Projects,Skill profiles,Moneyball budget',
     core: '[object Object]',
@@ -394,7 +363,6 @@ const ARCHITECTURES = {
   },
   'second-brain': {
     name: 'SECOND BRAIN OS',
-    ver: '1.6.0',
     idx: '11',
     inputs: 'Obsidian vault,MCP server configs,Voice + decisions',
     core: '[object Object]',
@@ -403,7 +371,6 @@ const ARCHITECTURES = {
   },
   horizon45: {
     name: 'HORIZON 45',
-    ver: '1.0.0',
     idx: '20',
     inputs: 'Real AI tasks,User attempts,Capability scoring',
     core: '[object Object]',
@@ -412,7 +379,6 @@ const ARCHITECTURES = {
   },
   ascn: {
     name: "ASCN DIRECTOR'S CUT",
-    ver: '1.2.0',
     idx: '46',
     inputs: '134 ASCN projects,38 cities,4 M&E cycles',
     core: '[object Object]',
@@ -429,7 +395,6 @@ const ARCHITECTURES = {
   },
   ikigai: {
     name: 'IKIGAI ENGINE',
-    ver: '1.0.0',
     idx: '26',
     inputs: 'SME balance sheet,Income statement,Cash flow',
     core: '[object Object]',
@@ -438,7 +403,6 @@ const ARCHITECTURES = {
   },
   'flood-blueprint': {
     name: 'FLOODDASH BLUEPRINT',
-    ver: '1.0.0',
     idx: '28',
     inputs: 'Sensor network specs,Drainage logic,AI flood prediction,Response playbooks',
     core: '[object Object]',
@@ -447,7 +411,6 @@ const ARCHITECTURES = {
   },
   ladder: {
     name: 'LADDER · IKIGAI',
-    ver: '1.0.0',
     idx: '66',
     inputs: 'Pitch decks,Financial statements,Cap table data,Venture checklists',
     core: '[object Object]',
@@ -456,7 +419,6 @@ const ARCHITECTURES = {
   },
   omniarcade: {
     name: 'OMNIARCADE',
-    ver: '1.0.0',
     idx: '39',
     inputs: 'Research trainers,Classic carts,Brain briefings,Local scores',
     core: '[object Object]',
@@ -465,7 +427,6 @@ const ARCHITECTURES = {
   },
   ekkasarn: {
     name: 'EKKASARN AI',
-    ver: '1.1.0',
     idx: '17',
     inputs: 'Thai tax invoices,Receipts,Withholding certificates',
     core: '[object Object]',
@@ -474,7 +435,6 @@ const ARCHITECTURES = {
   },
   nonwriter: {
     name: 'NON-WRITER',
-    ver: '1.4.0',
     idx: '29',
     inputs: 'Your draft,Source language,Target language',
     core: '[object Object]',
@@ -483,7 +443,6 @@ const ARCHITECTURES = {
   },
   'drnon-digests': {
     name: "DR NON'S DIGESTS",
-    ver: '1.0.0',
     idx: '30',
     inputs: 'News feeds,Substack radar,AI frontier sources,Manual picks',
     core: '[object Object]',
@@ -492,7 +451,6 @@ const ARCHITECTURES = {
   },
   nonscrape: {
     name: 'NON-SCRAPE',
-    ver: '1.0.0',
     idx: '31',
     inputs: 'URLs,Your question,Source language',
     core: '[object Object]',
@@ -501,7 +459,6 @@ const ARCHITECTURES = {
   },
   'time-pop': {
     name: 'TIME POP',
-    ver: '1.0.0',
     idx: '34',
     inputs: 'Reference tables,Auction comps,Provenance records,On-screen stills',
     core: '[object Object]',
@@ -510,7 +467,6 @@ const ARCHITECTURES = {
   },
   'luma-house': {
     name: 'LUMA/HOUSE',
-    ver: '1.0.0',
     idx: '35',
     inputs: 'Floor plan / underlay,Site latitude,Season + time,Living program',
     core: '[object Object]',
@@ -519,7 +475,6 @@ const ARCHITECTURES = {
   },
   'openclaw-setup': {
     name: 'OPENCLAW SET-UP',
-    ver: '1.0.0',
     idx: '40',
     inputs: 'Machine survey,Local RAM budget,Channel targets,Security posture',
     core: '[object Object]',
@@ -528,7 +483,6 @@ const ARCHITECTURES = {
   },
   'shophouse-metropolis': {
     name: 'SHOPHOUSE METROPOLIS',
-    ver: '1.0.0',
     idx: '47',
     inputs: '2,311-building survey,Treasury land value,Setback rules,OSM footprints',
     core: '[object Object]',
@@ -537,7 +491,6 @@ const ARCHITECTURES = {
   },
   'locating-shanghai': {
     name: 'LOCATING SHANGHAI',
-    ver: '3.0.0',
     idx: '48',
     inputs: '20 years fieldwork,134 photographs,5h audio,475 citations',
     core: '[object Object]',
@@ -546,7 +499,6 @@ const ARCHITECTURES = {
   },
   rag: {
     name: 'RAG.NONARKARA',
-    ver: '0.9.0',
     idx: '49',
     inputs: 'PDFs,links,Telegram,LINE',
     core: '[object Object]',
@@ -563,7 +515,6 @@ const ARCHITECTURES = {
   },
   'axiom-dc': {
     name: 'AXIOM DESIGN CORE',
-    ver: '2.1.0',
     idx: '50',
     inputs: '5-line DNA,AGENTS.md,tokens.css,components.html',
     core: '[object Object]',
@@ -572,7 +523,6 @@ const ARCHITECTURES = {
   },
   'rams-dc': {
     name: 'RAMS × NYCTA DESIGN CORE',
-    ver: '1.0.0',
     idx: '02',
     inputs: 'Two layers,AGENTS.md,Decision tree,NOTICE.md',
     core: '[object Object]',
@@ -586,17 +536,15 @@ function injectSystemVersions() {
   for (const cell of cells) {
     const key = cell.getAttribute('data-arch');
     const arch = ARCHITECTURES[key];
-    if (!arch || !arch.ver) continue;
+    if (!arch?.ver || !arch.checked_at || !arch.version_source) continue;
     if (cell.querySelector('.sys-cell__ver')) continue;
-    const head = cell.querySelector('.sys-cell__head');
-    if (!head) continue;
+    const body = cell.querySelector('.sys-cell__body');
+    if (!body) continue;
     const ver = document.createElement('span');
     ver.className = 'sys-cell__ver';
-    ver.textContent = `v${arch.ver}`;
-    ver.setAttribute('title', `${arch.name || key} v${arch.ver}`);
-    const status = head.querySelector('.sys-cell__status');
-    if (status) head.insertBefore(ver, status);
-    else head.appendChild(ver);
+    ver.textContent = `v${arch.ver} · ${arch.checked_at}`;
+    ver.title = `Version checked ${arch.checked_at} UTC: ${arch.version_source}`;
+    body.append(ver);
   }
 }
 
@@ -6484,22 +6432,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initEvidenceStrip();
 });
 
-// Evidence strip — auto-update verified date and last-deploy time
 function initEvidenceStrip() {
-  const v = document.getElementById('evidenceVerified');
-  const d = document.getElementById('evidenceDeploy');
   const sys = document.getElementById('evidenceSystems');
   const live = document.getElementById('evidenceLive');
-  if (!v && !d && !sys && !live) return;
-
-  // Verified date: build-date derived from the served page (refresh in human locale)
-  if (v) {
-    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const now = new Date();
-    const iso = `${now.getUTCFullYear()}-${String(now.getUTCMonth()+1).padStart(2,'0')}-${String(now.getUTCDate()).padStart(2,'0')}`;
-    v.textContent = iso;
-    v.title = `Last verified ${iso} · UTC`;
-  }
+  const stages = document.getElementById('evidenceStages');
 
   // Systems count: read from the DOM so the strip can never drift from the
   // header. Scoped to [data-arch] on purpose — #brandGrid reuses .sys-cell for
@@ -6516,22 +6452,7 @@ function initEvidenceStrip() {
     if (n) live.textContent = String(n);
   }
 
-  // Last deploy: derived from the page itself (server emits Last-Modified). Fall back to "just now".
-  if (d) {
-    const setText = (txt) => { d.textContent = txt; };
-    const lm = document.lastModified;
-    if (lm) {
-      const lmDate = new Date(lm);
-      const diffMin = Math.max(0, Math.floor((Date.now() - lmDate.getTime()) / 60000));
-      if (diffMin < 1) setText('just now');
-      else if (diffMin < 60) setText(`${diffMin} min ago`);
-      else if (diffMin < 1440) setText(`${Math.floor(diffMin/60)} hr ago`);
-      else setText(`${Math.floor(diffMin/1440)} d ago`);
-      d.title = `Last deploy ${lm}`;
-    } else {
-      setText('just now');
-    }
-  }
+  if (stages) stages.textContent = String(document.querySelectorAll('#stages .cx-bars > li').length);
 }
 
 function initFlooddashCarousel() {

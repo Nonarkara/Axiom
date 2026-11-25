@@ -52,7 +52,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=optional"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20261125recovery1">
+  <link rel="stylesheet" href="rams.css?v=20261125evidence1">
   <link rel="stylesheet" href="research.css?v=20261117club1">
   <script src="research.js?v=20261125recovery1"></script>
   <script src="research-geography.js?v=20261104map1"></script>
@@ -64,7 +64,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
   <script defer src="footprint.js?v=20261027a"></script>
-  <script defer src="app.js?v=20261117club1"></script>
+  <script defer src="app.js?v=20261125evidence1"></script>
 
   <!-- Cloudflare Insights (skips localhost) -->
   <script>
@@ -644,14 +644,13 @@
 
         <!-- EVIDENCE STRIP — fine-print provenance -->
         <div class="evidence-strip" id="evidenceStrip" aria-label="Evidence and provenance">
-          <div class="evidence-strip__cell"><span class="evidence-strip__key">Verified</span><span class="evidence-strip__val" id="evidenceVerified">2026-09-28</span></div>
+          <a class="evidence-strip__cell evidence-strip__check" id="evidenceVerified" href="https://github.com/Nonarkara/Axiom/actions/runs/45579697310" title="Release 87a1ea3 deployment and checks"><span class="evidence-strip__key">Prior release check</span><time class="evidence-strip__val" datetime="2026-11-25">2026-11-25</time></a>
           <div class="evidence-strip__cell"><span class="evidence-strip__key">Systems</span><span class="evidence-strip__val--accent" id="evidenceSystems">—</span></div>
           <div class="evidence-strip__cell"><span class="evidence-strip__key">Live</span><span class="evidence-strip__val" id="evidenceLive">—</span></div>
           <div class="evidence-strip__cell"><span class="evidence-strip__key">Countries</span><span class="evidence-strip__val">5</span></div>
           <div class="evidence-strip__cell"><span class="evidence-strip__key">Public sources</span><span class="evidence-strip__val">247+</span></div>
           <div class="evidence-strip__cell"><span class="evidence-strip__key">Followers</span><span class="evidence-strip__val">112K</span></div>
-          <div class="evidence-strip__cell"><span class="evidence-strip__key">Stages 2026</span><span class="evidence-strip__val">5</span></div>
-          <div class="evidence-strip__cell"><span class="evidence-strip__key">Last deploy</span><span class="evidence-strip__val" id="evidenceDeploy">~5 min ago</span></div>
+          <div class="evidence-strip__cell"><span class="evidence-strip__key">Stages 2026</span><span class="evidence-strip__val" id="evidenceStages">6</span></div>
         </div>
 
         <nav class="cluster-jump" aria-label="Catalogue">

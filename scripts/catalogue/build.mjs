@@ -133,10 +133,22 @@ function bookCatalogue() {
   });
 }
 
-/** The reading room states every architecture field, even an empty one. */
+function versionObservation(arch) {
+  const { ver, checked_at, version_source } = arch;
+  if (!checked_at && !version_source) return {};
+  const date = new Date(checked_at);
+  if (typeof ver !== 'string' || !/^\d+\.\d+\.\d+(?:[-+][\w.-]+)?$/.test(ver)
+    || !Number.isFinite(date.getTime()) || date.toISOString().slice(0, 10) !== checked_at
+    || typeof version_source !== 'string' || !/^https:\/\/[a-z0-9-]+\.nonarkara\.org\/api\/health$/.test(version_source)) {
+    throw new Error(`Invalid catalogue version observation: ${version_source || ver}`);
+  }
+  return { ver, checked_at, version_source };
+}
+
+/** Unverified legacy versions stay in the source record, not the UI. */
 function bookArch(arch) {
   return {
-    ver: arch.ver || '',
+    ...versionObservation(arch),
     inputs: arch.inputs || [],
     core: arch.core,
     outputs: arch.outputs || [],
@@ -152,7 +164,7 @@ function siteArch(system) {
   if (!arch) return null;
   const out = {};
   if (arch.name) out.name = arch.name;
-  if (arch.ver) out.ver = arch.ver;
+  Object.assign(out, versionObservation(arch));
   if (arch.idx) out.idx = arch.idx;
   if (arch.inputs) out.inputs = arch.inputs;
   if (arch.core) out.core = arch.core;
