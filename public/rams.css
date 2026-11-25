@@ -1603,6 +1603,31 @@ summary:focus-visible {
   letter-spacing: var(--tr-micro);
 }
 
+.cluster-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 12px;
+  margin-block: 8px;
+}
+
+.cluster-jump a {
+  display: inline-flex;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .cluster-jump {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, max-content));
+    justify-items: start;
+  }
+
+  .cluster-jump a { overflow-wrap: anywhere; }
+}
+
 .foot__fineprint {
   margin-top: 20px;
   padding-top: 20px;

@@ -1329,7 +1329,12 @@
     const btn = nav.querySelector('[aria-current="true"]');
     // On a phone the cover is the page. Scrolling the current row into view
     // would pull the poster off the first screen.
-    if (btn && !(opts && opts.keepScroll) && !isPhone()) btn.scrollIntoView({ block: 'nearest' });
+    if (btn && !(opts && opts.keepScroll) && !isPhone()) {
+      const row = btn.getBoundingClientRect();
+      const panel = nav.getBoundingClientRect();
+      if (row.top < panel.top) nav.scrollTop += row.top - panel.top;
+      else if (row.bottom > panel.bottom) nav.scrollTop += row.bottom - panel.bottom;
+    }
   }
 
   function isPhone() {

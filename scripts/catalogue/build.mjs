@@ -398,7 +398,7 @@ function cellMarkup(system) {
 
 function buildHtml() {
   let source = read('public/index.html');
-  source = source.replace(/<meta\s+(?:name="description"|property="og:description")[^>]*>/g,
+  source = source.replace(/<meta\s+(?:name="(?:description|twitter:description)"|property="og:description")[^>]*>/g,
     (tag) => tag.replace(/\b\d+ systems (across|in) \d+ countries\b/g,
       (_, relation) => `${systems.length} systems ${relation} ${catalogue.systems.countries} countries`));
   const counts = {

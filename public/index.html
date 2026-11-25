@@ -37,7 +37,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Axiom — Smart-City Dashboards & GovTech Systems for Governments">
   <meta name="twitter:description"
-    content="Working smart-city dashboards and GovTech decision systems for governments across ASEAN — 80 systems in 5 countries. By Dr Non Arkaraprasertkul (depa).">
+    content="Working smart-city dashboards and GovTech decision systems for governments across ASEAN — 86 systems in 5 countries. By Dr Non Arkaraprasertkul (depa).">
   <meta name="twitter:image" content="https://axiom.nonarkara.org/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,9 +52,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=optional"
     rel="stylesheet">
-  <link rel="stylesheet" href="rams.css?v=20261117club1">
+  <link rel="stylesheet" href="rams.css?v=20261125recovery1">
   <link rel="stylesheet" href="research.css?v=20261117club1">
-  <script src="research.js?v=20261105reader1"></script>
+  <script src="research.js?v=20261125recovery1"></script>
   <script src="research-geography.js?v=20261104map1"></script>
   <script defer src="research-ui.js?v=20261105reader1"></script>
   <link rel="stylesheet" href="hero.css?v=20261111msh1">
@@ -654,6 +654,14 @@
           <div class="evidence-strip__cell"><span class="evidence-strip__key">Last deploy</span><span class="evidence-strip__val" id="evidenceDeploy">~5 min ago</span></div>
         </div>
 
+        <nav class="cluster-jump" aria-label="Catalogue">
+          <a href="#cluster-command" data-i18n="sysClusters.command">City Dashboards</a>
+          <a href="#cluster-intelligence" data-i18n="sysClusters.intelligence">Intelligence</a>
+          <a href="#cluster-civic" data-i18n="sysClusters.civic">Civic</a>
+          <a href="#cluster-emerging" data-i18n="sysClusters.emerging">Emerging</a>
+          <a href="#cluster-lab" data-i18n="sysClusters.lab">Lab</a>
+        </nav>
+
         <!-- FIELD — the ground condition & canonical briefing video -->
         <section class="field-band field-band--video" id="groundTruth" aria-label="Field Ground Truth and Approach">
           <div class="field-band__cap">
@@ -711,7 +719,7 @@
 
         <!-- CITY DASHBOARDS -->
         <div class="cluster-head">
-          <div class="t-label" data-i18n="sysClusters.command">City Dashboards</div>
+          <div class="t-label" id="cluster-command" data-i18n="sysClusters.command">City Dashboards</div>
           <div class="s-head__meta" data-i18n="sysClusters.commandMeta">Real-time city operations rooms &amp; environmental watch · 26</div>
         </div>
         <div class="grid grid--3">
@@ -979,7 +987,7 @@
 
         <!-- INTELLIGENCE -->
         <div class="cluster-head">
-          <div class="t-label" data-i18n="sysClusters.intelligence">Intelligence</div>
+          <div class="t-label" id="cluster-intelligence" data-i18n="sysClusters.intelligence">Intelligence</div>
           <div class="s-head__meta" data-i18n="sysClusters.intelligenceMeta">Signal &amp; analysis · 10</div>
         </div>
         <div class="grid grid--3">
@@ -1087,7 +1095,7 @@
 
         <!-- CIVIC -->
         <div class="cluster-head">
-          <div class="t-label" data-i18n="sysClusters.civic">Civic</div>
+          <div class="t-label" id="cluster-civic" data-i18n="sysClusters.civic">Civic</div>
           <div class="s-head__meta" data-i18n="sysClusters.civicMeta">National platforms &amp; citizen infrastructure · 11</div>
         </div>
         <div class="grid grid--3">
@@ -1205,7 +1213,7 @@
 
         <!-- EMERGING -->
         <div class="cluster-head">
-          <div class="t-label" data-i18n="sysClusters.emerging">Emerging</div>
+          <div class="t-label" id="cluster-emerging" data-i18n="sysClusters.emerging">Emerging</div>
           <div class="s-head__meta" data-i18n="sysClusters.emergingMeta">Research-grade &amp; new operating models · 13</div>
         </div>
         <div class="grid grid--3">
@@ -1351,7 +1359,7 @@
       <div class="wrap">
         <!-- LAB -->
         <div class="cluster-head">
-          <div class="t-label" data-i18n="sysClusters.lab">Lab</div>
+          <div class="t-label" id="cluster-lab" data-i18n="sysClusters.lab">Lab</div>
           <div class="s-head__meta" data-i18n="sysClusters.labMeta">Side tools · in the open · 26</div>
           <p class="record-link"><a href="record.html" data-i18n="sysSect.record">Full descriptions</a></p>
         </div>
